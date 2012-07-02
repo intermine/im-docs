@@ -1,0 +1,3960 @@
+[[PageOutline]]
+
+= General Information =
+
+== Introduction ==
+
+InterMine instances offer a range of services through a RESTful HTTP interface. These services expose data and operations 
+that are accessible from any script or programme that can communicate over HTTP. To facilitate this, we also 
+publish client libraries in a number of popular languages to simplify the construction of webservice requests, and the parsing
+of webservice responses.
+
+We will use the both the [http://www.flymine.org FlyMine] web services and 
+those of our [http://www.intermine.org/intermine-demo demo site] to demonstrate the webservice features. 
+
+== Client Libaries ==
+
+As long as you can make standard HTTP requests, you can use the WebService API. However, to simplify 
+the tasks involved in composing valid requests and parsing the responses, we publish
+client libraries in Perl, Python, Java and !JavaScript for you to download. 
+
+Your choice will obviously be primarily determined by your target programming environment, but if you 
+have a choice, the relevant comparison is here:
+
+|| ''Language'' || ''Linux'' || ''OS X'' || ''Windows'' || ''Browser'' || ''Queries'' || ''Templates'' || ''Model'' || ''Lists'' || ''Authentication'' || '' Path Values'' || ''Lazy Iteration''* ||
+|| Perl       || ✓       || ✓      ||  ?        ||  -        ||  ✓        ||  ✓          ||  ✓      || ✓       ||  ✓               ||   ✓           ||    ✓             ||
+|| Python     || ✓       || ✓      ||  ✓        ||  -        ||  ✓        ||  ✓          ||  ✓      || ✓       ||  ✓               ||   -           ||    ✓             ||
+|| Java       || ✓       || ✓      ||  ?        ||  -        ||  ✓        ||  ✓          ||  ✓      || ✓       ||  ✓               ||   -           ||    ✓             ||
+|| !JavaScript|| ✓       || ✓      ||  ✓        ||  ✓        ||  ✓        ||  ✓          ||  ✓      || -       ||  -               ||   ✓           ||    -             ||
+
+* Lazy iteration means that you can iterate over result sets without pulling the whole result set into memory at once. This can lead to big savings in memory and speed when dealing with 100,000's or 1,000,000's of results.
+
+=== Perl ===
+
+The InterMine Webservice client is available on the CPAN as [http://search.cpan.org/dist/Webservice-InterMine/ Webservice::InterMine]. 
+To install it:
+
+{{{
+  sudo cpan Webservice::InterMine
+}}}
+
+See [wiki:PerlWebServiceAPI] for more information.
+
+=== Python ===
+
+You can install the Python client library with the following command on Linux and Mac OS X:
+
+{{{
+  sudo easy_install intermine
+}}}
+
+You can also install the intermine package on Windows as well.
+See PythonClient for more information, and Windows installation instructions.
+
+=== Java ===
+
+The Java client is best downloaded from the Mine you would like to interact with. 
+Click on the '''API''' tab at the top to get the latest client.
+
+See JavaClient for more information and a guide to constructing queries.
+
+=== !JavaScript ===
+
+You don't need to download the !JavaScript client (although you are free to), 
+as it is hosted by interMine for you: simply add the following element to the head of your page:
+
+{{{
+   <script src="http://www.intermine.org/lib/imbedding/0.2/imbedding.js" type="text/javascript">
+}}}
+
+If you do wish to download it, you can fetch it from [http://www.intermine.org/lib/imbedding]. 
+See JavaScriptClient for more information.
+
+== Request URL Construction ==
+
+The basic structure for request urls is:
+{{{
+  SCHEME + :// + HOST + ( : + PORT ) + SERVICE_PATH + /service + RESOURCE_PATH + (? + QUERY_PARAMETERS)
+}}}
+
+The port and the query parameters are optional.
+
+Where:
+  SCHEME::
+   This is the protocol used to access the service. In most normal cases it will be "http", although it is
+   possible a mine might require "https"
+  HOST::
+   The address of the webserver. FlyMine's host is "www.flymine.org", and the demo is at "www.intermine.org"
+  PORT::
+   The number of the port to access the service at. This is usually '80'. If it is, you do not need to include it
+   for http requests. For private mines, you might need a port such as "8080", or "3000".
+  SERVICE_PATH::
+   A path fragment that will need to be on ''every'' url. For flymine use '/query', for the demo
+   site use '/intermine-demo'. This value is mine specific.
+  RESOURCE_PATH::
+   The path to the resource you wish to access (see the resource descriptions below). For example for queries, it is
+   "/query/results"
+  QUERY_PARAMETERS::
+   A collection of key-value pairs which take the form "argument=value", where the arguments and values are [http://en.wikipedia.org/wiki/Query_string url encoded]. 
+   You can encode your URL with http://tools.devshed.com/webmaster-tools/url-encoding tool. Multiple parameters are separated by an ampersand (&).
+   Not every request needs parameters. See for each resource below.
+
+The following example returns from FlyMine first 10 result of the template !AllGene_Chromosome as tab-separted values.
+{{{
+http://www.flymine.org/query/service/template/results?name=AllGene_Chromosome&constraint1=Gene.organism.name&op1=eq&value1=Drosophila+melanogaster&size=10&format=tab
+}}}
+
+== Authentication ==
+
+Some resources require authentication for access. Such resources include templates and lists, 
+which are normally privately associated with the individual user that created them. To access
+these ''private'' resources, each request needs to be authenticated, either using an authorization header, 
+or by using an API key token:
+
+=== API Key Tokens ===
+
+This is the recommended method of request authentication. Using tokens means not having 
+to transmit the user name and password. A token can be invalidated and replaced at any
+time. Using tokens is simple - add the following parameter to every request:
+
+{{{
+   token=YOURTOKENHERE
+}}}
+
+This parameter should be added to GET and POST requests. DELETE requests can also use this method by 
+adding the parameter to the query portion of the URI, as per GET.
+
+You can get an API token from the web-app of the service you intend to access: visit the 
+'''MyMine''' tab after logging-in and click on '''API Key'''. Getting a new key invalidates the old one.
+
+=== Authorization Headers ===
+
+These headers are similar to, but unfortunately not compatible with Basic Authentication. Using
+headers is less secure than using tokens (see above) as it requires you to transmit
+your username and password with every request. '''Please do not use this method if at all possible.''' It
+is deprecated and will be removed over the next couple of release cycles. If you must use this, 
+please follow the usage example below:
+below:
+
+{{{
+Authorization: dGVzdC11c2VyOnRlc3QtcGFzc3dvcmQ=
+}}}
+
+This header would authenticate the request as the user 'test-user', with the password 
+'test-password'. It is composed of the username and password, joined by a colon (':') and 
+base-64 encoded. So this:
+
+{{{
+test-user:test-password
+}}}
+
+Becomes this:
+
+{{{
+dGVzdC11c2VyOnRlc3QtcGFzc3dvcmQ=
+}}}
+
+Many machines have a command called 'base64' which can do the encoding for you.
+
+== Formats ==
+
+Most resources can be accessed in a variety of formats. These are generally self explanatory. All
+JSON formats also however come in a JSONP variety, which allows for them to be accessed via 
+cross domain scripting requests. In all cases, it is merely a case of changing the format from
+"json" to "jsonp". 
+
+All requests to a jsonp capable resource are allowed to request a custom callback name. This can be 
+done by providing the parameter "callback=callbackName" to the request.
+
+== Schemata ==
+ 
+Various formats that we provide are associated with schemata. These schemata can
+be fetched from their respective mine at the resource path '/schema/{SCHEMA_NAME}'.
+The schemata currently available and the formats they describe are listed below:
+
+|| model.schema     || model JSON output                                || 
+|| resultset.schema || Query and Template Results in 'jsonrows' format  ||
+|| resultset.xsd    || Query and Template Results in 'xml' format       ||
+|| lists.schema     || Available lists in JSON format                   ||
+|| jsoncount.schema || Query and Template Results in 'jsoncount' format ||
+
+ * Example - 
+Request: {{{GET http://www.intermine.org/intermine-demo/service/schema/jsoncount.schema}}}
+Response: 
+{{{
+#!js
+{
+	"description": "A representation of a query for the number of rows returned by a query",
+	"type": "object",
+	"properties": {
+		"count": {
+            "description": "The number of rows this query will return",
+            "type": ["integer", "null"]
+        },
+		"wasSuccessful": {
+			"description": "Whether or not this request to the webservice was successful",
+			"type": "boolean",
+			"required": true
+		},
+		"error": {
+			"description": "The error generated by running this query",
+			"type": ["string", "null"],
+			"required": true
+		},
+		"statusCode": {
+			"description": "The HTTP status code generated by this request",
+			"type": "integer",
+			"format": "httpstatuscode",
+			"required": true
+		}
+	}
+}
+}}}
+
+The schemata will be identical for all services with the same webservice version.
+
+= Resources =
+
+== Webservice Version ==
+
+Returns an integer representing the capabilities of the webservice.
+Each time the webservice API is changed in any way, the version is 
+incremented. The current version number is 4, which is the version
+of the InterMine 0.97 release. Checking this number can be useful for 
+assessing whether the webservice is capable of certain functions. For example, 
+any webservice with a version less than 4 cannot handle any list functions.
+
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /version
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    No
+  </code></td>
+</tr>
+
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    Text
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td><code> 
+    None
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td><code>
+    None
+ </code></td>
+ </td>
+</tr>
+
+</table>
+}}}
+
+=== Example ===
+
+Request: {{{GET http://www.flymine.org/query/service/version}}}
+Response: {{{4}}}
+
+== Data Release ==
+
+Returns a string describing the release of the mine.
+Each time a mine is released with new data, the administrators
+are expected to change the release description, a short 
+free-text string used to identify that particular release.
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /version/release
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    No
+  </code></td>
+</tr>
+
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    Text
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td><code> 
+    None
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td><code>
+    None
+ </code></td>
+ </td>
+</tr>
+
+</table>
+}}}
+
+=== Example ===
+
+Request: {{{GET http://www.flymine.org/query/service/version/release}}}
+Response: {{{29.0-preview}}}
+
+== Model ==
+
+Returns a representation of the data model for the mine. This describes the kind of data
+held, and the properties that data can have. This information can be used to build queries 
+against that data, and to interpret the information received.
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /model (also: /model/xml, /model/json)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    No
+  </code></td>
+</tr>
+
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    XML, JSON(P), Text** (default: XML)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td><code> 
+    None
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>format</code></td><td>The output format. (Possible values: json(p), xml)</td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+ 
+=== Example ===
+ 
+request: {{{GET http://www.flymine.org/query/service/model/xml}}}
+response: 
+{{{
+#!xml
+<model name="genomic" package="org.intermine.model.bio">
+<class name="ChromosomalDuplication" extends="ChromosomeStructureVariation" is-interface="true"></class>
+<class name="OntologyTerm" is-interface="true">
+	<attribute name="identifier" type="java.lang.String"/>
+	<attribute name="obsolete" type="java.lang.Boolean"/>
+	<attribute name="namespace" type="java.lang.String"/>
+	<attribute name="name" type="java.lang.String"/>
+	<attribute name="description" type="java.lang.String"/>
+	<reference name="ontology" referenced-type="Ontology"/>
+	<collection name="relations" referenced-type="OntologyRelation"/>
+	<collection name="synonyms" referenced-type="OntologyTermSynonym"/>
+	<collection name="ontologyAnnotations" referenced-type="OntologyAnnotation" reverse-reference="ontologyTerm"/>
+	<collection name="parents" referenced-type="OntologyTerm"/>
+	<collection name="dataSets" referenced-type="DataSet"/>
+</class>
+<class name="InteractionRegion" extends="BioEntity" is-interface="true">
+	<attribute name="endStatus" type="java.lang.String"/>
+	<attribute name="startStatus" type="java.lang.String"/>
+	<reference name="interaction" referenced-type="Interaction" reverse-reference="interactingRegions"/>
+	<reference name="gene" referenced-type="Gene"/>
+	<reference name="ontologyTerm" referenced-type="OntologyTerm"/>
+	<reference name="location" referenced-type="Location"/>
+</class>
+<!-- Many Classes later... -->
+<class name="PCRProduct" extends="SequenceFeature" is-interface="true">
+	<collection name="genes" referenced-type="Gene"/>
+	<collection name="rnaiScreenHits" referenced-type="RNAiScreenHit" reverse-reference="pcrProduct"/>
+</class>
+</model>
+}}}
+
+request: {{{GET http://www.flymine.org/query/service/model/json}}}
+response: 
+{{{
+#!js
+{
+  "model": {
+    "name": "genomic",
+    "classes": {
+      "ChromosomalDuplication": {
+        "name": "ChromosomalDuplication",
+        "extends": [ "ChromosomeStructureVariation" ],
+        "isInterface": true,
+        "attributes": [ 
+          {"name": "confirmedByPCR",      "type":"java.lang.Boolean"},
+          {"name": "confirmedByGenetics", "type":"java.lang.Boolean"},
+          {"name": "available",           "type":"java.lang.Boolean"},
+          {"name": "secondaryIdentifier", "type":"java.lang.String"},
+          {"name": "symbol",              "type":"java.lang.String"},
+          {"name": "primaryIdentifier",   "type":"java.lang.String"},
+          {"name": "name",                "type":"java.lang.String"},
+          {"name": "id",                  "type":"java.lang.Integer"},
+          {"name": "length",              "type":"java.lang.Integer"},
+          {"name": "cytoLocation",        "type":"java.lang.String"},
+          {"name": "scoreType",           "type":"java.lang.String"},
+          {"name": "score",               "type":"java.lang.Double"}
+        ],
+        "references":[
+          {"name": "element1",             "referencedType": "TransposableElementInsertionSite"},
+          {"name": "element2",             "referencedType": "TransposableElementInsertionSite"},
+          {"name": "sequenceOntologyTerm", "referencedType": "SOTerm"},
+          {"name": "organism",             "referencedType": "Organism"},
+          {"name": "chromosome",           "referencedType": "Chromosome"},
+          {"name": "chromosomeLocation",   "referencedType": "Location"},
+          {"name": "sequence",             "referencedType": "Sequence"}
+        ],
+        "collections": [
+          {"name": "abberationSOTerms",    "referencedType": "SOTerm"},
+          {"name": "locatedFeatures",      "referencedType": "Location",           "reverseReference": "locatedOn"},
+          {"name": "locations",            "referencedType": "Location",           "reverseReference": "feature"},
+          {"name": "ontologyAnnotations",  "referencedType": "OntologyAnnotation", "reverseReference": "subject"},
+          {"name": "synonyms",             "referencedType": "Synonym",            "reverseReference": "subject"},
+          {"name": "dataSets",             "referencedType": "DataSet",            "reverseReference": "bioEntities"},
+          {"name": "publications",         "referencedType": "Publication"},
+          {"name": "crossReferences",      "referencedType": "CrossReference",     "reverseReference": "subject"},
+          {"name": "overlappingFeatures",  "referencedType": "SequenceFeature"}
+        ]
+     },
+/* Much later... */
+    "PCRProduct": {
+      "name": "PCRProduct",
+      "extends": [ "SequenceFeature" ],
+      "isInterface": true, 
+      "attributes": [
+        {"name": "length",              "type": "java.lang.Integer"},
+        {"name": "cytoLocation",        "type": "java.lang.String"},
+        {"name": "scoreType",           "type": "java.lang.String"},
+        {"name": "score",               "type": "java.lang.Double"},
+        {"name": "secondaryIdentifier", "type": "java.lang.String"},
+        {"name": "symbol",              "type": "java.lang.String"},
+        {"name": "primaryIdentifier",   "type": "java.lang.String"},
+        {"name": "name",                "type": "java.lang.String"},
+        {"name": "id",                  "type": "java.lang.Integer"}
+      ],
+      "references": [
+        {"name": "chromosome",           "referencedType": "Chromosome"},
+        {"name": "chromosomeLocation",   "referencedType": "Location"},
+        {"name": "sequence",             "referencedType": "Sequence"},
+        {"name": "sequenceOntologyTerm", "referencedType": "SOTerm"},
+        {"name": "organism",             "referencedType": "Organism"}
+      ],
+      "collections": [
+        {"name": "genes",                     "referencedType": "Gene"},
+        {"name": "rnaiScreenHits",            "referencedType": "RNAiScreenHit",      "reverseReference": "pcrProduct"},
+        {"name": "overlappingFeatures",       "referencedType": "SequenceFeature"},
+        {"name": "locatedFeatures",           "referencedType": "Location",           "reverseReference": "locatedOn"},
+        {"name": "locations",                 "referencedType": "Location",           "reverseReference": "feature"},
+        {"name": "ontologyAnnotations",       "referencedType": "OntologyAnnotation", "reverseReference": "subject"},       
+        {"name": "synonyms",                  "referencedType": "Synonym",            "reverseReference": "subject"},
+        {"name": "dataSets",                  "referencedType": "DataSet",            "reverseReference": "bioEntities"},
+        {"name": "publications",              "referencedType": "Publication"},
+        {"name": "crossReferences",           "referencedType": "CrossReference",     "reverseReference": "subject"}
+       ]
+      }
+    }
+  },
+  "wasSuccessful": true,
+  "error": null,
+  "statusCode": 200
+}
+}}}
+
+The JSON for the model is described by a schema named "model.schema". See "Schemata"
+
+== Templates ==
+
+Returns a representation of the template queries for a mine. These are saved
+queries with defined parameter inputs. This service provides information about 
+which templates are available to the requesting user.
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /templates (also: /templates/xml, /templates/json)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Optional*
+  </code></td>
+</tr>
+
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    XML, JSON(P), Text** (default: XML)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td><code> 
+    None
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>format</code></td><td>The output format. (Possible values: json(p), xml, tab**)</td></tr>
+     <tr><td><code>includeBroken</code></td><td>Whether to include broken templates (values: "true"/"false", default: false)</td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+
+*authenticated requests also receive information about the authenticated user's private templates
+**In tab format, just the names of the templates are returned
+
+=== Example ===
+
+Request {{{GET http://www.flymine.org/query/service/templates}}}
+Response:
+{{{
+#!xml
+<template-queries>
+  <template name="AllGene_Chromosome" title="All genes in organism --&gt; All chromosomal locations." 
+    longDescription="For a specified organism, show the chromosomal location and sequence length for all genes." comment="">
+    <query name="AllGene_Chromosome" model="genomic" 
+      view="Gene.chromosome.primaryIdentifier Gene.chromosomeLocation.strand Gene.chromosomeLocation.start Gene.chromosomeLocation.end Gene.length Gene.primaryIdentifier Gene.symbol" 
+      longDescription="For a specified organism, show the chromosomal location and sequence length for all genes." 
+      sortOrder="Gene.chromosome.primaryIdentifier asc">
+      <pathDescription pathString="Gene.chromosomeLocation" description="Chromosome location"/>
+      <pathDescription pathString="Gene.chromosome" description="Chromosome"/>
+      <constraint path="Gene.organism.name" op="=" value="Drosophila melanogaster" editable="true" 
+        description="Show the chromosome location and gene sequences for all genes from organism:"/>
+    </query>
+  </template>
+<!-- Many templates later... -->
+  <template name="miRNAtargetGene_miRNAgene" title="Gene --&gt; microRNA (miRNA) gene" 
+    longDescription="For a specified gene show any microRNA genes that are known to target it. (DataSet: miRBase)." comment="">
+    <query name="miRNAtargetGene_miRNAgene" model="genomic" 
+      view="Gene.miRNAtargets.target.gene.primaryIdentifier Gene.miRNAtargets.target.gene.symbol Gene.miRNAtargets.target.primaryIdentifier Gene.symbol Gene.primaryIdentifier Gene.miRNAtargets.pvalue Gene.miRNAtargets.dataSets.name" longDescription="For a specified gene show any microRNA genes that are known to target it. (DataSet: miRBase)." 
+      sortOrder="Gene.miRNAtargets.target.gene.primaryIdentifier asc" constraintLogic="A and B">
+      <join path="Gene.miRNAtargets.dataSets" style="OUTER"/>
+      <pathDescription pathString="Gene.miRNAtargets.dataSets" description="miRNAtargets &gt;dataSet"/>
+      <pathDescription pathString="Gene.miRNAtargets.target.gene" description="miRNA target gene"/>
+      <pathDescription pathString="Gene.miRNAtargets.target" description="miRNA &gt; target transcript"/>
+      <pathDescription pathString="Gene.miRNAtargets" description="miRNA"/>
+      <pathDescription pathString="Gene" description="miRNA &gt;Gene"/>
+      <constraint path="Gene.organism.name" code="B" editable="false" op="=" value="Drosophila melanogaster"/>
+      <constraint path="Gene.miRNAtargets.target.gene" op="LOOKUP" value="FBgn0026876" extraValue="D. melanogaster"
+        code="A" editable="true" description="Show microRNAs that target gene:" />
+    </query>
+  </template>
+</template-queries>
+}}}
+
+Request {{{GET http://www.flymine.org/query/service/templates/json}}}
+Response:
+{{{
+#!js
+{
+   "templates":{
+      "AllGene_Chromosome":{
+         "name":"AllGene_Chromosome",
+         "title":"All genes in organism --> All chromosomal locations.",
+         "description":"For a specified organism, show the chromosomal location and sequence length for all genes.",
+         "comment":"",
+         "view":[
+            "Gene.chromosome.primaryIdentifier",
+            "Gene.chromosomeLocation.strand",
+            "Gene.chromosomeLocation.start",
+            "Gene.chromosomeLocation.end",
+            "Gene.length",
+            "Gene.primaryIdentifier",
+            "Gene.symbol"
+         ],
+         "constraints":[
+            {
+               "path":"Gene.organism.name",
+               "op":"=",
+               "value":"Drosophila melanogaster",
+               "code":"A"
+            }
+         ]
+      },
+      "Amplicon_RNAiResults":{
+         "name":"Amplicon_RNAiResults",
+         "title":"Amplicon [D. melanogaster] --> RNAi screen results.",
+         "description":"Find RNAi screen results from the DRSC for a particular amplicon, optionally constrain to a particular screen or by the strength of the hit.  Result types can be: not screened, not a hit, weak, medium or strong hit. (Data Source: DRSC).",
+         "comment":"",
+         "view":[
+            "RNAiScreenHit.pcrProduct.primaryIdentifier",
+            "RNAiScreenHit.result",
+            "RNAiScreenHit.rnaiScreen.publication.pubMedId",
+            "RNAiScreenHit.rnaiScreen.publication.firstAuthor",
+            "RNAiScreenHit.rnaiScreen.name",
+            "RNAiScreenHit.rnaiScreen.analysisDescription",
+            "RNAiScreenHit.rnaiScreen.cellLine"
+         ],
+         "constraints":[
+            {
+               "path":"RNAiScreenHit.pcrProduct.primaryIdentifier",
+               "op":"=",
+               "value":"DRSC04651",
+               "code":"A"
+            },
+            {
+               "path":"RNAiScreenHit.result",
+               "op":"=",
+               "value":"Strong Hit",
+               "code":"B"
+            },
+            {
+               "path":"RNAiScreenHit.rnaiScreen.name",
+               "op":"=",
+               "value":"Genes involved in protein secretion and Golgi organization",
+               "code":"C"
+            }
+         ]
+      },
+
+      /* Many Templates later */
+
+      "ProteinInteraction_OrthologueOrganism":{
+         "name":"ProteinInteraction_OrthologueOrganism",
+         "title":"All pairs of interacting proteins in organism 1 --> Orthologues in organism 2.",
+         "description":"For a specified organism, show the pairs of physically interacting genes and the corresponding pair of orthologues in another organism. (Data sources: BioGrid, IntAct, InParanoid)",
+         "comment":"",
+         "view":[
+            "Gene.organism.name",
+            "Gene.primaryIdentifier",
+            "Gene.symbol",
+            "Gene.interactions.interactingGenes.primaryIdentifier",
+            "Gene.interactions.interactingGenes.symbol",
+            "Gene.homologues.homologue.organism.name",
+            "Gene.homologues.homologue.primaryIdentifier",
+            "Gene.homologues.homologue.symbol",
+            "Gene.interactions.interactingGenes.homologues.homologue.primaryIdentifier",
+            "Gene.interactions.interactingGenes.homologues.homologue.symbol"
+         ],
+         "constraints":[
+            {
+               "path":"Gene.organism.name",
+               "op":"=",
+               "value":"Caenorhabditis elegans",
+               "code":"E"
+            },
+            {
+               "path":"Gene.homologues.homologue.organism.name",
+               "op":"=",
+               "value":"Drosophila melanogaster",
+               "code":"A"
+            }
+         ]
+      },
+      "Protein_GOterms":{
+         "name":"Protein_GOterms",
+         "title":"Protein --> GO terms",
+         "description":"Show the GO annotations for a protein or proteins from a specifc GO ontology (cellular_component, molecular_function, biological_process).",
+         "comment":"",
+         "view":[
+            "Protein.primaryAccession",
+            "Protein.primaryIdentifier",
+            "Protein.genes.primaryIdentifier",
+            "Protein.genes.secondaryIdentifier",
+            "Protein.genes.symbol",
+            "Protein.genes.goAnnotation.ontologyTerm.namespace",
+            "Protein.genes.goAnnotation.ontologyTerm.identifier",
+            "Protein.genes.goAnnotation.ontologyTerm.name"
+         ],
+         "constraints":[
+            {
+               "path":"Protein",
+               "op":"LOOKUP",
+               "value":"P04755",
+               "code":"A",
+               "extraValue":"D. melanogaster"
+            },
+            {
+               "path":"Protein.genes.goAnnotation.ontologyTerm.namespace",
+               "op":"=",
+               "value":"cellular_component",
+               "code":"B"
+            }
+         ]
+      },
+      "miRNAtargetGene_miRNAgene":{
+         "name":"miRNAtargetGene_miRNAgene",
+         "title":"Gene --> microRNA (miRNA) gene",
+         "description":"For a specified gene show any microRNA genes that are known to target it. (DataSet: miRBase).",
+         "comment":"",
+         "view":[
+            "Gene.miRNAtargets.target.gene.primaryIdentifier",
+            "Gene.miRNAtargets.target.gene.symbol",
+            "Gene.miRNAtargets.target.primaryIdentifier",
+            "Gene.symbol",
+            "Gene.primaryIdentifier",
+            "Gene.miRNAtargets.pvalue",
+            "Gene.miRNAtargets.dataSets.name"
+         ],
+         "constraints":[
+            {
+               "path":"Gene.miRNAtargets.target.gene",
+               "op":"LOOKUP",
+               "value":"FBgn0026876",
+               "code":"A",
+               "extraValue":"D. melanogaster"
+            }
+         ]
+      }
+   },
+   "wasSuccessful":true,
+   "error":null,
+   "statusCode":200
+}
+}}}
+
+== Query Results ==
+
+Returns results from an arbitrary query against data held inside the mine. 
+These queries are similar to SQL queries, in that they request certain defined
+output columns of output, filtering the results through a series of "constraints". 
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /template/results 
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Optional*
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Required parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>query</code></td><td>An XML string representing the query</td></tr>
+   </table>
+ </td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code> size </code></td><td> The maximum number of rows to return (default: return all rows) </td></tr>
+     <tr><td><code> start </code></td><td> The first result row to include in the result set (0 index) </td></tr>
+     <tr><td><code> callback </code></td><td> The function name to wrap the jsonp results in </td></tr>
+     <tr><td><code> format </code></td><td> See "Result Set Formats" </td></tr>
+     <tr><td><code> columnheaders </code></td><td> See "Dependent Parameters" </td></tr>
+     <tr><td><code> layout </code></td><td> See "Dependent Parameters" </td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+    
+*(users must authenticate their requests to this service if they wish to use private lists in their query's constraints)
+
+For output formats see the section titled "Result Set Formats"
+
+== Template Results ==
+
+Returns results from a predefined query known as a template. A template has 
+a predefined and fixed set of output columns, and at least one editable constraint, 
+and possibly more. For the constraints, the user can change the operation and the value, so
+long as the new operation and value make sense for the original path. 
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /template/results 
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Optional*
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;text-align:top;"><em> 
+    required parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>name</code></td><td>The name of the template</td></tr>
+     <tr><td><code>TEMPLATE PARAMETERS</code></td><td>See below</td></tr>
+   </table>
+ </td>
+</tr>
+
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code> size </code></td><td> The maximum number of rows to return (default: return all rows) </td></tr>
+     <tr><td><code> start </code></td><td> The first result row to include in the result set (0 index) </td></tr>
+     <tr><td><code> callback </code></td><td> The function name to wrap the jsonp results in </td></tr>
+     <tr><td><code> format </code></td><td> See "Result Set Formats" </td></tr>
+     <tr><td><code> columnheaders </code></td><td> See "Dependent Parameters" </td></tr>
+     <tr><td><code> layout </code></td><td> See "Dependent Parameters" </td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+
+*(users must authenticate their requests to this service if the template is private to them)
+
+=== Template Parameters ===
+
+For every editable constraint the user should supply a set of template values, of the form:
+{{{
+  ...constraint1=constraint1=Gene.probeSets&op1=LOOKUP&value1=155099_at&extra1=
+}}}
+
+Each editable constraint needs a set of these, linked by the integer at the end of each parameter:
+
+==== definition ====
+
+A set of template parameters is on or any of the following parameters, with an integer appended to it. 
+Template parameters that have the same integer appended to them are considered to belong to the same 
+set of template values.
+
+ '''constraint'''[''i'']::
+  The path of the constraint - this must be the same as the original.
+ '''op'''[''i'']::
+  The new constraint operator (one of '=', '!=', 'LOOKUP', 'ONE OF', 'NONE OF', '>', '<', '>=', '<=', 'LIKE')
+ '''value'''[''i'']::
+  The new constraint value. For constraints that take a list of values, (such as "ONE OF", "NONE OF"), this parameter may be repeated.
+ '''extra'''[''i'']::
+  An optional extra value (required for LOOKUP constraints) 
+
+Some editable constraints are 'optional'. For these, the request does not need to provide
+a set of template parameters. If no set if provided, that constraint will be 'switched off', 
+and thus removed from the query. 
+
+If only part of a set is provided (for example the path - 'constraint1=Gene.primaryIdentifier' -
+but not the operator, then the request will return a 400 error (see errors below).
+
+==== examples ====
+
+ * Simple Template with just one constraint:
+   {{{
+http://preview.flymine.org/preview/service/template/results?name=Probe_Gene&constraint1=Gene.probeSets&op1=LOOKUP&value1=155099_at&extra1=&format=tab&size=10
+}}}
+   Response: 
+   {{{
+155099_at	FBgn0000180	bib
+}}}
+ * Template with more than one constraint:
+   {{{
+http://preview.flymine.org/preview/service/template/results?name=Protein_GOterms&constraint1=Protein.genes.goAnnotation.ontologyTerm.namespace&op1=eq&value1=cellular_component&constraint2=Protein&op2=LOOKUP&value2=P04755&extra2=D.+melanogaster&format=tab&size=10
+}}}
+   Response:
+   {{{
+P04755	ACH3_DROME	FBgn0000038	CG11348	nAcRbeta-64B	cellular_component	GO:0005887	integral to plasma membrane
+P04755	ACH3_DROME	FBgn0000038	CG11348	nAcRbeta-64B	cellular_component	GO:0005892	nicotinic acetylcholine-gated receptor-channel complex
+P04755	ACH3_DROME	FBgn0000038	CG11348	nAcRbeta-64B	cellular_component	GO:0045211	postsynaptic membrane
+}}}
+ * Template with a multi-value constraint:
+   {{{
+http://preview.flymine.org/preview/service/template/results?name=AlleleClass_Allele&constraint1=Gene.alleles.alleleClass&op1=ONE+OF&value1=hypomorphic+allele+-+genetic+evidence&value1=loss+of+function+allele%2C+hypomorphic+allele+-+genetic evidence&format=tab&size=25
+}}}
+   Response:
+   {{{
+FBal0000008	""	hypomorphic allele - genetic evidence	FBgn0087040	alphaTub67C
+FBal0000009	""	hypomorphic allele - genetic evidence	FBgn0087040	alphaTub67C
+FBal0000011	""	hypomorphic allele - genetic evidence	FBgn0087040	alphaTub67C
+FBal0000013	""	hypomorphic allele - genetic evidence	FBgn0003884	alphaTub84B
+FBal0000014	""	hypomorphic allele - genetic evidence	FBgn0003884	alphaTub84B
+FBal0000016	""	hypomorphic allele - genetic evidence	FBgn0003884	alphaTub84B
+FBal0000018	""	hypomorphic allele - genetic evidence	FBgn0003884	alphaTub84B
+FBal0000019	""	hypomorphic allele - genetic evidence	FBgn0003884	alphaTub84B
+FBal0000021	""	hypomorphic allele - genetic evidence	FBgn0003888	betaTub60D
+FBal0000022	""	hypomorphic allele - genetic evidence	FBgn0003888	betaTub60D
+FBal0000023	""	hypomorphic allele - genetic evidence	FBgn0003888	betaTub60D
+FBal0000024	""	hypomorphic allele - genetic evidence	FBgn0003888	betaTub60D
+FBal0000027	""	loss of function allele, hypomorphic allele - genetic evidence	FBgn0003889	betaTub85D
+FBal0000028	""	loss of function allele, hypomorphic allele - genetic evidence	FBgn0003889	betaTub85D
+FBal0000160	""	hypomorphic allele - genetic evidence	FBgn0000022	ac
+FBal0000182	""	loss of function allele, hypomorphic allele - genetic evidence	FBgn0000024	Ace
+FBal0000187	""	hypomorphic allele - genetic evidence	FBgn0000024	Ace
+FBal0000189	""	hypomorphic allele - genetic evidence	FBgn0000024	Ace
+FBal0000216	""	hypomorphic allele - genetic evidence	FBgn0000024	Ace
+FBal0000217	""	loss of function allele, hypomorphic allele - genetic evidence	FBgn0000024	Ace
+FBal0000350	""	hypomorphic allele - genetic evidence	FBgn0000055	Adh
+FBal0000396	""	hypomorphic allele - genetic evidence	FBgn0000061	al
+FBal0000408	""	hypomorphic allele - genetic evidence	FBgn0000063	ald
+FBal0000543	""	hypomorphic allele - genetic evidence	FBgn0260642	Antp
+FBal0000547	""	hypomorphic allele - genetic evidence	FBgn0260642	Antp
+}}}
+
+For details on output formats see the section titled "Result Set Formats"
+
+== GFF3 Queries ==
+
+Returns [http://www.sequenceontology.org/gff3.shtml GFF3] formatted data for a query that
+requests information about sequence features. This resource is only available for mines that
+support genomic data models.
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /query/results/gff3
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Optional*
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;text-align:top;"><em> 
+    required parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>query</code></td><td>The xml representation of the query to run</td></tr>
+   </table>
+ </td>
+</tr>
+
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   None
+ </td>
+</tr>
+
+</table>
+}}}
+
+*(users must authenticate their requests if they wish to include private lists in their constraints)
+
+==== example ====
+
+ * Request:  
+   {{{
+GET http://squirrel.flymine.org/flymine/service/query/results/gff3?query=%3Cquery+name%3D%22%22+model%3D%22genomic%22+view%3D%22Gene.primaryIdentifier+Gene.exons.primaryIdentifier+Gene.exons.transcripts.primaryIdentifier%22+sortOrder%3D%22Gene.primaryIdentifier+asc%22%3E%3Cconstraint+path%3D%22Gene%22+op%3D%22LOOKUP%22+value%3D%22eve%22+extraValue%3D%22%22%2F%3E%3C%2Fquery%3E&
+}}}
+   Result:
+{{{
+##gff-version 3
+2R      FlyMine gene    5866746 5868284 .       +       .       ID=FBgn0000606
+2R      FlyMine exon    5866746 5867058 .       +       .       ID=CG2328%3A1;Parent=FBgn0000606
+2R      FlyMine mRNA    5866746 5868284 .       +       .       ID=FBtr0088390;Parent=FBgn0000606
+2R      FlyMine exon    5867130 5868284 .       +       .       ID=CG2328%3A2;Parent=FBgn0000606
+}}}
+
+== UCSC BED Queries ==
+
+Returns [http://genome.ucsc.edu/FAQ/FAQformat.html BED] formatted data for a query that
+requests information about sequence features. This resource is only available for mines that
+support genomic data models.
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /query/results/bed
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Optional*
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;text-align:top;"><em> 
+    required parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>query</code></td><td>The xml representation of the query to run</td></tr>
+   </table>
+ </td>
+</tr>
+
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>ucscCompatible</code></td><td>Prefix "chr" to chromosome id, optional values: "yes"|"no"</td></tr>
+     <tr><td><code>trackDescription</code></td><td>A short description of the track in UCSC genome browser if importing the result to it</td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+
+*(users must authenticate their requests if they wish to include private lists in their constraints)
+
+==== example ====
+
+ * Request:  
+   {{{
+GET http://squirrel.flymine.org/flymine/service/query/results/bed?query=<query+name%3D""+model%3D"genomic"+view%3D"Gene.primaryIdentifier+Gene.exons.primaryIdentifier+Gene.exons.transcripts.primaryIdentifier"+sortOrder%3D"Gene.primaryIdentifier+asc"><constraint+path%3D"Gene"+op%3D"LOOKUP"+value%3D"eve"+extraValue%3D""%2F><%2Fquery>&
+}}}
+   Result:
+{{{
+# UCSC BED format
+# Source: FlyMine
+# Genome Build: dm3
+track name=FlyMine_newtpreview_Custom_Track description="FlyMine newtpreview Custom Track" useScore=0
+chr2R	5866745	5868284	eve	0	+
+chr2R	5866745	5867058	eve:1	0	+
+chr2R	5866745	5868284	eve-RA	0	+
+chr2R	5867129	5868284	eve:2	0	+
+}}}
+
+
+== FASTA Queries ==
+
+Returns [http://en.wikipedia.org/wiki/FASTA_format FASTA] formatted data for a query that
+requests information about sequence features. This resource is only available for mines that
+support genomic data models. Queries are limited in this format to only having a single output 
+column.
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /query/results/fasta
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Optional*
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;text-align:top;"><em> 
+    required parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>query</code></td><td>The xml representation of the query to run</td></tr>
+   </table>
+ </td>
+</tr>
+
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   None
+ </td>
+</tr>
+
+</table>
+}}}
+
+*(users must authenticate their requests if they wish to include private lists in their constraints)
+
+==== example ====
+
+ * Request:  
+   {{{
+GET http://squirrel.flymine.org/flymine/service/query/results/fasta?query=%3Cquery+name%3D%22%22+model%3D%22genomic%22+view%3D%22Gene.primaryIdentifier%22+sortOrder%3D%22Gene.primaryIdentifier+asc%22%3E%3Cconstraint+path%3D%22Gene%22+op%3D%22LOOKUP%22+value%3D%22eve%22+extraValue%3D%22%22%2F%3E%3C%2Fquery%3E
+}}}
+   Result:
+   {{{
+>FBgn0000606 2R:5866746-5868284
+ttggccgctcccagcgacggcggccatttgcctgcagagcgcagcggtataaaagggcgc
+ggggtggctgagagcagcacactcgagctgtgaccgccgcacagtcaacaactaactgcc
+ttcgttaatatcctctgaataagccaactttgaatcacaagacgcataccaaacatgcac
+ggataccgaacctacaacatggagagccaccatgcccatcacgacgccagtcccgtggac
+cagaagcccctggttgtggacctcttggccacccagtacggcaagccccagacaccgcct
+ccctcgccaaatggtaagtttaaagataaagccgagcaaacgtgacgagttacttacacc
+caatctttcctctgtccaaaacagaatgcctatccagtccggataactccttgaacggca
+gccgcggctcggagattcccgccgacccgtcggtacgccgctatcgcaccgccttcaccc
+gtgaccagctgggtcgcttggagaaggagttctacaaggagaactacgtgtcccgtcccc
+gtcgctgcgaactggccgcccagctgaacctcccggagagcacgatcaaggtgtggttcc
+agaaccgccgcatgaaggacaagcgtcagaggatcgccgtcgcctggccctacgcagccg
+tctactccgatcccgccttcgccgcctccatcctccaggccgccgccaacagcgtgggca
+tgccctatccgccctacgcccccgctgctgccgccgctgctgccgccgccgctgccgtgg
+ccaccaatccgatgatggccaccggaatgcccccgatgggcatgccccagatgcccacaa
+tgcagatgcccggacactcgggacatgccggccatccatcgccctacggacagtaccgct
+acacgccctaccacatccccgcccgcccggcgccgccacatcccgctggtcctcatatgc
+atcatccgcacatgatgggatccagcgcaacgggatcgtcgtactccgccggtgccgccg
+gccttttgggcgctctgccctccgccacctgctataccggactgggtgtgggtgtgccca
+agacccagacgccgccgctggatctgcagtcgtcgtcatcgccgcactcctccacgctgt
+cgctctcgccagtgggatccgatcacgccaaggtgttcgaccgcagtccagtggctcaat
+ccgctccatcagttcctgctcccgctccactgaccaccaccagcccgctgcccgctccag
+gcctcctgatgcccagtgccaagcggcctgcctccgacatgtcgccgccgccgacgacaa
+ctgtgattgcggagcccaagccgaagctcttcaagccctacaagactgaggcgtaagccc
+gcgatccacacacactctctcccccccccccatgctcccccaaaagattgtacaaactag
+tcttagtcagcctcatctatttattcccgaagattgtacagattgtagagtagctaattg
+tagtcataattaaggcgcaaaatcaaattaagaaataaa
+}}}
+
+== Code Generation ==
+
+Returns code in one of the supported code generation languages
+ready to be executed. This service takes as its input a description 
+of a query in XML, and returns code.
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /query/code
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Optional*
+  </code></td>
+</tr>
+
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    JSON(P), Text (default: TEXT)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td><table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>query</code></td><td>The XML serialisation of the query to generate code for</td></tr>
+     <tr><td><code>lang</code></td><td>The code generation language (possible values: "perl", "java", "python", "javascript", "ruby")</td></tr>
+   </table></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>callback</code></td><td>The function name to wrap the JSONP in</td></tr>
+     <tr><td><code>format</code></td><td>The output format (values: json(p), tab, default: tab(plain-text) )</td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+
+* Authenticated queries will also have access to the private lists of that user
+
+=== Example ===
+
+Request: 
+{{{ 
+GET http://www.flymine.org/query/service/query/code?query=%3Cquery+name%3D%22%22+model%3D%22genomic%22+view%3D%22Gene.secoyResults.type+Gene.microArrayResults.value+Gene.microArrayResults.scale+Gene.microArrayResults.isControl+Gene.score+Gene.scoreType+Gene.microArrayResults.presentCall%22+sortOrder%3D%22Gene.secondaryIdentifier+asc%22+constraintLogic%3D%22A+and+B%22%3E%3Cconstraint+path%3D%22Gene.symbol%22+code%3D%22A%22+op%3D%22IS+NOT+NULL%22%2F%3E%3Cconstraint+path%3D%22Gene.microArrayResults%22+type%3D%22FlyAtlasResult%22%2F%3E%3Cconstraint+path%3D%22Gene.microArrayResults.presentCall%22+code%3D%22B%22+op%3D%22IS+NOT+NULL%22%2F%3E%3C%2Fquery%3E&lang=ruby 
+}}}
+
+Response: 
+{{{
+#!rb
+
+#!/usr/bin/env ruby
+
+# This is an automatically generated script to run your query
+# to use it you will require the intermine ruby client.
+# To install the client, run the following command from a terminal:
+#
+#     sudo gem install intermine
+#
+# For further documentation you can visit:
+#          http://intermine.org/docs/ruby-docs/
+#     and: http://intermine.org/docs/ruby-bio-docs/
+#
+# The following two lines will be needed in every script:
+require "rubygems"
+require "intermine/service"
+service = Service.new("http://squirrel.flymine.org/flymine")
+
+# Get a new query from the service you will be querying:
+service.new_query("Gene").
+    where("Gene.microArrayResults" => {:sub_class => "FlyAtlasResult"}).
+    select(["secondaryIdentifier", "symbol", "name", "microArrayResults.type", "microArrayResults.value", "microArrayResults.scale", "microArrayResults.isControl", "score", "scoreType", "microArrayResults.presentCall"]).
+    # You can edit the constraint values below
+    where("Gene.symbol" => {"!=" => nil}).
+    where("Gene.microArrayResults.presentCall" => {"!=" => nil}).
+    order_by("secondaryIdentifier", "ASC").
+    limit(10).
+    each_row { |r| puts r}
+}}}
+
+== Available Lists ==
+
+Returns information on the lists the user has access to in the mine. 
+A list is a set of objects of a homogenous type. They may be either 
+public or private. 
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /lists (also: /lists/json)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Optional*
+  </code></td>
+</tr>
+
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    JSON(P)**, Text*** (default: JSON)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td><code> 
+    None
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>callback</code></td><td>The function name to wrap the JSONP in</td></tr>
+     <tr><td><code>format</code></td><td>The output format (values: json(p), tab, default: json)</td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+
+* Authenticated queries will also have access to the private lists of that user
+** The JSON for this service is described by the schema named "lists.schema", see "Schemata".
+*** The Text representation is just a list of the list names, one per line.
+
+=== Example ===
+
+Request: {{{GET http://preview.flymine.org/preview/service/lists}}}
+Response: 
+{{{
+#!js
+{
+  "lists": [
+    {
+      "tags": [ "im:public", "im:public" ],
+      "authorized": false,
+      "title": "example",
+      "description": "",
+      "name": "example", 
+      "dateCreated": "2011-03-09T13:22:25",
+      "type": "Gene",
+      "size":22
+    }
+  ],
+  "wasSuccessful": true,
+  "error": null,
+  "statusCode":200
+}
+}}}
+
+== Lists with Object ==
+
+Returns information on the lists the user has access to in the mine 
+which contain a certain object.
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /listswithobject (also: /listswithobject/json)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Optional*
+  </code></td>
+</tr>
+
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    JSON(P)**, Text*** (default: JSON)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>id</code></td><td>the internal db id of the object</td></tr>
+   </table>
+   OR
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>publicId</code></td><td>A property of the object that can reliably identify it (such as Gene.symbol)</td></tr>
+     <tr><td><code>type</code></td><td>The class of object the list should contain</td></tr>
+   </table>
+  </td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>callback</code></td><td>The function name to wrap the JSONP in</td></tr>
+     <tr><td><code>format</code></td><td>The output format (values: json(p), tab, default: json)</td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+
+* Authenticated queries will also have access to the private lists of that user
+** The JSON for this service is described by the schema named "lists.schema", see "Schemata".
+*** The Text representation is just a list of the list names, one per line.
+
+=== Example ===
+
+Request: {{{GET http://preview.flymine.org/preview/service/listswithobject?publicId=zen}}}
+Response: 
+{{{
+#!js
+{
+  "lists": [
+    {
+      "tags": [ "im:public", "im:public" ],
+      "authorized": false,
+      "title": "example",
+      "description": "",
+      "name": "example", 
+      "dateCreated": "2011-03-09T13:22:25",
+      "type": "Gene",
+      "size":22
+    }
+  ],
+  "wasSuccessful": true,
+  "error": null,
+  "statusCode":200
+}
+}}}
+
+
+== List Creation ==
+
+Creates a new list on the server and returns information regarding the 
+successfulness or otherwise of the requested operation.
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /lists (also: /lists/json)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Yes
+  </code></td>
+</tr>
+
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    JSON(P)**, Text*** (default: Text)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+   Content
+ </em></td>
+ <td>
+    a list of identifiers delimited by new lines, whitespace and commas, and escaped with quotation marks.
+ </td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+   Content-Type
+ </em></td>
+ <td>
+    <code>text/plain</code>
+ </td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td>   
+<table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code> name   </code></td><td> The name of the new list to create (there must not be an existing list with the same name)</td></tr>
+     <tr><td><code> type </code></td><td> The class all the objects in this list must belong to </td></tr>
+   </table>
+</td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>callback</code></td><td>The function name to wrap the JSONP in</td></tr>
+     <tr><td><code>format</code></td><td>The output format (values: json(p), tab, default: tab)</td></tr>
+     <tr><td><code>description</code></td><td>A description for the list</td></tr>
+     <tr><td><code>tags</code></td><td>A semi-colon delimited list of tags to associate with the new list</td></tr>
+     <tr><td><code>extraValue</code></td><td>An extra field value to use for disambiguation.</td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+
+* Authenticated queries will also have access to the private lists of that user
+** The JSON for this service is described by the schema named "lists.schema", see "Schemata".
+*** The Text representation is just a list of the list names, one per line.
+
+
+=== Example ===
+
+Request: {{{POST http://preview.flymine.org/preview/service/lists}}}
+Response: 
+{{{
+[ERROR] 500 Not authenticated.
+List Upload Service
+===================
+Upload a new list, or overwrite an existing one
+Parameters:
+* name: the name of the list
+* type: type of the list
+* description: A description of the list (optional)
+* extraValue: An extra field value to allow disambiguation(optional)
+* tags: a semi-colon delimited list of tags to tag the new list with
+
+Content: text/plain - list of ids
+}}}
+
+Request: 
+{{{
+POST http://www.intermine.org/intermine-demo/service/lists/json?name=demonstration-list&type=Employee
+Authorization: aW50ZXJtaW5lLXRlc3QtdXNlcjppbnRlcm1pbmUtdGVzdC11c2VyLXBhc3N3b3Jk
+User-Agent: lwp-request/5.834 libwww-perl/5.837
+Content-Length: 30
+Content-Type: text/plain
+
+Alex Brenda Carol Dave Edward
+}}}
+Response: 
+{{{
+#!js
+{
+  "listName": "demonstration-list",
+  "listSize": 3,
+  "unmatchedIdentifiers": [
+    "Dave",
+    "Edward"
+  ],
+  "wasSuccessful": true,
+  "error": null,
+  "statusCode": 200
+}
+}}}
+
+== List Appending ==
+
+Increases the size of a list by adding more items to it from a 
+list of identifiers.
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /lists/append (also: /lists/append/json)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Yes
+  </code></td>
+</tr>
+
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    JSON(P)**, Text*** (default: Text)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+   Content
+ </em></td>
+ <td>
+    a list of identifiers delimited by new lines, whitespace and commas, and escaped with quotation marks.
+ </td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+   Content-Type
+ </em></td>
+ <td>
+    <code>text/plain</code>
+ </td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td>   
+<table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code> name   </code></td><td> The name of the new list to create (there must not be an existing list with the same name)</td></tr>
+   </table>
+</td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>callback</code></td><td>The function name to wrap the JSONP in</td></tr>
+     <tr><td><code>format</code></td><td>The output format (values: json(p), tab, default: tab)</td></tr>
+     <tr><td><code>extraValue</code></td><td>An extra field value to use for disambiguation.</td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+
+=== Example ===
+
+Request: {{{POST http://www.intermine.org/intermine-demo/service/lists/append}}}
+Response: 
+{{{
+[ERROR] 500 Not authenticated.
+List Append Service
+===================
+Append items to a list
+Parameters:
+name: the name of the list to append items to
+
+Content: text/plain - list of ids
+}}}
+
+Request: 
+{{{
+POST http://www.intermine.org/intermine-demo/service/lists/append/json?name=demonstration-intersection
+Authorization: aW50ZXJtaW5lLXRlc3QtdXNlcjppbnRlcm1pbmUtdGVzdC11c2VyLXBhc3N3b3Jk
+User-Agent: lwp-request/5.834 libwww-perl/5.837
+Content-Length: 26
+Content-Type: text/plain
+
+Corinne Fatou Simon Edgar
+}}}
+Response: 
+{{{
+#!js
+{
+  "listName": "demonstration-intersection",
+  "listSize": 5,
+  "unmatchedIdentifiers": [
+    "Edgar"
+  ],
+  "wasSuccessful": true,
+  "error": null,
+  "statusCode": 200
+}
+}}}
+
+== Query to List Conversion ==
+
+Create a list defined by a query, rather than a list of identifiers.
+To do this automatically, the are a couple of extra restrictions on what
+a valid query is considered to be.  Queries used with this services:
+  * Must have only one output column.
+  * That output column must refer to the id of an object.
+
+So a query with this output column would be fine: {{{Gene.id}}}, whereas
+one with this one would not: {{{Gene.primaryIdentifier}}}. Any 'id' path is suitable,
+not just root class ones. So {{{Gene.homologues.homologue.id}}} would be just
+as good.
+
+The type of the list will be that of the end class of the output column. 
+A list created from a query with the output column {{{Gene.pathways.id}}}
+would be of the type {{{Pathway}}}.
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /query/tolist (also: /query/tolist)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Yes
+  </code></td>
+</tr>
+
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    JSON(P)**, Text*** (default: Text)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td>   
+<table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code> listName   </code></td><td> The name of the new list to create (there must not be an existing list with the same name)</td></tr>
+     <tr><td><code> query  </code></td><td> The xml representation of the query to run </td></tr>
+   </table>
+</td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>callback</code></td><td>The function name to wrap the JSONP in</td></tr>
+     <tr><td><code>format</code></td><td>The output format (values: json(p), tab, default: tab)</td></tr>
+     <tr><td><code>description</code></td><td>A description of this list.</td></tr>
+     <tr><td><code>tags</code></td><td>A semi-colon delimited set of tags to associate with this list.</td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+
+=== Example ===
+
+Request: 
+{{{
+GET http://www.intermine.org/intermine-demo/service/query/tolist/json?query=%3Cquery+name%3D%22%22+model%3D%22testmodel%22+view%3D%22Department.manager.id%22+sortOrder%3D%22Employee.name+asc%22%3E%3C%2Fquery%3E&listName=demo-query-list
+Authorization: aW50ZXJtaW5lLXRlc3QtdXNlcjppbnRlcm1pbmUtdGVzdC11c2VyLXBhc3N3b3Jk
+User-Agent: lwp-request/5.834 libwww-perl/5.837
+
+}}}
+Response: 
+{{{
+#!js
+{
+   "listName": "demo-query-list",
+   "listSize": 12,
+   "wasSuccessful": true,
+   "error": null,
+   "statusCode":200
+}
+}}}
+
+
+== Template to List Conversion ==
+
+Create a list defined by a template, rather than by a list of identifiers.
+To do this automatically, as well as the values of the template parameters, an 
+extra "path" parameter is required to identify which column to create the list from.
+This path will be added to the query to generate the required list. As with the query to 
+list service, this view path must refer to the id of an attribute. It may also 
+simply be a class or reference, in which case the id will be assumed.
+
+The type of the list will be that of the end class of the output column. 
+A list created from a query with the output column {{{Gene.pathways.name}}}
+would be of the type {{{Pathway}}}.
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /template/tolist
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Yes
+  </code></td>
+</tr>
+
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    JSON(P)**, Text*** (default: Text)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td>   
+<table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code> listName   </code></td><td> The name of the new list to create (there must not be an existing list with the same name)</td></tr>
+     <tr><td><code> path   </code></td><td> The view to use to generate the list </td></tr>
+     <tr><td><code>TEMPLATE PARAMETERS</code></td><td>See template result service </td></tr>
+   </table>
+</td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   None
+ </td>
+</tr>
+
+</table>
+}}}
+
+*** The text response is the number of elements in the new list.
+=== Example ===
+
+Request: 
+{{{
+GET http://squirrel.flymine.org/intermine-test/service/template/tolist/json?listName=template-tolist&name=Company_Departments&constraint1=Company&op1=LOOKUP&value1=Gogirep&extra1=&path=Company.departments
+Authorization: aW50ZXJtaW5lLXRlc3QtdXNlcjppbnRlcm1pbmUtdGVzdC11c2VyLXBhc3N3b3Jk
+User-Agent: lwp-request/5.834 libwww-perl/5.837
+}}}
+Response: 
+{{{
+#!js
+{
+  "listName": "template-tolist",
+  "listSize": 4,
+  "wasSuccessful": true,
+  "error": null,
+  "statusCode": 200
+}
+}}}
+
+
+== Append to Query From List ==
+
+Append items to an existing list, where those items are defined
+by being in the result set of a query.
+To do this automatically, the are a couple of extra restrictions on what
+a valid query is considered to be.  Queries used with this services:
+  * Must have only one output column.
+  * That output column must refer to the id of an object.
+
+Additionally, for this service:
+  * It must be of a type compatible with the type of the list.
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /query/append/tolist (also: /query/tolist)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Yes
+  </code></td>
+</tr>
+
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    JSON(P)**, Text*** (default: Text)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td>   
+<table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code> listName   </code></td><td> A name of an exiting list to append items to </td></tr>
+     <tr><td><code> query  </code></td><td> The xml representation of the query to run </td></tr>
+   </table>
+</td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>callback</code></td><td>The function name to wrap the JSONP in</td></tr>
+     <tr><td><code>format</code></td><td>The output format (values: json(p), tab, default: tab)</td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+
+=== Example ===
+
+Request: 
+{{{
+GET http://www.intermine.org/intermine-demo/service/query/append/tolist/json?query=%3Cquery+name%3D%22%22+model%3D%22testmodel%22+view%3D%22CEO.id%22%3E%3C%2Fquery%3E&listName=demo-query-list
+Authorization: aW50ZXJtaW5lLXRlc3QtdXNlcjppbnRlcm1pbmUtdGVzdC11c2VyLXBhc3N3b3Jk
+User-Agent: lwp-request/5.834 libwww-perl/5.837
+
+}}}
+Response: 
+{{{
+#!js
+{
+   "listName": "demo-query-list",
+   "listSize": 32,
+   "wasSuccessful": true,
+   "error": null,
+   "statusCode":200
+}
+}}}
+
+
+== List Mergers ==
+
+Creates a new list on the server from the union of one or more
+lists (one being functionally the same as a list-copy)
+and returns information regarding the 
+successfulness or otherwise of the requested operation.
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /lists/union (also: /lists/union/json)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Yes
+  </code></td>
+</tr>
+
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    JSON(P)**, Text*** (default: Text)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td>   
+<table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code> name   </code></td><td> The name of the new list to create (there must not be an existing list with the same name)</td></tr>
+     <tr><td><code> lists  </code></td><td> The names of the lists to merge, separated by semi-cola                                    </td></tr>
+   </table>
+</td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>callback</code></td><td>The function name to wrap the JSONP in</td></tr>
+     <tr><td><code>format</code></td><td>The output format (values: json(p), tab, default: tab)</td></tr>
+     <tr><td><code>description</code></td><td>A description for the list</td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+
+* Authenticated queries will also have access to the private lists of that user
+** The JSON for this service is described by the schema named "lists.schema", see "Schemata".
+*** The Text representation is just a list of the list names, one per line.
+
+
+=== Example ===
+
+Request: {{{POST http://preview.flymine.org/preview/service/lists/union}}}
+Response: 
+{{{
+[ERROR] 500 Not authenticated.
+List Union Service
+===================
+Combine lists into a new one
+Parameters:
+lists: a list of list names - separated by semi-cola (';')
+name: the name of the new list resulting from the union
+description: an optional description of the new list
+}}}
+
+Request: 
+{{{
+GET http://www.intermine.org/intermine-demo/service/lists/union/json?name=demonstration-union&lists=demonstration-list%3Bdemo-list
+Authorization: aW50ZXJtaW5lLXRlc3QtdXNlcjppbnRlcm1pbmUtdGVzdC11c2VyLXBhc3N3b3Jk
+User-Agent: lwp-request/5.834 libwww-perl/5.837
+}}}
+Response: 
+{{{
+#!js
+{
+   "listName":"demonstration-union",
+   "listSize":3,
+   "wasSuccessful":true,
+   "error":null,
+   "statusCode":200
+}
+}}}
+
+== List Intersections ==
+
+Creates a new list on the server from the intersection of one or more
+lists (one being functionally the same as a list-copy)
+and returns information regarding the 
+successfulness or otherwise of the requested operation.
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /lists/intersect (also: /lists/intersect/json)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Yes
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    JSON(P)**, Text*** (default: Text)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td>   
+<table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code> name   </code></td><td> The name of the new list to create (there must not be an existing list with the same name)</td></tr>
+     <tr><td><code> lists  </code></td><td> The names of the lists to merge, separated by semi-cola                                    </td></tr>
+   </table>
+</td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>callback</code></td><td>The function name to wrap the JSONP in</td></tr>
+     <tr><td><code>format</code></td><td>The output format (values: json(p), tab, default: tab)</td></tr>
+     <tr><td><code>description</code></td><td>A description for the list</td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+
+* Authenticated queries will also have access to the private lists of that user
+** The JSON for this service is described by the schema named "lists.schema", see "Schemata".
+*** The Text representation is just a list of the list names, one per line.
+
+
+=== Example ===
+
+Request: {{{GET http://preview.flymine.org/preview/service/lists/intersect}}}
+Response: 
+{{{
+[ERROR] 500 Not authenticated.
+List Intersection Service
+=========================
+Create a new list from an intersection of other lists
+Parameters:
+lists: a list of list names - separated by semi-cola (';')
+name: the name of the new list resulting from the intersection
+NOTE: All requests to this service must authenticate to a valid user account.
+}}}
+
+Request: 
+{{{
+GET http://www.intermine.org/intermine-demo/service/lists/intersect/json?name=demonstration-intersection&lists=demonstration-list%3Bdemo-list2
+Authorization: aW50ZXJtaW5lLXRlc3QtdXNlcjppbnRlcm1pbmUtdGVzdC11c2VyLXBhc3N3b3Jk
+User-Agent: lwp-request/5.834 libwww-perl/5.837
+}}}
+Response: 
+{{{
+#!js
+{
+   "listName":"demonstration-intersection",
+   "listSize":2,
+   "wasSuccessful":true,
+   "error":null,
+   "statusCode":200
+}
+}}}
+
+
+== List Symmetric Difference ==
+
+Creates a new list on the server from the symmetric 
+difference of one or more
+lists (one being functionally the same as a list-copy)
+and returns information regarding the 
+successfulness or otherwise of the requested operation.
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /lists/diff (also: /lists/diff/json)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Yes
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    JSON(P)**, Text*** (default: Text)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td>   
+<table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code> name   </code></td><td> The name of the new list to create (there must not be an existing list with the same name)</td></tr>
+     <tr><td><code> lists  </code></td><td> The names of the lists to merge, separated by semi-cola                                    </td></tr>
+   </table>
+</td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>callback</code></td><td>The function name to wrap the JSONP in</td></tr>
+     <tr><td><code>format</code></td><td>The output format (values: json(p), tab, default: tab)</td></tr>
+     <tr><td><code>description</code></td><td>A description for the list</td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+
+* Authenticated queries will also have access to the private lists of that user
+** The JSON for this service is described by the schema named "lists.schema", see "Schemata".
+*** The Text representation is just a list of the list names, one per line.
+
+
+=== Example ===
+
+Request: {{{GET http://preview.flymine.org/preview/service/lists/diff}}}
+Response: 
+{{{
+[ERROR] 500 Not authenticated.
+List Difference Service
+=======================
+Create a new list from the symmetric difference of a set of lists
+Parameters:
+lists: a list of list names - separated by semi-cola (';')
+name: the name of the new list resulting from the difference
+description: an optional description for the new list
+NOTE: All requests to this service must authenticate to a valid user account
+}}}
+
+Request: 
+{{{
+GET http://www.intermine.org/intermine-demo/service/lists/diff/json?name=demo-diff&lists=demonstration-list%3Bdemo-list2
+Authorization: aW50ZXJtaW5lLXRlc3QtdXNlcjppbnRlcm1pbmUtdGVzdC11c2VyLXBhc3N3b3Jk
+User-Agent: lwp-request/5.834 libwww-perl/5.837
+}}}
+Response: 
+{{{
+#!js
+{
+   "listName":"demonstration-diff",
+   "listSize":2,
+   "wasSuccessful":true,
+   "error":null,
+   "statusCode":200
+}
+}}}
+
+== List Subtraction ==
+
+Creates a new list on the server from by subtracting the union of one or more 
+lists from the union of another set of one or more lists, 
+and returns information regarding the 
+successfulness or otherwise of the requested operation.
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /lists/subtract (also: /lists/subtract/json)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Yes
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    JSON(P)**, Text*** (default: Text)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td>   
+<table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code> name        </code></td><td> The name of the new list to create (there must not be an existing list with the same name)</td></tr>
+     <tr><td><code> references  </code></td><td> The names of the reference lists to subtract from, separated by semi-cola                 </td></tr>
+     <tr><td><code> subtract    </code></td><td> The names of the lists to subtract, separated by semi-cola                                </td></tr>
+   </table>
+</td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>callback</code></td><td>The function name to wrap the JSONP in</td></tr>
+     <tr><td><code>format</code></td><td>The output format (values: json(p), tab, default: tab)</td></tr>
+     <tr><td><code>description</code></td><td>A description for the list</td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+
+* Authenticated queries will also have access to the private lists of that user
+** The JSON for this service is described by the schema named "lists.schema", see "Schemata".
+*** The Text representation is just a list of the list names, one per line.
+
+
+=== Example ===
+
+Request: {{{GET http://preview.flymine.org/preview/service/lists/subtract}}}
+Response: 
+{{{
+[ERROR] 500 Not authenticated.
+List Subtraction Service
+===================
+Subtract one set of list from another
+Parameters:
+references: The main list to subtract the others from
+subtract: a list of list names - separated by semi-cola (';')
+name: the name of the new list resulting from the subtraction
+description: an optional description for the new list
+NOTE: All requests to this service must authenticate to a valid user account
+}}}
+
+Request: 
+{{{
+GET http://www.intermine.org/intermine-demo/service/lists/subtract/json?name=demo-subtract&references=demonstration-list%3Bdemo-list2&subtract=demo-diff
+Authorization: aW50ZXJtaW5lLXRlc3QtdXNlcjppbnRlcm1pbmUtdGVzdC11c2VyLXBhc3N3b3Jk
+User-Agent: lwp-request/5.834 libwww-perl/5.837
+}}}
+Response: 
+{{{
+#!js
+{
+   "listName":"demo-subtract",
+   "listSize":2,
+   "wasSuccessful":true,
+   "error":null,
+   "statusCode":200
+}
+}}}
+
+== List Renaming ==
+
+Renames an existing list on the server to a new name, 
+and returns information regarding the 
+successfulness or otherwise of the requested operation.
+
+{{{
+#!html
+<table class="wiki" style="border-collapse: collapse;">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /lists/rename (also: /lists/rename/json)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Yes
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    JSON(P)**, Text*** (default: Text)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td>   
+<table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code> oldname  </code></td><td> The name of the existing list you wish to rename </td></tr>
+     <tr><td><code> newname  </code></td><td> The new name for this list                       </td></tr>
+   </table>
+</td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>callback</code></td><td>The function name to wrap the JSONP in</td></tr>
+     <tr><td><code>format</code></td><td>The output format (values: json(p), tab, default: tab)</td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+
+* Authenticated queries will also have access to the private lists of that user
+** The JSON for this service is described by the schema named "lists.schema", see "Schemata".
+*** The Text representation is just a list of the list names, one per line.
+
+
+=== Example ===
+
+Request: {{{GET http://preview.flymine.org/preview/service/lists/rename}}}
+Response: 
+{{{
+[ERROR] 500 Not authenticated.
+List Renaming Service
+=====================
+Rename a list
+Parameters:
+oldname: the old name of the list
+newname: the new name of the list
+NOTE: All requests to this service must authenticate to a valid user account
+}}}
+
+Request: 
+{{{
+GET http://www.intermine.org/intermine-demo/service/lists/rename/json?oldname=demonstration-list&newname=demo-rename
+Authorization: aW50ZXJtaW5lLXRlc3QtdXNlcjppbnRlcm1pbmUtdGVzdC11c2VyLXBhc3N3b3Jk
+User-Agent: lwp-request/5.834 libwww-perl/5.837
+}}}
+Response: 
+{{{
+#!js
+{
+   "listName":"demo-rename",
+   "listSize":3,
+   "unmatchedIdentifiers":[],
+   "wasSuccessful":true,
+   "error":null,
+   "statusCode":200
+}
+}}}
+
+
+== List Deletion ==
+
+Deletes an existing list on the server,
+and returns information regarding the 
+successfulness or otherwise of the requested operation.
+
+Note that this is a '''permanent''' and '''irreversible''' operation, 
+being a delete function it '''WILL CAUSE DATA LOSS'''.
+Use with caution.
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /lists (also: /lists/json)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    DELETE
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Yes
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    JSON(P)**, Text*** (default: Text)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td>   
+<table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code> name  </code></td><td> The name of the existing list you wish to delete </td></tr>
+   </table>
+</td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>callback</code></td><td>The function name to wrap the JSONP in</td></tr>
+     <tr><td><code>format</code></td><td>The output format (values: json(p), tab, default: tab)</td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+
+=== Example ===
+
+Request: {{{DELETE http://preview.flymine.org/preview/service/lists}}}
+Response: 
+{{{
+[ERROR] 500 Not authenticated.
+List Deletion Service
+=====================
+Delete a list
+Parameters:
+name: the name of the list to delete
+NOTE: All requests to this service must authenticate to a valid user account
+}}}
+
+Request: 
+{{{
+DELETE http://www.intermine.org/intermine-demo/service/lists/json?name=demo-diff
+Authorization: aW50ZXJtaW5lLXRlc3QtdXNlcjppbnRlcm1pbmUtdGVzdC11c2VyLXBhc3N3b3Jk
+User-Agent: lwp-request/5.834 libwww-perl/5.837
+}}}
+Response: 
+{{{
+#!js
+{
+   "listName":"demo-diff",
+   "unmatchedIdentifiers":[],
+   "wasSuccessful":true,
+   "error":null,
+   "statusCode":200
+}
+}}}
+
+== Path Values ==
+
+For a path it returns all the possible values that path 
+may hold in this release of the data warehouse.
+
+{{{
+#!html
+<table class="wiki">
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    resource path
+ </em></td>
+ <td><code> 
+    /path/values
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    No
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    JSON(P)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td>   
+<table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code> path  </code></td><td> The path whose values you would like </td></tr>
+   </table>
+</td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>callback</code></td><td>The function name to wrap the JSONP in</td></tr>
+     <tr><td><code>format</code></td><td>The output format (values: json(p), json(p)count)</td></tr>
+     <tr><td><code>typeConstraints</code></td><td>A json-object mapping constrained paths to subclassed types</td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+
+=== Example ===
+
+Request: {{{GET http://www.intermine.org/intermine-demo/service/path/values?path=Employee.end}}}
+Response: 
+{{{
+#!js
+{
+   "field":"end",
+   "count":11,
+   "path":"Employee.end",
+   "class":"Employee",
+   "type":"String",
+   "results":[
+      {
+         "count":15,
+         "value":"0"
+      },
+      {
+         "count":11,
+         "value":"1"
+      },
+      {
+         "count":11,
+         "value":"2"
+      },
+      {
+         "count":13,
+         "value":"3"
+      },
+      {
+         "count":15,
+         "value":"4"
+      },
+      {
+         "count":7,
+         "value":"5"
+      },
+      {
+         "count":12,
+         "value":"6"
+      },
+      {
+         "count":10,
+         "value":"7"
+      },
+      {
+         "count":3,
+         "value":"8"
+      },
+      {
+         "count":8,
+         "value":"9"
+      },
+      {
+         "count":27,
+         "value":null
+      }
+   ],
+   "executionTime":"2011.06.08 18:54::16",
+   "wasSuccessful":true,
+   "error":null,
+   "statusCode":200
+}
+}}}
+
+Request: {{{GET http://squirrel.flymine.org/intermine-test/service/path/values?path=Employee.end&format=jsoncount}}}
+Response: 
+{{{
+#!js
+{
+   "path":"Employee.end",
+   "count":11,
+   "wasSuccessful":true,
+   "error":null,
+   "statusCode":200
+}
+}}}
+== Region Services ==
+
+Groups of services that operate on regions. These services are 
+specifically bio-logical, and make explicit reference to certain 
+aspects of the biological data-model. 
+
+=== Query Format ===
+
+All region services share a common query format, which is a JSON object with the
+following structure:
+
+Properties:
+  * featureTypes: [String], required (the classes of the features to include from the regions)
+  * regions: [String], required (the regions to search within, in various formats)
+  * organism: String, required (the organism to search within - in short-name format)
+  * extension: Int, optional (how far, in base-pairs, to extend the regions on each side)
+  * isInterbase: Bool, optional (whether to treat the region as interbase co-ordinates)
+
+Example:
+{{{
+#!js
+
+{
+    "extension": 100,
+    "featureTypes": ["Gene", "Intron", "Exon"],
+    "regions": ["2L:14615455..14619002", "2R:5866646..5868384","3R:2578486..2580016"],
+    "isInterbase": false,
+    "organism": "D. melanogaster"
+}
+
+}}}
+
+The sub types of this group are:
+
+=== Region List Service ===
+
+Creates a list with all the features of the given types
+that overlap any of the given regions. The parameters for specifying
+a list name and description are the same as those of other 
+list services.
+
+{{{
+#!html
+<table class="wiki" style="border-collapse: collapse;">
+
+<tr>
+ <td style="background:#333;color:#eee;">
+    <em> 
+    resource path
+    </em>
+ </td>
+ <td><code> 
+    /regions/list 
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    Yes
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    JSON(P)**, Text*** (default: Text)
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td>   
+<table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code> name         </code></td><td> The name for this list                       </td></tr>
+     <tr><td><code> query         </code></td><td> A JSON object representing the region query - see above  </td></tr>
+   </table>
+</td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>callback</code></td><td>The function name to wrap the JSONP in</td></tr>
+     <tr><td><code>format</code></td><td>The output format (values: json(p), tab, default: tab)</td></tr>
+     <tr><td><code> tags         </code></td><td> A semi-colon delimited set of tags                       </td></tr>
+     <tr><td><code> description  </code></td><td> The description for this list                       </td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+
+==== Example ====
+
+Request: {{{ GET 'http://flymine.org/query/service/regions/list?query={%22extension%22:0,%22regions%22:[%222L\t14615455\t14619002%22,%222R\t5866646\t5868384%22,%223R\t2578486\t2580016%22],%22featureTypes%22:[%22Exon%22,%22Gene%22],%22organism%22:%22D.%20melanogaster%22}&name=region-list&token=4183K2dcDeQdF3m156y2u1IQBYK'}}}
+
+Response: 
+{{{
+{"listName":"region-list","listSize":25,"type":"SequenceFeature","invalidSpans":[
+
+],"wasSuccessful":true,"error":null,"statusCode":200}
+}}}
+
+=== Region Sequence Services ===
+
+Returns details of the feature in matching the specified region 
+query. The search mechanism is identical to that used by list services, but 
+rather than producing a list on the server, sequence based results are returned instead.
+
+The three formats of results that are supported are GFF3, FASTA and BED.
+
+{{{
+#!html
+<table class="wiki" style="border-collapse: collapse;">
+
+<tr>
+ <td style="background:#333;color:#eee;">
+    <em> 
+    resource path
+    </em>
+ </td>
+ <td><code> 
+    /regions/gff3, regions/bed, regions/fasta 
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    No
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    GFF3, BED, or FASTA, as appropriate
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td>   
+<table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code> query         </code></td><td> A JSON object representing the region query - see above  </td></tr>
+   </table>
+</td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;vertical-align:top;"><em> 
+    Optional parameters
+ </em></td>
+ <td>
+   <table class="wiki" style="width:100%">
+     <tr style="background:#333;color:#eee;"><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code>callback</code></td><td>The function name to wrap the JSONP in</td></tr>
+     <tr><td><code>format</code></td><td>The output format (values: json(p), tab, default: tab)</td></tr>
+   </table>
+ </td>
+</tr>
+
+</table>
+}}}
+
+==== Example ====
+
+Request: {{{ GET 'http://flymine.org/query/service/regions/bed?query={%22extension%22:0,%22regions%22:[%222L\t14615455\t14619002%22,%222R\t5866646\t5868384%22,%223R\t2578486\t2580016%22],%22featureTypes%22:[%22Exon%22,%22Gene%22],%22organism%22:%22D.%20melanogaster%22}' }}}
+
+Response: 
+{{{
+# UCSC BED format
+# Source: FlyMine
+# Genome Build: D. melanogaster unknown build
+track name=FlyMine_beta_Custom_Track description="FlyMine beta Custom Track" useScore=0
+chr2R   5866745 5867058 eve:1   0   +
+chr2R   5867129 5868284 eve:2   0   +
+chr2L   14615554    14615643    Adh:1   0   +
+chr2L   14616977    14617643    Adh:11  0   +
+chr2L   14618069    14618474    Adh:12  0   +
+chr2L   14618525    14618902    Adh:13  0   +
+chr2L   14616302    14616437    Adh:2   0   +
+chr2L   14616502    14616907    Adh:3   0   +
+chr2L   14616977    14617419    Adh:4   0   +
+chr2L   14616128    14616437    Adh:6   0   +
+chr2L   14616268    14616437    Adh:9   0   +
+chr2L   14615554    14615643    Adhr:1  0   +
+chr2L   14616302    14616437    Adhr:2  0   +
+chr2L   14616502    14616907    Adhr:3  0   +
+chr2L   14616977    14617643    Adhr:4  0   +
+chr2L   14618069    14618474    Adhr:5  0   +
+chr2L   14618525    14618902    Adhr:6  0   +
+chr2L   14616268    14616437    Adhr:7  0   +
+chr2L   14615554    14618902    Adh 0   +
+chr2L   14615554    14618902    Adhr    0   +
+chr2R   5866745 5868284 eve 0   +
+chr2L   14599775    14689325    osp 0   -
+chr3R   2578585 2579916 zen 0   -
+chr3R   2578585 2579719 zen:1   0   -
+chr3R   2579783 2579916 zen:2   0   -
+}}}
+
+=== Region DNA Sequence Export Services ===
+
+Returns the DNA sequences of regions provided in the request in FASTA format.
+
+{{{
+#!html
+<table class="wiki" style="border-collapse: collapse;">
+
+<tr>
+ <td style="background:#333;color:#eee;">
+    <em> 
+    resource path
+    </em>
+ </td>
+ <td><code> 
+    /regions/sequence 
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    HTTP method
+ </em></td>
+ <td><code> 
+    GET or POST
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    requires authentication
+ </em></td>
+ <td><code> 
+    No
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Output format
+ </em></td>
+ <td><code> 
+    FASTA
+  </code></td>
+</tr>
+
+<tr>
+ <td style="background:#333;color:#eee;"><em> 
+    Required Parameters
+ </em></td>
+ <td>   
+<table class="wiki" style="width:100%">
+     <tr><th>Parameter</th><th>Value</th></tr>
+     <tr><td><code> query         </code></td><td> A JSON object representing the region query - regions and organism are required  </td></tr>
+   </table>
+</td>
+</tr>
+
+</table>
+}}}
+
+==== Example ====
+
+Request: {{{ GET 'http://flymine.org/query/service/regions/sequence?query={%22regions%22:[%222L\t14615455\t14619002%22,%222R\t5866646\t5868384%22,%223R\t2578486\t2580016%22],%22organism%22:%22D.%20melanogaster%22}' }}}
+
+Response: 
+{{{
+>2L:14615455..14619002 3548bp D. melanogaster
+acacattatttgaacgccgctgctgctgcatccgtcgacgtcgactgcactcgcccccac
+gagagaacagtatttaaggagctgcgaaggtccaagtcatgcattattgtctcagtgcag
+ttgtcagttgcagttcagcagacgggctaacgagtacttgcatctcttcaaatttactta
+attgatcaagtaagtagcaaaagggcacacaattgaaggaaattcttgtttaattgaatt
+tattatgcaagtgcggaaataaaatgacagtattaaatagtaaatattttgtaaaatcat
+atataatcaaatttattcaatcagaactaattcaagctgtcacaagtagtgcgaactcaa
+ttaattggcatcgaattaaaatttggaggcctgttccgcatattcctcttggaaaatcac
+ctgttagttaacttctaaaaataggaattttaacataactcgtccctgttaatcggcgcc
+gtgccttcgttagctatctcaaaagcgagcgcgtgcagacgagcagtaattttccaagca
+tcaggcatataatatactaatactaatactaatactaatataagaatactaatatagaaa
+aagctttgccggtacaaaatcccaaacaaaaacaaaccgtgtgtgccgaaaaataaaaat
+aaaccataaactaggcagcgctgccgtcgccggctgagcagcctgcgtacatagccgaga
+tcgcgtaacggtagataatgaaaagctctacgtaaccgaagcttctgctgtacggatctt
+cctataaatacggggccgacacgaactggaaaccaacaactaacggagccctcttccaat
+tgaaacagatcgaaagagcctgctaaagcaaaaaagaagtcaccatgtcgtttactttga
+ccaacaagaacgtgattttcgttgccggtctgggaggcattggtctggacaccagcaagg
+agctgctcaagcgcgatctgaaggtaactatgcgatgcccacaggctccatgcagcgatg
+gaggttaatctcgtgtattcaatcctagaacctggtgatcctcgaccgcattgagaaccc
+ggctgccattgccgagctgaaggcaatcaatccaaaggtgaccgtcaccttctaccccta
+tgatgtgaccgtgcccattgccgagaccaccaagctgctgaagaccatcttcgcccagct
+gaagaccgtcgatgtcctgatcaacggagctggtatcctggacgatcaccagatcgagcg
+caccattgccgtcaactacactggcctggtcaacaccacgacggccattctggacttctg
+ggacaagcgcaagggcggtcccggtggtatcatctgcaacattggatccgtcactggatt
+caatgccatctaccaggtgcccgtctactccggcaccaaggccgccgtggtcaacttcac
+cagctccctggcggtaagttgatcaaaggaaacgcaaagttttcaagaaaaaacaaaact
+aatttgatttataacacctttagaaactggcccccattaccggcgtgacggcttacactg
+tgaaccccggcatcacccgcaccaccctggtgcacacgttcaactcctggttggatgttg
+agcctcaggttgccgagaagctcctggctcatcccacccagccctcgttggcctgcgccg
+agaacttcgtcaaggctatcgagctgaaccagaacggagccatctggaaactggacttgg
+gcaccctggaggccatccagtggaccaagcactgggactccggcatctaagaagtgatac
+tcccaaaaaaaaaaaaaaacataacattagttcatagggttctgcgaaccagaagatatt
+cacgcaaggcaataaggctgattcgatgcacactcacattcttctcctaatacgataata
+aaactttccatgaaaaatatggaaaaatatatgaaaattgagaaatccaaaaaactgata
+aacgctctacttaattaaaatagataaatgggagcggcaggaatggcggagcatggccaa
+gttcctccgccaatcagtcgtaaaacagaagtcgtggaaagcggatagaaagaatgttcg
+atttgacgggcaagcatgtctgctatgtggcggattgcggaggaattgcactggagacca
+gcaaggttctcatgaccaagaatatagcggtcagtgagcgggaagctcggtttctgtcca
+gatcgaactcaaaactagtccagccagtcgctgtcgaaactaattaagttaatgagtttt
+tcatgttagtttcgcgctgagcaacaattaagtttatgtttcagttcggcttagatttcg
+ctgaaggacttgccactttcaatcaatactttagaacaaaatcaaaactcattctaatag
+cttggtgttcatctttttttttaatgataagcattttgtcgtttatactttttatatttc
+gatattaaaccacctatgaagtctattttaatcgccagataagcaatatattgtgtaaat
+atttgtattctttatcaggaaattcagggagacggggaagttactatctactaaaagcca
+aacaatttcttacagttttactctctctactctagaaactggccattttacagagtacgg
+aaaatccccaggccatcgctcagttgcagtcgataaagccgagtacccaaatatttttct
+ggacctacgacgtgaccatggcaagggaagatatgaagaagtacttcgatgaggtgatgg
+tccaaatggactacatcgatgtcctgatcaatggtgctacgctgtgcgatgaaaataaca
+ttgatgccaccatcaatacaaatctaacgggaatgatgaacactgtggccacagtgttac
+cctatatggacagaaaaatgggaggaactggtgggctaattgtgaacgtcacttcggtca
+ttggattggacccttcgccggttttctgcgcatatagtgcatccaaattcggtgtaattg
+gatttaccagaagtctagcggtgagttgaatacgatcttatgcggataaattcataattt
+tttggtttcaggaccctctttactattcccaaaacggggtagctgtgatggcggtttgtt
+gtggtcctacaagggtctttgtggaccgggaactgaaagcgtttttggaatacggacaat
+cctttgccgatcgcctgcggcgagcgccctgccaatcgacatcggtttgtggtcagaata
+ttgtcaatgccatcgagagatcggagaatggtcagatatggattgcggataagggtggac
+tcgagttggtcaaattgcattggtactggcacatggccgaccagttcgtgcactatatgc
+agagcaatgatgaagaggatcaagattgaattcgaatcaaataaaataatgctttacgca
+aaaagtaggcaattcattttcctatgataatagatatttttttttttttttttttttttt
+ttttttttttttttgatgatgtttttattatttgatcaacgcactgttacccatgcggca
+acttaatt
+>2R:5866646..5868384 1739bp D. melanogaster
+ctcagcaccgagagcacagcagcgcatccactctcagcaccgcacgattagcaccgttcc
+gctcaggctgtcccgctcgcacctgcctgggtcgctgcgattggccgctcccagcgacgg
+cggccatttgcctgcagagcgcagcggtataaaagggcgcggggtggctgagagcagcac
+actcgagctgtgaccgccgcacagtcaacaactaactgccttcgttaatatcctctgaat
+aagccaactttgaatcacaagacgcataccaaacatgcacggataccgaacctacaacat
+ggagagccaccatgcccatcacgacgccagtcccgtggaccagaagcccctggttgtgga
+cctcttggccacccagtacggcaagccccagacaccgcctccctcgccaaatggtaagtt
+taaagataaagccgagcaaacgtgacgagttacttacacccaatctttcctctgtccaaa
+acagaatgcctatccagtccggataactccttgaacggcagccgcggctcggagattccc
+gccgacccgtcggtacgccgctatcgcaccgccttcacccgtgaccagctgggtcgcttg
+gagaaggagttctacaaggagaactacgtgtcccgtccccgtcgctgcgaactggccgcc
+cagctgaacctcccggagagcacgatcaaggtgtggttccagaaccgccgcatgaaggac
+aagcgtcagaggatcgccgtcgcctggccctacgcagccgtctactccgatcccgccttc
+gccgcctccatcctccaggccgccgccaacagcgtgggcatgccctatccgccctacgcc
+cccgctgctgccgccgctgctgccgccgccgctgccgtggccaccaatccgatgatggcc
+accggaatgcccccgatgggcatgccccagatgcccacaatgcagatgcccggacactcg
+ggacatgccggccatccatcgccctacggacagtaccgctacacgccctaccacatcccc
+gcccgcccggcgccgccacatcccgctggtcctcatatgcatcatccgcacatgatggga
+tccagcgcaacgggatcgtcgtactccgccggtgccgccggccttttgggcgctctgccc
+tccgccacctgctataccggactgggtgtgggtgtgcccaagacccagacgccgccgctg
+gatctgcagtcgtcgtcatcgccgcactcctccacgctgtcgctctcgccagtgggatcc
+gatcacgccaaggtgttcgaccgcagtccagtggctcaatccgctccatcagttcctgct
+cccgctccactgaccaccaccagcccgctgcccgctccaggcctcctgatgcccagtgcc
+aagcggcctgcctccgacatgtcgccgccgccgacgacaactgtgattgcggagcccaag
+ccgaagctcttcaagccctacaagactgaggcgtaagcccgcgatccacacacactctct
+cccccccccccatgctcccccaaaagattgtacaaactagtcttagtcagcctcatctat
+ttattcccgaagattgtacagattgtagagtagctaattgtagtcataattaaggcgcaa
+aatcaaattaagaaataaatgcgaaaataacattgaaaattatacgacacacactgttta
+tttgaactacctggtacctggtattatctacatatatatcaacatatattcatatacct
+>3R:2578486..2580016 1531bp D. melanogaster
+atcgatcgaataattattttaaagtgaagaaaatatcattttgtattatttgaattttag
+tttattaactatggttgcaatacagaggcatattttaatatatctattaaaaaaatggtt
+aaacttcacgataatttaagaatattcatggcttttgtcactgagttcggttagaatttt
+tcgtccaagggccagagacggttgcttagctccaacaaaaatttatagtaaaacttagta
+taacttttttaactcaaaattagttgggataattgtaggaggttacgcacgggttcatgt
+gattaacgctcagctttctcgacttggcagcaggctcgccccacgacagattcatcgagg
+gagccgcatgcacgctcgtggggacctgactttgggaactgggatgccaggattgagtgg
+ccaggataggcgcggatttagacttggaccaagcctgggccgctgcctccaaatcctgct
+tgatgctctgcagaaccaaatccacgttgtaggaatagtggcccgaagaggagctagaag
+ccgagttggtagatgttcctgtgctagatgtggcagtgctgacctgtggtgcagctgtag
+tttgagccagatgctccaagatctcgctgaggtcggcgctggagcacatgccgttgttgg
+ttgatgcttcggtcttcattttctggctggcttgatagtctggctttggattcacaggag
+ccactgccatcataggacgcttttctgctgccgctgtgccctccctgggatcctgggagt
+aggacatgaggcgcttcactatgcctcggtgggcactctgctcagcctggggttgagcca
+acttggcgttggacttgggctcgcggtgaccttgtatgtccttcttgaacttcattcgtc
+ggttctggaaccagatcttcacctggcgttcgcacagggacaagcgctgagcaatctcaa
+tcctgcgcgtcctgtacaagtacatgttgctcttgaactcgttctcaagttccaccagtt
+ggacactggtgaaggcagtccgtgatcgcttaagcttcaccctctgcgagtcgtggttgg
+gctgagatggcagattctcgtccgatgacacatgctgctgatgcacatgctgcggggagc
+agtgatcgttgagggtggtggggttggagttcatctgattgtagttgggaggcagaccga
+tggggttaacatcgtgatgatgaccatagatcaactgaaagcgggtaaacaactaattag
+tttattgctgatattcgatttttgatctgagtactcacatcactgtatttaacctcggaa
+ggatctgctgaataggagccgactttagcctggtgaactggatagtagtgcatgacggat
+gacatattttttctggtactgccgagtgagctgtcaaaagtggaatgatctgtcgtccta
+agcaaacatcatgcttatataggagggcttgtaggtagacgacataacaggtcaattccg
+ccgacgcatcgttgcgaaaaaatttgcctaa
+}}}
+
+= Result Set Formats =
+
+For result sets (provided by query and template results), the following formatting 
+options are valid:
+
+ tab::
+  The default format. Results will be returned as rows of tab ("\t") separated values. 
+  Many command-line programmes handle tab separated value data natively.
+  This format is good for loading into desktop spreadsheet applications. 
+  See also 'columnheaders' in 'Dependent Parameters'
+ csv::
+  An alternative flat-file format. Results will be returned as as rows of comma (",")
+  separated values. Any values that include commas will be properly escaped with 
+  quotation marks ('"'). This is the closest format to a native Excel format.
+  This format is good for loading into desktop spreadsheet applications. 
+  See also 'columnheaders' in 'Dependent Parameters'
+ count::
+  Just returns the number of results this query would return if run (each row counts as one result). 
+  This can also be requested as "json(p)count", in which case the value is returned in a 
+  structure conforming the this schema: [http://www.intermine.org/lib/jsoncount.schema]
+ xml::
+  Returns an XML representation of the result set requested. This is a 
+  good format for data safety, as all values can be parsed out, even if they
+  contain new-lines, tabs, commas, or other difficult characters. The schema for the
+  XML document structure is available here: [http://www.intermine.org/lib/resultset.xsd]
+ html::
+  Returns an html document suitable for embedding in an iframe on a page. This feature
+  can be used to embed tables of results from an InterMine query in a webpage. 
+  See also 'layout' in 'Dependent Parameters'
+ json(p)rows::
+  Returns a JSON document with the results in rows. This result format also contains 
+  an amount of metadata about the query that was run. The schema for this format is available here:
+  [http://www.intermine.org/lib/jsonrows.schema]. 
+ json(p)objects::
+  Returns a JSON document with an array of objects representing the records returned by
+  the query. The schema for this depends on the output columns selected. See JSONObjectFormat
+
+== Format Examples ==
+
+All examples here are for the following query, with the string {FORMAT} replaced by the above values:
+
+{{{
+http://preview.flymine.org/preview/service/template/results?name=Pathway_Genes&constraint1=Pathway.name&op1=eq&value1=Pentose+phosphate+pathway&constraint2=Pathway.genes.organism.name&op2=eq&value2=Drosophila+melanogaster&constraint3=Pathway.dataSets.name&op3=eq&value3=KEGG+pathways+data+set&size=10&format={FORMAT}
+}}}
+
+ * '''tab'''
+   {{{
+00030	Pentose phosphate pathway	FBgn0000064	Ald
+00030	Pentose phosphate pathway	FBgn0003071	Pfk
+00030	Pentose phosphate pathway	FBgn0003074	Pgi
+00030	Pentose phosphate pathway	FBgn0003076	Pgm
+00030	Pentose phosphate pathway	FBgn0004057	Zw
+00030	Pentose phosphate pathway	FBgn0004654	Pgd
+00030	Pentose phosphate pathway	FBgn0023477	Tal
+00030	Pentose phosphate pathway	FBgn0025640	CG13369
+00030	Pentose phosphate pathway	FBgn0030239	CG17333
+00030	Pentose phosphate pathway	FBgn0030586	CG12539
+}}}
+ * "csv"
+   {{{
+"00030","Pentose phosphate pathway","FBgn0000064","Ald"
+"00030","Pentose phosphate pathway","FBgn0003071","Pfk"
+"00030","Pentose phosphate pathway","FBgn0003074","Pgi"
+"00030","Pentose phosphate pathway","FBgn0003076","Pgm"
+"00030","Pentose phosphate pathway","FBgn0004057","Zw"
+"00030","Pentose phosphate pathway","FBgn0004654","Pgd"
+"00030","Pentose phosphate pathway","FBgn0023477","Tal"
+"00030","Pentose phosphate pathway","FBgn0025640","CG13369"
+"00030","Pentose phosphate pathway","FBgn0030239","CG17333"
+"00030","Pentose phosphate pathway","FBgn0030586","CG12539"
+}}}
+ * '''count'''
+   {{{
+22
+}}}
+   (Note that the size parameter is ignored for count requests)
+ * '''jsoncount'''
+   {{{
+#!js
+{
+  "count": 22,
+  "wasSuccessful": true,
+  "error": null,
+  "statusCode": 200
+}
+}}}
+   This format is descibed by a schema named "jsoncount.schema". See "Schemata"
+ * '''xml'''
+{{{
+#!xml
+<?xml version="1.0" encoding="UTF-8"?><ResultSet >
+<Result><i>00030</i><i>Pentose phosphate pathway</i><i>FBgn0000064</i><i>Ald</i></Result>
+<Result><i>00030</i><i>Pentose phosphate pathway</i><i>FBgn0003071</i><i>Pfk</i></Result>
+<Result><i>00030</i><i>Pentose phosphate pathway</i><i>FBgn0003074</i><i>Pgi</i></Result>
+<Result><i>00030</i><i>Pentose phosphate pathway</i><i>FBgn0003076</i><i>Pgm</i></Result>
+<Result><i>00030</i><i>Pentose phosphate pathway</i><i>FBgn0004057</i><i>Zw</i></Result>
+<Result><i>00030</i><i>Pentose phosphate pathway</i><i>FBgn0004654</i><i>Pgd</i></Result>
+<Result><i>00030</i><i>Pentose phosphate pathway</i><i>FBgn0023477</i><i>Tal</i></Result>
+<Result><i>00030</i><i>Pentose phosphate pathway</i><i>FBgn0025640</i><i>CG13369</i></Result>
+<Result><i>00030</i><i>Pentose phosphate pathway</i><i>FBgn0030239</i><i>CG17333</i></Result>
+<Result><i>00030</i><i>Pentose phosphate pathway</i><i>FBgn0030586</i><i>CG12539</i></Result>
+</ResultSet>
+}}}
+ * '''jsonrows'''
+   {{{
+#!js
+{"rootClass":"Pathway","modelName":"genomic","start":0,"views":["Pathway.identifier","Pathway.name","Pathway.genes.primaryIdentifier","Pathway.genes.symbol"],"results":[
+[{"id":293000113,"value":"00030","class":"Pathway","url":"/report.do?id=293000113"},{"id":293000113,"value":"Pentose phosphate pathway","class":"Pathway","url":"/report.do?id=293000113"},{"id":265088720,"value":"FBgn0000064","class":"Gene","url":"/report.do?id=265088720"},{"id":265088720,"value":"Ald","class":"Gene","url":"/report.do?id=265088720"}],
+[{"id":293000113,"value":"00030","class":"Pathway","url":"/report.do?id=293000113"},{"id":293000113,"value":"Pentose phosphate pathway","class":"Pathway","url":"/report.do?id=293000113"},{"id":265142849,"value":"FBgn0003071","class":"Gene","url":"/report.do?id=265142849"},{"id":265142849,"value":"Pfk","class":"Gene","url":"/report.do?id=265142849"}],
+[{"id":293000113,"value":"00030","class":"Pathway","url":"/report.do?id=293000113"},{"id":293000113,"value":"Pentose phosphate pathway","class":"Pathway","url":"/report.do?id=293000113"},{"id":265170262,"value":"FBgn0003074","class":"Gene","url":"/report.do?id=265170262"},{"id":265170262,"value":"Pgi","class":"Gene","url":"/report.do?id=265170262"}],
+[{"id":293000113,"value":"00030","class":"Pathway","url":"/report.do?id=293000113"},{"id":293000113,"value":"Pentose phosphate pathway","class":"Pathway","url":"/report.do?id=293000113"},{"id":265118349,"value":"FBgn0003076","class":"Gene","url":"/report.do?id=265118349"},{"id":265118349,"value":"Pgm","class":"Gene","url":"/report.do?id=265118349"}],
+[{"id":293000113,"value":"00030","class":"Pathway","url":"/report.do?id=293000113"},{"id":293000113,"value":"Pentose phosphate pathway","class":"Pathway","url":"/report.do?id=293000113"},{"id":265078402,"value":"FBgn0004057","class":"Gene","url":"/report.do?id=265078402"},{"id":265078402,"value":"Zw","class":"Gene","url":"/report.do?id=265078402"}],
+[{"id":293000113,"value":"00030","class":"Pathway","url":"/report.do?id=293000113"},{"id":293000113,"value":"Pentose phosphate pathway","class":"Pathway","url":"/report.do?id=293000113"},{"id":265112445,"value":"FBgn0004654","class":"Gene","url":"/report.do?id=265112445"},{"id":265112445,"value":"Pgd","class":"Gene","url":"/report.do?id=265112445"}],
+[{"id":293000113,"value":"00030","class":"Pathway","url":"/report.do?id=293000113"},{"id":293000113,"value":"Pentose phosphate pathway","class":"Pathway","url":"/report.do?id=293000113"},{"id":265207201,"value":"FBgn0023477","class":"Gene","url":"/report.do?id=265207201"},{"id":265207201,"value":"Tal","class":"Gene","url":"/report.do?id=265207201"}],
+[{"id":293000113,"value":"00030","class":"Pathway","url":"/report.do?id=293000113"},{"id":293000113,"value":"Pentose phosphate pathway","class":"Pathway","url":"/report.do?id=293000113"},{"id":265221674,"value":"FBgn0025640","class":"Gene","url":"/report.do?id=265221674"},{"id":265221674,"value":"CG13369","class":"Gene","url":"/report.do?id=265221674"}],
+[{"id":293000113,"value":"00030","class":"Pathway","url":"/report.do?id=293000113"},{"id":293000113,"value":"Pentose phosphate pathway","class":"Pathway","url":"/report.do?id=293000113"},{"id":265225741,"value":"FBgn0030239","class":"Gene","url":"/report.do?id=265225741"},{"id":265225741,"value":"CG17333","class":"Gene","url":"/report.do?id=265225741"}],
+[{"id":293000113,"value":"00030","class":"Pathway","url":"/report.do?id=293000113"},{"id":293000113,"value":"Pentose phosphate pathway","class":"Pathway","url":"/report.do?id=293000113"},{"id":265706468,"value":"FBgn0030586","class":"Gene","url":"/report.do?id=265706468"},{"id":265706468,"value":"CG12539","class":"Gene","url":"/report.do?id=265706468"}]
+],"executionTime":"2011.06.07 16:46::52","wasSuccessful":true,"error":null,"statusCode":200}
+}}}
+   This format is described by a schema called "resultset.schema". See "Schemata"
+ * '''jsonobjects'''
+   {{{
+#!js
+{
+  "rootClass": "Pathway",
+  "modelName": "genomic",
+  "start": 0,
+  "views": [ "Pathway.identifier", "Pathway.name", "Pathway.genes.primaryIdentifier", "Pathway.genes.symbol" ],
+  "results": [
+    { 
+      "objectId": 293000113, 
+      "genes": [ 
+        { "primaryIdentifier": "FBgn0000064", "symbol": "Ald", "objectId": 265088720, "class": "Gene" }, 
+        { "primaryIdentifier": "FBgn0003071", "symbol": "Pfk", "objectId": 265142849, "class": "Gene" }, 
+        { "primaryIdentifier": "FBgn0003074", "symbol": "Pgi", "objectId": 265170262, "class": "Gene"}, 
+        { "primaryIdentifier": "FBgn0003076", "symbol": "Pgm","objectId": 265118349, "class": "Gene" }, 
+        { "primaryIdentifier": "FBgn0004057", "symbol": "Zw", "objectId" : 265078402, "class": "Gene" }, 
+        { "primaryIdentifier": "FBgn0004654", "symbol": "Pgd", "objectId": 265112445, "class": "Gene" }, 
+        { "primaryIdentifier": "FBgn0023477", "symbol": "Tal", "objectId": 265207201, "class": "Gene" }, 
+        { "primaryIdentifier": "FBgn0025640", "symbol": "CG13369", "objectId": 265221674, "class": "Gene" }, 
+        { "primaryIdentifier": "FBgn0030239", "symbol": "CG17333", "objectId": 265225741, "class": "Gene" }, 
+        { "primaryIdentifier": "FBgn0030586", "symbol": "CG12539", "objectId": 265706468, "class": "Gene" } 
+      ], 
+      "name": "Pentose phosphate pathway", 
+      "class": "Pathway", 
+      "identifier": "00030" 
+    }
+  ], 
+  "executionTime": "2011.06.07 16:48::44", 
+  "wasSuccessful": true, 
+  "error": null, 
+  "statusCode": 200
+}
+}}}
+   The schema for this format is entirely determined by the output columns selected. Since this template has "Pathway.genes.primaryIdentifier", there is an array of genes on a pathway object, where each gene has a primaryIdentidier property. The structure for these objects can be calculated using the given view columns and the model, which describes the possible relationships between objects throughout the datamodel.
+
+== Dependent Parameters ==
+
+The following parameters only make sense when used with specific result formats.
+
+=== For Flat-File results (TSV/CSV) ===
+
+ '''columnheaders'''::
+   Specifify whether or not to put column headings on the result output 
+   
+{{{
+#!html
+<table class="wiki" style="padding:3px;">
+<tr style="background:#333;color:#eee;">
+ <th><em>Parameter Value</em></th>
+ <th><em>Meaning       </em></th>
+</tr>
+<tbody>
+<tr>
+<td><code>[ ABSENT ]</code></td><td>Do not include any column headers (default)</td>
+</tr>
+<tr>
+<td><code>0 or false or FALSE or False</code></td><td>Do not include any column headers</td>
+</tr>
+<tr>
+<td><code>1 or true or TRUE or True or Friendly</code></td><td>Include 'friendly' column headers</td>
+</tr>
+<tr>
+<td><code>path or PATH or Path</code></td><td>Include path strings as column headers</td>
+</tr>
+</table>
+}}}
+   
+   Examples of headers::
+     friendly::
+       {{{
+Pathway > identifier	Pathway > name	Gene > primaryIdentifier	Gene > symbol
+00030	Pentose phosphate pathway	FBgn0000064	Ald
+00030	Pentose phosphate pathway	FBgn0003071	Pfk
+...
+}}}
+     path::
+       {{{
+Pathway.identifier	Pathway.name	Pathway.genes.primaryIdentifier	Pathway.genes.symbol
+00030	Pentose phosphate pathway	FBgn0000064	Ald
+00030	Pentose phosphate pathway	FBgn0003071	Pfk
+...
+}}}
+       
+
+=== For HTML results ===
+
+ '''layout'''::
+   ''values''::
+     string
+   ''description''::
+    Specifies the layout of the results when requested in an html table using the html parameter. 
+    It is composed of options separated by the pipe(vertical bar) character "|". Each option
+    specifies an optional element to include. The elements are:
+    
+{{{
+#!html
+<table class="wiki" style="padding:3px;">
+<tr style="background:#333;color:#eee;">
+ <th><em>Layout Element</em></th>
+ <th><em>Meaning       </em></th>
+</tr>
+<tbody>
+<tr>
+ <td><code>title</code></td><td>Include a table title</td>
+</tr>
+<tr>
+ <td><code>description</code></td><td>Include a table description</td>
+</tr>
+<tr>
+<td><code>mineresults</code></td><td>Include a link to the results page for this result set in the corresponding mine</td>
+</tr>
+<tr>
+<td><code>paging</code></td><td>Include links for paging through the results (forward and back)</td>
+</tr>
+<tr>
+<td><code>newwindow</code></td><td>Include a link for opening in a new window</td>
+</tr>
+<tr>
+<td><code>mine</code></td><td>Include a link to the website providing the service</td>
+</tr>
+</table>
+}}}
+    example: {{{layout=title|description|mine}}}
+
+Some examples:
+{{{
+ ...&size=10&start=50&format=csv&columnheaders=1
+ ...&format=jsonpobjects&callback=processdata
+ ...&size=15&format=html&layout=title|mineresults|description
+}}}
+
+== 1.6 Output format ==
+The web service can return data in tab-separated values format, JSON (as [wiki:JSONRowFormat table rows] and [wiki:JSONObjectFormat nested object based records]), XML format or simple HTML format. The XML format is intuitive, see example:
+{{{
+<?xml version="1.0" encoding="UTF-8"?>
+<ResultSet firstResultPosition="1">
+  <Result><i>(6-4)-photolyase</i><i>Drosophila melanogaster</i><i>2442</i></Result>
+  <Result><i>(A+T)-stretch binding protein</i><i>Drosophila melanogaster</i><i>2310</i></Result>
+</ResultSet>
+}}}
+
+== 1.7 Error Messages ==
+If there is a problem serving your request, you'll receive a response with an HTTP error code and an error response. Following is a list of the HTTP error codes you may encounter:
+
+|| '''Code''' ||	'''Description''' ||
+|| 400 || 	Bad request. The parameters passed to the service did not match as expected. The message should tell you what was missing or incorrect. ||
+|| 403 ||	Forbidden. You do not have permission to access this resource.||
+|| 500 ||	Service internal error. An internal problem prevented us from returning data to you.||
+|| 503 || 	Service unavailable. An internal problem prevented us from returning data to you. ||
+
+Each output format will also include an error message in a format appropriate to it:
+
+'''XML Error example'''
+{{{
+#!xml
+<ResultSet>
+  <Result><i>field1</i><i>field</i></Result>
+  ...
+  <error>
+    <message>400 Bad request. There was a problem with your request parameters:</message>
+    <cause>invalid query parameter (empty or missing)</cause>
+  </error>
+</ResultSet>
+}}}
+
+'''TSV/CSV Error exampe'''
+{{{
+"field1","field2"
+....
+[ERROR] 400 Bad request. There was a problem with your request parameters:
+[ERROR] invalid query parameter (empty or missing)
+}}}
+
+'''JSON error example'''
+{{{
+#!js
+{
+   "results": [...],
+   "wasSuccessful": false,
+   "error": "invalid query parameter (empty or missing)",
+   "statusCode": 400
+}
+}}}  
+
+'''Some errors can happen during execution of the service, so always check that there isn't any error message at the end of the !ResultSet, because the data can be incomplete.'''
+
+For JSON result sets, the error status can be checked thus in !JavaScript:
+
+{{{
+#!js
+if (resultSet.wasSuccessful) {
+  // do something...
+} else {
+  var error = resultSet.error;
+  // handle error
+}
+}}}
+
+If you are handling flat files, you can check for errors thus in Perl for example:
+
+{{{
+#!perl
+my @rows = get_rows_of_data();
+while (my $row = shift @rows) {
+    die "Request failed: $row", shift(@rows) if ($row =~ /^\[ERROR\]/);
+    # handle row
+}
+}}}
+
+== 1.8 Post ==
+Using POST is very similar to using GET. The query parameters are passed in the POST data block. They still take the form argument=value and are properly url encoded. Multiple parameters are separated by an ampersand. If you are sending a request from the browser, you will need to create a form with the parameters and set the method to POST. 
+
+== 1.9 How to find a version of the web service you are connecting to ==
+Go with your browser to the following address: http://SERVER/PATH/service/version (eg: http://www.flymine.org/query/service/version). On this page you can find the version of the web services provided by the server. If browser displays message that the page with that address doesn't exist then the version number is 0 or web services are not implemented. The current web service version for the latest feature set is 3. 
+
+== 1.10 Disabling the web service ==
+This concerns only users that install their own InterMine web application. Web service can be disabled by inserting 'webservice.disabled=true' into the build.properties.your_intermine file of your installation. By default, web service is enabled.
+
+'''Final notice:''' InterMine web service was inspired by [http://developer.yahoo.com/search/web/V1/webSearch.html Yahoo Web Search Service]
+
+= 2 Services overview =
+
+== 2.1 Query web service ==
+
+This page describes the InterMine query web service. With this service you can include query results in your web site or automatically generate links and download data with a script. Results can be obtained in various formats. For general information about InterMine web services see WebService. 
+
+=== 2.1.1 Quick HOW TO ===
+
+'''Example link:''' http://www.flymine.org/query/service/query/results?query=%3Cquery%20model=%22genomic%22%20view=%22Gene.name%20Gene.organism.name%20Gene.length%22%20sortOrder=%22Gene.name%20asc%22%3E%3Cnode%20path=%22Gene%22%20type=%22Gene%22%3E%3C/node%3E%3C/query%3E
+There is only one parameter - query, containing a query as an xml string. The string must be [WebService#url-encoding URL encoded].
+The query xml format is described on the QueryXmlFormat page.
+
+'''Parameter description''' 
+|| '''Parameter''' || '''Value''' || '''Description''' || 
+|| query || xml string || This is the most important parameter and it is always required. It specifies what data you want to get and constraints on the data. So you can precisely select the data you want to get. You can construct the query or use an exported query from InterMine (FlyMine) || 
+Other parameters: start, size, format. For more information see [WebService#parameter-description Parameters description].
+
+== 2.2 Template web service ==
+
+This page describes the InterMine template web service 1.0 and how to construct links to get the results of a particular template. Please click [http://intermine.org/wiki/WebService#version here] for help how to find a version number of the InterMine server you want to connect to. If you are connecting to the server with web services version 0, then please follow this [http://intermine.org/wiki/TemplateWebService0 documentation]. With this service you can include template results in your web site or automatically generate links and download data with a script. Results can be obtained in various formats. For general information about InterMine web services see WebService. 
+
+=== 2.2.1 Quick HOW TO ===
+
+1.Simple template:[[BR]]
+'''Example link:''' http://www.flymine.org/query/service/template/results?name=AllGene_Chromosome&constraint1=Gene.organism.name&op1=eq&value1=Drosophila+melanogaster&extra1=&format=html&size=10
+In this replace !AllGene_Chromosome with name of your template, Drosophila+melanogaster replace with required organism name and eq replace with abbreviation of your operation.
+If you want to get 50 results replace 10 by 50.
+
+2.Template with lookup: [[BR]]
+'''Example link:''' http://www.flymine.org/query/service/template/results?name=Gene_ExonLocation2&constraint1=Gene&op1=LOOKUP&value1=CG1046&extra1=&size=10&format=html
+In this case operation LOOKUP means that CG1046 will be searched for in gene identifiers, gene synonyms, secondary identifiers and so on. It solves problems with gene identifier ambiquity. So replace CG1046 with your gene identifier.
+
+=== 2.2.2 Important notices ===
+ * '+' is an encoded space character, eg 'Drosophila+melanogaster'. Some special characters in URL must be [http://en.wikipedia.org/wiki/Query_string encoded].
+ * !InterMine can generate the link for you. Go to a template page and click on the 'Embed' link at the bottom of the form.
+
+=== 2.2.3 Detailed parameter description ===
+|| '''Parameter''' || '''Value''' || '''Description''' ||
+|| name || string || Template name. ||
+|| constraint1 || string || Constraint path.  It is used as a identifier to determine constraint corresponding this path in template and initialize this constraint with operation specified in 'op1' parameter and with value specified in 'value1' parameter. When there are more constraints for the same path, then you must provide additional 'code' parameter.||
+|| code1 || string || Code of constraint. Required only if there are more constraints on the same path. ||
+|| op1  || string || URL encoded operation of constraint. Required. Following table shows permitted operations. 
+|| value1 || string || URL encoded value of constraint. Required. ||
+|| extra1 || string || URL encoded extra value. Used and required when the constraint is LOOKUP. It searches for the identifier provided in the value1 parameter in all identifier fields like synonym, primary identifier, secondary identifier and restricts results to the organism specified in the extra1 parameter. ||
+Other parameters: start, size, tcount, format. For the description see [WebService#parameter-description Parameters description]
+
+If the template has more constraints there will be more parameters like op2 and value2, and all the parameters are required. 
+
+=== 2.2.4 Operations ===
+|| '''Operation''' || '''Encoded operation''' || '''Abbreviation''' ||
+|| = || %3D || eq || 
+|| != || %21%3D || ne ||
+|| < || %3C || lt ||
+|| <= || %3C%3D || le ||
+|| > || %3E || gt ||
+|| >= || %3E%3D || ge ||
+Encoded operation or corresponding abbreviation can be used in URL.
+
+== 2.3 List Web Service ==
+
+This page describes the InterMine lists web service and how to construct links to get all lists containing specified object. For general information about InterMine web services see WebService. 
+
+=== 2.3.1 Quick HOW TO ===
+
+'''Example link:''' http://www.flymine.org/query/service/listswithobject?publicId=FBgn0000606&type=Gene
+This link returns all '''public''' lists with object of type Gene with id FBgn0000606.
+
+=== 2.3.2 Detailed parameter description ===
+|| '''Parameter''' || '''Value''' || '''Description''' ||
+|| publicId || string, required || Id of object. ||
+|| type     || string, required || Type of object. ||
+
+== 2.4 Version Web Service ==
+
+Allows you to fetch the release number of a Mine via the web service, for example http://www.flymine.org/query/service/version/release will fetch the !FlyMine release number.
+
+The URL takes the form '''BASE_URL'''`/service/version/release`
+
+[forum:1 Discuss this page]
