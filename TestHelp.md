@@ -10,7 +10,8 @@ domains of biological knowledge.
 See a List of all the data sources from the toolbar on any metabolicMine
 page:
 
-![[Quick Search]][]
+![there](here)
+![Quick Search]()
 
 The metabolicMine user interface is designed to go beyond simply looking
 up an identifier and viewing a report page. This quick tour will
