@@ -11,7 +11,7 @@ See a List of all the data sources from the toolbar on any metabolicMine
 page:
 
 ![there](here)
-![Quick Search]()
+![Quick Search](there)
 
 The metabolicMine user interface is designed to go beyond simply looking
 up an identifier and viewing a report page. This quick tour will
