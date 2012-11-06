@@ -2,18 +2,46 @@
 
 ## Common targets
 
-||clean||||
-||clean-all||clean this project and all dependencies||
-||compile||||
-||jar || produce jar/war||
-||generate || create generated code||
-||action || do the action for this project, if any
-||javadoc||build javadoc to build/javadoc||
+<table>
+<tr>
+<td>clean</td>
+<td></td>
+</tr>
+<tr>
+<td>clean-all</td>
+<td>clean this project and all dependencies</td>
+</tr>
+
+<tr>
+<td>compile</td>
+<td></td>
+</tr>
+
+<tr>
+<td>jar</td>
+<td>produce jar/war</td>
+</tr>
+
+<tr>
+<td>generate</td>
+<td>create generated code</td>
+</tr>
+
+<tr>
+<td>action</td>
+<td>do the action for this project, if any</td>
+</tr>
+
+<tr>
+<td>javadoc</td>
+<td>build javadoc to build/javadoc</td>
+</tr>
+
 
 ## Test project targets
 
 ||default||will produce a jar *and* run tests||
-||test||||
+| test | | | |
 ||test-all||test all dependencies as well as this project||
 
 To run a single test class:
