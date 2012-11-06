@@ -36,7 +36,7 @@
 <td>javadoc</td>
 <td>build javadoc to build/javadoc</td>
 </tr>
-
+</table>
 
 ## Test project targets
 
