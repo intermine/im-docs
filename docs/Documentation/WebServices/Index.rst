@@ -4,9 +4,9 @@ Web services
 .. toctree::
    :maxdepth: 2
    
-   general
-   java
-   perl
-   python
-   ruby
-   javascript
+   General
+   Java
+   Perl
+   Python
+   Ruby
+   JavaScript

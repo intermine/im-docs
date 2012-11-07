@@ -11,10 +11,10 @@ Contents
 .. toctree::
     :maxdepth: 4
 
-    get-started/index
-    documentation/index
-    support/index
-    about/index
+    GetStarted/Index
+    Documentation/Index
+    Support/Index
+    About/Index
 
 reStructured Text
 -----------------
@@ -22,4 +22,4 @@ reStructured Text
 .. toctree::
     :maxdepth: 2
 
-    rst
+    RST
