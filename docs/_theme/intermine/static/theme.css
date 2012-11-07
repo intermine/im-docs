@@ -1,6 +1,16 @@
 @import url("basic.css");
-@import url("http://fonts.googleapis.com/css?family=Droid+Sans:400,800");
-@import url("http://fonts.googleapis.com/css?family=Source+Code+Pro:400");
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Droid Sans'), local('DroidSans'), url("DroidSans.woff") format('woff');
+}
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Code Pro'), local('SourceCodePro'), url("SourceCodePro.woff") format('woff');
+}
 html {
   background: url("pattern-2.jpg") repeat 0 0;
 }
