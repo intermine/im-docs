@@ -1,5 +1,5 @@
 Web services
-========
+============
 
 .. toctree::
    :maxdepth: 2

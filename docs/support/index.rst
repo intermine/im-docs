@@ -1,5 +1,5 @@
 Support
-========
+=======
 
 .. toctree::
    :maxdepth: 2

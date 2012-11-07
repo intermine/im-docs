@@ -1,8 +1,8 @@
 Syntax
-===================
+======
 
 Enumerated lists
---------
+----------------
 
 3. This is the first item 
 4. This is the second item 
@@ -11,7 +11,7 @@ Enumerated lists
 #. This item is auto-enumerated
 
 Definition lists
---------
+----------------
 
 what 
     Definition lists associate a term with a definition. 
@@ -20,7 +20,7 @@ how
     The term is a one-line phrase, and the definition is one or more paragraphs or body elements, indented relative to the term. Blank lines are not allowed between term and definition.
 
 Source Code
---------
+-----------
 
 This is a normal text paragraph. The next paragraph is a code sample
 
