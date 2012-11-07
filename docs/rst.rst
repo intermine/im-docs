@@ -46,6 +46,6 @@ This is a normal text paragraph again followed by some CoffeeScript.
 
     # Type here! 
     Scope::find = (name, options) ->
-        return true  if @check(name, options)
+        return true if @check(name, options)
         @add name, "var"
         false
