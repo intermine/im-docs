@@ -1,5 +1,5 @@
-InterMine documentation
-=======================
+InterMine documentation (latest)
+================================
 
 InterMine is an open source data warehouse build specifically for the integration and analysis of complex biological data.
 
