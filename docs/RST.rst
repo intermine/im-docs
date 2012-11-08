@@ -10,6 +10,9 @@ Enumerated lists
 6. List items should be sequentially numbered, but need not start at 1 (although not all formatters will honour the first index). 
 #. This item is auto-enumerated
 
+Subtitles
+~~~~~~~~~
+
 Definition lists
 ----------------
 

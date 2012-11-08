@@ -27,6 +27,32 @@ body {
 a em {
   font-style: normal;
 }
+form input {
+  border: 1px solid #e0dddd !important;
+  font-size: 12px !important;
+  padding: 4px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+form input[type="text"] {
+  width: 150px !important;
+}
+form input[type="submit"] {
+  background: #f9f9f9;
+  background: -moz-linear-gradient(top, #f9f9f9 0%, #f6f6f6 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f9f9f9), color-stop(100%, #f6f6f6));
+  background: -webkit-linear-gradient(top, #f9f9f9 0%, #f6f6f6 100%);
+  background: -o-linear-gradient(top, #f9f9f9 0%, #f6f6f6 100%);
+  background: -ms-linear-gradient(top, #f9f9f9 0%, #f6f6f6 100%);
+  background: linear-gradient(to bottom, #f9f9f9 0%, #f6f6f6 100%);
+  shadow: 0px 1px 2px 0px, rgba(0,0,0,0.1);
+  padding: 4px 10px;
+  color: #999;
+  text-shadow: 1px 1px 0px #fff;
+  cursor: pointer;
+  width: auto !important;
+}
 div.document {
   text-align: left;
   background: #fff;
@@ -120,32 +146,6 @@ div.sphinxsidebar #searchbox {
 div.sphinxsidebar #searchbox p {
   display: none;
 }
-div.sphinxsidebar #searchbox input {
-  border: 1px solid #e0dddd;
-  font-size: 12px;
-  padding: 4px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-}
-div.sphinxsidebar #searchbox input[type="text"] {
-  width: 150px;
-}
-div.sphinxsidebar #searchbox input[type="submit"] {
-  background: #f9f9f9;
-  background: -moz-linear-gradient(top, #f9f9f9 0%, #f6f6f6 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f9f9f9), color-stop(100%, #f6f6f6));
-  background: -webkit-linear-gradient(top, #f9f9f9 0%, #f6f6f6 100%);
-  background: -o-linear-gradient(top, #f9f9f9 0%, #f6f6f6 100%);
-  background: -ms-linear-gradient(top, #f9f9f9 0%, #f6f6f6 100%);
-  background: linear-gradient(to bottom, #f9f9f9 0%, #f6f6f6 100%);
-  shadow: 0px 1px 2px 0px, rgba(0,0,0,0.1);
-  padding: 4px 10px;
-  color: #999;
-  text-shadow: 1px 1px 0px #fff;
-  cursor: pointer;
-  width: auto;
-}
 div.footer {
   background: url("pattern-2.jpg") repeat 0 0;
   color: #eee;
@@ -210,6 +210,9 @@ div.body h4 a,
 div.body h5 a,
 div.body h6 a {
   color: #595455 !important;
+}
+div.body h3 a {
+  color: #073642 !important;
 }
 h1 a.anchor,
 h2 a.anchor,
