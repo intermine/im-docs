@@ -13,7 +13,7 @@ My fields have been renamed to 'intermine_from' and 'intermine_to' in the databa
 See: :doc:`QueryPackage`.
 
 Is the order important in ``WHERE`` clause in IQL?
-----------------------------------------------
+--------------------------------------------------
 
 No. ``name = 'Fred' AND age = 5`` is the same as ``5 = age AND name = 'Fred'``.
 

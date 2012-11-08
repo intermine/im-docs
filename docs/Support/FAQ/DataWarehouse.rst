@@ -127,7 +127,7 @@ Yes, there is a property that can be passed to the fasta source - ``fasta.sequen
     </source>
 
 Beside 'protein', what are other values can be assigned to ``fasta.sequenceType``?
-------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
 
 The InterMine fasta loader uses the ``fileToBiojava()`` method in the `BioJava SeqIOTools package <http://www.biojava.org/docs/api/org/biojava/bio/seq/io/SeqIOTools.html>`_. It looks like the options are ``dna``, ``rna`` or ``protein``.
 

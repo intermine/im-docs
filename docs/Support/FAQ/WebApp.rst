@@ -74,7 +74,7 @@ How can I customise the data categories on the report page?
 
 1. Fields
     * Tag classes with the ``im:aspect:Genomics`` tag. When this class appears on a report page, it will be displayed underneath the Genomics data category.
-1. Templates
+2. Templates
     * Tag templates with the ``im:public`` and ``im:aspect:Genomics`` tags.
     * Update the identifier template constraint to be the correct field.
 
