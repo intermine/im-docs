@@ -1,7 +1,7 @@
 intermine.org
 =============
 
-Landing page and documentation for the InterMine project,
+Landing page and documentation for the InterMine project.
 
 Landing page
 ------------
