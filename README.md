@@ -3,6 +3,13 @@ intermine.org
 
 Landing page and documentation for the InterMine project,
 
+Landing page
+------------
+
+To see the source for the landing page, switch to the `gh-pages` branch.
+
+The designs and source source for the landing page can be found in the [intermine/design-materials](https://github.com/intermine/design-materials/tree/master/websites/intermine.org/) repo.
+
 Documentation
 -------------
 
@@ -14,4 +21,4 @@ To build the Sphinx documentation locally, run:
 $ cd docs/ ; make html
 ```
 
-The sources for both the landing page and Sphinx documentation theme can be found in the [intermine/design-materials](https://github.com/intermine/design-materials/tree/master/websites/intermine.org/) repo.
+The source for the Sphinx documentation theme can be found in the [intermine/design-materials](https://github.com/intermine/design-materials/tree/master/websites/intermine.org/) repo.
