@@ -12,9 +12,11 @@ Database servers
  * 8 cores
  * 32 GB RAM
  * ~2TB usable storage (SAS disks are faster than SATA but more expensive)
+
    * RAID 10 (4TB raw in RAID 10)
    * hardware RAID controller with a battery backed cache (gives faster write speeds)
    * it doesn't matter whether storage is in the same box or a separate disk array, if separate needs a Fibre Channel connection 
+
  * Linux/Unix capable of running Java and PostgreSQL 
 
 A less expensive option:
@@ -22,8 +24,10 @@ A less expensive option:
  * 4 cores
  * 16GB RAM
  * ~2TB usable storage
+
    *  RAID 10
    *  hardware RAID controller with a battery backed cache (gives faster write speeds) 
+
  * Linux/Unix capable of running Java and PostgreSQL 
 
 Note:  It's fairly essential to have separate development and production machines.
@@ -44,6 +48,7 @@ OS
  * Use something mainstream and reliable like Linux or BSD
  * Use the system that your friendly sysadmin is most familiar with.
  * Not favourites:
+ 
    * CentOS
    * Tru64
    * :doc:`solaris`
@@ -85,3 +90,10 @@ As a rough guide the current FlyBase database with all 12 genomes is 33GB, an In
 
 When running an InterMine build with multiple data sources, database copies are made periodically for backups so there needs to be extra space available, at least four times the final database size.
 
+Related topics:
+
+.. toctree::
+   :maxdepth: 2
+   
+   solaris
+   
