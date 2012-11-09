@@ -11,10 +11,9 @@ Contents
 .. toctree::
     :maxdepth: 4
 
-    GetStarted/Index
-    Documentation/Index
-    Support/Index
-    About/Index
+    installation/index        
+    support/index
+    about/index
 
 reStructured Text
 -----------------
