@@ -2,16 +2,20 @@ Solaris
 =======
  
 Installation instructions
+
    	http://wiki.postgresql.org/wiki/Detailed_installation_guides#Solaris
 	http://www.postgresql.org/docs/8.4/static/installation-platform-notes.html
 
 Update postgres.conf
+
 	http://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server
 
  autovacuum is not turned off (it's on by default) 
+
  	http://www.postgresql.org/docs/8.4/static/routine-vacuuming.html#AUTOVACUUM
 
  Improvements for COPY:  
+
 	http://archives.postgresql.org/pgsql-performance/2006-02/msg00190.php
 	http://blogs.sun.com/roller/page/jkshah?entry=postgresql_on_solaris_better_use
 
@@ -35,6 +39,7 @@ And also for /etc/system on Solaris 10, 9 SPARC use the following::
 	set shmsys:shminfo_shmmni = 4096
 
 Run analyse 
+
 	http://www.postgresql.org/docs/8.4/static/sql-analyze.html
 
 Compile for optimum performance ::
