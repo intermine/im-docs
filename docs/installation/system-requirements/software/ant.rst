@@ -54,7 +54,7 @@ javadoc  	build javadoc to build/javadoc
 
 
 
-Test project targets
+Tests  
 `````````````````````
 
 
@@ -75,7 +75,7 @@ To run a single test class:
 
 
 
-dbmodel targets
+DBmodel 
 ```````````````
 
 =============	========================================
@@ -84,24 +84,17 @@ Target  		Purpose
 build-db 		build the objectstore
 =============	======================================== 
 
-Webapp project targets
-``````````````````````````
 
-==============	========================================
-Target  		Purpose
-==============	======================================== 
-clean 			removes temporary directories
-default 		forces rebuild of .war file
-release-webapp 	deploy to tomcat 
-remove-webapp 	remove from tomcat 
-==============	======================================== 
-
-Production webapp targets
+Webapp 
 ``````````````````````````
 
 ========================	========================================================================== 
 Target  					Purpose
 ========================	========================================================================== 
+clean 						removes temporary directories
+default 					forces rebuild of .war file
+release-webapp 				deploy to tomcat 
+remove-webapp 				remove from tomcat 
 build-db-userprofile		initialise/clear the userprofile database (loads default templates too)
 load-default-templates 		load default-template-queries.xml to the superuser account 
 write-userprofile-xml 		exports user profile database xml file to build/userprofile.xml
@@ -112,8 +105,8 @@ precompute-queries-test
 precompute-templates
 ========================	========================================================================== 
 
-Targets specific to testmodel/dbmodel
-```````````````````````````````````````
+Test-model
+`````````````````````````````````````````````````````````````````
 
 ====================	========================================
 Target  				Purpose

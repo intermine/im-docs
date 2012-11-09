@@ -24,6 +24,7 @@ After installation, most programs require extra configuration to work with Inter
    :maxdepth: 2
    
    ant
+   git
    java
    perl
    postgres
