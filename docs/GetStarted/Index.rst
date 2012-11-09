@@ -4,5 +4,5 @@ Get started
 .. toctree::
    :maxdepth: 2
    
-   SystemRequirements
-   Tutorial
+   SystemRequirements/Index
+   Tutorial/Index
