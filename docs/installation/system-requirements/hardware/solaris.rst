@@ -18,6 +18,7 @@ Solaris
    * http://blogs.sun.com/roller/page/jkshah?entry=postgresql_on_solaris_better_use
 
 ::
+
 wal_sync_method = fsync
 wal_buffers = 128
 checkpoint_segments = 128
@@ -35,14 +36,19 @@ set msgsys:msginfo_msgmni = 3584
 set semsys:seminfo_semmni = 4096
 set shmsys:shminfo_shmmax = 15392386252
 set shmsys:shminfo_shmmni = 4096
+
 ::
+
  * Be sure to run analyse - http://www.postgresql.org/docs/8.4/static/sql-analyze.html
  * Compile for optimum performance
+
 ::
+
 Try using the "-fast" compile flag.  The binaries might not be portable to
 other Solaris systems, and you might need to compile everything that links
 to PostgreSQL with "-fast", but PostgreSQL will run significantly faster,
 50% faster on some tests.
+
 ::
 
 
