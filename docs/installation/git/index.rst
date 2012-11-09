@@ -1,5 +1,5 @@
-Git
-===========
+Get the Software
+======================
 
 The latest InterMine release is hosted on GitHub in the InterMine organization: https://github.com/intermine/intermine
 
