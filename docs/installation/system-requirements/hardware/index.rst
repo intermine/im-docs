@@ -46,7 +46,7 @@ OS
  * Not favourites:
    * CentOS
    * Tru64
-   * :doc:<solaris>
+   * :doc:`solaris`
 
 
 What we use
