@@ -27,6 +27,6 @@ After installation, most programs require extra configuration to work with Inter
    git
    java
    perl
-   postgres/index
+   postgres
    tomcat
    macs

@@ -13,13 +13,17 @@ PostgreSQL
    * It's not easy to change the default encoding to [http://www.postgresql.org/docs/9.0/static/multibyte.html SQL_ASCII] anymore, so you should do this before creating any databases.
    * There are special instructions for installing BioSeg, see BiosegInstallation
 
-Required:
+Required Configuration
+~~~~~~~~~~~~~~~~~~~~~~
 
 ||listen_addresses||'*'||||
 ||tcpip_socket||true||(not needed in recent releases)||
 ||port||5432||||
 
-Recommended, for optimum performance:
+Recommended Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+for optimum performance
 
 ||shared_buffers||Set to around 150MB||
 ||temp_buffers||Set to around 80MB||
@@ -41,4 +45,28 @@ host    all         all         0.0.0.0/0             password
 Note that changing some settings requires stopping/starting postgres, restart has no effect.
 
 You also need to install the bioseg data type, and the contrib btree_gist plug-in, as described in BiosegInstallation.
+
+Character Set Encoding
+~~~~~~~~~~~~~~~~~~~~~~
+
+We recommend using either SQL_ASCII or UTF-8. Theoretically, we should be using UTF-8, which is more correct, however its performance is rather poor, so we use SQL_ASCII.
+
+The InterMine system stores all text in the database in UTF-8 format. If you set Postgres to LATIN-9, then Postgres will perform some incorrect conversions, and may even give an error. Setting the format to UTF-8 results in Postgres treating the text completely correctly, which is quite a complicated and slow operation in UTF-8.
+
+If you set Postgres to SQL_ASCII, then that is a special character set in Postgres, which basically means "do no conversions". This is sufficient for almost all operations. All comparisons and index lookups will be done on a byte-by-byte basis, which is much faster than having to deal with Unicode's complications.
+
+Please try to treat InterMine as a black box. The fact that it uses Postgres to store its data should be a detail that should be hidden as much as possible. The InterMine system is written in Java, and therefore handles all text in Unicode. 
+
+----
+
+See: [http://www.postgresql.org/docs/8.3/interactive/app-psql.html Postgres documentation]
+
+
+Related topics:
+
+.. toctree::
+   :maxdepth: 2
+   
+   oracle
+   bioseg
 
