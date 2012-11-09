@@ -52,3 +52,20 @@ This is a normal text paragraph again followed by some CoffeeScript.
         return true if @check(name, options)
         @add name, "var"
         false
+
+Note
+-----------
+
+.. note::
+
+    This is a note!
+
+
+Warning
+-----------
+
+.. warning::
+
+    This is a warning! :(
+
+
