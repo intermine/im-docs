@@ -1,5 +1,5 @@
-PostgreSQL
-===========
+Installing PostgreSQL
+======================
 
  * [http://www.postgresql.org/download/ PostgreSQL] has packages for most systems that set up everything for you.
  * You should use at least version 8.3, as we have recently removed workarounds for some bugs in previous versions.
@@ -60,13 +60,3 @@ Please try to treat InterMine as a black box. The fact that it uses Postgres to 
 ----
 
 See: [http://www.postgresql.org/docs/8.3/interactive/app-psql.html Postgres documentation]
-
-
-Related topics:
-
-.. toctree::
-   :maxdepth: 2
-   
-   oracle
-   bioseg
-

@@ -49,14 +49,6 @@ Set up a tomcat user with the 'manager' role by editing {{{$CATALINA_HOME/conf/t
 apt-get install tomcat6-admin
 }}}
 
-Out of Memory Errors
-~~~~~~~~~~~~~~~~~~~~
-
-To avoid java.lang.!OutOfMemory errors, specify the JVM heap size in $TOMCAT_HOME/bin/tomcat.sh. You can specify the size as part of TOMCAT_OPTS:
-{{{
-'-Xmx256m -Xms128m'
-}}} 
-
 Server XML
 ~~~~~~~~~~~~
 
@@ -126,5 +118,11 @@ To stop Tomcat, run this command:
  1. restart tomcat
  1. dropdb 
 
+Out of Memory Errors
+~~~~~~~~~~~~~~~~~~~~
 
+To avoid java.lang.!OutOfMemory errors, specify the JVM heap size in $TOMCAT_HOME/bin/tomcat.sh. You can specify the size as part of TOMCAT_OPTS:
+{{{
+'-Xmx256m -Xms128m'
+}}} 
 
