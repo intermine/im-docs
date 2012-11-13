@@ -11,15 +11,15 @@ Contents
 .. toctree::
     :maxdepth: 4
 
-   system-requirements/index
-   git/index
-   get-started/index
-   data-model/index
-   database/index
-   webapp/index
-   web-services/index
-   support/index
-   privacy-policy
+    system-requirements/index
+    git/index
+    get-started/index
+    data-model/index
+    database/index
+    webapp/index
+    web-services/index
+    support/index
+    privacy-policy
 
 reStructured Text
 -----------------

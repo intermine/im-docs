@@ -10,8 +10,13 @@ Enumerated lists
 6. List items should be sequentially numbered, but need not start at 1 (although not all formatters will honour the first index). 
 #. This item is auto-enumerated
 
-Subtitles
-~~~~~~~~~
+Level 3 titles
+~~~~~~~~~~~~~~
+
+Level 4 titles
+^^^^^^^^^^^^^^
+
+*emphasis* **strong** ``literal`` `link <http://>`_
 
 Definition lists
 ----------------
