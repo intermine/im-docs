@@ -4,7 +4,7 @@ Troubleshooting tips
 This page describes what to do if you encounter problems when installing or maintaining InterMine.  Please feel free to [wiki:ContactUs contact us] with any questions you may have.
 
 Error messages
-~~~~~~~~~~~~~~
+--------------
 
 If you encounter a problem when running Ant, try adding the verbose flag:
 {{{
@@ -12,13 +12,16 @@ If you encounter a problem when running Ant, try adding the verbose flag:
 }}}
 This should output a more useful error message.
 
-=== Logs ===
+Logs
+----
 
-'''Data warehouse'''
+Data warehouse
+~~~~~~~~~~~~~~
 
 When integrating data, usually the errors are in intermine.log file in the directory you are in, eg. {{{/integrate}}} or {{{/dbmodel}}}.
 
-'''Webapp'''
+Webapp
+~~~~~~~~~~~~~~
 
 In order for the intermine webapp to write logs, you must correctly set the {{{webapp.logdir}}} property in {{{~/.intermine/malariamine.properties}}}. The property must be an absolute path to a directory on the tomcat machine, writable by tomcat.
 
