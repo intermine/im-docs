@@ -1,2 +1,0 @@
-Acceptance tests
-================
