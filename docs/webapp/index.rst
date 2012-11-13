@@ -4,7 +4,7 @@ Webapp
 .. toctree::
     :maxdepth: 4
 
-    appearance/index
+
     webapp-config/index
     admin/index
     user-accounts/index

@@ -1,9 +1,8 @@
 Themes
 ================================
 
-= Themes =
-
-== Changing themes ==
+Changing themes
+----------------
 
 InterMine provides a set of default themes but you can also create your own. All themes are defined in ''intermine/webapp/main/resources/webapp/themes/ ''
 
@@ -37,7 +36,8 @@ ant default remove-webapp release-webapp
 }}}
 
 
-== Developing your own theme ==
+Developing your own theme
+--------------------------------
 
 With CSS knowledge and open source image software such as [http://www.gimp.org GIMP] or [http://www.inkscape.org INKSCAPE] it is very easy to develop your own theme. Each theme directory contains a theme.css file, which is broken down in annotated sections, and image files. The image files are required for displaying menus, headers and backgrounds and can be modified with image software to match your colour scheme. Simply create a new directory under ''intermine/webapp/main/resources/webapp/themes/ '', copy the contents of another theme directory into it and start editing.
 
@@ -58,9 +58,7 @@ With CSS knowledge and open source image software such as [http://www.gimp.org G
  * ''xml.png''
  
  
-== Changing the logo ==
+Changing the logo
+--------------------------------
  
 The logo is independent from the themes, and is located in ''YOUR_MINE/webapp/resources/webapp/model/images/logo.png''. To change the logo, simply change this file to your own. The recommended size is w45px by h43px.
-
-
-

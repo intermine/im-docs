@@ -1,9 +1,10 @@
-List of customisable features by web page
+Customise webapp
 ========================================================
 
 .. toctree::
     :maxdepth: 4
 
+    appearance/index
     data-categories/index
     help/index
     homepage/index

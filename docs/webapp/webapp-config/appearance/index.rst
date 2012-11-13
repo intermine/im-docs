@@ -1,8 +1,5 @@
-Appearance
+General Appearance
 ================================
-
-Contents
---------
 
 .. toctree::
     :maxdepth: 4
