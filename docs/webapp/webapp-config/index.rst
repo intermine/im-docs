@@ -23,10 +23,6 @@ You can update the look and feel of your mine and change some functionality thro
 
 You can customise your mine by updating these four configuration files:
 
-.. toctree::
-    :maxdepth: 4
-
-
  * WebConfigModel - how data appears in webapp
  * WebProperties - properties needed by the code, eg. external link URLs
  * ModelProperties - text displayed in webapp
@@ -81,9 +77,8 @@ Other properties:
 ||'''links in upper right corner'''||header.links||WebProperties||
 [[BR]]
 
-
- Footer 
- ------------
+Footer 
+------------
 
 ||''' '''||'''property'''||'''file'''||
 ||'''recipient email address for contact form'''||feedback.destination||InterMineProperties||
