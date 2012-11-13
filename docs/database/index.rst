@@ -1,4 +1,4 @@
-Database Building
+Database
 ================================
 
 .. toctree::
