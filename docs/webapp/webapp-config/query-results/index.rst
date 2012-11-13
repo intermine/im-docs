@@ -1,15 +1,9 @@
 Query Results
 ================================
 
-[[PageOutline]]
-
-= Interactive Embeddable Results Tables =
-
 This page describes the features of InterMine's results tables, explains how to use the
 more advanced features they provide, and gives a brief description of how to embed them in
 other pages.
-
-== Main Features ==
 
 The key features of the results tables are:
   * Pagination
@@ -23,12 +17,14 @@ The key features of the results tables are:
   * Exporting results.
   * Getting code to run an equivalent query.
 
-=== Pagination ===
+Pagination
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There are two separate UI elements for controlling pagination of the table: pagination buttons, and a
 pagination scroll bar.
 
-==== The pagination buttons ====
+The pagination buttons
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 These buttons are located above the top right corner of the table. There are seven of them, with the following
 functions:
@@ -55,7 +51,8 @@ functions:
 
 
 
-==== The Pagination Scroll Bar ====
+The Pagination Scroll Bar
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This function both as a marker to indicate where in the result set you are, and as a control to choose any
 arbitrary page of results to show in the table. Like any scroll bar that you find on a window, moving the scroll
@@ -63,7 +60,8 @@ bar will select a different subset of results to show in the visible table.
 
 
 
-=== Sorting ===
+Sorting
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The results in the table always have a sort order, defined by default to be sorted in ascending order, from left to
 right across all columns. If a particular sort-order is defined, then in the column header at the top of the table, 
@@ -89,7 +87,8 @@ The sort order can be changed in one of the following two ways:
 
 
 
-=== Re-Ordering Columns ===
+Re-Ordering Columns
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The columns in the result table can be re-ordered. To do this, use the "Manage Columns" tool (also used for complex sorting).
 This tool is activated by clicking on the "Manage Columns" button above the table. This brings up a dialogue with two sections.
@@ -97,7 +96,8 @@ Make sure the first section is selected (''Re-Order Columns''). In this section 
 table in order, from top to bottom. To define a new order for these columns, drag them around until they are in the desired
 configuration.
 
-=== Summaries ===
+Summaries
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In the bottom right of the column headers on the tables is an '''i''' icon. When clicked, this opens a summary of the values
 in this column, including a list of the constraints applied to this column in the underlying query, as well as a list of the values, and
@@ -107,7 +107,8 @@ number of possible values, and there are no collections in the path to that colu
 histogram chart will be displayed. Typing into the text field above the table further filters down the items in the table, based on
 what is entered.
 
-=== Filters === 
+Filters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The constraints applied to the colums in the query are indicated in the column summaries described above. These can be edited by clicking
 on the '''edit''' button (an icon in the shape of a pencil) next to the constraint description in the column summary, and changing the values
@@ -115,7 +116,8 @@ or the operator. The whole constraint may be removed by clicking on the '''x''' 
 
 Filters added from the column summaries may be edited in just this way.
 
-=== Hiding / Removing a column ===
+Hiding / Removing a column
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There are two buttons in the column header for each column that determine which columns are seen.
 
@@ -125,14 +127,16 @@ does not change the query, but just changes what is shown.
 The other is a '''x''' sign, which removes the column from the query completely. This may have the effect of changing the number of 
 rows in the result set, and even the objects returned from the database, as it does alter the structure of the query.
 
-=== Adding New Columns ===
+Adding New Columns
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Other columns can be added to the table by using the text box above the table. When a user types into this, possible paths
 for this table that match the input are displayed in a list below the text field. Selecting a value, and clicking ''ENTER'' will 
 change the table by adding this column to the query. Be careful though, since like removing columns, adding them can change
 the number and make-up of the rows returned.
 
-=== Creating Lists from Results ===
+Creating Lists from Results
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Lists can be created from a result set, or lists you have access to
 can be added to. To do this, click on the button labelled "Create/Add to List". This will
@@ -155,7 +159,8 @@ When creating a new list, you can either:
     If this option is chosen, then a dialogue will appear that first requires you to click on
     items in the table to select them, before having you specify the list to add to.
 
-=== Exporting Results ===
+Exporting Results
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The results as seen in the table can be exported in a variety of formats. To access these, click
 on the button in the top right labelled "Export" to see the various formats. In each case the exported results
@@ -165,7 +170,8 @@ reordering the columns or changing the sort order or constraints will be reflect
 As well as downloading the exported results directly to the your computer, you may also send them 
 directly to Galaxy for processing.
 
-=== Getting Code to Run or Embed this Query ===
+Getting Code to Run or Embed this Query
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You are able to get code in a number of languages. To access this, click on the "Get Code" button, 
 which will present you with the different languages available. The javascript option enables you to
@@ -176,16 +182,11 @@ the relevant parts from for insertion into other pages.
 
 
 
+See also:
+
+.. toctree::
+    :maxdepth: 4
 
 
-
-
-
-
-
-
-
-
-
-
-
+    export
+    redirects

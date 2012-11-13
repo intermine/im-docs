@@ -1,7 +1,7 @@
 Tutorial
 ========
 
-[[PageOutline]]
+
 
 = 1 Getting Started with InterMine =
 
@@ -875,7 +875,8 @@ If the error occurs while you are integrating data, the error message will be in
 
 If the error occurs while you are browsing your webapp, the error message will be located in the Tomcat logs:  {{{$TOMCAT/logs}}}.  
 
-See:  TroubleshootingTips
-
- 
+.. toctree::
+   :maxdepth: 2
+   
+   test-data 
 
