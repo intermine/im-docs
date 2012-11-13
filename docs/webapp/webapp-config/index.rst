@@ -14,6 +14,7 @@ Customise webapp
     region-search/index
     report-page/index
     template-queries/index
+    properties/index
 
 
 You can update the look and feel of your mine and change some functionality through both config files and tagging.  Below is a list of each page in your mine along with what can be configured.
