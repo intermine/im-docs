@@ -1,7 +1,9 @@
 Report Widgets
 ==============
 
-**Warning**: Client side development is the best thing since sliced bread but for a novice the following *will* be overwhelming at first. We are learning too.
+.. warning::
+    
+    Client side development is the best thing since sliced bread but for a novice the following *will* be overwhelming at first. We are learning too.
 
 Report Widgets are a type of embeddable component that offers an unparalleled **flexibility** when it comes to the tools that InterMine offers. They are provided as a way for developers to create interactive *widgets* to their end users. Such widgets can then be embedded on virtually any page, be it within a mine or outside of it. See `here <http://reportwidgets-intermine.rhcloud.com>`_ for examples.
 
