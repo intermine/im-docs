@@ -15,17 +15,15 @@ List of customisable features by web page
     template-queries/index
 
 
-[[PageOutline]]
-
-
-= Webapp Configuration =
-
 You can update the look and feel of your mine and change some functionality through both config files and tagging.  Below is a list of each page in your mine along with what can be configured.
-
 
 '''config files'''
 
 You can customise your mine by updating these four configuration files:
+
+.. toctree::
+    :maxdepth: 4
+
 
  * WebConfigModel - how data appears in webapp
  * WebProperties - properties needed by the code, eg. external link URLs
@@ -33,9 +31,8 @@ You can customise your mine by updating these four configuration files:
  * InterMineProperties - mine-specific properties that may change for each release or shouldn't be in the source control repository, eg. usernames, passwords, email addresses
 
 
-
-= 1 Header =
-
+Header
+------
 
 '''logo'''
 
@@ -60,6 +57,9 @@ In addition to InterMine's file, each mine has its own internationalisation file
 
 If you want to add a tab specific to your mine, add an entry to this file.  Properties set in this file overwrite the ones set in [source:/trunk/intermine/webapp/main/resources/webapp/WEB-INF/classes/InterMineWebApp.properties InterMineWebApp.properties].
 
+Data tab
+
+The data tab points to this JSP file - [source:/trunk/intermine/webapp/main/resources/webapp/dataCategories.jsp dataCategories.jsp].  You can overwrite this file and display your own customised file by putting a JSP in your $MINE_NAME/webapp directory.
 
 '''keyword search'''
 
@@ -80,8 +80,8 @@ Other properties:
 [[BR]]
 
 
-= 2 Footer =
- 
+ Footer 
+ ------------
 
 ||''' '''||'''property'''||'''file'''||
 ||'''recipient email address for contact form'''||feedback.destination||InterMineProperties||
@@ -90,29 +90,22 @@ Other properties:
 [[BR]]
 
 
-= 3 Home page =
-
-
-See HomepageConfig for details on how to configure your InterMine home page.
-
-To use your own home page, create a JSP file in your /webapp directory named "begin.jsp".  You can overwrite any JSP using this method.
-
-
-= 4 Templates page =
+Templates page
+------------------
 
 To have templates appear on the templates page, create a template as a SuperUser and [wiki:Tagging tag] the template with the "im:public" tag.
 
 The templates are sorted by most popular first.  If the user is logged in the user's most popular templates are shown first.
 
-See DataCategories for information on how to add categories.
-
-= 5 Lists page =
+Lists page
+------------
 
 To have lists appear on the lists page, lists a template as a SuperUser and [wiki:Tagging tag] the list with the "im:public" tag.
 
 The lists are sorted by most recent first.
 
-= 6 !QueryBuilder =
+QueryBuilder
+------------
 
 ''Select a Data Type to Begin a Query''
 
@@ -128,7 +121,8 @@ The lists are sorted by most recent first.
 
 '''autocomplete''': Add fields to the ObjectStoreSummaryProperties file to have their form fields autocomplete.
 
-= 7 Template forms =
+Template forms
+------------------
 
 '''dropdowns'''
 
@@ -161,7 +155,8 @@ Optional: ON - optional and ON by default
 Optional: OFF - optional and OFF by defaul
 }}}
 
-= 8 Query results =
+Query results
+------------------
 
 '''waiting image''':  If the query takes a long time, a waiting image will appear.  This waiting page cycles through four images located in [source:/trunk/flymine/webapp/resources/webapp/model/images webapp/resources/webapp/model/images]:
 
@@ -177,31 +172,8 @@ Instead of linking to an intermine report page, you can set the links to redirec
 
 '''weird brackets''':  You may see the following in query results:  `GO:0007480 [GOTerm]`.  This happens when a column is a parent type but the individual result is a subclass.  The subclass will by in brackets.
 
-= 9 Region search =
-
-See GenomeRegionSearch.
-
-= 10 Data tab =
-
-The data tab points to this JSP file - [source:/trunk/intermine/webapp/main/resources/webapp/dataCategories.jsp dataCategories.jsp].  You can overwrite this file and display your own customised file by putting a JSP in your $MINE_NAME/webapp directory.
-
-When the webapp is compiled, the order of projects is:
-
- 1. intermine/webapp
- 1. bio/webapp        <-- overwrites files in intermine/webapp
- 1. $MINE_NAME/webapp <-- overwrites files in intermine/webapp and bio/webapp
-
-You can overwrite any JSP in the intermine or bio/webapp projects by having a JSP of the same name in your mine's webapp directory.  The danger of this is that you will have to upgrade these JSPs manually.
-
-= 11 Report page =
-
-See ReportPage.
-
-= 12 List upload =
-
-See ListUpload.
-
-= 13 List analysis =
+List analysis
+------------------
 
 '''fields displayed''':  determined by WebConfigModel[[BR]]
 
@@ -233,23 +205,22 @@ See KeywordSearch for details on how to configure the search index.
 
 To view entire the entire index:  Navigate to search results page without search parameter, eg [http://www.flymine.org/query/keywordSearchResults.do]
 
-= 15 Help =
-
-See [wiki:Help] for details on how to provide help documentation for users of your mine.
-
-= 16 General Appearance =
+General Appearance
+------------------------
 
  * Most introduction text in InterMine can be set in ModelProperties.
  * [wiki:Favicon]
  * [wiki:Themes]
  * WebappTables show how to use HTML/CSS to produce tables for a variety of purposes
  
+Overwrite any JSP
+------------------------
 
-= 17 Web-Services =
+When the webapp is compiled, the order of projects is:
 
-Quote TSV results in all cases: {{{ws.tsv.quoted = true}}}
-----
+ 1. intermine/webapp
+ 1. bio/webapp        <-- overwrites files in intermine/webapp
+ 1. $MINE_NAME/webapp <-- overwrites files in intermine/webapp and bio/webapp
 
-
-Back:  WebApp
+You can overwrite any JSP in the intermine or bio/webapp projects by having a JSP of the same name in your mine's webapp directory.  The danger of this is that you will have to upgrade these JSPs manually.
 
