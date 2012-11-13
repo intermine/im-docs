@@ -1,6 +1,10 @@
 Report Displayers
 =================
 
+.. warning::
+
+    Report Displayers can only be embedded on a report page and not elsewhere, furthermore they are tightly knit to the Java system. Check out :doc:`report-widgets` for a more flexible arrangement.
+
 Report displayers allow custom display of particular data types on report pages (only), typically to replace default tables with more appropriate presentation of data. Widgets:
 
 #. Use a simple framework to add a JSP for display and optionally Java code to run queries, hold caches, etc.
