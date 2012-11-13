@@ -1,158 +1,144 @@
 Tutorial
 ========
 
-
-
-= 1 Getting Started with InterMine =
-
-Following the steps on this page you will set up an example !InterMine.  You will:
+Following the steps on this page you will set up an example InterMine.  You will:
 
  * Load some real data sets for Malaria (''P. falciparum'')
  * Learn about post-processing after data is loaded
  * Deploy a webapp to query the data
 
-= 2 Before you start =
+Getting Started
+----------------------
 
-This guide is designed for beginners who have never installed InterMine before. However, you need to have the following prerequisites installed:
+We use `git <http://git-scm.com>`_ to manage and distribute source code.  Download InterMine software from :doc:`/git`
 
- * Git
- * Java SDK
- * Ant
- * Tomcat
- * PostgreSQL
+Creating a new Mine
+----------------------
 
-More information on installation and versions can be found here: [wiki:Prerequisites Installation intructions].
+Change into the directory you checked out the InterMine source code to and look at the sub-directories:
 
-= 3 What is InterMine? =
+.. code-block:: bash
 
-!InterMine is a powerful open source data warehouse system. Using !InterMine, you can create databases of biological data accessed by sophisticated web query tools. !InterMine can be used to create databases from a single data set or can integrate multiple sources of data. Support is provided for several common biological formats and there is a framework for adding your own data. !InterMine includes an attractive, user-friendly web interface that works 'out of the box' and can be easily customised for your specific needs. 
-
-Find out more - [wiki:InterMineOverview What is InterMine?]
-
-!InterMine was developed to enable !FlyMine and is now used in other projects.  See [http://www.flymine.org FlyMine] for a working example, click 'Take a tour' to explore features.
-[[html(<div style="clear: left"></div>)]]
-
-= 4 Downloading InterMine =
-
-We use [http://git-scm.com git] to manage and distribute source code.  Download !InterMine software from [wiki:Git GitHub].
-
-All !InterMine code is freely available under the [http://www.gnu.org/licenses/lgpl.html LGPL license].  
-
-= 5 Creating a new Mine =
-
-Note that many operations in !InterMine are performed from the command line using the Ant build tool, see [wiki:AntIntroduction an introduction here].
-
-== 5.1 Creating !MalariaMine ==
-
-Change into the directory you checked out the !InterMine source code to and look at the sub-directories:
-{{{
-> cd git/intermine
-> ls
-}}}
+  cd git/intermine
+  ls
 
 The directories include:
- * {{{intermine}}} - the core !InterMine code, this is generic code to work with any data model.
- * {{{bio}}} - code to deal specifically with biological data, it includes '''sources''' to load data from standard biological formats.
- * {{{flymine}}} - the configuration used to create !FlyMine, a useful reference when building your own Mine.
- * {{{testmodel}}} - a non-biological test data model used for testing the core !InterMine system.
- * {{{imbuild}}} - !InterMine's ant-based build system, you shouldn't need to edit anyting here.
 
-All configuration to create a new Mine is held in a directory in {{{git/intermine}}}, your Mine will depend on code in `intermine`, `bio` and `imbuild`.  Any Mine needs to be a top level directory in your !InterMine checkout.
+``intermine`` 
+  the core InterMine code, this is generic code to work with any data model.
+``bio`` 
+  code to deal specifically with biological data, it includes '''sources''' to load data from standard biological formats.
+``flymine`` 
+  the configuration used to create FlyMine, a useful reference when building your own Mine.
+``testmodel`` 
+  a non-biological test data model used for testing the core InterMine system.
+``imbuild`` 
+  InterMine's ant-based build system, you shouldn't need to edit anyting here.
 
-There is a script for creating the a Mine; in {{{git/intermine}}} run:
+All configuration to create a new Mine is held in a directory in `git/intermine`, your Mine will depend on code in `intermine`, `bio` and `imbuild`.  Any Mine needs to be a top level directory in your InterMine checkout.
 
-{{{
-# in git/intermine
-> bio/scripts/make_mine MalariaMine
-}}}
+There is a script for creating the a Mine; in `git/intermine` run:
+
+.. code-block:: bash
+
+  # in git/intermine
+  bio/scripts/make_mine MalariaMine
 
 You will see the message:
 
-{{{
-Created malariamine directory for MalariaMine
-}}}
+.. code-block:: bash
 
-A {{{malariamine}}} directory has been created with several sub-directories, change into the directory and look what is created:
+  Created malariamine directory for MalariaMine
 
-{{{
-> cd malariamine
-> ls
-}}}
+A `malariamine` directory has been created with several sub-directories, change into the directory and look what is created:
+
+.. code-block:: bash
+
+  cd malariamine
+  ls
 
 We will look at each of the sub-directories in much more detail later, they are:
 
- * {{{dbmodel}}} - contains information about the data model to be used and ant targets relating to the data model and database creation.
- * {{{integrate}}} - provides ant targets for loading data into the Mine.
- * {{{postprocess}}} - ant targets to run post-processing operations on the data in the Mine once it is integrated.
- * {{{webapp}}} - basic configuration and commands for building and deploying the web application
+``dbmodel``
+  contains information about the data model to be used and ant targets relating to the data model and database creation.
+``integrate``
+  provides ant targets for loading data into the Mine.
+``postprocess`` 
+  ant targets to run post-processing operations on the data in the Mine once it is integrated.
+``webapp`` 
+  basic configuration and commands for building and deploying the web application
 
-In addition there are two {{{default.intermine.xxx.properties}}} files which we won't need to edit and a {{{project.xml}}} file.
+In addition there are two ``default.intermine.xxx.properties`` files which we won't need to edit and a `project.xml` file. Most generated directories have a ``project.properties`` file and a short ``build.xml`` file, these are used by the InterMine build system.
 
-Note: most generated directories have a {{{project.properties}}} file and a short {{{build.xml}}} file, these are used by the !InterMine build system.
+Project.xml
+^^^^^^^^^^^^^^^^^^^^
 
-== 5.2 Project.xml ==
+The `project.xml` allows you to configure which data to load into your Mine.  The automatically generated file has empty `<sources>` and `<post-processing>` sections:
 
-The `project.xml` allows you to configure which data to load into your Mine.  There are some properties at the top that you we won't need to edit, for reference you can see a description of the [wiki:ProjectXMLFormat project.xml format].
+.. code-block:: bash
 
-The automatically generated file has empty `<sources>` and `<post-processing>` sections:
+  less project.xml
 
-{{{
-> less project.xml
-}}}
+There is a `project.xml` already prepared to define a new MalariaMine, copy it to this directory now and look at it:
 
-There is a `project.xml` already prepared to define a new !MalariaMine, copy it to this directory now and look at it:
-{{{
-> cp ../bio/tutorial/malariamine/project.xml .
-> less project.xml
-}}}
+.. code-block:: bash
 
+  cp ../bio/tutorial/malariamine/project.xml .
+  less project.xml
 
-=== 5.2.2 <sources> ===
+<sources>
+"""""""""
 
 The `<source>` elements list and configure the data sources to be loaded, each one has a `type` that corresponds to a directory in `git/intermine/bio/sources` or a subdirectory (the locations of sources to read are defined by `source.location` properties at the top of the file).  These directories include parsers to retrieve data and information on how it will be integrated.  The `name` can be anything and can be the same as `type`, using a more specific name allows you to define specific integration keys (more on this later).  
 
 `<source>` elements can have several properties: `src.data.dir`, `src.data.file` and `src.data.includes` are all used to define locations of files that the source should load.  Other properties are used as parameters to specific parsers.
 
 
-=== 5.2.3 <post-processing> ===
+<post-processing>
+""""""""""""""""""
 
 Specific operations can be performed on the Mine once data is loaded, these are listed here as `<post-process>` elements.  We will look at these in more detail later.
 
 
-== 5.3 Data to load ==
+Data to load
+^^^^^^^^^^^^^^^^^^^^
 
-The !InterMine checkout includes a tar file with data to load into !MalariaMine.  These are real, complete data sets for ''P. falciparum''.  We will load genome annotation from PlasmoDB, protein data from !UniProt and GO annotation also from PlasmoDB.
+The InterMine checkout includes a tar file with data to load into MalariaMine.  These are real, complete data sets for ''P. falciparum''.  We will load genome annotation from PlasmoDB, protein data from UniProt and GO annotation also from PlasmoDB.
 
 Copy this to some local directory (your home directory is fine for this workshop) and extract the archive:
 
-{{{
-> cd
-> cp git/intermine/bio/tutorial/malariamine/malaria-data.tar.gz .
-> tar -zxvf malaria-data.tar.gz
-}}}
+.. code-block:: bash
+
+  cd
+  cp git/intermine/bio/tutorial/malariamine/malaria-data.tar.gz .
+  tar -zxvf malaria-data.tar.gz
 
 In your `malariamine` directory edit `project.xml` to point each source at the extracted data, just replace `DATA_DIR` with `/home/username` (or on a mac `/Users/username`). Do use absolute path.
-{{{
-> cd ~/git/intermine/malariamine
-> sed -i 's/DATA_DIR/\/home\/username/g' project.xml
-}}}
+
+.. code-block:: bash
+
+  cd ~/git/intermine/malariamine
+  sed -i 's/DATA_DIR/\/home\/username/g' project.xml
 
 For example, the `uniprot-malaria` source:
 
-{{{
+.. code-block:: xml
+
   <sources>
     <source name="uniprot-malaria" type="uniprot">
       <property name="uniprot.organisms" value="36329"/>
       <property name="src.data.dir" location="/home/username/malaria/uniprot/"/>
     </source>
     ...
-}}}
 
-'''NOTE ''' - all file locations must be absolute not relative paths.
+.. note::
+
+  All file locations must be absolute not relative paths.
 
 The `project.xml` file is now ready to use.
 
-== 5.4 Properties file ==
+Properties file
+^^^^^^^^^^^^^^^^^^^^
 
 Configuration of local databases and tomcat deployment is kept in a `MINE_NAME.properties` file in a `.intermine` directory under your home directory.  We need to set up a `malariamine.properties` file.  
 
@@ -162,7 +148,7 @@ If you don't already have a `.intermine` directory in your home directory, creat
 > mkdir .intermine
 }}}
 
-There is a partially completed properties file for !MalariaMine already.   Copy it into your `/intermine` directory:
+There is a partially completed properties file for MalariaMine already.   Copy it into your `/intermine` directory:
 {{{
 > cd
 > cp git/intermine/bio/tutorial/malariamine/malariamine.properties .intermine/
@@ -181,7 +167,8 @@ db.production.datasource.password=PSQL_PWD
 
 '''NOTE''' - if you don't have a password for your postgres account you can leave `password` blank.
 
-== 5.5 Create databases ==
+Create databases
+^^^^^^^^^^^^^^^^^^^^
 
 Finally, we need to create `malariamine` and `items-malariamine` postgres databases as specified in the `malariamine.properties` file:
 
@@ -190,22 +177,24 @@ Finally, we need to create `malariamine` and `items-malariamine` postgres databa
 > createdb items-malariamine
 }}}
 
-'''NOTE - ''' New postgres databases often default to `UTF-8` as the character encoding.  This will work with !InterMine but performance is better with `SQL_ASCII`.  
+'''NOTE - ''' New postgres databases often default to `UTF-8` as the character encoding.  This will work with InterMine but performance is better with `SQL_ASCII`.  
 
 For an introduction to postgres commands see: PostgresBasics.
 
-= 6 The Data Model =
+The Data Model
+----------------------
 
-Now we're ready to set up a database schema and load some data into our !MalariaMine, first some information on how data models are defined in !InterMine.
+Now we're ready to set up a database schema and load some data into our MalariaMine, first some information on how data models are defined in InterMine.
 
-== 6.1 Defining the model ==
+Defining the model
+^^^^^^^^^^^^^^^^^^^^
 
  * InterMine uses an object-oriented data model, classes in the model and relationships between them are defined in an XML file.  Depending on which data types you include you will need different classes and fields in the model, so the model is generated from a core model XML file and any number of '''additions''' files.  These additions files can define extra classes to be added to the model and define extra fields for additional classes.
    * Elements of the model are represented by Java classes and references between them.
    * These Java classes map automatically to tables in the database schema.
    * The object model is defined as an XML file, that defines `classes`, their `attributes` and `references` between classes.  You can read more about the XML format [ModelDescription here].
    * The Java classes and database schema are automatically generated from an XML file.
- * You can easily adapt !InterMine to include your own data by creating new additions files, we'll see how to do this later.
+ * You can easily adapt InterMine to include your own data by creating new additions files, we'll see how to do this later.
 
  * All targets relating to the model for a Mine are in the `dbmodel` directory, go there now:
    {{{
@@ -242,7 +231,7 @@ Now we're ready to set up a database schema and load some data into our !Malaria
    {{{
   > less resources/so_term_list.txt
   }}}
- * The model is then combined with any extra classes and fields defined in the sources to integrate, those listed as `<source>` elements in `project.xml`.  Look at an example 'additions' file for the !UniProt source:
+ * The model is then combined with any extra classes and fields defined in the sources to integrate, those listed as `<source>` elements in `project.xml`.  Look at an example 'additions' file for the UniProt source:
    {{{
   > less ../../bio/sources/uniprot/uniprot_additions.xml
   }}}
@@ -250,7 +239,8 @@ Now we're ready to set up a database schema and load some data into our !Malaria
  * Other model components can be included by specifying in the `dbmodel/project.properties` file, for example we include `bio/core/genomic_additions.xml`
  * Note the `reverse-reference` elements in definitions of some references and collections, this defines in the model that two references/collections are opposing ends of the same relationship.  The value should be set to the name of the reference/collection in the `referenced-type`.
 
-== 6.2 Creating a database ==
+Creating a database
+^^^^^^^^^^^^^^^^^^^^
 
 Now run the ant target to merge all the model components, generate Java classes and create the database schema, in `dbmodel` run:
   {{{
@@ -265,7 +255,7 @@ This target has done several things:
     {{{
     > less build/model/genomic_model.xml 
     }}}
-    Look for the `Protein` class, you can see it combines fields from the core model and the !UniProt additions file.
+    Look for the `Protein` class, you can see it combines fields from the core model and the UniProt additions file.
     2. The so_additions.xml file has also been created using the sequence ontology terms in so_term_list.txt:
     {{{
     > less build/model/so_additions.xml 
@@ -299,11 +289,13 @@ This target has done several things:
  malariamine=# select key from intermine_metadata;
  }}}
 
-= 7 Loading Data =
+Loading Data
+----------------------
 
 '''NOTE:''' We are running several data integration and post-processing steps manually, this is a good way to learn how the system works and to test individual stages.  For running actual builds there is a `project_build` script that will run all steps specified in `project.xml` automatically.  We will cover this later.
 
-== 7.1 Loading data from a source ==
+Loading data from a source
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  * Loading of data is done by running `ant` in the `integrate` directory.  You can specify one or more sources to load or choose to load all sources listed in the `project.xml` file.  When you specify sources by name the order that they appear in `project.xml` doesn't matter.  Now load data from the uniprot-malaria source:
  {{{
@@ -314,7 +306,7 @@ This target has done several things:
  
  This will take a couple of minutes to complete, the command runs the following steps:
   1. Checks that a source with name `uniprot-malaria` exists in `project.xml`
-  2. Reads the !UniProt XML files at the location specified by `src.data.dir`
+  2. Reads the UniProt XML files at the location specified by `src.data.dir`
   3. Calls the parser included in the `uniprot` source with the list of files, this reads the original XML and creates `Items` which are metadata representations of the objects that will be loaded into the malariamine database.  These items are stored in an intermediate `items` database (more about `Items` later).
   4. Reads from the `items` database, converts items to objects and loads them into the malariamine database.
 
@@ -347,9 +339,10 @@ This target has done several things:
  }}}
 
 
-== 7.2 Object relational mapping ==
+Object relational mapping
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  
-!InterMine works with objects, objects are loaded into the production system and queries return lists of objects.  These objects are persisted to a relational database.  Internal !InterMine code (the !ObjectStore) handles the storage and retrieval of objects from the database automatically.  By using an object model !InterMine queries benefit from inheritance, for example the `Gene` and `Exon` classes are both subclasses of `SequenceFeature`.  When querying for !SequenceFeatures (representing any genome feature) both Genes and Exons will be returned automatically.  
+InterMine works with objects, objects are loaded into the production system and queries return lists of objects.  These objects are persisted to a relational database.  Internal InterMine code (the ObjectStore) handles the storage and retrieval of objects from the database automatically.  By using an object model InterMine queries benefit from inheritance, for example the `Gene` and `Exon` classes are both subclasses of `SequenceFeature`.  When querying for SequenceFeatures (representing any genome feature) both Genes and Exons will be returned automatically.  
 
 We can see how see how inheritance is represented in the database:
  * One table is created for each class in the data model.
@@ -369,26 +362,29 @@ We can see how see how inheritance is represented in the database:
    {{{
  malariamine#  select class, count(*) from intermineobject group by class;
  }}}
- * A technical detail: for speed when retrieving objects and to deal with inheritance correctly (e.g. to ensure a `Gene` object with all of its fields is returned even if the query was on the `SequenceFeature` class) a serialised copy of each object is stored in the `intermineobject` table.  When queries are run by the !ObjectStore they actually return the ids of objects - these objects are may already be in a cache, if not the are retrieved from the `intermineobject` table.
+ * A technical detail: for speed when retrieving objects and to deal with inheritance correctly (e.g. to ensure a `Gene` object with all of its fields is returned even if the query was on the `SequenceFeature` class) a serialised copy of each object is stored in the `intermineobject` table.  When queries are run by the ObjectStore they actually return the ids of objects - these objects are may already be in a cache, if not the are retrieved from the `intermineobject` table.
 
-= 8 Loading Genome Data from GFF3 and FASTA =
+Loading Genome Data from GFF3 and FASTA
+--------------------------------------------
 
 We will load genome annotation data for ''P. falciparum'' from [http://plasmodb.org/plasmo/ PlasmoDB]:
  * genes, mRNAs, exons and their chromosome locations - in GFF3 format:
  * chromosome sequences - in FASTA format
 
-== 8.1 Data integration ==
+Data integration
+^^^^^^^^^^^^^^^^^^^^
 
-Note that genes from the gff3 file will have the same `primaryIdentifier` as those already loaded from !UniProt.  These will  merge in the database such that there is only one copy of each gene with information from both data sources. We will load the genome data then look at how data integration in !InterMine works.
+Note that genes from the gff3 file will have the same `primaryIdentifier` as those already loaded from UniProt.  These will  merge in the database such that there is only one copy of each gene with information from both data sources. We will load the genome data then look at how data integration in InterMine works.
 
-First, look at the information currently loaded for gene `PFL1385c` from !UniProt:
+First, look at the information currently loaded for gene `PFL1385c` from UniProt:
 
 {{{
 malariamine=#  select * from gene where primaryIdentifier = 'PFL1385c';
 }}}
 
 
-== 8.2 GFF3 files ==
+GFF3 files
+^^^^^^^^^^^^^^^^^^^^
 
 GFF3 is a standard format use to represent genome features and their locations.  It is flexible and expressive and defined by a clear standard - [http://www.sequenceontology.org/gff3.shtml more details here].  An example of the file will load can be used to explain the format, each line represents one feature and has nine tab-delimited columns:
 {{{
@@ -426,9 +422,10 @@ The files we are loading are from PlasmoDB and contain `gene`, `exon` and `mRNA`
 > less DATA_DIR/malaria/genome/gff/MAL1.gff3
 }}}
 
-== 8.3 The GFF3 source ==
+The GFF3 source
+^^^^^^^^^^^^^^^^^^^^
 
-!InterMine includes a parser to load valid GFF3 files.  The creation of features, sequence features (usually chromosomes), locations and standard attributes is taken care of automatically.  
+InterMine includes a parser to load valid GFF3 files.  The creation of features, sequence features (usually chromosomes), locations and standard attributes is taken care of automatically.  
  
  * Many elements can be configured by properties in `project.xml`, to deal with any specific attributes or perform custom operations on each feature you can  write a handler in Java which will get called when reading each line of GFF.
  * Other `gff3` properties can be congfigured in the `project.xml` The properties set for `malaria-gff` are:
@@ -437,13 +434,13 @@ The files we are loading are from PlasmoDB and contain `gene`, `exon` and `mRNA`
    * `gff3.taxonId = 36329`
     * taxon id of malaria
    * `gff3.dataSourceName = PlasmoDB`
-    * the data source for features and their identifiers, this is used for the !DataSet (evidence) and synonyms.
+    * the data source for features and their identifiers, this is used for the DataSet (evidence) and synonyms.
    * `gff3.seqDataSourceName = PlasmoDB`
     * the source of the seqids (chromosomes) is sometimes different to the features described
    * `gff3.dataSetTitle = PlasmoDB P. falciparum genome` 
-    * a !DataSet object is created as evidence for the features, it is linked to a !DataSource (PlasmoDB)
+    * a DataSet object is created as evidence for the features, it is linked to a DataSource (PlasmoDB)
 
- * In some cases specific code is required to deal with attributes in the gff file and any special cases.  A specific `source` can be created to contain the code to do this and any additions to the data model necessary.  For malaria gff we need a handler to switch which fields from the file are set as `primaryIdentifier` and `symbol`/`secondaryIdentifier` in the features created.  This is to match the identifiers from !UniProt, it is quite a common issue when integrating from multiple data sources.
+ * In some cases specific code is required to deal with attributes in the gff file and any special cases.  A specific `source` can be created to contain the code to do this and any additions to the data model necessary.  For malaria gff we need a handler to switch which fields from the file are set as `primaryIdentifier` and `symbol`/`secondaryIdentifier` in the features created.  This is to match the identifiers from UniProt, it is quite a common issue when integrating from multiple data sources.
   * From the example above, by default: `ID=gene.46311;description=hypothetical%20protein;Name=PFA0210c` would make `Gene.primaryIdentifier` be `gene.46311` and `Gene.symbol` be `PFA0210c`.  We need `PFA0210c` to be the `primaryIdentifier`.
  * The `malaria-gff` source is held in the `bio/sources/example-sources/malaria-gff` directory.  Look at the `project.properties` file in this directory, there are two properties of interest:
    {{{
@@ -458,7 +455,8 @@ The files we are loading are from PlasmoDB and contain `gene`, `exon` and `mRNA`
 > less ~/git/intermine/bio/sources/example-sources/malaria-gff/main/src/org/intermine/bio/dataconversion/MalariaGFF3RecordHandler.java
 }}}
 
-== 8.4 Loading GFF3 data ==
+Loading GFF3 data
+^^^^^^^^^^^^^^^^^^^^
 
 Now load the `malaria-gff` source by running this command in `malariamine/integrate`:
 
@@ -466,16 +464,17 @@ Now load the `malaria-gff` source by running this command in `malariamine/integr
 > ant -Dsource=malaria-gff -v
 }}}
 
-This will take a few minutes to run.  Note that this time we don't run `build-db` in `dbmodel` as we are loading this data into the same database as !UniProt.  As before you can run a query to see how many objects of each class are loaded:
+This will take a few minutes to run.  Note that this time we don't run `build-db` in `dbmodel` as we are loading this data into the same database as UniProt.  As before you can run a query to see how many objects of each class are loaded:
 {{{
 > psql malariamine
 malariamine#  select class, count(*) from intermineobject group by class;
 }}}
 
 
-== 8.5 FASTA files ==
+FASTA files
+^^^^^^^^^^^^^^^^^^^^
 
-FASTA is a minimal format for representing sequence data.  Files comprise a header with some identifier information preceded by '>' and a sequence.  At present the !InterMine FASTA parser loads just the first entry in header after `>` and assigns it to be an attribute of the feature created.  Here we will load one FASTA file for each malaria chromosome.  Look at an example of the files we will load:
+FASTA is a minimal format for representing sequence data.  Files comprise a header with some identifier information preceded by '>' and a sequence.  At present the InterMine FASTA parser loads just the first entry in header after `>` and assigns it to be an attribute of the feature created.  Here we will load one FASTA file for each malaria chromosome.  Look at an example of the files we will load:
 {{{
 > less DATA_DIR/malaria/genome/fasta/MAL1.fasta
 }}}
@@ -486,14 +485,15 @@ The type of feature created is defined by a property in `project.xml`, the attri
  * `fasta.dataSourceName = PlasmoDB`
   * the source of identifiers to be created
  * `fasta.dataSetTitle = PlasmoDB chromosome sequence`
-  * a !DataSet object is created as evidence
+  * a DataSet object is created as evidence
  * `fasta.taxonId = 36329`
   * the organism id for malaria
 
   This will create features of the class `Chromosome` with `primaryIdentifier` set and the `Chromosome.sequence` reference set to a `Sequence` object.  Also created are a `DataSet` and `DataSource` as evidence.
 
 
-== 8.6 Loading FASTA data ==
+Loading FASTA data
+^^^^^^^^^^^^^^^^^^^^
 
 Now load the `malaria-chromosome-fasta` source by running this command in `malariamine/integrate`:
 
@@ -504,14 +504,16 @@ Now load the `malaria-chromosome-fasta` source by running this command in `malar
 This has integrated the chromosome objects with those already in the database.  In the next step we will look at how this data integration works.
 
 
-= 9 Data Integration =
+Data Integration
+----------------------
 
-For an introduction to data integration in !InterMine please read: DataIntegration
+For an introduction to data integration in InterMine please read: DataIntegration
 
 
-== 9.1 Data integration in !MalariaMine ==
+Data integration in MalariaMine
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The sources `uniprot-malaria` and `malaria-gff` have both loaded information about the same genes.  Before loading genome data we ran a query to look at the information !UniProt provided about the gene `PFL1385c`:
+The sources `uniprot-malaria` and `malaria-gff` have both loaded information about the same genes.  Before loading genome data we ran a query to look at the information UniProt provided about the gene `PFL1385c`:
 
 {{{
 malariamine=# select id, primaryidentifier, secondaryidentifier, symbol, length , chromosomeid, chromosomelocationid, organismid from gene where primaryIdentifier = 'PFL1385c';
@@ -520,7 +522,7 @@ malariamine=# select id, primaryidentifier, secondaryidentifier, symbol, length 
  83000626 | PFL1385c          |                     | ABRA   |        |              |                      |   83000003
 (1 row)
 }}}
-Which showed that !UniProt provided `primaryIdentifier` and `symbol` attributes and set the `organism` reference.  The `id` was set automatically by the !ObjectStore and will be different each time you build your Mine.
+Which showed that UniProt provided `primaryIdentifier` and `symbol` attributes and set the `organism` reference.  The `id` was set automatically by the ObjectStore and will be different each time you build your Mine.
 
 Running the same query after `malaria-gff` is added shows that more fields have been filled in for same gene and that it has kept the same id:
 {{{
@@ -535,7 +537,7 @@ malariamine=# select id, primaryidentifier, secondaryidentifier, symbol, length 
 
 This means that when the second source was loaded the integration code was able to identify that an equivalent gene already existed and merged the values for each source, the equivalence was based on `primaryIdentifier` as this was the field that the two sources had in common.
 
-Note that `malaria-gff` does not include a value for `symbol` but it did not write over the `symbol` provided by !UniProt, actual values always take precedence over null values (unless configured otherwise).
+Note that `malaria-gff` does not include a value for `symbol` but it did not write over the `symbol` provided by UniProt, actual values always take precedence over null values (unless configured otherwise).
 
 
 Now look at the organism table:
@@ -549,7 +551,8 @@ malariamine=# select * from organism;
 Three sources have been loaded so far that all included the organism with `taxonId` 36329, and more importantly they included objects that reference the organism.  There is still only one row in the organism table so the data from three sources has merged, in this case `taxonId` was the field used to define equivalence.
 
 
-== 9.2 How data integration works ==
+How data integration works
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Data integration works by defining keys for each class of object to describe fields that can be used to define equivalence for objects of that class.  For the examples above:
  * `primaryIdentifier` was used as a key for `Gene`
@@ -566,7 +569,8 @@ Important points:
  * One source can use multiple primary keys for a class if the objects of that class don't consistently have the same identifier type
  * `null` - if a source has no value for a field that is defined as a primary key then the key is not used and the data is loaded without being integrated.
 
-== 9.3 Primary keys in !MalariaMine ==
+Primary keys in MalariaMine
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The keys used by each source are configured in the corresponding `bio/sources/` directory.
 
@@ -596,11 +600,12 @@ Each key should list one or more fields that can be a combination of '''attribut
 
 '''Note''' - it is still possible to use a legacy method of configuring keys, where keys are defined centrally in `dbmodel/resources/genomic_keyDefs.properties` and referenced in source `_keys.properties` files.
 
-== 9.4 Dealing with conflicts ==
+Dealing with conflicts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 It is possible that two different sources could have a value for the same field, in this case we need to define which source should take precedence.
 
-Try loading data from the `interpro` source which will cause a conflict with `uniprot-malaria`.  !UniProt loads a list of protein domains for each protein but doesn't include the full names and descriptions of !ProteinDomain objects, the `interpro` source adds this information:
+Try loading data from the `interpro` source which will cause a conflict with `uniprot-malaria`.  UniProt loads a list of protein domains for each protein but doesn't include the full names and descriptions of ProteinDomain objects, the `interpro` source adds this information:
 {{{
 > ant -Dsource=interpro
 }}}
@@ -623,7 +628,8 @@ Now run try to load `interpro` again:
 
 See here for a full description of configuring priorities:  PriorityConfig
 
-== 9.5 The `tracker` table ==
+The `tracker` table 
+^^^^^^^^^^^^^^^^^^^^
 
 A special `tracker` table is created in the target database by the data integration system.  This tracks which sources have loaded data for each field of each object.  The data is used along with priorities configuration when merging objects but is also useful to view where objects have come from.
 
@@ -631,7 +637,7 @@ A special `tracker` table is created in the target database by the data integrat
 
  * Query tracker information for the objects in the examples above:
  {{{
-#!sql
+#sql
  select distinct sourcename from tracker, gene where objectid = id and primaryidentifier = 'PFL1385c';
  
  select objectid, sourcename, fieldname, version from tracker, gene where objectid = id and primaryidentifier = 'PFL1385c';
@@ -639,11 +645,13 @@ A special `tracker` table is created in the target database by the data integrat
  select distinct sourcename from tracker, organism where objectid = id;
  }}}
 
-= 10 Updating Organism and Publication Information =
+Updating Organism and Publication Information
+------------------------------------------------------------------
 
-Organisms and publications in !InterMine are loaded by their taxon id and !PubMed id respectively.  The `entrez-organism` and `update-publications` sources can be run at the end of the build to examine the ids loaded, fetch details via the NCBI Entrez web service and add those details to the Mine.
+Organisms and publications in InterMine are loaded by their taxon id and PubMed id respectively.  The `entrez-organism` and `update-publications` sources can be run at the end of the build to examine the ids loaded, fetch details via the NCBI Entrez web service and add those details to the Mine.
 
-== 10.1 Fetching organism details ==
+Fetching organism details
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You will have noticed that in previous sources and in `project.xml` we have referred to organisms by their [http://www.ncbi.nlm.nih.gov/Taxonomy/ NCBI Taxonomy] id.  These are numerical ids assigned to each species and strain.  We use these for convenience in integrating data, the taxon id is a good unique identifier for organisms whereas names can come in many different formats: for example in fly data sources we see: ''Drosophila melanogaster'', ''D. melanogaster'', Dmel, DM, etc.
 
@@ -669,11 +677,12 @@ You will have noticed that in previous sources and in `project.xml` we have refe
 
 '''NOTE: ''' As this source depends on organism data previously loaded it should be one of the last sources run and should appear at the end of `<sources>` in `project.xml`.
 
-== 10.2 Fetching publication details ==
+Fetching publication details
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Publications are even more likely to be cited in different formats and are prone to errors in their description.  We will often load data referring to the same publication from multiple sources and need to ensure those publications are integrated correctly.  Hence we load only the !PubMed id and fetch the details from the NCBI Entrez web service as above.
+Publications are even more likely to be cited in different formats and are prone to errors in their description.  We will often load data referring to the same publication from multiple sources and need to ensure those publications are integrated correctly.  Hence we load only the PubMed id and fetch the details from the NCBI Entrez web service as above.
 
- * Several sources !InterMine sources load publications:
+ * Several sources InterMine sources load publications:
  {{{
  malariamine#  select count(*) from publication;
  malariamine#  select * from publication limit 5;
@@ -690,11 +699,12 @@ Publications are even more likely to be cited in different formats and are prone
 
 '''NOTE: ''' Sometimes, especially with very large numbers of publications, this source will fail to fetch details correctly.  Usually running it again will work correctly.
 
-Occasionally erroneous !PubMed ids are included from some sources and their details will not be updated, there is no good way to deal with this situation.
+Occasionally erroneous PubMed ids are included from some sources and their details will not be updated, there is no good way to deal with this situation.
 
 '''NOTE: ''' As this source depends on publication data previously loaded it should be one of the last sources run and should appear at the end of `<sources>` in `project.xml`.
 
-= 11 Post Processing =
+Post Processing
+--------------------------------------------
 
 Post-processing steps are run after all data is loaded, they are specified as `<post-process>` elements in `project.xml`.  
 
@@ -707,14 +717,16 @@ Post-processing steps are run after all data is loaded, they are specified as `<
 A list of common post-process targets with some indication whether you will need to use them is give here: PostProcessing.
 
 
-== 11.1 !MalariaMine Post Processing ==
+MalariaMine Post Processing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The following `<post-process>` targets are included in the !MalariaMine `project.xml`. 
+The following `<post-process>` targets are included in the MalariaMine `project.xml`. 
 The post-processes are run as a single stage of the build process. (see step 11.2 below for how to run the post-processing steps).
 
 Run queries listed here before and after running the post-processing to see examples of what each step does. 
 
-=== 11.1.1 `create-references` ===
+`create-references`
+""""""""""""""""""""""""
 
 This fills in some shortcut references in the data model to make querying easier.  For example, `Gene` has a collection of `transcripts` and `Transcript` has a collection of `exons`.  `create-references` will follow these collections and create a `gene` reference in `Exon` and the corresponding `exons` collection in `Gene`.
 
@@ -724,7 +736,8 @@ malariamine#  select * from exon limit 5;
 The empty `geneid` column will be filled in representing the reference to gene.
 
 
-=== 11.1.2 `transfer-sequences` ===
+`transfer-sequences` 
+""""""""""""""""""""""""
 The sequence for chromosomes is loaded by `malaria-chromosome-fasta` but no sequence is set for the features located on them.  This step reads the locations of features, calculates and stores their sequence and sets the `sequenceid` column.  The `sequenceid` column for this exon is empty:
 {{{
 malariamine# select * from exon where primaryidentifier = 'exon.32017';
@@ -732,15 +745,19 @@ malariamine# select * from exon where primaryidentifier = 'exon.32017';
 
 After running `transfer-sequences` the `sequenceid` column is filled in.
 
-=== 11.1.3 `do-sources` ===
+`do-sources` 
+""""""""""""""""""""""""
 
-Each source can also provide code to execute post-process steps if required.  This command loops through all of the sources and checks whether there are any post-processing steps configured.  There aren't any for the sources we are using for !MalariaMine but you should always include the `do-sources` element.
+Each source can also provide code to execute post-process steps if required.  This command loops through all of the sources and checks whether there are any post-processing steps configured.  There aren't any for the sources we are using for MalariaMine but you should always include the `do-sources` element.
 
-=== 11.1.4 `summarise-objectstore`, `create-search-index` & `create-autocomplete-index` ===
+`summarise-objectstore`, `create-search-index` & `create-autocomplete-index` 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 These generate summary data and indexes used by the web application, see WebappConfig.
 
-== 11.2 Run the post-procesing ==
+Run the post-procesing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 To run all the post-processing steps:
 {{{
@@ -751,47 +768,39 @@ This will take a few minutes.  When complete you can re-run the queries above to
 
 Post-processing steps can also be run individually, [wiki:RunningABuild#Post-processingstage see documentation].
 
-= 12 Building a Mine =
+Building a Mine
+----------------------
 
-So far we have created databases, integrated data and run post-processing with individual `ant` targets.  !InterMine includes a perl program called `project_build` that reads the `project.xml` definition and runs all of the steps in sequence.  It also has the option of dumping the production database during the build and recovering from these dumps in case of problems.
+So far we have created databases, integrated data and run post-processing with individual `ant` targets.  InterMine includes a perl program called `project_build` that reads the `project.xml` definition and runs all of the steps in sequence.  It also has the option of dumping the production database during the build and recovering from these dumps in case of problems.
 
 See this page for full documentation:  [wiki:RunningABuild]
 
-== 12.1 Build complete !MalariaMine ==
+Build complete MalariaMine
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Build !MalariaMine now using the `project_build` script, we will need a completed !MalariaMine for the webapp.
+Build MalariaMine now using the `project_build` script, we will need a completed MalariaMine for the webapp.
  * Run the `project_build` script from your `malariamine` directory:
  {{{
  > ../bio/scripts/project_build -b -v localhost ~/malariamine-dump
  }}}
   This will take ~15-30mins to complete.
 
-
-----
-
-== Optional: creating your own source ==
-
-You can create custom sources to load your own data, there is a tutorial for doing this and two workshop exercises for trying it out in Java or Perl:
-
- * SourceHowto
- * WorkshopCreateSourceJava
- * WorkshopCreateSourcePerl
-
----- 
-
-= 13 Deploying the web application =
+Deploying the web application
+--------------------------------------------
 
 Once you have read access to a production database, you can build and release a web application against it.  
 
 
-== 13.1 Configure ==
+Configure
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In the {{{~/.intermine}}} directory, update the webapp properties in your [source:trunk/bio/tutorial/malariamine/malariamine.properties  properties file].  Update the following properties:
 
  * tomcat username and password
  * superuser username and password
 
-== 13.2 !UserProfile ==
+UserProfile
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The [wiki:UserProfile userprofile database] stores all user-related information such as username and password, tags, queries, lists and templates.  
 
@@ -819,9 +828,11 @@ db.userprofile-production.datasource.password=USER_PASSWORD
     * You only need to build the userprofile database once for every production database.  
     * See UserProfile for more information.
 
-== 13.3 Deploying the webapp ==
+Deploying the webapp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-'''Tomcat'''
+Tomcat
+""""""
 
 Tomcat is the webserver we use to launch InterMine webapps.  Start Tomcat with this command:
 {{{
@@ -833,7 +844,8 @@ Visit the Tomcat manager at http://localhost:8080/.  The username and password r
 
 See:  [wiki:Tomcat]
 
-'''Webapp'''
+Webapp
+""""""""""""
 
 Run the following command to release your webapp: 
 
@@ -846,19 +858,23 @@ This will fetch the model from the database and generate the model java code, re
 
 See: AntTargets
 
-== 13.4 Using the webapp ==
+Using the webapp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Navigate to http://localhost:8080/malariamine to view your webapp.  The path to your webapp is the {{{webapp.path}}} value set in [source:trunk/bio/tutorial/malariamine/malariamine.properties malariamine.properties].
 
 For more information about how to use your webapp, please continue this tutorial at GettingStartedWebapp.
 
-== 13.5 Configuring the webapp ==
+Configuring the webapp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 See WebappConfig to see how to customise the appearance of your mine.
 
-= 14 Help! =
+Help
+----------------------
 
-'''Ant'''
+Ant
+""""""
 
 Anytime you run `ant` and something bad happens, add the verbose tag:
 
@@ -868,8 +884,8 @@ Anytime you run `ant` and something bad happens, add the verbose tag:
 
 This will give you more detailed output and hopefully a more helpful error message.
 
-
-'''Logs'''
+Logs
+""""""
 
 If the error occurs while you are integrating data, the error message will be in the {{{intermine.log}}} file in the directory you are in.
 
