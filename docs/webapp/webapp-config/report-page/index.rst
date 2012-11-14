@@ -4,5 +4,6 @@ Report page
 .. toctree::
     report-page
     report-displayers
+    report-displayers-examples
     webapp-tables
     report-widgets
