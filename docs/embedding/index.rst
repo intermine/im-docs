@@ -8,3 +8,4 @@ The following are libraries that compile to JavaScript which can be embedded on 
       
     api-loader
     report-widgets
+    examples
