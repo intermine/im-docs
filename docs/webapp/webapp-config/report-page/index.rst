@@ -2,6 +2,7 @@ Report page
 ===========
 
 .. toctree::
-   report-widgets
-   report-displayers
-   webapp-tables
+    report-page
+    report-displayers
+    webapp-tables
+    report-widgets

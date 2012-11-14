@@ -11,6 +11,9 @@
     padding: 0.2em 0 0.2em 0.6em;
     font-weight: bold;
 }
+.highlight pre {
+    margin-top: 0;
+}
 
 .highlight .hll { background-color: #ffffcc }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
