@@ -7,6 +7,8 @@ Report Widgets
 
 Report Widgets are a type of embeddable component that offers an unparalleled **flexibility** when it comes to the tools that InterMine offers. They are provided as a way for developers to create interactive *widgets* to their end users. Such widgets can then be embedded on virtually any page, be it within a mine or outside of it. See `here <http://reportwidgets-intermine.rhcloud.com>`_ for examples.
 
+.. image:: img/example.png
+
 This document describes the steps needed to create an example publications widget that lists publications related to a particular gene.
 
 The steps outlined:
@@ -203,3 +205,68 @@ In this callback still we say which widget we want passing in extra config that 
 .. code-block:: javascript
 
     widgets.load('spell-histogram', '#spell', { 'type': 'Gene', 'symbol': 'S000001863' });
+
+Workflow
+--------
+
+.. image:: img/widgets.png
+
+blue
+    represents a common workflow to load widget loaders be it for report or list analysis widgets.
+purple
+    represents a flow of List Widget Loader asking the mine for JSON results for a specific type of a widget.
+green
+    represents a flow of Report Widget Loader asking for a JS of a specific widget.
+
+Requirements
+------------
+
+Service
+~~~~~~~
+
+#. Compile **templates** into their JS form and make them accessible within the context of the widget only.
+#. Make *CSS* available only in the context of the widget, perhaps by prefixing each declaration with a dynamic ``widget id`` using `prefix-css-node <https://github.com/radekstepan/prefix-css-node>`_ or `css-prefix <https://github.com/substack/css-prefix>`_.
+#. Respond to the client with a list of **resources** that need to be loaded beforing rendering the widget.
+#. Each widget consists of:
+
+    #. One `CoffeeScript <http://coffeescript.org/>`_ **presenter** containing the logic getting data from the **model** using `imjs <https://github.com/alexkalderimis/imjs>`_.
+    #. A number of `eco <https://github.com/sstephenson/eco/>`_ **templates** precompiled.
+    #. One **CSS** file specifically for the widget.
+    #. Any extra **config** dynamically populated for the widget to consume. This could be the mine the Widget is to take data from or extra flags that specialize an otherwise generic Widget.
+    #. Optional number of requirements (CSS, JS), loaded from the `CDN <https://github.com/intermine/CDN>`_.
+#. All of the previous are configured by the user and the service validates that all widgets are executable.
+#. **Data** requests are done from within the widget to speed up their initial loading.
+#. Files are served as UTF-8.
+#. Provide nice URL for fetching the widgets so it is easier to debug them in Network view, ``/widget/24517/publications-displayer``.
+#. Provide info messages on each step of the compilation process so we can determine where problems lie. These then be returned as `message` to the user when requesting widgets as HTTP 500 JSON errors.
+
+Optional
+^^^^^^^^
+
+* Cache resources by, for example, not packaging resources on the fly but doing so on service startup. Then, say the latest modification date. Add ``ETag`` and return ``304`` not modified then.
+* Allow the use of `LESS <http://lesscss.org/>`_ instead of CSS.
+* Allow the use of other templating languages.
+* Check for the presence of ``Displayer.prototype.render`` and ``Displayer.prototype.initialize`` in the compiled **presenter**.
+* Validate that callbacks are valid JavaScript identifiers. Should not be needed as we will use API loader and generate these automagically.
+* Provide a signature in the generated output describing the title, author etc for the widget in question.
+* Each block in the compiled result have a comment header so it is easier to find where things lie when debugging.
+* Provide connection to `imjs <https://github.com/alexkalderimis/imjs>`_ by default.
+
+Issues
+^^^^^^
+
+* If we want to split presenter across multiple CoffeScript files, how to maintain their order in the resulting JS version? Go alphabetically?
+
+Client
+~~~~~~
+
+1. Make use of `intermine-api-loader <https://github.com/radekstepan/intermine-api-loader>`_ to efficiently load resources and libs only when needed.
+2. Generate **callbacks** that are unique for the page taking into account other clients that could exist on the page. As the service URL is unique per client, make use of that.
+3. Dump error messages from the server into the target element where widget was supposed to have been.
+4. Cache all of the widgets listing as we need to be resolving widget dependencies first.
+5. Provide a wrapping ``<article>`` element with a predictable ``im-report-widget`` class so we can use it in our CSS.
+
+Optional
+^^^^^^^^
+
+* Provide a callback where all widgets can dump error messages.

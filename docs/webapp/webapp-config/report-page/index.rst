@@ -6,4 +6,4 @@ Report page
     report-displayers
     report-displayers-examples
     webapp-tables
-    report-widgets
+    /embedding/report-widgets

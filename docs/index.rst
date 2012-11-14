@@ -18,6 +18,7 @@ Contents
     database/index
     webapp/index
     web-services/index
+    embedding/index
     support/index
     privacy-policy
 

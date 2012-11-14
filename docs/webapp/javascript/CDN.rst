@@ -18,5 +18,3 @@ We recommend doing the following:
     currently configured in 'global.web.properties' as {{{head.cdn.location = http://cdn.intermine.org}}}
     Note that you can do this in a running web-app to check that
     it works by visiting the HOST/PREFIX/showProperties.do url when logged in as superuser. 
-
-

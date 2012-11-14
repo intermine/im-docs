@@ -3,7 +3,7 @@ Report Displayers
 
 .. warning::
 
-    Report Displayers can only be embedded on a report page and not elsewhere, furthermore they are tightly knit to the Java system. Check out :doc:`report-widgets` for a more flexible arrangement.
+    Report Displayers can only be embedded on a report page and not elsewhere, furthermore they are tightly knit to the Java system. Check out :doc:`/embedding/report-widgets` for a more flexible arrangement.
 
 See :doc:`report-displayers-examples`.
 

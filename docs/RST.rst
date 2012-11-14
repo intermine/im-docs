@@ -25,6 +25,8 @@ Level 5 titles
 
 ... are discouraged as they look smaller than paragraphs
 
+.. image:: http://docutils.sourceforge.net/docs/user/rst/images/ball1.gif
+
 Definition lists
 ----------------
 
