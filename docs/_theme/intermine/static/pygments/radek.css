@@ -1,3 +1,4 @@
+/* custom box around the code, based on Trac theme */
 .highlight {
     background: #F7F7F7;
     box-shadow: 0px 8px 6px -8px #93a1a1;
