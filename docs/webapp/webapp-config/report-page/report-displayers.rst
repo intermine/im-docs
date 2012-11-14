@@ -56,8 +56,8 @@ Creating a new Displayer
 
 If you've loaded some new data into your Mine or have some great ideas about presenting data from the common data loaders you can create a new displayer.  Here are brief instructions, take a look at the many examples for more details.
 
-#. Create a Java class in ``<mine>/webapp/src/org/intermine/web/displayers`` that inherits from ``org.intermine.web.displayer.ReportDisplayer`` [1]_.
-#. Implement ``public void display(HttpServletRequest request, ReportObject reportObject)`` to perform any queries or processing required and put results on the `request.
+#. Create a Java class [1]_ in ``<mine>/webapp/src/org/intermine/web/displayers`` that inherits from ``org.intermine.web.displayer.ReportDisplayer``.
+#. Implement ``public void display(HttpServletRequest request, ReportObject reportObject)`` to perform any queries or processing required and put results on the request.
 #. Create a JSP file in ``<mine>/webapp/resources/webapp/model`` to display the results.
 #. Add configuration to ``<mine>/webapp/resources/webapp/WEB-INF/webconfig-model.xml`` to set up the ``javaClass`` and ``jspName`` created above and set the ``types`` for which the displayer should appear and the *summary* or a data category (aspect) as the ``placement`` for the displayer. Optionally set any fields in the report page that should be hidden when this displayer is used.
  
