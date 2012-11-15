@@ -3,16 +3,16 @@
   font-family: 'Droid Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('Droid Sans'), local('DroidSans'), url("DroidSans.woff") format('woff');
+  src: local('Droid Sans'), local('DroidSans'), url("fonts/DroidSans.woff") format('woff');
 }
 @font-face {
   font-family: 'Source Code Pro';
   font-style: normal;
   font-weight: 400;
-  src: local('Source Code Pro'), local('SourceCodePro'), url("SourceCodePro.woff") format('woff');
+  src: local('Source Code Pro'), local('SourceCodePro'), url("fonts/SourceCodePro.woff") format('woff');
 }
 html {
-  background: url("pattern-2.jpg") repeat 0 0;
+  background: url("img/pattern-2.jpg") repeat 0 0;
 }
 body {
   font-family: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, 'Lucida Grande', sans-serif;
@@ -65,9 +65,26 @@ div.body {
   margin: 0;
   padding: 0 60px 20px 20px;
 }
+div.body div.highlight {
+  margin: 1em 2px;
+}
+div.body table.docutils:not(.footnote) {
+  margin: 1em 2px;
+}
+div.body table.docutils:not(.footnote) thead th {
+  padding: 6px 10px;
+  text-align: center;
+}
+div.body table.docutils:not(.footnote) tbody tr td {
+  padding: 4px 10px;
+  border-color: #ccc;
+}
+div.body table.docutils:not(.footnote) tbody tr:nth-child(odd) {
+  background: #f7f7f7;
+}
 div.related {
   font-size: 1em;
-  background: #829b02 url("pattern-1.jpg") repeat 0 0;
+  background: #829b02 url("img/pattern-1.jpg") repeat 0 0;
   color: #fff;
   padding: 5px 0px;
   border-bottom: 1px solid #596a02;
@@ -75,7 +92,7 @@ div.related {
 div.related ul {
   height: 2em;
   margin: 2px;
-  background: url("logo.png") no-repeat 20px 4px;
+  background: url("img/logo.png") no-repeat 20px 4px;
   padding-left: 50px;
 }
 div.related ul li {
@@ -147,7 +164,7 @@ div.sphinxsidebar #searchbox p {
   display: none;
 }
 div.footer {
-  background: url("pattern-2.jpg") repeat 0 0;
+  background: url("img/pattern-2.jpg") repeat 0 0;
   color: #eee;
   padding: 3px 8px 3px 0;
   clear: both;
