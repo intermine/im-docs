@@ -8,3 +8,5 @@ Please join the InterMine developers mailing list ``dev@intermine.org`` to recei
 Archives of old messages are available here:
 
 `Message archive <http://mail.intermine.org/pipermail/dev>`_
+
+.. index:: solaris
