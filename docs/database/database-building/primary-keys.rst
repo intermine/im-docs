@@ -1,11 +1,11 @@
 Primary Keys
 ================================
 
-= !InterMine Integration Primary Key Configuration =
+= InterMine Integration Primary Key Configuration =
 
-This document describes the configuration used by the !InterMine integration system to identify objects that are identical to each other. Two objects are deemed to be identical if they have matching fields for at least one primary key used for the class of object. Primary keys are defined in a global file called "<name of model>_keyDefs.properties" which must be in the classpath.  Each data source needs an additional configuration file defining which primary keys should be used when integrating data, which can also define some extra keys. These files should be in the resources directory of the data source, and should be called "<name of data source>_keys.properties".
+This document describes the configuration used by the InterMine integration system to identify objects that are identical to each other. Two objects are deemed to be identical if they have matching fields for at least one primary key used for the class of object. Primary keys are defined in a global file called "<name of model>_keyDefs.properties" which must be in the classpath.  Each data source needs an additional configuration file defining which primary keys should be used when integrating data, which can also define some extra keys. These files should be in the resources directory of the data source, and should be called "<name of data source>_keys.properties".
 
-'''NOTE ''' - from !InterMine '''0.92''' you can define keys entirely in the `sourcename_keys.properties` file for each source without using `genomic_keyDefs.properties`, the old method also still works.
+'''NOTE ''' - from InterMine '''0.92''' you can define keys entirely in the `sourcename_keys.properties` file for each source without using `genomic_keyDefs.properties`, the old method also still works.
 
 == Data source keys configuration files ==
 
@@ -51,7 +51,7 @@ Classname.primary_key_name = field1, field2
 
 This line means that the class "Classname" and all its subclasses have a primary key called "primary_key_name" that matches two objects if the values of both of the fields "field1" and "field2" are identical. Only attributes and references can be used as fields in a primary key, not collections.
 
-Here is a short example of the configuration file. The configuration file we use for the !FlyMine system is a good [source:trunk/flymine/dbmodel/resources/genomic_keyDefs.properties example].
+Here is a short example of the configuration file. The configuration file we use for the FlyMine system is a good [source:trunk/flymine/dbmodel/resources/genomic_keyDefs.properties example].
 
 {{{
 # some keys defined in flymine/dbmodel/resources/genomic_keyDefs.properties
@@ -80,5 +80,5 @@ This line means that the class "Classname" and all its subclasses have a two pri
 
 During data integration, the objects created by each source are added to the database.  If no primary keys are set all objects are added.  However, if a source has a primary key defined then the build system will check the database for that primary key.  If the key is not found, the object is added.  If the key is present in the database, the build system will attempt to merge the new object from the current source with the existing object in the database.
 
-See [wiki:GettingStarted] for a detailed look at how data integration works in !InterMine.
+See [wiki:GettingStarted] for a detailed look at how data integration works in InterMine.
 

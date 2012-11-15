@@ -2,9 +2,9 @@ Priority Configuration
 ================================
 
 
-= !InterMine Integration Priority Configuration =
+= InterMine Integration Priority Configuration =
 
-This document describes the format of the configuration file used by the !InterMine system's integration to resolve conflicts between different data originating from different data sources.  This file should be created as `MINE_NAME/dbmodel/resources/MODEL_NAME_priorities.properties`
+This document describes the format of the configuration file used by the InterMine system's integration to resolve conflicts between different data originating from different data sources.  This file should be created as `MINE_NAME/dbmodel/resources/MODEL_NAME_priorities.properties`
 
 When two objects from two different data sources have been identified as equivalent by the PrimaryKeys, those two objects must then be merged into a single object. It is possible that the different data sources may give different values for some of the fields of the objects, so the integration system must choose between the two values. This could be implemented as a manual data curation step, but we decided to make it automatic, by allowing data sources to be placed in priority order on a per-field basis. This means that if two data sources have a conflicting value for a field, the data source with the highest priority for that field will supply the value used in the final object.
 
@@ -40,7 +40,7 @@ The data sources are listed in order of decreasing priority. Note that all the f
 
 == Class Hierarchy ==
 
-Because this is an object-oriented database, classes of object are arranged in a class hierarchy, that is some classes are sub-classes of other super-classes. Therefore, it is possible to define a priority on Gene.name and on !BioEntity.name, which refer to the same attribute. The priority system will only work if the priorities are completely unambiguous. That is, Gene.name and !BioEntity.name must be set to the same thing, or an error will be reported. Generally, you should only configure one of those two classes.
+Because this is an object-oriented database, classes of object are arranged in a class hierarchy, that is some classes are sub-classes of other super-classes. Therefore, it is possible to define a priority on Gene.name and on BioEntity.name, which refer to the same attribute. The priority system will only work if the priorities are completely unambiguous. That is, Gene.name and BioEntity.name must be set to the same thing, or an error will be reported. Generally, you should only configure one of those two classes.
 
 == Validation ==
 

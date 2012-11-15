@@ -14,3 +14,5 @@ export ANT_OPTS="-server -XX:MaxPermSize=256M -Xmx1700m -XX:+UseParallelGC -Xms1
    {{{
 java.lang.OutOfMemoryError: PermGen space
 }}}
+
+.. index:: Java, OutOfMemoryError, ANT_OPTS

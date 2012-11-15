@@ -10,7 +10,7 @@ Loading data can be memory intensive so there are some Java options that should 
 
 == Storing Items in order ==
 
-When loading objects into the production !ObjectStore the order of loading can have a big impact on performance.  It is important to store objects before any other objects that reference them.  For example, if we have a Gene with a Publication in its evidence collection and a Synonym referencing the Gene, the objects should be stored in the order: Publication, Gene, Synonym.  (If e.g. the Gene is stored after the Synonym a placeholder object is stored in the Gene's place which is later replaced by the real Gene.  This takes time).
+When loading objects into the production ObjectStore the order of loading can have a big impact on performance.  It is important to store objects before any other objects that reference them.  For example, if we have a Gene with a Publication in its evidence collection and a Synonym referencing the Gene, the objects should be stored in the order: Publication, Gene, Synonym.  (If e.g. the Gene is stored after the Synonym a placeholder object is stored in the Gene's place which is later replaced by the real Gene.  This takes time).
 
 Objects are loaded in the order that Items are stored by converter code or the order they appear in an Items XML file.  When Items are stored into the items database (during the build or using `ant -Dsource=sourcename -Daction=retrieve`) you can check if there are improvements possible with this SQL query:
 

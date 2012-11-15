@@ -28,7 +28,7 @@ You can use different database names as long as the actual database name used to
 
    [source:/trunk/intermine/doc/example/intermine-test.properties intermine-test.properties]
 
-There are separate test projects for the main !InterMine libraries: core objectstore code, the integration code and the web code.  These are the
+There are separate test projects for the main InterMine libraries: core objectstore code, the integration code and the web code.  These are the
 packages/directories:
 
   * intermine/objectstore/test/
@@ -53,7 +53,7 @@ We aim to keep the tests at a 100% pass rate at all times.
 
 = 2 Running the bio tests =
 
-!InterMine includes a `bio` project which contains specific code for biological data and parsers for many data formats.  To run tests on this code you need to set up another properties file and create some more databases.
+InterMine includes a `bio` project which contains specific code for biological data and parsers for many data formats.  To run tests on this code you need to set up another properties file and create some more databases.
 
 == 2.1 Create databases ==
 

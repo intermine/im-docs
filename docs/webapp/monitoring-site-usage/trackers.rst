@@ -29,7 +29,7 @@ Run the ant task ''update-templatetrack-table'' in the webapp directory and then
 
 == Usage page in the webapp ==
 
-You can access to the '''Usage''' page, via the !MyMine page, only if you are a superuser.[[BR]]
+You can access to the '''Usage''' page, via the MyMine page, only if you are a superuser.[[BR]]
 The page shows all tracks grouped in these sections: Template usage, Custom queries executed, Logins, Keyword Searches, List Analysis page views and List Creation.[[BR]]
 Each section contains:
  * a diagram showing the trend of that specific track during the time range selected: 1d, 5d, 1m, 3m, 6m, 1y. The diagrams point out the number of tracks per day (number of template query execution, number the query execution....) without specify wich template or type query(Gene, Protein...) has been executed. 

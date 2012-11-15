@@ -57,7 +57,7 @@ Inline List (Tagging, Right)
 ======================================== =================================
 CSS                                      Description
 ======================================== =================================
-``div.inline-list div.right`` (optional) will float element to the right and apply appropriate colors to links; needs to go first, before any other text!
+``div.inline-list div.right`` (optional) will float element to the right and apply appropriate colors to links; needs to go first, before any other text
 ======================================== =================================
 
 'Header' Inline List
@@ -159,9 +159,9 @@ Collection Table (Vertical Column Border)
 .. code-block:: html
 
     <div class="collection-table column-border">
-        <!-- ... -->
+        <-- ... -->
         <table>
-            <!-- ... -->
+            <-- ... -->
         </table>
     </div>
 
@@ -183,9 +183,9 @@ Collection Table (Vertical Column Border by 2)
 .. code-block:: html
 
     <div class="collection-table column-border-by-2">
-        <!-- ... -->
+        <-- ... -->
         <table>
-            <!-- ... -->
+            <-- ... -->
         </table>
     </div>
 
@@ -230,7 +230,7 @@ Collection Table (Tagging, Right)
 ============================================= =============================================
 CSS                                           Description
 ============================================= =============================================
-``div.collection-table div.right`` (optional) will float element to the right and apply appropriate colors to links; needs to go first, before any other text!
+``div.collection-table div.right`` (optional) will float element to the right and apply appropriate colors to links; needs to go first, before any other text
 ============================================= =============================================
 
 Collection Table (Persistent Table Headers)
@@ -239,7 +239,7 @@ Collection Table (Persistent Table Headers)
 .. code-block:: html
 
     <div class="collection-table persistent">
-        <!-- ... -->
+        <-- ... -->
     </div>
 
 =================================== ===================================
@@ -266,7 +266,7 @@ Basic Table (Generic)
 CSS                                      Description
 ======================================== ========================================
 ``div.basic-table h3``                   will apply the heading 3 style (see below)
-``div.basic-table div.right`` (optional) will float element to the right and apply appropriate colors to links; needs to go first, before any other text!
+``div.basic-table div.right`` (optional) will float element to the right and apply appropriate colors to links; needs to go first, before any other text
 ``div.basic-table table``                will make sure that the table is properly collapsed, has padding and does not have cellspacing
 ``div.basic-table.gray`` (optional)      one can apply an 'inactive' theme by attaching a class to the top element
 ======================================== ========================================
@@ -287,10 +287,10 @@ Collection of Collection Tables
             </div>
         </div>
         <div class="collection-table">
-            <!-- ... -->
+            <-- ... -->
         </div>
         <div class="collection-table">
-            <!-- ... -->
+            <-- ... -->
         </div>
     </div>
 
@@ -310,7 +310,7 @@ Table Togglers (Less, More, Expand, Collapse, Show in table)
 .. code-block:: html
 
     <div class="collection-table">
-        <!-- ... -->
+        <-- ... -->
         <div class="toggle">
             <a class="less">Show less</a>
             <a class="more">Show more</a>
@@ -386,7 +386,7 @@ Table Warning
 .. code-block:: html
 
     <div class="collection-table warning">
-        <!-- ... -->
+        <-- ... -->
     </div>
 
 ============ ============

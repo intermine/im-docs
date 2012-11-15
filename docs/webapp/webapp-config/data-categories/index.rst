@@ -10,7 +10,7 @@ Data category pages include various aspects of a concept on a single page.  Cate
  * external links
  * bulk download queries
  * template queries
- * direct links to !QueryBuilder
+ * direct links to QueryBuilder
 
 All of the above should relate to a single concept, eg. Genomics or Interactions.
 
@@ -52,10 +52,10 @@ Example of an entry in the configuration file:
    * appear on the top right corner of the data category page
  * template queries
    * appear on the data category page
- * direct links to !QueryBuilder
+ * direct links to QueryBuilder
    * links will appear at the bottom of the data categories page
 
 
 To configure which template queries appear on a data category page, tag the template.  See: [wiki:Tagging].
 
-To configure which links show up under the '''Query starting points''', the classes can be tagged from '''!QueryBuilder > Browse Data Model''' ''e.g. aspect:Interactions''
+To configure which links show up under the '''Query starting points''', the classes can be tagged from '''QueryBuilder > Browse Data Model''' ''e.g. aspect:Interactions''

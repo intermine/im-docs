@@ -3,7 +3,7 @@ Database Building
 
 
 
-= Running an !InterMine build =
+= Running an InterMine build =
 
 A 'build' of a mine is a complete data loading run starting from an empty database.  The build will include the data integration and any post-processing steps.
 
@@ -97,7 +97,7 @@ Note that most sources do not have a `translate` step so `retrieve` will write t
 
 == Post-processing stage == #post-processing
 
-Some operations are performed on the integrated data before the webapp is released - post-processing. For example, setting sequences of !LocatedSequenceFeatures, filling in additional references and collections or transferring orthologues from translations to genes.  See a list of [wiki:PostProcessing common post-processing operations].  Some postprocessing steps are core to !InterMine.bio and should always be run, others are contributed by particular sources.
+Some operations are performed on the integrated data before the webapp is released - post-processing. For example, setting sequences of LocatedSequenceFeatures, filling in additional references and collections or transferring orthologues from translations to genes.  See a list of [wiki:PostProcessing common post-processing operations].  Some postprocessing steps are core to InterMine.bio and should always be run, others are contributed by particular sources.
 
 Post-processing steps are specified in [wiki:ProjectXMLFormat project.xml] and run from the `<mine>/postprocess` project with:
 
@@ -115,7 +115,7 @@ When running one postprocess step like this, the `action` used must match an `po
 
 Post-processing is run automatically after integrating if using the `project_build` script (see above).
 
-To add a post-process step to !InterMine, you need to add the Java definition to the [source:trunk/bio/postprocess/main/ bio/postprocess/main/] project and call the post-process from the [source:trunk/bio/postprocess/main/src/org/intermine/bio/postprocess/PostProcessOperationsTask.java PostProcessOperationsTask] class.
+To add a post-process step to InterMine, you need to add the Java definition to the [source:trunk/bio/postprocess/main/ bio/postprocess/main/] project and call the post-process from the [source:trunk/bio/postprocess/main/src/org/intermine/bio/postprocess/PostProcessOperationsTask.java PostProcessOperationsTask] class.
 
 
 

@@ -23,7 +23,7 @@ Where a Chromosome has a sequence this will find genome features located on it t
 
 Create shortcut references/collections to make querying more obvious.  We are trying to eliminate the need to use this.
 
-'''Should I use it?''' - Yes, for the moment if you are using standard !InterMine sources.
+'''Should I use it?''' - Yes, for the moment if you are using standard InterMine sources.
 
 === `create-intron-features` ===
 
@@ -35,9 +35,9 @@ If you have loaded genome annotation that include exons but does not specify int
 
 === `create-intergenic-region-features` ===
 
-Looks at gene locations on chromosomes and calculates new !IntergenicRegion features to represent the intergenic regions.  These are useful in combination with overlaps for working out, e.g. binding sites that overlap the upstream intergenic region of a gene.  Each Gene gets a reference to its upstream and downstream intergenic regions.
+Looks at gene locations on chromosomes and calculates new IntergenicRegion features to represent the intergenic regions.  These are useful in combination with overlaps for working out, e.g. binding sites that overlap the upstream intergenic region of a gene.  Each Gene gets a reference to its upstream and downstream intergenic regions.
 
-'''Should I use it?''' - Yes, if you have loaded genome annotation and think !IntergenicRegions sound useful.
+'''Should I use it?''' - Yes, if you have loaded genome annotation and think IntergenicRegions sound useful.
 
 === `create-bioseg-location-index` ===
 
@@ -63,7 +63,7 @@ Create features to represent flanking regions of configurable distance either si
 
 This searches through all sources included in project.xml and runs post-processing steps if any exist.  Looks for the property `postprocessor.class` in the `project.properties` of each source, the class specified should be a subclass of `org.intermine.postprocess.PostProcessor`.
 
-'''Should I use it?''' - Yes, if you are using standard !InterMine sources, they may have post-processing steps.
+'''Should I use it?''' - Yes, if you are using standard InterMine sources, they may have post-processing steps.
 
 == Webapp ==
 

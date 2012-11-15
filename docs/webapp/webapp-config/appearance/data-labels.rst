@@ -19,7 +19,7 @@ field names are replaced by right angle-brackets (">").
 
 Examples
 {{{
-#!rst
+#rst
 
 ====================== ==========================
       Before                  After             
@@ -47,7 +47,7 @@ Labels can be configured however in two ways, in order of precedence:
 
 To apply individual configuration, the file "webconfig-model.xml" needs to be edited, and a '''label''' attribute added to items you want to configure. eg:
 {{{
-#!xml
+#xml
 <class className="org.intermine.model.bio.Allele" label="SOME CLASS LABEL">
     <fields>
     <fieldconfig fieldExpr="primaryIdentifier" label="SOME FIELD LABEL"/>
@@ -116,25 +116,25 @@ This library provides five functions, which expose static methods from the [sour
 
 The values INTERMINE_API and WEBCONFIG are automatically available within jsps at all times.
 
-''Note that while it is possible to call the formatting methods of !WebUtil directly from Java
+''Note that while it is possible to call the formatting methods of WebUtil directly from Java
 controllers, it is not advisable, from design principles, to do so. Labels are an aspect of
 presentation (the view) and thus not the responsibility of Java classes (the controllers). The only justifiable place to call presentation methods from is in action classes that
 directly return data to the user, eg. in webservices and ajax calls.''
 
-=== Using Labels in !JavaScript ===
+=== Using Labels in JavaScript ===
 
 Pages in the InterMine webapp have a variable in the global scope named {{{$MODEL_TRANSLATION_TABLE}}}. This contains information on how all classes and their fields should be displayed.
 
 To access its information, for classes:
 {{{
-#!js
+#js
  var className = ??;
  var displayName = $MODEL_TRANSLATION_TABLE[className].displayName;
 }}}
 
 And for fields of this class:
 {{{
-#!js
+#js
  var fieldName = ??;                                                                                                                                                                                     
  var fieldDisplayName = $MODEL_TRANSLATION_TABLE[className].fields[fieldName]
 }}}

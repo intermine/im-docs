@@ -9,7 +9,7 @@ Contents
 --------
 
 .. toctree::
-    :maxdepth: 4
+    :maxdepth: 2
 
     system-requirements/index
     git/index
@@ -22,6 +22,13 @@ Contents
     support/index
     privacy-policy
 
+Indices and tables
+----------------------------------
+ 
+* :ref:`genindex`
+* :doc:`site-map`
+* :ref:`search`
+
 reStructured Text
 -----------------
 
@@ -29,3 +36,4 @@ reStructured Text
     :maxdepth: 2
 
     RST
+

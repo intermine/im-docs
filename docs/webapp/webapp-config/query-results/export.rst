@@ -18,7 +18,7 @@ Export
 Create a custom exporter
 ------------------------
 
-You can add additional export options to your !InterMine by creating a custom exporter.
+You can add additional export options to your InterMine by creating a custom exporter.
 
  1. Write Java classes to handle the data, see [source:/trunk/bio/webapp/src/org/intermine/bio/web/export/BEDHttpExporter.java BEDHttpExporter.java] and [source:/trunk/bio/webapp/src/org/intermine/bio/web/export/BEDExporter.java BEDExporter.java]
  1. Add the class to your webconfig-model.xml file:

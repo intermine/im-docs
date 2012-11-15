@@ -3,9 +3,9 @@ InterMine properties
 
 
 
-= WebappConfig > !InterMine Properties =
+= WebappConfig > InterMine Properties =
 
-!InterMine is governed by a properties file located in the $HOME/.intermine named `$MINE_NAME.properties`.  This page describes which values are set in that file.
+InterMine is governed by a properties file located in the $HOME/.intermine named `$MINE_NAME.properties`.  This page describes which values are set in that file.
 
 
 Example: [source:/trunk/bio/tutorial/malariamine/malariamine.properties ~/.intermine/malariamine.properties]
@@ -47,11 +47,11 @@ The following properties determine the settings for the items database.  This da
 ||webapp.path||malariamine||location of path of webapp||
 ||webapp.manager||TOMCAT_USER||tomcat username, needed to deploy webapp||
 ||webapp.password||TOMCAT_PWD||tomcat password, needed to deploy webapp||
-||webapp.baseurl||http://www.flymine.org||home link; used by client side !JavaScript AJAX requests||
+||webapp.baseurl||http://www.flymine.org||home link; used by client side JavaScript AJAX requests||
 ||superuser.account||test_user@mail_account||account name for superuser||
 ||superuser.initialPassword||secret||password used when account is created||
 ||project.standalone||true||run with associated web site.  Defaults to false||
-||project.title||!MalariaMine||name of mine||
+||project.title||MalariaMine||name of mine||
 ||project.subTitle||An example of InterMine.bio with data from <i>Plasmodium falciparum</i>||text that appears in the header at the top of the page||
 ||project.releaseVersion||tutorial||text that appears at the top of the page next to the mine name||
 ||project.sitePrefix||http://www.flymine.org||various URLs use this as the prefix||
@@ -66,7 +66,7 @@ Emails are sent to users when they create an account, forget their password, or 
 ||mail.host||localhost||mail host to use||
 ||mail.from||account@my_mail_host||"from" email address||
 ||mail.subject||Welcome to MalariaMine||"subject" for email send when account created||
-||mail.text||You have successfully created an account on !MalariaMine||"body" for email send when account created||
+||mail.text||You have successfully created an account on MalariaMine||"body" for email send when account created||
 ||feedback.destination||test_user@mail_address||recipient of feedback form located on bottom of every page||
 
 === suffixes ===

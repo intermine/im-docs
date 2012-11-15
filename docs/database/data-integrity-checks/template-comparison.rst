@@ -22,7 +22,7 @@ This script will run on `cPython` 2.5-2.7, `pypy` and `jython`. It requires the 
 intermine client module, which can be installed from [http://pypi.python.org PyPi] with the following command:
 
 {{{
-#!sh
+#sh
 sudo easy_install intermine
 }}}
 
@@ -32,7 +32,7 @@ Currently available only on trunk, this script will need to be fetched explicitl
 pre-0.99 release check-out:
 
 {{{
-#!sh
+#sh
 svn export svn://subversion.flymine.org/trunk/intermine/scripts/compare_templates_for_releases.py
 }}}
 
@@ -41,28 +41,28 @@ svn export svn://subversion.flymine.org/trunk/intermine/scripts/compare_template
 The script can be invoked most simply against a single mine as follows:
 
 {{{
-#!sh
+#sh
 python compare_templates_for_releases.py www.flymine.org/flymine
 }}}
 
 To have results emailed, add your email address:
 
 {{{
-#!sh
+#sh
 python compare_templates_for_releases.py www.flymine.org/flymine you@your.host.org
 }}}
 
 Optionally set a ''from'' address:
 
 {{{
-#!sh
+#sh
 python compare_templates_for_releases.py www.flymine.org/flymine you@your.host.org noreply@blackhole.net
 }}}
 
 Comparing against two mines is as above, except you simply need to add a second service location:
 
 {{{
-#!sh
+#sh
 python compare_templates_for_releases.py www.flymine.org/flymine beta.flymine.org/beta you@your.host.org
 }}}
  
@@ -78,7 +78,7 @@ The Perl script depends on the following modules:
 These can be installed with the following command:
   
 {{{
-#!sh
+#sh
 sudo cpan Webservice::InterMine Email::Valid List::Util
 }}}
 
@@ -89,7 +89,7 @@ This script has been around for since 0.96, so all mines should have a copy. It 
 may be fetched as follows:
 
 {{{
-#!sh
+#sh
 svn export svn://subversion.flymine.org/trunk/intermine/scripts/compare_templates_for_releases
 }}}
 
@@ -99,12 +99,12 @@ You can run the script to compare two mines, or you can run the script to simply
 
  1. Compare two mines, use one email address for both to and from
     {{{
-#!sh
+#sh
 ./compare_templates_for_releases mine-A mine-B email-address
 }}}
  1. Compare one mine to itself, use one email address for both to and from
     {{{  
-#!sh
+#sh
 ./compare_templates_for_releases mine-A email-address
 }}}
 

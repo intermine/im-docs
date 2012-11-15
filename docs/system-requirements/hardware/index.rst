@@ -97,3 +97,6 @@ Related topics:
    
    solaris
    
+
+
+.. index:: Debian, hardware

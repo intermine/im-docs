@@ -15,7 +15,7 @@ Tagging
 
 '''Template queries and lists'''
 
-The SuperUser can change where templates and lists appear by adding tags via the templates and lists pages in the !MyMine section of the webapp.
+The SuperUser can change where templates and lists appear by adding tags via the templates and lists pages in the MyMine section of the webapp.
 
 ||'''tag'''||'''purpose'''||
 ||im:public||make list/template viewable by all users||

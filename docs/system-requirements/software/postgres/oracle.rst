@@ -1,7 +1,7 @@
 Oracle 
 ===========
 
-You can load data from Oracle directly into an !InterMine instance.
+You can load data from Oracle directly into an InterMine instance.
 
  1. The JDBC driver is already in the classpath:  [source:/trunk/intermine/objectstore/main/lib ojdbc14.jar]
  1. Add this to your `mine.properties` file, these are the values that are going to be passed to Oracle in the connection string:
@@ -44,7 +44,7 @@ db.mysourcedb.platform=Oracle
         Statement stmt = connection.createStatement();
         ResultSet res = stmt.executeQuery(query);
 }}}
- 1. Iterate through results and convert each row to an !InterMine object.
+ 1. Iterate through results and convert each row to an InterMine object.
     {{{
 
         // loop through each row of results

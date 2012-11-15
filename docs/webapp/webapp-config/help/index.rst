@@ -1,7 +1,7 @@
 Help
 ================================
 
-This page lists how you can update the help sections of your !InterMine. 
+This page lists how you can update the help sections of your InterMine. 
 
 === Add links to the top of your site ===
 
