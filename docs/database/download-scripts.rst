@@ -40,7 +40,7 @@ The package contains:
 
 To run a set of data downloads, the following call should suffice:
 {{{
-#!sh
+#sh
     perl svn/dev/bio/scripts/DataDownloader/bin/download_data -e flymine
 }}}
 
@@ -48,7 +48,7 @@ The Current working directory of the script is immaterial.
 
 Specific sources can be run by naming them on the command line:
 {{{
-#!sh
+#sh
     perl svn/dev/bio/scripts/DataDownloader/bin/download_data -e flymine Uniprot RNAiScreens
 }}}
 

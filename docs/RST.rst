@@ -43,7 +43,7 @@ This is a normal text paragraph. The next paragraph is a code sample
 
 .. code-block:: javascript
 
-    /* Type here! */
+    /* Type here */
 
     Widget = {
         hide: function() {
@@ -61,7 +61,7 @@ This is a normal text paragraph again followed by some CoffeeScript.
 
 .. code-block:: coffeescript
 
-    # Type here! 
+    # Type here 
     Scope::find = (name, options) ->
         return true if @check(name, options)
         @add name, "var"
@@ -72,14 +72,14 @@ Note
 
 .. note::
 
-    This is a note!
+    This is a note
 
 Warning
 -----------
 
 .. warning::
 
-    This is a warning! >:(
+    This is a warning >:(
 
 Index page
 -----------

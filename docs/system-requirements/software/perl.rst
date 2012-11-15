@@ -68,19 +68,19 @@ To search for a package you can type:
 apt-cache search package-name
 }}}
 
-== Manually installing !InterMine modules ==
+== Manually installing InterMine modules ==
 
-The !InterMine Perl modules are available on CPAN, and you are encouraged to download them from there. However, you can install them manually too. First you will need to check-out the [http://www.intermine.org/wiki/GettingStarted source code] or [http://www.intermine.org/wiki/SVNCheckout#Downloadatar.gzfile download a tar.gz file]. (It is recommended you update your version of Module::Build to at least version 0.36, as this will allow you to automate the dependency installation.)
+The InterMine Perl modules are available on CPAN, and you are encouraged to download them from there. However, you can install them manually too. First you will need to check-out the [http://www.intermine.org/wiki/GettingStarted source code] or [http://www.intermine.org/wiki/SVNCheckout#Downloadatar.gzfile download a tar.gz file]. (It is recommended you update your version of Module::Build to at least version 0.36, as this will allow you to automate the dependency installation.)
 
 From your check out (or unzipped tar file) go to the directory "`intermine/perl/`"
 {{{
 cd [SVN-DIR]/intermine/perl
 }}}
 Here there are four "distributions" of modules you may want to install:
-  * !InterMine-!TypeLibrary 
-  * !InterMine-Model (depends on InterMine::!TypeLibrary)
-  * !InterMine-Item (depends on InterMine::Model)
-  * Webservice-!InterMine (depends on InterMine::Model)
+  * InterMine-TypeLibrary 
+  * InterMine-Model (depends on InterMine::TypeLibrary)
+  * InterMine-Item (depends on InterMine::Model)
+  * Webservice-InterMine (depends on InterMine::Model)
 The installation procedure for these is the same:
 {{{
 cd [DISTRIBUTION-DIRECTORY]
@@ -108,8 +108,8 @@ If you do not have Module::Build 0.36 or above, you can install the dependencies
    - Text::Glob
 
  * for the upgrade procedure:
-   - Webservice::!InterMine
-   - !AppConfig
+   - Webservice::InterMine
+   - AppConfig
    - Log::Handler
    - XML::Rules  
    - XML::Writer 

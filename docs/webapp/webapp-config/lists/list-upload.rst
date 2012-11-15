@@ -8,7 +8,7 @@ Users can paste any identifier into the list upload form; it can be an identifie
 
 This is also how the LOOKUP constraint works.
 
-NOTE:  The list upload form runs the three queries listed below until it finds a match for the user's identifiers.  In !InterMine 1.0 it's now possible to run all three queries every time regardless of if a match was returned.  You may want to configure your mine to do this if your database contains lots of identifiers that are assigned to different objects, this option would allow your users to see more options - not just the first.
+NOTE:  The list upload form runs the three queries listed below until it finds a match for the user's identifiers.  In InterMine 1.0 it's now possible to run all three queries every time regardless of if a match was returned.  You may want to configure your mine to do this if your database contains lots of identifiers that are assigned to different objects, this option would allow your users to see more options - not just the first.
 
 Queries
 -------

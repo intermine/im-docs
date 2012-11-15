@@ -5,8 +5,8 @@ Installing PostgreSQL
  * You should use at least version 8.3, as we have recently removed workarounds for some bugs in previous versions.
    Postgres 8.4 is the default for most package managers and has better performance.
      * Fedora/CentOS: follow this link: http://wiki.openscg.com/index.php/PostgreSQL_RPM_Installation
-     * !Debian/Ubuntu: 'sudo apt-get postgresql-8.4'
-     * Mac:  see [http://www.postgresql.org/download/macosx].  We've had the most success with !MacPorts.
+     * Debian/Ubuntu: 'sudo apt-get postgresql-8.4'
+     * Mac:  see [http://www.postgresql.org/download/macosx].  We've had the most success with MacPorts.
      * Solaris:  see [http://wiki.postgresql.org/wiki/Detailed_installation_guides#Solaris]
  * After installation, you need to update {{{postgresql.conf}}} - this file is usually located in `/etc/postgres/8.4`: 
  * If you are going to install Postgres 9.x:

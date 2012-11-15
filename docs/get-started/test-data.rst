@@ -22,7 +22,7 @@ The malaria genome as gff3 and fasta, originally downloaded from PlasmoDB
 uniprot
 """"""""""""""""
 
-UniProt XML with protein information and sequences from !SwissProt and Trembl.  Downloaded from: http://www.ebi.ac.uk/uniprot/database/download.html and filtered on taxon id 36329.
+UniProt XML with protein information and sequences from SwissProt and Trembl.  Downloaded from: http://www.ebi.ac.uk/uniprot/database/download.html and filtered on taxon id 36329.
 
 gene_ontology
 """"""""""""""""

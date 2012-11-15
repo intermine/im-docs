@@ -15,4 +15,4 @@ Web logs
    * located at $TOMCAT/logs
  * '''intermine.org'''/'''flymine.org'''
    * located at $TOMCAT
-   * contains errors thrown by !InterMine
+   * contains errors thrown by InterMine

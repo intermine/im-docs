@@ -29,9 +29,9 @@ Tomcat is easy to install by downloading the tar.gz file of the latest release a
 
 == Installing Eclipse ==
 
-Eclipse is a free, open-source Java editing environment, configuration to open the various code modules in !InterMine as Eclipse projects is included in the checkout.  You can download the Mac OS X version of Eclipse from [http://www.eclipse.org/downloads/ here], either the standard or EE edition will work fine.  Just unzip the download and it will work immediately.
+Eclipse is a free, open-source Java editing environment, configuration to open the various code modules in InterMine as Eclipse projects is included in the checkout.  You can download the Mac OS X version of Eclipse from [http://www.eclipse.org/downloads/ here], either the standard or EE edition will work fine.  Just unzip the download and it will work immediately.
 
-See our guide to setting up !InterMine in Eclipse: EclipseSetup.
+See our guide to setting up InterMine in Eclipse: EclipseSetup.
 
 For convenient startup from the Terminal command line you can put `eclipse` in your `$PATH` or create a link to it, for example:
 
@@ -43,4 +43,4 @@ Apple have a [http://developer.apple.com/tools/eclipse.html guide to Eclipse].
 
 == Installing Postgres ==
 
-See [http://www.postgresql.org/download/macosx].  We've had the most success with !MacPorts.  
+See [http://www.postgresql.org/download/macosx].  We've had the most success with MacPorts.  

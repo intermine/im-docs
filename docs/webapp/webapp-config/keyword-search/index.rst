@@ -53,5 +53,5 @@ You need to re-release your webapp.  Take a look in the intermine.log file when 
 
 ----
 
-The faceted search system was implemented by Nils Kölling, a summer intern with !InterMine.  See the [http://www.flymine.org/download/talks/keyword_search_talk.pdf talk he gave] for more technical details.
+The faceted search system was implemented by Nils Kölling, a summer intern with InterMine.  See the [http://www.flymine.org/download/talks/keyword_search_talk.pdf talk he gave] for more technical details.
 

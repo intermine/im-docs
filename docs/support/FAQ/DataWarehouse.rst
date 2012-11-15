@@ -28,7 +28,7 @@ Obviously these settings should be adjusted to how much RAM there is in the comp
 My data isn't loading, I'm getting an error, etc
 ------------------------------------------------
 
-If you need help, please :doc:`/Support/ContactUs`. We're always happy to talk to InterMine users!
+If you need help, please :doc:`/Support/ContactUs`. We're always happy to talk to InterMine users
 
 It's usually most helpful if you send us the detailed error message. Try running Ant with the verbose flag:
 

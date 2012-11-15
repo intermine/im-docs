@@ -5,7 +5,7 @@ The SuperUser can use tags to change the display of lists, template queries and 
 
 '''Template queries and lists'''
 
-The administrator can change where templates and lists appear by adding tags via the templates and lists pages in the !MyMine section of the webapp. Only the administrator can apply/view/edit tags starting at {{{im:}}} The tag data is stored in the user-profile database.
+The administrator can change where templates and lists appear by adding tags via the templates and lists pages in the MyMine section of the webapp. Only the administrator can apply/view/edit tags starting at {{{im:}}} The tag data is stored in the user-profile database.
 
 ||'''tag'''||'''purpose'''||
 ||im:public|| make lists and templates available and visible to all users||
@@ -38,7 +38,7 @@ The administrator can change how classes are displayed by adding tags via the mo
 
 === Tagging template queries ===
 
-Log in to the webapp with the administrator account and navigate to the "Saved template queries" tab in !MyMine.
+Log in to the webapp with the administrator account and navigate to the "Saved template queries" tab in MyMine.
 
 [[Image(template_tag_add3.png)]]
 

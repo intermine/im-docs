@@ -1,7 +1,7 @@
 Link redirects
 ================================
 
-You can add a property to WebProperties to have links in results forward the user to a URL instead of the !InterMine report page.
+You can add a property to WebProperties to have links in results forward the user to a URL instead of the InterMine report page.
 
 config
 -------
@@ -30,7 +30,7 @@ All columns in the results for the configured class will be links to the externa
 examples
 --------
 
-In results pages, all dmel genes will link to !FlyBase with Gene.primaryIdentifier instead of the Mine report page:
+In results pages, all dmel genes will link to FlyBase with Gene.primaryIdentifier instead of the Mine report page:
 {{{
 externallink.flybaseResults.Gene.7227.primaryIdentifier.url=http://www.flybase.org/.bin/fbidq.html?<<attributeValue>>
 }}}

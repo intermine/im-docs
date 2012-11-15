@@ -54,11 +54,11 @@ By providing the .link parameter a button will be shown at the bottom of the box
 
 Since InterMine 0.96, you can serve up a custom text in the third "information" box to the user, based on whether they have visited the homepage before or not. We do this through a cookie that will, for a year, indicate for your computer, that the homepage has been visited.
 
-In order to change the values of the third box based on whether the user has visited the page or not, prepend the text "visited" before an uppercased key. For example, if one wanted to say "Welcome Back!" instead of "First Time Here?" as the title of the box, we would add the following key=value pair:
+In order to change the values of the third box based on whether the user has visited the page or not, prepend the text "visited" before an uppercased key. For example, if one wanted to say "Welcome Back" instead of "First Time Here?" as the title of the box, we would add the following key=value pair:
 
 .. code-block:: properties
 
-    begin.thirdBox.visitedTitle = Welcome Back!
+    begin.thirdBox.visitedTitle = Welcome Back
 
 The fields that you do NOT set in this way, will simply show the text configured in the normal way. So even though someone has visited the homepage before, unless I add a "visited" property, the text stays the same as before.
 

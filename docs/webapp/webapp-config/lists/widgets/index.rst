@@ -62,7 +62,7 @@ Table widgets display objects and the counts of related objects in your list.
 
 
 
-== 1.2 !Graph/Chart widgets ==
+== 1.2 Graph/Chart widgets ==
 
 Graph widgets display datasets in graphical format.
 
@@ -72,7 +72,7 @@ Graph widgets display datasets in graphical format.
 
 ||'''attribute'''||'''purpose'''||'''example'''||
 ||id||unique id used by javascript only. Spaces not allowed.||unique_id||
-||graphType ||which type of chart to render||!ColumnChart,!BarChart or !PieChart||
+||graphType ||which type of chart to render||ColumnChart,BarChart or PieChart||
 ||startClass||it's the root class for all the paths specified in the configuration. All the paths set, will be built starting from that. Specify only the simple name (e.g. Gene). You can choose to set the bag type class or the root class associated to the category path.||Gene||
 ||typeClass||type of lists that should display this widget.  You can specify ONLY ONE class. If you need another type, you have to define a new widget.Use the simple class name.||Gene||
 ||categoryPath||the category path. This has to be an attribute. We can specify the subclass using the syntax path[subclass type]||mRNAExpressionResults.stageRange||
@@ -86,12 +86,12 @@ Graph widgets display datasets in graphical format.
 ||'''attribute'''||'''purpose'''||'''example'''||
 ||title||appears at the top of the widget||BDGP expression patterns||
 ||description||description of the widget||Expression patterns of Drosophila mRNAs during embryogenesis ...||
-||domainLabel ||Label displayed on x-axis in the !ColumnChart (on y-axis in the !BarChart)||Stage||
-||rangeLabel ||Label displayed on y-axis in the !ColumnChart (on x-axis in the a !BarChart)||Gene count||
+||domainLabel ||Label displayed on x-axis in the ColumnChart (on y-axis in the BarChart)||Stage||
+||rangeLabel ||Label displayed on y-axis in the ColumnChart (on x-axis in the a BarChart)||Gene count||
 ||filterLabel||label for filter form field||Organism||
 ||filters||the values for the filter, set in the dropdown. We can use static values or a grammar to specify the values contained in the list. The default value in general is the first value set in the 'filters' attribute or the first value returned by the query. With static values, you can add 'All' meaning no filter applied.||* All,KEGG pathways data set,Reactome data[[BR]]* organism.name=[list] (the organism's name contained in the list are loaded in the filter dropdown)||   
-||listPath||the path used to build the bag constraint.You don't need to specify it, if the startClass contains the bag type class  ||!FlyAtlasResult.material (if startClass is !FlyAtlasResult)|| 
-||constraints||the constraints separated by comma. Case sensitive. The paths have to be attributes. The operator can be = or !=. For the values we can use static values or the selected filter value using the syntax: ''path contraint = [filter identifier]''||* mRNAExpressionResults.dataSet.name=BDGP in situ data set[[BR]]* mRNAExpressionResults.dataSet.name!=null[[BR]]* organism.name=[Organism] (organism's name matching with the value selected in the filter with filterLabel 'Organism')||
+||listPath||the path used to build the bag constraint.You don't need to specify it, if the startClass contains the bag type class  ||FlyAtlasResult.material (if startClass is FlyAtlasResult)|| 
+||constraints||the constraints separated by comma. Case sensitive. The paths have to be attributes. The operator can be = or =. For the values we can use static values or the selected filter value using the syntax: ''path contraint = [filter identifier]''||* mRNAExpressionResults.dataSet.name=BDGP in situ data set[[BR]]* mRNAExpressionResults.dataSet.name=null[[BR]]* organism.name=[Organism] (organism's name matching with the value selected in the filter with filterLabel 'Organism')||
     
 
 NOTE: The graphs use Google Visualitation API.  
@@ -125,7 +125,7 @@ Enrichment widgets calculate p-values representing the probability annotation oc
 ||filters||extra filters to add to the display.  Use static values or a grammar to specify the values contained in the list.  The default value in general is the first value set in the 'filters' attribute or the first value returned by the query. With static values, you can add 'All' meaning no filter applied.||* biological_process,cellular_component,molecular_function[[BR]]* All,KEGG pathways data set,Reactome data set[[BR]]* organism.name=[list] (the organism's name contained in the list are loaded in the filter dropdown)||
 ||filterLabel||label for filter form field||Ontology
 ||enrichIdentifier||identifier for the row displayed, if not specified, enrich field used. Specify only one. This has to be an attribute. Used in the results table. Specify the subclass using the syntax path[subclass type]||goAnnotation.ontologyTerm.parents.identifier||
-||constraints||the constraints separated by comma. The paths have to be attributes. The operator can be = or !=. Case sensitive. For the values we can use:[[BR]]static values[[BR]]the selected filter value using the syntax: ''path contraint = [filter identifier]''[[BR]]only the value contained in the list||* goAnnotation.ontologyTerm.parents.namespace=[Ontology],[[BR]]* organism.name=[list][[BR]]* primaryIdentifier != null,[[BR]]* goAnnotation.qualifier = null[[BR]]* goAnnotation.ontologyTerm.parents.identifier != go:0008150||
+||constraints||the constraints separated by comma. The paths have to be attributes. The operator can be = or =. Case sensitive. For the values we can use:[[BR]]static values[[BR]]the selected filter value using the syntax: ''path contraint = [filter identifier]''[[BR]]only the value contained in the list||* goAnnotation.ontologyTerm.parents.namespace=[Ontology],[[BR]]* organism.name=[list][[BR]]* primaryIdentifier = null,[[BR]]* goAnnotation.qualifier = null[[BR]]* goAnnotation.ontologyTerm.parents.identifier = go:0008150||
 ||constraintsForView||the constraints separated by comma used for building the query executed when the user clicks on the widget on 'Matches' column||mRNAExpressionResults.expressed = true||
     
 == 1.4 Examples ==
@@ -139,7 +139,7 @@ See other mines' config files for more examples, eg:
 
 = 2 Displaying widgets =
 
-== 2.1 !JavaScript ==
+== 2.1 JavaScript ==
 
 === 2.1.1 Widget service ===
 
@@ -195,7 +195,7 @@ Online example: [http://tinkerbin.com/Xb3SZhOK]
     `intermine.load` represents a block of code that loads the widgets by pointing them to a specific mine.
  1. Use the widget web service to view which widgets are available on the mine, eg:  [http://beta.flymine.org/beta/service/widgets/]
  1. See which lists are available in the mine:  [http://beta.flymine.org/query/service/lists]
- 1. Add a widget (from the list in the previous step) to !JavaScript. So within the {{{intermine.load}}} block, after creating the {{{Widgets}}} instance, do this:
+ 1. Add a widget (from the list in the previous step) to JavaScript. So within the {{{intermine.load}}} block, after creating the {{{Widgets}}} instance, do this:
 
  .. code-block:: javascript
 
@@ -228,7 +228,7 @@ Online example: [http://tinkerbin.com/Xb3SZhOK]
 	</head>
 
 	<body>
-    	<!-- DIV goes here -->
+    	<-- DIV goes here -->
     	<div class="widget" id="all-widgets">
 	</body>
 	</html>
@@ -252,15 +252,15 @@ Requirements
 Code
 ~~~~~~~~~~~~
 
-First require the !JavaScript libraries needed to run the example. You probably have your own version of a Twitter Bootstrap compatible CSS style included on the page already.
+First require the JavaScript libraries needed to run the example. You probably have your own version of a Twitter Bootstrap compatible CSS style included on the page already.
 
  .. code-block:: html
-	<!-- dependencies -->
+	<-- dependencies -->
 	<script src="http://cdn.intermine.org/js/jquery/1.7/jquery.min.js"></script>
 	<script src="http://cdn.intermine.org/js/underscore.js/1.3.3/underscore-min.js"></script>
 	<script src="http://cdn.intermine.org/js/backbone.js/0.9.2/backbone-min.js"></script>
 
-	<!-- intermine -->
+	<-- intermine -->
 	<script src="http://cdn.intermine.org/api"></script>
 	<script src="http://cdn.intermine.org/js/intermine/imjs/latest/imjs.js"></script>
 	<script src="http://cdn.intermine.org/js/intermine/widgets/latest/intermine.widgets.js"></script>
@@ -378,7 +378,7 @@ I want to hide the title or description of a widget.
 2.5.1 Showing a Results Table
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The example below assumes that you have resolved all ResultsTables dependencies and have a !PathQuery in JSON/JavaScript format that you want to display in a {{{#container}}}:
+The example below assumes that you have resolved all ResultsTables dependencies and have a PathQuery in JSON/JavaScript format that you want to display in a {{{#container}}}:
 
 .. code-block:: javascript
 

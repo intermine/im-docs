@@ -19,8 +19,8 @@ Following configurations are for fresh upgrade, to update from [http://intermine
 
  * add to '''struts-config-model.xml'''
    {{{
-#!xml
-<!-- Beginning of Genomic Region Search configuration -->
+#xml
+<-- Beginning of Genomic Region Search configuration -->
 
 <action path="/initGenomicRegionSearchOptions"
         type="org.intermine.bio.web.struts.GenomicRegionSearchOptionsController"/>
@@ -30,18 +30,18 @@ Following configurations are for fresh upgrade, to update from [http://intermine
 <action path="/genomicRegionSearchResults" forward="genomicRegionSearchResults.page"/>
 
 <action input="/genomicRegionSearchOptionsBase.jsp" path="/genomicRegionSearchAction" name="genomicRegionSearchForm" scope="request" type="org.intermine.bio.web.struts.GenomicRegionSearchAction" >
-    <!-- Not use redirect="true". here it is doing a forward, not redirecting. Redirecting causes the browser to make a new request, and that's why the things I put in the request aren't there anymore. -->
+    <-- Not use redirect="true". here it is doing a forward, not redirecting. Redirecting causes the browser to make a new request, and that's why the things I put in the request aren't there anymore. -->
     <forward name="genomicRegionSearchResults" path="/genomicRegionSearchResults.do" redirect="false"/>
     <forward name="genomicRegionSearchOptions" path="/genomicRegionSearch.do" redirect="true"/>
 </action>
 
 <action path="/genomicRegionSearchAjax" type="org.intermine.bio.web.struts.GenomicRegionSearchAjaxAction"/>
 
-<!-- End of Genomic Region Search configuration -->
+<-- End of Genomic Region Search configuration -->
 }}}
  * add to '''tiles-defs-model.xml'''
    {{{
-#!xml
+#xml
 <definition name="genomicRegionSearchOptions.page" extends="layout.template">
   <put name="body" value="genomicRegionSearchOptions.tile" />
   <put name="pageName" value="genomicRegionSearch" />
@@ -57,7 +57,7 @@ Following configurations are for fresh upgrade, to update from [http://intermine
 }}}
  * add to '''struts-config-form-model.xml''', this is default and minimum setting, if any new properties are added, please change this configuration and the html elements accordingly.
    {{{
-#!xml
+#xml
 <form-bean name="genomicRegionSearchForm" type="org.intermine.bio.web.struts.GenomicRegionSearchForm">
   <form-property name="organism" type="java.lang.String"/>
   <form-property name="featureTypes" type="java.lang.String[]"/>
@@ -251,11 +251,11 @@ The current genomic services offered are GFF3 and FASTA query results. These can
 web-model.xml:
 
 {{{
-#!xml
+#xml
 
-<!-- this comment is here to prevent ant from setting model.web to null -->
+<-- this comment is here to prevent ant from setting model.web to null -->
 
-<!-- GFF3 WEB SERVICES -->
+<-- GFF3 WEB SERVICES -->
 <servlet>
   <servlet-name>gff3-query</servlet-name>
   <servlet-class>org.intermine.bio.webservice.GFF3QueryServlet</servlet-class>
@@ -284,7 +284,7 @@ web-model.xml:
   <url-pattern>/service/list/results/gff3</url-pattern>
 </servlet-mapping>
 
-<!-- FASTA WEB SERVICES -->
+<-- FASTA WEB SERVICES -->
 <servlet>
   <servlet-name>fasta-query</servlet-name>
   <servlet-class>org.intermine.bio.webservice.FastaQueryServlet</servlet-class>

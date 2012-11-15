@@ -15,7 +15,7 @@ ignore.counts=org.intermine.model.bio.GOAnnotation.withText org.intermine.model.
 
 '''Auto-completion'''
 
-Fields in template queries and the !QueryBuilder can have type-ahead autocompletion to assist in selecting valid terms. As you start to type, possible matches are fetched from the database; the text you have typed can match anywhere within the terms and multiple words can be matched. This is particularly useful for ontology terms or protein domain names.
+Fields in template queries and the QueryBuilder can have type-ahead autocompletion to assist in selecting valid terms. As you start to type, possible matches are fetched from the database; the text you have typed can match anywhere within the terms and multiple words can be matched. This is particularly useful for ontology terms or protein domain names.
 
 You can set up autocompletion by completing these steps:
 

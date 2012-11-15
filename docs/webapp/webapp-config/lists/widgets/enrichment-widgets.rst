@@ -70,7 +70,7 @@ Beissbarth T, Speed TP[[BR]]
 ''[http://bioinformatics.oxfordjournals.org/cgi/content/abstract/20/9/1464 Bioinformatics]'', 6.2004; 20(9): 1464-1465.[[BR]]
 pubmed id:  [http://www.ncbi.nlm.nih.gov/pubmed/14962934 14962934][[BR]]
 
-'''GO::!TermFinder--open source software for accessing Gene Ontology information and finding significantly enriched Gene Ontology terms associated with a list of genes.'''[[BR]]
+'''GO::TermFinder--open source software for accessing Gene Ontology information and finding significantly enriched Gene Ontology terms associated with a list of genes.'''[[BR]]
 Boyle EI, Weng S, Gollub J, Jin H, Botstein D, Cherry JM, Sherlock G.  [[BR]]
 ''[http://bioinformatics.oxfordjournals.org/cgi/content/abstract/bth456v1 Bioinformatics]''. 2004 Dec 12;20(18):3710-5. Epub 2004 Aug 5.[[BR]]
 pubmed id:  [http://www.ncbi.nlm.nih.gov/pubmed/15297299?dopt=Abstract 15297299][[BR]]

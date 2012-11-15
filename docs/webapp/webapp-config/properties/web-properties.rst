@@ -3,7 +3,7 @@ Web.properties
 
 = WebappConfig > Web Properties file =
 
-The '''web.properties''' file configures several attributes for the !InterMine web application.
+The '''web.properties''' file configures several attributes for the InterMine web application.
 
 ||'''Property'''||'''Determines'''||
 ||attributeLink||Used to configure hyperlinks, generally to external dbs.  See "External Links" section below||
@@ -17,7 +17,7 @@ The '''web.properties''' file configures several attributes for the !InterMine w
 ||portal.welcome||the message to show when a user arrives at the webapp via the portal action (eg. <something>/portal.do)||
 ||quickSearch.identifiers||Text displayed in search box||
 ||theme||Colour scheme for the webapp.  Available options are:  blue, bright_blue, gold, green, grey, brown, ecoli_blue, metabolic, modmine, ratmine and purple. See [wiki:Themes].||
-||xrefLink||Used to configure hyperlinks for !CrossReferences.  See below||
+||xrefLink||Used to configure hyperlinks for CrossReferences.  See below||
 
 === Home page ===
 

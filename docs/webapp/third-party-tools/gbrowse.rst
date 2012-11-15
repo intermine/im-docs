@@ -53,7 +53,7 @@ This command may use more than the default memory available for Java.  See the n
 == Loading into GBrowse ==
 
 To load GFF and FASTA files into a local GBrowse schema you need:
- * a machine with GBrowse, !BioPerl and [http://www.mysql.org MySQL] installed
+ * a machine with GBrowse, BioPerl and [http://www.mysql.org MySQL] installed
  * a 'gbrowse' database present in MySQL (use: `mysqladmin create gbrowse`)
  * set your umask to 0002 (to create files readable to all), which is needed so the the MySQL server can read the files created by the next step 
 {{{

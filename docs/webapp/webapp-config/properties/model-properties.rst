@@ -8,4 +8,4 @@ These files control much of the text in the web app:
    * If you want the webapp to appear in a different language than English, you will have to translate the file.
  * [source:trunk/flymine/webapp/resources/model.properties model.properties]
    * Model specific properties
-   * Merges with !InterMineWebApp.properties, overwrites properties in that file
+   * Merges with InterMineWebApp.properties, overwrites properties in that file

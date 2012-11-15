@@ -19,9 +19,9 @@ These commands are needed in the webapp to initialise a userprofile database:
 
 == Releasing a webapp with a new production database ==
 
-=== !InterMine 0.98 or later ===
+=== InterMine 0.98 or later ===
 
-For !InterMine versions 0.98 or later, if you already have a userprofile database and want to keep the data it contains, you can do this:
+For InterMine versions 0.98 or later, if you already have a userprofile database and want to keep the data it contains, you can do this:
 
  1. Verify that the `serialNumber` in the new production db and in the userprofile are different. Only in this case, the upgrading list process updates the lists when the user logs in 
     {{{
@@ -35,9 +35,9 @@ select * from intermine_metadata where key='serialNumber';
       * if there are issues (eg. if a gene has merged with another) the flag will be set to `false`, and the user will have to manually upgrade their list.
 
 
-=== !InterMine versions prior to 0.98 ===
+=== InterMine versions prior to 0.98 ===
 
-For !InterMine versions prior to 0.98, if you already have a userprofile database and want to keep the data it contains, you can do this:
+For InterMine versions prior to 0.98, if you already have a userprofile database and want to keep the data it contains, you can do this:
 
 {{{
 # in <MINE_NAME>/webapp - only for InterMine versions before 0.98

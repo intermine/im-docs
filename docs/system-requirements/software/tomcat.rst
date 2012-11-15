@@ -29,7 +29,7 @@ Set up a tomcat user with the 'manager' role by editing {{{$CATALINA_HOME/conf/t
 === Tomcat 6.0.xx ===
    {{{
 <tomcat-users>
- <!-- you can add more users or roles if needed -->
+ <-- you can add more users or roles if needed -->
  <role rolename="manager"/>
  <user username="manager" password="manager" roles="manager"/>
 </tomcat-users>
@@ -54,13 +54,13 @@ Server XML
 
 You also need to check in your {{{server.xml}}} file that the correct '''UTF-8''' encoding has been applied to all connectors in use (see http://wiki.apache.org/tomcat/FAQ/CharacterEncoding). Make sure that every connector element in use reads as follows:
    {{{
-#!xml
+#xml
 <Connector ... URIEncoding="UTF-8"/>
       ...
 </Connector>
 }}}
 
-Without this, permalinks may break!
+Without this, permalinks may break
 
 Tomcat 7.0 
 ~~~~~~~~~~~~
@@ -121,7 +121,7 @@ To stop Tomcat, run this command:
 Out of Memory Errors
 ~~~~~~~~~~~~~~~~~~~~
 
-To avoid java.lang.!OutOfMemory errors, specify the JVM heap size in $TOMCAT_HOME/bin/tomcat.sh. You can specify the size as part of TOMCAT_OPTS:
+To avoid java.lang.OutOfMemory errors, specify the JVM heap size in $TOMCAT_HOME/bin/tomcat.sh. You can specify the size as part of TOMCAT_OPTS:
 {{{
 '-Xmx256m -Xms128m'
 }}} 
