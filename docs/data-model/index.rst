@@ -3,13 +3,15 @@ Data Model
 
 A database stored using the InterMine system is object-oriented and it loads data defined by a model description.  This model description is defined in a file, <MINENAME>_model.xml.  This page describes the format of this file and its implications.
 
-== What the Model governs ==
+What the Model governs
+-----------------------
 
 The Model is a description of the class hierarchy that is expected to be stored in the database, so it includes a description of the classes and fields of the data that will be stored. The model will typically be used to generate Java code for those classes automatically. The auto-generated classes will be pure Java beans, with fields as described in the Model, with getters and setters. Each class can have any number of attributes (which store primitive data, like numbers, dates, and strings), references to other objects in the database, and collections of other objects in the database.
 
 Since all objects in the database (except SimpleObjects) are instances of InterMineObject, which has a field called "id" which is unique, all objects in the database can be fetched individually by searching for that unique "id" value.
 
-== Naming conventions ==
+Naming conventions
+-----------------------
 
 The model expects standard Java names for classes and attributes.  That is:
 
@@ -18,7 +20,8 @@ The model expects standard Java names for classes and attributes.  That is:
 
 Note that from InterMine '''0.98''' it's possible to specify friendly names that will be displayed in place of the actual java-ised name in the web interface.
 
-== The Model File Format ==
+The Model File Format
+-----------------------
 
 The Model is defined in an XML file, with only a few different tags. The document root tag is "<model>", and contains a list of "<class>" tags, each of which describes a single class in the model. Class tags are not nested - the hierarchy is defined elsewhere, which allows multiple inheritance if necessary. All classes inherit all the fields of all its parent classes, so they should not be defined again. The "<model>" tag has two attributes, which are mandatory:
 
@@ -33,7 +36,8 @@ The "<class>" tag has several attributes:
 
 Inside the "<class>" tags are tags describing the fields of the class. These are "<attribute>", "<reference>", and "<collection>", none of which enclose any other XML tags. You should not define two fields with the same name for a particular class, taking into account that classes inherit all the fields of their parent classes. The InterMineObject class (which everything except SimpleObjects inherit) has a field called "id".
 
-=== The "<attribute>" Tag ===
+The "<attribute>" Tag
+-----------------------
 
 This tag defines a field in the class for storing primitive data, like numbers, dates, and Strings. It has two attributes:
 
@@ -49,7 +53,8 @@ This tag defines a field in the class for storing primitive data, like numbers, 
    * '''java.util.Date''' - this stores a date and time, with a resolution of one millisecond, or null.
    * '''java.lang.String''' - this stores a portion of text of arbitrary length, or null.
 
-=== The "<reference>" and "<collection>" Tags ===
+The "<reference>" and "<collection>" Tags
+----------------------------------------------
 
 The "<reference>" tag defines a field in the class for storing a reference to another object in the database. The "<collection>" tag defines a field in the class for storing a collection of references to other objects in the database. Both of these relationships may be unidirectional or bidirectional. If they are bidirectional, that means that there is an equivalent relationship in the referenced class that points in the reverse direction, and two relationships will agree on their contents. All referenced objects must be in the database for the references and collections to be valid. Both of these tags have several attributes:
 
@@ -64,33 +69,28 @@ There are effectively two types of reference and two types of collection, depend
  * '''One to many relationship''' - this is where a collection has a reverse-relationship that is a reference. This kind of relationship is a side-effect of a many to one relationship, and cannot be written to from this end. All alterations should be made on the many to one relationship instead.
  * '''Many to many relationship''' - this is where a collection has a reverse-relationship that is a collection, or where a collection does not have a reverse-relationship. This type of collection can be altered from either side, and the changes will be observed from both sides.
 
-== A short example ==
+A short example
+-----------------------
 
-{{{
+.. code-block:: xml
 
-<?xml version="1.0"?>
-<model name="testing" package="org.intermine.model.bio">
+  <?xml version="1.0"?>
+  <model name="testing" package="org.intermine.model.bio">
 
-  <class name="Protein>" is-interface="true">
-    <attribute name="name" type="java.lang.String"/>
-    <attribute name="extraData" type="java.lang.String"/> 
-    <collection name="features"  referenced-type="NewFeature" reverse-reference="protein"/>  
-  </class>
+    <class name="Protein>" is-interface="true">
+      <attribute name="name" type="java.lang.String"/>
+      <attribute name="extraData" type="java.lang.String"/> 
+      <collection name="features"  referenced-type="NewFeature" reverse-reference="protein"/>  
+    </class>
 
-  <class name="NewFeature" is-interface="true">
-    <attribute name="identifier" type="java.lang.String"/>  
-    <attribute name="confidence" type="java.lang.Double"/>
-    <reference name="protein" referenced-type="Protein" reverse-reference="features"/>
-  </class>
+    <class name="NewFeature" is-interface="true">
+      <attribute name="identifier" type="java.lang.String"/>  
+      <attribute name="confidence" type="java.lang.Double"/>
+      <reference name="protein" referenced-type="Protein" reverse-reference="features"/>
+    </class>
+  </model>
 
-</model>
-
-}}}
-
-For a more complete example, see our [source:trunk/intermine/objectstore/model/testmodel/testmodel_model.xml test model] which covers all the features available in the model.
-
-
-=== Note ===
+For a more complete example, see `FlyMine <http://www.flymine.org/service/model>`_ which covers all the features available in the model.
 
 The Model defines the set of data that is '''searchable''' in the database. Other data can be written to the database, but only the classes and attributes that are defined in the model are searchable. So you may, if you wish, compile a Java class which inherits InterMineObject (to allow it to stored in the database) or some other class in the model, with extra fields, and store instances of that class in the database, but you will not be able to search for instances of that class, or for instances with a particular value for the field that is not in the model. 
 
