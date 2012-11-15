@@ -384,6 +384,7 @@ Table Warning
 .. image:: img/table-warning.png
 
 .. code-block:: html
+
     <div class="collection-table warning">
         <!-- ... -->
     </div>

@@ -80,7 +80,7 @@ It is up to you what you do in between. The reference implementation of the prec
 Templates
 ~~~~~~~~~
 
-Templates represent pieces of reusable HTML that can be filled with data from a widget. We create one by creating a file ending with ``.eco`` in the widget's directory. The language of choice here is `eco <https://github.com/sstephenson/eco>`_. It allows us to use CoffeeScript syntax inside HTML. You can think of JavaServerPages as being a Java equivalent.
+Templates represent pieces of reusable HTML that can be filled with data from a widget. We create one by creating a file ending with ``.eco`` in the widget's directory. The language of choice here is `eco <https://github.com/sstephenson/eco>`__. It allows us to use CoffeeScript syntax inside HTML. You can think of JavaServerPages as being a Java equivalent.
 
 Inside the widget, templates are precompiled into a function form so that if you want to pass a bunch of variables into a template and make it into HTML do as follows:
 
@@ -230,7 +230,7 @@ Service
 #. Each widget consists of:
 
     #. One `CoffeeScript <http://coffeescript.org/>`_ **presenter** containing the logic getting data from the **model** using `imjs <https://github.com/alexkalderimis/imjs>`_.
-    #. A number of `eco <https://github.com/sstephenson/eco/>`_ **templates** precompiled.
+    #. A number of `eco <https://github.com/sstephenson/eco/>`__ **templates** precompiled.
     #. One **CSS** file specifically for the widget.
     #. Any extra **config** dynamically populated for the widget to consume. This could be the mine the Widget is to take data from or extra flags that specialize an otherwise generic Widget.
     #. Optional number of requirements (CSS, JS), loaded from the `CDN <https://github.com/intermine/CDN>`_.

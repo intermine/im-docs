@@ -4,7 +4,7 @@ Report Page
 Object Title(s)
 ---------------
 
-One can edit the appearance of object title(s) through the ``webconfig-model.xml`` file (See :doc:`webconfig-model`).
+One can edit the appearance of object title(s) through the ``webconfig-model.xml`` file (See :doc:`/webapp/webapp-config/properties/model-properties`).
 
 Let us suppose we want to have a default way of displaying bio entities like gene, protein or probe set. Thus we would look up the entry for bio entity class and add the following configuration:
 
@@ -67,7 +67,7 @@ References & Collections
 
 Each object has a number of fields configured in the model, like ``length`` or ``proteins`` for Gene. The first is a reference to a single value or an object, the latter is a list of values/objects. These then appear on the report page as References and Collections.
 
-To configure in which category on the page these are to show, follow :doc:`tagging`.
+To configure in which category on the page these are to show, follow :doc:`/webapp/admin/tagging`.
 
 Inline Lists
 ------------
@@ -109,16 +109,16 @@ See :doc:`report-displayers` for details on how to create displayers for the rep
 Templates
 ---------
 
-Tag template with the ``im:report`` tag. See :doc:`tagging`.
+Tag template with the ``im:report`` tag. See :doc:`/webapp/admin/tagging`.
 
 External Links
 --------------
 
-See the External Link section of :doc:`webproperties`
+See the External Link section of :doc:`/webapp/webapp-config/properties/web-properties`
 
 Data
 ----
 
-See :doc:`classandfieldlabels` for details on how to change the names of class and fields.
+See :doc:`/webapp/webapp-config` for details on how to change the names of class and fields.
 
 You can also hide collections by tagging them with the ``im:hidden`` tag.
