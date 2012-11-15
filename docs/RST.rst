@@ -13,7 +13,7 @@ Enumerated lists
 Level 3 titles
 ~~~~~~~~~~~~~~
 
-Referring to a page in the docs :doc:`/Support/ContactUs`
+Referring to a page in the docs :doc:`/support/contact-us`
 
 Level 4 titles
 ^^^^^^^^^^^^^^
@@ -79,4 +79,14 @@ Warning
 
 .. warning::
 
-    This is a warning! :(
+    This is a warning! >:(
+
+Index page
+-----------
+
+The index page (link top right) is generated automatically using the keywords set on each page:
+
+.. code-block:: rst
+
+    .. index:: keyword, another keyword 
+

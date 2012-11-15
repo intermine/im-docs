@@ -9,7 +9,7 @@ Contents
 --------
 
 .. toctree::
-    :maxdepth: 4
+    :maxdepth: 2
 
     system-requirements/index
     git/index
@@ -26,7 +26,7 @@ Indices and tables
 ----------------------------------
  
 * :ref:`genindex`
-* :ref:`modindex`
+* :doc:`site-map`
 * :ref:`search`
 
 reStructured Text

@@ -65,7 +65,7 @@ Without this, permalinks may break!
 Tomcat 7.0 
 ~~~~~~~~~~~~
 
-Starting from !InterMine 1.1, you can now deploy your mine using Tomcat 7.0
+Starting from InterMine 1.1, you can now deploy your mine using Tomcat 7.0
 
 Update your config files:
 
@@ -126,3 +126,4 @@ To avoid java.lang.!OutOfMemory errors, specify the JVM heap size in $TOMCAT_HOM
 '-Xmx256m -Xms128m'
 }}} 
 
+.. index:: Tomcat, JAVA_OPTS
