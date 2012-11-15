@@ -1,3 +1,5 @@
+.. index:: embedding, javascript embedding, widgets, report widgets, report widgets service
+
 Report Widgets
 ==============
 

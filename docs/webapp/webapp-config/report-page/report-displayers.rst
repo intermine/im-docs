@@ -1,3 +1,5 @@
+.. index:: report page, report displayers
+
 Report Displayers
 =================
 

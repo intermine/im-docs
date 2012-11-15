@@ -13,4 +13,4 @@ Example: [source:/trunk/bio/tutorial/malariamine/dbmodel/resources/class_keys.pr
     :maxdepth: 4
 
     list-upload
-    widgets/index
+    /embedding/list-widgets/index

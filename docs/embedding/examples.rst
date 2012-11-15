@@ -1,3 +1,5 @@
+.. index:: embedding, javascript embedding, widgets
+
 Embedding examples
 ==================
 

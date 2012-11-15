@@ -15,6 +15,9 @@ Level 3 titles
 
 Referring to a page in the docs :doc:`/support/contact-us`
 
+| A line block with `some <http://>`_ syntax too.
+|              preserving line breaks and spaces where needed
+
 Level 4 titles
 ^^^^^^^^^^^^^^
 
@@ -27,8 +30,25 @@ Level 5 titles
 
 .. image:: http://docutils.sourceforge.net/docs/user/rst/images/ball1.gif
 
+Tables
+----------------
+
+=========== ==========
+A           B
+=========== ==========
+Led Cepin   music
+Hugh Laurie television
+=========== ==========
+
 Definition lists
 ----------------
+
+Footnotes
+---------
+
+Footnotes provide extra information where using an info box is not appropriate [#]_.
+
+.. [#] Like here, the text is relevant only to the line here, not the whole page say.
 
 what 
     Definition lists associate a term with a definition. 
@@ -88,5 +108,4 @@ The index page (link top right) is generated automatically using the keywords se
 
 .. code-block:: rst
 
-    .. index:: keyword, another keyword 
-
+    .. index:: keyword, another keyword

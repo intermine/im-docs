@@ -1,3 +1,5 @@
+.. index:: report page, webapp tables
+
 Webapp Tables CSS & HTML
 ========================
 

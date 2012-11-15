@@ -1,3 +1,5 @@
+.. index:: embedding, api loader, javascript loader
+
 InterMine JavaScript API Loader
 ===============================
 

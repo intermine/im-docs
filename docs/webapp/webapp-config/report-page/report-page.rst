@@ -1,3 +1,5 @@
+.. index:: report page, config
+
 Report Page
 ===========
 
