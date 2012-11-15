@@ -22,6 +22,13 @@ Contents
     support/index
     privacy-policy
 
+Indices and tables
+----------------------------------
+ 
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
 reStructured Text
 -----------------
 
@@ -29,3 +36,4 @@ reStructured Text
     :maxdepth: 2
 
     RST
+
