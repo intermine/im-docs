@@ -99,4 +99,4 @@ Related topics:
    
 
 
-.. index:: ‹debian›, ‹hardware›
+.. index:: Debian, hardware

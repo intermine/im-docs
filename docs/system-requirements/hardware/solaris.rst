@@ -36,4 +36,4 @@ And also for `/etc/system` on Solaris 10, 9 SPARC use the following
 
 Try using the `-fast` compile flag.  The binaries might not be portable to other Solaris systems, and you might need to compile everything that links to PostgreSQL with `-fast`, but PostgreSQL will run significantly faster, 50% faster on some tests.
 
-.. index:: <solaris>
+.. index:: solaris
