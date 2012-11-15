@@ -9,7 +9,8 @@ JavaScript
     CDN
 
 
-= !InterMine !JavaScript Library =
+InterMine JavaScript Library
+-----------------------------
 
 A library that is loaded on each Webapp page immediately after jQuery. It throws Errors and displays log messages with "ƒ " prefix and its scope is restricted within the "im" variable. Following are functions as part of the library and what they are good for. Variables inside the functions will not propagate outside of their scope.
 

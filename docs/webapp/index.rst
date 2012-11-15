@@ -1,4 +1,4 @@
-Webapp
+Web Application
 ================================
 
 .. toctree::
