@@ -65,15 +65,21 @@ div.body {
   margin: 0;
   padding: 0 60px 20px 20px;
 }
+div.body tt.docutils.literal {
+  border-bottom: 1px solid #ddd;
+}
 div.body div.highlight {
   margin: 1em 2px;
+  border: 1px solid #eee;
+}
+div.body div.highlight pre {
+  margin: 0 0.5em;
 }
 div.body table.docutils:not(.footnote) {
   margin: 1em 2px;
 }
 div.body table.docutils:not(.footnote) thead th {
   padding: 6px 10px;
-  text-align: center;
 }
 div.body table.docutils:not(.footnote) tbody tr td {
   padding: 4px 10px;

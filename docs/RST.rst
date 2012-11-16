@@ -1,6 +1,8 @@
 Syntax
 ======
 
+A more extensive example can be found `here <http://packages.python.org/an_example_pypi_project/sphinx.html>`_
+
 Enumerated lists
 ----------------
 
