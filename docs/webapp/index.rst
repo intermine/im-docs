@@ -4,10 +4,6 @@ Web Application
 .. toctree::
     :maxdepth: 2
 
-
-    appearance/index
-    data-categories/index
-    help/index
     homepage/index
     keyword-search/index
     lists/index
@@ -15,13 +11,16 @@ Web Application
     region-search/index
     report-page/index
     template-queries/index
-    properties/index
+    appearance/index
+    data-categories/index
     admin/index
+    help/index
     user-accounts/index
     linking-in/index
     performance/index
     third-party-tools/index
     monitoring-site-usage/index
+    properties/index
 
 Overwrite any JSP
 ------------------------
