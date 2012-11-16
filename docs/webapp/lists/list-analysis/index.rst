@@ -20,5 +20,5 @@ List analysis
 .. toctree::
     :maxdepth: 4
 
-    widgets/index
+   
     /embedding/list-widgets/index

@@ -5,6 +5,12 @@ InterMine started 10 years ago.
 
 We are supported by the following grants / organisations.
 
+Publications
+
+Cite us
+
+Other InterMines
+
 Legal
 ------
 

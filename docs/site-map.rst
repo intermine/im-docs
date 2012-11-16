@@ -15,7 +15,7 @@ Contents
     web-services/index
     embedding/index
     support/index
-    privacy-policy
+    about/index
 
 Indices and tables
 ----------------------------------
