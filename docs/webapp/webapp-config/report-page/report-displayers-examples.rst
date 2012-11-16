@@ -20,9 +20,10 @@ Applicable for any SequenceFeature - shows length, sequence export, chromosome l
         placement="summary"
         types="SequenceFeature"/>
 
-An example from metabolicMine:
+.. figure::  img/sequence_feature_displayer.png
+   :align:   center
 
-.. image:: img/sequence_feature_displayer.png
+   A Sequence feature displayer in metabolicMine.
 
 Protein sequence
 ----------------
@@ -37,9 +38,10 @@ Applicable for Protein - shows length, sequence export.
         placement="summary"
         types="Protein"/>
 
-An example from FlyMine:
+.. figure::  img/protein_sequence_displayer.png
+   :align:   center
 
-.. image:: img/protein_sequence_displayer.png
+   A Protein sequence displayer in FlyMine.
 
 GBrowse
 -------
@@ -62,9 +64,10 @@ This also needs two properties to be configured in the ``minename.properties`` f
     gbrowse_image.prefix=http://www.flymine.org/cgi-bin/gbrowse_img
     gbrowse.database.source=flymine-31.0
 
-An example from FlyMine:
+.. figure::  img/gbrowse_displayer.png
+   :align:   center
 
-.. image:: img/gbrowse_displayer.png
+   A Genome browser view in FlyMine.
 
 Homologues
 ----------
@@ -80,9 +83,10 @@ Shows a table of organism and homologous genes of homologues per organism.
         parameters="{'dataSets': ['TreeFam data set', 'KEGG orthologues data set']}"
         types="Gene"/>
 
-An example from FlyMine:
+.. figure::  img/homologues_displayer.png
+   :align:   center
 
-.. image:: img/homologues_displayer.png
+   A Homologues displayer in FlyMine.
 
 Note that FlyMine includes a specific displayer to show the twelve Drosophila species as a phylogenetic tree.
 
@@ -99,9 +103,10 @@ Displays transcripts, exons, introns, UTRs and CDSs if present in the model and 
         placement="Genomics"
         types="Gene,Transcript,Exon,Intron,UTR,CDS"/>
 
-An example from FlyMine:
+.. figure::  img/gene_structure_displayer.png
+   :align:   center
 
-.. image:: img/gene_structure_displayer.png
+   A Gene structure displayer in FlyMine.
 
 Gene Ontology
 -------------
@@ -116,9 +121,10 @@ Simple display of GO terms and evidence codes for a gene, grouped by branch in t
         placement="Function"
         types="Gene"/>
 
-An example from modMine:
+.. figure::  img/go_displayer.png
+   :align:   center
 
-.. image:: img/go_displayer.png
+   A Gene ontology displayer in modMine.
 
 UniProt comments
 ----------------
@@ -133,9 +139,10 @@ A clear view of curated curated comments from UniProt (SwissProt) applied to a p
         placement="summary"
         types="Gene,Protein"/>
 
-An example from metabolicMine:
+.. figure::  img/uniprot_comments_displayer.png
+   :align:   center
 
-.. image:: img/uniprot_comments_displayer.png
+   A Uniprot curated comments displayer in metabolicMine.
 
 Interaction network
 -------------------
@@ -150,9 +157,10 @@ Uses the `Cytoscape Web plugin <http://cytoscapeweb.cytoscape.org/>`_ to display
         placement="Interactions"
         types="Gene,Protein"/>
 
-An example from FlyMine:
+.. figure::  img/interactions_displayer.png
+   :align:   center
 
-.. image:: img/interactions_displayer.png
+   An Interactions displayer in FlyMine.
 
 Overlapping features
 --------------------
@@ -167,23 +175,27 @@ A summary view of features that overlap the chromosome location of the reported 
         placement="Genomics"
         types="SequenceFeature"/>
 
-An example from modMine:
+.. figure::  img/overlapping_features_displayer.png
+   :align:   center
 
-.. image:: img/overlapping_features_displayer.png
+   An Overlapping features displayer in modMine.
 
 Specific Displayers
 -------------------
 
 There are some displayers created for specific data sets in FlyMine, metabolicMine or modMine that may not be re-usable in other Mines but could be adapted or provide inspiration.
 
-JBrowse genome browser in metabolicMine:
+.. figure::  img/jBrowse_displayer.png
+   :align:   center
 
-.. image:: img/jBrowse_displayer.png
+   JBrowse genome browser in metabolicMine.
 
-FlyAtlas gene experssion data in FlyMine, this uses the Google Data Vizualization API JavaScript library to render an interactive graph in the browser:
+.. figure::  img/FlyAtlas_expression_displayer.png
+   :align:   center
 
-.. image:: img/FlyAtlas_expression_displayer.png
+   FlyAtlas gene experssion data in FlyMine, this uses the Google Data Vizualization API JavaScript library to render an interactive graph in the browser.
 
-A phylogenetic tree of Drosophila species displayed using the `jsPhyloSVG <http://www.jsphylosvg.com/>`_ JavaScript library in FlyMine:
+.. figure::  img/drosophila_homology_displayer.png
+   :align:   center
 
-.. image:: img/drosophila_homology_displayer.png
+   A phylogenetic tree of Drosophila species displayed using the `jsPhyloSVG <http://www.jsphylosvg.com/>`_ JavaScript library in FlyMine.

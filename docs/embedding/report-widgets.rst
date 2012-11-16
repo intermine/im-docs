@@ -9,7 +9,10 @@ Report Widgets
 
 Report Widgets are a type of embeddable component that offers an unparalleled **flexibility** when it comes to the tools that InterMine offers. They are provided as a way for developers to create interactive *widgets* to their end users. Such widgets can then be embedded on virtually any page, be it within a mine or outside of it. See `here <http://reportwidgets-intermine.rhcloud.com>`_ for examples.
 
-.. image:: img/example.png
+.. figure::  img/example.png
+   :align:   center
+
+   Publications for ``zen`` gene coming from FlyMine.
 
 This document describes the steps needed to create an example publications widget that lists publications related to a particular gene.
 
@@ -211,7 +214,10 @@ In this callback still we say which widget we want passing in extra config that 
 Workflow
 --------
 
-.. image:: img/widgets.png
+.. figure::  img/widgets.png
+   :align:   center
+
+   A workflow of how list and report widgets are processed client and server side.
 
 blue
     represents a common workflow to load widget loaders be it for report or list analysis widgets.
