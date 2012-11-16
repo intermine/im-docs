@@ -22,18 +22,11 @@ Contents
     support/index
     about/index
 
-Indices and tables
+Indices
 ----------------------------------
  
 * :ref:`genindex`
 * :doc:`site-map`
 * :ref:`search`
 
-reStructured Text
------------------
-
-.. toctree::
-    :maxdepth: 2
-
-    RST
 
