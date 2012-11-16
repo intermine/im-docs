@@ -128,3 +128,131 @@ Two latest entries will be shown in the box. If you want to provide a link under
 .. code-block:: properties
 
     links.blog = http://<your_blog>
+
+Header
+------
+
+'''logo'''
+
+
+Logo is located here: [source:/trunk/flymine/webapp/resources/webapp/model/images webapp/resources/webapp/model/images/logo.png].  
+
+See: [wiki:Themes]
+
+
+'''tabs''' 
+
+
+The tabs are set in InterMine's internationalisation file:  [source:/trunk/intermine/webapp/main/resources/webapp/WEB-INF/classes/InterMineWebApp.properties InterMineWebApp.properties].
+
+Each page has a name and a tab, for example:
+
+{{{
+mymine.tab = mymine
+}}}
+
+In addition to InterMine's file, each mine has its own internationalisation file:  [source:http://intermine.org/browser/trunk/flymine/webapp/resources/model.properties webapp/resources/model.properties].
+
+If you want to add a tab specific to your mine, add an entry to this file.  Properties set in this file overwrite the ones set in [source:/trunk/intermine/webapp/main/resources/webapp/WEB-INF/classes/InterMineWebApp.properties InterMineWebApp.properties].
+
+Data tab
+
+The data tab points to this JSP file - [source:/trunk/intermine/webapp/main/resources/webapp/dataCategories.jsp dataCategories.jsp].  You can overwrite this file and display your own customised file by putting a JSP in your $MINE_NAME/webapp directory.
+
+'''keyword search'''
+
+
+||''' '''||'''property'''||'''file'''||
+||'''example'''||quickSearch.identifiers||WebProperties||
+
+This search box queries the search index created in the postprocess `create-search-index`.  See KeywordSearch for details on how to configure the search index.
+
+Other properties:
+
+||''' '''||'''property'''||'''file'''||
+||'''link'''||project.sitePrefix||InterMineProperties||
+||'''name of mine'''||project.title||InterMineProperties||
+||'''version'''||project.releaseVersion||InterMineProperties|| 
+||'''subtitle'''||project.subTitle||InterMineProperties||
+||'''links in upper right corner'''||header.links||WebProperties||
+[[BR]]
+
+Footer 
+------------
+
+||''' '''||'''property'''||'''file'''||
+||'''recipient email address for contact form'''||feedback.destination||InterMineProperties||
+||'''"funded by" text'''||funding||ModelProperties||
+
+Favicon
+------------
+
+Favicon (icon seen next to the url of the webapp in the browser url bar) can be set by adding the following line:
+
+`<link rel="shortcut icon" type="image/x-icon" href="model/images/favicon.ico">`
+
+Into the `webapp/resources/webapp/layout.jsp` file in between the opening `<head>` and closing `</head>` tags. Then, the favicon will need to be located in `[mine]/webapp/resources/webapp/model/images/favicon.ico`.
+
+If you want to generate a favicon from an image, use http://tools.dynamicdrive.com/favicon/.
+
+Changing look and feel
+--------------------------------
+
+InterMine provides a set of default themes but you can also create your own. All themes are defined in ''intermine/webapp/main/resources/webapp/themes/ ''
+
+Current themes provided with InterMine are listed below. Screenshots of each theme are provided in the ''themes/'' directory.
+
+ * ''blue''
+ * ''bright_blue''
+ * ''brown''
+ * ''ecoli_blue''
+ * ''gold''
+ * ''green''
+ * ''grey''
+ * ''metabolic''
+ * ''modmine''
+ * ''purple''
+ * ''ratmine''
+
+To switch themes you have to edit the web.properties file in your mine's webapp directory (''YOUR_MINE/webapp/resources/web.properties'').
+
+{{{
+# web.properties
+theme = purple
+}}}
+
+You need to change this property to the name of the theme you want to use (the directory name), then re-release the webapp.  Be sure to run {{{ant-clean}}} to ensure that all of the old files are deleted.
+
+{{{
+# in YOUR_MINE/webapp/resources/webapp
+ant clean
+ant default remove-webapp release-webapp
+}}}
+
+
+Developing your own theme
+--------------------------------
+
+With CSS knowledge and open source image software such as [http://www.gimp.org GIMP] or [http://www.inkscape.org INKSCAPE] it is very easy to develop your own theme. Each theme directory contains a theme.css file, which is broken down in annotated sections, and image files. The image files are required for displaying menus, headers and backgrounds and can be modified with image software to match your colour scheme. Simply create a new directory under ''intermine/webapp/main/resources/webapp/themes/ '', copy the contents of another theme directory into it and start editing.
+
+ * ''corner_act_t_l.png''
+ * ''corner_act_t_r.png''
+ * ''corner_my_t_l.png''
+ * ''corner_my_t_r.png''
+ * ''corner_t_l.png''
+ * ''corner_t_r.png''
+ * ''grad_box.png''
+ * ''gray_grad.png''
+ * ''heading-bg.gif''
+ * ''submenu_indent.png''
+ * ''submenu_my.png''
+ * ''table-heading-bg.gif''
+ * ''theme.css''
+ * ''top_gradient.png''
+ * ''xml.png''
+ 
+ 
+Changing the logo
+--------------------------------
+ 
+The logo is independent from the themes, and is located in ''YOUR_MINE/webapp/resources/webapp/model/images/logo.png''. To change the logo, simply change this file to your own. The recommended size is w45px by h43px.

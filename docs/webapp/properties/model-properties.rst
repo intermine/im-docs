@@ -1,7 +1,7 @@
-Model properties
+Text and messages
 ========================================================
 
-These files control much of the text in the web app:
+These files control much of the text in the web application:
 
  * [source:trunk/intermine/webapp/main/resources/webapp/WEB-INF/classes/InterMineWebApp.properties InterMineWebApp.properties]
    * Most of the text appearing on the webapp (button names, forms, some help text, etc.) is defined in this file. 

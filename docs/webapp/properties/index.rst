@@ -1,4 +1,4 @@
-Customise webapp
+Customise Web Application
 ========================================================
 
 .. toctree::
