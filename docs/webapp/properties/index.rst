@@ -8,3 +8,4 @@ Customise Web Application
     intermine-properties
     model-properties
     web-properties
+    webconfig-model
