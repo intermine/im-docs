@@ -29,11 +29,4 @@ Indices and tables
 * :doc:`site-map`
 * :ref:`search`
 
-reStructured Text
------------------
-
-.. toctree::
-    :maxdepth: 2
-
-    RST
 
