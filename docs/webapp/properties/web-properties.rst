@@ -1,7 +1,5 @@
-Web.properties
+Features
 ========================================================
-
-= WebappConfig > Web Properties file =
 
 The '''web.properties''' file configures several attributes for the InterMine web application.
 
@@ -19,7 +17,8 @@ The '''web.properties''' file configures several attributes for the InterMine we
 ||theme||Colour scheme for the webapp.  Available options are:  blue, bright_blue, gold, green, grey, brown, ecoli_blue, metabolic, modmine, ratmine and purple. See [wiki:Themes].||
 ||xrefLink||Used to configure hyperlinks for CrossReferences.  See below||
 
-=== Home page ===
+Home page
+-----------
 
 '''Search box''' (first box on the left)
 
@@ -42,14 +41,16 @@ The '''web.properties''' file configures several attributes for the InterMine we
 ||begin.thirdBox.linkTitle||Text for large button||
 ||begin.thirdBox.link||URL for large button||
 
-'''Tabs'''
+Tabs
+-----------
 
 ||begin.tabs.1.id||Name of category, eg. Genes||
 ||begin.tabs.1.description||Text for that tab||
 
 Templates [wiki:Tagging tagged] with each category will appear under the appropriate tab.  See [wiki:Tagging] for details on how to tag templates.
 
-== List upload examples ==
+List upload examples
+----------------------
 
 Using the `bag.example.identifiers` key, one can provide a list of keyword examples on the list create/upload page. This could lead to a mixed list of items being updated and only, say Protein or Gene, identifiers being uploaded.
 
@@ -59,7 +60,8 @@ If one wants to provide different example identifiers per different types, like 
 
 Then, when the user selects a Genes from a dropdown select box for type and choose the Example list link, the text box will be populated keywords associated only with `bag.example.identifiers.gene` key in the config file.
 
-== External links ==
+External links
+----------------------
 
 You can add links to other websites by adding entries to the {{{web.properties}}} file.  
 
@@ -99,7 +101,8 @@ A list example:
 
 Only if a taxonId is specified the code will check if the link to the external db is relevant.
 
-=== Settings for the xrefLink property ===
+Settings for the xrefLink property
+--------------------------------------------
 
 You can configure the URLs for querying CrossReference from external sources by adding entries to the {{{web.properties}}} file.  
 
@@ -123,11 +126,12 @@ Cross references represent identifiers used in external databases, eg. FlyBase, 
 
 See:  [source:trunk/modmine/webapp/resources/web.properties ModMine's web.properties] file, [source:trunk/flymine/webapp/resources/web.properties FlyMine's web.properties] file
 
-== Overriding properties ==
+Overriding properties
+---------------------------------
 
  * [source:/trunk/intermine/webapp/main/resources/webapp/WEB-INF/global.web.properties global.web.properties] - used by all mines.  Properties set here will be available to everyone, even the test model mine.
  * [source:/trunk/bio/webapp/resources/webapp/WEB-INF/bio.web.properties bio.web.properties] - used by all bio-mines.  Properties set here will be available to all mines that use the bio layer.  so not the test model model. Can overwrite properties in the global.web.properties file.
  * [source:/trunk/flymine/webapp/resources/web.properties web.properties] - used by a mine.  Properties set here will be available to only that specific mine.  Can create mine-specific properties or overwrite properties in the above two files.
 
 
-See:  WebappConfig
+

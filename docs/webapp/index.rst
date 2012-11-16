@@ -19,7 +19,7 @@ Web Application
     admin/index
     user-accounts/index
     linking-in/index
-    javascript/index
+    performance/index
     third-party-tools/index
     monitoring-site-usage/index
 

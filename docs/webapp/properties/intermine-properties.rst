@@ -1,17 +1,12 @@
-InterMine properties
+Database and Web application
 ========================================================
-
-
-
-= WebappConfig > InterMine Properties =
 
 InterMine is governed by a properties file located in the $HOME/.intermine named `$MINE_NAME.properties`.  This page describes which values are set in that file.
 
-
 Example: [source:/trunk/bio/tutorial/malariamine/malariamine.properties ~/.intermine/malariamine.properties]
 
-
-= 1 Databases =
+Database names and locations
+------------------------------
 
 The following properties determine the settings for the production database.  This database is used by the build system and the webapp.
 
@@ -38,7 +33,8 @@ The following properties determine the settings for the items database.  This da
 ||db.userprofile-production.datasource.password||SECRET||database password||
 
 
-= 2 Web app =
+Web application name and location
+----------------------------------
 
 
 ||'''Property name'''||'''Example'''||'''Determines'''||
@@ -58,7 +54,8 @@ The following properties determine the settings for the items database.  This da
 ||project.helpLocation||http://www.flymine.org/help||various URLs use this as the prefix||
 
 
-== 2.1 Email ==
+Email
+------
 
 Emails are sent to users when they create an account, forget their password, or use the contact form.
 
@@ -69,7 +66,8 @@ Emails are sent to users when they create an account, forget their password, or 
 ||mail.text||You have successfully created an account on MalariaMine||"body" for email send when account created||
 ||feedback.destination||test_user@mail_address||recipient of feedback form located on bottom of every page||
 
-=== suffixes ===
+Multiple versions of a mine
+----------------------------
 
 It's possible to use several properties files by adding a suffix.  Here's an example scenario:
 
@@ -87,7 +85,8 @@ ant default remove-webapp release-webapp -Drelease=dev
 }}}
 
 
-== Mine properties shared between users ==
+Default Intermine properties
+-------------------------------------
 
 In addition to the user properties above, each mine needs two global properties file.  These should be in the root directory of the mine - e.g. in the malariamine directory.
 
@@ -96,5 +95,3 @@ In addition to the user properties above, each mine needs two global properties 
 
 In general these files can be copied from another mine, eg. [source:/trunk/bio/tutorial/malariamine MalariaMine], as very little customisation is needed.  
 
-
-See: WebappConfig
