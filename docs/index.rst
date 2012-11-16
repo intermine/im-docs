@@ -22,7 +22,7 @@ Contents
     support/index
     about/index
 
-Indices and tables
+Indices
 ----------------------------------
  
 * :ref:`genindex`
