@@ -10,10 +10,13 @@ Legal
 
 All InterMine code is freely available under the open source `LGPL <http://www.gnu.org/licenses/lgpl.html>`_  license.
 
+Privacy Policy
+------------------
+
 .. toctree::
     :maxdepth: 2
 
     privacy-policy
 
 
-.. index:: LGPL, privacy policy
+.. index:: LGPL
