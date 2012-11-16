@@ -32,8 +32,18 @@ Level 5 titles
 
 .. image:: http://docutils.sourceforge.net/docs/user/rst/images/ball1.gif
 
+Figures
+-------
+
+Look nicer than plain inserted images as they have a bounding box. **They do not work well with left or right align.**
+
+.. figure::  http://zckimg.com/squidoo/lolcat/eated-cookie-lolcat.jpg
+   :align:   center
+
+   Someone ate a cookie, kitten sad...
+
 Tables
-----------------
+------
 
 =========== ==========
 A           B

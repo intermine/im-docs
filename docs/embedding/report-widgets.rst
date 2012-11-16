@@ -12,7 +12,7 @@ Report Widgets are a type of embeddable component that offers an unparalleled **
 .. figure::  img/example.png
    :align:   center
 
-   Publications for ``zen`` gene coming from FlyMine.
+   Publications for zen gene coming from FlyMine.
 
 This document describes the steps needed to create an example publications widget that lists publications related to a particular gene.
 
