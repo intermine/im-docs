@@ -1,4 +1,4 @@
-Configuring and Using Class and Field Labels
+Using Class and Field Labels
 ================================
 
 The InterMine webapp, and to a limited extent web services, supports the use of labels for classes and fields. Unlabelled classes and fields are formatted for enhanced legibility.
