@@ -5,6 +5,21 @@ This page describes the features of InterMine's results tables, explains how to 
 more advanced features they provide, and gives a brief description of how to embed them in
 other pages.
 
+
+Upload look and feel
+----------------------
+
+'''export''':  See [wiki:Export] for details on exporting options.
+
+'''column headers''':  See ClassAndFieldLabels to change column headers.
+
+'''links''': Only unique fields (class keys) are links in results pages.  Add fields to ClassKeys to make the fields links on results pages.
+
+Instead of linking to an intermine report page, you can set the links to redirect to external page.  See LinkRedirects
+
+'''weird brackets''':  You may see the following in query results:  `GO:0007480 [GOTerm]`.  This happens when a column is a parent type but the individual result is a subclass.  The subclass will by in brackets.
+
+
 The key features of the results tables are:
   * Pagination
   * Sorting
