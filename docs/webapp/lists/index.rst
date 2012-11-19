@@ -10,16 +10,12 @@ This file specifies unique fields for classes in the data model for the webapp.
 Example: [source:/trunk/bio/tutorial/malariamine/dbmodel/resources/class_keys.properties class_keys.properties]
 
 
-Lists page
-------------
 
-To have lists appear on the lists page, lists a template as a SuperUser and [wiki:Tagging tag] the list with the "im:public" tag.
-
-The lists are sorted by most recent first.
 
 .. toctree::
     :maxdepth: 4
 
+    lists-page
     list-upload
-    list-analysis
+    list-analysis/index
     /embedding/list-widgets/index
