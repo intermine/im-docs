@@ -237,10 +237,9 @@ menu.genomicRegionSearchOptions = Genomic Region Search
 menu.genomicRegionSearchResults = Genomic Region Search Results
 }}}
 
-Config
-------
 
-= web-model.xml =
+web-model.xml
+---------------
 
 This file configures model specific routes. It is used to set up webservices that are
 not needed for every mine installation.
