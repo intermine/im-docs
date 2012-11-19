@@ -13,23 +13,26 @@ Common sources
 
 These are commonly used sources that you may want to use to load data into your own InterMine instance.
 
-=====================  ===========================================================  =============================  ============================  =====================
-source                 data                                                         model                          config                        
-=====================  ===========================================================  =============================  ============================  =====================
-arrayexpress-atlas     Read ArrayExpress JSON files retrieved from EBI web service  genes, expressionItem   	   none
-biogrid                Genetic and protein interaction data from BioGRID            genes, proteins, interactions  `biogrid_config.properties`   
-biopax                 Loads data from files in BioPAX level 2 format               pathways, proteins, genes      `biopax_config.properties`
-chado-db               Loads data from a Chado database                             any sequence feature                                         :doc:`chado`
-=====================  ===========================================================  =============================  ============================  =====================
+=====================  ==============================================================  =================================
+Data source            Data                                                            Types loaded
+=====================  ==============================================================  =================================
+:doc:`array-express`   ArrayExpress JSON files retrieved from EBI web service          genes, expressionItem   	   
+:doc:`biogrid`         Genetic and protein interaction data from BioGRID               genes, proteins, interactions  
+:doc:`biopax`          Files in BioPAX level 2 format                                  pathways, proteins, genes      
+:doc:`chado`           Chado database                                                  any sequence feature
+:doc:`ensembl`         Downloaded mysql database or access via script using their API  any sequence feature, homologues
+=====================  ==============================================================  =================================  
 
 .. toctree::
     :maxdepth: 4
 
+    array-express
     chado
+    biogrid
+    biopax
+    ensembl
 
-||chado-db||Loads data from a [http://www.gmod.org/wiki/index.php/Chado Chado] database.||Any chado features, eg. chromosome location, genes, proteins.||none||See [wiki:ChadoDBSource chado-db docs]||
-||ensembl||Load [http://www.ensembl.org ensembl] data from a downloaded mysql database or access via script using their API||chromosomes, genes, transcripts, exons, protein sequences, CDSs, SNPs||'''ensembl_config.properties''' - which chromosomes are processed.  ||See [wiki:Ensembl]||
-||ensembl-compara||Load [http://www.ensembl.org ensembl] compara data from public BioMart||homologues||||See EnsemblCompara||
+
 ||entrez-organism||All other sources refer to organisms only by their [http://www.ncbi.nlm.nih.gov/Taxonomy NCBI taxonomy id].  This source should be included at the end of the build.  It will select the taxonIds loaded into the Organism class, fetch details via the Entrez web service and fill in the organism names in the database.||updates fields for organism created by other sources||none||||
 ||fasta||Load features and their sequences.  Will create a feature for each entry in a fasta file and set the sequence, the class of the feature to create is set for the whole file.||protein, sequence||none||See [wiki:FASTA]||
 ||flybase-identifier||Loads [http://flybase.org/static_pages/downloads/FB2012_04/synonyms/fb_synonym_fb_2012_04.tsv.gz flybase synonyms dataset]||genes||none||Specified in [wiki:IdentifierDataSource]
