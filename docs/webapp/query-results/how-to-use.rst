@@ -1,15 +1,11 @@
 Query Results
 ================================
 
-This page describes the features of InterMine's results tables, explains how to use the
-more advanced features they provide, and gives a brief description of how to embed them in
-other pages.
-
 
 Upload look and feel
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-'''export''':  See [wiki:Export] for details on exporting options.
+'''export''':  See "export" link below for details on exporting options.
 
 '''column headers''':  See ClassAndFieldLabels to change column headers.
 
