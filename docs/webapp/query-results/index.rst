@@ -195,13 +195,8 @@ embed the result table in the form you see it in any other page.
 The html code produced can be used as a standalone page, or as a template to extract
 the relevant parts from for insertion into other pages.
 
-
-
-See also:
-
 .. toctree::
     :maxdepth: 4
-
 
     export
     redirects

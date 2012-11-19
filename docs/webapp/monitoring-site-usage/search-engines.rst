@@ -29,7 +29,7 @@ searchengines.yahoo=CODE
 searchengines.msn=CODE
 }}}
 
-See also: GoogleAnalytics
+.. seealso:: :doc:`google-analytics`
 
 '''robots.txt'''
 

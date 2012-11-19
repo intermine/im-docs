@@ -75,6 +75,32 @@ div.body div.highlight {
 div.body div.highlight pre {
   margin: 0 0.5em;
 }
+div.body div.figure {
+  background: #f7f7f7;
+  box-shadow: 0px 8px 6px -8px #93a1a1;
+  position: relative;
+  padding: 37px 0 5px 0;
+  margin: 1em 0 1em 0;
+}
+div.body div.figure p.caption {
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 99%;
+  background: #b84;
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  margin: 0;
+  padding: 0.2em 0 0.2em 1%;
+  text-align: left;
+}
+div.body div.figure p.caption a,
+div.body div.figure p.caption span.pre,
+div.body div.figure p.caption pre {
+  color: #fff !important;
+  background: inherit;
+}
 div.body table.docutils:not(.footnote) {
   margin: 1em 2px;
 }

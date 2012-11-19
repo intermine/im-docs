@@ -1,7 +1,7 @@
 Syntax
 ======
 
-A more extensive example can be found `here <http://packages.python.org/an_example_pypi_project/sphinx.html>`_
+.. seealso:: http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html, http://packages.python.org/an_example_pypi_project/sphinx.html
 
 Enumerated lists
 ----------------
@@ -32,8 +32,27 @@ Level 5 titles
 
 .. image:: http://docutils.sourceforge.net/docs/user/rst/images/ball1.gif
 
+Figures
+-------
+
+Look nicer than plain inserted images as they have a bounding box. **They do not work well with left or right align.**
+
+.. figure::  http://zckimg.com/squidoo/lolcat/eated-cookie-lolcat.jpg
+   :align:   center
+
+   Someone ate a cookie, kitten sad...
+
+Versions
+--------
+
+To specify below the title of a page when a new feature was added, use:
+
+.. code-block:: rst
+
+    .. versionadded:: 1.1
+
 Tables
-----------------
+------
 
 =========== ==========
 A           B
@@ -45,18 +64,18 @@ Hugh Laurie television
 Definition lists
 ----------------
 
+what 
+    Definition lists associate a term with a definition. 
+
+how 
+    The term is a one-line phrase, and the definition is one or more paragraphs or body elements, indented relative to the term. Blank lines are not allowed between term and definition.
+
 Footnotes
 ---------
 
 Footnotes provide extra information where using an info box is not appropriate [#]_.
 
 .. [#] Like here, the text is relevant only to the line here, not the whole page say.
-
-what 
-    Definition lists associate a term with a definition. 
-
-how 
-    The term is a one-line phrase, and the definition is one or more paragraphs or body elements, indented relative to the term. Blank lines are not allowed between term and definition.
 
 Source Code
 -----------
@@ -111,3 +130,27 @@ The index page (link top right) is generated automatically using the keywords se
 .. code-block:: rst
 
     .. index:: keyword, another keyword
+
+ASCII Art...
+------------
+
+::
+
+           .,,.
+         ,;;*;;;;,
+        .-'``;-');;.
+       /'  .-.  /*;;
+     .'    \d    \;;               .;;;,
+    / o      `    \;    ,__.     ,;*;;;*;,
+    \__, _.__,'   \_.-') __)--.;;;;;*;;;;,
+     `""`;;;\       /-')_) __)  `\' ';;;;;;
+        ;*;;;        -') `)_)  |\ |  ;;;;*;
+        ;;;;|        `---`    O | | ;;*;;;
+        *;*;\|                 O  / ;;;;;*
+       ;;;;;/|    .-------\      / ;*;;;;;
+      ;;;*;/ \    |        '.   (`. ;;;*;;;
+      ;;;;;'. ;   |          )   \ | ;;;;;;
+      ,;*;;;;\/   |.        /   /` | ';;;*;
+       ;;;;;;/    |/       /   /__/   ';;;
+       '*jgs/     |       /    |      ;*;
+            `""""`        `""""`     ;'

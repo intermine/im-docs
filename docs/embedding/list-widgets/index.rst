@@ -41,7 +41,7 @@ Table widgets
 Table widgets display objects and the counts of related objects in your list.
 
 .. figure::  img/table.png
-   :align:   right
+   :align:   center
 
    An example table widget of Orthologues in FlyMine.
 
@@ -74,7 +74,7 @@ Graph/Chart widgets
 Graph widgets display datasets in graphical format.
 
 .. figure::  img/chart.png
-   :align:   right
+   :align:   center
 
    An example chart widget of BDGP Expression Patterns in FlyMine.
 
@@ -127,7 +127,7 @@ Enrichment widgets
 Enrichment widgets calculate p-values representing the probability annotation occurred by chance. See :doc:`enrichment-widgets` for more information on how the p-value is calculated.
 
 .. figure::  img/enrichment.png
-   :align:   right
+   :align:   center
 
    An example enrichment widget of Gene Ontology in FlyMine.
 
