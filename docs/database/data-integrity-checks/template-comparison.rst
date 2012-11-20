@@ -1,17 +1,14 @@
 Template Comparison
 ================================
 
-There are template comparison scripts available, that will run queries against the templates
-publicly available in a mine or a pair of mines. The purpose of these scripts is to:
+There are template comparison scripts available, that will run queries against the templates publicly available in a mine or a pair of mines. The purpose of these scripts is to:
+
 	* Test that all templates run.
 	* In the case of multiple mines, check that updates haven't radically changed the results.
 
-The scripts present their results on standard out, with the option to have them emailed upon
-completion of the comparison. To have results emailed out, you should have set up and installed
-'''sendmail''' on the machine running the comparison.
+The scripts present their results on standard out, with the option to have them emailed upon completion of the comparison. To have results emailed out, you should have set up and installed `sendmail` on the machine running the comparison.
 
-Scripts are available in Perl and Python. Installation of the Perl modules requires the installation
-of various dependencies, so many users may find the Python versions easier to install, since these
+Scripts are available in Perl and Python. Installation of the Perl modules requires the installation of various dependencies, so many users may find the Python versions easier to install, since these
 have fewer dependencies.
 
 Python Script
@@ -20,8 +17,7 @@ Python Script
 Dependencies
 ~~~~~~~~~~~~~~~~
 
-This script will run on `cPython` 2.5-2.7, `pypy` and `jython`. It requires the installation of the
-intermine client module, which can be installed from [http://pypi.python.org PyPi] with the following command:
+This script will run on `cPython` 2.5-2.7, `pypy` and `jython`. It requires the installation of the intermine client module, which can be installed from http://pypi.python.org PyPi with the following command:
 
 .. code-block:: bash
 
