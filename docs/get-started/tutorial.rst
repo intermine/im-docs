@@ -875,7 +875,7 @@ Building a Mine
 So far we have created databases, integrated data and run post-processing with individual `ant` targets.  InterMine includes a perl program called `project_build` that reads the `project.xml` definition and runs all of the steps in sequence.  It also has the option of dumping the production database during the build and recovering from these dumps in case of problems.
 
 Build complete MalariaMine
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Build MalariaMine now using the `project_build` script, we will need a completed MalariaMine for the webapp.
 
