@@ -50,23 +50,24 @@ Common Errors
 Listed here are some common errors encountered in InterMine and some suggested fixes. 
 
 UnsupportedClassVersionError
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 {{{
 java.lang.UnsupportedClassVersionError: org/intermine/task/FileName (Unsupported major.minor version 49.0)
 }}}
 This means that your version of Java is too old, you need at least Java 1.5 to run !InterMine.
 
-== can't open datasource ==
-^^^^^^^^^^^^^^
+can't open datasource
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 {{{
 java.lang.RuntimeException: can't open datasource for {platform=PostgreSQL, datasource.dataSourceName=db.flatmodeunittest, ...
 }}}
 Errors of this type mean there was a problem accessing a database, in this example with `db.flatmodeunittest`.  Either the database specified in the xxx.properties file doesn't exist or the server/user/password details in the properties are incorrect.
 
-== FATAL: sorry, too many clients already ==
-^^^^^^^^^^^^^^
+FATAL: sorry, too many clients already
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 {{{
 org.postgresql.util.PSQLException: Backend start-up failed: FATAL: sorry, too many clients already - for database: db.bio-fulldata-test
 }}}
@@ -77,8 +78,8 @@ max_connections = 50
 If you still experience this problem, see [wiki:RunningABuild building a Mine].
 
 
-== OutOfMemoryError: Java heap space ==
-^^^^^^^^^^^^^^
+OutOfMemoryError: Java heap space
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 {{{
 java.lang.OutOfMemoryError: Java heap space
 }}}
@@ -90,7 +91,7 @@ This means that a Java process hasn't been allocated enough memory to function c
 If you still experience this problem, see [wiki:RunningABuild building a Mine].
 
 
-== OutOfMemoryError: PermGen space ==
+OutOfMemoryError: PermGen space
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 {{{
 java.lang.OutOfMemoryError: PermGen space
@@ -103,7 +104,7 @@ This occurs when Java has run out for !PermGen space - where it stores !ClassLoa
 If you still experience this problem, see [wiki:RunningABuild building a Mine].
 
 
-== Can't find class name [!ClassName] ==
+Can't find class name `ClassName`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 {{{
 Exception caught: java.lang.IllegalArgumentException: Unknown class name Protein in package org.intermine.model.bio
@@ -111,7 +112,7 @@ Exception caught: java.lang.IllegalArgumentException: Unknown class name Protein
 
 In this example a class named `Protein`  could not be found in the data model, this will usually arise when running a parser and attempting to create an `Item` for a class that does not exist.  Check your `sourcename_additions.xml` files to see if the class is listed, only the additions files for sources lists on `project.xml` when `ant build-db` was run will be included in the data model.
 
-== Can't find keys ==
+Can't find keys
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 {{{
 Caused by: java.lang.IllegalArgumentException: Unable to find keys for
@@ -121,7 +122,7 @@ source protfeatures_source in file protfeatures_source_keys.properties
 It is expecting to find some keys to integrate data from that source.
 Do you have a keys file in the bio/sources/protfeatures/resources? 
 
-== Can't find antlib-int.xml ==
+Can't find antlib-int.xml
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 {{{
 Unable to find jar:file:/home/malariamine/svn/trunk/intermine/integrate/main/dist/intermine-integrate.jar!/org/intermine/task/antlib-int.xml
@@ -129,7 +130,7 @@ Unable to find jar:file:/home/malariamine/svn/trunk/intermine/integrate/main/dis
 
 This happens occasionally, probably due to a concurrency issue in the build system.  Run the ANT command again and it should work.
 
-== Classpath issues ==
+Classpath issues
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Classpath issues can generate various errors, eg a conflict caused by `wstx-asl-3.2.4.jar` when the XMLOutputFactory created its !StreamWriter in !PathQueryBinding:
@@ -137,4 +138,3 @@ Classpath issues can generate various errors, eg a conflict caused by `wstx-asl-
 XMLStreamWriter writer = factory.createXMLStreamWriter(sw);
 }}}
 
-d

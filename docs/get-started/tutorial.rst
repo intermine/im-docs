@@ -500,7 +500,7 @@ The type of feature created is defined by a property in `project.xml`, the attri
 
 
 Loading FASTA data
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now load the `malaria-chromosome-fasta` source by running this command in `malariamine/integrate`:
 
@@ -518,7 +518,7 @@ For an introduction to data integration in InterMine please read: DataIntegratio
 
 
 Data integration in MalariaMine
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The sources `uniprot-malaria` and `malaria-gff` have both loaded information about the same genes.  Before loading genome data we ran a query to look at the information UniProt provided about the gene `PFL1385c`:
 

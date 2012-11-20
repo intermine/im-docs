@@ -7,4 +7,5 @@ Interactions
 
     biogrid
     intact
+    psi-mi-ontology
 

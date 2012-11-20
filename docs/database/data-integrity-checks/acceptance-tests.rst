@@ -4,13 +4,15 @@ Acceptance Tests
 How to run the tests
 --------------------
 
- 1. Add a file to [source:/trunk/bio/core/test/resources/flymine_acceptance_test.conf MINE-NAME_acceptance_test.conf]
- 1. run acceptance tests here:
-   {{{
+1. Add a file to `bio/core/test/resources/`, eg. `flymine_acceptance_test.conf`
+2. run acceptance tests here:
+
+.. code-block:: bash
+
     cd MINE_NAME/integrate
     ant acceptance-tests 
-    }}}
- 1. The results will be in `MINE_NAME/integrate/build/acceptance_test.html`
+
+The results will be in `MINE_NAME/integrate/build/acceptance_test.html`
 
 Types of tests 
 --------------------

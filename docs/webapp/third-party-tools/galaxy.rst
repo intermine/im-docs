@@ -18,6 +18,7 @@ Add to ''web.properties''' file, replacing FlyMine with your Mine name:
 Update Struts config
 
 .. code-block:: xml
+
 	# MINE/webapp/resources/struts-config-model.xml
 	<action path="/galaxyExportOptions" forward="galaxyExportOptions.page"/>
 	<action path="/initGalaxyExportOptions"
@@ -45,15 +46,24 @@ Customization
 
 Properties located in the ''web.properties''' file.
 
-||'''parameter'''||'''purpose'''||'''required?'''||'''options'''||'''default'''||
-||display||enable Galaxy export||yes||true/false||true||
-||disabledMessage||The message displayed when Galaxy export is disabled||when display is false||-||-||
-||baseurl.default||the base url of Galaxy server||yes||-||default url is the main Galaxy server, but it can be replaced by any public/private server||
-||url.value||the tool runner url, e.g. on main Galaxy server, the tool for flymine is "/tool_runner?tool_id=flymine"||yes||-||customize this url to specific mines, learn how to create a tool from [http://wiki.g2.bx.psu.edu/Admin/Tools/External%20Display%20Applications%20Tutorial?highlight=%28tool%29|%28runner%29 Galaxy wiki]||
-||welcomeMessage||the message displays on the homepage when linking from Galaxy to an InterMine instance||yes||-||customize the name of mine, e.g. for flymine the message would be "Welcome to FlyMine, GALAXY users"||
+parameter        purpose                                           required? 
+===============  ================================================  =========
+display          enable Galaxy export                              yes[1]_. 
+disabledMessage  displayed when Galaxy export is disabled          yes
+baseurl.default  base url of Galaxy server                         yes[2]_.
+url.value        tool runner url                                   yes[3]_.    
+welcomeMessage   displays on the homepage when coming from Galaxy  yes  
+
+.. [1] when display is false  
+
+.. [2] default url is the main Galaxy server, but it can be replaced by any public/private server  
+
+.. [3] e.g. on main Galaxy server, the tool for flymine is `/tool_runner?tool_id=flymine`.  Customize this url to specific mines, learn how to create a tool from `Galaxy wiki <http://http://wiki.g2.bx.psu.edu/Admin/Tools/External%20Display%20Applications%20Tutorial?highlight=%28tool%29|%28runner%29>`_  
+
 
 
 .. code-block:: properties
+
 	# galaxy
 	## set to "false" to disable galaxy
 	galaxy.display = true
