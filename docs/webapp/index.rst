@@ -13,6 +13,7 @@ Web Application
     template-queries/index
     appearance/index
     data-categories/index
+    query-builder/index
     admin/index
     help/index
     user-accounts/index
