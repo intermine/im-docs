@@ -13,24 +13,26 @@ Common sources
 
 These are commonly used sources that you may want to use to load data into your own InterMine instance.
 
-=====================  ==============================================================  =================================
-Data source            Data                                                            Types loaded
-=====================  ==============================================================  =================================
-:doc:`array-express`   ArrayExpress JSON files retrieved from EBI web service          genes, expressionItem   	   
-:doc:`biogrid`         Genetic and protein interaction data from BioGRID               genes, proteins, interactions  
-:doc:`biopax`          Files in BioPAX level 2 format                                  pathways, proteins, genes      
-:doc:`chado`           Chado database                                                  any sequence feature
-:doc:`ensembl`         Downloaded mysql database or access via script using their API  any sequence feature, homologues
-=====================  ==============================================================  =================================  
-
 .. toctree::
-    :maxdepth: 4
+    :maxdepth: 1
 
-    array-express
     chado
-    biogrid
-    biopax
     ensembl
+    entrez-organism
+    fasta
+    gff
+    go/index
+    homologues
+    identifiers
+    interactions
+    intermine-items-xml
+    pathways
+    pdb
+    pubmed
+    snp
+    so
+    uniprot
+    update-publications
 
 
 ||entrez-organism||All other sources refer to organisms only by their [http://www.ncbi.nlm.nih.gov/Taxonomy NCBI taxonomy id].  This source should be included at the end of the build.  It will select the taxonIds loaded into the Organism class, fetch details via the Entrez web service and fill in the organism names in the database.||updates fields for organism created by other sources||none||||
