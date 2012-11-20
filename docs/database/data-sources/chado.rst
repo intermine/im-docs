@@ -15,29 +15,41 @@ The `chado-db` source is able to integrate objects from a Chado database.  Curre
 
 These tables are queried from the chado database:
 
-* `feature` 
- * used to create objects in the ObjectStore
- * The default configuration only supports features that have a Sequence Ontology type (eg. `gene`, `exon`, `chromosome`)
- * Each new feature in InterMine will be a sub-class of `SequenceFeature`.
-* `featureloc` 
- * used to create `Location` objects to set `chromosomeLocation` reference in each `SequenceFeature`
-* `feature_relationship`
- * used to find `part_of` relationships between features
- * this information is used to create parent-child references and collections
- * examples include setting the `transcripts` collection in the `Exon` objects and the `gene` reference in the `Transcript` class.
-* `dbxref` and `feature_dbxref`
- * used to create `Synonym` objects for external identifiers of features
- * the `Synonym`s will be added to the `synonyms` collection of the relevant `SequenceFeature`
-* `featureprop`
- * used to set fields in features based on properties
- * an example from the FlyBase database: the `SequenceFeature.cytoLocation` field is set using the `cyto_range` feature_prop
-* `synonym` and `feature_synonym`
- * used to create extra `Synonym` objects for `chado` synonyms and to set fields in features
- * the `Synonym`s will be added to the `synonyms` collection of the relevant `SequenceFeature`
-* `cvterm` and `feature_cvterm`
- * used to set fields in features and to create synonyms based on CV terms
-* `pub`, `feature_pub` and `db`
- * used to set the `publications` collection in the new `SequenceFeature` objects.
+`feature` 
+  used to create objects in the ObjectStore
+
+* The default configuration only supports features that have a Sequence Ontology type (eg. `gene`, `exon`, `chromosome`)
+* Each new feature in InterMine will be a sub-class of `SequenceFeature`.
+
+`featureloc` 
+  used to create `Location` objects to set `chromosomeLocation` reference in each `SequenceFeature`
+
+`feature_relationship`
+  used to find `part_of` relationships between features
+
+* this information is used to create parent-child references and collections
+* examples include setting the `transcripts` collection in the `Exon` objects and the `gene` reference in the `Transcript` class.
+
+`dbxref` and `feature_dbxref`
+  used to create `Synonym` objects for external identifiers of features
+ 
+* the `Synonym`s will be added to the `synonyms` collection of the relevant `SequenceFeature`
+
+`featureprop`
+  used to set fields in features based on properties
+
+* an example from the FlyBase database: the `SequenceFeature.cytoLocation` field is set using the `cyto_range` feature_prop
+
+`synonym` and `feature_synonym`
+  used to create extra `Synonym` objects for `chado` synonyms and to set fields in features
+
+* the `Synonym`s will be added to the `synonyms` collection of the relevant `SequenceFeature`
+
+`cvterm` and `feature_cvterm`
+  used to set fields in features and to create synonyms based on CV terms
+
+`pub`, `feature_pub` and `db`
+  used to set the `publications` collection in the new `SequenceFeature` objects.
 
 Additionally, the `StockProcessor` class reads the tables from the chado stock module, eg. stockcollection, stock, stock_genotype.
 
@@ -130,9 +142,9 @@ Handled by `ChadoSequenceProcessor.processLocationTable()`.
 
 This method gets passed a result set with start position, end position and information from the `featureloc` table.  For each row from the result set it will:
 
- * store a `Location` object
- * set `chromosomeLocation` in the associated `SequenceFeature`
- * set the `chromosome` reference in the `SequenceFeature` if the `srcfeature` from the `featureloc` table is a chromosome feature
+* store a `Location` object
+* set `chromosomeLocation` in the associated `SequenceFeature`
+* set the `chromosome` reference in the `SequenceFeature` if the `srcfeature` from the `featureloc` table is a chromosome feature
 
 Reading the feature_relationship table
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
