@@ -5,4 +5,3 @@ PostgreSQL
    
    postgres
    bioseg
-   oracle
