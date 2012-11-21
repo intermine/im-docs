@@ -18,8 +18,3 @@ How to load the data into your mine
 project XML example
 
 
-.. toctree::
-    :maxdepth: 2
-
-    go-obo
-    gaf

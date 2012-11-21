@@ -1,41 +1,43 @@
 Ensembl Compara
 ================================
 
+Download data from BioMart
+----------------------------
 
+#. [http://www.biomart.org/biomart/martview]
+#. select database for primary organism, eg. `Ensembl Genes`
+#. select dataset for primary organism, eg. `Drosophila melanogaster features (BDGP5.25)`
+#. select FILTERS
 
- 1. Download data from !BioMart
-    1. [http://www.biomart.org/biomart/martview]
-    1. select database for primary organism 
-       * eg. `Ensembl Genes`
-    1. select dataset for primary organism 
-       * eg. `Drosophila melanogaster features (BDGP5.25)`
-    1. select FILTERS
-       1. click on "FILTERS" on the left panel in !BioMart
-          1. this will populate the main panel with filter options
-       1. select `MULTI SPECIES COMPARISONS`
-       1. check the checkbox next to `Homolog filters`
-       1. select the organism of interest in the dropdown
-          * eg. `Orthologous Caenorhabditis elegans Genes`
-          * make sure that next to the dropdown, `Only` is checked
-    1. select ATTRIBUTES
-       1. check the `Homologs` radio button at the top of the center panel
-       1. uncheck the `Ensembl Transcript ID` option, `Ensembl Gene ID` is now the only output
-       1. click on `ORTHOLOGS (Max select 3 orthologs):` to open that section of the form
-       1. select on the Gene ID for the organism of interest
-          * eg. Drosophila Ensembl Gene ID 
-    1. Run query
-       1. select the `[Results]` button at the top of the page
-       1. create `TSV` file
-       1. check box next to `Unique results only`
-    1. when prompted, save file as `TAXONID1_TAXONID2`
- 1. Add entry to project XML file:
+  #. click on "FILTERS" on the left panel in BioMart (this will populate the main panel with filter options)
+  #. select `MULTI SPECIES COMPARISONS`
+  #. check the checkbox next to `Homolog filters`
+  #. select the organism of interest in the dropdown
+
+    #. eg. `Orthologous Caenorhabditis elegans Genes`
+    #. make sure that next to the dropdown, `Only` is checked
+
+#. select ATTRIBUTES
+
+  #. check the `Homologs` radio button at the top of the center panel
+  #. uncheck the `Ensembl Transcript ID` option, `Ensembl Gene ID` is now the only output
+  #. click on `ORTHOLOGS (Max select 3 orthologs):` to open that section of the form
+  #. select on the Gene ID for the organism of interest, eg. Drosophila Ensembl Gene ID 
+
+#. Run query
+
+  #. select the `[Results]` button at the top of the page
+  #. create `TSV` file, check box next to `Unique results only`
+  #. when prompted, save file as `TAXONID1_TAXONID2`
+
+#. Add entry to project XML file:
     {{{
     <source name="ensembl-compara" type="ensembl-compara">
       <property name="src.data.dir" location="/DATA/ensembl/compara"/>
       <property name="ensemblcompara.organisms" value="7227"/>
       <property name="ensemblcompara.homologues" value="6239"/>
     </source>
-}}}
+
  1. Run build
 
 Data file 
