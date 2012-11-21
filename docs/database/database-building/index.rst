@@ -14,5 +14,7 @@ Before starting the build process you will need to set up the appropriate [wiki:
 
   running-a-build
   primary-keys
-  priority-config
   data-model
+  priority-config
+  post-processing/index
+  

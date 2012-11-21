@@ -5,7 +5,7 @@ InterMine can be rather memory-intensive, so you will probably need to set memor
 
 .. code-block:: bash
 
-	export ANT_OPTS="-server -XX:MaxPermSize=256M -Xmx1700m -XX:+UseParallelGC -Xms1700m -XX:SoftRefLRUPolicyMSPerMB=1 -XX:MaxHeapFreeRatio=99"
+	$ export ANT_OPTS="-server -XX:MaxPermSize=256M -Xmx1700m -XX:+UseParallelGC -Xms1700m -XX:SoftRefLRUPolicyMSPerMB=1 -XX:MaxHeapFreeRatio=99"
 
 Run  `. ~/.bashrc` to use this value in the current session.
 

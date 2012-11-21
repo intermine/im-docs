@@ -7,6 +7,5 @@ Database
     download-scripts
     data-sources/index
     database-building/index
-    post-processing/index
-    performance/index
     data-integrity-checks/index
+    performance/index
