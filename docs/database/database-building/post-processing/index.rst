@@ -96,8 +96,8 @@ Create features to represent flanking regions of configurable distance either si
 Data
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
- `do-sources`
- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+do-sources
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This searches through all sources included in project.xml and runs post-processing steps if any exist.  Looks for the property `postprocessor.class` in the `project.properties` of each source, the class specified should be a subclass of `org.intermine.postprocess.PostProcessor`.
 
@@ -135,9 +135,4 @@ Creates the indexes for the fields set to be autocompleted in the ObjectStoreSum
 *Should I use it?* Yes, if you have a webapp.  
 
 
-Related topics:
-
-.. toctree::
-    :maxdepth: 4
-
-    overlaps
+.. index:: create-chromosome-locations-and-lengths, transfer-sequences, create-references, create-intron-features, create-intergenic-region-features, create-overlap-view, create-bioseg-location-index, create-gene-flanking-features, do-sources, create-search-indexm create-attribute-indexes, summarise-objectstore, create-autocomplete-index
