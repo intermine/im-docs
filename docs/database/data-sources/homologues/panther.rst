@@ -2,11 +2,15 @@ Panther
 ================================
 
 
-1. Data
-||Source||Data URL||
-||panther||ftp://ftp.pantherdb.org/ortholog/current/RefGenomeOrthologs.tar.gz (gunzip to RefGenomeOrthologs.txt)||
+Data
 
-2. project.xml
+ftp://ftp.pantherdb.org/ortholog/current/RefGenomeOrthologs.tar.gz 
+
+gunzip to RefGenomeOrthologs.txt
+
+Project XML
+
+.. code-block:: xml
 
     <source name="panther" type="panther">
       <property name="src.data.dir" location="/DATA/panther"/>

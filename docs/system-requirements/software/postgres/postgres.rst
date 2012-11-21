@@ -12,7 +12,8 @@ After installation, you need to update `postgresql.conf`
 
 * This file is usually located in `/etc/postgres/8.4`: 
 * If you are going to install Postgres 9.x:
-  * It's not easy to change the default encoding to [http://www.postgresql.org/docs/9.0/static/multibyte.html SQL_ASCII] anymore, so you should do this before creating any databases.
+
+  * It's not easy to change the default encoding to SQL_ASCII anymore, so you should do this before creating any databases.
   * There are special instructions for installing BioSeg
 
 Required Configuration

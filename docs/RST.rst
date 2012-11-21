@@ -113,14 +113,14 @@ Note
 
 .. note::
 
-    This is a note
+    Refer to mine with as MINE_NAME
 
 Warning
 -----------
 
 .. warning::
 
-    This is a warning >:(
+    All bash code blocks should start with $
 
 Index page
 -----------
@@ -154,3 +154,4 @@ ASCII Art...
        ;;;;;;/    |/       /   /__/   ';;;
        '*jgs/     |       /    |      ;*;
             `""""`        `""""`     ;'
+

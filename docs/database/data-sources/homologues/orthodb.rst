@@ -1,10 +1,13 @@
 OrthoDB
 ================================
 
+Data
 
-||Source||Data URL||
-||orthodb||ftp://cegg.unige.ch/OrthoDB5/OrthoDB5_ALL_tabtext.gz (gunzip to OrthoDB5_ALL_tabtext)||
+ftp://cegg.unige.ch/OrthoDB5/OrthoDB5_ALL_tabtext.gz 
 
+Project XML
+
+.. code-block:: xml
 
     <source name="orthodb" type="orthodb">
       <property name="src.data.dir" location="/DATA/orthodb"/>

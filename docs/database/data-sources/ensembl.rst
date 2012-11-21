@@ -16,7 +16,7 @@ The following are instructions on how to load a local copy of an Ensembl databas
 Download the Ensembl MySQL database
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-ftp://ftp.ensembl.org/pub/current_mysql Or you can use our Perl script
+ftp://ftp.ensembl.org/pub/current_mysql or you can use our Perl script
 
 * We use `get_ensembl_mysql` to download and unzip data
 * To use this script, you need to install the appropriate Perl modules.  
@@ -104,13 +104,13 @@ Run this command in `/bio/scripts`
 
 .. code-block:: bash
 
-  ./ensemblAPI.pl MINE_NAME TAXONID /MY_DATA_DIR/ensembl
+  $ ./ensemblAPI.pl MINE_NAME TAXONID /MY_DATA_DIR/ensembl
 
 for example:
       
 .. code-block:: bash
 
-  ./ensemblAPI.pl flymine 7165 /data/ensembl/current
+  $ ./ensemblAPI.pl flymine 7165 /data/ensembl/current
 
 
 Load XML file into database
@@ -120,5 +120,5 @@ Run a build.  The entry in `project.xml` will instruct the build process to load
       
 .. code-block:: bash
 
-  ant -v -Dsource=ensembl 
+  $ ant -v -Dsource=ensembl 
 

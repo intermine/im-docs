@@ -30,15 +30,19 @@ Download data from BioMart
   #. create `TSV` file, check box next to `Unique results only`
   #. when prompted, save file as `TAXONID1_TAXONID2`
 
-#. Add entry to project XML file:
-    {{{
+Add entry to project XML file
+------------
+
+.. code-block:: xml
+
     <source name="ensembl-compara" type="ensembl-compara">
       <property name="src.data.dir" location="/DATA/ensembl/compara"/>
       <property name="ensemblcompara.organisms" value="7227"/>
       <property name="ensemblcompara.homologues" value="6239"/>
     </source>
 
- 1. Run build
+Run build
+------------
 
 Data file 
 ~~~~~~~~~~~~~~
@@ -56,15 +60,16 @@ Download script
 ~~~~~~~~~~~~~~~~~
 
 When you have created your query, you can export the Perl script or XML so you can run the query automatically next time, eg:
-{{{
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE Query>
-<Query  virtualSchemaName = "default" formatter = "TSV" header = "0" uniqueRows = "0" count = "" datasetConfigVersion = "0.6" >
-      
-  <Dataset name = "hsapiens_gene_ensembl" interface = "default" >
-    <Filter name = "with_dmelanogaster_homolog" excluded = "0"/>
-    <Attribute name = "ensembl_gene_id" />
-    <Attribute name = "drosophila_ensembl_gene" />
-  </Dataset>
-</Query>
-}}}
+
+.. code-block:: xml
+
+  <?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE Query>
+  <Query  virtualSchemaName = "default" formatter = "TSV" header = "0" uniqueRows = "0" count = "" datasetConfigVersion = "0.6" >
+        
+    <Dataset name = "hsapiens_gene_ensembl" interface = "default" >
+      <Filter name = "with_dmelanogaster_homolog" excluded = "0"/>
+      <Attribute name = "ensembl_gene_id" />
+      <Attribute name = "drosophila_ensembl_gene" />
+    </Dataset>
+  </Query>
