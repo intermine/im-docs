@@ -1,7 +1,7 @@
 Post processing
 ================================
 
-Some operations are performed on the integrated data before the webapp is released - post-processing. For example, setting sequences of LocatedSequenceFeatures, filling in additional references and collections or transferring orthologues from translations to genes.  See a list of [wiki:PostProcessing common post-processing operations].  Some postprocessing steps are core to InterMine.bio and should always be run, others are contributed by particular sources.
+Some operations are performed on the integrated data before the webapp is released - post-processing. For example, setting sequences of SequenceFeatures, filling in additional references and collections or transferring orthologues from translations to genes.  These are steps that run after the data loading is completed.  They are used to set calculate/set fields that are difficult to do when data loading or that require multiple sources to be loaded. Some postprocessing steps are core to InterMine.bio and should always be run, others are contributed by particular sources.
 
 Post-processing steps are specified in the project XML file and run from the `MINE_NAME/postprocess` project with:
 
@@ -21,11 +21,6 @@ When running one postprocess step like this, the `action` used must match an `po
 Post-processing is run automatically after integrating if using the `project_build` script (see above).
 
 To add a post-process step to InterMine, you need to add the Java definition to the project and call the post-process from the `PostProcessOperationsTask` class.
-
-Post-processes
-------------------
-
-These are steps that run after the data loading is completed.  They are used to set calculate/set fields that are difficult to do when data loading or that require multiple sources to be loaded.
 
 .. note::
 
