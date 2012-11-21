@@ -25,7 +25,6 @@ These are commonly used sources that you may want to use to load data into your 
     homologues/index
     identifiers/index
     interactions/index
-    intermine-items-xml
     pathways/index
     proteins/index
     publications/index

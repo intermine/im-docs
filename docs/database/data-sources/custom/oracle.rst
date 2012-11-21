@@ -1,5 +1,5 @@
-Oracle 
-===========
+Oracle Data Source
+=================================
 
 You can load data from Oracle directly into an InterMine instance. The JDBC driver is already in the classpath:  `intermine/objectstore/main/lib ojdbc14.jar`
 

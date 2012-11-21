@@ -1,4 +1,4 @@
-Data Sources
+Items APIs
 ================================
 
 Contents
@@ -6,7 +6,7 @@ Contents
 .. toctree::
     :maxdepth: 1
 
-    library/index
-    custom/index
-    apis/index
+    java-items-api
+    perl-items-api
+    intermine-items-xml
     
