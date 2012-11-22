@@ -52,6 +52,7 @@ Command line options
   * To run all steps starting at <some_action> use a dash after the action name: '''-a <some_action>-'''
   * To perform only the final dump use: '''-a final-dump'''
   * To refer to dump step and skip the corresponding action, use action name with "-dump" appended. eg.
+  
    * '''-a fly-fish-dump-''' - dump the `fly-fish` source and continues integrating
    * '''-a fly-fish-dump,flymine-static,create-utr-references,final-dump''' - do just those steps
 
