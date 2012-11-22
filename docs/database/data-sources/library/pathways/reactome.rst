@@ -1,4 +1,4 @@
-Pathway data sources
+Reactome
 ================================
 
 
