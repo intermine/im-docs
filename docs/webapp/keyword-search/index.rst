@@ -5,13 +5,13 @@ Indexing the database runs as a post-process step which creates the index in a d
 
 By default the index will include the text fields of all objects in the database. Each object in the database becomes a document in the index with text attributes attached. You can configure classes to ignore, such as locations and scores that don't provide text information. You can also add related information to an object, for example you can configure that the synonyms, pathways and GO terms should be included in the Gene's entry. 
 
-'''fields in the results''':  determined by WebConfigModel[[B]
+'''fields in the results''':  determined by WebConfigModel
 
-'''type''':  class of object[[B]
+'''type''':  class of object
 
-'''score''': determined by the Lucene search, from 0 to 1[[B]
+'''score''': determined by the Lucene search, from 0 to 1
 
-'''lists''':  Users can make lists from search results but only if all results are of the same type.[[B]
+'''lists''':  Users can make lists from search results but only if all results are of the same type.
 
 To view entire the entire index:  Navigate to search results page without search parameter, eg [http://www.flymine.org/query/keywordSearchResults.do]
 

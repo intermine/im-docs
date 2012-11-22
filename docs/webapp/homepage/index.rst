@@ -175,7 +175,7 @@ Other properties:
 ||'''version'''||project.releaseVersion||InterMineProperties|| 
 ||'''subtitle'''||project.subTitle||InterMineProperties||
 ||'''links in upper right corner'''||header.links||WebProperties||
-[[B]
+
 
 Footer 
 ------------

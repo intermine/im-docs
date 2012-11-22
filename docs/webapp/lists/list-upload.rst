@@ -50,8 +50,8 @@ Matches returned from this query are not added to the list, they are displayed u
 Configuration
 -------------
 
-'''example list''':  The example list is set in "bag.example.identifiers" property in WebProperties.[[B]
-'''types''': See ClassKeys[[B]
-'''organisms''':  All organisms in your database will be displayed here.  You can set the default in WebProperties.[[B]
+'''example list''':  The example list is set in "bag.example.identifiers" property in WebProperties.
+'''types''': See ClassKeys
+'''organisms''':  All organisms in your database will be displayed here.  You can set the default in WebProperties.
 '''valid delimiters''':  The default valid delimiters are comma, space, tab or new line.  You can change this value by setting the "list.upload.delimiters" property in WebProperties.
 
