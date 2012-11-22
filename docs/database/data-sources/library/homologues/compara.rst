@@ -31,7 +31,7 @@ Download data from BioMart
   #. when prompted, save file as `TAXONID1_TAXONID2`
 
 Add entry to project XML file
-------------
+------------------------------------
 
 .. code-block:: xml
 
