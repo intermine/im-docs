@@ -97,7 +97,7 @@ From your check out (or unzipped tar file) go to the directory "`intermine/perl/
 
 .. code-block:: bash
 
-  $ cd [GIT-DIR]/intermine/perl
+  $ cd [GIT-DI/intermine/perl
 
 Here there are four "distributions" of modules you may want to install:
 

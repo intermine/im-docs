@@ -1,20 +1,17 @@
 Keyword Search
 ================================
 
-= Keyword Search =
-
-
 Indexing the database runs as a post-process step which creates the index in a directory. The index is then zipped and stored in the database, when you deploy a webapp pointing at the database it will extract the index again. For FlyMine indexing takes less than an hour, including a large proportion of the database.
 
 By default the index will include the text fields of all objects in the database. Each object in the database becomes a document in the index with text attributes attached. You can configure classes to ignore, such as locations and scores that don't provide text information. You can also add related information to an object, for example you can configure that the synonyms, pathways and GO terms should be included in the Gene's entry. 
 
-'''fields in the results''':  determined by WebConfigModel[[BR]]
+'''fields in the results''':  determined by WebConfigModel[[B]
 
-'''type''':  class of object[[BR]]
+'''type''':  class of object[[B]
 
-'''score''': determined by the Lucene search, from 0 to 1[[BR]]
+'''score''': determined by the Lucene search, from 0 to 1[[B]
 
-'''lists''':  Users can make lists from search results but only if all results are of the same type.[[BR]]
+'''lists''':  Users can make lists from search results but only if all results are of the same type.[[B]
 
 To view entire the entire index:  Navigate to search results page without search parameter, eg [http://www.flymine.org/query/keywordSearchResults.do]
 

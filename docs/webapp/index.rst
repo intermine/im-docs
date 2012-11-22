@@ -11,7 +11,6 @@ Web Application
     region-search/index
     report-page/index
     template-queries/index
-    appearance/index
     data-categories/index
     query-builder/index
     admin/index

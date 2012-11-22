@@ -14,8 +14,8 @@ The following user activities are recorded during browsing of all mine webapps, 
  * searches by keyword
  * user logins
 
-The trackers, recording all tracks, are defined in the ''global.web.properties'' file under the property ''webapp.trackers''.[[BR]]
-All tracks are saved into specific tables, created automatically, if they don't already exist, in the userprofile database.[[BR]]
+The trackers, recording all tracks, are defined in the ''global.web.properties'' file under the property ''webapp.trackers''.[[B]
+All tracks are saved into specific tables, created automatically, if they don't already exist, in the userprofile database.[[B]
 The tables are:
  * templatetrack
  * querytrack
@@ -23,21 +23,21 @@ The tables are:
  * searchtrack
  * logintrack.
 
-The table are created at the startup of the webapp.[[BR]] 
-If some table definitions needed to be updated, the browsing of the webapp is blocked, and a warning message is displayed.[[BR]]
+The table are created at the startup of the webapp.[[B] 
+If some table definitions needed to be updated, the browsing of the webapp is blocked, and a warning message is displayed.[[B]
 Run the ant task ''update-templatetrack-table'' in the webapp directory and then restart the webapp. 
 
 == Usage page in the webapp ==
 
-You can access to the '''Usage''' page, via the MyMine page, only if you are a superuser.[[BR]]
-The page shows all tracks grouped in these sections: Template usage, Custom queries executed, Logins, Keyword Searches, List Analysis page views and List Creation.[[BR]]
+You can access to the '''Usage''' page, via the MyMine page, only if you are a superuser.[[B]
+The page shows all tracks grouped in these sections: Template usage, Custom queries executed, Logins, Keyword Searches, List Analysis page views and List Creation.[[B]
 Each section contains:
  * a diagram showing the trend of that specific track during the time range selected: 1d, 5d, 1m, 3m, 6m, 1y. The diagrams point out the number of tracks per day (number of template query execution, number the query execution....) without specify wich template or type query(Gene, Protein...) has been executed. 
 [[Image(TemplateTrend.png)]]
  * a table showing the number of tracks for each template, type of query, type of list....
-[[Image(TemplateTable.png)]][[BR]]
-Furthemore, in the ''Template usage'' section, there is a pie diagram showing the first 9 most popular templates and their number of executions in the time range selected: last 2 weeks, last month, last 3 months, last year.[[BR]]
-Under the label 'Other' the number of executions of templates from 10th to 15th position.[[BR]]
+[[Image(TemplateTable.png)]][[B]
+Furthemore, in the ''Template usage'' section, there is a pie diagram showing the first 9 most popular templates and their number of executions in the time range selected: last 2 weeks, last month, last 3 months, last year.[[B]
+Under the label 'Other' the number of executions of templates from 10th to 15th position.[[B]
 [[Image(TemplatePie.png)]]
 
 == Import/Export XML ==
@@ -47,8 +47,8 @@ Import and export XML functionalities allow you to:
  * import all tracks from an XML file into the userprofile database 
 The import functionality generates the tracker tables, if these haven't been created before.
 
-When you release a webapp, you may need to recreate the userprofile database without losing all tracks saved until that moment.[[BR]]
-Before running ''create-db-userprofile'', execute ''write-userprofile-xml'' in order to save all the tracks into the ''userprofile.xml'' file.[[BR]]
+When you release a webapp, you may need to recreate the userprofile database without losing all tracks saved until that moment.[[B]
+Before running ''create-db-userprofile'', execute ''write-userprofile-xml'' in order to save all the tracks into the ''userprofile.xml'' file.[[B]
 The file has the following structure:
  {{{
 <userprofiles>
