@@ -1,24 +1,26 @@
 List analysis
 ===============
 
-'''fields displayed''':  determined by WebConfigModel
+fields displayed
+	determined by webconfig-model.xml
 
-'''export''':  See [wiki:Export]
+export
+	See :doc:`/webapp/query-results/export`
 
-'''"Convert to a different type"''':  Tag conversion template with "im:converter" tag.  See [wiki:Tagging]
+"Convert to a different type"
+	Tag conversion template with `im:converter` tag.  
 
-'''"Orthologues"''':  If you have orthologues loaded in your mine, you will see links in this section
+"Orthologues"
+	If you have orthologues loaded in your mine, you will see links in this section
 
-'''"View homologues in other Mines"''':  See WebProperties
+"View homologues in other Mines"
+	See :doc:`/webapp/properties/web-properties`
 
-'''external links''' - See "External links" section of WebProperties
+external links
+	See :doc:`/webapp/properties/web-properties`
 
-'''widgets''' - See WebConfigModel
+template queries
+	Template queries will appear on the appropriate type of list analysis page, eg. Gene --> Proteins template would appear on Gene list analysis pages.
 
-'''template queries''' - Template queries will appear on the appropriate type of list analysis page, eg. Gene --> Proteins template would appear on Gene list analysis pages.
-
-.. toctree::
-    :maxdepth: 4
-
-   
-    /embedding/list-widgets/index
+widgets
+	See: :doc:`/embedding/list-widgets/index`

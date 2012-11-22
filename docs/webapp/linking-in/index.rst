@@ -30,7 +30,7 @@ Template results
 
 Links to list analysis page comprised of results of template query.  "path" attribute determines which column used to create list.  URL available on template form in webapp.
 
-http://www.flymine.org/query/loadTemplate.do?name=Pathway_Genes&constraint1=Pathway.name&op1=eq&value1=Pentose+phosphate+pathway&constraint2=Pathway.genes.organism.name&op2=eq&value2=Drosophila+melanogaster&constraint3=Pathway.dataSets.name&op3=eq&value3=KEGG+pathways+data+set&method=list&path=Pathway.genes example
+http://www.flymine.org/query/loadTemplate.do?name=Pathway_Genes&constraint1=Pathway.name&op1=eq&value1=Pentose+phosphate+pathway&constraint2=Pathway.genes.organism.name&op2=eq&value2=Drosophila+melanogaster&constraint3=Pathway.dataSets.name&op3=eq&value3=KEGG+pathways+data+set&method=list&path=Pathway.genes 
 
 
 List of Identifiers
@@ -38,7 +38,7 @@ List of Identifiers
 
 Links to list analysis page for specified objects.  For a very long list, use a form instead of a link.  Can use any identifiers.
 
-http://www.flymine.org/query/portal.do?externalids=CG2262,CG3069,CG2859,CG5041,FBgn0036513&class=Gen
+http://www.flymine.org/query/portal.do?externalids=CG2262,CG3069,CG2859,CG5041,FBgn0036513&class=Gene
 
 Report page
 ----------------------------------
