@@ -8,4 +8,3 @@ InterMineWebApp.properties
 
  model.properties
    Model specific properties. Merges with InterMineWebApp.properties, overwrites properties in that file
-   

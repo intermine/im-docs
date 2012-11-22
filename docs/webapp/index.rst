@@ -4,6 +4,7 @@ Web Application
 .. toctree::
     :maxdepth: 2
 
+    layout/index
     homepage/index
     keyword-search/index
     lists/index
@@ -13,6 +14,7 @@ Web Application
     template-queries/index
     data-categories/index
     query-builder/index
+    data-page/index
     admin/index
     help/index
     user-accounts/index

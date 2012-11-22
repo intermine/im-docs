@@ -1,3 +1,5 @@
+.. index:: rst, restructured text
+
 Syntax
 ======
 

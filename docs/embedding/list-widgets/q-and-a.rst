@@ -94,7 +94,7 @@ The only problem with this approach is that if we make this sort of call multipl
 Defining custom actions on widget events
 ----------------------------------------
 
-In a mine context, List Widgets are configured automatically to e.g. display a :doc:`/embedding/results-tables` when clicking on "Create a List".
+In a mine context, List Widgets are configured automatically to e.g. display a :doc:`/webapp/query-results/index` when clicking on "Create a List".
 
 Outside of a mine context, one needs to pass in what happens when one interacts with the Widgets. You can also decide whether to show/hide either/and/or title or description of the widget (for everything else use CSS).
 
@@ -144,7 +144,7 @@ I want to hide the title or description of a widget.
 Showing a Results Table
 -----------------------
 
-The example below assumes that you have resolved all :doc:`/embedding/results-tables` dependencies and have a PathQuery in JSON/JavaScript format that you want to display in a ``#container``:
+The example below assumes that you have resolved all :doc:`/webapp/query-results/index` dependencies and have a PathQuery in JSON/JavaScript format that you want to display in a ``#container``:
 
 .. code-block:: javascript
 
