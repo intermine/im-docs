@@ -83,12 +83,12 @@ Normally the `id` field isn't shown in the query builder and probably isn't usef
 .. code-block:: xml
 
 	<template name="Gene_To_Protein_Type_Converter" title="Gene to protein type converter" longDescription="" comment="">
-  	<query name="Gene_To_Protein_Type_Converter" model="genomic" view="Gene.id Gene.proteins.id" longDescription="" sortOrder="Gene.id asc">
-    	<node path="Gene" type="Gene"></node>
-    	<node path="Gene.id" type="Integer">
-      		<constraint op="=" value="0" description="Gene.id" identifier="Gene.id" editable="true" code="A"></constraint>
-    	</node>
-  	</query>
+  		<query name="Gene_To_Protein_Type_Converter" model="genomic" view="Gene.id Gene.proteins.id" longDescription="" sortOrder="Gene.id asc">
+    		<node path="Gene" type="Gene"></node>
+    		<node path="Gene.id" type="Integer">
+      			<constraint op="=" value="0" description="Gene.id" identifier="Gene.id" editable="true" code="A"></constraint>
+    		</node>
+  		</query>
 	</template>
 
 .. index:: tagging, convert type, superuser, admin

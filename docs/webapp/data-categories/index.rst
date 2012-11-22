@@ -1,24 +1,26 @@
 Data Categories
 ================================
 
-'''The features this page discusses are deprecated. Their use is not recommended in new mines'''
+**The features this page discusses are deprecated. Their use is not recommended in new mines**
 
 Data category pages include various aspects of a concept on a single page.  Category pages include:
 
- * logo
- * short description
- * external links
- * bulk download queries
- * template queries
- * direct links to QueryBuilder
+* logo
+* short description
+* external links
+* bulk download queries
+* template queries
+* direct links to QueryBuilder
 
 All of the above should relate to a single concept, eg. Genomics or Interactions.
 
-Data categories are defined in [source:trunk/flymine/webapp/resources/webapp/WEB-INF/aspects.xml <MINE>/webapp/resources/webapp/WEB-INF/aspects.xml].
+Data categories are defined in `aspects.xml`.
 
-Example of an entry in the configuration file:
+Aspects.xml
+------------------
 
-{{{
+.. code-block:: xml
+
   <aspect name="Genomics">
     <subtitle>Genome annotation</subtitle>
     <icon-image>model/genomics.gif</icon-image>
@@ -33,29 +35,38 @@ Example of an entry in the configuration file:
     <aspect-source name="Ensembl" url="http://www.ensembl.org/Anopheles_gambiae"/>
   </aspect>
 
-}}}
-
-----
-
-'''Configuration'''
-
- * logo
-   * {{{<icon-image>model/genomics.gif</icon-image>}}} - appears on the home and data category pages     
-   * {{{<large-image>model/genomics.gif</large-image>}}} - appears on the individual data category page
- * short description   
-   * {{{<intro-text>TEXT HERE</intro-text>}}}
-   * appears on the top of the data category page
- * external links
-   * {{{<aspect-source name="FlyBase" url="http://www.flybase.org"/>}}}
-   * appear on the top right corner of the data category page
- * bulk download queries
-   * appear on the top right corner of the data category page
- * template queries
-   * appear on the data category page
- * direct links to QueryBuilder
-   * links will appear at the bottom of the data categories page
 
 
-To configure which template queries appear on a data category page, tag the template.  See: [wiki:Tagging].
+Configuration
+--------------------
 
-To configure which links show up under the '''Query starting points''', the classes can be tagged from '''QueryBuilder > Browse Data Model''' ''e.g. aspect:Interactions''
+* logo
+
+  * <icon-image>model/genomics.gif</icon-image> - appears on the home and data category pages     
+  * <large-image>model/genomics.gif</large-image> - appears on the individual data category page
+
+* short description   
+
+  * <intro-text>TEXT HERE</intro-text>
+  * appears on the top of the data category page
+
+* external links
+
+  * <aspect-source name="FlyBase" url="http://www.flybase.org"/>
+  * appear on the top right corner of the data category page
+
+* bulk download queries
+
+  * appear on the top right corner of the data category page
+
+* template queries
+
+  * appear on the data category page
+
+* direct links to QueryBuilder
+
+  * links will appear at the bottom of the data categories page
+
+
+To configure which template queries appear on a data category page, tag the template.
+

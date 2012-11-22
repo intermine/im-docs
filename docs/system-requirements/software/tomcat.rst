@@ -7,7 +7,7 @@ Installation
 
 .. warning::
 
-Several people have had problems with Tomcat installations set up by Linux package managers.  We recommend installing according to the these instructions instead.
+   Several people have had problems with Tomcat installations set up by Linux package managers.  We recommend installing according to the these instructions instead.
 
 The quickest way to get a working Tomcat:
 
