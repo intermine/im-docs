@@ -1,8 +1,9 @@
 Query Results
 ================================
 
+Content
+
 .. toctree::
-    :maxdepth: 4
 
     export
     redirects
