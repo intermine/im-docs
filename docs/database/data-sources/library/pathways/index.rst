@@ -4,5 +4,7 @@ Pathway data sources
 
 Content:
 
- kegg
- reactome
+.. toctree::
+
+	kegg
+	reactome
