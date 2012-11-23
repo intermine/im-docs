@@ -9,4 +9,5 @@ Contents
     library/index
     custom/index
     apis/index
+    id-resolvers
     
