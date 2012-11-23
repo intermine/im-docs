@@ -4,7 +4,7 @@ Data Sources
 Contents
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
 
     library/index
     custom/index
