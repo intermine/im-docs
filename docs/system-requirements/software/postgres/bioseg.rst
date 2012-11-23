@@ -35,9 +35,9 @@ Installation
     
 .. code-block:: bash
 
-	make USE_PGXS=t clean
-	make USE_PGXS=t
-	make USE_PGXS=t install
+	$ make USE_PGXS=t clean
+	$ make USE_PGXS=t
+	$ make USE_PGXS=t install
 
 
 Create bioseg Type 
@@ -61,7 +61,7 @@ For each database, type:
 .. code-block:: bash
 
 	# in the contrib directory
-	psql (database) <bioseg.sql
+	$ psql (database) <bioseg.sql
 
 Gist
 -----
@@ -76,7 +76,7 @@ For each database, type:
 .. code-block:: bash
 
 	# in the contrib directory
-	psql (database) <btree_gist.sql
+	$ psql (database) <btree_gist.sql
 
 Postgres 9.x users
 ~~~~~~~~~~~~~~~~~~~~~
@@ -85,4 +85,4 @@ See http://www.postgresql.org/docs/9.1/static/btree-gist.html.  Run the command 
 
 .. code-block:: bash
 
-	CREATE EXTENSION btree_gist   
+	$ CREATE EXTENSION btree_gist   

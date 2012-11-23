@@ -187,17 +187,18 @@ Defining the model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  * InterMine uses an object-oriented data model, classes in the model and relationships between them are defined in an XML file.  Depending on which data types you include you will need different classes and fields in the model, so the model is generated from a core model XML file and any number of `additions` files.  These additions files can define extra classes to be added to the model and define extra fields for additional classes.
-   * Elements of the model are represented by Java classes and references between them.
-   * These Java classes map automatically to tables in the database schema.
-   * The object model is defined as an XML file, that defines `classes`, their `attributes` and `references` between classes.  You can read more about the XML format [ModelDescription here].
-   * The Java classes and database schema are automatically generated from an XML file.
- * You can easily adapt InterMine to include your own data by creating new additions files, we'll see how to do this later.
 
+  * Elements of the model are represented by Java classes and references between them.
+  * These Java classes map automatically to tables in the database schema.
+  * The object model is defined as an XML file, that defines `classes`, their `attributes` and `references` between classes.
+  * The Java classes and database schema are automatically generated from an XML file.
+
+ * You can easily adapt InterMine to include your own data by creating new additions files, we'll see how to do this later.
  * All targets relating to the model for a Mine are in the `dbmodel` directory, go there now:
 
 .. code-block:: bash
 
-  > cd ~/git/intermine/malariamine/dbmodel
+  $ cd ~/git/intermine/malariamine/dbmodel
 
  * The core data model (and some extra model files) are defined in the `project.properties` file:
 
@@ -205,7 +206,7 @@ Defining the model
 
     core.model.path = bio/core
 
-  You can view the contents of the core model:
+You can view the contents of the core model:
 
 .. code-block:: bash
 
@@ -237,13 +238,13 @@ The model is generated from a core model XML file and any number of additions fi
 
 .. code-block:: bash
 
-  > less resources/so_term_list.txt
+  $ less resources/so_term_list.txt
 
 The model is then combined with any extra classes and fields defined in the sources to integrate, those listed as `<source>` elements in `project.xml`.  Look at an example 'additions' file for the UniProt source:
 
 .. code-block:: bash
 
-  > less ../../bio/sources/uniprot/uniprot_additions.xml
+  $ less ../../bio/sources/uniprot/uniprot_additions.xml
 
 This defines extra fields for the `Protein` class which will be added to those from the core model.
 * Other model components can be included by specifying in the `dbmodel/project.properties` file, for example we include `bio/core/genomic_additions.xml`
@@ -257,7 +258,7 @@ Now run the ant target to merge all the model components, generate Java classes 
 .. code-block:: bash
 
   # in malariamine/dbmodel
-  > ant clean build-db
+  $ ant clean build-db
 
 The clean is necessary when you have used the target before, it removes the `build` and `dist` directories and any previously generated model.  
 
@@ -266,25 +267,25 @@ This target has done several things:
 1. Merged the core model with other model additions and created a new XML file:
 
 .. code-block:: bash
-  
-    > less build/model/genomic_model.xml 
+
+   $ less build/model/genomic_model.xml 
 
 Look for the `Protein` class, you can see it combines fields from the core model and the UniProt additions file.
 
-2. The so_additions.xml file has also been created using the sequence ontology terms in so_term_list.txt:
+2. The `so_additions.xml` file has also been created using the sequence ontology terms in `so_term`:
 
 .. code-block:: bash
 
-    > less build/model/so_additions.xml 
+  $ less build/model/so_additions.xml 
 
-Each term from so_term_list.txt was added to the model, according to the sequence ontology.
+Each term from `so_term` was added to the model, according to the sequence ontology.
 
 3. Generated and compiled a Java class for each of the `<class>` elements in the file.  For example `Protein.java`:
 
 .. code-block:: bash
 
-    > less build/gen/src/org/intermine/model/bio/Protein.java
-    
+   $ less build/gen/src/org/intermine/model/bio/Protein.java
+
 Each of the fields has appropriate getters and setters generated for it, note that these are `interfaces` and are turned into actual classes dynamically at runtime - this is how the model copes with multiple inheritance.
 
 4. Automatically created database tables in the postgres database specified in `malariamine.properties` as `db.production` - in our case `malariamine`.  Log into this database and list the tables and the columns in the protein table:
@@ -417,7 +418,7 @@ A technical detail: for speed when retrieving objects and to deal with inheritan
 Loading Genome Data from GFF3 and FASTA
 --------------------------------------------
 
-We will load genome annotation data for ''P. falciparum'' from PlasmoDB
+We will load genome annotation data for *P. falciparum* from PlasmoDB
 
 * genes, mRNAs, exons and their chromosome locations - in GFF3 format:
 * chromosome sequences - in FASTA format
@@ -427,9 +428,9 @@ Data integration
 
 Note that genes from the gff3 file will have the same `primaryIdentifier` as those already loaded from UniProt.  These will  merge in the database such that there is only one copy of each gene with information from both data sources. We will load the genome data then look at how data integration in InterMine works.
 
-First, look at the information currently loaded for gene `PFL1385c` from UniProt:
+First, look at the information currently loaded for gene "PFL1385c" from UniProt:
 
-.. code-block:: bash
+.. code-block:: sql
 
   malariamine=#  select * from gene where primaryIdentifier = 'PFL1385c';
 
@@ -491,19 +492,19 @@ Many elements can be configured by properties in `project.xml`, to deal with any
 
 Other `gff3` properties can be congfigured in the `project.xml` The properties set for `malaria-gff` are:
 
-`gff3.seqClsName = Chromosome`
+gff3.seqClsName = Chromosome
   the ids in the first column represent `Chromosome` objects, e.g. MAL1
    
-`gff3.taxonId = 36329`
+gff3.taxonId = 36329
   taxon id of malaria
 
-`gff3.dataSourceName = PlasmoDB`
+gff3.dataSourceName = PlasmoDB
   the data source for features and their identifiers, this is used for the DataSet (evidence) and synonyms.
 
-`gff3.seqDataSourceName = PlasmoDB`
+gff3.seqDataSourceName = PlasmoDB
   the source of the seqids (chromosomes) is sometimes different to the features described
 
-`gff3.dataSetTitle = PlasmoDB P. falciparum genome` 
+gff3.dataSetTitle = PlasmoDB P. falciparum genome
   a DataSet object is created as evidence for the features, it is linked to a DataSource (PlasmoDB)
 
 In some cases specific code is required to deal with attributes in the gff file and any special cases.  A specific `source` can be created to contain the code to do this and any additions to the data model necessary.  For malaria gff we need a handler to switch which fields from the file are set as `primaryIdentifier` and `symbol`/`secondaryIdentifier` in the features created.  This is to match the identifiers from UniProt, it is quite a common issue when integrating from multiple data sources.
@@ -585,9 +586,9 @@ Data Integration
 Data integration in MalariaMine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The sources `uniprot-malaria` and `malaria-gff` have both loaded information about the same genes.  Before loading genome data we ran a query to look at the information UniProt provided about the gene `PFL1385c`:
+The sources `uniprot-malaria` and `malaria-gff` have both loaded information about the same genes.  Before loading genome data we ran a query to look at the information UniProt provided about the gene "PFL1385c":
 
-.. code-block:: properties
+::
 
   malariamine=# select id, primaryidentifier, secondaryidentifier, symbol, length , chromosomeid, chromosomelocationid, organismid from gene where primaryIdentifier = 'PFL1385c';
       id    | primaryidentifier | secondaryidentifier | symbol | length | chromosomeid | chromosomelocationid | organismid 
@@ -599,7 +600,7 @@ Which showed that UniProt provided `primaryIdentifier` and `symbol` attributes a
 
 Running the same query after `malaria-gff` is added shows that more fields have been filled in for same gene and that it has kept the same id:
 
-.. code-block:: properties
+::
 
   malariamine=# select id, primaryidentifier, secondaryidentifier, symbol, length , chromosomeid, chromosomelocationid, organismid from gene where primaryIdentifier = 'PFL1385c';
       id    | primaryidentifier | secondaryidentifier | symbol | length | chromosomeid | chromosomelocationid | organismid 
@@ -614,7 +615,7 @@ Note that `malaria-gff` does not include a value for `symbol` but it did not wri
 
 Now look at the organism table:
 
-.. code-block:: properties
+::
 
   malariamine=# select * from organism;
   genus | taxonid | species | abbreviation |    id    | shortname | name |               class                
@@ -737,7 +738,7 @@ Organisms and publications in InterMine are loaded by their taxon id and PubMed 
 Fetching organism details
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You will have noticed that in previous sources and in `project.xml` we have referred to organisms by their [http://www.ncbi.nlm.nih.gov/Taxonomy/ NCBI Taxonomy] id.  These are numerical ids assigned to each species and strain.  We use these for convenience in integrating data, the taxon id is a good unique identifier for organisms whereas names can come in many different formats: for example in fly data sources we see: ''Drosophila melanogaster'', ''D. melanogaster'', Dmel, DM, etc.
+You will have noticed that in previous sources and in `project.xml` we have referred to organisms by their NCBI Taxonomy id.  These are numerical ids assigned to each species and strain.  We use these for convenience in integrating data, the taxon id is a good unique identifier for organisms whereas names can come in many different formats: for example in fly data sources we see: ''Drosophila melanogaster'', ''D. melanogaster'', Dmel, DM, etc.
 
 Looking at the `organism` table in the database you will see that the only column filled in is `taxonid`:
 

@@ -29,7 +29,7 @@ See Tomcat's installation instructions - http://tomcat.apache.org/tomcat-6.0-doc
 After Installation
 ----------------------
 
-Set up a tomcat user with the 'manager' role by editing {{{$CATALINA_HOME/conf/tomcat-users.xml}}}: 
+Set up a tomcat user with the 'manager' role by editing `conf/tomcat-users.xml`: 
 
 Tomcat 6.0.xx
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -37,7 +37,6 @@ Tomcat 6.0.xx
 .. code-block:: xml
 
    <tomcat-users>
-      <-- you can add more users or roles if needed -->
       <role rolename="manager"/>
       <user username="manager" password="manager" roles="manager"/>
    </tomcat-users>
@@ -93,7 +92,7 @@ Add a new property (default is 6.0.xx)
 
 in `$TOMCAT/conf/tomcat-users.xml` set:
 
-.. code-block:: properties
+.. code-block:: xml
 
    <role rolename="manager-gui"/>
    <role rolename="manager-script"/>
@@ -118,7 +117,7 @@ If Tomcat isn't already running, start it with this command:
 .. code-block:: bash
 
    # from tomcat/bin
-   ./startup.sh
+   $ ./startup.sh
 
 Visit the Tomcat manager at http://localhost:8080/.  The username and password required to access the manager are `webapp.manager` and `webapp.password` as specified in your Mine properties file.
 
@@ -130,7 +129,7 @@ To stop Tomcat, run this command:
 .. code-block:: bash
 
    # from tomcat/bin
-   ./shutdown.sh
+   $ ./shutdown.sh
 
 You can't drop a database if Tomcat has an open connection to a Postgres database. You have to:
 
@@ -143,7 +142,7 @@ Out of Memory Errors
 
 To avoid `java.lang.OutOfMemory` errors, specify the JVM heap size in `$TOMCAT_HOME/bin/tomcat.sh`. You can specify the size as part of `TOMCAT_OPTS`:
 
-.. code-block:: bash
+.. code-block:: properties
 
    '-Xmx256m -Xms128m'
 
