@@ -5,14 +5,14 @@ Some operations are performed on the integrated data before the webapp is releas
 
 Post-processing steps are specified in the project XML file and run from the `MINE_NAME/postprocess` project with:
 
-.. code-block:: rst
+.. code-block:: bash
 
 	$ ant -v
 
 
 To run individual post-process steps use, for example:
 
-.. code-block:: rst
+.. code-block:: bash
 
 	$ ant -v -Daction=create-references
 

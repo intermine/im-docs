@@ -43,30 +43,30 @@ Table widgets display objects and the counts of related objects in your list.
 .. figure::  img/table.png
    :align:   center
 
-   An example table widget of Orthologues in FlyMine.
+An example table widget of Orthologues in FlyMine.
 
-=============== ========================================================================= ========
+=============== ========================================================================= =========================================================
 attribute       purpose                                                                   example
-=============== ========================================================================= ========
+=============== ========================================================================= =========================================================
 ``id``          unique id used by javascript only. Spaces not allowed.                    ``unique_id``
 ``pathStrings`` which collection to use in the widget                                     ``Gene.homologues[type=orthologue].homologue.organism``
 ``exportField`` which field from the objects in your list to export                       ``primaryIdentifier``
 ``typeClass``   types of lists that should display this widget. Use the simple class name ``Gene``
-=============== ========================================================================= ========
+=============== ========================================================================= =========================================================
 
 The following are optional attributes:
 
-===================== ============================================================================================================================== ========
+===================== ============================================================================================================================== ==============================
 attribute             purpose                                                                                                                        example
-===================== ============================================================================================================================== ========
+===================== ============================================================================================================================== ==============================
 ``title``             appears at the top of the widget                                                                                               ``Orthologues``
-``description``       description of the widget                                                                                                      ``Counts of orthologues in other organisms for the genes in this list.``
+``description``       description of the widget                                                                                                      ``Counts of orthologues``
 ``displayFields``     which fields from the objects in the collection (in the above example, ``Gene.proteins``) to display, eg. ``primaryAccession`` ``name``
 ``columnTitle``       heading for the "count" column                                                                                                 ``Orthologues``
 ``externalLink``      link displayed next to first column, identifier will be appended to link
 ``externalLinkLabel`` label for external link
-``views``             path fields display in the query running when the user clicks on the widget                                                    ``secondaryIdentifier, symbol, organism.shortName``
-===================== ============================================================================================================================== ========
+``views``             path fields display in the query running when the user clicks on the widget                                                    ``symbol, organism.shortName``
+===================== ============================================================================================================================== ==============================
 
 Graph/Chart widgets
 ~~~~~~~~~~~~~~~~~~~
@@ -78,9 +78,9 @@ Graph widgets display datasets in graphical format.
 
    An example chart widget of BDGP Expression Patterns in FlyMine.
 
-=============== ==================================================================================================================== ========
+=============== ==================================================================================================================== ==============================================
 attribute       purpose                                                                                                              example
-=============== ==================================================================================================================== ========
+=============== ==================================================================================================================== ==============================================
 id              unique id used by javascript only. Spaces not allowed.                                                               ``unique_id``
 graphType       which type of chart to render                                                                                        ``ColumnChart``, ``BarChart`` or ``PieChart``
 startClass      it's the root class for all the paths specified in the configuration [1]_.                                           ``Gene``
@@ -89,8 +89,8 @@ categoryPath    the category path. This has to be an attribute. We can specify t
 seriesPath      the series path. This has to be an attribute. We can specify the subclass using the syntax ``path[subclass type]``   ``mRNAExpressionResults.expressed``
 seriesValues    the values of different series. Case sensitive. You can specify boolean values                                       ``true,false`` or ``Up,Down``
 seriesLabels    the labels displayed on the graphs to distinguish inside a category the different series                             ``Expressed,Not Expressed`` or ``Up,Down``
-views           attributes paths displayed when the user clicks an area on the graph                                                 ``primaryIdentifier,secondaryIdentifier,name,organism.name``
-=============== ==================================================================================================================== ========
+views           attributes paths displayed when the user clicks an area on the graph                                                 ``name,organism.name``
+=============== ==================================================================================================================== ==============================================
 
 .. [1] All the paths set, will be built starting from that. Specify only the simple name (e.g. ``Gene``). You can choose to set the bag type class or the root class associated to the category path.
 
@@ -100,22 +100,23 @@ views           attributes paths displayed when the user clicks an area on the g
 
 The following are optional attributes:
 
-=================== ===================================================================================================================== ========
+=================== ===================================================================================================================== ======================================
 attribute           purpose                                                                                                               example
-=================== ===================================================================================================================== ========
+=================== ===================================================================================================================== ======================================
 ``title``           appears at the top of the widget                                                                                      ``BDGP expression patterns``
-``description``     description of the widget                                                                                             ``Expression patterns of Drosophila mRNAs during embryogenesis``
+``description``     description of the widget                                                                                             ``Expression patterns``
 ``domainLabel``     Label displayed on x-axis in the ColumnChart (on y-axis in the BarChart)                                              ``Stage``
 ``rangeLabel``      Label displayed on y-axis in the ColumnChart (on x-axis in the a BarChart)                                            ``Gene count``
 ``filterLabel``     label for filter form field                                                                                           ``Organism``
-``filters``         the values for the filter, set in the dropdown [2]_.                                                                  ``All,KEGG pathways data set,Reactome data``
+``filters``         the values for the filter, set in the dropdown [2]_.                                                                  ``All,KEGG pathways,Reactome data``
 ``listPath``        the path used to build the bag constraint [3]_.                                                                       ``FlyAtlasResult.material``
-``constraints``     the constraints separated by comma. Case sensitive. The paths have to be attributes. The operator can be `=` or `!=`. ``mRNAExpressionResults.dataSet.name=BDGP in situ data set`` or ``mRNAExpressionResults.dataSet.name!=null`` or ``organism.name=[Organism]`` (organism's name matching with the value selected in the filter with filterLabel 'Organism')
-=================== ===================================================================================================================== ========
+``constraints``     the constraints separated by comma. Case sensitive. The paths have to be attributes. The operator can be `=` or `!=`. ``organism.name=[Organism]`` [5]_
+=================== ===================================================================================================================== ======================================
 
 .. [2] We can use static values or a grammar to specify the values contained in the list. The default value in general is the first value set in the 'filters' attribute or the first value returned by the query. With static values, you can add 'All' meaning no filter applied.
 .. [3] You don't need to specify it, if the ``startClass`` contains the bag type class.
 .. [4] For the values we can use static values or the selected filter value using the syntax: ``path contraint = [filter identifier]``.
+.. [5] organism's name matching with the value selected in the filter with filterLabel 'Organism'
 
 .. note::
 
@@ -138,11 +139,11 @@ attribute             purpose                                                   
 ``startClass``        Root class for all the paths specified in the configuration. Specify only the simple name (e.g. Gene) ``Gene``
 ``startClassDisplay`` Field displayed when user clicks on the widget on 'Matches' column                                    ``primaryIdentifier``
 ``typeClass``         Type of lists that should display this widget. Use the simple class name.                             ``Gene``
-``enrich``            Field to be enriched, displayed in the widget in the firts column [5]_.                               ``goAnnotation.ontologyTerm.parents.name``
-``views``             attributes paths displayed when the user clicks on *View results* button [5]_.                        ``secondaryIdentifier,symbol,primaryIdentifier,organism.name``
+``enrich``            Field to be enriched, displayed in the widget in the firts column [6]_.                               ``goAnnotation.ontologyTerm.parents.name``
+``views``             attributes paths displayed when the user clicks on *View results* button [6]_.                        ``secondaryIdentifier,symbol,primaryIdentifier,organism.name``
 ===================== ===================================================================================================== ========
 
-.. [5] You have to specify only one field. Specify the subclass using the syntax ``path[subclass type]``.
+.. [6] You have to specify only one field. Specify the subclass using the syntax ``path[subclass type]``.
 
 .. warning::
 
@@ -157,16 +158,16 @@ attribute              purpose                                                  
 ``description``        description of the widget                                                                                                      ``GO terms enriched for items in this list.``
 ``label``              heading for the column                                                                                                         ``GO Term``
 ``externalLink``       link displayed next to first column                                                                                            ``http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=``
-``filters``            extra filters to add to the display [6]_                                                                                       ``biological_process,cellular_component,molecular_function`` or ``All,KEGG pathways data set,Reactome data set`` or ``organism.name=[list]`` (the organism's name contained in the list are loaded in the filter dropdown)
+``filters``            extra filters to add to the display [7]_                                                                                       ``biological_process,cellular_component,molecular_function`` or ``All,KEGG pathways data set,Reactome data set`` or ``organism.name=[list]`` (the organism's name contained in the list are loaded in the filter dropdown)
 ``filterLabel``        label for filter form field                                                                                                    ``Ontology``
-``enrichIdentifier``   identifier for the row displayed, if not specified, enrich field used [7]_.                                                    ``goAnnotation.ontologyTerm.parents.identifier``
-``constraints``        the constraints separated by comma. The paths have to be attributes. The operator can be ``=`` or ``!=`` [8]_.                 ``goAnnotation.ontologyTerm.parents.namespace=[Ontology]`` or ``organism.name=[list]`` or ``primaryIdentifier != null`` or ``goAnnotation.qualifier = null`` or ``goAnnotation.ontologyTerm.parents.identifier != go:0008150``
+``enrichIdentifier``   identifier for the row displayed, if not specified, enrich field used [8]_.                                                    ``goAnnotation.ontologyTerm.parents.identifier``
+``constraints``        the constraints separated by comma. The paths have to be attributes. The operator can be ``=`` or ``!=`` [9]_.                 ``goAnnotation.ontologyTerm.parents.namespace=[Ontology]`` or ``organism.name=[list]`` or ``primaryIdentifier != null`` or ``goAnnotation.qualifier = null`` or ``goAnnotation.ontologyTerm.parents.identifier != go:0008150``
 ``constraintsForView`` the constraints separated by comma used for building the query executed when the user clicks on the widget on 'Matches' column ``mRNAExpressionResults.expressed = true``
 ====================== ============================================================================================================================== ========
 
-.. [6] Use static values or a grammar to specify the values contained in the list. The default value in general is the first value set in the 'filters' attribute or the first value returned by the query. With static values, you can add 'All' meaning no filter applied.
-.. [7] Specify only one. This has to be an attribute. Used in the results table. Specify the subclass using the syntax ``path[subclass type]``.
-.. [8] Case sensitive. For the values we can use: static values the selected filter value using the syntax: ``path contraint = [filter identifier]`` only the value contained in the list.
+.. [7] Use static values or a grammar to specify the values contained in the list. The default value in general is the first value set in the 'filters' attribute or the first value returned by the query. With static values, you can add 'All' meaning no filter applied.
+.. [8] Specify only one. This has to be an attribute. Used in the results table. Specify the subclass using the syntax ``path[subclass type]``.
+.. [9] Case sensitive. For the values we can use: static values the selected filter value using the syntax: ``path contraint = [filter identifier]`` only the value contained in the list.
 
 Examples
 ~~~~~~~~
