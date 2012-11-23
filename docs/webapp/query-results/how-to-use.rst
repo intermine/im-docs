@@ -9,7 +9,7 @@ export
 	See :doc:`export` for details on exporting options.
 
 column headers
-	See ClassAndFieldLabels to change column headers.
+	See :doc:`/data-model/data-labels` to change column headers.
 
 links
 	Only unique fields (class keys) are links in results pages.  Add fields to ClassKeys to make the fields links on results pages.

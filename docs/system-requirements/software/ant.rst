@@ -17,23 +17,23 @@ The InterMine project uses Ant for compiling code, building data models and data
 
 An example use is to create the tables and indexes for a new Mine in an empty PostgreSQL database.  In the `<mine>/dbmodel` directory we would do:
 
-.. code-block:: properties
+.. code-block:: bash
 
-	ant build-db
+	$ ant build-db
 
 
 Whenever you use `ant` you can add a `-v` flag to get verbose output. We recommend doing this as it will give you detailed stack straces if a command fails:
 
-.. code-block:: properties
+.. code-block:: bash
 
-	ant -v build-db
+	$ ant -v build-db
 
 
 You can pass parameters from the command line using `-Dparameter=value`. For example, when integrating data you can pass in a particular source name:
 
-.. code-block:: properties
+.. code-block:: bash
 
-	ant -v -Dsource=malaria-gff
+	$ ant -v -Dsource=malaria-gff
 
 Ant and the InterMine build system will ensure that all prerequisite code is compiled, the model is created and will create all tables and indexes based on the model.
 
@@ -69,9 +69,9 @@ test-all	test all dependencies as well as this project
 
 To run a single test class:
 
-.. code-block:: properties
+.. code-block:: bash
 
-	ant -Dtest.includes=org/intermine/ClassToTest.class
+	$ ant -Dtest.includes=org/intermine/ClassToTest.class
 
 
 
