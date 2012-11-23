@@ -19,13 +19,10 @@ Configuration
   <action path="/genomicRegionSearch" forward="genomicRegionSearchOptions.page"/>
   <action path="/genomicRegionSearchResults" forward="genomicRegionSearchResults.page"/>
   <action input="/genomicRegionSearchOptionsBase.jsp" path="/genomicRegionSearchAction" name="genomicRegionSearchForm" scope="request" type="org.intermine.bio.web.struts.GenomicRegionSearchAction" >
-    <-- Not use redirect="true". here it is doing a forward, not redirecting. Redirecting causes the browser to make a new request, and that's why the things I put in the request aren't there anymore. -->
     <forward name="genomicRegionSearchResults" path="/genomicRegionSearchResults.do" redirect="false"/>
     <forward name="genomicRegionSearchOptions" path="/genomicRegionSearch.do" redirect="true"/>
   </action>
   <action path="/genomicRegionSearchAjax" type="org.intermine.bio.web.struts.GenomicRegionSearchAjaxAction"/>
-
-
 
 `tiles-defs-model.xml`
 
