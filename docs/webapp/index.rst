@@ -4,7 +4,7 @@ Web Application
 .. toctree::
     :maxdepth: 2
 
-    layout/index
+    
     homepage/index
     keyword-search/index
     lists/index
@@ -12,17 +12,17 @@ Web Application
     region-search/index
     report-page/index
     template-queries/index
-    data-categories/index
-    query-builder/index
-    data-page/index
-    admin/index
     help/index
+    query-builder/index
+    admin/index
     user-accounts/index
+    layout/index
     linking-in/index
     performance/index
     third-party-tools/index
     monitoring-site-usage/index
     properties/index
+    data-categories/index
 
 Overwrite any JSP
 ------------------------
