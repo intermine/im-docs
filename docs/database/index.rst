@@ -2,7 +2,7 @@ Database
 ================================
 
 .. toctree::
-    :maxdepth: 4
+    :maxdepth: 2
 
     download-scripts
     data-sources/index
