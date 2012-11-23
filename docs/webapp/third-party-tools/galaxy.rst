@@ -46,13 +46,15 @@ Customization
 
 Properties located in the ''web.properties''' file.
 
+===============  ================================================  =========
 parameter        purpose                                           required? 
 ===============  ================================================  =========
-display          enable Galaxy export                              yes[1]_. 
+display          enable Galaxy export                              yes[1]_.  
 disabledMessage  displayed when Galaxy export is disabled          yes
 baseurl.default  base url of Galaxy server                         yes[2]_.
 url.value        tool runner url                                   yes[3]_.    
 welcomeMessage   displays on the homepage when coming from Galaxy  yes  
+===============  ================================================  =========
 
 .. [1] when display is false  
 

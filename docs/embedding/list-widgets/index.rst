@@ -132,16 +132,16 @@ Enrichment widgets calculate p-values representing the probability annotation oc
 
    An example enrichment widget of Gene Ontology in FlyMine.
 
-===================== ===================================================================================================== ========
+===================== ===================================================================================================== =============================================
 attribute             purpose                                                                                               example
-===================== ===================================================================================================== ========
+===================== ===================================================================================================== =============================================
 ``id``                unique id used by JavaScript only. Spaces not allowed.                                                ``unique_id``
 ``startClass``        Root class for all the paths specified in the configuration. Specify only the simple name (e.g. Gene) ``Gene``
 ``startClassDisplay`` Field displayed when user clicks on the widget on 'Matches' column                                    ``primaryIdentifier``
 ``typeClass``         Type of lists that should display this widget. Use the simple class name.                             ``Gene``
 ``enrich``            Field to be enriched, displayed in the widget in the firts column [6]_.                               ``goAnnotation.ontologyTerm.parents.name``
-``views``             attributes paths displayed when the user clicks on *View results* button [6]_.                        ``secondaryIdentifier,symbol,primaryIdentifier,organism.name``
-===================== ===================================================================================================== ========
+``views``             attributes paths displayed when the user clicks on *View results* button [6]_.                        ``symbol,organism.name``
+===================== ===================================================================================================== =============================================
 
 .. [6] You have to specify only one field. Specify the subclass using the syntax ``path[subclass type]``.
 
@@ -155,7 +155,7 @@ The following are optional attributes:
 attribute              purpose                                                                                                                        example
 ====================== ============================================================================================================================== ========
 ``title``              appears at the top of the widget                                                                                               ``Gene Ontology Enrichment``
-``description``        description of the widget                                                                                                      ``GO terms enriched for items in this list.``
+``description``        description of the widget                                                                                                      ``GO terms enriched.``
 ``label``              heading for the column                                                                                                         ``GO Term``
 ``externalLink``       link displayed next to first column                                                                                            ``http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=``
 ``filters``            extra filters to add to the display [7]_                                                                                       ``biological_process,cellular_component,molecular_function`` or ``All,KEGG pathways data set,Reactome data set`` or ``organism.name=[list]`` (the organism's name contained in the list are loaded in the filter dropdown)

@@ -95,7 +95,7 @@ Then, when the user selects a Genes from a dropdown select box for type and choo
 External links
 ----------------------
 
-You can add links to other websites by adding entries to the {{{web.properties}}} file.  
+You can add links to other websites by adding entries to the `web.properties` file.  
 
 The format for this property is:
 
