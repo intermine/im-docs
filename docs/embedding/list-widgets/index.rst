@@ -164,7 +164,7 @@ attribute              purpose                                                  
                                                                                                                                                       identifier``
 ``constraints``        the constraints separated by comma. The paths have to be attributes. The operator can be ``=`` or ``!=`` [9]_.                 ```organism.name=[list]`` 
 ``constraintsForView`` the constraints separated by comma used for building the query executed when the user clicks on the widget on 'Matches' column ``mRNAExpressionResults.expressed = true``
-====================== ============================================================================================================================== ============================
+====================== ============================================================================================================================== ============================1
 
 .. [7] Use static values or a grammar to specify the values contained in the list. The default value in general is the first value set in the 'filters' attribute or the first value returned by the query. With static values, you can add 'All' meaning no filter applied.
 .. [8] Specify only one. This has to be an attribute. Used in the results table. Specify the subclass using the syntax ``path[subclass type]``.
