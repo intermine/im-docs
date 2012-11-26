@@ -17,7 +17,14 @@ The publicly available InterMine instances include:
 * `TargetMine <http://targetmine.nibio.go.jp>`_ - a data warehouse for candidate gene prioritisation and drug target discovery, developed at NIBIO, Japan
 * `mitominer <http://mitominer.mrc-mbu.cam.ac.uk>`_ - a data warehouse of mitochondrial proteomics data for a range of organisms
 
-:doc:`/about/contact-us`
+More information:
+
+.. toctree::
+    :maxdepth: 2
+
+    intermine
+    contact-us
+
 
 How to cite us
 ------------------------
@@ -46,5 +53,6 @@ Privacy Policy
     :maxdepth: 2
 
     privacy-policy
+
 
 .. index:: LGPL
