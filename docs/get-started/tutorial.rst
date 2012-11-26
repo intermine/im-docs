@@ -73,14 +73,14 @@ The `project.xml` allows you to configure which data to load into your Mine.  Th
 
 .. code-block:: bash
 
-  less project.xml
+  $ less project.xml
 
 There is a `project.xml` already prepared to define a new MalariaMine, copy it to this directory now and look at it:
 
 .. code-block:: bash
 
-  cp ../bio/tutorial/malariamine/project.xml .
-  less project.xml
+  $ cp ../bio/tutorial/malariamine/project.xml .
+  $ less project.xml
 
 <sources>
 ^^^^^^^^^^
@@ -142,15 +142,15 @@ If you don't already have a `.intermine` directory in your home directory, creat
 
 .. code-block:: bash
 
-  cd
-  mkdir .intermine
+  $ cd
+  $ mkdir .intermine
 
 There is a partially completed properties file for MalariaMine already.   Copy it into your `/intermine` directory:
 
 .. code-block:: bash
 
-  cd
-  cp git/intermine/bio/tutorial/malariamine/malariamine.properties .intermine/
+  $ cd
+  $ cp git/intermine/bio/tutorial/malariamine/malariamine.properties .intermine/
 
 Update this properties file with your postgres server location, username and password information for the two databases you just created.  The rest of the information is needed for the webapp and will be updated in Step 13.
 
@@ -173,8 +173,8 @@ Finally, we need to create `malariamine` and `items-malariamine` postgres databa
 
 .. code-block:: bash
 
-  createdb malariamine
-  createdb items-malariamine
+  $ createdb malariamine
+  $ createdb items-malariamine
 
 New postgres databases default to `UTF-8` as the character encoding.  This will work with InterMine but performance is better with `SQL_ASCII`.  
 
@@ -210,7 +210,7 @@ You can view the contents of the core model:
 
 .. code-block:: bash
 
-  less ../../bio/core/core.xml
+  $ less ../../bio/core/core.xml
 
 Note the fields defined for `Protein`:
 
@@ -691,9 +691,9 @@ It is possible that two different sources could have a value for the same field,
 
 Try loading data from the `interpro` source which will cause a conflict with `uniprot-malaria`.  UniProt loads a list of protein domains for each protein but doesn't include the full names and descriptions of ProteinDomain objects, the `interpro` source adds this information:
 
-.. code-block:: properties
+.. code-block:: bash
 
-  ant -Dsource=interpro
+  $ ant -Dsource=interpro
 
 You will see a message that includes the text:
 
@@ -762,7 +762,7 @@ This should only take a few seconds.  This source does the following:
 
 Now run the same query in the production database, you should see details for ''P. falciparum'' added:
 
-.. code-block:: bash
+.. code-block:: psql
 
   $ psql malariamine
   malariamine#  select * from organism;
@@ -778,7 +778,7 @@ Publications are even more likely to be cited in different formats and are prone
 
 Several sources InterMine sources load publications:
 
-.. code-block:: bash
+.. code-block:: psql
 
   malariamine#  select count(*) from publication;
   malariamine#  select * from publication limit 5;
@@ -793,7 +793,7 @@ As there are often large numbers of publications they are retrieved in batches f
 
 Now details will have been added to the `publication` table:
 
-.. code-block:: bash
+.. code-block:: psql
 
   malariamine#  select * from publication where title is not null limit 5;
 
