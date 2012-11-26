@@ -24,7 +24,7 @@ How to cite us
 
 If you use the InterMine framework in your research, we would appreciate it if you cite the following publication: 
 
-InterMine: a flexible data warehouse system for the integration and analysis of heterogeneous biological data. Smith RN et al. (2012). Bioinformatics, in press. 
+* InterMine: a flexible data warehouse system for the integration and analysis of heterogeneous biological data. Smith RN et al. (2012). Bioinformatics, in press. 
 
 Individual data warehouses also have specific publications associated with them. To cite those in a paper, where available, please use the individual publication associated with the data warehouse in question: 
 
