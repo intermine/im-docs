@@ -46,6 +46,7 @@ In results pages, all dmel genes will link to FlyBase with Gene.primaryIdentifie
 In results pages, all probesets will link to Google instead of the Mine report page:
 
 .. code-block:: properties
+
 	externallink.foo.ProbeSet.*.primaryIdentifier.url=http://www.google.com?q=<<attributeValue>>
 
 Next to the value in the column will be a small icon indicating an external link
