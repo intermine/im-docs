@@ -8,14 +8,14 @@ InterMine has been developed with the support of the Wellcome Trust [067205], [0
 
 The publicly available InterMine instances include: 
 
-`FlyMine <http://www.flymine.org>`_  – a data warehouse of integrated fruit fly genetic, genomic and proteomic data 
-`modMine <http://modmine.modencode.org>`_ – a data warehouse including a repository for modENCODE project fly and worm data, alongside analysis tools
-`YeastMine <http://modmine.modencode.org>`_ – an integrated data warehouse of rat genomic data, developed by SGD
-`RatMine <http://modmine.modencode.org>`_ - an integrated data warehouse of yeast genomic data, developed by RGD
-`MouseMine <http://beta.mousemine.org>`_ - an integrated data warehouse of mouse genomic data, developed by MGI
-`modMine <http://modmine.modencode.org>`_ - a  data warehouse targeted at the metabolic disease community, containing relevant datasets from rat, mouse and human
-`TargetMine <http://targetmine.nibio.go.jp>`_ - a data warehouse for candidate gene prioritisation and drug target discovery, developed at NIBIO, Japan
-`mitominer <http://mitominer.mrc-mbu.cam.ac.uk>`_ – a data warehouse of mitochondrial proteomics data for a range of organisms
+* `FlyMine <http://www.flymine.org>`_  - a data warehouse of integrated fruit fly genetic, genomic and proteomic data 
+* `modMine <http://modmine.modencode.org>`_ - a data warehouse including a repository for modENCODE project fly and worm data, alongside analysis tools
+* `YeastMine <http://yeastmine.yeastgenome.org>`_ - an integrated data warehouse of rat genomic data, developed by SGD
+* `RatMine <http://ratmine.mcw.edu/ratmine>`_ - an integrated data warehouse of yeast genomic data, developed by RGD
+* `MouseMine <http://beta.mousemine.org>`_ - an integrated data warehouse of mouse genomic data, developed by MGI
+* `metabolicMine <http://www.metabolicmine.org>`_ - a  data warehouse targeted at the metabolic disease community, containing relevant datasets from rat, mouse and human
+* `TargetMine <http://targetmine.nibio.go.jp>`_ - a data warehouse for candidate gene prioritisation and drug target discovery, developed at NIBIO, Japan
+* `mitominer <http://mitominer.mrc-mbu.cam.ac.uk>`_ - a data warehouse of mitochondrial proteomics data for a range of organisms
 
 
 How to cite us
