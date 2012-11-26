@@ -45,28 +45,28 @@ Table widgets display objects and the counts of related objects in your list.
 
 An example table widget of Orthologues in FlyMine.
 
-=============== ========================================================================= =========================================================
-attribute       purpose                                                                   example
-=============== ========================================================================= =========================================================
-``id``          unique id used by javascript only. Spaces not allowed.                    ``unique_id``
-``pathStrings`` which collection to use in the widget                                     ``Gene.homologues[type=orthologue].homologue.organism``
-``exportField`` which field from the objects in your list to export                       ``primaryIdentifier``
-``typeClass``   types of lists that should display this widget. Use the simple class name ``Gene``
-=============== ========================================================================= =========================================================
+===============  =========================================================================  =========================================================
+attribute        purpose                                                                    example
+===============  =========================================================================  =========================================================
+``id``           unique id used by javascript only. Spaces not allowed.                     ``unique_id``
+``pathStrings``  which collection to use in the widget                                      ``Gene.homologues[type=orthologue].homologue.organism``
+``exportField``  which field from the objects in your list to export                        ``primaryIdentifier``
+``typeClass``    types of lists that should display this widget. Use the simple class name  ``Gene``
+===============  =========================================================================  =========================================================
 
 The following are optional attributes:
 
-===================== ============================================================================================================================== ==============================
-attribute             purpose                                                                                                                        example
-===================== ============================================================================================================================== ==============================
-``title``             appears at the top of the widget                                                                                               ``Orthologues``
-``description``       description of the widget                                                                                                      ``Counts of orthologues``
-``displayFields``     which fields from the objects in the collection (in the above example, ``Gene.proteins``) to display, eg. ``primaryAccession`` ``name``
-``columnTitle``       heading for the "count" column                                                                                                 ``Orthologues``
-``externalLink``      link displayed next to first column, identifier will be appended to link
-``externalLinkLabel`` label for external link
-``views``             path fields display in the query running when the user clicks on the widget                                                    ``symbol, organism.shortName``
-===================== ============================================================================================================================== ==============================
+=====================  ============================================================================================================================== =============================
+attribute              purpose                                                                                                                        example
+=====================  ============================================================================================================================= ==============================
+``title``              appears at the top of the widget                                                                                               ``Orthologues``
+``description``        description of the widget                                                                                                      ``Counts of orthologues``
+``displayFields``      which fields from the objects in the collection (in the above example, ``Gene.proteins``) to display, eg. ``primaryAccession`` ``name``
+``columnTitle``        heading for the "count" column                                                                                                 ``Orthologues``
+``externalLink``       link displayed next to first column, identifier will be appended to link
+``externalLinkLabel``  label for external link
+``views``              path fields display in the query running when the user clicks on the widget                                                    ``symbol,organism.shortName``
+=====================  ============================================================================================================================= ==============================
 
 Graph/Chart widgets
 ~~~~~~~~~~~~~~~~~~~
@@ -78,19 +78,19 @@ Graph widgets display datasets in graphical format.
 
    An example chart widget of BDGP Expression Patterns in FlyMine.
 
-=============== ==================================================================================================================== ==============================================
-attribute       purpose                                                                                                              example
-=============== ==================================================================================================================== ==============================================
-id              unique id used by javascript only. Spaces not allowed.                                                               ``unique_id``
-graphType       which type of chart to render                                                                                        ``ColumnChart``, ``BarChart`` or ``PieChart``
-startClass      it's the root class for all the paths specified in the configuration [1]_.                                           ``Gene``
-typeClass       type of lists that should display this widget. Use the simple class name.                                            ``Gene``
-categoryPath    the category path. This has to be an attribute. We can specify the subclass using the syntax ``path[subclass type]`` ``mRNAExpressionResults.stageRange``
-seriesPath      the series path. This has to be an attribute. We can specify the subclass using the syntax ``path[subclass type]``   ``mRNAExpressionResults.expressed``
-seriesValues    the values of different series. Case sensitive. You can specify boolean values                                       ``true,false`` or ``Up,Down``
-seriesLabels    the labels displayed on the graphs to distinguish inside a category the different series                             ``Expressed,Not Expressed`` or ``Up,Down``
-views           attributes paths displayed when the user clicks an area on the graph                                                 ``name,organism.name``
-=============== ==================================================================================================================== ==============================================
+===============  ===================================================================================================================  =============================================
+attribute        purpose                                                                                                              example
+===============  ===================================================================================================================  =============================================
+id               unique id used by javascript only. Spaces not allowed.                                                                ``unique_id``
+graphType        which type of chart to render                                                                                         ``ColumnChart``,``BarChart`` or ``PieChart``
+startClass       it's the root class for all the paths specified in the configuration [1]_.                                            ``Gene``
+typeClass        type of lists that should display this widget. Use the simple class name.                                             ``Gene``
+categoryPath     the category path. This has to be an attribute. We can specify the subclass using the syntax ``path[subclass type]``  ``mRNAExpressionResults.stageRange``
+seriesPath       the series path. This has to be an attribute. We can specify the subclass using the syntax ``path[subclass type]``    ``mRNAExpressionResults.expressed``
+seriesValues     the values of different series. Case sensitive. You can specify boolean values                                        ``true,false`` or ``Up,Down``
+seriesLabels     the labels displayed on the graphs to distinguish inside a category the different series                              ``Expressed,Not Expressed`` or ``Up,Down``
+views            attributes paths displayed when the user clicks an area on the graph                                                  ``name,organism.name``
+===============  ===================================================================================================================  =============================================
 
 .. [1] All the paths set, will be built starting from that. Specify only the simple name (e.g. ``Gene``). You can choose to set the bag type class or the root class associated to the category path.
 
@@ -100,18 +100,18 @@ views           attributes paths displayed when the user clicks an area on the g
 
 The following are optional attributes:
 
-=================== ===================================================================================================================== ======================================
-attribute           purpose                                                                                                               example
-=================== ===================================================================================================================== ======================================
-``title``           appears at the top of the widget                                                                                      ``BDGP expression patterns``
-``description``     description of the widget                                                                                             ``Expression patterns``
-``domainLabel``     Label displayed on x-axis in the ColumnChart (on y-axis in the BarChart)                                              ``Stage``
-``rangeLabel``      Label displayed on y-axis in the ColumnChart (on x-axis in the a BarChart)                                            ``Gene count``
-``filterLabel``     label for filter form field                                                                                           ``Organism``
-``filters``         the values for the filter, set in the dropdown [2]_.                                                                  ``All,KEGG pathways,Reactome data``
-``listPath``        the path used to build the bag constraint [3]_.                                                                       ``FlyAtlasResult.material``
-``constraints``     the constraints separated by comma. Case sensitive. The paths have to be attributes. The operator can be `=` or `!=`. ``organism.name=[Organism]`` [5]_
-=================== ===================================================================================================================== ======================================
+===================  ==================================================================================================================== ======================================
+attribute            purpose                                                                                                               example
+===================  ==================================================================================================================== ======================================
+``title``            appears at the top of the widget                                                                                      ``BDGP expression patterns``
+``description``      description of the widget                                                                                             ``Expression patterns``
+``domainLabel``      Label displayed on x-axis in the ColumnChart (on y-axis in the BarChart)                                              ``Stage``
+``rangeLabel``       Label displayed on y-axis in the ColumnChart (on x-axis in the a BarChart)                                            ``Gene count``
+``filterLabel``      label for filter form field                                                                                           ``Organism``
+``filters``          the values for the filter, set in the dropdown [2]_.                                                                  ``All,KEGG pathways,Reactome data``
+``listPath``         the path used to build the bag constraint [3]_.                                                                       ``FlyAtlasResult.material``
+``constraints``      the constraints separated by comma. Case sensitive. The paths have to be attributes. The operator can be `=` or `!=`. ``organism.name=[Organism]`` [5]_
+===================  ==================================================================================================================== ======================================
 
 .. [2] We can use static values or a grammar to specify the values contained in the list. The default value in general is the first value set in the 'filters' attribute or the first value returned by the query. With static values, you can add 'All' meaning no filter applied.
 .. [3] You don't need to specify it, if the ``startClass`` contains the bag type class.
@@ -132,16 +132,16 @@ Enrichment widgets calculate p-values representing the probability annotation oc
 
    An example enrichment widget of Gene Ontology in FlyMine.
 
-===================== ===================================================================================================== =============================================
-attribute             purpose                                                                                               example
-===================== ===================================================================================================== =============================================
-``id``                unique id used by JavaScript only. Spaces not allowed.                                                ``unique_id``
-``startClass``        Root class for all the paths specified in the configuration. Specify only the simple name (e.g. Gene) ``Gene``
-``startClassDisplay`` Field displayed when user clicks on the widget on 'Matches' column                                    ``primaryIdentifier``
-``typeClass``         Type of lists that should display this widget. Use the simple class name.                             ``Gene``
-``enrich``            Field to be enriched, displayed in the widget in the firts column [6]_.                               ``goAnnotation.ontologyTerm.parents.name``
-``views``             attributes paths displayed when the user clicks on *View results* button [6]_.                        ``symbol,organism.name``
-===================== ===================================================================================================== =============================================
+=====================  ==================================================================================================== =============================================
+attribute              purpose                                                                                               example
+=====================  ==================================================================================================== =============================================
+``id``                 unique id used by JavaScript only. Spaces not allowed.                                                ``unique_id``
+``startClass``         Root class for all the paths specified in the configuration. Specify only the simple name (e.g. Gene) ``Gene``
+``startClassDisplay``  Field displayed when user clicks on the widget on 'Matches' column                                    ``primaryIdentifier``
+``typeClass``          Type of lists that should display this widget. Use the simple class name.                             ``Gene``
+``enrich``             Field to be enriched, displayed in the widget in the firts column [6]_.                               ``goAnnotation.ontologyTerm.parents.name``
+``views``              attributes paths displayed when the user clicks on *View results* button [6]_.                        ``symbol,organism.name``
+=====================  ==================================================================================================== =============================================
 
 .. [6] You have to specify only one field. Specify the subclass using the syntax ``path[subclass type]``.
 
@@ -151,20 +151,20 @@ attribute             purpose                                                   
 
 The following are optional attributes:
 
-====================== ============================================================================================================================== ============================
-attribute              purpose                                                                                                                        example
-====================== ============================================================================================================================== ============================
-``title``              appears at the top of the widget                                                                                               ``Gene Ontology Enrichment``
-``description``        description of the widget                                                                                                      ``GO terms enriched.``
-``label``              heading for the column                                                                                                         ``GO Term``
-``externalLink``       link displayed next to first column                                                                                            ``googie``
-``filters``            extra filters to add to the display [7]_                                                                                       ``organism.name=[list]`` 
-``filterLabel``        label for filter form field                                                                                                    ``Ontology``
-``enrichIdentifier``   identifier for the row displayed, if not specified, enrich field used [8]_.                                                    ``goAnnotation.ontologyTerm.
-                                                                                                                                                      identifier``
-``constraints``        the constraints separated by comma. The paths have to be attributes. The operator can be ``=`` or ``!=`` [9]_.                 ```organism.name=[list]`` 
-``constraintsForView`` the constraints separated by comma used for building the query executed when the user clicks on the widget on 'Matches' column ``mRNAExpressionResults.expressed = true``
-====================== ============================================================================================================================== ============================1
+======================  =============================================================================================================================  ============================
+attribute               purpose                                                                                                                        example
+======================  =============================================================================================================================  ============================
+``title``               appears at the top of the widget                                                                                               ``Gene Ontology Enrichment``
+``description``         description of the widget                                                                                                      ``GO terms enriched.``
+``label``               heading for the column                                                                                                         ``GO Term``
+``externalLink``        link displayed next to first column                                                                                            ``googie``
+``filters``             extra filters to add to the display [7]_                                                                                       ``organism.name=[list]`` 
+``filterLabel``         label for filter form field                                                                                                    ``Ontology``
+``enrichIdentifier``    identifier for the row displayed, if not specified, enrich field used [8]_.                                                    ``goAnnotation.ontologyTerm.
+                                                                                                                                                       identifier``
+``constraints``         the constraints separated by comma. The paths have to be attributes. The operator can be ``=`` or ``!=`` [9]_.                 ```organism.name=[list]`` 
+``constraintsForView``  the constraints separated by comma used for building the query executed when the user clicks on the widget on 'Matches' column ``mRNAExpressionResults.expressed = true``
+======================  =============================================================================================================================  ============================
 
 .. [7] Use static values or a grammar to specify the values contained in the list. The default value in general is the first value set in the 'filters' attribute or the first value returned by the query. With static values, you can add 'All' meaning no filter applied.
 .. [8] Specify only one. This has to be an attribute. Used in the results table. Specify the subclass using the syntax ``path[subclass type]``.

@@ -9,8 +9,8 @@ How to run the tests
 
 .. code-block:: bash
 
-    cd MINE_NAME/integrate
-    ant acceptance-tests 
+    $ cd MINE_NAME/integrate
+    $ ant acceptance-tests 
 
 The results will be in `MINE_NAME/integrate/build/acceptance_test.html`
 
