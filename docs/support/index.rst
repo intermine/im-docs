@@ -6,5 +6,5 @@ Support
       
    mailing-list
    troubleshooting-tips
-   contact-us
+   /about/contact-us
    

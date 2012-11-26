@@ -4,7 +4,7 @@ Contact us
 To contact the InterMine Team:
 
 email
-    ``info@intermine.org``
+    ``info [at] intermine [dot] org``
 
 telephone
     +44 (0)1223 760 262 (UK business time)
