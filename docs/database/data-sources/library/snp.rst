@@ -1,11 +1,12 @@
 SNP
 ================================
 
+Load SNP data from a downloaded mysql database
 
 Types of data loaded
 --------------------
 
-genes, proteins, interactions 
+SNPs, chromosomes
 
 How to download the data 
 ---------------------------
@@ -15,4 +16,10 @@ Genetic and protein interaction data from BioGRID
 How to load the data into your mine
 --------------------------------------
 
-project XML example
+.. code-block:: xml
+
+    <source name="ensembl-snp-db-human" type="ensembl-snp-db" dump="true">
+      <property name="source.db.name" value="ensembl.9606.variation" />
+      <property name="organism" value="9606" />
+      <property name="sources" value="dbSNP" />
+    </source>
