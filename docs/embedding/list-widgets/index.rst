@@ -110,12 +110,12 @@ attribute            purpose                                                    
 ``filterLabel``      label for filter form field                                                                                           ``Organism``
 ``filters``          the values for the filter, set in the dropdown [2]_.                                                                  ``All,KEGG pathways,Reactome data``
 ``listPath``         the path used to build the bag constraint [3]_.                                                                       ``FlyAtlasResult.material``
-``constraints``      the constraints separated by comma. Case sensitive. The paths have to be attributes. The operator can be `=` or `!=`  ``organism.name=[Organism]`` [5]_
+``constraints``      separated by comma, case sensitive, must be attributes, operator can be `=` or `!=` [4]_                              ``organism.name=[Organism]`` [5]_
 ===================  ====================================================================================================================  =====================================
 
 .. [2] We can use static values or a grammar to specify the values contained in the list. The default value in general is the first value set in the 'filters' attribute or the first value returned by the query. With static values, you can add 'All' meaning no filter applied.
-.. [3] You don't need to specify it, if the ``startClass`` contains the bag type class.
-.. [4] For the values we can use static values or the selected filter value using the syntax: ``path contraint = [filter identifier]``.
+.. [3] Optional if the ``startClass`` contains the bag type class.
+.. [4] For the values we can use static values or the selected filter value using the syntax: ``path constraint = [filter identifier]``.
 .. [5] organism's name matching with the value selected in the filter with filterLabel 'Organism'
 
 .. note::
