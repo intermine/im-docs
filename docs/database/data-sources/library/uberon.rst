@@ -1,10 +1,15 @@
-OMIM
+Uberon
 ================================
 
 Types of data loaded
 --------------------
 
 ontology terms
+
+How to download the data 
+---------------------------
+
+http://purl.obolibrary.org/obo/uberon.obo
 
 How to load the data into your mine
 --------------------------------------
