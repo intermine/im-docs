@@ -30,3 +30,16 @@ project XML example
     </source>
 
 
+===============  ===================================================  =========================================================
+attribute        content                                              purpose 
+===============  ===================================================  =========================================================
+taxonId          space-delimited list of taxonIds                     only features with the listed taxonIds will be loaded 
+className        fully-qualified class name                           determines which feature will be loaded 
+classAttribute   identifier field from className                      determines which field from the feature will be set 
+dataSetTitle     name of dataset                                      determines name of dataset object 
+dataSourceName   name of datasource                                   determines name of datasource object  
+src.data.dir     location of the fasta data file                      these data will be loaded into the database 
+includes         name of data file                                    this data file will be loaded into the database 
+sequenceType     class name                                           type of sequence to be loaded 
+loaderClassName  name of Java file that will process the fasta files  only use if you have created a custom fasta loader 
+===============  ===================================================  =========================================================
