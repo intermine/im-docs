@@ -126,3 +126,4 @@ Configuration
 
   precompute.query.31 = SELECT a4_.class AS a1_, a5_.name AS a2_, a5_.description AS a3_ FROM org.intermine.model.bio.SequenceFeature AS a4_, org.intermine.model.bio.SOTerm AS a5_ WHERE a4_.sequenceOntologyTerm CONTAINS a5_ 
 
+.. index:: region search, genomic region search

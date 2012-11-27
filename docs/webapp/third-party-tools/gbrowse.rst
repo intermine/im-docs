@@ -119,3 +119,5 @@ You will need to make sure that the `gbrowse.config.directory` is writable by th
 Databse host, username and password are also read from the properties and substituted into `<source_name>.conf`.
 
 GBrowse uses the filename of the configuration file to create the URL to access.  eg. setting gbrowse.database.source to flymine-release-3.0 gives a database that can be accessed at: http://www.flymine.org/browser/bin/gbrowse/flymine-release-3.0
+
+.. index:: GBrowse, genome browser

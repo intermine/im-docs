@@ -62,3 +62,4 @@ Back ups
 * `userprofile_backup`
 * does the dumping
 
+.. index:: userprofile, default-template-queries.xml

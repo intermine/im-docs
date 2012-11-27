@@ -29,4 +29,4 @@ project XML example
       <property name="src.data.file" location="/data/arbeitman/arbeitman-tgt-items.xml"/>
     </source>
 
-.. index:: intermine-items-xml
+.. index:: InterMine items XML

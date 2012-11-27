@@ -82,3 +82,5 @@ CytoscapeNetworkEdgeData.java
 	netowrk work edge model
 
 After fetching the data to the web page, you can customise the outlook of the network by using CytoscapeWeb javascript API.
+
+.. index:: Cytoscape, SIF, XGMML, PNG, SVG, interactions, network viewer, interactions widget

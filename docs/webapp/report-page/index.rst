@@ -7,3 +7,5 @@ Report page
     report-displayers-examples
     webapp-tables
     /embedding/report-widgets
+
+.. index:: report page

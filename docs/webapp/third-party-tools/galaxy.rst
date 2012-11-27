@@ -75,3 +75,5 @@ welcomeMessage   displays on the homepage when coming from Galaxy  yes
 	galaxy.welcomeMessage = <b>Welcome to FlyMine, GALAXY users</b><br/><br/>You can run queries by \
 	clicking on the 'Templates' tab at the top of this page.&nbsp;&nbsp;You can send the query results \
 	to Galaxy from the 'EXPORT' menu in the results page.
+
+.. index:: Galaxy

@@ -51,3 +51,4 @@ In results pages, all probesets will link to Google instead of the Mine report p
 
 Next to the value in the column will be a small icon indicating an external link
 
+.. index:: redirects, link redirects

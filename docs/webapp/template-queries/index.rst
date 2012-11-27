@@ -71,3 +71,4 @@ To have templates appear on the templates page, create a template as a SuperUser
 
 The templates are sorted by most popular first.  If the user is logged in the user's most popular templates are shown first.
 
+.. index:: template queries, optional constraints, autocompletion, dropdowns

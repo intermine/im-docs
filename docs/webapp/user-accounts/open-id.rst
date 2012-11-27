@@ -20,3 +20,5 @@ To set this up for a mine you administer:
     webapp.path=intermine-test
 
 If you do not wish to allow Open-ID accounts, set the property "openid.allowed=false" in any of the property files that end up in the WEB_PROPERTIES map.
+
+.. index:: Open ID, GMail, Yahoo, Google, myid.net

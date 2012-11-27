@@ -61,4 +61,4 @@ Generating InterMine XML
 
 With have a set of Perl modules to assist in the creation of InterMine XML.
 
-.. index:: XML, intermine items XML, items XML, Perl Items API
+.. index:: XML, InterMine items XML, items XML, Perl Items API
