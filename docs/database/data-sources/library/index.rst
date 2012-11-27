@@ -4,11 +4,11 @@ Data Source Library
 
 This page lists the current sources available for use in InterMine.  All the sources here are found in `bio/sources`.  Look at `flymine/project.xml` for examples of how to use these sources.  
 
-You can also add your own sources to load custom file formats, see [wiki:SourceHowto 'How to create a source'] for more information.  In addition, the [wiki:GettingStarted tutorial] contains detailed steps on creating sources for a variety of different data formats.
+You can also add your own sources to load custom file formats, see :doc:`/database/data-sources/custom/index` for more information.  In addition, the :doc:`/get-started/tutorial` contains detailed steps on creating sources for a variety of different data formats.
 
 Most of the configuration done in the config files is optional, if no config entry exists the default behaviour is followed.  There are exceptions to this rule, however.
 
-Common sources
+Core InterMine sources
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 These are commonly used sources that you may want to use to load data into your own InterMine instance.
@@ -32,9 +32,11 @@ These are commonly used sources that you may want to use to load data into your 
     gff
     identifiers/index
     intermine-items-xml
+    omim
     organism
     snp
     so
+    uberon
 
 
 FlyMine Specific sources
