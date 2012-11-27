@@ -17,7 +17,7 @@ Enumerated lists
 Level 3 titles
 ~~~~~~~~~~~~~~
 
-Referring to a page in the docs :doc:`/support/contact-us`
+Referring to a page in the docs :doc:`/about/contact-us`
 
 | A line block with `some <http://>`_ syntax too.
 |              preserving line breaks and spaces where needed
