@@ -18,7 +18,6 @@ These are commonly used sources that you may want to use to load data into your 
 
     go/index
     homologues/index
-    identifiers/index
     interactions/index
     pathways/index
     proteins/index
@@ -31,6 +30,7 @@ These are commonly used sources that you may want to use to load data into your 
     ensembl
     fasta
     gff
+    identifiers/index
     intermine-items-xml
     organism
     snp
