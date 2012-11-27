@@ -88,3 +88,4 @@ More
 
 The faceted search system was implemented by Nils Kölling, a summer intern with InterMine.  See the talk he gave (at http://www.flymine.org/download/talks/keyword_search_talk.pdf) for more technical details.
 
+.. index:: keyword search, quick search, search

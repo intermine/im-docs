@@ -84,7 +84,7 @@ What this configuration does is it creates a tab on the homepage with (up to) 10
     begin.tabs.1.id = Genomics
     begin.tabs.2.id = Proteins
 
-The other customization we can do is specify an informative text that is to appear in the tab above the templates listing (again, this text accepts HTML.):
+The other customisation we can do is specify an informative text that is to appear in the tab above the templates listing (again, this text accepts HTML.):
 
 .. code-block:: properties
 
@@ -130,3 +130,5 @@ Two latest entries will be shown in the box. If you want to provide a link under
 .. code-block:: properties
 
     links.blog = http://<your_blog>
+
+.. index:: home page, RSS, featured lists, popular templates

@@ -33,4 +33,4 @@ reStructured Text
     RST
 
 
-
+.. index:: site map

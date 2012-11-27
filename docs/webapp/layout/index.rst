@@ -1,5 +1,3 @@
-.. index:: themes, layout, look & feel
-
 Layout
 ======
 
@@ -28,7 +26,7 @@ In addition to InterMine's file, each mine has its own internationalisation file
 
 If you want to add a tab specific to your mine, add an entry to this file. Properties set in this file overwrite the ones set in ``intermine/webapp/main/resources/webapp/WEB-INF/classes/InterMineWebApp.properties``.
 
-Quick search box
+Keyword search box
 ~~~~~~~~~~~~~~~~
 
 This search box queries the search index created in the postprocess ``create-search-index``. To change which placeholder identifiers will appear in the box, edit the `quickSearch.identifiers` property in :doc:`/webapp/properties/intermine-properties`.
@@ -94,3 +92,5 @@ Developing your own theme
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 With CSS knowledge and open source image software such as `Gimp <http://www.gimp.org>`_ or `Inkscape <http://www.inkscape.org>`_ you can develop your own theme. Each theme directory contains a ``theme.css`` file, which is broken down in annotated sections, and image files. The image files are required for displaying menus, headers and backgrounds and can be modified with image software to match your colour scheme. Create a new directory under ``intermine/webapp/main/resources/webapp/themes/``, copy the contents of another theme directory into it and start editing.
+
+.. index:: themes, layout, look & feel, footer, header, favicon, tabs, logo

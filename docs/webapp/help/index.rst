@@ -104,3 +104,4 @@ Data definitions
 
 Update these in the classDescriptions.properties file.
 
+.. index:: help, class descriptions, take a tour link

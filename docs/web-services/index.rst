@@ -28,4 +28,4 @@ http://intermine.org/wiki/WebServiceCreatingNewService
 
 
 
-.. index:: Perl, Ruby, web services, RESTful
+.. index:: Perl, Ruby, web services, REST, Python, JavaScript, code generation, clients, Java

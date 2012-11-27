@@ -91,5 +91,5 @@ Normally the `id` field isn't shown in the query builder and probably isn't usef
   		</query>
 	</template>
 
-.. index:: tagging, convert type, superuser, admin
+.. index:: tagging, superuser, webapp admin
 
