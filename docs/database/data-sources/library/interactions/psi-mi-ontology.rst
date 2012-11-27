@@ -1,21 +1,25 @@
 PSI-MI Ontology
 ================================
 
+Include this source when loading `psi` data to fill in details of ontology terms used. Should be loaded if you are loading interaction data.
 
 Types of data loaded
 --------------------
 
-genes, proteins, interactions 
+ontology terms
 
 How to download the data 
 ---------------------------
 
-Genetic and protein interaction data from BioGRID  
+http://psidev.sourceforge.net/mi/psi-mi.obo psi-mi.obo 
 
 How to load the data into your mine
 --------------------------------------
 
 project XML example
 
+.. code-block:: xml
 
-||psi-mi-ontology||Include this source when loading `psi` data to fill in details of ontology terms used.  Loads the file [http://psidev.sourceforge.net/mi/psi-mi.obo psi-mi.obo file].||ontology terms||none||||
+    <source name="psi-mi-ontology" type="psi-mi-ontology">
+      <property name="src.data.file" location="/data/psi/psi-mi.obo"/>
+    </source>
