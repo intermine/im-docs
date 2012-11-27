@@ -11,7 +11,7 @@ GO terms
 How to download the data 
 ---------------------------
 
-From http://www.geneontology.org/
+From http://www.geneontology.org
 
 How to load the data into your mine
 --------------------------------------

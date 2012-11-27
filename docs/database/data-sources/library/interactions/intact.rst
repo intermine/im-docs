@@ -1,21 +1,33 @@
 IntAct
 ================================
 
+Loads interactions data from IntAct
 
 Types of data loaded
 --------------------
 
-genes, proteins, interactions 
+genes, interactions 
 
 How to download the data 
 ---------------------------
 
-Genetic and protein interaction data from BioGRID  
+ftp://ftp.ebi.ac.uk/pub/databases/IntAct/current/all.zip
 
 How to load the data into your mine
 --------------------------------------
 
 project XML example
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: xml
+
+    <source name="psi-intact" type="psi" dump="true">
+      <property name="src.data.dir" location="/data/intact"/>
+      <property name="intact.organisms" value="7227"/>
+    </source>
 
 
-||intact||Load interactions data from [http://www.ebi.ac.uk/intact IntAct].||genes, interactions||'''psi-intact_config.properties''' - which gene identifiers are set||organisms - If none are configured, all interactions are stored.||
+psi-intact_config.properties
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Determines which gene identifiers are set. organisms - If none are configured, all interactions are stored.
