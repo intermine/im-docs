@@ -6,3 +6,5 @@ Proteins
     uniprot
     pdb
     interpro
+
+.. index:: proteins

@@ -31,3 +31,6 @@ psi-intact_config.properties
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Determines which gene identifiers are set. organisms - If none are configured, all interactions are stored.
+
+
+.. index:: IntAct

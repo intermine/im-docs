@@ -6,3 +6,5 @@ Publications
 
     pubmed
     publications
+
+.. index:: literature, publications

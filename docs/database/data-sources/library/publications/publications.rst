@@ -23,3 +23,5 @@ project XML example
     <source name="update-publications" type="update-publications" dump="true">
       <property name="src.data.file" location="build/publications.xml"/>
     </source>
+
+.. index:: NCBI

@@ -25,3 +25,7 @@ project XML example
     </source>
 
 To add or remove SO terms from your model, update your `so_terms` file in `dbmodel/resources`
+
+.. index:: SO, sequence ontology
+
+

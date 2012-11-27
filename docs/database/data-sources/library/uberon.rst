@@ -21,3 +21,5 @@ project XML example
     <source name="uberon" type="uberon">
       <property name="src.data.file" location="/data/uberon/uberon.obo"/>
     </source>
+
+.. index:: Uberon, anatomy ontology

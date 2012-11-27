@@ -26,3 +26,5 @@ project XML example
       <property name="biopax.datasetname" value="Reactome data set"/>
       <property name="biopax.curated" value="false"/>
     </source>
+
+.. index:: Reactome

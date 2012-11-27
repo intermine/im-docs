@@ -23,3 +23,5 @@ How to load the data into your mine
       <property name="organism" value="9606" />
       <property name="sources" value="dbSNP" />
     </source>
+
+.. index:: SNPs

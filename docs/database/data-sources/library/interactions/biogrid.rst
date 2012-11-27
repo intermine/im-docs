@@ -65,4 +65,4 @@ To set your gene.identifier field to be a value from an xref entry, use this syn
 
 	xref "db" value is not case sensitive, case seems to vary from file to file.
 
-.. index:: BioGRID, interactions, PSI
+.. index:: BioGRID

@@ -25,3 +25,6 @@ project XML example
       <property name="pubmed.organisms" value="7227"/>
       <property name="src.data.dir.includes" value="gene2pubmed"/>
     </source>
+
+
+.. index:: PubMed

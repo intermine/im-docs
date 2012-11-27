@@ -8,3 +8,6 @@ Content:
 
 	kegg
 	reactome
+
+
+.. index:: pathways

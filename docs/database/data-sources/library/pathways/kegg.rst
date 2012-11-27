@@ -31,3 +31,5 @@ kegg_config.properties
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Decides which gene identifier fields are populated, mapping from organism taxonId to abbreviation. Only taxonIds specified in project.xml file are downloaded, if no taxonIds are configured, all are loaded.
+
+.. index:: KEGG

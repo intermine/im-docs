@@ -23,3 +23,6 @@ project XML example
     <source name="interpro" type="interpro">
       <property name="src.data.dir" location="/data/interpro"/>
     </source>
+
+
+.. index:: InterPro, protein domains

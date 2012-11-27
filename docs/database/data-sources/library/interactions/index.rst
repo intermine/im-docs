@@ -9,3 +9,4 @@ Interactions
     intact
     psi-mi-ontology
 
+.. index:: interactions, PSI

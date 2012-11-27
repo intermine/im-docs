@@ -132,4 +132,4 @@ Future Plans
 * more efficient and smarter caching
 
 
-.. index:: identifiers, old identifiers
+.. index:: identifiers, old identifiers, resolvers

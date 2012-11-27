@@ -5,7 +5,7 @@ We recommend running long builds from the `bio/scripts/project_build` script.  T
 
 .. note::
 
-  NOTE: this script requires the Expect and XML::Parser::PerlSAX Text::Glob perl modules - install with: `sudo cpan -i XML::Parser::PerlSAX Expect Text::Glob`
+  This script requires the Expect and XML::Parser::PerlSAX Text::Glob perl modules - install with: `sudo cpan -i XML::Parser::PerlSAX Expect Text::Glob`
 
 
 Run the build script from the mine directory:
@@ -37,24 +37,44 @@ Command line options
 
 `project_build` allow the following options:
 
-* '''-v''' - is passed to ant to make it run in verbose mode, ant output can be seen in `pbuild.log`
-* '''-l''' - attempt to restart by reading the last dump file (see note below)
-* '''-r''' - attempt to restart just after the last dump point _without_ loading a dump (see note below)
-* '''-b''' - run build-db before starting build and drop any existing backup databases  (created when using the -t flag)
-* '''-n''' - parse files and report actions, but don't execute anything
-* '''-V''' - set the release number to pass to ant (as -Drelease=release_number)
-* this allows multiple sets of properties file.  eg. in the malariamine case, passing '''-V 1.0''' causes the build system to look for `build.properties.malariamine.1.0` and `malariamine.properties.1.0` instead of the default files
-* '''-t''' - instead of dumping and reloading, make backup copies of the database in the server using the "CREATE DATABASE foo WITH TEMPLATE bar" command
-* '''-D''' - set the destination database for the completed build; the database will be copied to this name in the same postgres server that the build used
-* '''-a''' - set the list of actions (ie. source integrations or post-processes) to perform - the list must be a subset of the sources/postprocesses in the project.xml file
+-v
+  is passed to ant to make it run in verbose mode, ant output can be seen in `pbuild.log`
 
-  * The -l and -r operate as usual.
-  * To run all steps starting at <some_action> use a dash after the action name: '''-a <some_action>-'''
-  * To perform only the final dump use: '''-a final-dump'''
-  * To refer to dump step and skip the corresponding action, use action name with "-dump" appended. eg.
+-l
+  attempt to restart by reading the last dump file (see note below)
+
+-r
+  attempt to restart just after the last dump point _without_ loading a dump (see note below)
+
+-b
+  run build-db before starting build and drop any existing backup databases  (created when using the -t flag)
+
+-n
+  parse files and report actions, but don't execute anything
+
+-V
+  set the release number to pass to ant (as -Drelease=release_number) [1]_.
+
+-t
+  instead of dumping and reloading, make backup copies of the database in the server using the "CREATE DATABASE foo WITH TEMPLATE bar" command
+
+-D
+  set the destination database for the completed build; the database will be copied to this name in the same postgres server that the build used
+
+-a
+  set the list of actions (ie. source integrations or post-processes) to perform - the list must be a subset of the sources/postprocesses in the project.xml file
+
+* The -l and -r operate as usual.
+* To run all steps starting at <some_action> use a dash after the action name: '''-a <some_action>-'''
+* To perform only the final dump use: '''-a final-dump'''
+* To refer to dump step and skip the corresponding action, use action name with "-dump" appended. eg.
   
-   * '''-a fly-fish-dump-''' - dump the `fly-fish` source and continues integrating
-   * '''-a fly-fish-dump,flymine-static,create-utr-references,final-dump''' - do just those steps
+  * '''-a fly-fish-dump-''' - dump the `fly-fish` source and continues integrating
+  * '''-a fly-fish-dump,flymine-static,create-utr-references,final-dump''' - do just those steps
 
 Dump files take the name ''dump_file_prefix.source_name''.  These dumps can be used by `project_build` to restart a build process after a previous problem.  Running project_build with '''`-l`''' will reload the latest dump (if any) with `dump_file_prefix` exist and restart the build from that point.
 
+.. [1] this allows multiple sets of properties file.  eg. in the malariamine case, passing '''-V 1.0''' causes the build system to look for `build.properties.malariamine.1.0` and `malariamine.properties.1.0` instead of the default files
+
+
+.. index:: building database, project_build script
