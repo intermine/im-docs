@@ -25,7 +25,7 @@ These are commonly used sources that you may want to use to load data into your 
     publications/index
     
 .. toctree::
-    :maxdepth: `
+    :maxdepth: 1
 
     chado
     ensembl
