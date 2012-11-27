@@ -141,3 +141,5 @@ Example command line:
 .. code-block:: perl
 
   ./intermine_items_example.pl "FlyMine" 5833 ../../flymine/dbmodel/build/model/genomic_model.xml
+
+.. index:: Perl Items API

@@ -103,3 +103,5 @@ To read an XML file into a List of items use `FullParser`:
 .. code-block:: java
 
 	List items = FullRenderer.parse(new FileInputStream(file));
+
+.. index:: Java Items API

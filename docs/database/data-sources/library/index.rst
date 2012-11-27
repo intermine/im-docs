@@ -84,6 +84,4 @@ These loaders were written by InterMine users.
 * Mammalian phenotypes
 * pride
 * stitch
-* omim
 * huge gwas
-

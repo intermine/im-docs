@@ -134,3 +134,6 @@ And for fields of this class:
 
   var fieldName = ??;                                                                                                                                                              
   var fieldDisplayName = $MODEL_TRANSLATION_TABLE[className].fields[fieldName]
+
+
+.. index:: data labels

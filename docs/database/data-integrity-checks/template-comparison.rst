@@ -128,3 +128,5 @@ The resulting email will look like this:
 #. '''Only in''' - template was found in one mine and not the other.
 #. '''In Both: Diff < 10%''' - template run in both mines and results returned were different.  It's probably safe to assume these are okay.
  
+
+.. index:: template comparison, data integrity

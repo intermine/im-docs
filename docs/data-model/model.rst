@@ -127,3 +127,4 @@ For a more complete example, see `FlyMine <http://www.flymine.org/query/service/
 
 The Model defines the set of data that is  searchable  in the database. Other data can be written to the database, but only the classes and attributes that are defined in the model are searchable. So you may, if you wish, compile a Java class which inherits InterMineObject (to allow it to stored in the database) or some other class in the model, with extra fields, and store instances of that class in the database, but you will not be able to search for instances of that class, or for instances with a particular value for the field that is not in the model. 
 
+.. index:: model, data model

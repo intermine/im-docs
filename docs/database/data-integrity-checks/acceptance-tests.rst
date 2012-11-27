@@ -44,3 +44,4 @@ Or has at least some results:
    		note: We should have an Anopheles gambiae  object but not an Anopheles gambiae PEST one
 	}
 
+.. index:: data integrity, acceptance tests

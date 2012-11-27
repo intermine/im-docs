@@ -271,3 +271,5 @@ Create the database as usual. The source should now be included when building th
 .. note::
 
   Unless the 'clean' is run (which deletes the build directory) in `MINE_NAME/dbmodel` any changes will append to the current model structure and any unwanted classes/attributes will remain.
+
+.. index:: writing a custom data source, custom data source
