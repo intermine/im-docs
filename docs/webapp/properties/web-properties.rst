@@ -3,9 +3,6 @@ Features
 
 The `web.properties` file configures several attributes for the InterMine web application.
 
-Property'''Determines 
-
-
 attributeLink
 	Used to configure hyperlinks, generally to external dbs.  See "External Links" section below
 
@@ -35,6 +32,7 @@ portal.welcome
 
 quickSearch.identifiers
 	Text displayed in search box
+
 theme
 	Colour scheme for the webapp.  Available options are:  blue, bright_blue, gold, green, grey, brown, ecoli_blue, metabolic, modmine, ratmine and purple 
 
@@ -189,3 +187,6 @@ Overriding properties
 * `intermine/webapp/main/resources/webapp/WEB-INF/global.web.properties` - used by all mines.  Properties set here will be available to everyone, even the test model mine.
 * `bio/webapp/resources/webapp/WEB-INF/bio.web.properties` - used by all bio-mines.  Properties set here will be available to all mines that use the bio layer.  so not the test model model. Can overwrite properties in the global.web.properties file.
 * `flymine/webapp/resources/web.properties` - used by a mine.  Properties set here will be available to only that specific mine.  Can create mine-specific properties or overwrite properties in the above two files.
+
+
+.. index:: web properties, cross reference links, attribute links, link outs, list upload examples, header links, meta keywords, meta description, portal welcome message, keyword search examples

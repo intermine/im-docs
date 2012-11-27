@@ -3,7 +3,7 @@ Data and Widget Configuration
 
 The `webconfig-model.xml` file configures aspects of how data appears on the InterMine webapp.
 
-This file allows for inheritance - a subclass will inherit from its parent class, but only if that subclass has no long displayers set.  Configuration settings for the parent class do not overwrite settings for the subclass.
+This file allows for inheritance - a subclass will inherit from its parent class but only if that subclass has no configuration.  Configuration settings for the parent class do not overwrite settings for the subclass.
 
 Field Configuration
 ----------------------
@@ -91,3 +91,4 @@ At the bottom of the config file are the configuration entries for widgets.  Ple
                                        publications.journal, publications.year, publications.pubMedId"
                                  externalLink="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids="/>
 
+.. index:: widgets, exporters, report displayers, webconfig-model.xml
