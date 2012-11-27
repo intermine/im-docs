@@ -69,3 +69,5 @@ If you have previously released a webapp to `/intermine-test` you will need to r
 	$ ant default remove-webapp release-webapp
 
 Browse to http://localhost:8080/intermine-test to view the web interface for the testmodel application.
+
+.. index:: test model

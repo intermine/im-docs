@@ -130,4 +130,4 @@ Creates the indexes for the fields set to be autocompleted in the ObjectStoreSum
 *Should I use it?* Yes, if you have a webapp.  
 
 
-.. index:: create-chromosome-locations-and-lengths, transfer-sequences, create-references, create-intron-features, create-intergenic-region-features, create-overlap-view, create-bioseg-location-index, create-gene-flanking-features, do-sources, create-search-indexm create-attribute-indexes, summarise-objectstore, create-autocomplete-index
+.. index:: create-chromosome-locations-and-lengths, transfer-sequences, create-references, create-intron-features, create-intergenic-region-features, create-overlap-view, create-bioseg-location-index, create-gene-flanking-features, do-sources, create-search-index, create-attribute-indexes, summarise-objectstore, create-autocomplete-index

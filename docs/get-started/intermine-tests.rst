@@ -104,3 +104,5 @@ You can also run a test for an individual source by running the ant command with
   $ ant
 
 The test results will be located at `uniprot/test/build/test/results/index.html`.  You can also run these as JUnit tests directly from Eclipse.
+
+.. index:: tests, unit tests

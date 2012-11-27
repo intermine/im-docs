@@ -48,3 +48,5 @@ The latest InterMine release is hosted on GitHub in the InterMine organization: 
  		$ git merge upstream/master
 
 All InterMine code is freely available under the open source `LGPL <http://www.gnu.org/licenses/lgpl.html>`_  license.
+
+.. index:: git

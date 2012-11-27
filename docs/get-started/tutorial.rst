@@ -996,3 +996,4 @@ If the error occurs while you are browsing your webapp, the error message will b
    
    test-data 
 
+.. index:: tutorial, ant, logs, userprofile, malariamine, data integration, keys, primary keys, priority conflicts, make_mine, project XML, FASTA, GFF3, data integration, UniProt, publications, build-db, creating a database
