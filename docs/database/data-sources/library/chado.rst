@@ -181,3 +181,6 @@ Reading the cvterm table
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Handled by `ChadoSequenceProcessor.processFeatureCVTermTable()`
+
+
+.. index:: chado, FlyBase, WormBase 

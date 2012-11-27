@@ -117,3 +117,5 @@ It may be helpful to look at current GFF3 parsers:
 #. `DrosDelGFF3RecordHandler.java`
 
 See :doc:`/get-started/tutorial` for more information on how to run a GFF source.
+
+.. index:: GFF3, sequence features

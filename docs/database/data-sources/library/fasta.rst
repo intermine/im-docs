@@ -43,3 +43,5 @@ includes         name of data file                                    this data 
 sequenceType     class name                                           type of sequence to be loaded 
 loaderClassName  name of Java file that will process the fasta files  only use if you have created a custom fasta loader 
 ===============  ===================================================  =========================================================
+
+.. index:: FASTA, sequences

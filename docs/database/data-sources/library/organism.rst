@@ -20,6 +20,9 @@ project XML example
 
 .. code-block:: xml
 
-    <source name="update-publications" type="update-publications" dump="true">
-      <property name="src.data.file" location="build/publications.xml"/>
+    <source name="entrez-organism" type="entrez-organism">
+      <property name="src.data.file" location="build/organisms.xml"/>
     </source>
+
+
+.. index:: NCBI, taxonomy ID, organisms, entrez-organism

@@ -28,3 +28,5 @@ project XML example
     <source name="arbeitman-items-xml" type="arbeitman-items-xml">
       <property name="src.data.file" location="/data/arbeitman/arbeitman-tgt-items.xml"/>
     </source>
+
+.. index:: intermine-items-xml

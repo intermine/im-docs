@@ -122,3 +122,4 @@ Run a build.  The entry in `project.xml` will instruct the build process to load
 
   $ ant -v -Dsource=ensembl 
 
+.. index:: Ensembl

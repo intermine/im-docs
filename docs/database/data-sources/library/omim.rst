@@ -16,3 +16,5 @@ project XML example
     <source name="omim" type="omim">
       <property name="src.data.dir" location="/data/omim"/>
     </source>
+
+.. index:: OMIM, disease data

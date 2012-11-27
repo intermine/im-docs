@@ -130,3 +130,6 @@ Future Plans
 * data file path will be simplified
 * generalized resolver factory which will read a configuration file to be aware identifier information by column. e.g. type=tab, column.0=mainId, etc.
 * more efficient and smarter caching
+
+
+.. index:: identifiers, old identifiers
