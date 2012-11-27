@@ -61,3 +61,5 @@ Exporter description
 	exporter.sequence.description=Export in FASTA format
 	exporter.gff3.description=Export in GFF3 format
 	exporter.bed.description=Export in BED format
+
+.. index:: export

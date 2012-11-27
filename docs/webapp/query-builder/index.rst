@@ -21,3 +21,5 @@ SUMMARY
 
 autocomplete
 	Add fields to the ObjectStoreSummaryProperties file to have their form fields autocomplete.
+
+.. index:: querybuilder, summary, autocomplete
