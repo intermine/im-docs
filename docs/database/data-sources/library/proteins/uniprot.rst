@@ -42,6 +42,9 @@ The format for the file is:
 
 `<TAXON_ID>.<IDENTIFIER_FIELD> = <VALUE>`
 
+An example
+""""""""""""""
+
 A rat uniprot entry: http://www.uniprot.org/uniprot/Q923K9.xml
 
 The second line of that configuration would set the ID value as the gene.primaryIdentifier:
@@ -155,3 +158,5 @@ ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/comple
       <property name="src.data.dir.includes" value="keywlist.xml"/>
     </source>
 
+
+.. index:: UniProt, protein domains, GO, keywords, components, isoforms, FASTA, proteins, protein features

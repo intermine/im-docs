@@ -14,7 +14,7 @@ Common sources
 These are commonly used sources that you may want to use to load data into your own InterMine instance.
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
 
     chado
     ensembl
@@ -39,53 +39,48 @@ These are commonly used sources that you may want to use to load data into your 
 FlyMine Specific sources
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-These are sources that load Drosophila specific data sets into FlyMine, we don't expect you will re-use these unless you are creating a Drosophila warehouse.  All of these sources are located in [source:trunk/bio/sources/flymine bio/sources/flymine].
+These are sources that load Drosophila specific data sets into FlyMine, we don't expect you will re-use these unless you are creating a Drosophila warehouse.  All of these sources are located in `bio/sources/flymine`.
 
- * affy-probes                         
- * anoest                       
- * anopheles-identifiers                   
- * anoph-expr               
- * arbeitman-items-xml                      
- * bdgp-clone                       
- * bdgp-insitu                                
- * drosdel-gff                       
- * drosophila-homology    
- * fly-anatomy-ontology
- * flyatlas 
- * fly-development-ontology
- * fly-fish
- * fly-misc-cvterms
- * flyreg
- * flyrnai-screens
- * homophila
- * long_oligo
- * protein_structure
- * redfly
- * rnai
- * tiffin
- * tiffin-expression
- * tiling_path
+* affy-probes                         
+* anoest                       
+* anopheles-identifiers                   
+* anoph-expr               
+* arbeitman-items-xml                      
+* bdgp-clone                       
+* bdgp-insitu                                
+* drosdel-gff                       
+* drosophila-homology    
+* fly-anatomy-ontology
+* flyatlas 
+* fly-development-ontology
+* fly-fish
+* fly-misc-cvterms
+* flyreg
+* flyrnai-screens
+* homophila
+* long_oligo
+* protein_structure
+* redfly
+* rnai
+* tiffin
+* tiffin-expression
+* tiling_path
 
-See [http://www.flymine.org/dataCategories.do FlyMine] for more information about these datasets.  Look at `flymine/project.xml` for examples of how to use these sources.
+See FlyMine for more information about these datasets.  Look at `flymine/project.xml` for examples of how to use these sources.
  
 Other loaders
 ~~~~~~~~~~~~~~
 
 These loaders were written by InterMine users.
 
- * CHEBI
- * Disease ontology
- * haem-atlas
- * HGNC
- * HuGE
- * Mammalian phenotypes
- * pride
- * stitch
- * omim
- * huge gwas
-
- 
-
-
-
+* CHEBI
+* Disease ontology
+* haem-atlas
+* HGNC
+* HuGE
+* Mammalian phenotypes
+* pride
+* stitch
+* omim
+* huge gwas
 
