@@ -52,3 +52,4 @@ PostgreSQL Configuration
 
 Recommended settings for PostgreSQL are in :doc:`/system-requirements/software/postgres/postgres`
 
+.. index:: data loading speed, performance 

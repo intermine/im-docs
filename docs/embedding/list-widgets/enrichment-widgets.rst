@@ -97,3 +97,6 @@ References
 .. note::
 
     You can read more about **Hypergeometric Distribution** at `Simple Interactive Statistical Analysis <http://www.quantitativeskills.com/sisa/distributions/hypghlp.htm>`_ or `Wolfram MathWorld <http://mathworld.wolfram.com/HypergeometricDistribution.html>`__. **Bonferroni Correction** is discussed in this `Wolfram MathWorld <http://mathworld.wolfram.com/BonferroniCorrection.html>`__ article.
+
+
+.. index:: widgets, Bonferroni, Holm-Bonferroni, Benjamini Hochberg, Hypergeometric Distribution, Multiple Test Correction, enrichment widgets

@@ -14,3 +14,5 @@ Each mine has an integrate project that reads the project.xml file and builds th
     priority-config
     post-processing/index
     build-script
+
+.. index:: running a build

@@ -10,3 +10,4 @@ Database
     data-integrity-checks/index
     performance/index
 
+.. index:: data

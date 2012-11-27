@@ -72,3 +72,5 @@ Final, merged, model definition:
   ...
 
 The resulting class has all attributes of the `Protein` from `core.xml` and from `uniprot_additions.xml`.  Note that in uniprot we don't need to declare a base class for `Protein` (like as `extends="BioEntity"`) as the base class from `core.xml` is merged into the final class.
+
+.. index:: model merging, data model

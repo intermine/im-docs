@@ -282,3 +282,5 @@ Optional
 ^^^^^^^^
 
 * Provide a callback where all widgets can dump error messages.
+
+

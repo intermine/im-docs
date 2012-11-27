@@ -82,3 +82,4 @@ Data integration
 
 During data integration, the objects created by each source are added to the database.  If no primary keys are set all objects are added.  However, if a source has a primary key defined then the build system will check the database for that primary key.  If the key is not found, the object is added.  If the key is present in the database, the build system will attempt to merge the new object from the current source with the existing object in the database.
 
+.. index:: primary keys
