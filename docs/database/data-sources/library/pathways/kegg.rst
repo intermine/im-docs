@@ -1,21 +1,33 @@
 KEGG
 ================================
 
+Link genes to KEGG pathways that they operate in.
 
 Types of data loaded
 --------------------
 
-genes, proteins, interactions 
+genes, pathways
 
 How to download the data 
 ---------------------------
 
-Genetic and protein interaction data from BioGRID  
+http://www.genome.jp/kegg
 
 How to load the data into your mine
 --------------------------------------
 
 project XML example
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: xml
+
+    <source name="kegg-pathway" type="kegg-pathway">
+      <property name="src.data.dir" location="/data/kegg"/>
+      <property name="kegg.organisms" value="7227"/>
+    </source>
 
 
-||kegg-pathway||Link genes to [http://www.genome.jp/kegg/ KEGG pathways] that they operate in.||pathways, genes||'''kegg_config.properties''' - which gene identifier fields are populated, mapping from organism taxonId to abbreviation||only taxonIds specified in project.xml file are downloaded, if no taxonIds are configured, all are loaded.||
+kegg_config.properties
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Decides which gene identifier fields are populated, mapping from organism taxonId to abbreviation. Only taxonIds specified in project.xml file are downloaded, if no taxonIds are configured, all are loaded.
