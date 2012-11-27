@@ -24,5 +24,4 @@ project XML example
       <property name="src.data.dir" location="/data/pubmed/" />
       <property name="pubmed.organisms" value="7227"/>
       <property name="src.data.dir.includes" value="gene2pubmed"/>
-      <property name="infoFile" location="/micklem/data/pubmed/current/gene_info"/>
     </source>

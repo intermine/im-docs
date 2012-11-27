@@ -5,4 +5,4 @@ Publications
 .. toctree::
 
     pubmed
-    update-publications
+    publications
