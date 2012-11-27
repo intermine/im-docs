@@ -21,3 +21,4 @@ Git
 	b. login and go in 'Account Settings' section to configure the `SSH keys <https://help.github.com/articles/generating-ssh-keys>`_
       
  
+.. index:: git

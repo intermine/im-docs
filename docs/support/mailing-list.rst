@@ -8,3 +8,5 @@ Please join the InterMine developers mailing list ``dev [at] intermine [dot] org
 Archives of old messages are available here:
 
 `Message archive <http://mail.intermine.org/pipermail/dev>`_
+
+.. index:: email, help, developers, mailing list

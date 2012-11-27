@@ -53,3 +53,5 @@ Installing Postgres
 -----------------------
 
 See http://www.postgresql.org/download/macosx.  We've had the most success with MacPorts.  
+
+.. index:: apples, Mac

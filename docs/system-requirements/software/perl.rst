@@ -155,3 +155,5 @@ List of Perl Modules to Install
   * Number::Format
   * PerlIO::gzip
   * Perl6::Junction 
+
+.. index:: Perl installation

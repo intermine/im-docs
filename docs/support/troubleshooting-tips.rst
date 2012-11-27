@@ -151,3 +151,4 @@ Classpath issues can generate various errors, eg a conflict caused by `wstx-asl-
 
 	XMLStreamWriter writer = factory.createXMLStreamWriter(sw);
 
+.. index:: help, classpath, antlib-int.xml, keys, OutOfMemoryError, too many clients error, showProperties, logs, error messages

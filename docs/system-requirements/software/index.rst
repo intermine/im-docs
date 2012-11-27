@@ -1,8 +1,6 @@
 Software
 ===========
 
-
-
 InterMine makes use of a variety of freely available software packages.  All of the software listed below is required. 
 
 ==========  ===============  ===================================
@@ -32,3 +30,6 @@ After installation, most programs require extra configuration to work with Inter
    postgres/index
    tomcat
    macs
+
+
+ .. index:: software dependencies

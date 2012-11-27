@@ -7,6 +7,4 @@ System Requirements
    hardware/index
    software/index
 
-
-
-   
+ .. index:: system requirements

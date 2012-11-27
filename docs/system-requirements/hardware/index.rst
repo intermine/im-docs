@@ -32,7 +32,7 @@ A less expensive option:
 
 Note:  It's fairly essential to have separate development and production machines.
 
-Web server to run Tomcat
+Web servers
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
  * 4 cores

@@ -70,3 +70,5 @@ Please try to treat InterMine as a black box. The fact that it uses Postgres to 
 
 
 .. [#] not needed in recent releases
+
+.. index:: PostgreSQL
