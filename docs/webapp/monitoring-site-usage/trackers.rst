@@ -88,3 +88,5 @@ The file has the following structure:
 	</searchtracks></tracks></userprofiles>
 
 Then run `create-db-userprofile` and `read-userprofile-xml`
+
+.. index:: tracking Mine usage

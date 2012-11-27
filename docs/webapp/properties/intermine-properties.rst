@@ -116,3 +116,6 @@ default.intermine.integrate.properties
 
 default.intermine.webapp.properties
 	used by the intermine webapp code when running inside Tomcat.
+
+
+.. index:: multiple mines

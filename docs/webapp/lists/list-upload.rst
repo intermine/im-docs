@@ -61,3 +61,4 @@ organisms
 valid delimiters
 	The default valid delimiters are comma, space, tab or new line.  You can change this value by setting the "list.upload.delimiters" property in WebProperties.
 
+.. index:: list upload

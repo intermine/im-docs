@@ -87,4 +87,4 @@ Sitemaps
 Search engines often have difficulty indexing dynamic websites.  The easiest solution for this is provide a sitemap that indicates which pages should be indexed.
 
 
-.. index:: SEO, google, msn, yahoo, robots.txt, user-agent, search engines
+.. index:: SEO, Google, Yahoo, robots.txt, user-agent, search engines

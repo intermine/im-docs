@@ -67,3 +67,4 @@ More examples
 
 See FlyMine for more examples: http://blog.flymine.org/link-to-flymine
 
+.. index:: mine links, links

@@ -15,3 +15,5 @@ Lists
     list-upload
     list-analysis/index
     /embedding/list-widgets/index
+
+.. index:: lists

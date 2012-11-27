@@ -24,3 +24,5 @@ template queries
 
 widgets
 	See: :doc:`/embedding/list-widgets/index`
+
+.. index:: list analysis page
