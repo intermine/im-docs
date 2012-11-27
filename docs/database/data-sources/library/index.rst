@@ -16,11 +16,6 @@ These are commonly used sources that you may want to use to load data into your 
 .. toctree::
     :maxdepth: 2
 
-    chado
-    ensembl
-    entrez-organism
-    fasta
-    gff
     go/index
     homologues/index
     identifiers/index
@@ -28,12 +23,18 @@ These are commonly used sources that you may want to use to load data into your 
     pathways/index
     proteins/index
     publications/index
+    
+.. toctree::
+    :maxdepth: `
+
+    chado
+    ensembl
+    fasta
+    gff
+    intermine-items-xml
+    organism
     snp
     so
-
-
-
-
 
 
 FlyMine Specific sources

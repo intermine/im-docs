@@ -1,7 +1,7 @@
-Entrez Organisms
+Organisms
 ================================
 
-All other sources refer to organisms only by their [http://www.ncbi.nlm.nih.gov/Taxonomy NCBI taxonomy id].  This source should be included at the end of the build.  It will select the taxonIds loaded into the Organism class, fetch details via the Entrez web service and fill in the organism names in the database.
+All other sources refer to organisms only by their NCBI taxonomy id.  This source should be included at the end of the build.  It will select the taxonIds loaded into the Organism class, fetch details via the Entrez web service and fill in the organism names in the database.
 
 Types of data loaded
 --------------------

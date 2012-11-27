@@ -5,4 +5,4 @@ Proteins
 
     uniprot
     pdb
-    
+    interpro
