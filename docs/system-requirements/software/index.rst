@@ -32,4 +32,4 @@ After installation, most programs require extra configuration to work with Inter
    macs
 
 
- .. index:: software dependencies
+.. index:: software dependencies

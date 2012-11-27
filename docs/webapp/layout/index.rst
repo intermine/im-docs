@@ -27,7 +27,7 @@ In addition to InterMine's file, each mine has its own internationalisation file
 If you want to add a tab specific to your mine, add an entry to this file. Properties set in this file overwrite the ones set in ``intermine/webapp/main/resources/webapp/WEB-INF/classes/InterMineWebApp.properties``.
 
 Keyword search box
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This search box queries the search index created in the postprocess ``create-search-index``. To change which placeholder identifiers will appear in the box, edit the `quickSearch.identifiers` property in :doc:`/webapp/properties/intermine-properties`.
 

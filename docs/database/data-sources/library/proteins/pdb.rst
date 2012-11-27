@@ -13,7 +13,7 @@ How to load the data into your mine
 
 project XML example
 
-.. code-block:: pdb
+.. code-block:: xml
 
     <source name="pdb" type="pdb">
       <property name="src.data.dir" location="/data/pdb"/>
