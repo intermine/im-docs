@@ -14,3 +14,4 @@ ftp://ftp.ncbi.nih.gov/pub/HomoloGene/current/homologene.data
       <property name="homologene.organisms" value="7227 9606 10090 10116 7955 6239 4932"/>
     </source>
     
+.. index:: Homologene

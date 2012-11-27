@@ -14,3 +14,4 @@ Project XML
       <property name="orthodb.organisms" value="7227 9606 10090 10116 7955 6239 4932"/>
     </source>
 
+.. index:: OrthoDB

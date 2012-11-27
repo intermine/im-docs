@@ -23,3 +23,5 @@ project XML example
     <source name="go" type="go">
       <property name="src.data.file" location="/data/go-annotation/gene_ontology.obo"/>
     </source>
+
+.. index:: GO, gene ontology, OBO

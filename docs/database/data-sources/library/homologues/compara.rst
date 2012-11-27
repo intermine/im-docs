@@ -73,3 +73,5 @@ When you have created your query, you can export the Perl script or XML so you c
       <Attribute name = "drosophila_ensembl_gene" />
     </Dataset>
   </Query>
+
+.. index:: Ensembl Compara

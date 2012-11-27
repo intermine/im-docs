@@ -28,3 +28,5 @@ Project XML
 
 * '''treefam.organisms''' - all genes from the listed organisms will be processed
 * '''treefam.homologues''' (optional) - genes will *only* be loaded into the database if they are a homologue of an organism of interest
+
+.. index:: TreeFam
