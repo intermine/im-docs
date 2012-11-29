@@ -54,5 +54,12 @@ Privacy Policy
 
     privacy-policy
 
+Release Notes
+------------------
+
+.. toctree::
+    :maxdepth: 1
+
+    release-notes
 
 .. index:: LGPL

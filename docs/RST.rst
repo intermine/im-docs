@@ -63,6 +63,20 @@ Led Cepin   music
 Hugh Laurie television
 =========== ==========
 
+
+Simple table:
+
+=====  =====  ======
+   Inputs     Output
+------------  ------
+  A      B    A or B
+=====  =====  ======
+False  False  False
+True   False  True
+False  True   True
+True   True   True
+=====  =====  ======
+
 Definition lists
 ----------------
 
@@ -75,9 +89,9 @@ how
 Footnotes
 ---------
 
-Footnotes provide extra information where using an info box is not appropriate [#]_.
+Footnotes provide extra information where using an info box is not appropriate [1]_
 
-.. [#] Like here, the text is relevant only to the line here, not the whole page say.
+.. [1] Like here, the text is relevant only to the line here, not the whole page say.
 
 Source Code
 -----------
