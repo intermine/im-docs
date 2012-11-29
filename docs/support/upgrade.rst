@@ -99,7 +99,7 @@ We have several [wiki:Homologue new homologue data converters] available in this
 Configuration Updates
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Web services uses the `webapp.baseurl` to run queries, so be sure this is the valid URL for your mine. Otherwise you will get an "Unable to construct query" error on the query results page.
+Web services uses the `webapp.baseurl` property to run queries, so be sure this is the valid URL for your mine. Otherwise you will get an "Unable to construct query" error on the query results page.
 
 .. code-block:: properties
 

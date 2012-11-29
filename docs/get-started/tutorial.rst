@@ -933,9 +933,9 @@ Update your malariamine.properties file  with correct information for the `db.us
 
 .. warning::
 
-  The build-db command will delete any data in the userprofile database.  
+  The build-db and build-db-userprofile commands rebuild the database and thus will delete any data.  
 
-This command creates the SuperUser account and loads the default-template-queries.xml file. You only need to build the userprofile database once for every production database.  
+This command creates the SuperUser account and loads the `default-template-queries.xml` file. You only need to build the userprofile database once.  
 
 Deploying the webapp
 ~~~~~~~~~~~~~~~~~~~~~~~~~
