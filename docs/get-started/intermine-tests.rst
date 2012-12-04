@@ -129,7 +129,7 @@ Set up a properties file to provide database details to the test code. In `.inte
   os.query.max-offset=10000000
   os.queue-len=100
 
-# testing properties
+  # testing properties
 
   db.bio-fulldata-test.datasource.serverName=localhost
   db.bio-fulldata-test.datasource.databaseName=bio-fulldata-test
