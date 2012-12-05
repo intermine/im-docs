@@ -11,7 +11,7 @@ Report Widgets
 
 Report Widgets are a type of embeddable component that offers an unparalleled **flexibility** when it comes to the tools that InterMine offers. They are provided as a way for developers to create interactive *widgets* to their end users. Such widgets can then be embedded on virtually any page, be it within a mine or outside of it.
 
-.. seealso:: `Report widgets demo <http://reportwidgets-intermine.rhcloud.com/>`_.
+.. seealso:: `Report widgets demo <http://ukraine.sysbiol.cam.ac.uk/intermine-report-widgets-service/>`_.
 
 .. figure::  img/example.png
    :align:   center
