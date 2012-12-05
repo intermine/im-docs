@@ -9,6 +9,8 @@ List Widgets
     q-and-a
     enrichment-widgets
 
+.. seealso:: `FlyMine list widgets example on Tinkerbin <http://tinkerbin.com/Xb3SZhOK>`_.
+
 There are several list widgets (widgets from now on) available on the InterMine list analysis page, and they are configured in :doc:`/webapp/properties/webconfig-model`.
 
 There are three categories of widgets:
