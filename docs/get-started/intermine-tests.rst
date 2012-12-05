@@ -24,9 +24,53 @@ Create blank databases required by the tests named:  `unittest`, `truncunittest`
 Update properties file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You need to set up a properties file to provide database details to the test code.  In your home directory create a file called `intermine-test.properties` and update the server name, database names, and database username and password.  
+You need to set up a properties file to provide database details to the test code.  In your home directory create a file called `intermine-test.properties` and update the server name, database names, and database username and password.  You can use different database names as long as the actual database name used to create the database and the `db.xxx.datasource.databaseName` value match.  
 
-You can use different database names as long as the actual database name used to create the database (in Step 1.1) and the `db.xxx.datasource.databaseName` value match.  See `intermine/doc/example/intermine-test.properties` for an example
+.. code-block:: properties
+
+  # super user
+  superuser.account=test
+
+  # common properties
+
+  os.query.max-time=10000000
+  os.query.max-limit=100000
+  os.query.max-offset=10000000
+  os.queue-len=100
+
+  # testing properties
+
+  db.notxmlunittest.datasource.serverName=localhost
+  db.notxmlunittest.datasource.databaseName=notxmltest
+  db.notxmlunittest.datasource.user=USERNAME
+  db.notxmlunittest.datasource.password=SECRET_PASSWORD
+
+  db.truncunittest.datasource.serverName=localhost
+  db.truncunittest.datasource.databaseName=truncunittest
+  db.truncunittest.datasource.user=USERNAME
+  db.truncunittest.datasource.password=SECRET_PASSWORD
+
+  db.flatmodeunittest.datasource.serverName=localhost
+  db.flatmodeunittest.datasource.databaseName=flatmodetest
+  db.flatmodeunittest.datasource.user=USERNAME
+  db.flatmodeunittest.datasource.password=SECRET_PASSWORD
+
+  db.fulldatatest.datasource.serverName=localhost
+  db.fulldatatest.datasource.databaseName=fulldatatest
+  db.fulldatatest.datasource.user=USERNAME
+  db.fulldatatest.datasource.password=SECRET_PASSWORD
+
+  db.userprofile-test.datasource.serverName=localhost
+  db.userprofile-test.datasource.databaseName=userprofile-test
+  db.userprofile-test.datasource.user=USERNAME
+  db.userprofile-test.datasource.password=SECRET_PASSWORD
+
+  db.unittest.datasource.serverName=localhost
+  db.unittest.datasource.databaseName=unittest
+  db.unittest.datasource.user=USERNAME
+  db.unittest.datasource.password=SECRET_PASSWORD
+
+
 
 There are separate test projects for the main InterMine libraries: core objectstore code, the integration code and the web code.  These are the
 packages/directories:
@@ -37,7 +81,7 @@ packages/directories:
 Run the tests
 ~~~~~~~~~~~~~~~~~~~
 
-Run the tests by changing to the appropriate directory and running `ant` with no arguments (see also: [wiki:AntTargets a list of useful ant targets]).  For example:
+Run the tests by changing to the appropriate directory and running `ant` with no arguments.  For example:
 
 .. code-block:: bash
 
@@ -72,7 +116,31 @@ Create blank databases called `bio-test` and `bio-fulldata-test` (as above you c
 Update properties file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Set up a properties file to provide database details to the test code. In `.intermine` create a file called `intermine-bio-test.properties` and configure the server name, database names, and database username and password. Here is an example: `intermine/doc/example/intermine-bio-test.properties`
+Set up a properties file to provide database details to the test code. In `.intermine` create a file called `intermine-bio-test.properties` and configure the server name, database names, and database username and password. 
+
+.. code-block:: properties
+
+  os.default=os.production-client
+
+  # common properties
+
+  os.query.max-time=10000000
+  os.query.max-limit=100000
+  os.query.max-offset=10000000
+  os.queue-len=100
+
+  # testing properties
+
+  db.bio-fulldata-test.datasource.serverName=localhost
+  db.bio-fulldata-test.datasource.databaseName=bio-fulldata-test
+  db.bio-fulldata-test.datasource.user=USERNAME
+  db.bio-fulldata-test.datasource.password=SECRET_PASSWORD
+
+  db.bio-test.datasource.serverName=localhost
+  db.bio-test.datasource.databaseName=bio-test
+  db.bio-test.datasource.user=USERNAME
+  db.bio-test.datasource.password=SECRET_PASSWORD
+
 
 Build the databases
 ~~~~~~~~~~~~~~~~~~~

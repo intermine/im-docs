@@ -19,12 +19,44 @@ The tabs are set in InterMine's internationalisation file: ``intermine/webapp/ma
 Each page has a name and a tab, for example:
 
 .. code-block:: properties
-    
+
     mymine.tab = mymine
 
-In addition to InterMine's file, each mine has its own internationalisation file: ``<your_mine>/webapp/resources/model.properties``.
+In addition to InterMine's file, each mine has its own internationalisation file: `MINE_NAME/webapp/resources/model.properties`. Properties set in this file overwrite the ones set in ``intermine/webapp/main/resources/webapp/WEB-INF/classes/InterMineWebApp.properties``. Below is an example of how to add tabs to your mine. Replace "api" with the name of your new tab.
 
-If you want to add a tab specific to your mine, add an entry to this file. Properties set in this file overwrite the ones set in ``intermine/webapp/main/resources/webapp/WEB-INF/classes/InterMineWebApp.properties``.
+First, add your tab to `intermine/webapp/main/resources/webapp/headMenu.jsp`
+
+.. code-block:: html
+
+      <li id="api"  <c:if test="${tab == 'api'}">class="activelink"</c:if>>
+        <a href="/${WEB_PROPERTIES['webapp.path']}/api.do">
+          <fmt:message key="menu.api"/>
+        </a>
+      </li>
+
+Then add the text for that tab to your `MINE_NAME/webapp/resources/model.properties` file:
+
+.. code-block:: properties
+
+    # HEADER
+    menu.api = API 
+
+You'll need to configure our web framework (Struts) to properly load your JSP page:
+
+.. code-block:: xml
+
+    # in MINE_NAME/webapp/resources/struts-config-model.xml
+    <action path="/api" forward="api.page"/>
+
+    # in MINE_NAME/webapp/resources/tiles-defs-model.xml
+    <definition name="api.page" extends="layout.template">
+        <put name="body" value="api.tile"/>
+        <put name="pageName" value="api"/>
+    </definition>
+
+    <definition name="api.tile" path="/api.jsp"/>
+
+Finally, add your JSP file to the `MINE_NAME/webapp/resources/webapp` directory and re-release your webapp.
 
 Keyword search box
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -83,7 +115,7 @@ To switch a theme edit :doc:`/webapp/properties/web-properties`:
 You need to change this property to the name of the theme you want to use (the directory name), then re-release the webapp. Be sure to run ``ant-clean`` to ensure that all of the old files are deleted:
 
 .. code-block:: bash
-    
+
     # in <your_mine>/webapp/resources/webapp
     $ ant clean
     $ ant default remove-webapp release-webapp
