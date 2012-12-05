@@ -22,9 +22,7 @@ Each page has a name and a tab, for example:
 
     mymine.tab = mymine
 
-In addition to InterMine's file, each mine has its own internationalisation file: `MINE_NAME/webapp/resources/model.properties`.
-
-If you want to add a tab specific to your mine, add an entry to this file. Properties set in this file overwrite the ones set in ``intermine/webapp/main/resources/webapp/WEB-INF/classes/InterMineWebApp.properties``.
+In addition to InterMine's file, each mine has its own internationalisation file: `MINE_NAME/webapp/resources/model.properties`. Properties set in this file overwrite the ones set in ``intermine/webapp/main/resources/webapp/WEB-INF/classes/InterMineWebApp.properties``. Below is an example of how to add tabs to your mine. Replace "api" with the name of your new tab.
 
 First, add your tab to `intermine/webapp/main/resources/webapp/headMenu.jsp`
 
