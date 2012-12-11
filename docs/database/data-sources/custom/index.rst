@@ -90,6 +90,7 @@ The db value has to match the '''source.db.name''' in your project XML entry, fo
 
 .. code-block:: xml
 
+    # project XML
     <source name="chado-db-flybase-dmel" type="chado-db">
       <property name="source.db.name" value="flybase"/>
       ...

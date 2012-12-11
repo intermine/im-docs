@@ -26,7 +26,7 @@ In addition to InterMine's file, each mine has its own internationalisation file
 
 First, add your tab to `intermine/webapp/main/resources/webapp/headMenu.jsp`
 
-.. code-block:: html
+.. code-block:: jstl
 
       <li id="api"  <c:if test="${tab == 'api'}">class="activelink"</c:if>>
         <a href="/${WEB_PROPERTIES['webapp.path']}/api.do">
