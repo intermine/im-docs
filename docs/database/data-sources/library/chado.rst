@@ -210,6 +210,7 @@ The chado database has to be on the local network.
       <property name="organisms" value="7227"/>
       <property name="dataSourceName" value="FlyBase"/>
       <property name="converter.class" value="org.intermine.bio.dataconversion.ChadoDBConverter"/>
+      <property name="processors" value="org.intermine.bio.dataconversion.SequenceProcessor"/>
     </source>
 
 3. Run the build
