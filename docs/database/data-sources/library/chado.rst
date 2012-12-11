@@ -185,7 +185,7 @@ Handled by `ChadoSequenceProcessor.processFeatureCVTermTable()`
 Using the default chado source
 ----------------------------------------
 
-#. Add the chado database to your MINE_NAME.properties file, eg:
+1. Add the chado database to your MINE_NAME.properties file, eg:
 
 .. code-block:: properties
 
@@ -201,7 +201,7 @@ Using the default chado source
 
 The chado database has to be on the local network.
 
-#. Add source to project XML file
+2. Add source to project XML file
 
 .. code-block:: xml
 
@@ -212,7 +212,7 @@ The chado database has to be on the local network.
       <property name="converter.class" value="org.intermine.bio.dataconversion.ChadoDBConverter"/>
     </source>
 
-#. Run the build
+3. Run the build
 
 .. code-block:: bash
 
