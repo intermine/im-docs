@@ -182,5 +182,43 @@ Reading the cvterm table
 
 Handled by `ChadoSequenceProcessor.processFeatureCVTermTable()`
 
+Using the default chado source
+----------------------------------------
+
+#. Add the chado database to your MINE_NAME.properties file, eg:
+
+.. code-block:: properties
+
+  db.flybase.datasource.class=org.postgresql.ds.PGPoolingDataSource
+  db.flybase.datasource.dataSourceName=db.flybase
+  db.flybase.datasource.serverName=SERVER_NAME
+  db.flybase.datasource.databaseName=DATABASE_NAME
+  db.flybase.datasource.user=USER_NAME
+  db.flybase.datasource.password=SECRET_PASSWORD
+  db.flybase.datasource.maxConnections=10
+  db.flybase.driver=org.postgresql.Driver
+  db.flybase.platform=PostgreSQL
+
+The chado database has to be on the local network.
+
+#. Add source to project XML file
+
+.. code-block:: xml
+
+    <source name="chado-db" type="chado-db">
+      <property name="source.db.name" value="flybase"/>
+      <property name="organisms" value="7227"/>
+      <property name="dataSourceName" value="FlyBase"/>
+      <property name="converter.class" value="org.intermine.bio.dataconversion.ChadoDBConverter"/>
+    </source>
+
+#. Run the build
+
+.. code-block:: bash
+
+ $ cd MINE_NAME/integrate
+ $ ant build-db -v; ant integrate -Dsource=chado-db -v
+
+See :doc:`/database/database-building/index` for more information on running builds. 
 
 .. index:: chado, FlyBase, WormBase 
