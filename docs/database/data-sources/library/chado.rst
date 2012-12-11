@@ -222,4 +222,7 @@ The chado database has to be on the local network.
 
 See :doc:`/database/database-building/index` for more information on running builds. 
 
+This will load the data using the default chado loader. If you want to load more data you will have to write a custom chado converter. FlyMine uses a FlyBase chado "processor" to parse interactions, etc. See `FlyBaseProcessor.java <http://https://github.com/intermine/intermine/blob/dev/bio/sources/chado-db/main/src/org/intermine/bio/dataconversion/FlyBaseProcessor.java>`_ for an example.
+
+
 .. index:: chado, FlyBase, WormBase 
