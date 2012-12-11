@@ -39,6 +39,28 @@ Prerequisites
 * PerlIO::gzip
 * Perl6::Junction
 
+If you are using Ubuntu (tested on 12.10), you can run the following command to install the packages:
+
+.. code-block:: bash
+
+    $ sudo apt-get install libpath-class-perl libmoosex-types-path-class-perl liblog-handler-perl liblog-report-perl libdatetime-perl libmoosex-followpbp-perl libyaml-perl libmodule-find-perl libperlio-gzip-perl libouch-perl libnumber-format-perl
+
+Other perl modules need to be installed via CPAN:
+
+.. code-block:: bash
+ 
+    $ cpan
+    cpan[1]> install MooseX::ABC
+    cpan[2]> install MooseX::FileAttribute
+
+Data Source Configuration
+---------------------------
+To learn how to configure data sources of your mine, look here for examples: 
+
+    `bio/scripts/DataDownloader/config`
+
+The yaml file of your mine is where data download script reads the instruction  
+
 Running
 ---------------------------
 
@@ -46,7 +68,7 @@ To run a set of data downloads, the following call should suffice:
 
 .. code-block:: bash
 
-    perl svn/dev/bio/scripts/DataDownloader/bin/download_data -e flymine
+    perl bio/scripts/DataDownloader/bin/download_data -e intermine
 
 
 The Current working directory of the script is immaterial.
@@ -55,7 +77,7 @@ Specific sources can be run by naming them on the command line:
 
 .. code-block:: bash
 
-    perl svn/dev/bio/scripts/DataDownloader/bin/download_data -e flymine Uniprot RNAiScreens
+    perl bio/scripts/DataDownloader/bin/download_data -e intermine Uniprot GOAnnotation
 
 Source names are case-sensitive. You can get a list of the available sources with the
 switch '--sources'.
