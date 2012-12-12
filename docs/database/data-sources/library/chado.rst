@@ -218,7 +218,7 @@ The chado database has to be on the local network.
 .. code-block:: bash
 
  $ cd MINE_NAME/integrate
- $ ant build-db -v; ant integrate -Dsource=chado-db -v
+ $ (cd ../dbmodel && ant build-db -v); ant -Dsource=chado-db -v
 
 See :doc:`/database/database-building/index` for more information on running builds. 
 
