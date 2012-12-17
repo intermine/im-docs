@@ -65,7 +65,7 @@ If you used a package manager to get Tomcat, the manager may not be included. He
 Server XML
 ~~~~~~~~~~~~
 
-You also need to check in your `server.xml` file that the correct `UTF-8` encoding has been applied to all connectors in use (see http://wiki.apache.org/tomcat/FAQ/CharacterEncoding). Make sure that every connector element in use reads as follows:
+You also need to check in your `server.xml` file that the correct `UTF-8` encoding has been applied to all connectors in use (see  `CharacterEncoding <http://http://wiki.apache.org/tomcat/FAQ/CharacterEncoding>`_). Make sure that every connector element in use reads as follows:
 
 .. code-block:: xml
 
@@ -79,8 +79,14 @@ Without this, permalinks may break.
 Session Errors 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+If you get a "Session Error" when you start up your webapp, you may need to update your Tomcat configuration to remove application path in front of sessions' cookies. 
+
+You get this error because the home page makes several requests but your session is lost between transactions with a new session started with the first query. For instance, when you go to the beta.flymine.org home page your cookie path will initially be "/". To display the "most popular" template queries, a query is run on full URL using the path "/beta". The session with the "/" path is discarded and a new session cookie is created with the "/beta" path. (You can view the values stored in your cookies via your web browser.)
+
 Tomcat 6.0
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ - mentions potential security hole
 
 Add `emptySessionPath` to `$TOMCAT/conf/server.xml`
 
@@ -95,13 +101,20 @@ Add `emptySessionPath` to `$TOMCAT/conf/server.xml`
       redirectPort="8443"
       emptySessionPath="true"  /> 
 
+`Tomcat 6.0 HTTP connector documentation <http://tomcat.apache.org/tomcat-6.0-doc/config/http.html>`_  - mentions potential security hole
+
 Tomcat 7.0
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Add these 2 attributes to `$TOMCAT/conf/conf/context.xml`
 
- * sessionCookiePath="/"
- * useHttpOnly="false"
+.. code-block:: properties
+
+   sessionCookiePath="/"
+   useHttpOnly="false"
+
+
+`Tomcat 7.0 context documentation <http://tomcat.apache.org/tomcat-7.0-doc/config/context.html>`_
 
 Tomcat 7.0 
 ~~~~~~~~~~~~
