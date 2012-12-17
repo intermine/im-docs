@@ -76,43 +76,7 @@ You also need to check in your `server.xml` file that the correct `UTF-8` encodi
 
 Without this, permalinks may break.
 
-Session Errors 
-~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you get a "Session Error" when you start up your webapp, you may need to update your Tomcat configuration to remove application path in front of sessions' cookies. 
-
-You get this error because the home page makes several requests but your session is lost between transactions with a new session started with the first query. For instance, when you go to the beta.flymine.org home page your cookie path will initially be "/". To display the "most popular" template queries, a query is run on full URL using the path "/beta". The session with the "/" path is discarded and a new session cookie is created with the "/beta" path. (You can view the values stored in your cookies via your web browser.)
-
-Tomcat 6.0
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Add `emptySessionPath` to `$TOMCAT/conf/server.xml`
-
-.. code-block:: xml
-
-    <Connector port="8080" protocol="HTTP/1.1"
-      connectionTimeout="20000"
-      redirectPort="8443"
-      emptySessionPath="true" />
-
-    <Connector port="8009" protocol="AJP/1.3" 
-      redirectPort="8443"
-      emptySessionPath="true"  /> 
-
-`Tomcat 6.0 HTTP connector documentation <http://tomcat.apache.org/tomcat-6.0-doc/config/http.html>`_  - mentions potential security hole
-
-Tomcat 7.0
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Add these 2 attributes to `$TOMCAT/conf/conf/context.xml`
-
-.. code-block:: properties
-
-   sessionCookiePath="/"
-   useHttpOnly="false"
-
-
-`Tomcat 7.0 context documentation <http://tomcat.apache.org/tomcat-7.0-doc/config/context.html>`_
 
 Tomcat 7.0 
 ~~~~~~~~~~~~
@@ -175,8 +139,11 @@ You can't drop a database if Tomcat has an open connection to a Postgres databas
 #. restart tomcat
 #. dropdb 
 
+Common Errors
+~~~~~~~~~~~~~~~~~~~
+
 Out of Memory Errors
-~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To avoid `java.lang.OutOfMemory` errors, specify the JVM heap size in `$TOMCAT_HOME/bin/tomcat.sh`. You can specify the size as part of `TOMCAT_OPTS`:
 
@@ -184,5 +151,43 @@ To avoid `java.lang.OutOfMemory` errors, specify the JVM heap size in `$TOMCAT_H
 
    '-Xmx256m -Xms128m'
 
+Session Errors 
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. index:: Tomcat, JAVA_OPTS
+If you get a "Session Error" when you start up your webapp, you may need to update your Tomcat configuration to remove application path in front of sessions' cookies. 
+
+You get this error because the home page makes several requests but your session is lost between transactions with a new session started with the first query. For instance, when you go to the beta.flymine.org home page your cookie path will initially be "/". To display the "most popular" template queries, a query is run on full URL using the path "/beta". The session with the "/" path is discarded and a new session cookie is created with the "/beta" path. (You can view the values stored in your cookies via your web browser.)
+
+Tomcat 6.0
+""""""""""""""
+
+Add `emptySessionPath` to `$TOMCAT/conf/server.xml`
+
+.. code-block:: xml
+
+    <Connector port="8080" protocol="HTTP/1.1"
+      connectionTimeout="20000"
+      redirectPort="8443"
+      emptySessionPath="true" />
+
+    <Connector port="8009" protocol="AJP/1.3" 
+      redirectPort="8443"
+      emptySessionPath="true"  /> 
+
+`Tomcat 6.0 HTTP connector documentation <http://tomcat.apache.org/tomcat-6.0-doc/config/http.html>`_  - mentions potential security hole
+
+Tomcat 7.0
+""""""""""""""
+
+Add these 2 attributes to `$TOMCAT/conf/conf/context.xml`
+
+.. code-block:: properties
+
+   sessionCookiePath="/"
+   useHttpOnly="false"
+
+
+`Tomcat 7.0 context documentation <http://tomcat.apache.org/tomcat-7.0-doc/config/context.html>`_
+
+
+.. index:: Tomcat, JAVA_OPTS, emptySessionPath, sessionCookiePath, session error, out of memory error
