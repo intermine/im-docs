@@ -86,8 +86,6 @@ You get this error because the home page makes several requests but your session
 Tomcat 6.0
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- - mentions potential security hole
-
 Add `emptySessionPath` to `$TOMCAT/conf/server.xml`
 
 .. code-block:: xml
