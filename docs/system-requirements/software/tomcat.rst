@@ -76,6 +76,33 @@ You also need to check in your `server.xml` file that the correct `UTF-8` encodi
 
 Without this, permalinks may break.
 
+Session Errors 
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Tomcat 6.0
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Add `emptySessionPath` to `$TOMCAT/conf/server.xml`
+
+.. code-block:: xml
+
+    <Connector port="8080" protocol="HTTP/1.1"
+      connectionTimeout="20000"
+      redirectPort="8443"
+      emptySessionPath="true" />
+
+    <Connector port="8009" protocol="AJP/1.3" 
+      redirectPort="8443"
+      emptySessionPath="true"  /> 
+
+Tomcat 7.0
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Add these 2 attributes to `$TOMCAT/conf/conf/context.xml`
+
+ * sessionCookiePath="/"
+ * useHttpOnly="false"
+
 Tomcat 7.0 
 ~~~~~~~~~~~~
 
