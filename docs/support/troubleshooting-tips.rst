@@ -151,4 +151,9 @@ Classpath issues can generate various errors, eg a conflict caused by `wstx-asl-
 
 	XMLStreamWriter writer = factory.createXMLStreamWriter(sw);
 
+Session Error
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you get a session error when you first start up your webapp, update your Tomcat configuration to handle different URLs. See :doc:`/system-requirements/software/tomcat`.
+
 .. index:: help, classpath, antlib-int.xml, keys, OutOfMemoryError, too many clients error, showProperties, logs, error messages
