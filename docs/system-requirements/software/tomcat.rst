@@ -65,7 +65,7 @@ If you used a package manager to get Tomcat, the manager may not be included. He
 Server XML
 ~~~~~~~~~~~~
 
-You also need to check in your `server.xml` file that the correct `UTF-8` encoding has been applied to all connectors in use (see  `CharacterEncoding <http://http://wiki.apache.org/tomcat/FAQ/CharacterEncoding>`_). Make sure that every connector element in use reads as follows:
+You also need to check in your `server.xml` file that the correct `UTF-8` encoding has been applied to all connectors in use (see  `CharacterEncoding <http://wiki.apache.org/tomcat/FAQ/CharacterEncoding>`_). Make sure that every connector element in use reads as follows:
 
 .. code-block:: xml
 
