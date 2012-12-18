@@ -11,11 +11,10 @@ The first one
 
 .. cssclass:: right
 
+===========
+`Link to PDF <http://>`_
 Sphinx comes with a selection of themes to choose from.
-
-.. cssclass:: right
-
-Sphinx comes with a selection of themes to choose from.
+===========
 
 .. raw:: html
 
