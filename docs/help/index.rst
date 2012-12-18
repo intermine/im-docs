@@ -6,10 +6,12 @@ If the theme does not come with Sphinx, it can be in two forms: either a directo
 Videos
 ------
 
-.. cssclass:: right
-
 The first one
 ~~~~~~~~~~~~~
+
+.. cssclass:: right
+
+Sphinx comes with a selection of themes to choose from.
 
 .. cssclass:: right
 
