@@ -11,14 +11,10 @@ The first one
 
 .. cssclass:: right
 
-===========
-`Link to PDF <http://>`_
-Sphinx comes with a selection of themes to choose from.
-===========
-
+=======================================================
 .. raw:: html
 
-   <object id="scPlayer" width="600" height="600" type="application/x-shockwave-flash" data="http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/scplayer.swf">
+   <object id="scPlayer" width="300" height="300" type="application/x-shockwave-flash" data="http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/scplayer.swf">
       <param name="movie" value="http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/scplayer.swf">
       <param name="quality" value="high">
       <param name="bgcolor" value="#859E02">
@@ -27,5 +23,6 @@ Sphinx comes with a selection of themes to choose from.
       <param name="scale" value="showall">
       <param name="allowScriptAccess" value="always">
       <param name="base" value="http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/">
-      <iframe type="text/html" frameborder="0" scrolling="no" style="overflow:hidden;" src="http://www.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/embed" height="600" width="600"></iframe>
+      <iframe type="text/html" frameborder="0" scrolling="no" style="overflow:hidden;" src="http://www.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/embed" height="300" width="300"></iframe>
    </object>
+=======================================================
