@@ -21,13 +21,20 @@ Using ID Resolvers in  InterMine data converters
 
 Many data converters use the Entrez (NCBI) Gene ID resolver:
 
-#. Download the identifier file - ftp://ftp.ncbi.nih.gov/gene/DATA/gene_info.gz gene_info.gz
-#. Unzip the file
-#. Add the path to the file in ~/.intermine/MINE.properties
+1. Download the identifier file - ftp://ftp.ncbi.nih.gov/gene/DATA/gene_info.gz gene_info.gz
+2. Unzip the file to `/DATA_DIR/ncbi/gene_info`
+3. Create a sub directory `/DATA_DIR/idresolver/` as file root path and a symbolic link `entrez` to the file
+
+.. code-block:: bash
+
+  $ cd /DATA_DIR/idresolver/
+  $ ln -s /DATA_DIR/ncbi/gene_info entrez 
+
+4. Add the root path to the file in `~/.intermine/MINE.properties`
 
 .. code-block:: properties
 
-  resolver.entrez.file=/DATA_DIR/ncbi/gene_info
+  resolver.file.rootpath=/DATA_DIR/idresolver/
 
 
 In the data converter, the ID resolver is given an identifier. The resolver then looks in the map for the identifier.
@@ -44,19 +51,19 @@ number of matches  returns
 Using ID Resolvers in your data converters
 -----------------------------------------------------
 
-A factory will find data path from `~/.intermine/MINE_NAME.properties`, path needs to be absolute.
+A factory will find data root path from `~/.intermine/MINE_NAME.properties`, path needs to be absolute.
 
 .. code-block:: properties
 
-  resolver.entrez.file=/DATA_DIR/ncbi/gene_info
-  resolver.ensembl.file=/DATA_DIR/ensemblensembl.txt
+  resolver.file.rootpath=/DATA_DIR/idresolver/
 
 
-the key needs to be hard-coded in factory class, e.g. in  EntrezGeneIdResolverFactory
+the key and the symbolic link of the data file need to be hard-coded in factory class, e.g. in  `EntrezGeneIdResolverFactory`
 
 .. code-block:: java
 
-  private final String propName = "resolver.entrez.file";
+  private final String propKey = "resolver.file.rootpath";
+  private final String resolverFileSymbo = "entrez";
 
 As for database case, e.g. flybase chado
 
