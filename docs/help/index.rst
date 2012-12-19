@@ -8,6 +8,8 @@ Getting Started
 
 If you're new to InterMine it's probably best to see the 'FlyMine Lightning Overview' tutorial first.
 
+.. cssclass:: video
+
 * **Getting Started with InterMine**
   
   A quick introduction to InterMine's web interface using the FlyMine database.
