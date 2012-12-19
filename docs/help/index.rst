@@ -8,7 +8,7 @@ Getting Started
 
 If you're new to InterMine it's probably best to see the 'FlyMine Lightning Overview' tutorial first.
 
-* **Getting Sterted with InterMine**
+* **Getting Started with InterMine**
   
   A quick introduction to InterMine's web interface using the FlyMine database.
   
@@ -23,7 +23,7 @@ Templates: To help with data analysis, InterMine includes a library of Template 
 
 .. cssclass:: video
 
-* **VList Upload**
+* **List Upload**
   
   This tutorial shows you how to upload a List of Gene identifiers.
   
