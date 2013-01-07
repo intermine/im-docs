@@ -10,15 +10,21 @@ Web Services
 
 APIs
 -----
- 
-1. HTTP 
-2. clients
 
-* Java [download | docs]
-* Perl [download | docs]
-* Ruby [download | docs]
-* Python [download | docs]
-* JavaScript [download | docs]
+InterMine exposes its functionality over an HTTP API (generally following RESTful
+principles, but there is a bit of RPC there). Client libraries are available in commonly
+used languages so you can get started quickly. All our code is hosted on `Github http://www.github`__,
+and contributions are welcome. All InterMine code is free and open-source, released under the LGPL.
+
+For information on the underlying API, and the supported libraries, please visit the following links:
+
+#. HTTP 
+#. clients
+  * Java `Download http://pypi.python.org/pypi/intermine`__ | `Docs http://packages.python.org/intermine/`__
+  * Perl `Download|Docs http://search.cpan.org/perldoc?Webservice%3A%3AInterMine`__
+  * Ruby [download | docs]
+  * Python [download | docs]
+  * JavaScript [download | docs]
 
 
 Documentation
