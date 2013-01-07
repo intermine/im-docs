@@ -7,7 +7,6 @@ Web Services
 * table of features
 * cookbook? samples. link to code generation on a mine(s)
 
-
 APIs
 -----
 
@@ -21,10 +20,10 @@ For information on the underlying API, and the supported libraries, please visit
 
 #. HTTP API documentation: `<http://docs.intermine.org/http>`_
 #. clients
-  * Perl `Download|Docs <http://search.cpan.org/perldoc?Webservice%3A%3AInterMine>`__
-  * Python `Download <http://pypi.python.org/pypi/intermine>`_ | `Docs <http://packages.python.org/intermine/>`__ [download | docs]  
-  * Ruby `Download|Docs <http://www.rubygems.org/gems/intermine>`_
-  * JavaScript `Download <https://npmjs.org/package/imjs>`_ | `Docs <http://docs.intermine.org/imjs>`_
+ * Perl `Download|Docs <http://search.cpan.org/perldoc?Webservice%3A%3AInterMine>`_
+ * Python `Download <http://pypi.python.org/pypi/intermine>`_ | `Docs <http://packages.python.org/intermine/>`_
+ * Ruby `Download|Docs <http://www.rubygems.org/gems/intermine>`_
+ * JavaScript `Download <https://npmjs.org/package/imjs>`_ | `Docs <http://docs.intermine.org/imjs>`_
 
 
 Documentation
