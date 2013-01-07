@@ -1,20 +1,31 @@
 Web Services
 ================================
 
+InterMine allows, and encourages, programmatic access to
+its features, also known as *web services*. This allows
+users to automate:
+
+* Data retrieval (custom queries, templated queries, keyword searches).
+* List creation/analysis/management
+* User profile management
+
+For a full listing of web service capabilities please see the
+`HTTP API documentation <http://docs.intermine.org/http>`_.
+
 * Get started
 * What can I do?
   * How do I do this? 
 * table of features
 * cookbook? samples. link to code generation on a mine(s)
 
-APIs
------
+API and Client Libraries
+------------------------
 
 InterMine exposes its functionality over an HTTP API (generally following RESTful
 principles, but there is a bit of RPC there). Client libraries are available in commonly
 used languages so you can get started quickly. All our code is hosted on `Github <http://www.github>`_,
 and contributions are welcome. All InterMine code is free and open-source, released under
-the LGPL (see :doc:`/license`).
+the LGPL (see :doc:`/about/license`).
 
 For information on the underlying API, and the supported libraries, please visit the following links:
 
