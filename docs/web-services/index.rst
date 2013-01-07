@@ -32,7 +32,7 @@ For information on the underlying API, and the supported libraries, please visit
 HTTP API
      Documentation: `<http://docs.intermine.org/http>`_
 Java
-    `Download <http://lib.intermine.org/java>`_ | `Docs <http://docs.intermine.org/java>`
+    `Download <http://lib.intermine.org/java>`_ | `Docs <http://docs.intermine.org/java>`_
 Perl Client
     `Download|Docs <http://search.cpan.org/perldoc?Webservice%3A%3AInterMine>`_
 Python Client
