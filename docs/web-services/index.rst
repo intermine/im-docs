@@ -13,11 +13,28 @@ users to automate:
 For a full listing of web service capabilities please see the
 `HTTP API documentation <http://docs.intermine.org/http>`_.
 
-* Get started
-* What can I do?
-  * How do I do this? 
-* table of features
-* cookbook? samples. link to code generation on a mine(s)
+Getting Started
+----------------
+
+Install Required Dependenices
+    If you are reading this page, we make the assumption you know how to write and
+    run programs in your language of choice. You will probably want to download
+    and install the appropriate client library (see `API and Client Libraries`_),
+    which typically involves the standard package manager for the given platform.
+
+Look at some example code
+    We assume you are already familiar with the InterMine web interface, as provided
+    by sites such as `FlyMine <http://www.flymine.org>`_. Each result table in the web
+    interface includes a mechanism for generating code using one of the client libraries
+    which generates the same results as those seen in the table (click on the **code**
+    button). The generated code is meant to help get you started with the use of the
+    client libraries. If you would like to see more sample code, please visit
+    :doc:`/web-services/cookbook`.
+
+Modify the code so it does what you want
+    Working from the generated stub, you can edit the code to perform your intended task. You
+    will probably want to refer to the API documentation for your target
+    language (see below).
 
 API and Client Libraries
 ------------------------
