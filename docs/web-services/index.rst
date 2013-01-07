@@ -8,6 +8,7 @@ users to automate:
 * Data retrieval (custom queries, templated queries, keyword searches).
 * List creation/analysis/management
 * User profile management
+* Data-model introspection
 
 For a full listing of web service capabilities please see the
 `HTTP API documentation <http://docs.intermine.org/http>`_.
@@ -32,15 +33,23 @@ For information on the underlying API, and the supported libraries, please visit
 HTTP API
      Documentation: `<http://docs.intermine.org/http>`_
 Java
-    `Download <http://lib.intermine.org/java>`_ | `Docs <http://docs.intermine.org/java>`_
+    `Download <http://lib.intermine.org/java>`_
+    | `Docs <http://docs.intermine.org/java>`_
+    | `Source <https://github.com/alexkalderimis/intermine-ws-client.java>`_
 Perl Client
-    `Download|Docs <http://search.cpan.org/perldoc?Webservice%3A%3AInterMine>`_
+    `Download | Docs <http://search.cpan.org/perldoc?Webservice%3A%3AInterMine>`_
+    | `Source <https://github.com/alexkalderimis/intermine-ws-perl>`_
 Python Client
-    `Download <http://pypi.python.org/pypi/intermine>`_ | `Docs <http://packages.python.org/intermine/>`_
+    `Download <http://pypi.python.org/pypi/intermine>`_
+    | `Docs <http://packages.python.org/intermine/>`_
+    | `Source <https://github.com/alexkalderimis/intermine-ws-client.py>`_
 Ruby Client
-    `Download|Docs <http://www.rubygems.org/gems/intermine>`_
+    `Download | Docs <http://www.rubygems.org/gems/intermine>`_
+    | `Source <https://github.com/alexkalderimis/intermine-ws-ruby>`_
 JavaScript Client (for Browser and node.js)
-    `Download <https://npmjs.org/package/imjs>`_ | `Docs <http://docs.intermine.org/imjs>`_
+    `Download <https://npmjs.org/package/imjs>`_
+    | `Docs <http://docs.intermine.org/imjs>`_
+    | `Source <https://github.com/alexkalderimis/imjs>`_
 
 Documentation
 --------------
