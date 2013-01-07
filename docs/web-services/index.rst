@@ -18,13 +18,16 @@ the LGPL (see :doc:`/license`).
 
 For information on the underlying API, and the supported libraries, please visit the following links:
 
-#. HTTP API documentation: `<http://docs.intermine.org/http>`_
-#. clients
- * Perl `Download|Docs <http://search.cpan.org/perldoc?Webservice%3A%3AInterMine>`_
- * Python `Download <http://pypi.python.org/pypi/intermine>`_ | `Docs <http://packages.python.org/intermine/>`_
- * Ruby `Download|Docs <http://www.rubygems.org/gems/intermine>`_
- * JavaScript `Download <https://npmjs.org/package/imjs>`_ | `Docs <http://docs.intermine.org/imjs>`_
-
+HTTP API
+     Documentation: `<http://docs.intermine.org/http>`_
+Perl Client
+    `Download|Docs <http://search.cpan.org/perldoc?Webservice%3A%3AInterMine>`_
+Python Client
+    `Download <http://pypi.python.org/pypi/intermine>`_ | `Docs <http://packages.python.org/intermine/>`_
+Ruby Client
+    `Download|Docs <http://www.rubygems.org/gems/intermine>`_
+JavaScript Client (for Browser and node.js)
+    `Download <https://npmjs.org/package/imjs>`_ | `Docs <http://docs.intermine.org/imjs>`_
 
 Documentation
 --------------
