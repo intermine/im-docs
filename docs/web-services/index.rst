@@ -25,7 +25,7 @@ InterMine exposes its functionality over an HTTP API (generally following RESTfu
 principles, but there is a bit of RPC there). Client libraries are available in commonly
 used languages so you can get started quickly. All our code is hosted on `Github <http://www.github>`_,
 and contributions are welcome. All InterMine code is free and open-source, released under
-the LGPL (see :doc:`/about/license`).
+the LGPL (see :doc:`/about#legal`).
 
 For information on the underlying API, and the supported libraries, please visit the following links:
 
