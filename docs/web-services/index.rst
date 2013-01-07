@@ -19,13 +19,12 @@ the LGPL (see :doc:`/license`).
 
 For information on the underlying API, and the supported libraries, please visit the following links:
 
-#. HTTP 
+#. HTTP API documentation: `<http://docs.intermine.org/http>`_
 #. clients
-  * Java `Download <http://pypi.python.org/pypi/intermine>`__ | `Docs <http://packages.python.org/intermine/>`__
   * Perl `Download|Docs <http://search.cpan.org/perldoc?Webservice%3A%3AInterMine>`__
-  * Ruby [download | docs]
-  * Python [download | docs]
-  * JavaScript [download | docs]
+  * Python `Download <http://pypi.python.org/pypi/intermine>`_ | `Docs <http://packages.python.org/intermine/>`__ [download | docs]  
+  * Ruby `Download|Docs <http://www.rubygems.org/gems/intermine>`_
+  * JavaScript `Download <https://npmjs.org/package/imjs>`_ | `Docs <http://docs.intermine.org/imjs>`_
 
 
 Documentation
