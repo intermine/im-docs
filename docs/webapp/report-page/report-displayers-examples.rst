@@ -199,3 +199,8 @@ There are some displayers created for specific data sets in FlyMine, metabolicMi
    :align:   center
 
    A phylogenetic tree of Drosophila species displayed using the `jsPhyloSVG <http://www.jsphylosvg.com/>`_ JavaScript library in FlyMine.
+
+.. figure::  img/modMine-heatmap.png
+   :align:   center
+
+   Heatmap of fly gene expression in modMine, this makes use of `canvasXpress <http://www.canvasxpress.org/>`_ JavaScript library.
