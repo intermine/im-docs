@@ -15,4 +15,4 @@ The following are libraries that compile to JavaScript which can be embedded on 
     imjs
     examples
 
-.. seealso:: :doc:`/webapp/report-page/report-displayers` if you wash to embed a displayer on a report page only.
+.. seealso:: :doc:`/webapp/report-page/report-displayers` if you wish to embed a displayer on a report page only.
