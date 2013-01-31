@@ -1,7 +1,7 @@
 Template Comparison
 ================================
 
-There are template comparison scripts available, that will run queries against the templates publicly available in a mine or a pair of mines. The purpose of these scripts is to:
+There are template comparison scripts available under `intermine/scripts`, that will run queries against the templates publicly available in a mine or a pair of mines. The purpose of these scripts is to:
 
 	* Test that all templates run.
 	* In the case of multiple mines, check that updates haven't radically changed the results.
