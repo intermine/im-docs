@@ -44,7 +44,7 @@ Configuration
 
   <form-bean name="genomicRegionSearchForm" type="org.intermine.bio.web.struts.GenomicRegionSearchForm">
     <form-property name="organism" type="java.lang.String"/>
-    <form-property name="featureTypes" type="java.lang.String"/>
+    <form-property name="featureTypes" type="java.lang.String[]"/>
     <form-property name="pasteInput" type="java.lang.String"/>
     <form-property name="fileInput" type="org.apache.struts.upload.FormFile"/>
     <form-property name="whichInput" type="java.lang.String"/>
