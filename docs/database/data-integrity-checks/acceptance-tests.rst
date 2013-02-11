@@ -4,7 +4,7 @@ Acceptance Tests
 How to run the tests
 --------------------
 
-1. Add a file to `bio/core/test/resources/`, eg. `flymine_acceptance_test.conf`
+1. Add a file to `MINE_NAME/integrate/resources`, eg. `flymine_acceptance_test.conf`
 2. run acceptance tests here:
 
 .. code-block:: bash
