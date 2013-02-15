@@ -11,7 +11,7 @@ users to automate:
 * Data-model introspection
 
 For a full listing of web service capabilities please see the
-`HTTP API documentation <http://docs.intermine.org/http>`_.
+`HTTP API documentation <http://iodocs.labs.intermine.org>`_.
 
 Getting Started
 ----------------
@@ -48,7 +48,7 @@ the LGPL (see :doc:`/about#legal`).
 For information on the underlying API, and the supported libraries, please visit the following links:
 
 HTTP API
-     Documentation: `<http://docs.intermine.org/http>`_
+     Documentation: `<http://iodocs.labs.intermine.org>`_
 Java
     `Download <http://lib.intermine.org/java>`_
     | `Docs <http://ci.intermine.org/job/docs/javadoc/>`_
