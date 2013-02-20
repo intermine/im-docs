@@ -21,7 +21,7 @@ Using ID Resolvers in  InterMine data converters
 
 Many data converters use the Entrez (NCBI) Gene ID resolver:
 
-1. Download the identifier file - ftp://ftp.ncbi.nih.gov/gene/DATA/gene_info.gz gene_info.gz
+1. Download the identifier file - ftp://ftp.ncbi.nih.gov/gene/DATA/gene_info.gz
 2. Unzip the file to `/DATA_DIR/ncbi/gene_info`
 3. Create a sub directory `/DATA_DIR/idresolver/` as file root path and a symbolic link `entrez` to the file
 
