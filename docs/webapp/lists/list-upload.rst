@@ -16,7 +16,7 @@ Queries
 Default Query
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-First, we query for the value in [wiki:ClassKeys key fields].  For example:
+First, we query for the value in key fields.  For example:
 
 .. code-block:: sql
 
@@ -38,7 +38,7 @@ Next we run queries listed in `bag-queries.xml`
 #. looks for cross references
 #. looks for synonyms 
 
-Matches returned from this query are not added to the list, they are displayed under the "synonyms matched" heading.  Users can optionally add them to their list.
+Matches returned from this query are not added to the list (if `matchesAreIssues=true`), they are displayed under the "synonyms matched" heading.  Users can optionally add them to their list.
 
 If this query didn't return any results, we move on to the next step.
 
