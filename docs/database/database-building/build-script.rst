@@ -72,7 +72,11 @@ Command line options
   * '''-a fly-fish-dump-''' - dump the `fly-fish` source and continues integrating
   * '''-a fly-fish-dump,flymine-static,create-utr-references,final-dump''' - do just those steps
 
-Dump files take the name ''dump_file_prefix.source_name''.  These dumps can be used by `project_build` to restart a build process after a previous problem.  Running project_build with '''`-l`''' will reload the latest dump (if any) with `dump_file_prefix` exist and restart the build from that point.
+Dump files take the name `dump_file_prefix`.final.  These dumps can be used by `project_build` to restart a build process after a previous problem.  Running project_build with '''`-l`''' will reload the latest dump (if any) with `dump_file_prefix` exist and restart the build from that point.
+
+.. note::
+
+    You must use the full path to the dump file `/some/dump/location/dump_file_prefix` not `~/dump_file_prefix`
 
 .. [1] this allows multiple sets of properties file.  eg. in the malariamine case, passing '''-V 1.0''' causes the build system to look for `build.properties.malariamine.1.0` and `malariamine.properties.1.0` instead of the default files
 
