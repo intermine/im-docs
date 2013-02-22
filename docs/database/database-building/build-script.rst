@@ -76,7 +76,7 @@ Dump files take the name `dump_file_prefix`.final.  These dumps can be used by `
 
 .. note::
 
-    You must use the full path to the dump file `/some/dump/location/dump_file_prefix` not `~/dump_file_prefix`
+    You must use the full path to the dump file, e.g. `/some/dump/location/dump_file_prefix`
 
 .. [1] this allows multiple sets of properties file.  eg. in the malariamine case, passing '''-V 1.0''' causes the build system to look for `build.properties.malariamine.1.0` and `malariamine.properties.1.0` instead of the default files
 
