@@ -5,7 +5,7 @@ Report Widgets
 
 .. versionadded:: 1.1
 
-.. warning::
+.. note::
     
     Client side development is the best thing since sliced bread but for a novice the following *will* be overwhelming at first. We are learning too.
 
