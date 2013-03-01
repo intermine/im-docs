@@ -41,6 +41,9 @@ Individual data warehouses also have specific publications associated with them.
 * TargetMine, an integrated data warehouse for candidate gene prioritisation and target discovery. Chen, Y. A., Tripathi, L. P. & Mizuguchi, K. PLoS One 6, e17844 (2011).
 * YeastMine - an integrated data warehouse for Saccharomyces cerevisiae data as a multipurpose tool-kit. Balakrishnan, R. et al.  Database 2012, bar062 (2012). 
 
+
+.. _legal:
+
 Legal
 ------
 
