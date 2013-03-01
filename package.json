@@ -1,0 +1,7 @@
+{
+  "name": "intermine.org.docs",
+  "version": "1.2.0",
+  "dependencies": {
+    "imjs": ">=2.1.2"
+  }
+}
