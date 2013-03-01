@@ -29,8 +29,52 @@ of the data model to provide the appropriate fields.:
   use Webservice::InterMine 1.0301;
 
   my $flymine = get_service('www.flymine.org/query');
+  my $eve = $flymine->select('Gene.*')->where(symbol => 'eve')->first;
 
-  $flymine->select('Gene.*')->where(symbol => 'eve')->show;
+  say $eve->{name};
+  say $eve;
+
+Similar faclities are available in the Python client:
+
+.. code-block:: python
+
+  from intermine.webservice import Service
+
+  flymine = Service('www.flymine.org/query')
+  eve = flymine.model.Gene.where(symbol = 'eve').first()
+
+  print(eve.name)
+  print(eve)
+
+And in Ruby:
+
+.. code-block:: ruby
+
+  require 'intermine/service'
+
+  flymine = Service.new('www.flymine.org/query')
+  eve = flymine.query('Gene').select('*').where( :symbol => 'eve' ).first
+
+  puts eve.name
+  puts eve
+
+And in JavaScript:
+
+.. code-block:: javascript
+
+  var intermine = require('imjs');
+
+  var flymine = new intermine.Service({root: 'www.flymine.org/query'});
+  var search = flymine.find('Gene', 'eve');
+
+  // Only expecting a single match, but the method
+  // yields a list of matches.
+  search.done(function(matches) {
+    matches.forEach(function(gene) {
+      console.log(gene.name);
+      console.log(gene);
+    });
+  });
 
 
 .. _PathQuery XML Format: http://www.flymine.org/query/service/schema/query.xsd
