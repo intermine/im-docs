@@ -35,6 +35,8 @@ Modify the code so it does what you want
     will probably want to refer to the API documentation for your target
     language (see below).
 
+For the kinds of things you will probably be wanting to do, see :ref:`howtows`
+
 API and Client Libraries
 ------------------------
 
