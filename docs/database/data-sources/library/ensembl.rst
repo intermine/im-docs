@@ -16,16 +16,7 @@ The following are instructions on how to load a local copy of an Ensembl databas
 Download the Ensembl MySQL database
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-ftp://ftp.ensembl.org/pub/current_mysql or you can use our Perl script
-
-* We use `get_ensembl_mysql` to download and unzip data
-* To use this script, you need to install the appropriate Perl modules.  
-* The script requires three parameters - `download_directory` `organism_name` `which_database` eg:
-
-.. code-block:: bash
-
-  # in bio/scripts
-  $ ./get_ensembl_mysql /MY_DATA_DIR/ensembl homo_sapiens core
+ftp://ftp.ensembl.org/pub/current_mysql 
 
 Create the database
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
