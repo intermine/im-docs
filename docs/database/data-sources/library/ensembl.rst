@@ -56,14 +56,14 @@ InterMine
 You will also need to install InterMine's Perl modules, see :doc:`/system-requirements/software/perl`
 
 
-Run Script
+Run Script to Generate Items XML
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Run this command in `/bio/scripts`
 
 .. code-block:: bash
 
-  $ ./ensembl.pl MINE_NAME TAXONID /MY_DATA_DIR/ensembl
+  $ ./ensembl.pl MINE_NAME TAXONID DATA_DESTINATION
 
 for example:
       
@@ -86,13 +86,13 @@ This is located in the project.xml file, and it should look something like:
      <property name="src.data.dir" location="/MY_DATA_DIR/ensembl"/> 
     </source> 
 
-When you run a database build, every XML file in this directory will be loaded into the database. 
+When you run a database build, every XML file in the directory specificed will be processed and loaded into the database. 
 
 
 Run InterMine build
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Run a build.  The entry in `project.xml` will instruct the build process to load the XML files you created in Step 1 into the database.  For example, run this command in `MINE_NAME/integrate`:
+Run a build.  The entry in `project.xml` will instruct the build process to load the XML files you created in the previous step into the database.  For example, run this command in `MINE_NAME/integrate`:
       
 .. code-block:: bash
 
