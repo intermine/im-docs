@@ -15,7 +15,7 @@ A specific heatmap application can be referred in `modMine <http://intermine.mod
 The raw data is parsed and converted to InterMine objects. In a Struts controller, the expression data will be fetched by running a InterMine path query and parsed to JSON string. The JSON string will be sent to a JSP page by a http request to feed into heatmap.  
 
 Expression data source
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 `FlyExpressionScoreConverter <https://github.com/intermine/intermine/blob/master/bio/sources/modmine/fly-expression-score/main/src/org/intermine/bio/dataconversion/FlyExpressionScoreConverter.java>`_ is a specific data converter for modENCODE fly expression data. The class is located at `bio/sources/modmine/fly-expression-score`. Any other similar expression data conversion tasks can take the data source as a reference. 
 

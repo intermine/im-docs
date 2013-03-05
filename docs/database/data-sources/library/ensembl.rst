@@ -52,7 +52,7 @@ InterMine's Ensembl converter uses Ensembl's Perl API.  Follow Ensembl's instruc
 InterMine
 ^^^^^^^^^^
 
-You will also need to install InterMine's Perl modules, see :doc:`/system-requirements/software/perl/index`
+You will also need to install InterMine's Perl modules, see :doc:`/system-requirements/software/perl`
 
 
 Run Script
