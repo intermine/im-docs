@@ -4,8 +4,13 @@ Ensembl
 This page describes how to load Ensembl data into your InterMine-bio database.
 
 
-Ensembl Databases
+Generate Items XML file
 --------------------
+
+
+Ensembl Data
+~~~~~~~~~~~~~
+
 
 First you will need the data from Ensembl, which are available via MySQL databases.  Download the Ensembl MySQL database and create the database locally:
 
@@ -13,7 +18,7 @@ First you will need the data from Ensembl, which are available via MySQL databas
 
 
 Update <MINE_NAME>.properties
---------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The perl script used to create the XML file uses these entries to ascertain the location of the databases.
 
@@ -35,18 +40,23 @@ The perl script used to create the XML file uses these entries to ascertain the 
 
 
 Install Perl modules
--------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Ensembl
+^^^^^^^^^^
 
 InterMine's Ensembl converter uses Ensembl's Perl API.  Follow Ensembl's instructions for how to install the necessary Perl modules:
 
-http://www.ensembl.org/info/docs/api/api_installation.html
+  http://www.ensembl.org/info/docs/api/api_installation.html
 
-You will also need to install InterMine's Perl modules.  
+InterMine
+^^^^^^^^^^
 
- 
+You will also need to install InterMine's Perl modules, see :doc:`/system-requirements/software/perl/index`
 
-Generate XML file
--------------------------
+
+Run Script
+^^^^^^^^^^^^^^^^^^^^
 
 Run this command in `/bio/scripts`
 
@@ -60,8 +70,12 @@ for example:
 
   $ ./ensembl.pl flymine 7165 /data/ensembl/current
 
+Load XML file into InterMind database
+--------------------------------------------------
+
+
 Add Ensembl to the list of datasources to be integrated
----------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This is located in the project.xml file, and it should look something like:
 
@@ -74,8 +88,8 @@ This is located in the project.xml file, and it should look something like:
 When you run a database build, every XML file in this directory will be loaded into the database. 
 
 
-Load XML file into database
---------------------------------------------------
+Run InterMine build
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Run a build.  The entry in `project.xml` will instruct the build process to load the XML files you created in Step 1 into the database.  For example, run this command in `MINE_NAME/integrate`:
       
