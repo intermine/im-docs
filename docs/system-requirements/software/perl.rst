@@ -97,7 +97,7 @@ From your check out (or unzipped tar file) go to the directory "`intermine/perl/
 
 .. code-block:: bash
 
-  $ cd [GIT-DI/intermine/perl
+  $ cd git/intermine/perl
 
 Here there are four "distributions" of modules you may want to install:
 
@@ -136,15 +136,6 @@ List of Perl Modules to Install
   * Glob
   * Text::Glob
 
-* for the upgrade procedure:
-
-  * Webservice::InterMine
-  * AppConfig
-  * Log::Handler
-  * XML::Rules  
-  * XML::Writer 
-  * YAML
-
 * for the download scripts:
 
   * Log::Handler
@@ -155,5 +146,11 @@ List of Perl Modules to Install
   * Number::Format
   * PerlIO::gzip
   * Perl6::Junction 
+
+* for generating InterMine Items XML:
+
+ * Getopt::Std
+ * Log::Handler;
+ * Digest::MD5
 
 .. index:: Perl installation
