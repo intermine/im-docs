@@ -123,29 +123,29 @@ List of Perl Modules to Install
 
 * For the InterMine modules:
 
-  * List::MoreUtils (utility functions for handling lists)
-  * LWP (Handling network communication)
-  * Module::Find (Automatically locating modules by name)
-  * Moose (Object system)
-  * MooseX::Roles::WithOverloading (Allows roles to overload operators)
-  * MooseX::Types (Type constraint system)
-  * Text::CSV_XS (Processing .csv and .tsv files)
-  * URI (Handling urls)
-  * XML::Parser::PerlSAX (Parsing XML)
-  * XML::DOM (XML processing and output)
-  * Glob
-  * Text::Glob
+ * List::MoreUtils (utility functions for handling lists)
+ * LWP (Handling network communication)
+ * Module::Find (Automatically locating modules by name)
+ * Moose (Object system)
+ * MooseX::Roles::WithOverloading (Allows roles to overload operators)
+ * MooseX::Types (Type constraint system)
+ * Text::CSV_XS (Processing .csv and .tsv files)
+ * URI (Handling urls)
+ * XML::Parser::PerlSAX (Parsing XML)
+ * XML::DOM (XML processing and output)
+ * Glob
+ * Text::Glob
 
 * for the download scripts:
 
-  * Log::Handler
-  * DateTime
-  * Module::Find
-  * Web::Scraper
-  * Ouch
-  * Number::Format
-  * PerlIO::gzip
-  * Perl6::Junction 
+ * Log::Handler
+ * DateTime
+ * Module::Find
+ * Web::Scraper
+ * Ouch
+ * Number::Format
+ * PerlIO::gzip
+ * Perl6::Junction 
 
 * for generating InterMine Items XML:
 

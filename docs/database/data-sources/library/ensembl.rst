@@ -20,7 +20,7 @@ First you will need the data from Ensembl, which are available via MySQL databas
 Update <MINE_NAME>.properties
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The perl script used to create the XML file uses these entries to ascertain the location of the databases.
+Add the location of the downloaded Ensembl MySQL databases to your mine properties file, for example:
 
 .. code-block:: properties
 
@@ -38,6 +38,7 @@ The perl script used to create the XML file uses these entries to ascertain the 
   db.ensembl.9606.variation.datasource.user=DB_USER
   db.ensembl.9606.variation.datasource.password=DB_PASSWORD
 
+These properties are used by the Perl script.
 
 Install Perl modules
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -56,7 +57,7 @@ You will also need to install InterMine's Perl modules, see :doc:`/system-requir
 
 
 Run Script
-^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Run this command in `/bio/scripts`
 
