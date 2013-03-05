@@ -3,60 +3,19 @@ Ensembl
 
 This page describes how to load Ensembl data into your InterMine-bio database.
 
-Core
------
 
-Get the Ensembl database (Optional)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Ensembl Databases
+--------------------
 
-First you will need the data from Ensembl, which are available via MySQL databases.  Ensembl has a publicly available [http://www.ensembl.org/info/data/mysql.html MySQL database] you can use.  If you think you are going to be retrieving a lot of data from Ensembl or reliability is very important, it will likely be in your best interest to have a local database.  
+First you will need the data from Ensembl, which are available via MySQL databases.  Download the Ensembl MySQL database and create the database locally:
 
-The following are instructions on how to load a local copy of an Ensembl database.  You must have MySQL installed and correctly configured.
-
-Download the Ensembl MySQL database
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-ftp://ftp.ensembl.org/pub/current_mysql 
-
-Create the database
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: bash
-
-  # in mysql
-  $ create database homo_sapiens_core_59_37d;
-
-Load the database structure
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: bash
-
-  $ mysql -h HOST -u USERNAME -p homo_sapiens_core_59_37d < /MY_DATA_DIR/ensembl/homo_sapiens/homo_sapiens_core_59_37d/homo_sapiens_core_59_37d.sql
-
-Load the data
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Run this command in the same directory as the data you just downloaded:
-
-.. code-block:: bash
-
-  $ mysqlimport -h HOST -u USERNAME -p homo_sapiens_core_59_37d -L *.txt
-
-
-Install Perl modules
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-InterMine's Ensembl converter uses Ensembl's Perl API.  Follow Ensembl's instructions for how to install the necessary Perl modules:
-
-http://www.ensembl.org/info/docs/api/api_installation.html
-
-You will also need to install InterMine's Perl modules.  
+  ftp://ftp.ensembl.org/pub/current_mysql 
 
 
 Update <MINE_NAME>.properties
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------------
 
-You'll need one entry for every organism.  The perl script run in Step 4.1 uses these entries to ascertain the location of the databases.  For example:
+The perl script used to create the XML file uses these entries to ascertain the location of the databases.
 
 .. code-block:: properties
 
@@ -75,21 +34,19 @@ You'll need one entry for every organism.  The perl script run in Step 4.1 uses 
   db.ensembl.9606.variation.datasource.password=DB_PASSWORD
 
 
-Add Ensembl to the list of datasources to be integrated
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Install Perl modules
+-------------------------
 
-This is located in the [source:trunk/bio/tutorial/malariamine/project.xml project.xml] file, and it should look something like:
+InterMine's Ensembl converter uses Ensembl's Perl API.  Follow Ensembl's instructions for how to install the necessary Perl modules:
 
-.. code-block:: xml
+http://www.ensembl.org/info/docs/api/api_installation.html
 
-    <source name="ensembl" type="ensembl"> 
-     <property name="src.data.dir" location="/MY_DATA_DIR/ensembl"/> 
-    </source> 
+You will also need to install InterMine's Perl modules.  
 
-When you run a database build, every XML file in this directory will be loaded into the database.  
+ 
 
 Generate XML file
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 
 Run this command in `/bio/scripts`
 
@@ -103,9 +60,22 @@ for example:
 
   $ ./ensembl.pl flymine 7165 /data/ensembl/current
 
+Add Ensembl to the list of datasources to be integrated
+---------------------------------------------------------------------------
+
+This is located in the project.xml file, and it should look something like:
+
+.. code-block:: xml
+
+    <source name="ensembl" type="ensembl"> 
+     <property name="src.data.dir" location="/MY_DATA_DIR/ensembl"/> 
+    </source> 
+
+When you run a database build, every XML file in this directory will be loaded into the database. 
+
 
 Load XML file into database
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------------
 
 Run a build.  The entry in `project.xml` will instruct the build process to load the XML files you created in Step 1 into the database.  For example, run this command in `MINE_NAME/integrate`:
       
