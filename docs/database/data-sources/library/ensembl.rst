@@ -95,7 +95,7 @@ This is located in the [source:trunk/bio/tutorial/malariamine/project.xml projec
      <property name="src.data.dir" location="/MY_DATA_DIR/ensembl"/> 
     </source> 
 
-When you run a database build, every XML file in this directory will be loaded into the database.  Currently FlyMine loads Ensembl data for ''Anopheles gambiae''.  See FlyMine's [source:trunk/flymine/project.xml project.xml]
+When you run a database build, every XML file in this directory will be loaded into the database.  
 
 Generate XML file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -104,13 +104,13 @@ Run this command in `/bio/scripts`
 
 .. code-block:: bash
 
-  $ ./ensemblAPI.pl MINE_NAME TAXONID /MY_DATA_DIR/ensembl
+  $ ./ensembl.pl MINE_NAME TAXONID /MY_DATA_DIR/ensembl
 
 for example:
       
 .. code-block:: bash
 
-  $ ./ensemblAPI.pl flymine 7165 /data/ensembl/current
+  $ ./ensembl.pl flymine 7165 /data/ensembl/current
 
 
 Load XML file into database
