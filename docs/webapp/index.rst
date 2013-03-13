@@ -23,6 +23,7 @@ Web Application
     monitoring-site-usage/index
     properties/index
     data-categories/index
+    diagnostic/index
 
 Overwrite any JSP
 ------------------------
