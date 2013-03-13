@@ -16,7 +16,7 @@ Here is list of check points before you release a webapp or when you have any is
 
 2. Remove old code
 
-    a. run `ant clean-all`
+    a. run `ant clean-all`, sometimes you have to manually remove the webapp and its jar from tomcat webapps directory.
     b. `ls` (make sure /build is gone)
 
 3. release webapp
