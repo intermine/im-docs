@@ -1,24 +1,25 @@
 Diagnostic
 ================================
 
-Here is list of check points before you release a webapp or when you have any issues:
+Things to test if something goes wrong when releasing your InterMine webapp:
 
-1. Check MINE.properties files
 
-    a. make sure base-url is valid
-    b. correct placement / name
+#. Restart Tomcat
 
-1. Is tomcat running?
+ #. Tomcat may not restart successfully, be sure to check the Tomcat process really is gone.
 
-    a. stop tomcat
-    b. run `ps aux | grep tomcat`, any live tomcat process?
-    c. restart tomcat
+#. Check MINE.properties files
 
-2. Remove old code
+  #. The `base-url` property must valid or else queries will not run properly.
+  #. This file must live in the `.intermine` directory
 
-    a. run `ant clean-all`, sometimes you have to manually remove the webapp and its jar from tomcat webapps directory.
-    b. `ls` (make sure /build is gone)
+#. Remove old code
 
-3. release webapp
+ #. Run `ant clean-all` - sometimes you have to manually remove the webapp and its jar from tomcat webapps directory.
+ #. Make sure `/build` is gone from your `webapp` directory.
+
+#. Release webapp
 
     a. run `ant default remove-webapp release-webapp` 
+
+ If that still doesn't solve your problem, let us know!
