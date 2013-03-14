@@ -9,7 +9,7 @@ Parts
 Logo
 ~~~~
 
-The logo is independent from any themes and is located here ``<your_mine>/webapp/resources/webapp/model/images webapp/resources/webapp/model/images/logo.png``. The recommended size is 45px x 43px.
+The logo is independent from any themes and is located here ``MINE_NAME/webapp/resources/webapp/model/images webapp/resources/webapp/model/images/logo.png``. The recommended size is 45px x 43px.
 
 Menu Tabs
 ~~~~~~~~~
@@ -26,7 +26,7 @@ In addition to InterMine's file, each mine has its own internationalisation file
 
 First, add your tab to `intermine/webapp/main/resources/webapp/headMenu.jsp`
 
-.. code-block:: jstl
+.. code-block:: guess
 
       <li id="api"  <c:if test="${tab == 'api'}">class="activelink"</c:if>>
         <a href="/${WEB_PROPERTIES['webapp.path']}/api.do">
