@@ -1,25 +1,38 @@
 Diagnostic
-================================
+=============
 
-Things to test if something goes wrong when releasing your InterMine webapp:
+Occasionally something may go wrong with your webapp - your webapp may fail to load in your browser, not reflect your most recent changes and so on. In our experience, following the steps listed here should fix ~99% of any problems you encounter.
+
+Restart Tomcat
+~~~~~~~~~~~~~~~~
+
+Restarting Tomcat may fix your issue. If you find you have to restart Tomcat often, you may want to give Tomcat more memory.
+
+Also, if in a deadlock, Tomcat may not shutdown successfully. Be sure to check the Tomcat process really is gone before starting a new one.
+
+Verify MINE.properties file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The `base-url` property must valid or else queries will not run properly.
+
+This file must live in the `.intermine` directory.
+
+Force recompile
+~~~~~~~~~~~~~~~~
+
+Run this command in your `webapp` directory:
+
+.. code-block:: bash
+
+	$ ant clean-all
+
+Verify `/build` is gone from your `webapp` directory.
+
+Re-release webapp
+~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+	$ ant default remove-webapp release-webapp
 
 
-#. Restart Tomcat
-
- #. Tomcat may not restart successfully, be sure to check the Tomcat process really is gone.
-
-#. Check MINE.properties files
-
-  #. The `base-url` property must valid or else queries will not run properly.
-  #. This file must live in the `.intermine` directory
-
-#. Remove old code
-
- #. Run `ant clean-all` - sometimes you have to manually remove the webapp and its jar from tomcat webapps directory.
- #. Make sure `/build` is gone from your `webapp` directory.
-
-#. Release webapp
-
-    a. run `ant default remove-webapp release-webapp` 
-
- If that still doesn't solve your problem, let us know!
