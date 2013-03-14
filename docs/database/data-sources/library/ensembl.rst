@@ -5,7 +5,7 @@ This page describes how to load Ensembl data into your InterMine-bio database.
 
 
 Generate Items XML file
---------------------
+----------------------------------------
 
 
 Ensembl Data
