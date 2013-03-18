@@ -79,7 +79,7 @@ There is a `project.xml` already prepared to define a new MalariaMine, copy it t
 
 .. code-block:: bash
 
-  $ cp ../bio/tutorial/malariamine/project.xml .
+  $ cp ../bio/tutorial/project.xml .
   $ less project.xml
 
 <sources>
