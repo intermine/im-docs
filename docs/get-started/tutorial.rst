@@ -150,7 +150,7 @@ There is a partially completed properties file for MalariaMine already.   Copy i
 .. code-block:: bash
 
   $ cd
-  $ cp git/intermine/bio/tutorial/malariamine/malariamine.properties .intermine/
+  $ cp git/intermine/bio/tutorial/malariamine.properties .intermine/
 
 Update this properties file with your postgres server location, username and password information for the two databases you just created.  The rest of the information is needed for the webapp and will be updated in Step 13.
 
