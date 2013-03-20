@@ -78,7 +78,51 @@ Dump files take the name `dump_file_prefix`.final.  These dumps can be used by `
 
     You must use the full path to the dump file, e.g. `/some/dump/location/dump_file_prefix`
 
+
+
+Running a Single Datasource
+----------------------------
+
+Before starting the build process you will need to set up the appropriate properties and then initialise your database with this command:
+
+.. code-block:: bash
+
+  $ cd MINE_NAME/dbmodel/
+  $ ant build-db
+
+.. warning::
+
+    Running the `build-db` target will drop the current database and create a new, blank database.
+
+To run all sources, use our Perl script described here :doc:`/database/database-building/build-script`
+
+To run a data source, run this command in the `MINE_NAME/integrate/` directory, specifying the source name (as it appears in project.xml):
+
+.. code-block:: bash
+
+  $ ant -v -Dsource=malaria-gff
+
+Most sources have multiple stages in retrieving data, to run just one stage use:
+
+.. code-block:: bash
+
+  $ ant -v -Dsource=malaria-gff -Daction=[retrieve|load]
+
+The stages are:
+
+retrieve
+  load data from source database/files into an items database
+
+translate
+  convert from a source items database to a target items database
+
+load
+  read from a target items database and integrate into the production database
+
+Most sources do not have a `translate` step so `retrieve` will write to the `common-tgt-items` database.
+
+
 .. [1] this allows multiple sets of properties file.  eg. in the malariamine case, passing '''-V 1.0''' causes the build system to look for `build.properties.malariamine.1.0` and `malariamine.properties.1.0` instead of the default files
 
 
-.. index:: building database, project_build script
+.. index:: building database, project_build script, running a build, build-db, Dsource, Daction
