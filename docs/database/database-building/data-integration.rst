@@ -4,7 +4,7 @@ Data Integration
 Data integration works by using keys for each class of object to define equivalence for objects of that class.  For example:
 
 * `primaryIdentifier` is used as a key for `Gene`
-* `taxonId ` is used as a key for `Organism`
+* `taxonId` is used as a key for `Organism`
 
 For each `Gene` object loaded, a query is performed in the database to find any existing `Gene` objects with the same `primaryIdentifier`.  If any are found, fields from both objects are merged and the resulting object stored.
 

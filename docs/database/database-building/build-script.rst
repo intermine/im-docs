@@ -94,8 +94,6 @@ Before starting the build process you will need to set up the appropriate proper
 
     Running the `build-db` target will drop the current database and create a new, blank database.
 
-To run all sources, use our Perl script described here :doc:`/database/database-building/build-script`
-
 To run a data source, run this command in the `MINE_NAME/integrate/` directory, specifying the source name (as it appears in project.xml):
 
 .. code-block:: bash
@@ -122,7 +120,7 @@ load
 Most sources do not have a `translate` step so `retrieve` will write to the `common-tgt-items` database.
 
 
-.. [1] this allows multiple sets of properties file.  eg. in the malariamine case, passing '''-V 1.0''' causes the build system to look for `build.properties.malariamine.1.0` and `malariamine.properties.1.0` instead of the default files
+.. [1] this allows multiple sets of properties file.  eg. passing '''-V test'' causes the build system to look for `MINE_NAME.properties.test` instead of the default file `MINE_NAME.properties`
 
 
 .. index:: building database, project_build script, running a build, build-db, Dsource, Daction
