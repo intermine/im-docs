@@ -153,21 +153,21 @@ attribute              purpose                                                  
 
 The following are optional attributes:
 
-======================  =============================================================================================================================  ============================
-attribute               purpose                                                                                                                        example
-======================  =============================================================================================================================  ============================
-``title``               appears at the top of the widget                                                                                               ``Gene Ontology Enrichment``
-``description``         description of the widget                                                                                                      ``GO terms enriched.``
-``label``               heading for the column                                                                                                         ``GO Term``
-``externalLink``        link displayed next to first column                                                                                            ``googie``
-``filters``             extra filters to add to the display [7]_                                                                                       ``organism.name=[list]`` 
-``filterLabel``         label for filter form field                                                                                                    ``Ontology``
-``enrichIdentifier``    identifier for the row displayed, if not specified, enrich field used [8]_.                                                    ``goAnnotation.ontologyTerm.
+======================     =============================================================================================================================  ============================
+attribute                  purpose                                                                                                                        example
+======================     =============================================================================================================================  ============================
+``title``                  appears at the top of the widget                                                                                               ``Gene Ontology Enrichment``
+``description``            description of the widget                                                                                                      ``GO terms enriched.``
+``label``                  heading for the column                                                                                                         ``GO Term``
+``externalLink``           link displayed next to first column                                                                                            ``googie``
+``filters``                extra filters to add to the display [7]_                                                                                       ``organism.name=[list]`` 
+``filterLabel``            label for filter form field                                                                                                    ``Ontology``
+``enrichIdentifier``       identifier for the row displayed, if not specified, enrich field used [8]_.                                                    ``goAnnotation.ontologyTerm.
                                                                                                                                                        identifier``
-``constraints``         constraints separated by comma. The paths have to be attributes. The operator can be ``=`` or ``!=`` [9]_.                     ``organism.name=[list]`` 
-``constraintsForView``  constraints separated by comma used for building the query executed when the user clicks on the widget on 'Matches' column     ``results.expressed = true``
-``correctionCoeff``
-======================  =============================================================================================================================  ============================
+``constraints``            constraints separated by comma. The paths have to be attributes. The operator can be ``=`` or ``!=`` [9]_.                     ``organism.name=[list]`` 
+``constraintsForView``     constraints separated by comma used for building the query executed when the user clicks on the widget on 'Matches' column     ``results.expressed = true``
+``correctionCoefficient``  set to org.intermine.bio.web.widget.GeneLenghtCorrectionCoefficient to normalize by gene length   
+======================     =============================================================================================================================  ============================
 
 .. [7] Use static values or a grammar to specify the values contained in the list. The default value in general is the first value set in the 'filters' attribute or the first value returned by the query. With static values, you can add 'All' meaning no filter applied.
 .. [8] Specify only one. This has to be an attribute. Used in the results table. Specify the subclass using the syntax ``path[subclass type]``.
@@ -181,6 +181,20 @@ See other mines' config files for more examples, eg:
 * ``branches/intermod_workshop/flymine/webapp/resources/webapp/WEB-INF/webconfig-model.xml`` in FlyMine
 * ``branches/intermod_workshop/modmine/webapp/resources/webapp/WEB-INF/webconfig-model.xml`` in modMine
 * ``branches/intermod_workshop/metabolicmine/webapp/resources/webapp/WEB-INF/webconfig-model.xml`` in metabolicMine
+
+Backgroud population
+~~~~~~~~~~~~~~~~~~~~
+In the enrichement widgets, you can change the reference population.
+The reference population is specific for widget, list and user.
+If you are logged you can save your preference selecting the checkbox 'Save your preference'.
+The background population selected should include all items contained in the list.
+
+Gene length correction coefficient
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Depending on the type of experiment your data comes from, it is sometimes necessary to normalize by gene length in order to get the correct p-values. If your data comes from a genome-wide binding experiment such as ChIP-seq or DamID, binding intervals are more likely to be associated with longer genes than shorter ones, and you should therefore normalize by gene length. This is not the case for experiments such as gene expression studies, where gene length does not play a role in the likelihood that a particular set of genes will be overrepresented in the list.
+If you want normalize by gene length, add the attribute correctionCoefficient set to 'org.intermine.bio.web.widget.GeneLenghtCorrectionCoefficient'.
+The gene length correction coefficient is applicable only for lists containing genes with a length, so for a list of genes do not have a length the option is not shown.
+If a list contains some genes without a length these genes will be discarded.
 
 
 Displaying widgets
