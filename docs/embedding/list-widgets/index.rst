@@ -166,6 +166,7 @@ attribute               purpose                                                 
                                                                                                                                                        identifier``
 ``constraints``         constraints separated by comma. The paths have to be attributes. The operator can be ``=`` or ``!=`` [9]_.                     ``organism.name=[list]`` 
 ``constraintsForView``  constraints separated by comma used for building the query executed when the user clicks on the widget on 'Matches' column     ``results.expressed = true``
+``correctionCoeff``
 ======================  =============================================================================================================================  ============================
 
 .. [7] Use static values or a grammar to specify the values contained in the list. The default value in general is the first value set in the 'filters' attribute or the first value returned by the query. With static values, you can add 'All' meaning no filter applied.
