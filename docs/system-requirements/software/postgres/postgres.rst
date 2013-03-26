@@ -7,14 +7,14 @@ Fedora/CentOS
 	http://wiki.openscg.com/index.php/PostgreSQL_RPM_Installation
 
 Debian/Ubuntu
-	`sudo apt-get postgresql-8.4`
+	`sudo apt-get postgresql`
 
 Mac
 	http://www.postgresql.org/download/macosx.  We've had the most success with MacPorts.
 
 After installation, you need to update `postgresql.conf` 
 
-* This file is usually located in `/etc/postgres/8.4`: 
+* This file is usually located in `/etc/postgres/`: 
 * If you are going to install Postgres 9.x:
 
   * It's not easy to change the default encoding to SQL_ASCII anymore, so you should do this before creating any databases.
@@ -27,7 +27,6 @@ Required Configuration
 listen_addresses      '*'
 port                  5432
 ====================  ===================
-
 
 
 Recommended Configuration

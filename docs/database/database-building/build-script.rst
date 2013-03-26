@@ -35,7 +35,7 @@ It is also possible to run individual integrate and post-process steps separatel
 Command line options
 ---------------------------
 
-`project_build` allow the following options:
+The `project_build` script accepts the following flags:
 
 -v
   is passed to ant to make it run in verbose mode, ant output can be seen in `pbuild.log`
