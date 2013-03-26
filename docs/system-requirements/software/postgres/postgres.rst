@@ -1,12 +1,16 @@
 Installing PostgreSQL
 ======================
 
-http://www.postgresql.org/download has packages for most systems that set up everything for you. You should use at least version 8.3, as we have recently removed workarounds for some bugs in previous versions. Postgres 8.4 is the default for most package managers and has better performance.
+http://www.postgresql.org/download has packages for most systems that set up everything for you. 
 
-* Fedora/CentOS: http://wiki.openscg.com/index.php/PostgreSQL_RPM_Installation
-* Debian/Ubuntu: `sudo apt-get postgresql-8.4`
-* Mac:  http://www.postgresql.org/download/macosx.  We've had the most success with MacPorts.
-* Solaris:  http://wiki.postgresql.org/wiki/Detailed_installation_guides#Solaris
+Fedora/CentOS
+	http://wiki.openscg.com/index.php/PostgreSQL_RPM_Installation
+
+Debian/Ubuntu
+	`sudo apt-get postgresql-8.4`
+
+Mac
+	http://www.postgresql.org/download/macosx.  We've had the most success with MacPorts.
 
 After installation, you need to update `postgresql.conf` 
 
@@ -21,7 +25,6 @@ Required Configuration
 
 ====================  ===================
 listen_addresses      '*'
-tcpip_socket [#]_     true
 port                  5432
 ====================  ===================
 
@@ -67,8 +70,5 @@ The InterMine system stores all text in the database in `UTF-8` format. If you s
 If you set Postgres to `SQL_ASCII`, then that is a special character set in Postgres, which basically means "do no conversions". This is sufficient for almost all operations. All comparisons and index lookups will be done on a byte-by-byte basis, which is much faster than having to deal with Unicode's complications.
 
 Please try to treat InterMine as a black box. The fact that it uses Postgres to store its data should be a detail that should be hidden as much as possible. The InterMine system is written in Java, and therefore handles all text in Unicode. 
-
-
-.. [#] not needed in recent releases
 
 .. index:: PostgreSQL
