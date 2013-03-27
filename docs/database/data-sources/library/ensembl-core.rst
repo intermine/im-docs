@@ -1,7 +1,7 @@
-Ensembl
-========
+Ensembl Core
+=============
 
-This page describes how to load Ensembl data into your InterMine-bio database.
+This page describes how to load Ensembl core data into your InterMine-bio database.
 
 
 Generate Items XML file
@@ -30,13 +30,6 @@ Add the location of the downloaded Ensembl MySQL databases to your mine properti
   db.ensembl.9606.core.datasource.species=homo_sapiens
   db.ensembl.9606.core.datasource.user=DB_USER
   db.ensembl.9606.core.datasource.password=DB_PASSWORD
-
-  # variation database
-  db.ensembl.9606.variation.datasource.serverName=SERVER_NAME
-  db.ensembl.9606.variation.datasource.databaseName=homo_sapiens_variation_59_37d
-  db.ensembl.9606.variation.datasource.species=homo_sapiens
-  db.ensembl.9606.variation.datasource.user=DB_USER
-  db.ensembl.9606.variation.datasource.password=DB_PASSWORD
 
 These properties are used by the Perl script.
 

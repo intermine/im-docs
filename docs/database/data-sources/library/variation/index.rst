@@ -1,0 +1,7 @@
+Variation
+================================
+
+
+.. toctree::
+
+    ensembl-snp
