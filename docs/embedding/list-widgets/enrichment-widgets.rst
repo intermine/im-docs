@@ -126,9 +126,8 @@ References
 | `BMJ Publishing Group <http://www.bmj.com/content/316/7139/1236>`_. 1998;316:1236.
 
 | **Variable locus length in the human genome leads to ascertainment bias in functional inference for non-coding elements**
-| Taher, L. and Ovcharenko, I. (2009), Bioinformatics
-| 25(5): 578–584
-
+| Taher, L. and Ovcharenko, I. (2009), Bioinformatics <http://bioinformatics.oxfordjournals.org/content/25/5/578>
+| 25(5): 578–584.
 
 .. note::
 
