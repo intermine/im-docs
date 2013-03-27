@@ -72,6 +72,26 @@ This is an issue for some widgets – for example, if a given GO term (such as g
 The p-values should be scaled accordingly to take this into account.
 There are a number of different implementations of corrections, we have choosen the simplest one.
 The algorithm was developed by Taher and Ovcharenko (2009) for correcting GO enrichment.
+Corrected probability of observing a given GO term is equal to the original GO probability times the correction coefficient CCGO defined for each GO term.
+.. code-block:: matlab
+        Adjusted P = P x CCGO
+where the correction coefficient is calculated as:
+.. code-block:: matlab
+                 LGO 
+               -------
+                 LWH
+      CCGO = ----------------
+                 NGO 
+               -------
+                 NWH
+LGO 
+    Average gene length of genes associated with a GO term
+LWG 
+    Average length of the genes in the whole genome
+NGO 
+    Number of genes in the genome associated with this GO term
+NWG 
+    Total number of genes in the whole genome
 
 
 .. note::
@@ -103,8 +123,8 @@ References
 | Perneger, TV.
 | `BMJ Publishing Group <http://www.bmj.com/content/316/7139/1236>`_. 1998;316:1236.
 
-| Taher, L. and Ovcharenko, I. (2009). Variable locus length in the human genome leads
-| to ascertainment bias in functional inference for non-coding elements, Bioinformatics
+| **Variable locus length in the human genome leads to ascertainment bias in functional inference for non-coding elements**
+| Taher, L. and Ovcharenko, I. (2009), Bioinformatics
 | 25(5): 578–584
 
 
