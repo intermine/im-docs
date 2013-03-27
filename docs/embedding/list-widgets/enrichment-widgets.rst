@@ -75,15 +75,13 @@ The algorithm was developed by Taher and Ovcharenko (2009) for correcting GO enr
 Corrected probability of observing a given GO term is equal to the original GO probability times the correction coefficient CCGO defined for each GO term.
 .. code-block:: matlab
         Adjusted P = P x CCGO
-where the correction coefficient is calculated as:
 
-                 LGO 
-               -------
-                 LWH
+where the correction coefficient is calculated as:
+.. code-block:: matlab
+                 LGO/LWH
       CCGO = ----------------
-                 NGO 
-               -------
-                 NWH
+                 NGO/NWG 
+               
 LGO 
     Average gene length of genes associated with a GO term
 LWG 
