@@ -65,6 +65,15 @@ This correction is the less stringent than the Bonferroni, and therefore tolerat
 #. The p-values of each gene are ranked from the smallest to largest.
 #. The p-value is multiplied by the total number of tests divided by its rank.
 
+Gene length correction
+~~~~~~~~~~~~~~~~~~~~~~
+The probability of a given set of genes being hit in a ChIP experiment is amongst other things proportional to their length – very long genes are much more likely to be randomly hit than very short genes are.
+This is an issue for some widgets – for example, if a given GO term (such as gene expression regulation) is associated with very long genes in general, these will be much more likely to be hit in a ChIP experiment than the ones belonging to a GO term with very short genes on average.
+The p-values should be scaled accordingly to take this into account.
+There are a number of different implementations of corrections, we have choosen the simplest one.
+The algorithm was developed by Taher and Ovcharenko (2009) for correcting GO enrichment.
+
+
 .. note::
     
     The relevant `InterMine source <https://github.com/intermine/intermine/blob/dev/intermine/web/main/src/org/intermine/web/logic/widget/ErrorCorrection.java>`_.
@@ -93,6 +102,11 @@ References
 | **What's wrong with Bonferroni adjustments**
 | Perneger, TV.
 | `BMJ Publishing Group <http://www.bmj.com/content/316/7139/1236>`_. 1998;316:1236.
+
+| Taher, L. and Ovcharenko, I. (2009). Variable locus length in the human genome leads
+| to ascertainment bias in functional inference for non-coding elements, Bioinformatics
+| 25(5): 578–584
+
 
 .. note::
 
