@@ -73,10 +73,12 @@ The p-values should be scaled accordingly to take this into account.
 There are a number of different implementations of corrections, we have choosen the simplest one.
 The algorithm was developed by Taher and Ovcharenko (2009) for correcting GO enrichment.
 Corrected probability of observing a given GO term is equal to the original GO probability times the correction coefficient CCGO defined for each GO term.
+
 .. code-block:: matlab
         Adjusted P = P x CCGO
 
-where the correction coefficient is calculated as:
+where the correction coefficient CCGO is calculated as:
+
 .. code-block:: matlab
                  LGO/LWH
       CCGO = ----------------
