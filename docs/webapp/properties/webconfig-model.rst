@@ -18,6 +18,7 @@ label                   human readable name                                     
 showInInlineCollection  show field in inline collection (on report pages)                         no         true
 showInSummary           add field to query when user clicks on 'Summary' button in  QueryBuilder  no         true
 showInResults           show field in results table                                               no         true
+outerInSummary          configure outer-joins when user clicks on 'Summary' in QueryBuilder       no         false
 doNotTruncate           don't truncate display                                                    no         false
 fieldExporter           specify class to export file field                                        no         -
 sectionOnRight          show on the right side of the page                                        no         false
