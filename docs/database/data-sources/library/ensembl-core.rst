@@ -16,6 +16,19 @@ First you will need the data from Ensembl, which are available via MySQL databas
 
   ftp://ftp.ensembl.org/pub/current_mysql 
 
+for example:
+download homo_sapiens_core_70_37 to a local directory, and load it to your MySQL database
+
+.. code-block:: bash
+
+  # create a new db in MySQL
+  $ mysql -u DB_USER -p
+  mysql> create database homo_sapiens_core_70;
+
+  # load data into db
+  $ mysql -u DB_USER -p homo_sapiens_core_70 < homo_sapiens_core_70_37.sql
+  $ mysqlimport -u DB_USER -p homo_sapiens_core_70 -L *.txt -v
+
 
 Update <MINE_NAME>.properties
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -26,7 +39,7 @@ Add the location of the downloaded Ensembl MySQL databases to your mine properti
 
   # core database
   db.ensembl.9606.core.datasource.serverName=SERVER_NAME
-  db.ensembl.9606.core.datasource.databaseName=homo_sapiens_core_59_37d
+  db.ensembl.9606.core.datasource.databaseName=homo_sapiens_core_70
   db.ensembl.9606.core.datasource.species=homo_sapiens
   db.ensembl.9606.core.datasource.user=DB_USER
   db.ensembl.9606.core.datasource.password=DB_PASSWORD
@@ -56,7 +69,7 @@ Run this command in `/bio/scripts`
 
 .. code-block:: bash
 
-  $ ./ensembl.pl MINE_NAME TAXONID DATA_DESTINATION
+  $ ./ensembl.pl [Realse Version] MINE_NAME TAXONID DATA_DESTINATION
 
 for example:
       
@@ -75,7 +88,7 @@ This is located in the project.xml file, and it should look something like:
 
 .. code-block:: xml
 
-    <source name="ensembl" type="ensembl"> 
+    <source name="ensembl" type="ensembl-core"> 
      <property name="src.data.dir" location="/MY_DATA_DIR/ensembl"/> 
     </source> 
 
