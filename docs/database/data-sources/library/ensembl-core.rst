@@ -81,7 +81,7 @@ Load XML file into InterMind database
 --------------------------------------------------
 
 
-Add Ensembl to the list of datasources to be integrated
+Add Ensembl core to the list of datasources to be integrated
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This is located in the project.xml file, and it should look something like:
