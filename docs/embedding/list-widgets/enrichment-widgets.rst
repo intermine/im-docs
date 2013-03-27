@@ -76,7 +76,7 @@ Corrected probability of observing a given GO term is equal to the original GO p
 .. code-block:: matlab
         Adjusted P = P x CCGO
 where the correction coefficient is calculated as:
-.. code-block:: matlab
+
                  LGO 
                -------
                  LWH
