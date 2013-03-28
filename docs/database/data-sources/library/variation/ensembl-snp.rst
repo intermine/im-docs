@@ -28,7 +28,7 @@ download homo_sapiens_variation_70_37 to a local directory, and load it to your 
   $ mysql -u DB_USER -p homo_sapiens_core_70 < homo_sapiens_variation_70_37.sql
   $ mysqlimport -u DB_USER -p homo_sapiens_variation_70 -L *.txt -v
 
-Variation db can be big and takes long time to query, one way to optimise the speed is to create precomputed tables, this will normally take ~1.5hr to create for Human SNPs:
+Variation db can be big and takes long time to query, one way to optimise the speed is to create precomputed tables, this process will normally take ~1.5hr to complete for Human SNPs:
 
 .. code-block:: bash
 
