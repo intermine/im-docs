@@ -52,6 +52,8 @@ Add the location of the downloaded Ensembl MySQL databases to your mine properti
 
   # variation database
   db.ensembl.9606.variation.datasource.serverName=SERVER_NAME
+  # port: uncomment the next line if use different prot other than 3306
+  # db.ensembl.9606.variation.datasource.port=PORT_NUMBER
   db.ensembl.9606.variation.datasource.databaseName=homo_sapiens_variation_70
   db.ensembl.9606.variation.datasource.species=homo_sapiens
   db.ensembl.9606.variation.datasource.user=DB_USER

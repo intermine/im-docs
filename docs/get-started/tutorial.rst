@@ -160,6 +160,8 @@ For the moment you need to change `PSQL_USER` and `PSQL_PWD` in the `db.producti
 
   # Access to the postgres database to build into and access from the webapp                              
   db.production.datasource.serverName=localhost
+  # port: uncomment the next line if use different prot other than 3306
+  # db.production.datasource.port=PORT_NUMBER
   db.production.datasource.databaseName=malariamine
   db.production.datasource.user=PSQL_USER
   db.production.datasource.password=PSQL_PWD

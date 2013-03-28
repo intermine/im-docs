@@ -39,6 +39,8 @@ Add the location of the downloaded Ensembl MySQL databases to your mine properti
 
   # core database
   db.ensembl.9606.core.datasource.serverName=SERVER_NAME
+  # port: uncomment the next line if use different prot other than 3306
+  # db.ensembl.9606.core.datasource.port=PORT_NUMBER
   db.ensembl.9606.core.datasource.databaseName=homo_sapiens_core_70
   db.ensembl.9606.core.datasource.species=homo_sapiens
   db.ensembl.9606.core.datasource.user=DB_USER
