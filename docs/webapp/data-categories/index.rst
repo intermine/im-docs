@@ -1,8 +1,6 @@
 Data Categories
 ================================
 
-**The features this page discusses are deprecated. Their use is not recommended in new mines**
-
 Data category pages include various aspects of a concept on a single page.  Category pages include:
 
 * logo
