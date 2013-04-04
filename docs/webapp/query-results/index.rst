@@ -15,7 +15,7 @@ column headers
 	See :doc:`/data-model/data-labels` to change column headers.
 
 links
-	Only unique fields (class keys) are links in results pages.  Add fields to ClassKeys to make the fields links on results pages.
+	Only unique fields (class keys) are links in results pages.  Add to :doc:`/webapp/properties/class-keys` to make the fields links on results pages.
 	Instead of linking to an intermine report page, you can set the links to redirect to external page.  See :doc:`redirects`
 
 weird brackets

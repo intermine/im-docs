@@ -17,6 +17,11 @@ The `base-url` property must valid or else queries will not run properly.
 
 This file must live in the `.intermine` directory.
 
+Verify Tomcat config
+~~~~~~~~~~~~~~~~~~~~~~
+
+If you are using Tomcat 7, please make sure you have configured it correctly. See :doc:`/system-requirements/software/tomcat`
+
 Force recompile
 ~~~~~~~~~~~~~~~~
 
