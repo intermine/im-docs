@@ -9,6 +9,11 @@ To pull changes in your local repository and merge them into your working files:
 
 If you don't have a git repo yet, see :doc:`/git/index` for details.
 
+Upgrade to InterMine 1.2
+---------------------------------
+
+The core data model has not been changed, so you should be able to release a webapp using InterMine 1.2 code without making any changes.
+
 Upgrade to InterMine 1.1
 ---------------------------------
 
