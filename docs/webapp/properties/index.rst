@@ -10,3 +10,4 @@ Content
     model-properties
     web-properties
     webconfig-model
+    class-keys
