@@ -1,11 +1,11 @@
-Release Notes for InterMine 1.2
+InterMine 1.2
 ==============================================
 
-This is a minor release consisting of bug fixes and some new features. 
+This is a minor release consisting of bug fixes and some new features. See `GitHub <http://https://github.com/intermine/intermine/issues?milestone=3&page=1&state=closed>`_ for the full list.
 
 See :doc:`/support/upgrade` for instructions on how to update your Mine to the new version.
 
-Release Notes for InterMine 1.1
+InterMine 1.1
 ==============================================
 
 
