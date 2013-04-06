@@ -20,7 +20,7 @@ post
     | United Kingdom
 
 in person (please contact us first so we known to expect you)
-    We are building number 9 on `this map <http://map.cam.ac.uk/#/annotate/adapters/v4.json?mp=oadd;xx=225;yy=268;mt=c;tl=Cambridge%20Systems%20Biology%20Centre>`_.
+    We are building number 1 on `this map <http://map.cam.ac.uk/#/annotate/adapters/v4.json?mp=oadd;xx=225;yy=268;mt=c;tl=Cambridge%20Systems%20Biology%20Centre>`_.
 
 
 .. index:: Cambridge, contact, email, phone, fax
