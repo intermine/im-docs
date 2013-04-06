@@ -20,7 +20,7 @@ post
     | United Kingdom
 
 in person (please contact us first so we known to expect you)
-    We are building number 9 on `this map <http://www.cam.ac.uk/map/v4/drawmap.cgi?mp=oadd;xx=225;yy=268;mt=c;tl=Cambridge%20Systems%20Biology%20Centre>`_. Please note that the front door to this building is only accessible from Tennis Court Road. `Street view <http://tinyurl.com/d6grad>`_.
+    We are building number 9 on `this map <http://map.cam.ac.uk/#/annotate/adapters/v4.json?mp=oadd;xx=225;yy=268;mt=c;tl=Cambridge%20Systems%20Biology%20Centre>`_.
 
 
 .. index:: Cambridge, contact, email, phone, fax
