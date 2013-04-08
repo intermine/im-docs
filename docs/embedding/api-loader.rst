@@ -3,7 +3,7 @@
 InterMine JavaScript API Loader
 ===============================
 
-.. seealso:: `GitHub repo <https://github.com/radekstepan/intermine-api-loader>`_ for source code. For a live example refer to `FlyMine list widgets on Tinkerbin <http://tinkerbin.com/Xb3SZhOK>`_.
+.. seealso:: `GitHub repo <https://github.com/intermine/intermine-api-loader>`_ for source code. For a live example refer to `FlyMine list widgets on Tinkerbin <http://tinkerbin.com/Xb3SZhOK>`_.
 
 Purpose
 -------

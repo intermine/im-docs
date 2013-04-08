@@ -70,6 +70,6 @@ Web page
 Further development
 ----------------------------------
 
-A modern way of creating widget like heatmap would be using InterMine webservices framework to query and generate JSON strings and embed heatmap on any web page. To `learn more... <http://github.com/radekstepan/intermine-embedding-examples>`_
+A modern way of creating widget like heatmap would be using InterMine webservices framework to query and generate JSON strings and embed heatmap on any web page. To `learn more... <http://github.com/intermine/intermine-embedding-examples>`_
 
 An alternative library would be `D3.js <http://d3js.org/>`_, an example of heatmap can be found `here <http://www.larsko.org/v/mpte/>`_. However canvasXpress is particular designed to display genomics data, D3 is for a broader use. 

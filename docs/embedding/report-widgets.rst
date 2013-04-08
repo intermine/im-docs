@@ -45,13 +45,13 @@ Although JavaScript is the main language of the Node platform we will be using `
 Reference precompiler
 ~~~~~~~~~~~~~~~~~~~~~
 
-Now head over to the `GitHub repo <https://github.com/radekstepan/intermine-report-widgets>`_ of a reference client/precompiler. This tool will allow you to quickly iterate over your code and test it in the browser immediately.
+Now head over to the `GitHub repo <https://github.com/intermine/intermine-report-widgets>`_ of a reference client/precompiler. This tool will allow you to quickly iterate over your code and test it in the browser immediately.
 
 Typical steps (refer to the repo's docs) will look as follows:
 
 .. code-block:: bash
 
-    $ git clone git@github.com:radekstepan/intermine-report-widgets.git
+    $ git clone git@github.com:intermine/intermine-report-widgets.git
     $ cd intermine-report-widgets/
     $ npm install -d
     $ npm start
@@ -272,7 +272,7 @@ Issues
 Client
 ~~~~~~
 
-1. Make use of `intermine-api-loader <https://github.com/radekstepan/intermine-api-loader>`_ to efficiently load resources and libs only when needed.
+1. Make use of `intermine-api-loader <https://github.com/intermine/intermine-api-loader>`_ to efficiently load resources and libs only when needed.
 2. Generate **callbacks** that are unique for the page taking into account other clients that could exist on the page. As the service URL is unique per client, make use of that.
 3. Dump error messages from the server into the target element where widget was supposed to have been.
 4. Cache all of the widgets listing as we need to be resolving widget dependencies first.
