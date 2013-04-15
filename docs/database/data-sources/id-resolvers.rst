@@ -10,7 +10,7 @@ EntrezGeneIdResolverFactory     NCBI gene info for a collection of organisms   f
 FlyBaseIdResolverFactory        flybase chado db, for ''D.melanogaster'' only  ftp://ftp.flybase.net/releases/current/psql flybase chado
 WormBaseChadoIdResolverFactory  wormbase chado db, for ''C.elegans'' only      modENCODE specific
 ZfinIdentifiersResolverFactory  zebrafish ids                                  http://zfin.org/downloads/identifiersForIntermine.txt
-MgiIdentifiersResolverFactory   mouse ids                                      ftp://ftp.informatics.jax.org/pub/reports/MGI_Coordinate.rpt 
+MgiIdentifiersResolverFactory   mouse ids                                      ftp://ftp.informatics.jax.org/pub/reports/MRK_List2.rpt 
 RgdIdentifiersResolverFactory   rat ids                                        ftp://rgd.mcw.edu/pub/data_release/GENES_RAT.txt 
 HgncIdResolverFactory           HGNC human gene ids                            http://www.genenames.org/cgi-bin/hgnc_downloads.cgi 
 EnsemblIdResolverFactory        Ensembl id                                     customised
