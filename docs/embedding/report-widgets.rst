@@ -56,7 +56,7 @@ Typical steps (**refer to the repo's docs**) will look as follows:
     $ npm install
     $ PORT=5200 node start.js
 
-Now you should have a running instance of a service providing widgets. Head over to `http://127.0.0.1:1119 <http://127.0.0.1:1119>`_ to confirm that it is indeed the case.
+Now you should have a running instance of a service providing widgets. Head over to `http://127.0.0.1:5200 <http://127.0.0.1:5200>`_ to confirm that it is indeed the case.
 
 Develop a widget
 ----------------
