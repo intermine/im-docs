@@ -157,3 +157,8 @@ Session Error
 If you get a session error when you first start up your webapp, update your Tomcat configuration to handle different URLs. See :doc:`/system-requirements/software/tomcat`.
 
 .. index:: help, classpath, antlib-int.xml, keys, OutOfMemoryError, too many clients error, showProperties, logs, error messages
+
+Client side errors
+~~~~~~~~~~~~~~~~~~
+
+Assuming you are using Google Chrome as your browser press `Ctrl+Shift+I` to open a Debugger. In there click on the "Console" tab. If errors are present you should see them in red. If you want to inspect what kind of data are being sent/fetched, click on the Network Tab.

@@ -16,7 +16,7 @@ First you will need the variation data from Ensembl, which are available via MyS
   ftp://ftp.ensembl.org/pub/current_mysql
 
 for example:
-download homo_sapiens_variation_70_37 to a local directory, and load it to your MySQL database
+download homo_sapiens_variation_70_37 to a local directory, unzip all gz files, and load it to your MySQL database
 
 .. code-block:: bash
 
@@ -28,7 +28,7 @@ download homo_sapiens_variation_70_37 to a local directory, and load it to your 
   $ mysql -u DB_USER -p homo_sapiens_core_70 < homo_sapiens_variation_70_37.sql
   $ mysqlimport -u DB_USER -p homo_sapiens_variation_70 -L *.txt -v
 
-Variation db can be big and takes long time to query, one way to optimise the speed is to create precomputed tables, this process will normally take ~1.5hr to complete for Human SNPs:
+Variation db can be big and takes long time to query due to left joins and order bys on huge amount of snps by chromsomes. One way to optimise the speed is to create precomputed tables to run the left join and order by in one go. It will improve the performance of queries in converter by several folds. The process will normally take ~1.5hr to complete for Human SNPs:
 
 .. code-block:: bash
 

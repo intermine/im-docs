@@ -17,7 +17,7 @@ First you will need the data from Ensembl, which are available via MySQL databas
   ftp://ftp.ensembl.org/pub/current_mysql 
 
 for example:
-download homo_sapiens_core_70_37 to a local directory, and load it to your MySQL database
+download homo_sapiens_core_70_37 to a local directory, unzip all gz files, and load it to your MySQL database
 
 .. code-block:: bash
 

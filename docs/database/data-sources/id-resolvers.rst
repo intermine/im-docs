@@ -9,8 +9,8 @@ ID resolvers available in InterMine:
 EntrezGeneIdResolverFactory     NCBI gene info for a collection of organisms   ftp://ftp.ncbi.nih.gov/gene/DATA/gene_info.gz 
 FlyBaseIdResolverFactory        flybase chado db, for ''D.melanogaster'' only  ftp://ftp.flybase.net/releases/current/psql flybase chado
 WormBaseChadoIdResolverFactory  wormbase chado db, for ''C.elegans'' only      modENCODE specific
-ZfinIdentifiersResolverFactory  fish ids                                       http://zfin.org/downloads/ensembl_1_to_1.txt - ZFIN Marker associations to Ensembl IDs
-MgiIdentifiersResolverFactory   mouse ids                                      ftp://ftp.informatics.jax.org/pub/reports/MGI_Coordinate.rpt 
+ZfinIdentifiersResolverFactory  zebrafish ids                                  http://zfin.org/downloads/identifiersForIntermine.txt
+MgiIdentifiersResolverFactory   mouse ids                                      ftp://ftp.informatics.jax.org/pub/reports/MRK_List2.rpt 
 RgdIdentifiersResolverFactory   rat ids                                        ftp://rgd.mcw.edu/pub/data_release/GENES_RAT.txt 
 HgncIdResolverFactory           HGNC human gene ids                            http://www.genenames.org/cgi-bin/hgnc_downloads.cgi 
 EnsemblIdResolverFactory        Ensembl id                                     customised

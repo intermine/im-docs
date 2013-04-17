@@ -6,7 +6,7 @@ List Widgets Questions & Answers
 Source files
 ------------
 
-Source files for the `List widgets client <https://github.com/radekstepan/intermine-widget-client>`_.
+Source files for the `List widgets client <https://github.com/intermine/intermine-list-widgets>`_.
 
 Using a temporary list on the fly
 ---------------------------------
