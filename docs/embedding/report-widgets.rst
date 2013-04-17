@@ -47,14 +47,14 @@ Reference precompiler
 
 Now head over to the `GitHub repo <https://github.com/intermine/intermine-report-widgets>`_ of a reference client/precompiler. This tool will allow you to quickly iterate over your code and test it in the browser immediately.
 
-Typical steps (refer to the repo's docs) will look as follows:
+Typical steps (**refer to the repo's docs**) will look as follows:
 
 .. code-block:: bash
 
     $ git clone git@github.com:intermine/intermine-report-widgets.git
     $ cd intermine-report-widgets/
-    $ npm install -d
-    $ npm start
+    $ npm install
+    $ PORT=5200 node start.js
 
 Now you should have a running instance of a service providing widgets. Head over to `http://127.0.0.1:1119 <http://127.0.0.1:1119>`_ to confirm that it is indeed the case.
 
