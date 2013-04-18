@@ -3,7 +3,9 @@ OrthoDB
 
 Data
 
-ftp://cegg.unige.ch/OrthoDB5/OrthoDB5_ALL_tabtext.gz 
+ftp://cegg.unige.ch/OrthoDB6/OrthoDB6_ALL_FUNGI_tabtext.gz, ftp://cegg.unige.ch/OrthoDB6/OrthoDB6_ALL_METAZOA_tabtext.gz 
+
+Unzip the files and put them in the same directory.
 
 Project XML
 
