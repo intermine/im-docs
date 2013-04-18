@@ -37,6 +37,21 @@ Many data converters use the Entrez (NCBI) Gene ID resolver:
   resolver.file.rootpath=/DATA_DIR/idresolver/
 
 
+Id resolvers and corresponding symbolic to data file:
+
+==============================  =============
+Resolver                        Symbolic link
+==============================  =============
+EntrezGeneIdResolverFactory     entrez        
+WormBaseChadoIdResolverFactory  wormid
+ZfinIdentifiersResolverFactory  zfin
+MgiIdentifiersResolverFactory   mgi
+RgdIdentifiersResolverFactory   rgd
+HgncIdResolverFactory           hgnc 
+EnsemblIdResolverFactory        ensembl
+==============================  =============
+
+
 In the data converter, the ID resolver is given an identifier. The resolver then looks in the map for the identifier.
 
 =================  ============
