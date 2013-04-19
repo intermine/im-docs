@@ -15,7 +15,8 @@ that [repository](https://github.com/intermine/CDN).
 Upgrade to InterMine 1.2
 ---------------------------------
 
-The core data model has not been changed, so you should be able to release a webapp using InterMine 1.2 code without making any changes.
+The core data model has not been changed, so you should be able to release a webapp
+using InterMine 1.2 code without making any changes.
 
 Upgrade to InterMine 1.1
 ---------------------------------
@@ -23,10 +24,13 @@ Upgrade to InterMine 1.1
 The core model of InterMine has changed in release 1.1 so you may encounter more errors than usual. 
  
 update integration keys
-   	You may need to update your integration keys if they are using a class or field that's been changed.    
+   	You may need to update your integration keys if they are using a class or field
+        that's been changed.    
 
 update custom converter
-	If you are storing data using a class or field that's been changed, you will have to change your code to use the new model. See below for the complete list of model changes.
+	If you are storing data using a class or field that's been changed, you will have
+        to change your code to use the new model. See below for the complete list of model
+        changes.
 
 template queries 
 	You will have to update your templates to use the new model
