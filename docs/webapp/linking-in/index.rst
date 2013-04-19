@@ -40,6 +40,14 @@ Links to list analysis page for specified objects.  For a very long list, use a 
 
 http://www.flymine.org/query/portal.do?externalids=CG2262,CG3069,CG2859,CG5041,FBgn0036513&class=Gene
 
+
+Query builder
+----------------------------------
+
+Links directly to query builder, starts a query using the provided list.
+
+http://www.flymine.org/query/loadQuery.do?name=<LIST_NAME>&method=list
+
 Report page
 ----------------------------------
 
