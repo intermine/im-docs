@@ -9,8 +9,8 @@ To pull changes in your local repository and merge them into your working files:
 
 If you don't have a git repo yet, see :doc:`/git/index` for details.
 
-If you host a copy of the CDN, then you should also pull in changes from
-that [repository](https://github.com/intermine/CDN). 
+If you host a copy of the `CDN`_, then you should also pull in changes from
+that repository.
 
 Upgrade to InterMine 1.2
 ---------------------------------
@@ -97,7 +97,10 @@ Gene Ontology
 Identifiers
 ~~~~~~~~~~~~~~~~~~~~~~
 
-We have several [wiki:Homologue new homologue data converters] available in this InterMine release. However, some of these new data sources use Ensembl IDs. If you want to load the model organism database identifier instead (important for interoperation with other InterMines), you should use the Entrez Gene ID resolver: 
+We have several [wiki:Homologue new homologue data converters] available in this InterMine release.
+However, some of these new data sources use Ensembl IDs. If you want to load the model organism
+database identifier instead (important for interoperation with other InterMines), you should use the
+Entrez Gene ID resolver: 
 
 #. Download the identifier file - ftp://ftp.ncbi.nih.gov/gene/DATA/gene_info.gz
 #. Unzip the file
@@ -111,7 +114,8 @@ We have several [wiki:Homologue new homologue data converters] available in this
 Configuration Updates
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Web services uses the `webapp.baseurl` property to run queries, so be sure this is the valid URL for your mine. Otherwise you will get an "Unable to construct query" error on the query results page.
+Web services uses the `webapp.baseurl` property to run queries, so be sure this is the valid URL for
+your mine. Otherwise you will get an "Unable to construct query" error on the query results page.
 
 .. code-block:: properties
 
@@ -128,3 +132,6 @@ If you would like to use Tomcat 7.0 with InterMine 1.1, add this property:
 
 	# in ~/.intermine/MINE_NAME.properties
 	webapp.tomcat.version=7
+
+
+.. _CDN: https://github.com/intermine/CDN
