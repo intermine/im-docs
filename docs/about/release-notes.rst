@@ -1,3 +1,8 @@
+Updating to the Latest Release
+================================
+
+See :doc:`/support/upgrade` for instructions on how to update your Mine.
+
 InterMine 1.2
 ==============================================
 
