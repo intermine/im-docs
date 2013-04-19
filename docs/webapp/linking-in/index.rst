@@ -46,7 +46,7 @@ Query builder
 
 Links directly to query builder, starts a query using the provided list.
 
-http://www.flymine.org/query/loadQuery.do?name=<LIST_NAME>&method=list
+http://beta.flymine.org/beta/loadQuery.do?name=copy&method=list
 
 Report page
 ----------------------------------
