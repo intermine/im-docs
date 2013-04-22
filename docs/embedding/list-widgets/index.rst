@@ -58,9 +58,9 @@ attribute        purpose                                                        
 
 The following are optional attributes:
 
-=====================  ==============================================================================================================================  ============================
+=====================  ==============================================================================================================================  =========================
 attribute              purpose                                                                                                                         example
-=====================  ==============================================================================================================================  ============================
+=====================  ==============================================================================================================================  =========================
 ``title``              appears at the top of the widget                                                                                                ``Orthologues``
 ``description``        description of the widget                                                                                                       ``Counts of orthologues``
 ``displayFields``      which fields from the objects in the collection (in the above example, ``Gene.proteins``) to display, eg. ``primaryAccession``  ``name``
@@ -68,7 +68,7 @@ attribute              purpose                                                  
 ``externalLink``       link displayed next to first column, identifier will be appended to link
 ``externalLinkLabel``  label for external link
 ``views``              path fields display in the query running when the user clicks on the widget                                                     ``symbol``
-=====================  ==============================================================================================================================  ============================
+=====================  ==============================================================================================================================  =========================
 
 Graph/Chart widgets
 ~~~~~~~~~~~~~~~~~~~

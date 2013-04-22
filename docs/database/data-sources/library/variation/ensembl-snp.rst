@@ -41,7 +41,7 @@ Variation db can be big and takes long time to query due to left joins and order
   mysql> CREATE TABLE mM_snp_tmp_ordered_chr_all SELECT * FROM mM_snp_tmp_no_order_chr_all ORDER BY seq_region_name, variation_id;
 
 How to load the data into your mine
----------------------------
+------------------------------------------------------
 
 Update <MINE_NAME>.properties
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
