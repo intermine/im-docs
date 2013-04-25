@@ -54,7 +54,7 @@ Typical steps (**refer to the repo's docs**) will look as follows:
     $ git clone git@github.com:intermine/intermine-report-widgets.git
     $ cd intermine-report-widgets/
     $ npm install
-    $ PORT=5200 node start.js
+    $ PORT=5200 ./node_modules/.bin/cake start
 
 Now you should have a running instance of a service providing widgets. Head over to `http://127.0.0.1:5200 <http://127.0.0.1:5200>`_ to confirm that it is indeed the case.
 
@@ -68,7 +68,7 @@ Presenter
 
 The next step is writing a presenter which is a component that knows how to get data for itself and then render them in a particular way, thus it encapsulates the behavior of the widget.
 
-The file needs to be called ``presenter.coffee`` and be placed in a directory with the name of the widget. The file needs to contain a ``class Widget`` with the following signature:
+The file needs to be called ``presenter.coffee`` for a CoffeeScript file (or ``presenter.js`` for a JavaScript file) and be placed in a directory with the name of the widget. The file needs to contain a ``class Widget`` with the following signature:
 
 .. code-block:: coffeescript
 
