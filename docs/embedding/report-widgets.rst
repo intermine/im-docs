@@ -68,7 +68,7 @@ Presenter
 
 The next step is writing a presenter which is a component that knows how to get data for itself and then render them in a particular way, thus it encapsulates the behavior of the widget.
 
-The file needs to be called ``presenter.coffee`` for a CoffeeScript file (or ``presenter.js`` for a JavaScript file) and be placed in a directory with the name of the widget. The file needs to contain a ``class Widget`` with the following signature:
+The file needs to be called ``presenter.coffee`` for a CoffeeScript file (other options are ``presenter.js``/``presenter.ls`` for a JavaScript/LiveScript file respectively) and be placed in a directory with the name of the widget. The file needs to contain a ``class Widget`` with the following signature:
 
 .. code-block:: coffeescript
 
