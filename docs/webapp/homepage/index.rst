@@ -67,7 +67,7 @@ The fields that you do NOT set in this way, will simply show the text configured
 Popular Templates Customization
 -------------------------------
 
-By visiting the Templates page one can see a listing of templates in different categories. If you would like to show 10 most popular templates per category on your homepage, follow this text.
+To show the ten most popular template queries per category on your homepage:
 
 .. image:: img/popular_templates.jpg
 
@@ -75,9 +75,12 @@ Configuring the popular templates is very straightforward. Let us say that we ha
 
 .. code-block:: properties
 
+    # web.properties
     begin.tabs.1.id = Genomics
 
-What this configuration does is it creates a tab on the homepage with (up to) 10 most popular templates from a Genomics category. The number in the config key specifies the order in which we want to show them. So if we have two categories, Genomics and Proteins, and they should appear in this order, we would write this:
+What this configuration does is it creates a tab on the homepage with (up to) 10 most popular templates from a `Genomics` category. For a template to appear in this section, tag it with the Genomics aspect: `im:aspect:Genomics`.
+
+The number in the config key specifies the order in which we want to show them. So if we have two categories, Genomics and Proteins, and they should appear in this order, we would write this:
 
 .. code-block:: properties
 
@@ -98,6 +101,8 @@ The last thing we will show is how to specify a custom category name to show as 
     begin.tabs.1.id = Genomics
     begin.tabs.1.description = This is some descriptive text
     begin.tabs.1.name = Genes
+
+Example configuration file: `FlyMine <https://github.com/intermine/intermine/blob/dev/flymine/webapp/resources/web.properties#L554-L570>`_ 
 
 Featured Lists
 --------------
