@@ -78,7 +78,11 @@ Example:
     # web.properties
     begin.tabs.1.id = Genomics
 
-What this configuration does is it creates a tab on the homepage with (up to) 10 most popular templates from a `Genomics` category. For a template to appear in this section, tag it with the Genomics aspect: `im:aspect:Genomics`.
+What this configuration does is it creates a tab on the homepage with (up to) 10 most popular templates from a `Genomics` category. For a template to appear in this section, tag it with the Genomics aspect: `im:aspect:Genomics`. 
+
+.. note::
+
+    The tag you apply to the template (e.g. `im:aspect:Genomics`) must match the value of the `id` attribute (e.g. `begin.tabs.1.id = Genomics`).
 
 The number in the config key specifies the order in which we want to show them. So if we have two categories, Genomics and Proteins, and they should appear in this order, we would write this:
 
