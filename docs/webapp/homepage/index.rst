@@ -71,7 +71,7 @@ To show the ten most popular template queries per category on your homepage:
 
 .. image:: img/popular_templates.jpg
 
-Configuring the popular templates is very straightforward. Let us say that we have a Genomics category of templates. To add it to the homepage, we will add the following to the config file:
+Example:
 
 .. code-block:: properties
 
