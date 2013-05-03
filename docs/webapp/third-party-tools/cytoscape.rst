@@ -25,7 +25,25 @@ Configuration
 	<action path="/cytoscapeNetworkExport" type="org.intermine.bio.web.struts.CytoscapeNetworkExportAction"/>
 	<action path="/cytoscapeNetworkAjax" type="org.intermine.bio.web.struts.CytoscapeNetworkAjaxAction"/>
 
-3. re-release your webapp and you should see the interaction displayer on gene report pages.
+3. add the following entries to your '''aspects.xml''' file:
+
+.. code-block:: xml
+
+  <aspect name="Interactions">
+    <subtitle>IntAct</subtitle>
+    <icon-image>model/images/interaction.gif</icon-image>
+    <large-image>model/images/interaction.gif</large-image>
+    <tile-name></tile-name>
+    <intro-text>
+      Protein-protein interactions from IntAct (PSI-MI format), genetic interactions from the BioGRID and miRNA target predictions from miRBase.
+    </intro-text>
+    <tile-name>model/interactions.jsp</tile-name>
+    <aspect-source name="IntAct" url="http://www.ebi.ac.uk/intact/"/>
+    <aspect-source name="BioGRID" url="http://www.thebiogrid.org/"/>
+    <aspect-source name="miRBase" url="http://microrna.sanger.ac.uk/targets/v4/"/>
+  </aspect>
+
+4. re-release your webapp and you should see the interaction displayer on gene report pages.
 
 Data format
 ---------------------------------------
