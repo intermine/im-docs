@@ -36,7 +36,16 @@ If you follow the above steps with this data file, the following will happen:
 #. start = 183057, end = 184457
 #. gene will be located in -1 strand, mRNA will be located on the 1 strand.
 
-To do more processing or access the attributes, eg. the "ID=mRNA.46312;Parent=gene.46311" string, you will have to write your own GFF3 parser.  See below for details.
+To do more processing or access the attributes, eg. the "ID=mRNA.46312;Parent=gene.46311" string, you are able to configure in gff_config.properties. For more advanced processing, you will have to write your own GFF3 parser.  See below for details.
+
+.. code-block:: properties
+
+	# gff_config.properties example for E. coil gff3 attributes
+	511145.terms=gene,exon                             # feature types to load, e.g. load gene and exon for E. coli
+	511145.attributes.Dbxref.EcoGene=primaryIdentifier # use Dbxref EcoGene field as primaryIdentifier
+	511145.attributes.locus_tag=secondaryIdentifier    # use locus_tag field as secondaryIdentifier
+	511145.attributes.gene=symbol                      # use gene field as symbol
+	511145.attributes.gene_synonym=synonym             # use gene_synonym field for synonym
 
 Project XML
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -50,7 +59,7 @@ Here is an example GFF3 entry in the project XML file:
 
     <source name="example-gff3" type="gff3">
       <property name="gff3.taxonId" value="7227"/>
-      <property name="gff3.seqClsName" value="MRNA"/>
+      <property name="gff3.seqClsName" value="Chromosome"/>
       <property name="src.data.dir" location="/DATA/*.gff3"/>
     </source>
 
