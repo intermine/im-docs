@@ -289,7 +289,7 @@ Run it inside InterMine
 
 To embed a Report Widget in a mine's Report page we will create a wrapping :doc:`/webapp/report-page/report-displayers` whose only job will be to call the service in question.
 
-Start by editing your ``global.web.properties`` file adding a requirement to load :doc:`api-loader` on pages:
+Start by editing your ``web.properties`` file (:doc:`/webapp/properties/web-properties`) adding a requirement to load :doc:`api-loader` on pages:
 
 .. code-block:: properties
 
