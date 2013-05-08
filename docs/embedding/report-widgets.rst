@@ -287,7 +287,7 @@ Run it inside InterMine
     
     Read this section if you have either a Node.js or Java service and want to embed a widget inside a mine's Report page.
 
-To embed a Report Widget in a mine's Report page we will create a wrapping :doc:`/webapp/report-page/report-displayer` whose only job will be to call the service in question.
+To embed a Report Widget in a mine's Report page we will create a wrapping :doc:`/webapp/report-page/report-displayers` whose only job will be to call the service in question.
 
 Start by editing your ``global.web.properties`` file adding a requirement to load :doc:`api-loader` on pages:
 
