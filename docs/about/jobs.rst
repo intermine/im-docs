@@ -10,11 +10,9 @@ InterMine is looking for a software developer to help create powerful, attractiv
 
 Salary: £27,854 - £36,298 
 
-Skills & Requirements
-------------------------------
 
 Required Skills and Experience
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------
 
 * Demonstrable **JavaScript** development experience
 * Experience with VCS, e.g. **Git** or Subversion
@@ -22,9 +20,9 @@ Required Skills and Experience
 * Familiarity with **unit testing**, automated testing and continuous integration
 
 Desired Skills and Experience
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------
 
-* Familiarity with Linux, ``bash``, open source development tools and methodology
+* Comfortable with open source development tools and methodology
 * Familiarity with client side web frameworks, e.g. **Backbone.js**
 * Familiarity with **Java**, **Perl**, **Python** or **Ruby**
 * Knowledge of **CoffeeScript**, or other transpiled language
@@ -33,6 +31,7 @@ Desired Skills and Experience
 
 Our Toolset
 ------------------------------
+
 * Java
 * Python
 * Perl
