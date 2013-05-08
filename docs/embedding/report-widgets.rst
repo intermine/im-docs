@@ -201,6 +201,10 @@ To run the widgets, you need to include InterMine's API loader that is used for 
 
     <script src="http://cdn.intermine.org/api"></script>
 
+.. note::
+    
+    Make sure you have jQuery loaded before asking for ``reportWidgets``. (Will change in the future).
+
 Now we say that we want to load report widgets passing in a callback function. In this callback we specify that we want a new ReportWidgets instance pointing to a service serving them.
 
 .. code-block:: javascript
@@ -214,6 +218,102 @@ In this callback still we say which widget we want passing in extra config that 
 .. code-block:: javascript
 
     widgets.load('spell-histogram', '#spell', { 'type': 'Gene', 'symbol': 'S000001863' });
+
+Run it from InterMine
+---------------------
+
+.. note::
+    
+    Read this section if you would like InterMine to act as a service for Report Widgets instead of having a Node.js reference implementation running separately.
+
+To have InterMine act as a service we will need to:
+
+#. Write XML config
+#. Copy over the prepackaged widget into InterMine
+
+The following steps will assume that we want to embed the example ``publications-displayer`` Report Widget that is provided in the GitHub.
+
+Write XML config
+~~~~~~~~~~~~~~~~
+
+Just like with :doc:`list-widgets`, we will configure the widget in ``webconfig-model.xml``. Add to or create a section ``<reportwidgets>`` inside the ``<webconfig>`` tags. Then add something like the following:
+
+.. code-block:: xml
+
+    <reportwidget
+      id="publications-displayer"
+      author="Radek"
+      title="Publications for Gene"
+      description="Shows a list of publications for a specific gene"
+      version="0.2.0"
+    >
+      <dependency name="A" path="http://A.js" type="js">
+      <dependency name="B" path="http://B.js" type="js" wait="true">
+      <dependency path="http://C.css" type="css">
+      <keyValue key="mine" value="http://beta.flymine.org/beta" />
+      <query name="pubsForGene" model="genomic" view="Gene.publications.title">
+        <join path="Gene.publications.authors" style="OUTER">
+      </query>
+    </reportwidget>
+
+Now what just happened here?
+
+id
+    represents a unique widget id, it needs to match the filename of the widget (as discussed below)
+author
+    non consequential name of the author that is good for debugging purposes (and assigning blame)
+title
+    non consequential widget title
+description
+    non consequential widget description
+version
+    non consequential widget version
+</dependency>
+    these items match the syntax described above, just in XML. So we provide a ``name`` of a resource (to check if it exists on the page or not) a ``path`` and a ``type``. Optionally we can provide a boolean ``wait`` to say if some resources need to be loaded ahead of others.
+</keyValue>
+     a key-value pair in a beautiful XML syntax. This is a config that is your mine specific
+</query>
+     this is your standard :doc:`path-query` with an attribute ``name`` so we can tell which is which inside the widget.
+
+.. warning::
+
+    The PathQuery provided above needs to be a valid one for your particular mine. While the reference implementation does not check for validity, the Java version does. So you cannot, for example, make a PathQuery valid for mine X if you have mine Y that does not have the same data model.
+
+Copy prepackaged widget
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Now that we have written the config, we need to provide the actual widget source. Copy over the ``.js`` file from the ``/build`` directory into ``intermine/webapp/main/resources/webapp/js/widgets``. Take care to name the file the same as you have called it (attr. ``id``) in the config above.
+
+Re-release the webapp.
+
+Now you are ready to embed the widget on a page of your choosing according to the steps outlined in :doc:`report-widgets/#run-it`. The root for the Java service is something like: http://[YOUR_MINE]/service.
+
+Run it inside the InterMine
+---------------------------
+
+.. note::
+    
+    Read this section if you have either a Node.js or Java service and want to embed a widget inside a mine's Report page.
+
+To embed a Report Widget in a mine's Report page we will create a wrapping Report :doc:`report-displayer` whose only job will be to call the service in question.
+
+Start by editing your ``global.web.properties`` file adding a requirement to load :doc:`api-loader` on pages
+
+.. code-block:: properties
+
+    head.js.all.API = CDN/api
+
+Now let us add a config for a :doc:`report-displayer` in ``webconfig-model.xml`` section ``</reportdisplayers>``.
+
+.. code-block:: xml
+
+    <reportdisplayer javaClass="org.intermine.bio.web.displayer.ReportWidgetDisplayer"
+                     jspName="model/reportWidgetDisplayer.jsp"
+                     replacesFields=""
+                     placement="summary"
+                     types="Gene"/>
+
+Now we can create the Java backend for the Report Displayer in ```bio/webapp/src/org/intermine/bio/web/displayer/ReportWidgetDisplayer.java`
 
 Workflow
 --------
