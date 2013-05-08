@@ -278,7 +278,7 @@ Now that we have written the config, we need to provide the actual widget source
 
 Re-release the webapp.
 
-Now you are ready to embed the widget on a page of your choosing according to the steps outlined in :doc:`report-widgets/run-it`. The root for the Java service will be something like: ``http://[YOUR_MINE]/service``.
+Now you are ready to embed the widget on a page of your choosing according to the steps outlined in :doc:`run-it`. The root for the Java service will be something like: ``http://[YOUR_MINE]/service``.
 
 Run it inside InterMine
 -----------------------
