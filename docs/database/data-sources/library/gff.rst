@@ -36,7 +36,9 @@ If you follow the above steps with this data file, the following will happen:
 #. start = 183057, end = 184457
 #. gene will be located in -1 strand, mRNA will be located on the 1 strand.
 
-To do more processing or access the attributes, eg. the "ID=mRNA.46312;Parent=gene.46311" string, you are able to configure in gff_config.properties. For more advanced processing, you will have to write your own GFF3 parser.  See below for details.
+.. note::
+
+	By default, columns such as "type", "start", "end", "strand" and "ID" field in "attributes" column are parsed automatically. To do more processing or access the attributes, eg. the "ID=mRNA.46312;Parent=gene.46311" string, you are able to configure in gff_config.properties. For more advanced processing, you will have to write your own GFF3 parser.  See below for details.
 
 .. code-block:: properties
 
@@ -46,6 +48,20 @@ To do more processing or access the attributes, eg. the "ID=mRNA.46312;Parent=ge
 	511145.attributes.locus_tag=secondaryIdentifier    # use locus_tag field as secondaryIdentifier
 	511145.attributes.gene=symbol                      # use gene field as symbol
 	511145.attributes.gene_synonym=synonym             # use gene_synonym field for synonym
+
+Parent relationship
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The parent-child relationship between features can also be handled automatically if you set it up properly. Take MalariaGFF3RecordHandler for example:
+
+.. code-block:: java
+
+    public MalariaGFF3RecordHandler(Model tgtModel) {
+        super(tgtModel);
+        // refsAndCollections controls references and collections that are set from the
+        // Parent= attributes in the GFF3 file.
+        refsAndCollections.put("Exon", "transcripts");
+        refsAndCollections.put("MRNA", "gene");
+    }
 
 Project XML
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
