@@ -48,7 +48,14 @@ The numerous genome sequencing projects have produced an inordinate amount of bi
 
 Take a look at our codebase at GitHub http://www.github.com/intermine and some of our recent tools: http://intermine-report-widgets-service.labs.intermine.org.
 
-InterMine was founded in 2002 and is based at the University of Cambridge. We are looking for the brightest, smartest people who want to make a difference. We offer very competitive salaries and a generous benefits package (see http://www.jobs.cam.ac.uk/offer for details).
+InterMine was founded in 2002 and is based at the University of Cambridge. We offer very competitive salaries and a generous benefits package (see http://www.jobs.cam.ac.uk/offer for the full list):
+
+* 33 days annual holiday
+* 37.5 hour work week
+* University pension
+* Child care and bike to work salary sacrifice schemes
+* Access to `University sports facilities <http://www.sport.cam.ac.uk/information/staff.html>`_
+            
 
 How to Apply
 ------------------------------
