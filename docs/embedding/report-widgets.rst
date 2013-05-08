@@ -295,7 +295,7 @@ Start by editing your ``global.web.properties`` file adding a requirement to loa
 
     head.js.all.API = CDN/api
 
-Now let us add a config for a :doc:`/webapp/report-page/report-displayer` in ``webconfig-model.xml`` section ``</reportdisplayers>``:
+Now let us add a config for a :doc:`/webapp/report-page/report-displayers` in ``webconfig-model.xml`` section ``</reportdisplayers>``:
 
 .. code-block:: xml
 
