@@ -56,6 +56,7 @@ InterMine was founded in 2002 and is based at the University of Cambridge. We of
 * University pension
 * Child care and bike to work salary sacrifice schemes
 * Access to `University sports facilities <http://www.sport.cam.ac.uk/information/staff.html>`_
+* `Family friendly benefits <http://www.admin.cam.ac.uk/offices/hr/staff/benefits/family.html>`_ like maternity, paternity and parental leave, flexible working and career break schemes.
             
 
 How to Apply
