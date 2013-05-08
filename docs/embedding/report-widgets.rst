@@ -358,7 +358,7 @@ It is left up to the reader to:
 #. Determine where they are going to serve the widgets from. In the script above, we have a hardcoded link to http://localhost:8080/mine which is not very robust.
 #. In your widget, you will want to pass an ``id`` of an object from Java backend to the JSP and subsequently to JavaScript. In our example, we get *zen* data regardless of which report page we have visited!
 #. Take care of CSS dependencies. *Big* libraries like `Bootstrap <http://twitter.github.io/bootstrap>`_ or `Foundation <http://foundation.zurb.com>`_ will override any and all styles on the whole page. Either do not use them or use them with a prefix. We provide a nifty library for that at http://github.com/radekstepan/prefix-css-node.
-#. Make sure that JavaScript libraries on a page do not collide. If we specify that a widget relies on library X and we have no way of checking whether is was already, loading it again may have unpredictable consequences.
+#. Make sure that JavaScript libraries on a page do not collide. If we specify that a widget relies on library X and we have no way of checking whether is was already loaded and it was, loading it again may have unpredictable consequences.
 
 Workflow
 --------
