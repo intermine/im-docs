@@ -11,19 +11,19 @@ Required Skills and Experience
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Demonstrable **JavaScript** development experience
-* Experience with **version control software**, e.g. Git or Subversion
+* Experience with VCS, e.g. **Git** or Subversion
 * An understanding of **design patterns** and software engineering principles
 * Familiarity with **unit testing**, automated testing and continuous integration
 
 Desired Skills and Experience
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Familiarity with Linux, bash, open source development tools and methodology
-* Familiarity with **web frameworks**, e.g. Backbone.js
-* Familiarity with **Java, Perl, Python or Ruby**
-* Knowledge of **Coffeescript**, or other transpiled language
+* Familiarity with Linux, ``bash``, open source development tools and methodology
+* Familiarity with client side web frameworks, e.g. **Backbone.js**
+* Familiarity with **Java**, **Perl**, **Python** or **Ruby**
+* Knowledge of **CoffeeScript**, or other transpiled language
 * Knowledge of **client side templating** and **modularity techniques** in JavaScript
-* Awareness of HTML5, CSS3, Mocha, and Promises
+* Awareness of **HTML5**, **CSS3**, **Mocha**, and **Promises**
 
 Our Toolset
 ------------------------------
