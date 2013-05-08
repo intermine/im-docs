@@ -229,14 +229,14 @@ Run it from InterMine
 To have InterMine act as a service we will need to:
 
 #. Write XML config
-#. Copy over the prepackaged widget into InterMine
+#. Copy over the prepackaged widget (created & tested above) into our InterMine
 
-The following steps will assume that we want to embed the example ``publications-displayer`` Report Widget that is provided in the GitHub.
+The following steps will assume that we want to embed the example ``publications-displayer`` Report Widget that is provided in the GitHub repo.
 
 Write XML config
 ~~~~~~~~~~~~~~~~
 
-Just like with :doc:`list-widgets`, we will configure the widget in ``webconfig-model.xml``. Add to or create a section ``<reportwidgets>`` inside the ``<webconfig>`` tags. Then add something like the following:
+Just like with :doc:`list-widgets/index`, we will configure the widget in ``webconfig-model.xml``. Add to or create a section ``<reportwidgets>`` inside the ``<webconfig>`` tags. Then add something like the following:
 
 .. code-block:: xml
 
@@ -259,25 +259,17 @@ Just like with :doc:`list-widgets`, we will configure the widget in ``webconfig-
 Now what just happened here?
 
 id
-    represents a unique widget id, it needs to match the filename of the widget (as discussed below)
-author
-    non consequential name of the author that is good for debugging purposes (and assigning blame)
-title
-    non consequential widget title
-description
-    non consequential widget description
-version
-    non consequential widget version
+    represents a unique widget id, it needs to match the filename of the widget that we will use
 </dependency>
     these items match the syntax described above, just in XML. So we provide a ``name`` of a resource (to check if it exists on the page or not) a ``path`` and a ``type``. Optionally we can provide a boolean ``wait`` to say if some resources need to be loaded ahead of others.
 </keyValue>
      a key-value pair in a beautiful XML syntax. This is a config that is your mine specific
 </query>
-     this is your standard :doc:`path-query` with an attribute ``name`` so we can tell which is which inside the widget.
+     this is your standard PathQuery with an attribute ``name`` so we can tell which is which inside the widget.
 
 .. warning::
 
-    The PathQuery provided above needs to be a valid one for your particular mine. While the reference implementation does not check for validity, the Java version does. So you cannot, for example, make a PathQuery valid for mine X if you have mine Y that does not have the same data model.
+    The PathQuery provided above needs to be a valid one for your particular mine. While the reference implementation does not check for validity, the Java version does. So you cannot, for example, make a PathQuery valid for mine B from mine A that does not have the same data model.
 
 Copy prepackaged widget
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -286,7 +278,7 @@ Now that we have written the config, we need to provide the actual widget source
 
 Re-release the webapp.
 
-Now you are ready to embed the widget on a page of your choosing according to the steps outlined in :doc:`report-widgets/#run-it`. The root for the Java service is something like: http://[YOUR_MINE]/service.
+Now you are ready to embed the widget on a page of your choosing according to the steps outlined in :doc:`report-widgets/run-it`. The root for the Java service will be something like: ``http://[YOUR_MINE]/service``.
 
 Run it inside InterMine
 -----------------------
@@ -295,15 +287,15 @@ Run it inside InterMine
     
     Read this section if you have either a Node.js or Java service and want to embed a widget inside a mine's Report page.
 
-To embed a Report Widget in a mine's Report page we will create a wrapping Report :doc:`report-displayer` whose only job will be to call the service in question.
+To embed a Report Widget in a mine's Report page we will create a wrapping :doc:`/webapp/report-page/report-displayer` whose only job will be to call the service in question.
 
-Start by editing your ``global.web.properties`` file adding a requirement to load :doc:`api-loader` on pages
+Start by editing your ``global.web.properties`` file adding a requirement to load :doc:`api-loader` on pages:
 
 .. code-block:: properties
 
     head.js.all.API = CDN/api
 
-Now let us add a config for a :doc:`report-displayer` in ``webconfig-model.xml`` section ``</reportdisplayers>``.
+Now let us add a config for a :doc:`/webapp/report-page/report-displayer` in ``webconfig-model.xml`` section ``</reportdisplayers>``:
 
 .. code-block:: xml
 
@@ -313,7 +305,7 @@ Now let us add a config for a :doc:`report-displayer` in ``webconfig-model.xml``
                      placement="summary"
                      types="Gene"/>
 
-Now we can create the Java backend for the Report Displayer under ``bio/webapp/src/org/intermine/bio/web/displayer/ReportWidgetDisplayer.java``:
+Now we can create the Java backend for the Displayer under ``bio/webapp/src/org/intermine/bio/web/displayer/ReportWidgetDisplayer.java``:
 
 .. code-block:: java
 
@@ -359,13 +351,13 @@ Now that we have the less than exiting backend, let us write the front end wrapp
     </script>
     <!-- /reportWidgetDisplayer.jsp -->
 
-If we re-release the webapp, we should have a displayer in the summary section of a Gene report page pointing to a ``publications-displayer`` for **zen**.
+If we re-release the webapp, we should have a displayer in the summary section of a Gene report page pointing to a ``publications-displayer`` for *zen*.
 
 It is left up to the reader to:
 
 #. Determine where they are going to serve the widgets from. In the script above, we have a hardcoded link to http://localhost:8080/mine which is not very robust
-#. In your widget, you will want to pass an ``id`` of an object from Java backend to the JSP and subsequently to JavaScript. In our example, we get **zen** data regardless of which report page we have visited!
-#. Take care of CSS dependencies. **Big** libraries like Bootstrap or Foundation will override any and all styles on the whole page. Either do not use them or use them with a prefix. We provide a nifty library for that at http://github.com/radekstepan.com/prefix-css-node.
+#. In your widget, you will want to pass an ``id`` of an object from Java backend to the JSP and subsequently to JavaScript. In our example, we get *zen* data regardless of which report page we have visited!
+#. Take care of CSS dependencies. *Big* libraries like `Bootstrap <http://twitter.github.io/bootstrap>`_ or `Foundation <http://foundation.zurb.com>`_ will override any and all styles on the whole page. Either do not use them or use them with a prefix. We provide a nifty library for that at http://github.com/radekstepan.com/prefix-css-node.
 
 Workflow
 --------
