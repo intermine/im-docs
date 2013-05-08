@@ -247,12 +247,12 @@ Just like with :doc:`list-widgets`, we will configure the widget in ``webconfig-
       description="Shows a list of publications for a specific gene"
       version="0.2.0"
     >
-      <dependency name="A" path="http://A.js" type="js">
-      <dependency name="B" path="http://B.js" type="js" wait="true">
-      <dependency path="http://C.css" type="css">
+      <dependency name="A" path="http://A.js" type="js" />
+      <dependency name="B" path="http://B.js" type="js" wait="true" />
+      <dependency path="http://C.css" type="css" />
       <keyValue key="mine" value="http://beta.flymine.org/beta" />
       <query name="pubsForGene" model="genomic" view="Gene.publications.title">
-        <join path="Gene.publications.authors" style="OUTER">
+        <join path="Gene.publications.authors" style="OUTER" />
       </query>
     </reportwidget>
 
@@ -288,8 +288,8 @@ Re-release the webapp.
 
 Now you are ready to embed the widget on a page of your choosing according to the steps outlined in :doc:`report-widgets/#run-it`. The root for the Java service is something like: http://[YOUR_MINE]/service.
 
-Run it inside the InterMine
----------------------------
+Run it inside InterMine
+-----------------------
 
 .. note::
     
@@ -313,7 +313,59 @@ Now let us add a config for a :doc:`report-displayer` in ``webconfig-model.xml``
                      placement="summary"
                      types="Gene"/>
 
-Now we can create the Java backend for the Report Displayer in ```bio/webapp/src/org/intermine/bio/web/displayer/ReportWidgetDisplayer.java`
+Now we can create the Java backend for the Report Displayer under ``bio/webapp/src/org/intermine/bio/web/displayer/ReportWidgetDisplayer.java``:
+
+.. code-block:: java
+
+    package org.intermine.bio.web.displayer;
+
+    import javax.servlet.http.HttpServletRequest;
+
+    import org.intermine.api.InterMineAPI;
+    import org.intermine.web.displayer.ReportDisplayer;
+    import org.intermine.web.logic.config.ReportDisplayerConfig;
+    import org.intermine.web.logic.results.ReportObject;
+
+    public class ReportWidgetDisplayer extends ReportDisplayer
+    {
+
+        public ReportWidgetDisplayer(ReportDisplayerConfig config, InterMineAPI im) {
+            super(config, im);
+        }
+
+        @Override
+        public void display(HttpServletRequest request, ReportObject reportObject) { }
+    }
+
+Now that we have the less than exiting backend, let us write the front end wrapper. Save the following under ``bio/webapp/resources/webapp/model/reportWidgetDisplayer.jsp``:
+
+.. code-block:: jsp
+
+    <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+    <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
+    <%@ taglib uri="/WEB-INF/struts-tiles.tld" prefix="tiles" %>
+    <%@ taglib tagdir="/WEB-INF/tags" prefix="im" %>
+    <%@ taglib uri="http://jakarta.apache.org/taglibs/string-1.1" prefix="str" %>
+
+    <!-- reportWidgetDisplayer.jsp -->
+    <div id="report-widget-displayer-example" class="foundation"></div>
+    <script>
+    intermine.load('report-widgets', function(err) {
+        var widgets = new intermine.reportWidgets('http://localhost:8080/mine/service');
+        widgets.load('publications-displayer', '#report-widget-displayer-example', { 'symbol': 'zen' });
+    });
+    </script>
+    <!-- /reportWidgetDisplayer.jsp -->
+
+If we re-release the webapp, we should have a displayer in the summary section of a Gene report page pointing to a ``publications-displayer`` for **zen**.
+
+It is left up to the reader to:
+
+#. Determine where they are going to serve the widgets from. In the script above, we have a hardcoded link to http://localhost:8080/mine which is not very robust
+#. In your widget, you will want to pass an ``id`` of an object from Java backend to the JSP and subsequently to JavaScript. In our example, we get **zen** data regardless of which report page we have visited!
+#. Take care of CSS dependencies. **Big** libraries like Bootstrap or Foundation will override any and all styles on the whole page. Either do not use them or use them with a prefix. We provide a nifty library for that at http://github.com/radekstepan.com/prefix-css-node.
 
 Workflow
 --------
