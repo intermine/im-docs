@@ -65,4 +65,9 @@ Release Notes
 
     release-notes
 
-.. index:: LGPL
+Vacancies
+------------------
+
+* :doc:`jobs`
+
+.. index:: LGPL, jobs, careers, hiring, vacancies, privacy policy, release notes, cite, about us
