@@ -8,6 +8,8 @@ JavaScript Developer
 
 InterMine is looking for a software developer to help create powerful, attractive, user friendly data mining tools to search and display biological data. You’ll have experience building, debugging and testing complex web applications using JavaScript, CSS and libraries like Chaplin (Backbone.js) and Node.js, with a focus on creating great user experiences.
 
+Salary: £27,854 - £36,298 
+
 Skills & Requirements
 ------------------------------
 
