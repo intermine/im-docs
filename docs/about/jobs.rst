@@ -4,6 +4,8 @@ JavaScript Developer
 .. figure::  cam_bridge.jpg
    :align:   right
 
+   Ability to punt a river desirable.
+
 InterMine is looking for a software developer to help create powerful, attractive, user friendly data mining tools to search and display biological data. You’ll have experience building, debugging and testing complex web applications using JavaScript, CSS and libraries like Chaplin (Backbone.js) and Node.js, with a focus on creating great user experiences.
 
 Skills & Requirements
@@ -26,7 +28,6 @@ Desired Skills and Experience
 * Knowledge of **CoffeeScript**, or other transpiled language
 * Knowledge of **client side templating** and **modularity techniques** in JavaScript
 * Awareness of **HTML5**, **CSS3**, **Mocha**, and **Promises**
-* Ability to punt a river
 
 Our Toolset
 ------------------------------
