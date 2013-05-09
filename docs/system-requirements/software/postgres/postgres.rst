@@ -12,13 +12,17 @@ Debian/Ubuntu
 Mac
 	http://www.postgresql.org/download/macosx.  We've had the most success with MacPorts.
 
+
+
 After installation, you need to update `postgresql.conf` 
 
 * This file is usually located in `/etc/postgres/`: 
 * If you are going to install Postgres 9.x:
 
-  * It's not easy to change the default encoding to SQL_ASCII anymore, so you should do this before creating any databases.
+  * It's not easy to change the default encoding to SQL_ASCII anymore, so you should do this before creating any production databases.
   * There are special instructions for installing BioSeg
+
+
 
 Required Configuration
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -32,7 +36,11 @@ port                  5432
 Recommended Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-for optimum performance
+.. note::
+
+	The default configuration is fine for a development server. It is conservative however, so for better performance we recommend you make the changes below.
+
+For optimum performance. Read http://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server for more information.
 
 =========================   ==============================================================
 shared_buffers				Set to around 150MB
