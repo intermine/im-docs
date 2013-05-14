@@ -108,6 +108,7 @@ Templates take name of their filename without the ``.eco`` suffix. So provided w
     <h1>Some text</h1>
     <p><%= @foo %></p>
 
+
 The output of the last call in function ``foo`` above will be the following string:
 
 .. code-block:: html
