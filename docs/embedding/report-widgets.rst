@@ -103,7 +103,7 @@ Inside the widget, templates are precompiled into a function form so that if you
 
 Templates take name of their filename without the ``.eco`` suffix. So provided we have a file ``myTemplateName.eco`` with this content:
 
-.. code-block::
+.. code-block:: eco
 
     <h1>Some text</h1>
     <p><%= @foo %></p>
