@@ -95,8 +95,27 @@ Inside the widget, templates are precompiled into a function form so that if you
 
 .. code-block:: coffeescript
 
-    templates['myTemplateName']
-        'foo': 'This is some text'
+    class Widget
+
+        foo: ->
+            @templates['myTemplateName']
+                'foo': 'This is some text'
+
+Templates take name of their filename without the ``.eco`` suffix. So provided we have a file ``myTemplateName.eco`` with this content:
+
+.. code-block:: text
+
+    <h1>Some text</h1>
+    <p><%= @foo %></p>
+
+
+The output of the last call in function ``foo`` above will be the following string:
+
+.. code-block:: html
+
+    <h1>Some text</h1>
+    <p>This is some text</p>
+
 
 Styles
 ~~~~~~
