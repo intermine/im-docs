@@ -345,7 +345,11 @@ Now we can create the Java backend for the Displayer under ``bio/webapp/src/org/
         }
 
         @Override
-        public void display(HttpServletRequest request, ReportObject reportObject) { }
+        public void display(HttpServletRequest request, ReportObject reportObject) {
+            Gene p = (Gene) reportObject.getObject();    	
+            Object id = p.getPrimaryIdentifier();        
+            request.setAttribute("oid", id);
+        }
     }
 
 Now that we have the less than exiting backend, let us write the front end wrapper. Save the following under ``bio/webapp/resources/webapp/model/reportWidgetDisplayer.jsp``:
@@ -361,11 +365,11 @@ Now that we have the less than exiting backend, let us write the front end wrapp
     <%@ taglib uri="http://jakarta.apache.org/taglibs/string-1.1" prefix="str" %>
 
     <!-- reportWidgetDisplayer.jsp -->
-    <div id="report-widget-displayer-example" class="foundation"></div>
+    <div id="report-widget-displayer-example"></div>
     <script>
     intermine.load('report-widgets', function(err) {
         var widgets = new intermine.reportWidgets('http://localhost:8080/mine/service');
-        widgets.load('publications-displayer', '#report-widget-displayer-example', { 'symbol': 'zen' });
+        widgets.load('publications-displayer', '#report-widget-displayer-example', { 'primaryIdentifier': '${oid}' });
     });
     </script>
     <!-- /reportWidgetDisplayer.jsp -->
