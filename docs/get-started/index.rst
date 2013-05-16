@@ -7,5 +7,6 @@ Get started
    tutorial
    testmodel
    intermine-tests
+   amazon
    
    
