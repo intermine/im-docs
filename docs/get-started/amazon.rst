@@ -41,8 +41,8 @@ MalariaMine is publicly available on Amazon Cloud as an Image (AMI), with an AMI
    ..
  
  4. go to the IMAGES/AMI console
- 5. set the filter to *Public Images* and search for ``MalariaMine``
- 6. select *MalariaMine* AMI (AMI ID = ami-3526485c)
+ 5. set the filter to *Public Images* and search for ``InterMine``
+ 6. select *BasicIntermine* AMI (AMI ID = ami-b1c7a9d8)
  7. launch (and configure) instance
   * you can use all default options for the instance characteristics and details, but use the security group you created in step 3.
   * when prompted, create a new key pair (``.pem`` file), or use one that you already own. 
