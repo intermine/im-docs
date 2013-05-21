@@ -26,7 +26,7 @@ taxonId
 	taxon ID or * if config should apply to all
 
 field
-	which identifier field to pass to the URL
+	which identifier field to pass to the URL, eg. if field is primaryIdentifier, the value of primary identifier will be used as the attribute value
 
 full URL
 	full http address, eg. http://www.google.co.uk/#q=monkey

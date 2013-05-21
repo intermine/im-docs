@@ -115,6 +115,9 @@ class
 taxonId 
 	either a proper id or '*' when no assumptions is made regarding the organism
 
+attributeName
+	which identifier field to pass to the URL, e.g. if attributeName is primaryIdentifier, the value of primary identifier field will be used as the attribute value	
+	
 list 
 	indicates the link will have a list of identifiers
 
