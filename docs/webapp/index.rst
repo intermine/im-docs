@@ -12,6 +12,7 @@ Web Application
     region-search/index
     report-page/index
     template-queries/index
+    tables/index
     help/index
     query-builder/index
     admin/index
