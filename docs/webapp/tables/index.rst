@@ -18,7 +18,7 @@ The Formatting Function
 
 The interface expected for a formatting function is:
 
-.. code-block::
+::
 
   (Backbone.Model intermineObject) -> String|HtmlElement
 
@@ -29,7 +29,7 @@ the ``jQuery#html`` function, so both html strings and HtmlElements can be accep
 This function is executed as a method on a intermine.results.table.Cell (which will be bound as
 ``this``), supplying the following properties as part of its interface:
 
-.. code-block::
+::
 
   this.el :: HtmlElement - The cell element in the DOM.
   this.$el :: jQuery - The cached jQuery selector for the cell element.
@@ -38,7 +38,7 @@ This function is executed as a method on a intermine.results.table.Cell (which w
 
 The function may also support two optional parts of the formatter interface:
 
-.. code-block::
+::
 
   Formatter.replaces :: Array<String> - The list of fields of the class that this formatter replaces.
   Formatter.merge :: (Backbone.Model, Backbone.Model) -> () - A function to merge information
