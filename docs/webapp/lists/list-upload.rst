@@ -53,7 +53,7 @@ Configuration
 -------------
 
 types (classes)
-	All classes in the data model will be displayed here. But a superuser can configure the ones to display on top (separated by a dotted line). Log in as superuser, edit tags "im:preferredBagType" and import.
+	Add a class to `class_keys.properties` file to get it to show up on the list upload form. To *bold* a class, tag it with `im:preferredBagType`.
 
 organisms
 	All organisms in your database will be displayed here.  You can set the default in WebProperties.
