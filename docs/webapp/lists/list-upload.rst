@@ -52,11 +52,14 @@ Matches returned from this query are not added to the list, they are displayed u
 Configuration
 -------------
 
-example list
-	The example list is set in "bag.example.identifiers" property in WebProperties.
+types (classes)
+	All classes in the data model will be displayed here. But a superuser can configure the ones to display on top (separated by a dotted line). Log in as superuser, edit tags "im:preferredBagType" and import.
 
 organisms
 	All organisms in your database will be displayed here.  You can set the default in WebProperties.
+
+example list
+	The example list is set in "bag.example.identifiers" property in WebProperties.
 
 valid delimiters
 	The default valid delimiters are comma, space, tab or new line.  You can change this value by setting the "list.upload.delimiters" property in WebProperties.
