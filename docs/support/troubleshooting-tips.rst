@@ -162,3 +162,5 @@ Client side errors
 ~~~~~~~~~~~~~~~~~~
 
 Assuming you are using Google Chrome as your browser press `Ctrl+Shift+I` to open a Debugger. In there click on the "Console" tab. If errors are present you should see them in red. If you want to inspect what kind of data are being sent/fetched, click on the Network Tab.
+
+If you are using the List Widgets library ``(>= 1.2.4)`` then you can launch a "debug mode" on them. Simply wait for your page to load. Then append ``#debug`` at the end of the page URL. You should see buttons on individual widgets allowing you to see a debug trace of events happening.
