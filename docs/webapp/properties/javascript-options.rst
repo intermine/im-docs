@@ -21,15 +21,15 @@ appeared on 'hover' rather than on 'click', which is the default, and also to en
 'ChromosomeLocation' formatter, you would want the contents of your options file to be something
 like:
 
-.. code-block::js
+::
 
   (jQuery(function() { // run when the page has loaded.
     if (intermine) {   // but only if there is something to do.
       intermine.setOptions({CellPreviewTrigger: 'hover'});
-      intermine.setOptions('intermine.results.formatsets.genomic', {
+      intermine.setOptions({
         'Location.start': true,
         'Location.end': true
-      });
+      }, 'intermine.results.formatsets.genomic');
     }
   });
 
