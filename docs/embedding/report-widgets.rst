@@ -54,7 +54,7 @@ Typical steps (**refer to the repo's docs**) will look as follows:
     $ git clone git@github.com:intermine/intermine-report-widgets.git
     $ cd intermine-report-widgets/
     $ npm install
-    $ PORT=5200 ./node_modules/.bin/cake start
+    $ PORT=5200 node start.js
 
 Now you should have a running instance of a service providing widgets. Head over to `http://127.0.0.1:5200 <http://127.0.0.1:5200>`_ to confirm that it is indeed the case.
 
@@ -68,7 +68,7 @@ Presenter
 
 The next step is writing a presenter which is a component that knows how to get data for itself and then render them in a particular way, thus it encapsulates the behavior of the widget.
 
-The file needs to be called ``presenter.coffee`` for a CoffeeScript file (other options are ``presenter.js``/``presenter.ls`` for a JavaScript/LiveScript file respectively) and be placed in a directory with the name of the widget. The file needs to contain a ``class Widget`` with the following signature:
+The file needs to be called ``presenter.coffee`` and be placed in a directory with the name of the widget. The file needs to contain a ``class Widget`` with the following signature:
 
 .. code-block:: coffeescript
 
@@ -80,9 +80,9 @@ The file needs to be called ``presenter.coffee`` for a CoffeeScript file (other 
         # Render accepts a target to draw results into.
         render: (target) ->
 
-The constructor is passed two variables, ``config`` and ``templates`` which are objects that have references to config from a mine and templates that we will write in the next step.
+The constructor is passed two objects, ``config`` and ``templates``. These contain config coming from the server merged with config from the client and templates that we will write in the next step.
 
-The ``render`` function is passed a target variable which is the element where we will want to place the widget's output.
+The ``render`` function is passed a target string which is the element where we will want to place the widget's output (rendered templates).
 
 It is up to you what you do in between. The reference implementation of the precompile containes different widgets that you can inspect and see how they work. Many of them use a client side framework called `Backbone <http://documentcloud.github.com/backbone/>`_ to efficiently manipulate data and display them. It is up to you which framework you use, if any. In the last step, config, we will learn how to setup the widget to download these libraries for us when needed.
 
@@ -95,27 +95,8 @@ Inside the widget, templates are precompiled into a function form so that if you
 
 .. code-block:: coffeescript
 
-    class Widget
-
-        foo: ->
-            @templates['myTemplateName']
-                'foo': 'This is some text'
-
-Templates take name of their filename without the ``.eco`` suffix. So provided we have a file ``myTemplateName.eco`` with this content:
-
-.. code-block:: text
-
-    <h1>Some text</h1>
-    <p><%= @foo %></p>
-
-
-The output of the last call in function ``foo`` above will be the following string:
-
-.. code-block:: html
-
-    <h1>Some text</h1>
-    <p>This is some text</p>
-
+    templates['myTemplateName']
+        'foo': 'This is some text'
 
 Styles
 ~~~~~~
@@ -169,27 +150,21 @@ Then there are two directives that define libraries (JavaScript/CSS) to load for
 Dependencies
 ~~~~~~~~~~~~
 
-To define library dependencies of a widget, use the ``dependencies`` key pointing to a list. You can even specify if we need to first wait to fetch a library before fetching another (synchronous loading). In the following example, we fetch 3 libraries. The first two are JavaScript files where the second (and subsequent) one waits for the first one to finish loading. The last library asks for a CSS file. Bear in mind that all files are included on the page without any prefixes. So you need to deal with a potential that two libraries will not work well together and styles are clashing.
+To define library dependencies of a widget, use the ``dependencies`` key pointing to an object. Follow the spec in :doc:`/embedding/api-loader`.
 
 .. code-block:: javascript
 
-    "dependencies": [
-        {
-            "name": "jQuery",
-            "path": "http://somwhere/jquery.js",
-            "type": "js",
-            "wait": true
-        },
-        {
-            "name": "_",
-            "path": "http://somewhere/underscore.js",
-            "type": "js"
-        },
-        {
-            "path": "http://somewhere/style.css",
-            "type": "css"
+    "dependencies": {
+        "js": {
+            "A": {
+                "path": 'http://A.js',
+                "depends": ["B"]
+            },
+            "B": {
+                "path": 'http://B.js'
+            }
         }
-    ]
+    }
 
 Config
 ~~~~~~
@@ -220,168 +195,19 @@ To run the widgets, you need to include InterMine's API loader that is used for 
 
     <script src="http://cdn.intermine.org/api"></script>
 
-.. note::
-    
-    Make sure you have jQuery loaded before asking for ``reportWidgets``. (Will change in the future).
-
 Now we say that we want to load report widgets passing in a callback function. In this callback we specify that we want a new ReportWidgets instance pointing to a service serving them.
 
 .. code-block:: javascript
 
-    intermine.load('reportWidgets', function() {
+    intermine.load('reportWidgets', function(err) {
         var widgets = new intermine.reportWidgets('http://127.0.0.1:1119');
     });
 
-In this callback still we say which widget we want passing in extra config that should be merged with service config. This way we can pass in say a symbol of a specific gene we have on a 'page'.
+In this callback still we say which widget we want passing in extra config that should be merged with the server config. This way we can pass in say a symbol of a specific gene we have on a 'page'.
 
 .. code-block:: javascript
 
     widgets.load('spell-histogram', '#spell', { 'type': 'Gene', 'symbol': 'S000001863' });
-
-Run it from InterMine
----------------------
-
-.. note::
-    
-    Read this section if you would like InterMine to act as a service for Report Widgets instead of having a Node.js reference implementation running separately.
-
-To have InterMine act as a service we will need to:
-
-#. Write XML config
-#. Copy over the prepackaged widget (created & tested above) into our InterMine
-
-The following steps will assume that we want to embed the example ``publications-displayer`` Report Widget that is provided in the GitHub repo.
-
-Write XML config
-~~~~~~~~~~~~~~~~
-
-Just like with :doc:`list-widgets/index`, we will configure the widget in ``webconfig-model.xml``. Add to or create a section ``<reportwidgets>`` inside the ``<webconfig>`` tags. Then add something like the following:
-
-.. code-block:: xml
-
-    <reportwidget
-      id="publications-displayer"
-      author="Radek"
-      title="Publications for Gene"
-      description="Shows a list of publications for a specific gene"
-      version="0.2.0"
-    >
-      <dependency name="A" path="http://A.js" type="js" />
-      <dependency name="B" path="http://B.js" type="js" wait="true" />
-      <dependency path="http://C.css" type="css" />
-      <keyValue key="mine" value="http://beta.flymine.org/beta" />
-      <query name="pubsForGene" model="genomic" view="Gene.publications.title">
-        <join path="Gene.publications.authors" style="OUTER" />
-      </query>
-    </reportwidget>
-
-Now what just happened here?
-
-id
-    represents a unique widget id, it needs to match the filename of the widget that we will use
-</dependency>
-    these items match the syntax described above, just in XML. So we provide a ``name`` of a resource (to check if it exists on the page or not) a ``path`` and a ``type``. Optionally we can provide a boolean ``wait`` to say if some resources need to be loaded ahead of others.
-</keyValue>
-     a key-value pair in a beautiful XML syntax. This is a config that is your mine specific
-</query>
-     this is your standard PathQuery with an attribute ``name`` so we can tell which is which inside the widget.
-
-.. warning::
-
-    The PathQuery provided above needs to be a valid one for your particular mine. While the reference implementation does not check for validity, the Java version does. So you cannot, for example, make a PathQuery valid for mine B from mine A that does not have the same data model.
-
-Copy prepackaged widget
-~~~~~~~~~~~~~~~~~~~~~~~
-
-Now that we have written the config, we need to provide the actual widget source. Copy over the ``.js`` file from the ``/build`` directory into ``intermine/webapp/main/resources/webapp/js/widgets``. Take care to name the file the same as you have called it (attr. ``id``) in the config above.
-
-Re-release the webapp.
-
-Now you are ready to embed the widget on a page of your choosing according to the steps outlined in `Run it`_. The root for the Java service will be something like: ``http://[YOUR_MINE]/service``.
-
-Run it inside InterMine
------------------------
-
-.. note::
-    
-    Read this section if you have either a Node.js or Java service and want to embed a widget inside a mine's Report page.
-
-To embed a Report Widget in a mine's Report page we will create a wrapping :doc:`/webapp/report-page/report-displayers` whose only job will be to call the service in question.
-
-Start by editing your ``web.properties`` file (:doc:`/webapp/properties/web-properties`) adding a requirement to load :doc:`api-loader` on pages:
-
-.. code-block:: properties
-
-    head.js.all.API = CDN/api
-
-Now let us add a config for a :doc:`/webapp/report-page/report-displayers` in ``webconfig-model.xml`` section ``</reportdisplayers>``:
-
-.. code-block:: xml
-
-    <reportdisplayer javaClass="org.intermine.bio.web.displayer.ReportWidgetDisplayer"
-                     jspName="model/reportWidgetDisplayer.jsp"
-                     replacesFields=""
-                     placement="summary"
-                     types="Gene"/>
-
-Now we can create the Java backend for the Displayer under ``bio/webapp/src/org/intermine/bio/web/displayer/ReportWidgetDisplayer.java``:
-
-.. code-block:: java
-
-    package org.intermine.bio.web.displayer;
-
-    import javax.servlet.http.HttpServletRequest;
-
-    import org.intermine.api.InterMineAPI;
-    import org.intermine.web.displayer.ReportDisplayer;
-    import org.intermine.web.logic.config.ReportDisplayerConfig;
-    import org.intermine.web.logic.results.ReportObject;
-
-    public class ReportWidgetDisplayer extends ReportDisplayer
-    {
-
-        public ReportWidgetDisplayer(ReportDisplayerConfig config, InterMineAPI im) {
-            super(config, im);
-        }
-
-        @Override
-        public void display(HttpServletRequest request, ReportObject reportObject) {
-            Gene p = (Gene) reportObject.getObject();    	
-            Object id = p.getPrimaryIdentifier();        
-            request.setAttribute("oid", id);
-        }
-    }
-
-Now that we have the less than exiting backend, let us write the front end wrapper. Save the following under ``bio/webapp/resources/webapp/model/reportWidgetDisplayer.jsp``:
-
-.. code-block:: jsp
-
-    <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-    <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
-    <%@ taglib uri="/WEB-INF/struts-tiles.tld" prefix="tiles" %>
-    <%@ taglib tagdir="/WEB-INF/tags" prefix="im" %>
-    <%@ taglib uri="http://jakarta.apache.org/taglibs/string-1.1" prefix="str" %>
-
-    <!-- reportWidgetDisplayer.jsp -->
-    <div id="report-widget-displayer-example"></div>
-    <script>
-    intermine.load('report-widgets', function(err) {
-        var widgets = new intermine.reportWidgets('http://localhost:8080/mine/service');
-        widgets.load('publications-displayer', '#report-widget-displayer-example', { 'primaryIdentifier': '${oid}' });
-    });
-    </script>
-    <!-- /reportWidgetDisplayer.jsp -->
-
-If we re-release the webapp, we should have a displayer in the summary section of a Gene report page pointing to a ``publications-displayer`` for *zen*.
-
-It is left up to the reader to:
-
-#. Determine where they are going to serve the widgets from. In the script above, we have a hardcoded link to http://localhost:8080/mine which is not very robust.
-#. In your widget, you will want to pass an ``id`` of an object from Java backend to the JSP and subsequently to JavaScript. In our example, we get *zen* data regardless of which report page we have visited!
-#. Take care of CSS dependencies. *Big* libraries like `Bootstrap <http://twitter.github.io/bootstrap>`_ or `Foundation <http://foundation.zurb.com>`_ will override any and all styles on the whole page. Either do not use them or use them with a prefix. We provide a nifty library for that at http://github.com/radekstepan/prefix-css-node.
-#. Make sure that JavaScript libraries on a page do not collide. If we specify that a widget relies on library X and we have no way of checking whether is was already loaded and it was, loading it again may have unpredictable consequences.
 
 Workflow
 --------
@@ -450,5 +276,3 @@ Optional
 ^^^^^^^^
 
 * Provide a callback where all widgets can dump error messages.
-
-
