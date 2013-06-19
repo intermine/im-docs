@@ -110,3 +110,17 @@ value to 'false':
 .. code-block:: javascript
 
   intermine.scope('intermine.results.formatsets.genomic', {'Exon.symbol': false});
+  
+individual formatters can be configured to respond to different fields of an object. So you could
+have one formatter for `Gene.length` and another for `Gene.symbol`, if you are unable to achieve what
+you need with css alone. To do this, the value in the formatset should be the formatter itself, rather
+than a boolean value, eg:
+
+.. code-block:: javascript
+
+  intermine.scope('intermine.results.formatsets.genomic', {
+    'Gene.symbol': geneSymbolFormatter,
+    'Gene.length': geneLengthFormatter
+  });
+  
+  
