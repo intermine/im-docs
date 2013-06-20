@@ -23,7 +23,9 @@ You need an Amazon account: if you don't have one
 
 Starting a new Instance
 ------------------------
-MalariaMine is publicly available on Amazon Cloud as an Image (AMI), with an AMI ID **ami-3526485c**
+InterMine is publicly available on Amazon Cloud as an Image (AMI), with an AMI ID **ami-b1c7a9d8**.
+
+The image contains a ready deployed MalariaMine.
 
  1. sign in at http://aws.amazon.com
  2. go to the EC2 management console 
@@ -117,7 +119,7 @@ Redeploying MalariaMine
 
 .. code-block:: bash 
  
- $ ant -D default remove-webapp release-webapp
+ $ ant -v default remove-webapp release-webapp
 
 
 (Re)building MalariaMine

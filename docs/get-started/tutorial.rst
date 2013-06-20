@@ -33,7 +33,7 @@ The directories include:
 ``testmodel`` 
   a non-biological test data model used for testing the core InterMine system.
 ``imbuild`` 
-  InterMine's ant-based build system, you shouldn't need to edit anyting here.
+  InterMine's ant-based build system, you shouldn't need to edit anything here.
 
 All configuration to create a new Mine is held in a directory in `git/intermine`, your Mine will depend on code in `intermine`, `bio` and `imbuild`.  Any Mine needs to be a top level directory in your InterMine checkout.
 

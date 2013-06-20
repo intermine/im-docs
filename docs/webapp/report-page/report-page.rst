@@ -71,6 +71,20 @@ Each object has a number of fields configured in the model, like ``length`` or `
 
 To configure in which category on the page these are to show, follow :doc:`/webapp/admin/index`.
 
+Additionally, one can decide to either show the old style "inline tables" or use the new Results Tables JS library when displaying these. To enable the latter, edit your `web.properties` as follows:
+
+.. code-block:: properties
+
+    inline.collections.in.tables = true
+    
+This will display any inline collections in table widgets. Unless ``use.localstorage`` is ``true`` they will appear expanded but can be collapsed.
+
+.. code-block:: properties
+
+    use.localstorage = true
+
+Both inline collections and templates will initially appear collapsed. Their state will be tracked using `localStorage<http://diveintohtml5.info/storage.html>`_ if available.
+
 Inline Lists
 ------------
 

@@ -6,12 +6,61 @@ Configuring the Results Tables
 
 The results tables can be configured in a number of ways, including:
 
+The initial state of Sub-Tables
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Outer-Joined collections are rendered in subtables within a single cell. By default
+these are not immediately rendered, and just the number of rows are indicated. This
+means that even sections with very large sub-tables are rendered efficiently - in the
+worst case the sub-tables may contain thousands of rows, and so a table with even 10
+main rows might present 10,000 sub-rows or more, which can significantly impact
+browser performance (an example of this would be a table that contained publications
+with an outer-joined selection of genes; genome publications can list every gene in an
+organism, and this scenario easily leads to very large sub-tables).
+
+However, if you don't like the default behaviour and would prefer for the sub-tables to be open
+when the main table is rendered onto the page, this is simply altered, through the
+following configuration snippet:
+
+.. code-block:: javascript
+
+  intermine.setOptions({SubtableInitialState: 'open'})
+
 Cell Formatters
 ~~~~~~~~~~~~~~~~
 
 The cells in each table can be configured to display their information in
 custom manners. To do this a javascript function must be registered to handle
 certain types of cell, and configured to respond to certain paths.
+
+Formatters are not enabled by default, as they may be unexpected, and in could
+cause unneccessary requests to the server. Fortunately they are easily enabled. There
+are four formatter included (but not enabled) by default:
+
+ * Location - formats a chromosome location as eg: "2L:123..456"
+ * Sequence - formats a DNA or Protein sequence in FASTA lines.
+ * Publication - formats a publication in a citable format with title, first author and year.
+ * Organism - formats an organism's name in italics, using the short-name format.
+ 
+To enable these formatters register the formatted path (see below), eg:
+
+.. code-block:: javascript
+
+  intermine.scope('intermine.results.formatsets.genomic', {
+    'Organism.name': true,
+    'Organism.shortName': true
+  });
+
+To enable all the default formatters, you can use the following snippet:
+
+.. code-block:: javascript
+
+  var keyPath, formatsets = intermine.results.formatsets.genomic;
+  for (keyPath in formatsets) {
+    formatsets[keyPath] = true;
+  }
+
+Such customisation javascript should be placed in a custom model-includes.js file.
 
 The Formatting Function
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -65,7 +114,7 @@ eg:
 
 .. code-block:: javascript
 
-  intermine.scope('intermine.results.formatters', {MyClassName: myFormatter});
+  intermine.scope('intermine.results.formatters', {Exon: myExonFormatter});
   
 A separate entry must be made under the 'intermine.results.formatsets.{modelname}' namespace to
 register which paths trigger cell formatting. For example to register a formatter for the 'Exon'
@@ -81,3 +130,17 @@ value to 'false':
 .. code-block:: javascript
 
   intermine.scope('intermine.results.formatsets.genomic', {'Exon.symbol': false});
+  
+individual formatters can be configured to respond to different fields of an object. So you could
+have one formatter for `Gene.length` and another for `Gene.symbol`, if you are unable to achieve what
+you need with css alone. To do this, the value in the formatset should be the formatter itself, rather
+than a boolean value, eg:
+
+.. code-block:: javascript
+
+  intermine.scope('intermine.results.formatsets.genomic', {
+    'Gene.symbol': geneSymbolFormatter,
+    'Gene.length': geneLengthFormatter
+  });
+  
+  

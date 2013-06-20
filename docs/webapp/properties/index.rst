@@ -11,3 +11,4 @@ Content
     web-properties
     webconfig-model
     class-keys
+    javascript-options
