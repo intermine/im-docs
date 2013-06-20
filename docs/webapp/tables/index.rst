@@ -50,7 +50,12 @@ for pageSize.
   $('#my-table').imWidget({
     type: 'table',
     url: 'www.flymine.org/query',
-    query: {from: 'Gene', select: ['*', 'pathways.*'], where: {symbol: 'foo*'}, joins: ['pathways']},
+    query: {
+      from: 'Gene',
+      select: ['*', 'pathways.*'],
+      where: {symbol: 'foo*'},
+      joins: ['pathways']
+    },
     properties: { SubtableInitialState: 'open' }
   });
 
