@@ -6,6 +6,26 @@ Configuring the Results Tables
 
 The results tables can be configured in a number of ways, including:
 
+The initial state of Sub-Tables
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Outer-Joined collections are rendered in subtables within a single cell. By default
+these are not immediately rendered, and just the number of rows are indicated. This
+means that even sections with very large sub-tables are rendered efficiently - in the
+worst case the sub-tables may contain thousands of rows, and so a table with even 10
+main rows might present 10,000 sub-rows or more, which can significantly impact
+browser performance (an example of this would be a table that contained publications
+with an outer-joined selection of genes; genome publications can list every gene in an
+organism, and this scenario easily leads to very large sub-tables).
+
+However, if you don't like the default behaviour and would prefer for the sub-tables to be open
+when the main table is rendered onto the page, this is simply altered, through the
+following configuration snippet:
+
+.. code-block:: javascript
+
+  intermine.setOptions({SubtableInitialState: 'open'})
+
 Cell Formatters
 ~~~~~~~~~~~~~~~~
 
