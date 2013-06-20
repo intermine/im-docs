@@ -22,6 +22,13 @@ project XML example
 
     <source name="update-publications" type="update-publications" dump="true">
       <property name="src.data.file" location="build/publications.xml"/>
+      <!-- <property name="cacheDirName" value="build/"/> -->
+      <!-- <property name="loadFullRecord" value="true"/> -->
     </source>
+
+properties:
+
+#. cacheDirName - the directory to generate publication cache files, default value "build/"
+#. loadFullRecord - load MeSH terms and abstract, value "true"/"false"    
 
 .. index:: NCBI
