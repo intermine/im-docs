@@ -1,0 +1,13 @@
+Report Widgets
+==============
+
+.. versionadded:: 1.1
+
+Have been retired and made into something better. See :doc:`/embedding/apps-a`. The changes are as follows:
+
+1. Widget becomes an App.
+2. The main class in ``presenter.[js|ls|coffee]`` has been changed from ``Widget`` to ``App``.
+3. A config file with dependencies for a particular App is moved to its folder in the form of a ``config.json`` file.
+4. The Java service serving Report Widgets has been retired from InterMine core.
+5. The Node.js service now works as a middleware. You can plug it into your (Node.js) app by passing an array of paths on local or remote systems where it can find the App sources.
+6. There is a repo for the `Middleware <https://github.com/intermine/apps-a-middleware>`_ and for the `Sources <https://github.com/intermine/intermine-apps-a>`_.
