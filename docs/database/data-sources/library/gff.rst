@@ -73,7 +73,7 @@ Here is an example GFF3 entry in the project XML file:
 	# add to project.xml file
 	# NOTE: update the "type" if you are using your own custom GFF3 parser
 
-    <source name="example-gff3" type="gff3">
+    <source name="example-gff3" type="gff">
       <property name="gff3.taxonId" value="7227"/>
       <property name="gff3.seqClsName" value="Chromosome"/>
       <property name="src.data.dir" location="/DATA/*.gff3"/>
