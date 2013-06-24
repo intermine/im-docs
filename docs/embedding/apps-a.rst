@@ -31,7 +31,7 @@ The middleware knows of and can load this App because we have created a folder t
 
 Next we have a configuration stashed away in a ``config.json`` file. This file will have a header with some properties like author, tile, description etc. The more interesting point is the ``dependencies`` section. :doc:`/embedding/api-loader` describes how this section works. It is here that you define what kind of CSS and JS dependencies your App has. These will be automatically resolved before loading the App on a page.
 
-Next up is the body of the App in a ``presenter.[js|ls|coffee]`` file. The extensions allure to the fact that you can use plain vanilla JavaScript, `LiveScript <http://livescript.net/>`_ or `CoffeeScript <http://coffeescript.org/>`_ to write your App in. This file will have all the logic needed to "do something". It needs to fulfill the following interface:
+Next up is the body of the App in a ``presenter.[js|ts|ls|coffee]`` file. The extensions allure to the fact that you can use plain vanilla JavaScript, `TypeScript 0.9.0<http://www.typescriptlang.org/>`_ `LiveScript <http://livescript.net/>`_ or `CoffeeScript <http://coffeescript.org/>`_ to write your App in. This file will have all the logic needed to "do something". It needs to fulfill the following interface:
 
 .. code-block:: javascript
 
@@ -46,6 +46,25 @@ Next up is the body of the App in a ``presenter.[js|ls|coffee]`` file. The exten
         return App;
 
     })();
+
+Or the same in TypeScript:
+
+.. code-block:: typescript
+
+    class App {
+    
+        constructor(
+            public config: Object,
+            public templates: Object
+        ) {
+    
+        }
+    
+        render(target: string): void {
+    
+        }
+    
+    }
 
 Or the same in CoffeeScript:
 
