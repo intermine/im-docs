@@ -6,6 +6,21 @@ Configuring the Results Tables
 
 The results tables can be configured in a number of ways, including:
 
+The initial Page Size
+~~~~~~~~~~~~~~~~~~~~~~
+
+This can be configured on a table by table basis when the table is initialised:
+
+
+.. code-block:: javascript
+
+  $('#my-table').imWidget({
+    type: 'table',
+    url: 'www.flymine.org/query',
+    query: {from: 'Gene', select: ['*'], where: {symbol: 'foo*'}},
+    properties: { pageSize: 20 }
+  });
+
 The initial state of Sub-Tables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -25,6 +40,24 @@ following configuration snippet:
 .. code-block:: javascript
 
   intermine.setOptions({SubtableInitialState: 'open'})
+
+If you would like to set this property on a table by table basis, then you must
+set the `SubtableInitialState` property to `open`, in the same manner as you would
+for pageSize.
+
+.. code-block:: javascript
+
+  $('#my-table').imWidget({
+    type: 'table',
+    url: 'www.flymine.org/query',
+    query: {
+      from: 'Gene',
+      select: ['*', 'pathways.*'],
+      where: {symbol: 'foo*'},
+      joins: ['pathways']
+    },
+    properties: { SubtableInitialState: 'open' }
+  });
 
 Cell Formatters
 ~~~~~~~~~~~~~~~~
