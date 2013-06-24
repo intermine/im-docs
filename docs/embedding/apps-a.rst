@@ -10,18 +10,13 @@ This document describes how to develop and host your own Apps.
 Middleware
 ----------
 
-`Apps/A Middleware <https://github.com/intermine/apps-a-middleware>`_ is a glue that makes serving Apps possible. It depends on `Node.js <http://nodejs.org/>`_ so make sure it is installed. Afterwards either checkout or download & unzip the repo:
+`Apps/A Middleware <https://github.com/intermine/apps-a-middleware>`_ is a glue that makes serving Apps possible. It depends on `Node.js <http://nodejs.org/>`_ so make sure it is installed. Afterwards either checkout or download & unzip the repo then install its dependencies and run the example:
 
 .. code-block:: bash
 
     $ wget https://github.com/intermine/apps-a-middleware/archive/master.zip
     $ unzip master.zip
     $ cd apps-a-middleware-master/
-
-The repo contains an example of middleware in use. Run it:
-
-... code-block:: bash
-
     $ npm install
     $ PORT=1234 node example/index.js
 
@@ -38,23 +33,23 @@ Next we have a configuration stashed away in a ``config.json`` file. This file w
 
 Next up is the body of the App in a ``presenter.[js|ls|coffee]`` file. The extensions allure to the fact that you can use plain vanilla JavaScript, `LiveScript <http://livescript.net/>`_ or `CoffeeScript <http://coffeescript.org/>`_ to write your App in. This file will have all the logic needed to "do something". It needs to fulfill the following interface:
 
-... code-block:: javascript
+.. code-block:: javascript
 
     var App;
-
+    
     App = (function() {
-
+        
         function App(config, templates) {}
-
+        
         App.prototype.render = function(target) {};
-
+        
         return App;
 
     })();
 
 Or the same in CoffeeScript:
 
-... code-block:: coffeescript
+.. code-block:: coffeescript
 
     class App
 
@@ -78,7 +73,7 @@ Next up are templates. They are the place where you put your HTML that will be r
 
 You create a template by saving it as ``*.eco``. You can then call the template from within (your render function) like so:
 
-... code-block:: coffeescript
+.. code-block:: coffeescript
 
     class App
 
