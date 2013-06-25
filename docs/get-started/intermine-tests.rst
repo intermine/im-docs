@@ -14,11 +14,7 @@ Create blank databases required by the tests named:  `unittest`, `truncunittest`
 
 .. code-block:: bash
 
-  $ createdb unittest
-  $ createdb truncunittest
-  $ createdb fulldatatest
-  $ createdb flatmodetest
-  $ createdb notxmltest
+  $ for db in unittest truncunittest fulldatatest flatmodetest notxmltest; do createdb $db; done
 
 
 Update properties file
