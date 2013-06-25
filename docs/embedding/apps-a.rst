@@ -66,10 +66,7 @@ Or the same in TypeScript:
 
     class App {
     
-        constructor(
-            public config: Object,
-            public templates: Object
-        ) {
+        constructor(config: Object, templates: Object) {
     
         }
     
