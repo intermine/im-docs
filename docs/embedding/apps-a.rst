@@ -29,7 +29,13 @@ The middleware accepts one or more paths to a directory with Apps. Above, we hav
 
 The middleware knows of and can load this App because we have created a folder that has a name that can be used in a URL. If we were to add spaces, for example, that would be a big no no.
 
-Next we have a configuration stashed away in a ``config.json`` file. This file will have a header with some properties like author, tile, description etc. The more interesting point is the ``dependencies`` section. :doc:`/embedding/api-loader` describes how this section works. It is here that you define what kind of CSS and JS dependencies your App has. These will be automatically resolved before loading the App on a page.
+Next we have a configuration stashed away in a ``config.js`` file. This file ``exports`` config in a JSON-like syntax. It will have a header with some properties like author, tile, description etc. The more interesting point is the ``dependencies`` section. :doc:`/embedding/api-loader` describes how this section works. It is here that you define what kind of CSS and JS dependencies your App has. These will be automatically resolved before loading the App on a page.
+
+You can fill the file's ``config`` section to show whoever embeds your App what sort of configuration they should be providing. The idea is as follows:
+
+1. The App's config should cover dependencies and show example config with comments.
+2. The middleware should provide mine specific settings, like pathQueries to run.
+3. The client instantiating the App should provide "page"-specific settings like which specific Gene we want to show visualization for etc.
 
 Next up is the body of the App in a ``presenter.[js|ts|ls|coffee]`` file. The extensions allure to the fact that you can use the following languages to write your App in:
 
