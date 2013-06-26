@@ -25,16 +25,17 @@ The SuperUser can change where templates and lists appear by adding tags via the
 ======================  ===========================================================================================================================================================
 tag                     purpose
 ======================  ===========================================================================================================================================================
-im:public               make list/template viewable by all users 
-im:frontpage            put list/template on home page 
+im:public [1]_          make list/template viewable by all users 
+im:frontpage            put list on home page 
 im:converter            template used in generating links in the 'Convert' section on the list analysis page 
 im:aspect:CategoryName  template appears underneath specified category. For instance template with im:aspect:Genomics tag will be displayed in Genomics category on the 
-                        report page
+                        report page and on the home page
 im:report               allows template to be displayed on report or list analysis page
-im:admin                prevents template from being displayed on templates page
 im:order:n              specify the order lists should go in (on homepage only currently). If two lists have the same Integer "n" value, natural ordering on the list name will be 
                         applied as a decisive criterion
 ======================  ===========================================================================================================================================================
+
+.. [1] Editable by all admins 
 
 Fields and collections
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
