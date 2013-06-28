@@ -3,6 +3,11 @@ Updating to the Latest Release
 
 See :doc:`/support/upgrade` for instructions on how to update your Mine.
 
+InterMine 1.2.1
+==============================================
+
+This is a minor release consisting of bug fixes, see `GitHub <https://github.com/intermine/intermine/issues?milestone=5&page=1&state=closed>`_ for the full list.
+
 InterMine 1.2
 ==============================================
 
