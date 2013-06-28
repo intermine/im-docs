@@ -141,6 +141,6 @@ It may be helpful to look at current GFF3 parsers:
 #. `FlyRegGFF3RecordHandler.java`
 #. `DrosDelGFF3RecordHandler.java`
 
-See :doc:`/get-started/tutorial` for more information on how to run a GFF source.
+See :doc:`/get-started/tutorial/index` for more information on how to run a GFF source.
 
 .. index:: GFF3, sequence features

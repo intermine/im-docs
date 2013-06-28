@@ -151,21 +151,20 @@ attribute              purpose                                                  
 
 The following are optional attributes:
 
-======================     =============================================================================================================================  ============================
+=========================  =============================================================================================================================  =======================
 attribute                  purpose                                                                                                                        example
-======================     =============================================================================================================================  ============================
+=========================  =============================================================================================================================  =======================
 ``title``                  appears at the top of the widget                                                                                               ``Gene Ontology Enrichment``
 ``description``            description of the widget                                                                                                      ``GO terms enriched.``
 ``label``                  heading for the column                                                                                                         ``GO Term``
 ``externalLink``           link displayed next to first column                                                                                            ``googie``
 ``filters``                extra filters to add to the display [7]_                                                                                       ``organism.name=[list]`` 
 ``filterLabel``            label for filter form field                                                                                                    ``Ontology``
-``enrichIdentifier``       identifier for the row displayed, if not specified, enrich field used [8]_.                                                    ``goAnnotation.ontologyTerm.
-                                                                                                                                                       identifier``
+``enrichIdentifier``       identifier for the row displayed, if not specified, enrich field used [8]_.                                                    ``goAnnotation.ontologyTerm.identifier``
 ``constraints``            constraints separated by comma. The paths have to be attributes. The operator can be ``=`` or ``!=`` [9]_.                     ``organism.name=[list]`` 
 ``constraintsForView``     constraints separated by comma used for building the query executed when the user clicks on the widget on 'Matches' column     ``results.expressed = true``
 ``correctionCoefficient``  set to org.intermine.bio.web.widget.GeneLenghtCorrectionCoefficient to normalize by gene length   
-======================     =============================================================================================================================  ============================
+=========================  =============================================================================================================================  =======================
 
 .. [7] Use static values or a grammar to specify the values contained in the list. The default value in general is the first value set in the 'filters' attribute or the first value returned by the query. With static values, you can add 'All' meaning no filter applied.
 .. [8] Specify only one. This has to be an attribute. Used in the results table. Specify the subclass using the syntax ``path[subclass type]``.
