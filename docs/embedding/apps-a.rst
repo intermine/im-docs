@@ -91,16 +91,16 @@ The constructor takes two parameters:
 config
     This is an amalgamated config that the user and the middleware have provided.
 templates
-    This will be an Object containing template functions for you to run. More on them later.
+    This will be an Object containing a map from template name to an object. More on them later.
 
 The render function takes just one parameter:
 
 target
     A string that tell you where to render/display your content to.
 
-Next up are templates. They are the place where you put your HTML that will be rendered. For these we use the templating language `eco <https://github.com/sstephenson/eco>`_ which allows you to sprinkle CoffeeScript logic throughout a template.
+Next up are templates. They are the place where you put your HTML that will be rendered. You have a choice between two templating languages:
 
-You create a template by saving it as ``*.eco``. You can then call the template from within (your render function) like so:
+1. `eco <https://github.com/sstephenson/eco>`_ which allows you to use CoffeScript logic inside the template. To use this language save the file as ``*.eco``. An eco template wraps all the logic needed to execute it, as an example:
 
 .. code-block:: coffeescript
 
@@ -110,6 +110,17 @@ You create a template by saving it as ``*.eco``. You can then call the template 
 
         render: (target) ->
             $(target).html @templates[template_name] { 'some': 'data', 'right': [ 'here' ] }
+
+2. `Hogan.js <http://twitter.github.io/hogan.js/>`_ is an implementation of the language `mustache <http://mustache.github.io/mustache.5.html>`_. To use this variant, save your file as ``*.hogan``. You still need to include a reference to the Hogan library in your App and then initialize and use them as follows:
+
+.. code-block:: coffeescript
+
+    class App
+
+        constructor: (config, @templates) ->
+
+        render: (target) ->
+            $(target).html (new Hogan.Template(@templates[template_name])).render { 'some': 'data', 'right': [ 'here' ] }
 
 Finally we might want to style our app. Usually a main style will be defined by a CSS framework required in the config file, but there is always place for that special something. To define a custom style *guaranteed* to be applicable to your App only, save a CSS or `Stylus <http://learnboost.github.io/stylus/>`_ file as ``style.[css|styl]``.
 
