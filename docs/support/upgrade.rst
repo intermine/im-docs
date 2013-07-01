@@ -12,6 +12,16 @@ If you don't have a git repo yet, see :doc:`/git/index` for details.
 If you host a copy of the `CDN`_, then you should also pull in changes from
 that repository.
 
+
+Upgrade to InterMine 1.2.1
+---------------------------------
+
+If you have your own home page (begin.jsp), you must manually make this change: `501e221 <https://github.com/intermine/intermine/commit/501e221ff1804d387cd3de7e69d99fc2fd943d41>`_   
+
+This is a fix for the keyword search - when users submit a blank search form, see `Issue #329 <https://github.com/intermine/intermine/issues/329>`_   
+
+There are no model or configuration changes in this release.
+
 Upgrade to InterMine 1.2
 ---------------------------------
 
