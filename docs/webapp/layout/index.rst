@@ -1,5 +1,5 @@
-Layout
-======
+General Layout
+==================
 
 .. note:: This text describes how to customize the look & feel of the whole app.
 

@@ -3,27 +3,25 @@ Web Application
 
 .. toctree::
     :maxdepth: 2
-
     
     homepage/index
-    keyword-search/index
-    lists/index
-    query-results/index
-    region-search/index
     report-page/index
+    lists/index
     template-queries/index
-    tables/index
-    help/index
+    query-results/index
     query-builder/index
+    keyword-search/index
+    layout/index    
+    region-search/index
+    properties/index
+    data-categories/index    
+    help/index
+    linking-in/index
+    monitoring-site-usage/index
     admin/index
     user-accounts/index
-    layout/index
-    linking-in/index
     performance/index
     third-party-tools/index
-    monitoring-site-usage/index
-    properties/index
-    data-categories/index
     diagnostic/index
 
 Overwrite any JSP
