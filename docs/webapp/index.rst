@@ -17,11 +17,11 @@ Web Application
     data-categories/index    
     help/index
     linking-in/index
+    third-party-tools/index
     monitoring-site-usage/index
     admin/index
     user-accounts/index
-    performance/index
-    third-party-tools/index
+    performance/index    
     diagnostic/index
 
 Overwrite any JSP

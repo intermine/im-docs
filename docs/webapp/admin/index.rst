@@ -1,9 +1,6 @@
 Website Admin
 ================================
 
-Superuser
-================================
-
 The SuperUser is the administrator of your InterMine webapp.  The SuperUser can use tagging to configure the appearance and functionality of the webapp.
 
 The SuperUser account is created when the UserProfile database is built using the properties specified in the MineManager's Mine Settings > Web screen.
