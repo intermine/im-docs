@@ -40,7 +40,7 @@ You can fill the file's ``config`` section to show whoever embeds your App what 
 Next up is the body of the App in a ``presenter.[js|ts|ls|coffee]`` file. The extensions allure to the fact that you can use the following languages to write your App in:
 
 1. plain vanilla JavaScript
-2. `TypeScript <http://www.typescriptlang.org/>`_; including having type definitions in a separate file like ``lib.d.ts``
+2. `TypeScript <http://www.typescriptlang.org/>`_; including having type definitions in a separate file like ``lib.d.ts`` and targeting `ECMAScript 5 <http://kangax.github.io/es5-compat-table/>`_
 3. `LiveScript <http://livescript.net/>`_
 4. `CoffeeScript <http://coffeescript.org/>`_
 
