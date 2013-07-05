@@ -78,6 +78,6 @@ If you set Postgres to `SQL_ASCII`, then that is a special character set in Post
 
 Please try to treat InterMine as a black box. The fact that it uses Postgres to store its data should be a detail that should be hidden as much as possible. The InterMine system is written in Java, and therefore handles all text in Unicode. 
 
-Procedures to change character encoding to `SQL_ASCII` in Postgres 9.1.x - https://gist.github.com/boboppie/4148428
+Procedures to change character encoding to `SQL_ASCII` in PostgreSQL 9.1.x - https://gist.github.com/boboppie/4148428
 
 .. index:: PostgreSQL
