@@ -33,5 +33,9 @@ Chromosome location
 
 InterMine uses the -1 / 1 convention for strands.
 
+Identifiers
+----------------------------
+
+All sequence features must have a non-NULL, unique identifier set for their `primaryIdentifier` field.
 
 .. index:: data source, data set, data model overview, data model, organism, organism name, chromosome location, strand
