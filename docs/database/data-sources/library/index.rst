@@ -4,7 +4,7 @@ Data Source Library
 
 This page lists the current sources available for use in InterMine.  All the sources here are found in `bio/sources`.  Look at `flymine/project.xml` for examples of how to use these sources.  
 
-You can also add your own sources to load custom file formats, see :doc:`/database/data-sources/custom/index` for more information.  In addition, the :doc:`/get-started/tutorial` contains detailed steps on creating sources for a variety of different data formats.
+You can also add your own sources to load custom file formats, see :doc:`/database/data-sources/custom/index` for more information.  In addition, the :doc:`/get-started/tutorial/index` contains detailed steps on creating sources for a variety of different data formats.
 
 Most of the configuration done in the config files is optional, if no config entry exists the default behaviour is followed.  There are exceptions to this rule, however.
 
@@ -42,7 +42,7 @@ These are commonly used sources that you may want to use to load data into your 
 FlyMine Specific sources
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-These are sources that load Drosophila specific data sets into FlyMine, we don't expect you will re-use these unless you are creating a Drosophila warehouse.  All of these sources are located in `bio/sources/flymine`.
+These are sources that load Drosophila specific data sets into FlyMine, we don't expect you will re-use these unless you are creating a Drosophila warehouse.  All of these sources are located in `bio/sources/fly`.
 
 * affy-probes                         
 * anoest                       

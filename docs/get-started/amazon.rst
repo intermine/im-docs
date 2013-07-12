@@ -1,5 +1,5 @@
 How to set up your InterMine environment on the Amazon Cloud
-========
+================================================================
 
 Where you should learn how to start your own MalariaMine web application 
 on the Amazon Cloud. 
@@ -11,9 +11,9 @@ Pre-requisites
 ----------------------
 You need an Amazon account: if you don't have one
  
- * go to http://aws.amazon.com
- * click on ``Sign Up``
- * follow the instructions
+* go to http://aws.amazon.com
+* click on ``Sign Up``
+* follow the instructions
 
 .. note:: 
  You will need to set up your key pair security mechanism (see for example step 7 below).
@@ -27,10 +27,10 @@ InterMine is publicly available on Amazon Cloud as an Image (AMI), with an AMI I
 
 The image contains a ready deployed MalariaMine.
 
- 1. sign in at http://aws.amazon.com
- 2. go to the EC2 management console 
+1. sign in at http://aws.amazon.com
+2. go to the EC2 management console 
    AWS console https://console.aws.amazon.com/console/home --> EC2 console 
- 3. if you don't have one, set up a security group which allows access at least to port
+3. if you don't have one, set up a security group which allows access at least to port
    * 22 (SSH)
    * 80 (HTTP)
    * 8080 (TOMCAT)
@@ -56,20 +56,20 @@ The image contains a ready deployed MalariaMine.
 
      .. code-block:: bash
       
-      $ ssh -i your_pem_file ubuntu@the_instance_public_DNS
-     ..
+  $ ssh -i your_pem_file ubuntu@the_instance_public_DNS
+
 
 Starting an existing Instance
 ------------------------------
-If you are using an existing Instance, you just need to
 
- #. sign in at http://aws.amazon.com
- #. go to the EC2 console (see step 2 above) 
- #. go to the Instance console
- #. select your instance
- #. start your instance (Actions --> Start)
+If you are using an existing Instance, you need to
 
- 
+#. sign in at http://aws.amazon.com
+#. go to the EC2 console (see step 2 above) 
+#. go to the Instance console
+#. select your instance
+#. start your instance (Actions --> Start)
+
 
 Working with Your Instance
 ---------------------------
@@ -77,7 +77,7 @@ Open a terminal in Your Instance
 
 .. code-block:: bash
 
- $ ssh -i your_pem_file ubuntu@the_instance_public_DNS
+  $ ssh -i your_pem_file ubuntu@the_instance_public_DNS
 
 you will land in  `/home/ubuntu`
 
@@ -95,47 +95,42 @@ here you can find these relevant directories:
 Starting/stopping the existing MalariaMine web application
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- In ``/webapp``
- 
- you'll find tomcat6. You can start the webapp using
+In ``/webapp`` you'll find tomcat6. You can start the webapp using this command:
+
 .. code-block:: bash 
  
  $ ./start.sh
 
-
 Your MalariaMine web application will be then available on
 
- http://the_instance_public_DNS:8080/malariamine
+  http://the_instance_public_DNS:8080/malariamine
 
 To stop the web application:
 
 .. code-block:: bash 
  
- $ ./stop.sh
-
+  $ ./stop.sh
 
 Redeploying MalariaMine
 ^^^^^^^^^^^^^^^^^^^^^^^^
- In ``/home/ubuntu/git/intermine/malariamine/webapp``
+
+In ``/home/ubuntu/git/intermine/malariamine/webapp``
 
 .. code-block:: bash 
  
- $ ant -v default remove-webapp release-webapp
-
+  $ ant -v default remove-webapp release-webapp
 
 (Re)building MalariaMine
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 see http://intermine.readthedocs.org/en/latest/get-started/tutorial/
 
-In ``/home/ubuntu/git/intermine/malariamine``
+In `/home/ubuntu/git/intermine/malariamine`
 
 .. code-block:: bash 
  
- $ ../bio/scripts/project_build -b -v localhost ~/malariamine-dump
+  $ ../bio/scripts/project_build -b -v localhost ~/malariamine-dump
 
-You can also follow all the steps in the build as illustrated in
-
-http://intermine.readthedocs.org/en/latest/get-started/tutorial/
+You can also follow all the steps in the build as illustrated in :doc:`/get-started/tutorial/index`
 
 
 ..  Using Amazon API    commented block
@@ -168,5 +163,5 @@ http://intermine.readthedocs.org/en/latest/get-started/tutorial/
 ----------------------
 
 
-.. index:: tutorial, Amazon, malariamine, ant, project_build
+.. index:: tutorial, Amazon, malariamine, ant, project_build, cloud
 

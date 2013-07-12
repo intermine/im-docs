@@ -4,7 +4,7 @@ Get started
 .. toctree::
    :maxdepth: 2
    
-   tutorial
+   tutorial/index
    testmodel
    intermine-tests
    amazon
