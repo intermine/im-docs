@@ -55,9 +55,6 @@ The `project_build` script accepts the following flags:
 -V
   set the release number to pass to ant (as -Drelease=release_number) [1]_.
 
--t
-  instead of dumping and reloading, make backup copies of the database in the server using the "CREATE DATABASE foo WITH TEMPLATE bar" command
-
 -D
   set the destination database for the completed build; the database will be copied to this name in the same postgres server that the build used
 
