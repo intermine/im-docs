@@ -43,14 +43,15 @@ The image contains a ready deployed MalariaMine.
    ..
  
  4. go to the IMAGES/AMI console
- 5. set the filter to *Public Images* and search for ``InterMine``
- 6. select *BasicIntermine* AMI (AMI ID = ami-b1c7a9d8)
- 7. launch (and configure) instance
+ 5. set the location on the top header (beside your username) to *US East (N. Virginia)* 
+ 6. set the filter to *Public Images* and search for ``InterMine``
+ 7. select *BasicIntermine* AMI (AMI ID = ami-b1c7a9d8)
+ 8. launch (and configure) instance
   * you can use all default options for the instance characteristics and details, but use the security group you created in step 3.
   * when prompted, create a new key pair (``.pem`` file), or use one that you already own. 
- 8. go to the Instance console
- 9. select your new instance
- 10. when public DNS appears (after checks, a couple of minutes), you can 
+ 9. go to the Instance console
+ 10. select your new instance
+ 11. when public DNS appears (after checks, a couple of minutes), you can 
      open a terminal with
 
      .. code-block:: bash
