@@ -153,7 +153,7 @@ And in ``models.ts``:
 
 .. code-block:: javascript
 
-    export class Model {
+    export class Person {
         constructor(name: string) { }
     }
 
