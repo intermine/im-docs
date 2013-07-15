@@ -47,10 +47,8 @@ Next up is the body of the App in a ``presenter.[js|ts|ls|coffee]`` file. The ex
 This file will have all the logic needed to "do something". It needs to fulfill the following interface:
 
 .. code-block:: javascript
-
-    var App;
     
-    App = (function() {
+    exports.App = (function() {
         
         function App(config, templates) {}
         
@@ -64,7 +62,7 @@ Or the same in TypeScript:
 
 .. code-block:: javascript
 
-    class App {
+    export class App {
     
         constructor(config: Object, templates: Object) {
     
@@ -80,7 +78,7 @@ Or the same in CoffeeScript:
 
 .. code-block:: coffeescript
 
-    class App
+    class exports.App
 
         constructor: (config, templates) ->
 
@@ -109,7 +107,7 @@ Next up are templates. They are the place where you put your HTML that will be r
         constructor: (config, @templates) ->
 
         render: (target) ->
-            $(target).html @templates[template_name] { 'some': 'data', 'right': [ 'here' ] }
+            $(target).html @templates[template_name_with_extension] { 'some': 'data', 'right': [ 'here' ] }
 
 2. `Hogan.js <http://twitter.github.io/hogan.js/>`_ is an implementation of the language `mustache <http://mustache.github.io/mustache.5.html>`_. To use this variant, save your file as ``*.hogan``. You still need to include a reference to the Hogan library in your App and then initialize and use them as follows:
 
@@ -120,7 +118,7 @@ Next up are templates. They are the place where you put your HTML that will be r
         constructor: (config, @templates) ->
 
         render: (target) ->
-            $(target).html (new Hogan.Template(@templates[template_name])).render { 'some': 'data', 'right': [ 'here' ] }
+            $(target).html (new Hogan.Template(@templates['template.hogan'])).render { 'some': 'data', 'right': [ 'here' ] }
 
 Finally we might want to style our app. Usually a main style will be defined by a CSS framework required in the config file, but there is always place for that special something. To define a custom style *guaranteed* to be applicable to your App only, save a CSS or `Stylus <http://learnboost.github.io/stylus/>`_ file as ``style.[css|styl]``.
 
