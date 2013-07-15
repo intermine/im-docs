@@ -102,7 +102,7 @@ Next up are templates. They are the place where you put your HTML that will be r
 
 .. code-block:: coffeescript
 
-    class App
+    class exports.App
 
         constructor: (config, @templates) ->
 
@@ -113,7 +113,7 @@ Next up are templates. They are the place where you put your HTML that will be r
 
 .. code-block:: coffeescript
 
-    class App
+    class exports.App
 
         constructor: (config, @templates) ->
 
