@@ -143,7 +143,7 @@ How can I use modules across folders?
 
 Use the `Common.js <http://addyosmani.com/writing-modular-js/>`_ require pattern, for example as follows:
 
-.. code-block:: typescript
+.. code-block:: javascript
 
     import models = module("models");
     
@@ -151,7 +151,7 @@ Use the `Common.js <http://addyosmani.com/writing-modular-js/>`_ require pattern
 
 And in ``models.ts``:
 
-.. code-block:: typescript
+.. code-block:: javascript
 
     export class Model {
         constructor(name: string) { }
