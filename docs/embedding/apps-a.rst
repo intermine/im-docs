@@ -23,7 +23,7 @@ Middleware
 Visiting 127.0.0.1:1234 should now show a bunch of Apps on a page. They are coming from `InterMine Apps/A Sources <https://github.com/intermine/intermine-apps-a>`_. The next section will describe how to develop a custom app like one of those on the page.
 
 Developing an App
-=================
+-----------------
 
 The middleware accepts one or more paths to a directory with Apps. Above, we have seen an example of loading such a directory. Let us have a look at one of the Apps, a ``publications-displayer``.
 
@@ -123,3 +123,41 @@ Next up are templates. They are the place where you put your HTML that will be r
 Finally we might want to style our app. Usually a main style will be defined by a CSS framework required in the config file, but there is always place for that special something. To define a custom style *guaranteed* to be applicable to your App only, save a CSS or `Stylus <http://learnboost.github.io/stylus/>`_ file as ``style.[css|styl]``.
 
 To run it all refer to the ``example/index.js`` and ``example/public/index.html`` files in the middleware repo.
+
+Q & A
+-----
+
+How do I change which file will export my root ``App``?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Extend your ``config.js`` with the following key, value pair:
+
+.. code-block:: javascript
+
+    module.exports = {
+        "appRoot": "app/index" // points to say index.js in "app" folder
+    }
+
+How can I use modules across folders?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Use the `Common.js <http://addyosmani.com/writing-modular-js/>`_ require pattern, for example as follows:
+
+.. code-block:: typescript
+
+    import models = module("models");
+    
+    var pete = new models.Person('pete');
+
+And in ``models.ts``:
+
+.. code-block:: typescript
+
+    export class Model {
+        constructor(name: string) { }
+    }
+
+I am using ``require.js`` and the app just blew up
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Each app gets its own internal implementation of require to load its and only its modules. If you have something on ``window.require`` it will not get overwritten but it will also not be used by us. Your apps see our version of require, not any other higher up. Suggestions are welcome.
