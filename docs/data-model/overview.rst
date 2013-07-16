@@ -38,4 +38,10 @@ Identifiers
 
 All sequence features must have a non-NULL, unique identifier set for their `primaryIdentifier` field.
 
+Sequence Ontology term
+----------------------------
+
+All sequence features should have a reference to the appropriate `sequence ontology term <http://www.sequenceontology.org>`_. The Java data parsers do this for you automatically.
+
+
 .. index:: data source, data set, data model overview, data model, organism, organism name, chromosome location, strand
