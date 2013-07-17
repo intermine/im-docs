@@ -151,7 +151,7 @@ Extend your ``config.js`` with the following key, value pair:
 How can I use modules across folders?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Use the `Common.js <http://addyosmani.com/writing-modular-js/>`_ require pattern, for example as follows (in TypeScript):
+Use the `CommonJS Modules/1.1 <http://addyosmani.com/writing-modular-js/>`_ require pattern, for example as follows (in TypeScript):
 
 .. code-block:: javascript
 
@@ -170,4 +170,8 @@ And in ``models.ts``:
 I am using ``require.js`` and the app just blew up
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Each app gets its own internal implementation of require to load its and only its modules. If you have something on ``window.require`` it will not get overwritten but it will also not be used by us. Your apps see our version of require, not any other higher up. This is so that multiple apps can live peacefully on a page without deviating from the require spec and having our own prefixes and app silos. Suggestions are welcome.
+Each app gets its own internal implementation of require to load its and only its modules. If you have something on ``window.require`` it will not get overwritten but it will also not be used by us. Your apps see our version of require, not any other higher up. This is so that multiple apps can live peacefully on a page without deviating from the require spec and having our own prefixes and app silos.
+
+In the future, we will also want to get the compiled app once into the browser and then require it multiple times on a page if need be. Using vanilla module loader would then not work as we would not be getting new instances of modules per app instance.
+
+Suggestions are welcome.
