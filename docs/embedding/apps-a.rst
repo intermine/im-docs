@@ -151,7 +151,7 @@ Extend your ``config.js`` with the following key, value pair:
 How can I use modules across folders?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Use the `Common.js <http://addyosmani.com/writing-modular-js/>`_ require pattern, for example as follows:
+Use the `Common.js <http://addyosmani.com/writing-modular-js/>`_ require pattern, for example as follows (in TypeScript):
 
 .. code-block:: javascript
 
