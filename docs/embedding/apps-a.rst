@@ -175,3 +175,25 @@ Each app gets its own internal implementation of require to load its and only it
 In the future, we will also want to get the compiled app once into the browser and then require it multiple times on a page if need be. Using vanilla module loader would then not work as we would not be getting new instances of modules per app instance.
 
 Suggestions are welcome.
+
+A source file I am using is not compiling
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Check the `head of the following file <https://github.com/intermine/apps-a-middleware/blob/master/builder/rules.coffee#L5-L14>` to see the regex rules that the builder uses when going through your app sources.
+
+For example:
+
+.. code-block:: coffeescript
+
+    rules = [
+        [ /^((presenter|app)(\.coffee))|(\/(.*)\.coffee)/g, 'module', 'coffeescript' ]
+        [ /^((presenter|app)(\.js))|(\/(.*)\.js)/g, 'module', 'generic' ]
+        [ /^((presenter|app)(\.ls))|(\/(.*)\.ls)/g, 'module', 'livescript' ]
+        [ /^((presenter|app)(\.ts))|(\/([^\.]*)\.ts)/g, 'module', 'typescript' ] # skip `.d.ts`
+        [ /^(.*)\.css/g, 'style', 'generic' ]
+        [ /^(.*)\.styl/g, 'style', 'stylus' ]
+        [ /^(.*)\.eco/g, 'template', 'eco' ]
+        [ /^(.*)\.hogan/g, 'template', 'hogan' ]
+    ]
+
+Would like to add another rule/filetype? Define its rule and add a new handler in ``apps-a-middleware/builder/types``.
