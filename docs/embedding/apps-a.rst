@@ -179,7 +179,7 @@ Suggestions are welcome.
 A source file I am using is not compiling
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Check the `head of the following file <https://github.com/intermine/apps-a-middleware/blob/master/builder/rules.coffee#L5-L14>` to see the regex rules that the builder uses when going through your app sources.
+Check the `head of the following file <https://github.com/intermine/apps-a-middleware/blob/master/builder/rules.coffee#L5-L14>`_ to see the regex rules that the builder uses when going through your app sources.
 
 For example:
 
@@ -197,3 +197,13 @@ For example:
     ]
 
 Would like to add another rule/filetype? Define its rule and add a new handler in ``apps-a-middleware/builder/types``.
+
+Why do you keep talking about a middleware
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Well, the service you are using extends any existing service you are offering to your users. It would not make much sense to fire up a new service instance per "a thing" that you want to offer to your users. By using a middleware concept, you create one Node.js service on one port and it offers various functionalities as specified by its middlewares.
+
+Why the name Apps/A?
+~~~~~~~~~~~~~~~~~~~~
+
+You can just call it "apps", but as a developer you need some form of a namespace to go on, so we use the Latin alphabet for suffixes. In the future/different version will be called Apps/B and so on.
