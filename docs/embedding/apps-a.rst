@@ -84,6 +84,16 @@ Or the same in CoffeeScript:
 
         render: (target) ->
 
+Or the same in LiveScript:
+
+.. code-block:: livescript
+
+    class exports.App
+    
+        (config, templates) ->
+        
+        render: (target) ->
+
 The constructor takes two parameters:
 
 config
