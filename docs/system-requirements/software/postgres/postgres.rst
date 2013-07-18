@@ -7,7 +7,7 @@ Fedora/CentOS
 	http://wiki.openscg.com/index.php/PostgreSQL_RPM_Installation
 
 Debian/Ubuntu
-	`sudo apt-get postgresql`
+	`sudo apt-get install postgresql`
 
 Mac
 	http://www.postgresql.org/download/macosx.  We've had the most success with MacPorts.
