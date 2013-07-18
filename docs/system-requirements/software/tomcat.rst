@@ -85,13 +85,6 @@ Starting from InterMine 1.1, you can now deploy your mine using Tomcat 7.0
 
 Update your config files:
 
-Add a new property (default is 6.0.xx)
-
-.. code-block:: properties
-
-   # in MINE.properties
-   webapp.tomcat.version=7
-
 in `$TOMCAT/conf/tomcat-users.xml` set:
 
 .. code-block:: xml
