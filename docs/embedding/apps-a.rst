@@ -167,6 +167,8 @@ And in ``models.ts``:
         constructor(name: string) { }
     }
 
+.. seealso:: Take a look at the ``choose-list`` app in the ``intermine-apps-a`` repo. It shows an example of how different modules can be required.
+
 I am using ``require.js`` and the app just blew up
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -207,3 +209,15 @@ Why the name Apps/A?
 ~~~~~~~~~~~~~~~~~~~~
 
 You can just call it "apps", but as a developer you need some form of a namespace to go on, so we use the Latin alphabet for suffixes. In the future/different version will be called Apps/B and so on.
+
+Which language should I use for the app?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Down to your preference:
+
+JavaScript
+    Oldie but goldie. There is no compilation step involved so what you see is what you get.
+CoffeeScript
+    Sports a pythonesque syntax and makes common operations for you (far) easier. Your code is less verbose. The source you see gets compiled to JavaScript so if you run into problems you are still debugging JS.
+TypeScript
+    You get the added benefit of types if you want to use them. This is beneficial especially if you have an editor with "IntelliSense" like `WebStorm <https://www.jetbrains.com/webstorm/>`_. Ultimately this is where a lot of TypeScript is headed with classes and modules. You write more code but you can also define interfaces for what you expect to be provided to you. If you work with multiple different people this might be beneficial as they might be alerted when they break something.
