@@ -21,6 +21,7 @@ Contents
     webapp/index
     web-services/index
     embedding/index
+    api/index
     support/index
     about/index
 
