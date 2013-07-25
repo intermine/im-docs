@@ -65,6 +65,19 @@ You should also add a line to the pg_hba.conf file to allow logging in via passw
 
 Note that changing some settings requires stopping/starting postgres, restart has no effect.
 
+You may also need to configure (increase) your shared momery (SHMMAX), e.g.
+
+.. code-block:: bash
+
+	$ ipcs -lm # Determine current shared memory limits, e.g. max seg size is SHMMAX in kbytes
+
+	$ cat /proc/sys/kernel/shmmax # Determine the value of SHMMAX
+
+	$ sudo vim /etc/sysctl.conf # Configure SHMMAX value in sysctl.conf. e.g. add 
+	# kernel.shmmax = 268435456
+
+	$ sudo sysctl -p # make the config take effect at runtime.
+
 You also need to install the `bioseg` data type, and the `contrib btree_gist` plug-in, as described in :doc:`bioseg`.
 
 Character Set Encoding
