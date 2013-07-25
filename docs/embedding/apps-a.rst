@@ -221,3 +221,8 @@ CoffeeScript
     Sports a pythonesque syntax and makes common operations for you (far) easier. Your code is less verbose. The source you see gets compiled to JavaScript so if you run into problems you are still debugging JS.
 TypeScript
     You get the added benefit of types if you want to use them. This is beneficial especially if you have an editor with "IntelliSense" like `WebStorm <https://www.jetbrains.com/webstorm/>`_. Ultimately this is where a lot of JavaScript is headed with classes and modules. You write more code but you can also define interfaces for what you expect to be provided to you. If you work with multiple different people this might be beneficial as they might be alerted when they break something.
+
+Why is the config in JavaScript if my App can be in *Script?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This is so they can see what the example config looks like. Someone embedding your App does not need your implementation language, but they can/should know vanilla JavaScript.
