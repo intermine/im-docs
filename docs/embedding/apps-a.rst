@@ -226,3 +226,7 @@ Why is the config in JavaScript if my App can be in *Script?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This is so they can see what the example config looks like. Someone embedding your App does not need your implementation language, but they can/should know vanilla JavaScript.
+
+Am I supposed to be reading this config?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Josh? Is that you?
