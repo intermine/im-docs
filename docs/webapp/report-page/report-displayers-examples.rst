@@ -62,7 +62,7 @@ This also needs two properties to be configured in the ``minename.properties`` f
 
     gbrowse.prefix=http://www.flymine.org/cgi-bin/gbrowse
     gbrowse_image.prefix=http://www.flymine.org/cgi-bin/gbrowse_img
-    gbrowse.database.source=flymine-31.0
+
 
 .. figure::  img/gbrowse_displayer.png
    :align:   center

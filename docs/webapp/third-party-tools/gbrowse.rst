@@ -4,20 +4,7 @@ GBrowse
 Link out to another GBrowse
 ----------------------------------
 
-webapp.viewByID.prefix
-  portal.do?externalid=
-
-gbrowse.config.directory
-  SERVER_NAME:/gbrowse/conf/
-
-gbrowse.www.directory
-  SERVER_NAME:/gbrowse/www/browser/gbrowse
-
-gbrowse.prefix
-  http://www.flymine.org/cgi-bin/gbrowse
-
-gbrowse_image.prefix
-  http://www.flymine.org/cgi-bin/gbrowse_img
+You can link out to an external GBrowse instance. See here for an example: http://intermine.readthedocs.org/en/latest/webapp/report-page/report-displayers-examples/#gbrowse
 
 GBrowse Instance for your mine
 --------------------------------------
