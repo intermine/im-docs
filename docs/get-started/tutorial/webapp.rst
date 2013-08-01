@@ -11,10 +11,9 @@ customisation of InterMine is accomplished by updating the appropriate configura
 A few features are updated via tagging as well. See :doc:`/webapp/index` for the full documentation on the webapp.  
 
 This tutorials is intended to give a general idea of what you can customise in InterMine and how to do it. We're going
-to go through each section of the webapp and give step by step instructions on how to update your webapp.
+to go through each section of the webapp and give step by step instructions on how to update your webapp. This is a very detailed overview of the webapp and should take a few hours. However it is not comprehensive. Where topics aren't covered, there are links provided for more information. If you have a question that you don't see answered, try searching the documentation or taking a look at the index. Intermine has an active developer's list as well.
 
-Prerequites: You should have completed the previous tutorial, have a userprofile and production database and successfully 
-deployed the webapp.
+Prerequites: You should have completed the previous tutorial, have a userprofile and production database and successfully deployed the webapp.
 
 General Layout
 ---------------------
@@ -26,16 +25,25 @@ the navigation tabs and the keyword search. The footer contains the contact form
 Header
 ~~~~~~~
 
-First, let's update the logo of your site. The logo should be 45px x 43px and named `logo.png`. 
+Logo
+^^^^^
+
+First, let's update the logo of your site. The logo should be 45x43 and named `logo.png`. 
 
 1. Copy your image into this directory: `MINE_NAME/webapp/resources/webapp/model/images`
+
 2. Start Tomcat
 3. Deploy your webapp with this command:
 
 ant default remove-webapp release-webapp
 
+You should see your new logo in the top left corner of your webapp. If you don't refresh your browser.
+
 If you are making lots of changes to your webapp, you may encounter some issues. If your webapp is slow or fails to 
-respond, restart tomcat. If your changes are not being reflected in your webapp, add the `clean` target:
+respond, restart Tomcat. If Tomcat runs out of memory, you may have to kill the process as it will fail to shut
+down correctly. Upgrading to Tomcat 7 seems to help with this.
+
+If your changes are not being reflected in your webapp, add the `clean` target:
 
 ant clean; ant default remove-webapp release-webapp
 
@@ -44,9 +52,44 @@ temporary directories from all dependencies as well.
 
 See :doc:`/prerequisites/software/ant` for a list of ant targets.
 
-You should see your new logo in the top left corner of your webapp. If you don't refresh your browser.
+The logo is hyperlinked, the URL that is used is set in :doc:`/webapp/properties/intermine-properties` with the property `project.sitePrefix`. This is the same properties file you updated in the previous tutorial. See :doc:`/webapp/properties/intermine-properties` for the full list of properties this file controls.
 
-See :doc:`/webapp/layout` for details.
+After you have updated this property, redeploy your webapp using the commands given above. Once you have successfully released your webapp, click on the logo and it should go to the home page.
+
+You can see the value of this and all properties set in your mine:
+
+1. Navigate to your webapp
+2. Log in as the superuser
+3. Change the last part of the URL in your browser to be `showProperties.do`
+
+This is  list of all properties in all configuration files that are used in your webapp. Search for `project.sitePrefix` and you should see your new value.
+
+
+
+Keyword Search 
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+The search box contains example identifiers to help your users know which types of search terms to use. To update this value, set the `quicksearch.example.identifiers` property in the :doc:`/webapp/properties/web-properties` file. Redeploy your webapp to see your changes.
+
+
+InterMine's keyword search is a powerful Lucene-based search created at build-time. When the first search is executed, the index is retrieved from the database, written to temp files and loaded into memory. This can take up to a minute. Our release scripts include a command to run this search so that the index is ready.
+
+Note: The index covers the entire database so can be quite large. FlyMine's index is ~2G, so make certain you have plenty of room.
+
+
+
+See :doc:`/webapp/keywordsearch` for details on how to configure the keyword search index and results.
+
+
+Footer
+~~~~~~~~~~~~~~
+
+The footer is positioned at the bottom of every page in the InterMine webapp. It contains the contact link and the funding message.
+
+To update the funding message, change the `funding` property in :doc:`
+
+See :doc:`/webapp/layout` for more details on how to update your webapp.
 
 
 
@@ -55,8 +98,6 @@ Home page
 
 Logo and subtitle
 ~~~~~~~~~~~~~~~~~~~~~~
-
-First, let's update the logo
 
 
 There are four main text files you are going to be updating the most:
