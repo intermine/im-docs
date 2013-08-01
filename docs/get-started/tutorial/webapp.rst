@@ -87,17 +87,7 @@ Footer
 
 The footer is positioned at the bottom of every page in the InterMine webapp. It contains the contact link and the funding message.
 
-To update the funding message, change the `funding` property in :doc:`
-
-See :doc:`/webapp/layout` for more details on how to update your webapp.
-
-
-
-Home page
-----------------------
-
-Logo and subtitle
-~~~~~~~~~~~~~~~~~~~~~~
+To update the funding message, change the `funding` property in :doc:`/webapp/properties/web.properties`. Redeploy your webapp to see your changes.
 
 
 There are four main text files you are going to be updating the most:
@@ -112,9 +102,41 @@ model.properties
   text displayed on webapp, e.g. error messages
 
 webconfig-model.xml
-  webapp functionality, e.g. custom export types, widgets
+  webapp functionality, e.g. custom export types, widgets, data display
 
-See :doc:`/webapp/properties/index` for details.
+See :doc:`/webapp/properties/index` for details on these property files.
 
-Next we are going to go through what you need to do to customise your InterMine instance.
+See :doc:`/webapp/layout` for more details on how to update the header, footer and colour scheme of your InterMine webapp. Next we'll customise your home page.
+
+
+
+Home page
+----------------------
+
+
+Most everything on the home page is customisable. You can edit the text and set which RSS news feed to use. 
+
+Boxes
+~~~~~~~
+
+You can customise the text in the three boxes that appear on the top of the home page. Let's edit the example given in the middle box marked `Analyse`. 
+
+This property is controlled by the `begin.listBox.example` property in the web.properties file. Add this property to your web.properties files and redeploy your webapp.
+
+
+
+
+
+
+
+Use your own
+~~~~~~~~~~~~~~~~~~~
+
+
+
+
+See :doc:`/webapp/home` for more details on how to update
+
+
+
 
