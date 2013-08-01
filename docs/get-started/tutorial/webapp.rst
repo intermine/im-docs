@@ -137,7 +137,16 @@ Therefore when you set `begin.listBox.example` in your properties file, it overr
 Use your own
 ~~~~~~~~~~~~~~~~~~~
 
+The text and settings are configurable, but you may want a different layout for your home page. 
 
+
+1. Copy `begin.jsp` from `intermine/webapp` into your own webapp directory: `MINE_NAME/webapp/resources/webapp/model`.
+2. Edit your begin.jsp 
+3. Redeploy your webapp to show your change
+
+We saw in the previous section that properties override InterMine properties. The same holds true for JSP pages.
+
+Note: Changes made to the home page, or whichever page you updated, will not be reflected in your custom copy.
 
 
 See :doc:`/webapp/home` for more details on how to update
