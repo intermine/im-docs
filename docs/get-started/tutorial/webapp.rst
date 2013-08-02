@@ -10,10 +10,12 @@ InterMine is a powerful, flexible software program in which is meant to be highl
 customisation of InterMine is accomplished by updating the appropriate configuration file and redeploying the webapp. 
 A few features are updated via tagging as well. See :doc:`/webapp/index` for the full documentation on the webapp.  
 
-This tutorials is intended to give a general idea of what you can customise in InterMine and how to do it. We're going
-to go through each section of the webapp and give step by step instructions on how to update your webapp. This is a very detailed overview of the webapp and should take a few hours. However it is not comprehensive. Where topics aren't covered, there are links provided for more information. If you have a question that you don't see answered, try searching the documentation or taking a look at the index. Intermine has an active developer's list as well.
+This tutorial is intended to give a general idea of what you can customise in InterMine and how to do it. We're going
+to go through each section of the webapp and give step by step instructions on how to update your webapp. This is a very detailed overview of the webapp and should take you a few hours to complete. However it is not comprehensive. Where topics aren't covered, there are links provided for more information. If you have a question that you don't see answered, try searching the documentation or taking a look at the index. Intermine has an active developer's mailing list as well.
 
-Prerequites: You should have completed the previous tutorial, have a userprofile and production database and successfully deployed the webapp.
+.. note::
+
+	Prerequisites: You should have completed the previous tutorial, have a userprofile and production database and successfully deployed the webapp.
 
 General Layout
 ---------------------
@@ -31,11 +33,12 @@ Logo
 First, let's update the logo of your site. The logo should be 45x43 and named `logo.png`. 
 
 1. Copy your image into this directory: `MINE_NAME/webapp/resources/webapp/model/images`
-
 2. Start Tomcat
 3. Deploy your webapp with this command:
 
-ant default remove-webapp release-webapp
+.. code-block:: bash
+
+	ant default remove-webapp release-webapp
 
 You should see your new logo in the top left corner of your webapp. If you don't refresh your browser.
 
@@ -45,12 +48,14 @@ down correctly. Upgrading to Tomcat 7 seems to help with this.
 
 If your changes are not being reflected in your webapp, add the `clean` target:
 
-ant clean; ant default remove-webapp release-webapp
+.. code-block:: bash
+
+	ant clean; ant default remove-webapp release-webapp
 
 This removes all temporary directories so you are certain your new files are being used. The `clean-all` target removes
 temporary directories from all dependencies as well.
 
-See :doc:`/prerequisites/software/ant` for a list of ant targets.
+See :doc:`/system-requirements/software/ant/` for a list of ant targets.
 
 The logo is hyperlinked, the URL that is used is set in :doc:`/webapp/properties/intermine-properties` with the property `project.sitePrefix`. This is the same properties file you updated in the previous tutorial. See :doc:`/webapp/properties/intermine-properties` for the full list of properties this file controls.
 
@@ -75,11 +80,14 @@ The search box contains example identifiers to help your users know which types 
 
 InterMine's keyword search is a powerful Lucene-based search created at build-time. When the first search is executed, the index is retrieved from the database, written to temp files and loaded into memory. This can take up to a minute. Our release scripts include a command to run this search so that the index is ready.
 
-Note: The index covers the entire database so can be quite large. FlyMine's index is ~2G, so make certain you have plenty of room.
+
+.. warning::
+
+The index covers the entire database so can be quite large. FlyMine's index is ~2G, so make certain you have plenty of room.
 
 
 
-See :doc:`/webapp/keywordsearch` for details on how to configure the keyword search index and results.
+See :doc:`/webapp/keyword-search` for details on how to configure the keyword search index and results.
 
 
 Footer
@@ -106,7 +114,7 @@ webconfig-model.xml
 
 See :doc:`/webapp/properties/index` for details on these property files.
 
-See :doc:`/webapp/layout` for more details on how to update the header, footer and colour scheme of your InterMine webapp. Next we'll customise your home page.
+See :doc:`/webapp/layout/index` for more details on how to update the header, footer and colour scheme of your InterMine webapp. Next we'll customise your home page.
 
 
 
@@ -149,7 +157,7 @@ We saw in the previous section that properties override InterMine properties. Th
 Note: Changes made to the home page, or whichever page you updated, will not be reflected in your custom copy.
 
 
-See :doc:`/webapp/home` for more details on how to update
+See :doc:`/webapp/homepage/index` for more details on how to update
 
 
 

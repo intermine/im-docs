@@ -47,4 +47,7 @@ Validation
 
 The configuration will be validated at the beginning of data loading. The validation will check that no configuration is made for classes that do not exist, and for data sources which do not exist (which could easily be a typo), and that no class hierarchy problems exist. Note that there is an extremely small chance that some class hierarchy problems may be spotted after validation with some extremely exotic data, but we do not expect to ever see such data.
 
+
+
+
 .. index:: priority configuration, Conflicting values for field error
