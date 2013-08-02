@@ -10,15 +10,15 @@ Paths
 
 The core concept of *Path-Queries* is naturally enough the *Path*, examples of
 which are:
- * `Gene`: A plain root
- * `Gene.symbol`: A root and an attribute
- * `Gene.chromosomeLocation`: A reference to a complex attribute (a reference)
- * `Gene.organism.name`: A chain from a root to an attribute through one or more
+* `Gene`: A plain root
+* `Gene.symbol`: A root and an attribute
+* `Gene.chromosomeLocation`: A reference to a complex attribute (a reference)
+* `Gene.organism.name`: A chain from a root to an attribute through one or more
    references.
- * `Gene.pathways.identifier`: A path may potentially match multiple values -
+* `Gene.pathways.identifier`: A path may potentially match multiple values -
    there may be several pathway identifiers that match this path for any given
    gene.
- * `Protein.gene.homologues.homologue.alleles.alleleClass`: Paths may be of
+* `Protein.gene.homologues.homologue.alleles.alleleClass`: Paths may be of
    arbitrary length.
 
 In the XML serialization of path-queries, all paths must be completely
@@ -56,14 +56,14 @@ In any chain of references in a long path such as
 null. There are two behaviours supported for dealing with null references
 (ie. where a gene does not have any sequence attached, or it has not proteins,
 or those proteins have no protein domains).
- * `INNER JOIN`: The default behaviour, this prevents the entire path from
+* `INNER JOIN`: The default behaviour, this prevents the entire path from
    matching, so that if the query contains `Gene.symbol` and
    `Gene.proteins.name` and a gene in the data store has no proteins then that
    gene will not match at all, no data will be returned for the symbol of that
    gene - ie. it is a required feature of this query that all genes in the
    result set have at least one protein (this is a kind of implicit existential
    constraint).
- * `OUTER JOIN`: Optional optional behaviour; this allows references in paths to
+* `OUTER JOIN`: Optional optional behaviour; this allows references in paths to
    be empty while permitting higher parts of the path to continue to match. So
    for example if the query contains `Gene.symbol` and
    `Gene.proteins.name` and a gene in the data store has no proteins then no
@@ -72,9 +72,9 @@ or those proteins have no protein domains).
    results (this makes the proteins optional).
 
 There are some consequences of using outer joins:
- * Due to the optional nature of the outerjoined data, it is not permitted to
+* Due to the optional nature of the outerjoined data, it is not permitted to
    sort on attributes in an outerjoined section
- * Constraints (see below) cannot be combined in an `or` relationship across
+* Constraints (see below) cannot be combined in an `or` relationship across
    join boundaries. So one cannot ask for all genes which are either of a
    certain length or which have a certain pathway if there is an outer join on
    pathways.
@@ -104,6 +104,7 @@ Constraints on attributes:
 The following are examples of constraints on attributes in the data store:
 
 .. code-block:: xml
+
   <constraint path="Gene.symbol" op="=" value="eve"/>
   <constraint path="Gene.length" op="&gt;" value="12345"/>
   <constraint path="Gene.homologues.homologue.organism.taxonId" op="!=" value="7227"/>

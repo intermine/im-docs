@@ -1,5 +1,5 @@
-Tutorial - webapp
-========================
+Tutorial - Configure your InterMine webapp
+================================================
 
 This tutorial aims to cover the basics of configuring an InterMine webapp.
 
@@ -32,6 +32,8 @@ Logo
 
 First, let's update the logo of your site. The logo should be 45x43 and named `logo.png`. 
 
+.. image:: `../../imgs/logo.png`
+
 1. Copy your image into this directory: `MINE_NAME/webapp/resources/webapp/model/images`
 2. Make sure Tomcat is running
 3. Deploy your webapp with this command:
@@ -43,7 +45,7 @@ First, let's update the logo of your site. The logo should be 45x43 and named `l
 You should see your new logo in the top left corner of your webapp. If you don't, try clearing your browser's cache.
 
 ant targets
-""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^
 
 If your changes are not being reflected in your webapp, add the `clean` target:
 
@@ -84,7 +86,7 @@ InterMine's keyword search is a powerful Lucene-based search created at build-ti
 
 .. warning::
 
-The index covers the entire database so can be quite large. FlyMine's index is ~2G, so make certain you have plenty of room.
+	The index covers the entire database so can be quite large. FlyMine's index is ~2G, so make certain you have plenty of room.
 
 
 
@@ -104,7 +106,7 @@ down correctly. Upgrading to Tomcat 7 seems to help with this.
 
 
 properties files
-""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^
 
 There are four main text files you are going to be updating the most:
 
