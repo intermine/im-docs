@@ -11,11 +11,11 @@ customisation of InterMine is accomplished by updating the appropriate configura
 A few features are updated via tagging as well. See :doc:`/webapp/index` for the full documentation on the webapp.  
 
 This tutorial is intended to give a general idea of what you can customise in InterMine and how to do it. We're going
-to go through each section of the webapp and give step by step instructions on how to update your webapp. This is a very detailed overview of the webapp and should take you a few hours to complete. However it is not comprehensive. Where topics aren't covered, there are links provided for more information. If you have a question that you don't see answered, try searching the documentation or taking a look at the index. Intermine has an active developer's mailing list as well.
+to go through each section of the webapp and give step by step instructions on how to update your webapp. This is a detailed tutorial and should take you a few hours to complete. However it is not comprehensive. Where topics aren't covered, there are links provided for more information. If you have a question that you don't see answered, try searching the documentation or taking a look at the index. Intermine has an active developer's mailing list as well.
 
 .. note::
 
-	Prerequisites: You should have completed the previous tutorial, have a userprofile and production database and successfully deployed the webapp.
+	You should have completed the previous tutorial and have successfully deployed the webapp.
 
 General Layout
 ---------------------
@@ -33,18 +33,17 @@ Logo
 First, let's update the logo of your site. The logo should be 45x43 and named `logo.png`. 
 
 1. Copy your image into this directory: `MINE_NAME/webapp/resources/webapp/model/images`
-2. Start Tomcat
+2. Make sure Tomcat is running
 3. Deploy your webapp with this command:
 
 .. code-block:: bash
 
 	ant default remove-webapp release-webapp
 
-You should see your new logo in the top left corner of your webapp. If you don't refresh your browser.
+You should see your new logo in the top left corner of your webapp. If you don't, try clearing your browser's cache.
 
-If you are making lots of changes to your webapp, you may encounter some issues. If your webapp is slow or fails to 
-respond, restart Tomcat. If Tomcat runs out of memory, you may have to kill the process as it will fail to shut
-down correctly. Upgrading to Tomcat 7 seems to help with this.
+ant targets
+""""""""""""""
 
 If your changes are not being reflected in your webapp, add the `clean` target:
 
@@ -56,6 +55,8 @@ This removes all temporary directories so you are certain your new files are bei
 temporary directories from all dependencies as well.
 
 See :doc:`/system-requirements/software/ant/` for a list of ant targets.
+
+
 
 The logo is hyperlinked, the URL that is used is set in :doc:`/webapp/properties/intermine-properties` with the property `project.sitePrefix`. This is the same properties file you updated in the previous tutorial. See :doc:`/webapp/properties/intermine-properties` for the full list of properties this file controls.
 
@@ -97,6 +98,13 @@ The footer is positioned at the bottom of every page in the InterMine webapp. It
 
 To update the funding message, change the `funding` property in :doc:`/webapp/properties/web.properties`. Redeploy your webapp to see your changes.
 
+If you are making lots of changes to your webapp, you may encounter some issues. If your webapp is slow or fails to 
+respond, restart Tomcat. If Tomcat runs out of memory, you may have to kill the process as it will fail to shut
+down correctly. Upgrading to Tomcat 7 seems to help with this.
+
+
+properties files
+""""""""""""""""""""""""""""
 
 There are four main text files you are going to be updating the most:
 
@@ -132,6 +140,9 @@ You can customise the text in the three boxes that appear on the top of the home
 Notice the text box already has an example, `e.g. X, Y, Z`. This is the default example and it's set by `begin.listBox.example` in an InterMine properties file, global.web.properties.
 
 Add this property to your mine's web.properties files and redeploy your webapp to see your changes.
+
+InterMine, bio and mine /webapp
+""""""""""""""""""""""""""""""""""""""""""
 
 In Intermine there are 3 webapp projects: InterMine, bio and mine. You shouldn't ever have to change the files in InterMine and bio, you'll only ever update your mine's files. When the webapp is compiled, the build system starts with the InterMine webapp project, then merges bio into that. Finally your mine's webapp is added. The files and properties set in bio override any in the InterMine project. Your mine's files and properties override any in bio or InterMine.
 

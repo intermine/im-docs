@@ -1,7 +1,7 @@
 General Layout
 ==================
 
-.. note:: This text describes how to customize the look & feel of the whole app.
+This page describes how to customise the look & feel of the whole InterMine webapp.
 
 Parts
 -----
