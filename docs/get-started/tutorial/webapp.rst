@@ -31,7 +31,7 @@ Header
 Logo
 ^^^^^
 
-First, let's update the logo of your site. The logo should be 45x43 and named `logo.png`:
+First, let's update the logo of your site. The logo should be 45x43 and named `logo.png`, for example:
 
 .. image:: ../../imgs/logo.png
 
@@ -63,13 +63,12 @@ See :doc:`/system-requirements/software/ant/` for a list of ant targets.
 
 The logo is hyperlinked, the URL that is used is set in :doc:`/webapp/properties/intermine-properties` with the property `project.sitePrefix`. This is the same properties file you updated in the previous tutorial. See :doc:`/webapp/properties/intermine-properties` for the full list of properties this file controls.
 
-After you have updated this property, redeploy your webapp using the commands given above. Once you have successfully released your webapp, click on the logo and it should go to the home page.
+Update this property with the URL of yoru site and redeploy your webapp using the commands given above. Once you have successfully released your webapp, click on the logo and it should go to the home page.
 
 You can see the value of this and all properties set in your mine:
 
-1. Navigate to your webapp
-2. Log in as the superuser
-3. Change the last part of the URL in your browser to be `showProperties.do`
+1. Log in as the superuser
+2. Change the last part of the URL in your browser to be `showProperties.do`, e.g. http://localhost:8080/test/showProperties.do
 
 This is  list of all properties in all configuration files that are used in your webapp. Search for `project.sitePrefix` and you should see your new value.
 
@@ -78,11 +77,12 @@ This is  list of all properties in all configuration files that are used in your
 Keyword Search 
 ^^^^^^^^^^^^^^^^^^^^^^
 
-
-The search box contains example identifiers to help your users know which types of search terms to use. To update this value, set the `quicksearch.example.identifiers` property in the :doc:`/webapp/properties/web-properties` file. Redeploy your webapp to see your changes.
-
-
 InterMine's keyword search is a powerful Lucene-based search created at build-time. When the first search is executed, the index is retrieved from the database, written to temp files and loaded into memory. This can take up to a minute. Our release scripts include a command to run this search so that the index is ready.
+
+
+The search box contains example identifiers to help your users know which types of search terms to use. To update the default value, set the `quicksearch.example.identifiers` property in the :doc:`/webapp/properties/web-properties` file. Redeploy your webapp to see your changes.
+
+
 
 
 .. warning::
@@ -91,7 +91,7 @@ InterMine's keyword search is a powerful Lucene-based search created at build-ti
 
 
 
-See :doc:`/webapp/keyword-search` for details on how to configure the keyword search index and results.
+See :doc:`/webapp/keyword-search/index` for details on how to configure the keyword search index and results.
 
 
 Footer
