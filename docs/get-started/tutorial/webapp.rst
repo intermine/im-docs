@@ -6,16 +6,14 @@ This tutorial aims to cover the basics of configuring an InterMine webapp.
 Overview
 ----------------------
 
-InterMine is a powerful, flexible software program in which is meant to be highly configurable. In general, 
-customisation of InterMine is accomplished by updating the appropriate configuration file and redeploying the webapp. 
-A few features are updated via tagging as well. See :doc:`/webapp/index` for the full documentation on the webapp.  
-
-This tutorial is intended to give a general idea of what you can customise in InterMine and how to do it. We're going
-to go through each section of the webapp and give step by step instructions on how to update your webapp. This is a detailed tutorial and should take you a few hours to complete. However it is not comprehensive. Where topics aren't covered, there are links provided for more information. If you have a question that you don't see answered, try searching the documentation or taking a look at the index. Intermine has an active developer's mailing list as well.
+In general, customisation of InterMine is accomplished by updating the appropriate configuration file and redeploying the webapp. A few features are updated via tagging as well. See :doc:`/webapp/index` for the full documentation on the webapp.  
 
 .. note::
 
 	You should have completed the previous tutorial and have successfully deployed the webapp.
+
+This tutorial is intended to give a general idea of what you can customise in InterMine and how to do it. We're going to go through each section of the webapp and give step by step instructions on how to update your webapp. This is a detailed tutorial and should take you a few hours to complete. However it is not comprehensive. Where topics aren't covered, there are links provided for more information. If you have a question that you don't see answered, try searching the documentation or taking a look at the index. Intermine has an active developer's mailing list as well.
+
 
 General Layout
 ---------------------
@@ -43,12 +41,14 @@ First, let's update the logo of your site. The logo should be 45x43 and named `l
 
 	ant default remove-webapp release-webapp
 
+4. Refresh your browser
+
 You should see your new logo in the top left corner of your webapp. If you don't, try clearing your browser's cache.
 
 ant targets
 ^^^^^^^^^^^^^^^^^^^^^^
 
-If your changes are not being reflected in your webapp, add the `clean` target:
+If your changes are still not being reflected in your webapp, add the `clean` target:
 
 .. code-block:: bash
 
@@ -59,11 +59,16 @@ temporary directories from all dependencies as well.
 
 See :doc:`/system-requirements/software/ant/` for a list of ant targets.
 
+Subtitle
+^^^^^^^^^^^^^^^^^^^^^^
 
+Next to the name of your mine in the header is a phrase we call the "subtitle". In the tutorial webapp you created earlier, this value is
 
-The logo is hyperlinked, the URL that is used is set in :doc:`/webapp/properties/intermine-properties` with the property `project.sitePrefix`. This is the same properties file you updated in the previous tutorial. See :doc:`/webapp/properties/intermine-properties` for the full list of properties this file controls.
+> An example of InterMine.bio with data from <i>Plasmodium falciparum</i>
 
-Update this property with the URL of yoru site and redeploy your webapp using the commands given above. Once you have successfully released your webapp, click on the logo and it should go to the home page.
+That value is set in :doc:`/webapp/properties/intermine-properties` with the property `project.subTitle`. This is the same properties file you updated in the previous tutorial. See :doc:`/webapp/properties/intermine-properties` for the full list of properties this file controls.
+
+Update this property and redeploy your webapp using the commands given above. Once you have successfully released your webapp, you should see your new subtitle.
 
 
 Show all properties
@@ -74,7 +79,7 @@ You can see the value of this and all properties set in your mine:
 1. Log in as the superuser
 2. Change the last part of the URL in your browser to be `showProperties.do`, e.g. http://localhost:8080/test/showProperties.do
 
-This is  list of all properties in all configuration files that are used in your webapp. Search for `project.sitePrefix` and you should see your new value.
+This is  list of all properties in all configuration files that are used in your webapp. Search for `project.subTitle` and you should see your new value.
 
 
 
@@ -85,9 +90,6 @@ InterMine's keyword search is a powerful Lucene-based search created at build-ti
 
 
 The search box contains example identifiers to help your users know which types of search terms to use. To update the default value, set the `quicksearch.example.identifiers` property in the :doc:`/webapp/properties/web-properties` file. Redeploy your webapp to see your changes.
-
-
-
 
 .. warning::
 
@@ -115,19 +117,17 @@ properties files
 
 There are four main text files you are going to be updating the most:
 
- ~/.intermine/<MINE_NAME>.properties
+:doc:`/webapp/properties/intermine-properties ~/.intermine/<MINE_NAME>.properties`
   database and webapp names and locations. includes passwords and shouldn't be in source control.
 
-`web.properties <https://github.com/intermine/intermine/blob/dev/flymine/webapp/resources/web.properties>`_
+:doc:`/webapp/properties/web-properties web.properties`
   webapp behaviour, e.g. link outs, tabs on home page
 
-`model.properties <https://github.com/intermine/intermine/blob/dev/flymine/webapp/resources/model.properties>`_
+:doc:`/webapp/properties/model-properties model.properties`
   text displayed on webapp, e.g. error messages
 
-`webconfig-model.xml <https://github.com/intermine/intermine/blob/dev/flymine/webapp/resources/webapp/WEB-INF/webconfig-model.xml>`_
+:doc:`/webapp/properties/webconfig-model webconfig-model.xml`
   webapp functionality, e.g. custom export types, widgets, data display
-
-See :doc:`/webapp/properties/index` for details on these property files.
 
 See :doc:`/webapp/layout/index` for more details on how to update the header, footer and colour scheme of your InterMine webapp. Next we'll customise your home page.
 
