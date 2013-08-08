@@ -32,7 +32,7 @@ Logo
 
 First, let's update the logo of your site. The logo should be 45x43 and named `logo.png`. 
 
-.. image:: `../../imgs/logo.png`
+.. image:: ../../imgs/logo.png
 
 1. Copy your image into this directory: `MINE_NAME/webapp/resources/webapp/model/images`
 2. Make sure Tomcat is running
