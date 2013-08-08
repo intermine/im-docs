@@ -23,6 +23,7 @@ General Layout
 Each web page in InterMine has a header and footer. The header contains everything at the top of the page, including 
 the navigation tabs and the keyword search. The footer contains the contact form and InterMine logo.
 
+.. image:: ../../imgs/header-footer.png
 
 Header
 ~~~~~~~
@@ -30,7 +31,7 @@ Header
 Logo
 ^^^^^
 
-First, let's update the logo of your site. The logo should be 45x43 and named `logo.png`. 
+First, let's update the logo of your site. The logo should be 45x43 and named `logo.png`:
 
 .. image:: ../../imgs/logo.png
 
