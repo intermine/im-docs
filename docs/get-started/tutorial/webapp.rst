@@ -65,6 +65,10 @@ The logo is hyperlinked, the URL that is used is set in :doc:`/webapp/properties
 
 Update this property with the URL of yoru site and redeploy your webapp using the commands given above. Once you have successfully released your webapp, click on the logo and it should go to the home page.
 
+
+Show all properties
+^^^^^^^^^^^^^^^^^^^^^^
+
 You can see the value of this and all properties set in your mine:
 
 1. Log in as the superuser
@@ -99,11 +103,11 @@ Footer
 
 The footer is positioned at the bottom of every page in the InterMine webapp. It contains the contact link and the funding message.
 
-To update the funding message, change the `funding` property in :doc:`/webapp/properties/web.properties`. Redeploy your webapp to see your changes.
+To update the funding message, change the `funding` property in :doc:`/webapp/properties/web-properties`. Redeploy your webapp to see your changes.
 
-If you are making lots of changes to your webapp, you may encounter some issues. If your webapp is slow or fails to 
-respond, restart Tomcat. If Tomcat runs out of memory, you may have to kill the process as it will fail to shut
-down correctly. Upgrading to Tomcat 7 seems to help with this.
+.. note::
+
+	Your webapp may freeze or become sluggish after redeploying your webapp several times. If this happens restart Tomcat. If Tomcat runs out of memory, you may have to kill the process as it will fail to shut down correctly. Upgrading to Tomcat 7 seems to solve this problem.
 
 
 properties files
