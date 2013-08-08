@@ -115,16 +115,16 @@ properties files
 
 There are four main text files you are going to be updating the most:
 
-~/.intermine/<MINE_NAME>.properties
+ ~/.intermine/<MINE_NAME>.properties
   database and webapp names and locations. includes passwords and shouldn't be in source control.
 
-web.properties
+`web.properties <https://github.com/intermine/intermine/blob/dev/flymine/webapp/resources/web.properties>`_
   webapp behaviour, e.g. link outs, tabs on home page
 
-model.properties
+`model.properties <https://github.com/intermine/intermine/blob/dev/flymine/webapp/resources/model.properties>`_
   text displayed on webapp, e.g. error messages
 
-webconfig-model.xml
+`webconfig-model.xml <https://github.com/intermine/intermine/blob/dev/flymine/webapp/resources/webapp/WEB-INF/webconfig-model.xml>`_
   webapp functionality, e.g. custom export types, widgets, data display
 
 See :doc:`/webapp/properties/index` for details on these property files.
