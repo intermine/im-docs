@@ -48,6 +48,7 @@ If you follow the above steps with this data file, the following will happen:
 	511145.attributes.locus_tag=secondaryIdentifier    # use locus_tag field as secondaryIdentifier
 	511145.attributes.gene=symbol                      # use gene field as symbol
 	511145.attributes.gene_synonym=synonym             # use gene_synonym field for synonym
+	511145.exon.attributes.type=scoreType              # a class specific attribute 
 
 Parent relationship
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
