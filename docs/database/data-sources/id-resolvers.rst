@@ -1,7 +1,7 @@
 Id Resolvers
 ==================================
 
-ID resolvers hold data about identifiers, synonyms and cross referencess for a particular class (e.g. gene). The ID resolver provides methods to resolve any identifier to the unique primary identifier.
+ID resolvers hold data of identifiers, synonyms and cross references for a particular class (e.g. gene). The ID resolver provides methods to resolve any identifier to the unique primary identifier.
 
 ID resolvers available in InterMine: 
 
@@ -14,6 +14,7 @@ MgiIdentifiersResolverFactory   mouse ids                                      f
 RgdIdentifiersResolverFactory   rat ids                                        ftp://rgd.mcw.edu/pub/data_release/GENES_RAT.txt 
 HgncIdResolverFactory           HGNC human gene ids                            http://www.genenames.org/cgi-bin/hgnc_downloads.cgi 
 EnsemblIdResolverFactory        Ensembl id                                     customised
+HumanIdResolverFactory          human ids                                      customised
 ==============================  =============================================  ============================================================================================
 
 Using ID Resolvers in  InterMine data converters
@@ -49,6 +50,7 @@ MgiIdentifiersResolverFactory   mgi
 RgdIdentifiersResolverFactory   rgd
 HgncIdResolverFactory           hgnc 
 EnsemblIdResolverFactory        ensembl
+HumanIdResolverFactory          humangene   
 ==============================  =============
 
 
@@ -142,16 +144,83 @@ It is also possible there are two or more matching primary identifiers for a par
 Writing a New ID resolver
 ------------------------------------
 
-An  IdResolver factory will create an  IdResolver, in the meanwhile, it also reads and parses data from a file or db containing id information, and last saves them to a java map in  IdResolver. 
+An IdResolver factory will create an IdResolver which will read and parse data from a file or database containing identifier information, to save them to a Java map which will be writen to a cached file. 
 
-The new factory class need to inherit super class  IdResolverFactory. To implement reading and parsing data from a customized file/db, please refer to the existing factories.
+The new factory class need to inherit super class IdResolverFactory:
+
+.. code-block:: java
+
+  public class HumanIdResolverFactory extends IdResolverFactory
+
+createIdResolver method:
+
+.. code-block:: java
+
+  // 1. check if the resolver which has the taxon and class has already been created
+  resolver.hasTaxonAndClassName(taxonId, this.clsCol.iterator().next())
+  
+  // 2. Restore cached data from file. New data will be append to the cached file.
+  boolean isCachedIdResolverRestored = restoreFromFile(); 
+ 
+  // 3. To implement reading and parsing data from a customized file/db, see createFromFile method and createFromDb method.
+  
+createFromFile method:
+
+.. code-block:: java
+
+  // Ref HumanIdResolverFactory.java
+  // Parse a tab delimited file. Add to resolver.
+  String symbol = line[0];
+
+  resolver.addMainIds(taxonId, symbol, Collections.singleton(symbol));
+
+createFromDb method:
+
+.. code-block:: java
+  
+  // Ref FlyBaseIdResolverFactory.java
+  // 1. Set db connection parameters in MINE.properties, scroll up to see flybase chado setting.
+  // 2. Connect to the database and query the data.
+  // 3. Parse ResultSet, addIdsFromResultSet method 
+
+Multiple taxon ids:
+
+.. code-block:: java
+
+  // Ref EntrezGeneIdResolverFactory.java
+  public IdResolver getIdResolver(Set<String> taxonIds) {
+        if (taxonIds == null || taxonIds.isEmpty()) {
+            return null;
+        }
+        return getIdResolver(taxonIds, true);
+  }
+
+Multiple classes:
+
+.. code-block:: java
+
+  // Ref FlyBaseIdResolverFactory.java
+  public FlyBaseIdResolverFactory(Set<String> clsCol) {
+      // clsCol is set in parent class IdResolverFactory.java  
+      this.clsCol = clsCol;
+  }
+
+Add resolver factory to IdResolverService:
+
+.. code-block:: java
+
+  // Ref IdResolverService.java
+  public static IdResolver getHumanIdResolver() {
+      return new HumanIdResolverFactory().getIdResolver(false);
+  }
+
+  public static IdResolver getHumanIdResolver(boolean failOnError) {
+      return new HumanIdResolverFactory().getIdResolver(failOnError);
+  }
 
 Future Plans
 -----------------------------------
 
-* data file path will be simplified
 * generalized resolver factory which will read a configuration file to be aware identifier information by column. e.g. type=tab, column.0=mainId, etc.
-* more efficient and smarter caching
-
 
 .. index:: identifiers, old identifiers, resolvers
