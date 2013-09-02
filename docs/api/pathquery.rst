@@ -230,7 +230,7 @@ so for example would limit genes to a particular organism:
 Loop Constraints
 #################
 
-Queries can require that two nodes in the query graph refer (not do not refer)
+Queries can require that two nodes in the query graph refer (or do not refer)
 to the same entity. This kind of constraint is termed a "Loop" constraint.
 An example of this is would be to request all the genes in the pathways a given
 gene is in, so long as they are (or are not) one of the orthologues of the gene
@@ -257,8 +257,8 @@ A loop constraint is composed of two paths, and either `=` or `!=`.
 Type Constraints
 #################
 
-Type constraints, in addition to limiting the returned results, these
-constraints have the side-effect of type-casting the references in their paths
+Type constraints, in addition to limiting the returned results,
+have the side-effect of type-casting the references in their paths
 to the given type, enabling other paths to reference otherwise unrefereable
 fields.
 
