@@ -43,14 +43,14 @@ Recommended Configuration
 For optimum performance. Read http://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server for more information.
 
 =========================   ==============================================================
-shared_buffers				Set to around 150MB
-temp_buffers  				Set to around 80MB
-work_mem  					Set to around 500MB but not more than 1/10 of available RAM
+shared_buffers			Set to around 1/4 of total mem (config SHMMAX first)
+temp_buffers  			Set to around 80MB
+work_mem  			Set to around 500MB but not more than 1/10 of available RAM
 maintenance_work_mem  		Set to around 3000MB but not more than 1/5 of available RAM
 default_statistics_target  	Set to around 250
-random_page_cost  			Set to around 2.0, rather than 4.0
-effective_cache_size  		Set to about 2/3 the amount of RAM in the computer
-geqo_threshold  			Set to 14
+random_page_cost  		Set to around 2.0, rather than 4.0
+effective_cache_size  		Set to about 1/2 - 3/4 the amount of RAM in the computer
+geqo_threshold  		Set to 14
 from_collapse_limit  		Set to 14
 join_collapse_limit  		Set to 14
 max_locks_per_transaction 	Set to 640
@@ -73,7 +73,7 @@ You may also need to configure (increase) your shared momery (SHMMAX), e.g.
 
 	$ cat /proc/sys/kernel/shmmax # Determine the value of SHMMAX
 
-	$ sudo vim /etc/sysctl.conf # Configure SHMMAX value in sysctl.conf. e.g. add 
+	$ sudo vim /etc/sysctl.conf # Configure SHMMAX value (Bytes) in sysctl.conf, %90 of total memory is advised, e.g. add 
 	# kernel.shmmax = 268435456
 
 	$ sudo sysctl -p # make the config take effect at runtime.
