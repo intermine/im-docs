@@ -254,6 +254,8 @@ A loop constraint is composed of two paths, and either `=` or `!=`.
     ]
   }
   
+Loop constraints must link paths that are not separated by `outer joins`.
+  
 Type Constraints
 #################
 
@@ -275,6 +277,9 @@ fields.
       overlappingFeatures: "ChromosomeStructureVariation"
     }
   }
+  
+Type constraints may not participate in the constraint logic, and as such never
+have a `code` associated with them.
 
 Sort Order
 ------------
