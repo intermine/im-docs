@@ -226,7 +226,34 @@ so for example would limit genes to a particular organism:
     select: ["Gene.symbol"],
     where: [[ "Gene", "LOOKUP", "eve", "D. melanogaster"]]
   }
+  
+Loop Constraints
+#################
 
+Queries can require that two nodes in the query graph refer (not do not refer)
+to the same entity. This kind of constraint is termed a "Loop" constraint.
+An example of this is would be to request all the genes in the pathways a given
+gene is in, so long as they are (or are not) one of the orthologues of the gene
+in question.
+
+A loop constraint is composed of two paths, and either `=` or `!=`.
+
+.. code-block:: xml
+
+  <constraint path="Gene.homologues.homologue" op="=" value="Gene.pathways.genes"/>
+  <!-- or -->
+  <constraint path="Gene.homologues.homologue" op="!=" value="Gene.pathways.genes"/>
+  
+.. code-block:: json
+
+  {
+    select: ["Gene.homologues.homologue.*", "Gene.pathways.genes.*"],
+    where: [
+      ["Gene.symbol", "=", "x"],
+      ["Gene.homologues.homologue", "=", "Gene.pathways.genes"]
+    ]
+  }
+  
 Type Constraints
 #################
 
