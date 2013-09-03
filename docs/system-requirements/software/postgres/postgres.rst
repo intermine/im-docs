@@ -43,7 +43,7 @@ Recommended Configuration
 For optimum performance. Read http://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server for more information.
 
 =========================   ==============================================================
-shared_buffers			Set to around 1/4 of total mem (config SHMMAX first)
+shared_buffers			Set to around 1/4 or more of total RAM (config SHMMAX first)
 temp_buffers  			Set to around 80MB
 work_mem  			Set to around 500MB but not more than 1/10 of available RAM
 maintenance_work_mem  		Set to around 3000MB but not more than 1/5 of available RAM
