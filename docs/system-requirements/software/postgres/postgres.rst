@@ -78,7 +78,7 @@ You may also need to configure (increase) your shared momery (SHMMAX), e.g.
 	# kernel.shmmax = 268435456
 
 	$ sudo sysctl -p # make the config take effect at runtime.
-	# Or just change the value in current session: sudo sysctl -w kernel.shmmax=268435456
+	# Or simply do: sudo sysctl -w kernel.shmmax=268435456
 
 You also need to install the `bioseg` data type, and the `contrib btree_gist` plug-in, as described in :doc:`bioseg`.
 
