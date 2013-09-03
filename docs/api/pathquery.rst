@@ -227,6 +227,31 @@ so for example would limit genes to a particular organism:
     where: [[ "Gene", "LOOKUP", "eve", "D. melanogaster"]]
   }
   
+List Constraints
+#################
+
+Nodes in the query graph can be constrained by membership in a stored list. This
+type of constraint is similar to multi-value constraints, in that we are looking
+at membership in a set, and also similar to lookup constraints in that we treat
+entities as subjects of the constraints, rather than values of any of the attributes
+of the entities. A simple example is selecting all the proteins for genes in a given
+list:
+
+.. code-block:: xml
+
+  <constraint path="Protein.genes" op="IN" value="a given list"/>
+  <!-- Or to exclude those records -->
+  <constraint path="Protein.genes" op="NOT IN" value="a given list"/>
+  
+.. code-block:: json
+
+  {
+    select: ["Protein.*"],
+    where: [["genes", "IN", "a given list"]]
+  }
+  
+The only relationships that may be asserted are "IN" and "NOT IN".
+
 Loop Constraints
 #################
 
