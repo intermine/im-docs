@@ -68,6 +68,6 @@ Release Notes
 Vacancies
 ------------------
 
-* :doc:`jobs`
+none
 
 .. index:: LGPL, jobs, careers, hiring, vacancies, privacy policy, release notes, cite, about us
