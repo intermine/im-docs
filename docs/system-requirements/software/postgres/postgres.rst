@@ -74,7 +74,7 @@ You may also need to configure (increase) your shared momery (SHMMAX), e.g.
 
 	$ cat /proc/sys/kernel/shmmax # Determine the value of SHMMAX
 
-	$ sudo vim /etc/sysctl.conf # Configure SHMMAX value (Bytes) in sysctl.conf, %90 of total memory is advised, e.g. add 
+	$ sudo vim /etc/sysctl.conf # Configure SHMMAX value (Bytes) in sysctl.conf, 50% of total memory is advised, e.g. add 
 	# kernel.shmmax = 268435456
 
 	$ sudo sysctl -p # make the config take effect at runtime.
