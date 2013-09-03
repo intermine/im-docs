@@ -69,6 +69,7 @@ You may also need to configure (increase) your shared momery (SHMMAX), e.g.
 
 .. code-block:: bash
 
+        # SHMMAX should not exceed 4294967295 on a 32-bit system. On x86-64 platforms, SHMMAX can be much larger than 4GB since the virtual address space is not limited by 32 bits. 
 	$ ipcs -lm # Determine current shared memory limits, e.g. max seg size is SHMMAX in kbytes
 
 	$ cat /proc/sys/kernel/shmmax # Determine the value of SHMMAX
@@ -77,6 +78,7 @@ You may also need to configure (increase) your shared momery (SHMMAX), e.g.
 	# kernel.shmmax = 268435456
 
 	$ sudo sysctl -p # make the config take effect at runtime.
+	# Or just change the value in current session: sudo sysctl -w kernel.shmmax=268435456
 
 You also need to install the `bioseg` data type, and the `contrib btree_gist` plug-in, as described in :doc:`bioseg`.
 
