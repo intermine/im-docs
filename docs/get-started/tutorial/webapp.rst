@@ -64,7 +64,7 @@ Subtitle
 
 Next to the name of your mine in the header is a phrase we call the "subtitle". In the tutorial webapp you created earlier, this value is
 
-> An example of InterMine.bio with data from <i>Plasmodium falciparum</i>
+An example of InterMine.bio with data from <i>Plasmodium falciparum</i>
 
 That value is set in :doc:`/webapp/properties/intermine-properties` with the property `project.subTitle`. This is the same properties file you updated in the previous tutorial. See :doc:`/webapp/properties/intermine-properties` for the full list of properties this file controls.
 
