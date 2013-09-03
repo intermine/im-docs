@@ -204,6 +204,13 @@ Multiple classes:
       // clsCol is set in parent class IdResolverFactory.java  
       this.clsCol = clsCol;
   }
+  
+Multiple files or mixture of file and db:
+
+.. code-block:: java
+
+  // We don't have an example to handle muliple files, but one can always add them and parse them one by one.
+  // We have an example of handling db and file together, ref WormBaseIdResolverFactory.java 
 
 Add resolver factory to IdResolverService:
 
