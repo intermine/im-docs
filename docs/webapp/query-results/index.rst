@@ -9,7 +9,7 @@ export
   See :doc:`export` for details on exporting options.
 
 column headers
---------
+------------------------
   See :doc:`/data-model/data-labels` to change column headers.
 
 links

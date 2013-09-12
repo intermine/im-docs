@@ -83,7 +83,7 @@ This will display any inline collections in table widgets. Unless ``use.localsto
 
     use.localstorage = true
 
-Both inline collections and templates will initially appear collapsed. Their state will be tracked using `localStorage<http://diveintohtml5.info/storage.html>`_ if available.
+Both inline collections and templates will initially appear collapsed. Their state will be tracked using `localStorage <http://diveintohtml5.info/storage.html>`_ if available.
 
 Inline Lists
 ------------
