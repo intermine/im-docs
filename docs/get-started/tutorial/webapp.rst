@@ -12,7 +12,7 @@ In general, customisation of InterMine is accomplished by updating the appropria
 
 	You should have completed the previous tutorial and have successfully deployed the webapp.
 
-This tutorial is intended to give a general idea of what you can customise in InterMine and how to do it. We're going to go through each section of the webapp and give step by step instructions on how to configure different parts of the page. This is a detailed tutorial and should take you a few hours to complete -- however it is not meant to be comprehensive. Where topics aren't covered, there are links provided for more information. If you have a question that you don't see answered, try searching the documentation or taking a look at the index. Intermine has an active developer's doc:`/support mailing list` as well.
+This tutorial is intended to give a general idea of what you can customise in InterMine and how to do it. We're going to go through each section of the webapp and give step by step instructions on how to configure different parts of the page. This is a detailed tutorial and should take you a few hours to complete -- however it is not meant to be comprehensive. Where topics aren't covered, there are links provided for more information. If you have a question that you don't see answered, try searching the documentation or taking a look at the index. Intermine has an active developer's :doc:`/support mailing list` as well.
 
 
 General Layout
@@ -148,7 +148,7 @@ Notice the text box already has an example, `e.g. X, Y, Z`. This is the default 
 Add this property to your mine's web.properties files and redeploy your webapp to see your changes.
 
 InterMine, bio and mine /webapp
-""""""""""""""""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In Intermine there are 3 webapp projects: InterMine, bio and mine. You shouldn't ever have to change the files in InterMine and bio, you'll only ever update your mine's files. When the webapp is compiled, the build system starts with the InterMine webapp project, then merges bio into that. Finally your mine's webapp is added. The files and properties set in bio override any in the InterMine project. Your mine's files and properties override any in bio or InterMine.
 

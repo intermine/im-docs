@@ -13,17 +13,11 @@ which are:
 * `Gene`: A plain root
 * `Gene.symbol`: A root and an attribute
 * `Gene.chromosomeLocation`: A reference to a complex attribute (a reference)
-* `Gene.organism.name`: A chain from a root to an attribute through one or more
-   references.
-* `Gene.pathways.identifier`: A path may potentially match multiple values -
-   there may be several pathway identifiers that match this path for any given
-   gene.
-* `Protein.gene.homologues.homologue.alleles.alleleClass`: Paths may be of
-   arbitrary length.
+* `Gene.organism.name`: A chain from a root to an attribute through one or more references.
+* `Gene.pathways.identifier`: A path may potentially match multiple values - there may be several pathway identifiers that match this path for any given gene.
+* `Protein.gene.homologues.homologue.alleles.alleleClass`: Paths may be of arbitrary length.
 
-In the XML serialization of path-queries, all paths must be completely
-qualified. In the JSON format a prefix can be specified with the `from` or
-`root` property.
+In the XML serialization of path-queries, all paths must be completely qualified. In the JSON format a prefix can be specified with the `from` or `root` property.
 
 Queries
 --------
@@ -33,10 +27,7 @@ Queries associate paths with various parts of the query:
 The View: Defining Output Columns
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To define what is retrieved from the data-store, a view is defined. This is
-simply a list of paths; any information in the data-store graph that matches
-these paths and satisifies the constraints (see below) will be included in the
-results.
+To define what is retrieved from the data-store, a view is defined. This is simply a list of paths; any information in the data-store graph that matches these paths and satisifies the constraints (see below) will be included in the results.
 
 eg:
 
@@ -51,33 +42,15 @@ eg:
 Joins: Handling null values
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In any chain of references in a long path such as
-`Gene.sequence.residues` or `Gene.proteins.proteinDomains.name`, may be
-null. There are two behaviours supported for dealing with null references
-(ie. where a gene does not have any sequence attached, or it has not proteins,
-or those proteins have no protein domains).
-* `INNER JOIN`: The default behaviour, this prevents the entire path from
-   matching, so that if the query contains `Gene.symbol` and
-   `Gene.proteins.name` and a gene in the data store has no proteins then that
-   gene will not match at all, no data will be returned for the symbol of that
-   gene - ie. it is a required feature of this query that all genes in the
-   result set have at least one protein (this is a kind of implicit existential
-   constraint).
-* `OUTER JOIN`: Optional optional behaviour; this allows references in paths to
-   be empty while permitting higher parts of the path to continue to match. So
-   for example if the query contains `Gene.symbol` and
-   `Gene.proteins.name` and a gene in the data store has no proteins then no
-   protein data for that gene will be returned, but the gene will still match
-   the query, and the symbol for that gene will be included in the retrieved
-   results (this makes the proteins optional).
+In any chain of references in a long path such as `Gene.sequence.residues` or `Gene.proteins.proteinDomains.name`, may be null. There are two behaviours supported for dealing with null references (ie. where a gene does not have any sequence attached, or it has not proteins, or those proteins have no protein domains).
+
+* `INNER JOIN`: The default behaviour, this prevents the entire path from matching, so that if the query contains `Gene.symbol` and `Gene.proteins.name` and a gene in the data store has no proteins then that gene will not match at all, no data will be returned for the symbol of that gene - ie. it is a required feature of this query that all genes in the result set have at least one protein (this is a kind of implicit existential constraint).
+* `OUTER JOIN`: Optional optional behaviour; this allows references in paths to be empty while permitting higher parts of the path to continue to match. So for example if the query contains `Gene.symbol` and `Gene.proteins.name` and a gene in the data store has no proteins then no protein data for that gene will be returned, but the gene will still match the query, and the symbol for that gene will be included in the retrieved results (this makes the proteins optional).
 
 There are some consequences of using outer joins:
-* Due to the optional nature of the outerjoined data, it is not permitted to
-   sort on attributes in an outerjoined section
-* Constraints (see below) cannot be combined in an `or` relationship across
-   join boundaries. So one cannot ask for all genes which are either of a
-   certain length or which have a certain pathway if there is an outer join on
-   pathways.
+
+* Due to the optional nature of the outerjoined data, it is not permitted to sort on attributes in an outerjoined section
+* Constraints (see below) cannot be combined in an `or` relationship across join boundaries. So one cannot ask for all genes which are either of a certain length or which have a certain pathway if there is an outer join on pathways.
 
 eg:
 
@@ -94,9 +67,7 @@ eg:
 Constraints: Restricting matching values
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-By default all values of a given type match a query unless they are excluded by
-empty references on an inner joined path. To restrict the result set constraints
-can be used.
+By default all values of a given type match a query unless they are excluded by empty references on an inner joined path. To restrict the result set constraints can be used.
 
 Constraints on attributes:
 ##########################
@@ -110,8 +81,7 @@ The following are examples of constraints on attributes in the data store:
   <constraint path="Gene.homologues.homologue.organism.taxonId" op="!=" value="7227"/>
   <constraint path="Gene.description" op="CONTAINS" value="some term"/>
 
-The json format allows a couple of different mechanisms for describing
-constraints:
+The json format allows a couple of different mechanisms for describing constraints:
 
 .. code-block:: json
 
@@ -156,8 +126,7 @@ or
 Multi-Value Constraints
 #########################
 
-One can specifiy that a path resolve to a value matching one (or none) of a set
-of values:
+One can specifiy that a path resolve to a value matching one (or none) of a set of values:
 
 .. code-block:: xml
 
@@ -198,9 +167,7 @@ A special sub-type of this kind of constraint is the range constraint:
 Lookup Constraints
 ###################
 
-Lookup constraints allow convenient constraints over multiple attributes of a
-value, or querying when you don't know the particular attribute you wish to
-constrain:
+Lookup constraints allow convenient constraints over multiple attributes of a value, or querying when you don't know the particular attribute you wish to constrain:
 
 .. code-block:: xml
 
