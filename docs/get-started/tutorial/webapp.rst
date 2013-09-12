@@ -190,15 +190,19 @@ See :doc:`/webapp/layout` for more details on how to update the header, footer a
 Home page
 ----------------------
 
-
-Most everything on the home page is customisable. You can edit the text and set which RSS news feed to use. 
+Most everything on the home page is customisable. You can edit the text and set which RSS news feed to use. If you want something very different, you can create and use your own home page.
 
 Boxes
 ~~~~~~~
 
 You can customise the text in the three boxes that appear on the top of the home page. Let's edit the example given in the middle box marked `Analyse`.
 
-Notice the text box already has an example, `e.g. X, Y, Z`. This is the default example and it's set by `begin.listBox.example` in an InterMine properties file, global.web.properties.
+.. figure:: ../../imgs/homepage-boxes.png
+   :align:   center
+
+   Three boxes at the top of the home page
+
+Notice the text box already has an example, `e.g. X, Y, Z`. This is the default example and it's set by `begin.listBox.example` in an InterMine properties file, `global.web.properties`.
 
 Add this property to your mine's web.properties files and redeploy your webapp to see your changes.
 
@@ -208,11 +212,6 @@ InterMine, bio and mine /webapp
 In Intermine there are 3 webapp projects: InterMine, bio and mine. You shouldn't ever have to change the files in InterMine and bio, you'll only ever update your mine's files. When the webapp is compiled, the build system starts with the InterMine webapp project, then merges bio into that. Finally your mine's webapp is added. The files and properties set in bio override any in the InterMine project. Your mine's files and properties override any in bio or InterMine.
 
 Therefore when you set `begin.listBox.example` in your properties file, it overrode the same property set in the InterMine properties file. This will be true of any property.
-
-
-
-
-
 
 Use your own
 ~~~~~~~~~~~~~~~~~~~
