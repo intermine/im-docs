@@ -20,7 +20,10 @@ General Layout
 
 Let's start by updating the home page. Each web page in InterMine has a header and footer. The header contains everything at the top of the page, including the navigation tabs and the keyword search. The footer contains the contact form and InterMine logo.
 
-.. image:: ../../imgs/header-footer.png
+.. figure:: ../../imgs/header-footer.png
+   :align:   center
+
+   Header and footer of FlyMine website
 
 Header
 ~~~~~~~
@@ -30,10 +33,25 @@ Logo
 
 First, let's update the logo of your site. The logo should be 45x43 and named `logo.png`, for example:
 
-.. image:: ../../imgs/logo.png
+.. figure:: ../../imgs/logo.png
+   :align:   center
 
-1. Copy your image into this directory: `MINE_NAME/webapp/resources/webapp/model/images`. If you don't have a logo for your mine yet, you can still test updating your mine by using the FlyMine logo above.
+   FlyMine's logo
+
+1. Copy your image into this directory: `MINE_NAME/webapp/resources/webapp/model/images`. (If you don't have a logo for your mine yet, you can still test updating your mine by using the FlyMine logo above.)
 2. Make sure Tomcat is running
+   * Navigate to http://localhost:8080/manager/html
+     * username and password are the tomcat values set in your properties file.
+|      # tomcat username and password needed to deploy webapp
+|        webapp.manager=admin
+|        webapp.password=SECRET
+   * Or you can see if the process is running:
+
+.. code-block:: bash
+
+   ps aux | grep tomcat
+
+
 3. Deploy your webapp with this command:
 
 .. code-block:: bash
@@ -42,7 +60,10 @@ First, let's update the logo of your site. The logo should be 45x43 and named `l
 
 4. Refresh your browser
 
-.. image:: ../../imgs/new-logo.png
+.. figure:: ../../imgs/new-logo.png
+   :align:   center
+
+   Updated logo
 
 You should see your new logo in the top left corner of your webapp. If you don't, try clearing your browser's cache.
 
@@ -65,7 +86,10 @@ Subtitle and Release version
 
 Next to the name of your mine in the header is the name, release version and subtitle for your mine:
 
-.. image:: ../../imgs/subtitle.png
+.. figure:: ../../imgs/subtitle.png
+   :align:   center
+
+   Title, release version and subtitle
 
 These values are set in :doc:`/webapp/properties/intermine-properties` file. This is the same properties file you updated in the previous tutorial. The subtitle and release versions are populated by the properties `project.subTitle` and `project.releaseVersion`, respectively.  See :doc:`/webapp/properties/intermine-properties` for the full list of properties this file controls.
 
