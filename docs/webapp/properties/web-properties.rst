@@ -48,7 +48,6 @@ Search box (first box on the left)
 begin.searchBox.title        title of box on left
 begin.searchBox.description  text in the box on the left 
 begin.searchBox.example      text in the form field 
-textarea.identifiers         text present on list upload on home page 
 ===========================  ============================================
 
 List upload box (middle box)
@@ -56,7 +55,7 @@ List upload box (middle box)
 =========================  =========================
 begin.listBox.title        Title of box 
 begin.listBox.description  Text in box 
-begin.listBox.example      Text in form field 
+bag.example.identifiers    Text in form field 
 =========================  =========================
 
 Third box
