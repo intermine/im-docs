@@ -134,7 +134,7 @@ How do I know which property to change?
 
 Now you know how to change properties and configure your mine. How then do you know *which* property to change? 
 
-See :doc:`/webapp/index` - it's a list of pages in the InterMine webapp detailing everything you can configure on that page. On the upper right hand corner of this page are links to the Index and the table of contents, which may be useful. The search for this site is quite good as well although you can still use google! e.g. `a Google search for help with logos <http://lmgtfy.com/?q=logo+site%3Aintermine.readthedocs.org>`_. A quick email to the dev mailing list usually proves to be quite helpful too.
+See :doc:`/webapp/index` - it's a list of pages in the InterMine webapp detailing everything you can configure on that page. On the upper right hand corner of this page are links to the Index and the table of contents, which may be useful. The search for this site is quite good as well although you can still use google! e.g. `a Google search for help with logos <http://google.com/?q=logo+site%3Aintermine.readthedocs.org>`_. A quick email to the dev mailing list usually proves to be quite helpful too.
 
 
 Show all properties
@@ -150,8 +150,7 @@ This lists of all properties in all configuration files that are used in your we
 Keyword Search 
 ^^^^^^^^^^^^^^^^^^^^^^
 
-InterMine's keyword search is a powerful Lucene-based search created at build-time. When the first search is executed, the index is retrieved from the database, written to temp files and loaded into memory. This can take up to a minute. Our release scripts include a command to run this search so that the index is ready.
-
+InterMine's keyword search is a powerful Lucene-based search created at build-time. When the first search is executed, the index is retrieved from the database, written to temp files and loaded into memory. This can take up to a minute. (Our release scripts include a command to run this search so that the index is ready.)
 
 The search box contains example identifiers to help your users know which types of search terms to use. To update the default value, set the `quicksearch.example.identifiers` property in the :doc:`/webapp/properties/web-properties` file. Redeploy your webapp to see your changes.
 
@@ -159,9 +158,7 @@ The search box contains example identifiers to help your users know which types 
 
 	The index covers the entire database so can be quite large. FlyMine's index is ~2G, so make certain you have plenty of room.
 
-
-
-See :doc:`/webapp/keyword-search/index` for details on how to configure the keyword search index and results.
+See :doc:`/webapp/keyword-search` for details on how to configure the keyword search index and results.
 
 
 Footer
@@ -171,31 +168,24 @@ The footer is positioned at the bottom of every page in the InterMine webapp. It
 
 To update the funding message, change the `funding` property in :doc:`/webapp/properties/web-properties`. Redeploy your webapp to see your changes.
 
-.. note::
-
-	Your webapp may freeze or become sluggish after redeploying your webapp several times. If this happens restart Tomcat. If Tomcat runs out of memory, you may have to kill the process as it will fail to shut down correctly. Upgrading to Tomcat 7 seems to solve this problem.
-
-
 properties files
 ^^^^^^^^^^^^^^^^^^^^^^
 
 There are four main text files you are going to be updating the most:
 
-:doc:`/webapp/properties/intermine-properties ~/.intermine/<MINE_NAME>.properties`
+:doc:`~/.intermine/<MINE_NAME>.properties </webapp/properties/intermine-properties>`
   database and webapp names and locations. includes passwords and shouldn't be in source control.
 
-:doc:`/webapp/properties/web-properties web.properties`
+:doc:`web.properties </webapp/properties/web-properties>`
   webapp behaviour, e.g. link outs, tabs on home page
 
-:doc:`/webapp/properties/model-properties model.properties`
+:doc:`model.properties </webapp/properties/model-properties>`
   text displayed on webapp, e.g. error messages
 
-:doc:`/webapp/properties/webconfig-model webconfig-model.xml`
+:doc:`webconfig-model.xml </webapp/properties/webconfig-model>`
   webapp functionality, e.g. custom export types, widgets, data display
 
-See :doc:`/webapp/layout/index` for more details on how to update the header, footer and colour scheme of your InterMine webapp. Next we'll customise your home page.
-
-
+See :doc:`/webapp/layout` for more details on how to update the header, footer and colour scheme of your InterMine webapp. Next we'll customise your home page.
 
 Home page
 ----------------------
