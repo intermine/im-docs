@@ -142,7 +142,7 @@ Show all properties
 
 You can also see and edit the values of every property set for your mine.
 
-1. Log in as the superuser for your mine. (See :doc:`/webapp/admin` for details)
+1. Log in as the superuser for your mine. (See :doc:`/webapp/admin/index` for details)
 2. Change the last part of the URL in your browser to be `showProperties.do`, e.g. http://localhost:8080/malaria/showProperties.do
 
 This lists of all properties in all configuration files that are used in your webapp. Search for `project.subTitle` and you should see your new value.
@@ -158,7 +158,7 @@ The search box contains example identifiers to help your users know which types 
 
 	The index covers the entire database so can be quite large. FlyMine's index is ~2G, so make certain you have plenty of room.
 
-See :doc:`/webapp/keyword-search` for details on how to configure the keyword search index and results.
+See :doc:`/webapp/keyword-search/index` for details on how to configure the keyword search index and results.
 
 
 Footer
@@ -173,7 +173,7 @@ properties files
 
 There are four main text files you are going to be updating the most:
 
-:doc:`~/.intermine/<MINE_NAME>.properties </webapp/properties/intermine-properties>`
+:doc:`~/.intermine/malariamine.properties </webapp/properties/intermine-properties>`
   database and webapp names and locations. includes passwords and shouldn't be in source control.
 
 :doc:`web.properties </webapp/properties/web-properties>`
