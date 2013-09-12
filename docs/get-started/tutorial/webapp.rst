@@ -46,7 +46,7 @@ Logo
 First, let's update the logo of your site. The logo should be 45x43 and named `logo.png`, for example:
 
 .. figure:: ../../imgs/logo.png
-   :align:   left
+   :align:   center
 
    FlyMine's logo
 
@@ -127,13 +127,21 @@ Update this property to a different value and redeploy your webapp using the com
    Updated release version and subtitle
 
 
+That's it! Well done! 95% of the configuration of your mine will be accomplished this way - update a text file and redeploy webapp.
+
+How do I know what to change?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now you know how to change properties and configure your mine. How then do you know *which* property to change? There is a list of pages along with detailed explanations on how to configure everything on the page. See :doc:`/webapp/index` for the full list.
+
+
 Show all properties
 ^^^^^^^^^^^^^^^^^^^^^^
 
-You can see the value of this and all properties set in your mine:
+You can also see and edit the values of every property set for your mine.
 
 1. Log in as the superuser
-2. Change the last part of the URL in your browser to be `showProperties.do`, e.g. http://localhost:8080/test/showProperties.do
+2. Change the last part of the URL in your browser to be `showProperties.do`, e.g. http://localhost:8080/malaria/showProperties.do
 
 This is  list of all properties in all configuration files that are used in your webapp. Search for `project.subTitle` and you should see your new value.
 
