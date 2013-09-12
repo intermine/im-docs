@@ -16,7 +16,7 @@ To run individual post-process steps use, for example:
 
 	$ ant -v -Daction=create-references
 
-When running one postprocess step like this, the `action` used must match an `post-process` in the `post-processing` section of the `project.xml` file.
+When running one postprocess step like this (multiple steps separated by comma is not supported), the `action` used must match an `post-process` in the `post-processing` section of the `project.xml` file.
 
 Post-processing is run automatically after integrating if using the `project_build` script (see above).
 
