@@ -67,13 +67,15 @@ Next to the name of your mine in the header is the name, release version and sub
 
 .. image:: ../../imgs/subtitle.png
 
-These values are set in :doc:`/webapp/properties/intermine-properties` file.   The subtitle and release versions are property `project.subTitle`. This is the same properties file you updated in the previous tutorial. See :doc:`/webapp/properties/intermine-properties` for the full list of properties this file controls.
+These values are set in :doc:`/webapp/properties/intermine-properties` file. This is the same properties file you updated in the previous tutorial. The subtitle and release versions are populated by the properties `project.subTitle` and `project.releaseVersion`, respectively.  See :doc:`/webapp/properties/intermine-properties` for the full list of properties this file controls.
 
 .. note::
 
 	The name of your mine was set when you ran the `make_mine` script and should never be changed.
 
-Update this property and redeploy your webapp using the commands given above. Once you have successfully released your webapp, you should see your new subtitle.
+Update this property to a different value and redeploy your webapp using the commands given above. Once you have successfully released your webapp, you should see your new subtitle.
+
+
 
 
 Show all properties
