@@ -18,19 +18,12 @@ Open this file in your editor of choice and follow the text below.
 Boxes Customization
 -------------------
 
-The three prominent boxes on the homepage will contain a search functionality a list upload functionality and an info box. You can customize the text these contain and how they are called. For example, we might want to change the title of the list upload box to say "List Upload" instead of the default "Analyse". We might also want to change the informative text the box contains and provide a set of example identifiers that one can analyse. Then, we would add the following text to the config file:
+The three prominent boxes on the homepage will contain a search functionality a list upload functionality and an info box. You can customise the text these contain and the box title. 
 
-.. code-block:: properties
+Search box
+~~~~~~~~~~~~~~
 
-    begin.listBox.title = List Upload
-    begin.listBox.description = Enter a <strong>list</strong> of identifiers.
-    begin.listBox.example = e.g. zen, adh, CG2328, FBgn0000099
-
-.. note::
-    
-    You will find that only the description field accepts HTML.
-
-The first search box is configured in much the same way as the list upload one is:
+The first search box is configured thusly:
 
 .. code-block:: properties
 
@@ -39,7 +32,25 @@ The first search box is configured in much the same way as the list upload one i
     or <strong>keywords</strong> for genes, proteins, pathways, ontology terms, authors, etc. (e.g. \
     <em>eve</em>, HIPPO_DROME, glycolysis, <em>hb</em> allele).
 
-Basically, we have only changed listBox to say searchBox in the configuration.
+.. note::
+    
+    You will find that only the description field accepts HTML.
+
+Second box
+~~~~~~~~~~~~~~
+
+.. code-block:: properties
+
+    begin.listBox.title = List Upload
+    begin.listBox.description = Enter a <strong>list</strong> of identifiers.
+
+    bag.example.identifiers=CG9151, FBgn0000099, CG3629, TfIIB, Mad, CG1775, CG2262, TWIST_DROME, \
+    tinman, runt, E2f, CG8817, FBgn0010433, CG9786, CG1034, ftz, FBgn0024250, FBgn0001251, tll, \
+    CG1374, CG33473, ato, so, CG16738, tramtrack,  CG2328, gt
+
+
+Third box
+~~~~~~~~~~~~~~
 
 The third/info box can contain a descriptive text about your mine or it can offer a link to a tour of the project. Take the example from FlyMine project:
 
@@ -54,7 +65,7 @@ The third/info box can contain a descriptive text about your mine or it can offe
 
 By providing the .link parameter a button will be shown at the bottom of the box with a custom link of choice.
 
-Since InterMine 0.96, you can serve up a custom text in the third "information" box to the user, based on whether they have visited the homepage before or not. We do this through a cookie that will, for a year, indicate for your computer, that the homepage has been visited.
+You can serve up a custom text in the third "information" box to the user, based on whether they have visited the homepage before or not. We do this through a cookie that will, for a year, indicate for your computer, that the homepage has been visited.
 
 In order to change the values of the third box based on whether the user has visited the page or not, prepend the text "visited" before an uppercased key. For example, if one wanted to say "Welcome Back" instead of "First Time Here?" as the title of the box, we would add the following key=value pair:
 

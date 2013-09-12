@@ -171,7 +171,7 @@ To update the funding message, change the `funding` property in :doc:`/webapp/pr
 properties files
 ^^^^^^^^^^^^^^^^^^^^^^
 
-There are four main text files you are going to be updating the most:
+These four files control the majority of the behaviour of your InterMine webapp:
 
 :doc:`~/.intermine/malariamine.properties </webapp/properties/intermine-properties>`
   database and webapp names and locations. includes passwords and shouldn't be in source control.
@@ -185,7 +185,7 @@ There are four main text files you are going to be updating the most:
 :doc:`webconfig-model.xml </webapp/properties/webconfig-model>`
   webapp functionality, e.g. custom export types, widgets, data display
 
-See :doc:`/webapp/layout` for more details on how to update the header, footer and colour scheme of your InterMine webapp. Next we'll customise your home page.
+See :doc:`/webapp/layout/index` for more details on how to update the header, footer and colour scheme of your InterMine webapp. Next we'll customise your home page.
 
 Home page
 ----------------------

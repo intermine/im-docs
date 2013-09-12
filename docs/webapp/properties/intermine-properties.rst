@@ -3,7 +3,7 @@ Database and Web application
 
 InterMine is governed by a properties file located in the $HOME/.intermine named `$MINE_NAME.properties`.  This page describes which values are set in that file.
 
-Example: `bio/tutorial/malariamine/malariamine.properties`
+Example: https://github.com/intermine/intermine/blob/dev/bio/tutorial/malariamine.properties
 
 Database names and locations
 ------------------------------
