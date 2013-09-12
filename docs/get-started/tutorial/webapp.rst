@@ -32,7 +32,7 @@ First, let's update the logo of your site. The logo should be 45x43 and named `l
 
 .. image:: ../../imgs/logo.png
 
-1. Copy your image into this directory: `MINE_NAME/webapp/resources/webapp/model/images`
+1. Copy your image into this directory: `MINE_NAME/webapp/resources/webapp/model/images`. If you don't have a logo for your mine yet, you can still test updating your mine by using the FlyMine logo above.
 2. Make sure Tomcat is running
 3. Deploy your webapp with this command:
 
@@ -41,6 +41,8 @@ First, let's update the logo of your site. The logo should be 45x43 and named `l
 	ant default remove-webapp release-webapp
 
 4. Refresh your browser
+
+.. image:: ../../imgs/new-logo.png
 
 You should see your new logo in the top left corner of your webapp. If you don't, try clearing your browser's cache.
 
@@ -56,16 +58,20 @@ If your changes are still not being reflected in your webapp, add the `clean` ta
 This removes all temporary directories so you are certain your new files are being used. The `clean-all` target removes
 temporary directories from all dependencies as well.
 
-See :doc:`/system-requirements/software/ant/` for a list of ant targets.
+See :doc:`/system-requirements/software/ant/` for a list of all ant targets.
 
-Subtitle
-^^^^^^^^^^^^^^^^^^^^^^
+Subtitle and Release version
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Next to the name of your mine in the header is a phrase we call the "subtitle". In the tutorial webapp you created earlier, this value is
+Next to the name of your mine in the header is the name, release version and subtitle for your mine:
 
-An example of InterMine.bio with data from <i>Plasmodium falciparum</i>
+.. image:: ../../imgs/subtitle.png
 
-That value is set in :doc:`/webapp/properties/intermine-properties` with the property `project.subTitle`. This is the same properties file you updated in the previous tutorial. See :doc:`/webapp/properties/intermine-properties` for the full list of properties this file controls.
+These values are set in :doc:`/webapp/properties/intermine-properties` file.   The subtitle and release versions are property `project.subTitle`. This is the same properties file you updated in the previous tutorial. See :doc:`/webapp/properties/intermine-properties` for the full list of properties this file controls.
+
+.. note::
+
+	The name of your mine was set when you ran the `make_mine` script and should never be changed.
 
 Update this property and redeploy your webapp using the commands given above. Once you have successfully released your webapp, you should see your new subtitle.
 
