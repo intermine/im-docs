@@ -18,26 +18,9 @@ This tutorial is intended to give a general idea of what you can customise in In
 Tomcat
 ---------
 
-Before we get started, let's talk about Tomcat for a moment. Tomcat is a great little application server - very robust, powerful and easy to use. You should have Tomcat running from the previous tutorial.
+You should have Tomcat running from the previous tutorial.
 
-To make sure Tomcat is running:
-
-* Navigate to http://localhost:8080/manager/html to see list of deployed webapps
-* username and password are set in your properties file:
-
-.. code-block:: properties
-
-	# tomcat username and password needed to deploy webapp
-	webapp.manager=admin
-	webapp.password=SECRET
- 
-Or you can see if the process is running:
-
-.. code-block:: bash
-
-   ps aux | grep tomcat
-
-If your webapp is under heavy usage, it's not unlikely that you will run out of memory. See :doc:`system-requirements/software/tomcat` for details on how to update your settings. 
+If your webapp is under heavy usage, it's not unlikely that you will run out of memory. See :doc:`/system-requirements/software/tomcat` for details on how to update your settings to adjust the amount of memory available to Tomcat. 
 
 .. note::
 
