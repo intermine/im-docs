@@ -11,7 +11,9 @@ genes, proteins, interactions
 How to download the data 
 ---------------------------
 
-http://thebiogrid.org/downloads/archives/Release%20Archive/BIOGRID-[RELEASE VERSION].psi25.zip
+From the download section of the BioGRID website: http://thebiogrid.org
+
+Download the file named: `BIOGRID-ORGANISM-[version].psi25.zip`
 
 How to load the data into your mine
 --------------------------------------
