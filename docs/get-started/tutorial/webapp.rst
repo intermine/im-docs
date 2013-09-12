@@ -18,15 +18,11 @@ This tutorial is intended to give a general idea of what you can customise in In
 Tomcat
 ---------
 
-If you do not have Tomcat running, please refer to the previous tutorial on how to do this.
+You will need to have Tomcat running for this tutorial.
 
-If your webapp is under heavy usage, Tomcat may run out of memory. See :doc:`/system-requirements/software/tomcat` for details on how to update your settings to adjust the amount of memory available to Tomcat. 
+If your webapp is under heavy usage or development, Tomcat may run out of memory. See :doc:`/system-requirements/software/tomcat` for details on how to update your settings to adjust the amount of memory available to Tomcat. 
 
-.. note::
-
-	If Tomcat has run out of memory, it may not shut down correctly. Memory handling seems to have greatly improved with Tomcat 7 however.
-
-
+If Tomcat has run out of memory, it may not shut down correctly. Memory handling seems to have greatly improved with Tomcat 7 however.
 
 General Layout
 ---------------------
@@ -50,7 +46,7 @@ Logo
 First, let's update the logo of your site. The logo should be 45x43 and named `logo.png`, for example:
 
 .. figure:: ../../imgs/logo.png
-   :align:   center
+   :align:   left
 
    FlyMine's logo
 
@@ -102,7 +98,33 @@ These values are set in :doc:`/webapp/properties/intermine-properties` file. Thi
 
 Update this property to a different value and redeploy your webapp using the commands given above. Once you have successfully released your webapp, you should see your new subtitle.
 
+1. Open the properties file in your favourite text editor.
 
+.. code-block:: bash 
+
+	emacs ~/.intermine/malariamine.properties
+
+2. Update the values of the subtitle and release version. Save your work.
+
+.. code-block:: properties
+
+	# text that appears in the header and elsewhere
+	project.title=MalariaMine
+	project.subTitle=An example of InterMine.bio with data from <i>Plasmodium falciparum</i>
+	project.releaseVersion=tutorialx
+
+3. Redeploy your webapp
+
+.. code-block:: bash
+
+	ant default remove-webapp release-webapp
+
+4. Navigate to your mine's home page and see the updated values: http://localhost:8080/malaria
+
+.. figure:: ../../imgs/new-subtitle.png
+   :align:   center
+
+   Updated release version and subtitle
 
 
 Show all properties
