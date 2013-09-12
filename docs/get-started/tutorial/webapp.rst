@@ -18,9 +18,9 @@ This tutorial is intended to give a general idea of what you can customise in In
 Tomcat
 ---------
 
-You should have Tomcat running from the previous tutorial.
+If you do not have Tomcat running, please refer to the previous tutorial on how to do this.
 
-If your webapp is under heavy usage, it's not unlikely that you will run out of memory. See :doc:`/system-requirements/software/tomcat` for details on how to update your settings to adjust the amount of memory available to Tomcat. 
+If your webapp is under heavy usage, Tomcat may run out of memory. See :doc:`/system-requirements/software/tomcat` for details on how to update your settings to adjust the amount of memory available to Tomcat. 
 
 .. note::
 
@@ -31,12 +31,15 @@ If your webapp is under heavy usage, it's not unlikely that you will run out of 
 General Layout
 ---------------------
 
-Let's start by updating the home page. Each web page in InterMine has a header and footer. The header contains everything at the top of the page, including the navigation tabs and the keyword search. The footer contains the contact form and InterMine logo.
+Each web page in InterMine has the same header and footer. The header contains everything at the top of the page, including the navigation tabs and the keyword search. The footer contains the contact form and InterMine logo.
 
 .. figure:: ../../imgs/header-footer.png
    :align:   center
 
    Header and footer of FlyMine website
+
+
+Let's start configuring our mine by updating these common sections of our web application.
 
 Header
 ~~~~~~~
@@ -52,16 +55,13 @@ First, let's update the logo of your site. The logo should be 45x43 and named `l
    FlyMine's logo
 
 1. Copy your image into this directory: `MINE_NAME/webapp/resources/webapp/model/images`. (If you don't have a logo for your mine yet, you can still test updating your mine by using the FlyMine logo above.)
-
-
-
-3. Deploy your webapp with this command:
+2. Deploy your webapp with this command:
 
 .. code-block:: bash
 
 	ant default remove-webapp release-webapp
 
-4. Refresh your browser
+3. Refresh your browser
 
 .. figure:: ../../imgs/new-logo.png
    :align:   center
