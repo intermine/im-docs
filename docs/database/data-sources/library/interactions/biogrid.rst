@@ -13,7 +13,7 @@ How to download the data
 
 From the download section of the BioGRID website: http://thebiogrid.org
 
-Download the file named: `BIOGRID-ORGANISM-[version].psi25.zip`
+Download the file named: `BIOGRID-ORGANISM-[version].psi25.zip`. 
 
 How to load the data into your mine
 --------------------------------------
@@ -24,7 +24,7 @@ project XML example
 .. code-block:: xml
 
     <source name="biogrid" type="biogrid">
-      <property name="src.data.dir" location="/data/biogrid"/>
+      <property name="src.data.dir" location="/DATA/biogrid"/>
       <property name="src.data.dir.includes" value="*psi25.xml"/>
       <property name="biogrid.organisms" value="7227 6239 4932"/>
     </source>
