@@ -15,6 +15,36 @@ In general, customisation of InterMine is accomplished by updating the appropria
 This tutorial is intended to give a general idea of what you can customise in InterMine and how to do it. We're going to go through each section of the webapp and give step by step instructions on how to configure different parts of the page. This is a detailed tutorial and should take you a few hours to complete -- however it is not meant to be comprehensive. Where topics aren't covered, there are links provided for more information. If you have a question that you don't see answered, try searching the documentation or taking a look at the index. Intermine has an active developer's :doc:`/support/mailing-list` as well.
 
 
+Tomcat
+---------
+
+Before we get started, let's talk about Tomcat for a moment. Tomcat is a great little application server - very robust, powerful and easy to use. You should have Tomcat running from the previous tutorial.
+
+To make sure Tomcat is running:
+
+* Navigate to http://localhost:8080/manager/html to see list of deployed webapps
+* username and password are set in your properties file:
+
+.. code-block:: properties
+
+	# tomcat username and password needed to deploy webapp
+	webapp.manager=admin
+	webapp.password=SECRET
+ 
+Or you can see if the process is running:
+
+.. code-block:: bash
+
+   ps aux | grep tomcat
+
+If your webapp is under heavy usage, it's not unlikely that you will run out of memory. See :doc:`system-requirements/software/tomcat` for details on how to update your settings. 
+
+.. note::
+
+	If Tomcat has run out of memory, it may not shut down correctly. Memory handling seems to have greatly improved with Tomcat 7 however.
+
+
+
 General Layout
 ---------------------
 
@@ -39,17 +69,7 @@ First, let's update the logo of your site. The logo should be 45x43 and named `l
    FlyMine's logo
 
 1. Copy your image into this directory: `MINE_NAME/webapp/resources/webapp/model/images`. (If you don't have a logo for your mine yet, you can still test updating your mine by using the FlyMine logo above.)
-2. Make sure Tomcat is running
-   * Navigate to http://localhost:8080/manager/html
-     * username and password are the tomcat values set in your properties file.
-|      # tomcat username and password needed to deploy webapp
-|        webapp.manager=admin
-|        webapp.password=SECRET
-   * Or you can see if the process is running:
 
-.. code-block:: bash
-
-   ps aux | grep tomcat
 
 
 3. Deploy your webapp with this command:
