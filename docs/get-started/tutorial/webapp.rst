@@ -127,12 +127,14 @@ Update this property to a different value and redeploy your webapp using the com
    Updated release version and subtitle
 
 
-That's it! Well done! 95% of the configuration of your mine will be accomplished this way - update a text file and redeploy webapp.
+That's it! Well done! The majority of mine configuration will be accomplished this way - update a property in a text file and redeploy webapp.
 
-How do I know what to change?
+How do I know which property to change?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now you know how to change properties and configure your mine. How then do you know *which* property to change? There is a list of pages along with detailed explanations on how to configure everything on the page. See :doc:`/webapp/index` for the full list.
+Now you know how to change properties and configure your mine. How then do you know *which* property to change? 
+
+See :doc:`/webapp/index` - it's a list of pages in the InterMine webapp detailing everythinhg you can configure on that page. On the upper right hand corner of this page are links to the Index and the table of contents, which may be useful. The search for this site is quite good as well although you can still use google! e.g. a Google search for help with logos: `logo site:intermine.readthedocs.org`. A quick email to the dev mailing list usually proves to be quite helpful too.
 
 
 Show all properties
@@ -140,7 +142,7 @@ Show all properties
 
 You can also see and edit the values of every property set for your mine.
 
-1. Log in as the superuser
+1. Log in as the superuser for your mine. (You set this value in the InterMine properties file, see :doc:`/webapp/admin/` for details)
 2. Change the last part of the URL in your browser to be `showProperties.do`, e.g. http://localhost:8080/malaria/showProperties.do
 
 This is  list of all properties in all configuration files that are used in your webapp. Search for `project.subTitle` and you should see your new value.
