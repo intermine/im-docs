@@ -17,7 +17,9 @@ Enumerated lists
 Level 3 titles
 ~~~~~~~~~~~~~~
 
-Referring to a page in the docs :doc:`/about/contact-us`
+Referring to a page in the docs with custom link text :doc:`Talk to us please! </about/contact-us>`
+
+Otherwise it will use the name of the document by default :doc:`/about/contact-us`
 
 | A line block with `some <http://>`_ syntax too.
 |              preserving line breaks and spaces where needed
