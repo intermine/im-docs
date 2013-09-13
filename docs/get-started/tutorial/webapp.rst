@@ -188,8 +188,9 @@ To update the funding message, change the `funding` property in :doc:`/webapp/pr
 
 	funding = InterMine is funded by the <a href="http://www.wellcome.ac.uk/" target="_new" title="Wellcome Trust"><img src="images/wellcome-ico.png" border="0" /></a> and interoperation is funded by <a href="http://www.nih.gov/" target="_new" title="US National Institutes of Health"><img src="images/logo_nih.gif" height="30px" width="257px" border="0" /></a>
 
+Here is the bit of code in footer.jsp that renders that message: https://github.com/intermine/intermine/blob/dev/intermine/webapp/main/resources/webapp/footer.jsp#L31
 
-The :doc:`/webapp/properties/model-properties` is the third configuration file you've edited, there are four main files that control most of the behaviour in your InterMine webapp.
+The :doc:`model.properties </webapp/properties/model-properties>` is the third configuration file you've edited today, there are four main files that control most of the behaviour in your InterMine webapp.
 
 .. topic:: InterMine properties files
 
@@ -248,7 +249,7 @@ We saw in the previous section that properties override InterMine properties. Th
 Note: Changes made to the home page, or whichever page you updated, will not be reflected in your custom copy.
 
 
-See :doc:`/webapp/homepage/index` for more details on how to update
+See :doc:`/webapp/homepage/index` for more details on how to update your home page.
 
 
 
