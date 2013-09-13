@@ -148,17 +148,19 @@ You can also see and edit the values of every property set for your mine.
 This lists of all properties in all configuration files that are used in your webapp. Search for `project.subTitle` and you should see your new value.
 
 Keyword Search 
-^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~
 
-InterMine's keyword search is a powerful Lucene-based search created at build-time. When the first search is executed, the index is retrieved from the database, written to temp files and loaded into memory. This can take up to a minute. (Our release scripts include a command to run this search so that the index is ready.)
+InterMine's keyword search is a powerful Lucene-based search created at build-time. Every field in the database is indexed unless you configure a table or column to be skipped. See :doc:`/webapp/keyword-search/index` for details on how to configure the keyword search index and results. You can also configure facets / categories to help your users mine the data.
 
-The search box contains example identifiers to help your users know which types of search terms to use. To update the default value, set the `quicksearch.example.identifiers` property in the :doc:`/webapp/properties/web-properties` file. Redeploy your webapp to see your changes.
+When the first search is executed, the index is retrieved from the database, written to temp files and loaded into memory. This can take up to a minute. (Our release scripts include a command to run this search so that the index is ready.)
+
+The search box contains example identifiers to help your users know which types of search terms to use. To update the default value, set the `quicksearch.example.identifiers` property in the :doc:`web.properties </webapp/properties/web-properties` file>. Redeploy your webapp to see your changes.
 
 .. warning::
 
-	The index covers the entire database so can be quite large. FlyMine's index is ~2G, so make certain you have plenty of room.
+	The Lucene index can be quite large, depending on the size of the database. FlyMine's index is ~2G, so make certain you have plenty of room.
 
-See :doc:`/webapp/keyword-search/index` for details on how to configure the keyword search index and results.
+
 
 
 Footer
@@ -204,7 +206,7 @@ You can customise the text in the three boxes that appear on the top of the home
 
 Notice the text box already has an example, `e.g. X, Y, Z`. This is the default example and it's set by `begin.listBox.example` in an InterMine properties file, `global.web.properties`.
 
-Add this property to your mine's web.properties files and redeploy your webapp to see your changes.
+Add `begin.listBox.example` to your mine's :doc:`/webapp/properties/web-properties` file and redeploy your webapp to see your changes.
 
 InterMine, bio and mine /webapp
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
