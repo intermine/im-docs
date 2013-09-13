@@ -150,17 +150,23 @@ Ask us!
 Keyword Search 
 ~~~~~~~~~~~~~~~~~~~~~
 
-InterMine's keyword search uses a comprehensive Lucene-based index created at build-time. Every field in the database is indexed unless you configure a table or column to be skipped. See :doc:`/webapp/keyword-search/index` for details on how to configure the keyword search. You can also configure facets / categories to help your users mine the search results.
+InterMine's keyword search uses a Lucene-based index created at build-time. Every field in the database is indexed unless you configure a table or column to be skipped. You can also configure facets / categories to help your users mine the search results. See :doc:`/webapp/keyword-search/index` for details on how to configure the keyword search. 
 
-When the first search is executed after a webapp is released, the index is retrieved from the database, written to temp files and loaded into memory. This can take up to a minute. (Our release scripts include a command to run this search so that the index is ready.)
+.. topic:: The first search
+
+	When the first search is executed after a webapp is released, the search index is:
+
+	1. Retrieved from the database
+	2. Written to temp files 
+	3. Loaded into memory for use by the webapp
+
+	This can take up to a minute. Our release scripts include a command to run this search so that the index is preloaded.
 
 The search box contains example identifiers to help your users know which types of search terms to use. To update the default value, set the `quicksearch.example.identifiers` property in the :doc:`web.properties </webapp/properties/web-properties>` file. Redeploy your webapp to see your changes.
 
-.. warning::
+.. note::
 
-	The Lucene index can be quite large, depending on the size of the database. FlyMine's index is ~2G, so make certain you have plenty of room.
-
-
+	The Lucene index can become quite large, depending on the size of the database. FlyMine's index is ~2G, so make certain you have plenty of room.
 
 
 Footer
@@ -168,7 +174,22 @@ Footer
 
 The footer is positioned at the bottom of every page in the InterMine webapp. It contains the contact link and the funding message.
 
-To update the funding message, change the `funding` property in :doc:`/webapp/properties/web-properties`. Redeploy your webapp to see your changes.
+.. figure:: ../../imgs/funding.png
+   :align:   center
+
+   Funding message in footer
+
+To update the funding message, change the `funding` property in :doc:`/webapp/properties/model-properties`. Redeploy your webapp to see your changes.
+
+.. code-block:: properties
+
+	# Model specific internationalisation properties
+	# this file merges with InterMineWebApp.properties
+
+	funding = InterMine is funded by the <a href="http://www.wellcome.ac.uk/" target="_new" title="Wellcome Trust"><img src="images/wellcome-ico.png" border="0" /></a> and interoperation is funded by <a href="http://www.nih.gov/" target="_new" title="US National Institutes of Health"><img src="images/logo_nih.gif" height="30px" width="257px" border="0" /></a>
+
+
+The :doc:`/webapp/properties/model-properties` is the third configuration file you've edited, there are four main files that control most of the behaviour in your InterMine webapp.
 
 .. topic:: InterMine properties files
 
