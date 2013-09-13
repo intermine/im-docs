@@ -1,5 +1,5 @@
-Web Application
-================================
+Guide to Customising your Web Application
+================================================================
 
 .. toctree::
     :maxdepth: 2

@@ -121,16 +121,23 @@ These values are set in :doc:`/webapp/properties/intermine-properties` file. Thi
    Updated release version and subtitle
 
 
-That's it! Well done! The majority of mine configuration will be accomplished this way - update a property in a text file and redeploy webapp.
+That's it! Well done! The majority of mine configuration will be accomplished this way - update a property in a text file and redeploy the webapp.
 
 See :doc:`/webapp/properties/intermine-properties` for the full list of properties this file controls.
 
 How do I know which property to change?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now you know how to change properties and configure your mine. How then do you know *which* property to change? 
+Now you know how to change properties and configure your mine. How then do you know *which* property to change? There are a few resources available to you:
 
-See :doc:`/webapp/index` - it's a list of pages in the InterMine webapp detailing everything you can configure on that page. On the upper right hand corner of this page are links to the Index and the table of contents, which may be useful. The search for this site is quite good as well although you can still use google! e.g. `a Google search for help with logos <http://google.com/?q=logo+site%3Aintermine.readthedocs.org>`_. A quick email to the dev mailing list usually proves to be quite helpful too.
+:doc:`/webapp/index` 
+	A detailed listing of everything you can configure in the InterMine webapp. It's grouped by InterMine webpage, e.g. Home Page, so you should be able to find what you need easily.
+Google
+	The search for this site is quite good although you can still use Google, e.g. here's `a Google search for help with logos <http://google.com/?q=logo+site%3Aintermine.readthedocs.org>`_. 
+Table of Contents / Index
+	On the upper right hand corner of every page are links to the Index and the table of contents. Both are fairly comprehensive.
+Ask us!
+	A quick email to the dev :doc:`/support/mailing-list` usually proves to be quite helpful too.
 
 
 Show all properties
@@ -138,10 +145,10 @@ Show all properties
 
 You can also see and edit the values of every property set for your mine.
 
-1. Log in as the superuser for your mine. (See :doc:`/webapp/admin/index` for details)
+1. Log in as the superuser for your mine. (See :doc:`/webapp/admin/index` for details on how to do this.)
 2. Change the last part of the URL in your browser to be `showProperties.do`, e.g. http://localhost:8080/malaria/showProperties.do
 
-This lists of all properties in all configuration files that are used in your webapp. Search for `project.subTitle` and you should see your new value.
+This lists of all properties in all configuration files that are used in your webapp. 
 
 Keyword Search 
 ~~~~~~~~~~~~~~~~~~~~~
@@ -150,7 +157,7 @@ InterMine's keyword search is a powerful Lucene-based search created at build-ti
 
 When the first search is executed after a webapp is released, the index is retrieved from the database, written to temp files and loaded into memory. This can take up to a minute. (Our release scripts include a command to run this search so that the index is ready.)
 
-The search box contains example identifiers to help your users know which types of search terms to use. To update the default value, set the `quicksearch.example.identifiers` property in the :doc:`web.properties </webapp/properties/web-properties` file>. Redeploy your webapp to see your changes.
+The search box contains example identifiers to help your users know which types of search terms to use. To update the default value, set the `quicksearch.example.identifiers` property in the :doc:`web.properties </webapp/properties/web-properties>` file. Redeploy your webapp to see your changes.
 
 .. warning::
 
