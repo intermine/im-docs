@@ -15,14 +15,13 @@ In general, customisation of InterMine is accomplished by updating the appropria
 This tutorial is intended to give a general idea of what you can customise in InterMine and how to do it. We're going to go through each section of the webapp and give step by step instructions on how to configure different parts of the page. This is a detailed tutorial and should take you a few hours to complete -- however it is not meant to be comprehensive. Where topics aren't covered, there are links provided for more information. If you have a question that you don't see answered, try searching the documentation or taking a look at the index. Intermine has an active developer's :doc:`/support/mailing-list` as well.
 
 
-Tomcat
----------
+.. topic:: Tomcat
 
-You will need to have Tomcat running for this tutorial.
+	You will need to have Tomcat running for this tutorial.
 
-If your webapp is under heavy usage or development, Tomcat may run out of memory. See :doc:`/system-requirements/software/tomcat` for details on how to update your settings to adjust the amount of memory available to Tomcat. 
+	If your webapp is under heavy usage or development, Tomcat may run out of memory. See :doc:`/system-requirements/software/tomcat` for details on how to update your settings to adjust the amount of memory available to Tomcat. 
 
-If Tomcat has run out of memory, it may not shut down correctly. Memory handling seems to have greatly improved with Tomcat 7 however.
+	If Tomcat has run out of memory, it may not shut down correctly. Memory handling seems to have greatly improved with Tomcat 7 however.
 
 General Layout
 ---------------------
@@ -139,21 +138,19 @@ Table of Contents / Index
 Ask us!
 	A quick email to the dev :doc:`/support/mailing-list` usually proves to be quite helpful too.
 
+.. topic:: Show all properties
 
-Show all properties
-^^^^^^^^^^^^^^^^^^^^^^
+	You can also see and edit the values of every property set for your mine.
 
-You can also see and edit the values of every property set for your mine.
+	1. Log in as the superuser for your mine. (See :doc:`/webapp/admin/index` for details on how to do this.)
+	2. Change the last part of the URL in your browser to be `showProperties.do`, e.g. http://localhost:8080/malaria/showProperties.do
 
-1. Log in as the superuser for your mine. (See :doc:`/webapp/admin/index` for details on how to do this.)
-2. Change the last part of the URL in your browser to be `showProperties.do`, e.g. http://localhost:8080/malaria/showProperties.do
-
-This lists of all properties in all configuration files that are used in your webapp. 
+	This lists of all properties that are used in your webapp. You can update the values for each property and instantly see how the webapp is changed, without worrying about breaking anything. (The changes only last for that session, to permanently change a value you'll need to update the appropriate config file.)
 
 Keyword Search 
 ~~~~~~~~~~~~~~~~~~~~~
 
-InterMine's keyword search is a powerful Lucene-based search created at build-time. Every field in the database is indexed unless you configure a table or column to be skipped. See :doc:`/webapp/keyword-search/index` for details on how to configure the keyword search index and results. You can also configure facets / categories to help your users mine the data.
+InterMine's keyword search uses a comprehensive Lucene-based index created at build-time. Every field in the database is indexed unless you configure a table or column to be skipped. See :doc:`/webapp/keyword-search/index` for details on how to configure the keyword search. You can also configure facets / categories to help your users mine the search results.
 
 When the first search is executed after a webapp is released, the index is retrieved from the database, written to temp files and loaded into memory. This can take up to a minute. (Our release scripts include a command to run this search so that the index is ready.)
 
@@ -173,22 +170,19 @@ The footer is positioned at the bottom of every page in the InterMine webapp. It
 
 To update the funding message, change the `funding` property in :doc:`/webapp/properties/web-properties`. Redeploy your webapp to see your changes.
 
-properties files
-^^^^^^^^^^^^^^^^^^^^^^
+.. topic:: InterMine properties files
 
-These four files control the majority of the behaviour of your InterMine webapp:
+	:doc:`~/.intermine/malariamine.properties </webapp/properties/intermine-properties>`
+  		database and webapp names and locations. includes passwords and shouldn't be in source control.
 
-:doc:`~/.intermine/malariamine.properties </webapp/properties/intermine-properties>`
-  database and webapp names and locations. includes passwords and shouldn't be in source control.
+	:doc:`web.properties </webapp/properties/web-properties>`
+  		webapp behaviour, e.g. link outs, tabs on home page
 
-:doc:`web.properties </webapp/properties/web-properties>`
-  webapp behaviour, e.g. link outs, tabs on home page
+	:doc:`model.properties </webapp/properties/model-properties>`
+		text displayed on webapp, e.g. error messages
 
-:doc:`model.properties </webapp/properties/model-properties>`
-  text displayed on webapp, e.g. error messages
-
-:doc:`webconfig-model.xml </webapp/properties/webconfig-model>`
-  webapp functionality, e.g. custom export types, widgets, data display
+	:doc:`webconfig-model.xml </webapp/properties/webconfig-model>`
+  		webapp functionality, e.g. custom export types, widgets, data display
 
 See :doc:`/webapp/layout/index` for more details on how to update the header, footer and colour scheme of your InterMine webapp. Next we'll customise your home page.
 
