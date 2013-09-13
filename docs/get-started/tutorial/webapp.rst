@@ -55,7 +55,7 @@ First, let's update the logo of your site. The logo should be 45x43 and named `l
 
 .. code-block:: bash
 
-	ant default remove-webapp release-webapp
+	$ ant default remove-webapp release-webapp
 
 3. Refresh your browser
 
@@ -73,7 +73,7 @@ If your changes are still not being reflected in your webapp, add the `clean` ta
 
 .. code-block:: bash
 
-	ant clean; ant default remove-webapp release-webapp
+	$ ant clean; ant default remove-webapp release-webapp
 
 This removes all temporary directories so you are certain your new files are being used. The `clean-all` target removes
 temporary directories from all dependencies as well.
@@ -83,26 +83,20 @@ See :doc:`/system-requirements/software/ant/` for a list of all ant targets.
 Subtitle and Release version
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Next to the name of your mine in the header is the name, release version and subtitle for your mine:
+Next to the name of your mine in the header is the release version and subtitle for your mine:
 
 .. figure:: ../../imgs/subtitle.png
    :align:   center
 
    Title, release version and subtitle
 
-These values are set in :doc:`/webapp/properties/intermine-properties` file. This is the same properties file you updated in the previous tutorial. The subtitle and release versions are populated by the properties `project.subTitle` and `project.releaseVersion`, respectively.  See :doc:`/webapp/properties/intermine-properties` for the full list of properties this file controls.
-
-.. note::
-
-	The name of your mine was set when you ran the `make_mine` script and should never be changed.
-
-Update this property to a different value and redeploy your webapp using the commands given above. Once you have successfully released your webapp, you should see your new subtitle.
+These values are set in :doc:`/webapp/properties/intermine-properties` file. This is the same properties file you updated in the previous tutorial. The subtitle and release versions are populated by the properties `project.subTitle` and `project.releaseVersion`, respectively. Update these properties to a different value and redeploy your webapp using the commands given above. Once you have successfully released your webapp, you should see your new subtitle.
 
 1. Open the properties file in your favourite text editor.
 
 .. code-block:: bash 
 
-	emacs ~/.intermine/malariamine.properties
+	$ emacs ~/.intermine/malariamine.properties
 
 2. Update the values of the subtitle and release version. Save your work.
 
@@ -117,7 +111,7 @@ Update this property to a different value and redeploy your webapp using the com
 
 .. code-block:: bash
 
-	ant default remove-webapp release-webapp
+	$ ant default remove-webapp release-webapp
 
 4. Navigate to your mine's home page and see the updated values: http://localhost:8080/malaria
 
@@ -128,6 +122,8 @@ Update this property to a different value and redeploy your webapp using the com
 
 
 That's it! Well done! The majority of mine configuration will be accomplished this way - update a property in a text file and redeploy webapp.
+
+See :doc:`/webapp/properties/intermine-properties` for the full list of properties this file controls.
 
 How do I know which property to change?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -152,7 +148,7 @@ Keyword Search
 
 InterMine's keyword search is a powerful Lucene-based search created at build-time. Every field in the database is indexed unless you configure a table or column to be skipped. See :doc:`/webapp/keyword-search/index` for details on how to configure the keyword search index and results. You can also configure facets / categories to help your users mine the data.
 
-When the first search is executed, the index is retrieved from the database, written to temp files and loaded into memory. This can take up to a minute. (Our release scripts include a command to run this search so that the index is ready.)
+When the first search is executed after a webapp is released, the index is retrieved from the database, written to temp files and loaded into memory. This can take up to a minute. (Our release scripts include a command to run this search so that the index is ready.)
 
 The search box contains example identifiers to help your users know which types of search terms to use. To update the default value, set the `quicksearch.example.identifiers` property in the :doc:`web.properties </webapp/properties/web-properties` file>. Redeploy your webapp to see your changes.
 
