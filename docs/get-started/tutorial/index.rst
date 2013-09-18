@@ -972,6 +972,11 @@ Using the webapp
 
 Navigate to http://localhost:8080/malariamine to view your webapp.  The path to your webapp is the `webapp.path` value set in malariamine.properties.
 
+.. topic:: Next 
+
+  Now that you have a database and a working webapp, you'll want to know how to add your own logo, pick a colour scheme, modify how data is displayed etc. Our :doc:`webapp tutorial <webapp>` is a detailed guide on how to customise all parts of the InterMine web application.
+
+
 Help
 ----------------------
 
