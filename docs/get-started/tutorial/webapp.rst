@@ -1,4 +1,4 @@
-Tutorial - Configure your InterMine webapp
+Tutorial - Configure your InterMine webapp!
 ================================================
 
 This tutorial aims to cover the basics of configuring an InterMine webapp.
