@@ -96,3 +96,6 @@ After the templates are precomputed, they are "summarised". This means any dropd
 >   Valid values (summaries) for dropdowns are recalculated 
 
 For example, if you have a template with an option to select a chromosome, all chromosomes in the database will be displayed. However if you have a non-editable constraint setting the value of the organism to be human, only the human chromosomes will be displayed after summarisation.
+
+
+.. index:: precomputes, query speed, database speed, optimisation
