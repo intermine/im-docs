@@ -30,6 +30,7 @@ After installation, most programs require extra configuration to work with Inter
    postgres/index
    tomcat
    macs
+   eclipse
 
 
-.. index:: software dependencies
+.. index:: software dependencies, git, Java, Perl, PostgreSQL, Mac, Apples, ant, Tomcat

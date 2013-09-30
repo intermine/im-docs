@@ -3,7 +3,7 @@ InterMine performance
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 4
       
    data-loading
    precomputing
