@@ -1,4 +1,4 @@
-How to set up your InterMine environment on the Amazon Cloud!
+How to set up your InterMine environment on the Amazon Cloud
 ================================================================
 
 Where you should learn how to start your own MalariaMine web application 
