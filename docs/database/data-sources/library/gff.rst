@@ -38,7 +38,7 @@ If you follow the above steps with this data file, the following will happen:
 
 .. note::
 
-	By default, columns such as "type", "start", "end", "strand" and "ID" field in "attributes" column are parsed automatically. To do more processing or access the attributes, eg. the "ID=mRNA.46312;Parent=gene.46311" string, you are able to configure in gff_config.properties. For more advanced processing, you will have to write your own GFF3 parser.  See below for details.
+	By default, columns such as "type", "start", "end", "strand" and "ID" field in "attributes" column are parsed automatically. To do more processing or access the attributes, you are able to configure in gff_config.properties. For more advanced processing, you will have to write your own GFF3 parser.  See below for details.
 
 .. code-block:: properties
 
