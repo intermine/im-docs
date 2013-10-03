@@ -129,7 +129,7 @@ For example, the `uniprot-malaria` source:
 
 .. note::
 
-  All file locations must be absolute not relative paths.
+    All file locations must be absolute not relative paths.
 
 The `project.xml` file is now ready to use.
 
@@ -294,7 +294,7 @@ Each of the fields has appropriate getters and setters generated for it, note th
 
 .. note::
   
-  It may be necessary to switch to the user `malariamine` before continuing.
+    It may be necessary to switch to the user `malariamine` before continuing.
 
 .. code-block:: bash
 
