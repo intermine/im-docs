@@ -37,7 +37,7 @@ The directories include:
 
 All configuration to create a new Mine is held in a directory in `git/intermine`, your Mine will depend on code in `intermine`, `bio` and `imbuild`.  Any Mine needs to be a top level directory in your InterMine checkout.
 
-There is a script for creating the a Mine; in `git/intermine` run:
+There is a script for creating the Mine; in `git/intermine` run:
 
 .. code-block:: bash
 
@@ -106,7 +106,7 @@ Copy this to some local directory (your home directory is fine for this workshop
 .. code-block:: bash
 
   $ cd
-  $ cp git/intermine/bio/tutorial/malariamine/malaria-data.tar.gz .
+  $ cp git/intermine/bio/tutorial/malaria-data.tar.gz .
   $ tar -zxvf malaria-data.tar.gz
 
 In your `malariamine` directory edit `project.xml` to point each source at the extracted data, just replace `DATA_DIR` with `/home/username` (or on a mac `/Users/username`). Do use absolute path.
@@ -236,11 +236,11 @@ Protein is a subclass of `BioEntity`, defined by `extends="BioEntity"`.  The `Pr
       <attribute name="secondaryIdentifier" type="java.lang.String"/>
     ...
 
-The model is generated from a core model XML file and any number of additions files.  The first file merged into the core model is the `so_additions.xml` file.  This XML file is generated from terms listed in so_term_list.txt.  The build system creates classes corresponding to the Sequence Ontology terms:
+The model is generated from a core model XML file and any number of additions files.  The first file merged into the core model is the `so_additions.xml` file.  This XML file is generated from terms listed in the so_terms file.  The build system creates classes corresponding to the Sequence Ontology terms:
 
 .. code-block:: bash
 
-  $ less resources/so_term_list.txt
+  $ less resources/so_terms
 
 The model is then combined with any extra classes and fields defined in the sources to integrate, those listed as `<source>` elements in `project.xml`.  Look at an example 'additions' file for the UniProt source:
 
@@ -291,6 +291,10 @@ Each term from `so_term` was added to the model, according to the sequence ontol
 Each of the fields has appropriate getters and setters generated for it, note that these are `interfaces` and are turned into actual classes dynamically at runtime - this is how the model copes with multiple inheritance.
 
 4. Automatically created database tables in the postgres database specified in `malariamine.properties` as `db.production` - in our case `malariamine`.  Log into this database and list the tables and the columns in the protein table:
+
+.. note::
+  
+  It may be necessary to switch to the user `malariamine` before continuing.
 
 .. code-block:: bash
 
