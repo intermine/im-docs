@@ -126,4 +126,29 @@ Configuration
 
   precompute.query.31 = SELECT a4_.class AS a1_, a5_.name AS a2_, a5_.description AS a3_ FROM org.intermine.model.bio.SequenceFeature AS a4_, org.intermine.model.bio.SOTerm AS a5_ WHERE a4_.sequenceOntologyTerm CONTAINS a5_ 
 
+Region Search V2
+~~~~~~~~~~~~~~~~~~~~~~
+
+Search page
+  This page can be kept as it is, but the query can be constructed and sent to the server side by webservice. The Structs elements can be removed.
+
+GenomicRegionSearchService
+  This class has the methods to:
+    * generate data (JSON) for search page
+    * parse search form and valid input
+    * generate search queries (one region with one query)
+    * generate results table and download/galaxy links
+This class can be basically replaced by webservices + html
+
+Update IQL query to pathquery
+  Currently, region query is constructed by lQL (Intermine Query Language) due to lack of implementation on range constraint in pathquery at the time we developed it. pdate IQL to pathqueries and send by webserive, the output will be a list of results tables or a single results table grouped by region.
+Ref https://github.com/intermine/intermine/blob/dev/bio/webapp/src/org/intermine/bio/web/logic/GenomicRegionSearchUtil.java#L270-497
+
+Polling
+	We create a synchronizedMap hold all the query results and put it in http request.On the results page, there is a checker (javascript) checking the size of the map, so a progress bar will be updating. The results table will be generated once 10 results return, the pager will be updated dynamically. he whole part will be replaced by InterMine results table.
+Ref https://github.com/intermine/intermine/blob/dev/bio/webapp/src/org/intermine/bio/web/logic/GenomicRegionSearchQueryRunner.java#L129-223
+
+Results table and download links
+	Replaced by InterMine results table. 
+	
 .. index:: region search, genomic region search
