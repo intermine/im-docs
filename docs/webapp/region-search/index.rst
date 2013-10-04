@@ -144,6 +144,14 @@ Update IQL query to pathquery
   Currently, region query is constructed by lQL (Intermine Query Language) due to lack of implementation on range constraint in pathquery at the time we developed it. pdate IQL to pathqueries and send by webserive, the output will be a list of results tables or a single results table grouped by region.
 Ref https://github.com/intermine/intermine/blob/dev/bio/webapp/src/org/intermine/bio/web/logic/GenomicRegionSearchUtil.java#L270-497
 
+Query fields:
+  In the IQL
+      Ref https://github.com/intermine/intermine/blob/dev/bio/webapp/src/org/intermine/bio/web/logic/GenomicRegionSearchUtil.java#L318-323
+  In ResultRow
+      Ref https://github.com/intermine/intermine/blob/dev/bio/webapp/src/org/intermine/bio/web/logic/GenomicRegionSearchQueryRunner.java#L186-212
+  In Results table
+      Ref https://github.com/intermine/intermine/blob/dev/bio/webapp/src/org/intermine/bio/web/logic/GenomicRegionSearchService.java#L1106-1112
+
 Polling
 	We create a synchronizedMap hold all the query results and put it in http request.On the results page, there is a checker (javascript) checking the size of the map, so a progress bar will be updating. The results table will be generated once 10 results return, the pager will be updated dynamically. he whole part will be replaced by InterMine results table.
 Ref https://github.com/intermine/intermine/blob/dev/bio/webapp/src/org/intermine/bio/web/logic/GenomicRegionSearchQueryRunner.java#L129-223
