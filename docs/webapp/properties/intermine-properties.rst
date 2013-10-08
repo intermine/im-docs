@@ -83,6 +83,8 @@ mail.text               You have successfully created an account on MalariaMine 
 feedback.destination    test_user@mail_address                                     recipient of feedback form located on bottom of every page 
 ======================  =========================================================  ===================================================================
 
+This is the normal mailer. There is a different configuration for SMTP.
+
 Multiple versions of a mine
 ----------------------------
 
