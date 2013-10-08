@@ -118,4 +118,4 @@ default.intermine.webapp.properties
 	used by the intermine webapp code when running inside Tomcat.
 
 
-.. index:: multiple mines, Drelease, email, forgot password, feedback, database properties, webapp properties, title, project title, subtitle, release version, help location, contact form, create account, superuser, deploy URL, mine properties
+.. index:: multiple mines, Drelease, email, forgot password, feedback, database properties, webapp properties, title, project title, subtitle, release version, help location, contact form, create account, superuser, deploy URL, mine properties, SMTP
