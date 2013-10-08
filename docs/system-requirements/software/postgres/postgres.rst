@@ -65,7 +65,7 @@ You should also add a line to the pg_hba.conf file to allow logging in via passw
 
 Note that changing some settings requires stopping/starting postgres, restart has no effect.
 
-You may also need to configure (increase) your shared momery (SHMMAX), e.g.
+You may also need to configure (increase) your shared memory (SHMMAX), e.g.
 
 .. code-block:: bash
 
