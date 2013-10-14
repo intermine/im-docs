@@ -30,7 +30,7 @@ See :doc:`/support/upgrade` for instructions on how to update your Mine to the n
 Report Widgets
 ------------------------
 
-You can now embed widgets in any HTML page. See http://reportwidgets-intermine.rhcloud.com for live, interactive examples.
+You can now embed widgets in any HTML page. See http://report-widgets.labs.intermine.org/ for live, interactive examples.
 
 See :doc:`/embedding/report-widgets` for details on how to use these for your mine.
 
