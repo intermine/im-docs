@@ -60,8 +60,10 @@ RATMINE = intermine.org/rgd
 METABOLICMINE = (Please update) 
 
 So an externallink to RATMINE will look like this: 
-http://www.intermine.org/rgd/portal.do?externalids=<<attributeValue>>&class=Gene&origin=Ratmine 
+.. code-block:: properties 
 
+	externallink.flybaseResults.Gene.10116.primaryIdentifier.url=http://www.intermine.org/rgd/portal.do?externalids<<attributeValue>>&class=Gene&origin=Ratmine	
+	
 
 In results pages, all probesets will link to Google instead of the Mine report page:
 
