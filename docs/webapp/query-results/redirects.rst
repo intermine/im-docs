@@ -48,13 +48,19 @@ One could also use a common URL with a common hostname and different subdirector
 common subdirectory names include:
 
 MOUSEMINE = intermine.org/mgi
+
 YEASTMINE = intermine.org/sgd
+
 ZEBRAFISHMINE = intermine.org/zfin
+
 WORMMINE = intermine.org/wormbase
+
 RATMINE = intermine.org/rgd
+
 METABOLICMINE = (Please update) 
 
-So an externallink to RATMINE will look like this: http://www.intermine.org/rgd/portal.do?externalids=<<attributeValue>>&class=Gene&origin=Ratmine 
+So an externallink to RATMINE will look like this: 
+http://www.intermine.org/rgd/portal.do?externalids=<<attributeValue>>&class=Gene&origin=Ratmine 
 
 
 In results pages, all probesets will link to Google instead of the Mine report page:
