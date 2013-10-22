@@ -42,6 +42,20 @@ In results pages, all dmel genes will link to FlyBase with Gene.primaryIdentifie
 .. code-block:: properties
 
 	externallink.flybaseResults.Gene.7227.primaryIdentifier.url=http://www.flybase.org/.bin/fbidq.html?<<attributeValue>>
+	
+
+One could also use a common URL with a common hostname and different subdirectory names. Intermine then figures out what URL to build with the given subdirectory name and redirects your query to that mine Report page using the Identifier you provide as an external identifier.
+common subdirectory names include:
+
+MOUSEMINE = intermine.org/mgi
+YEASTMINE = intermine.org/sgd
+ZEBRAFISHMINE = intermine.org/zfin
+WORMMINE = intermine.org/wormbase
+RATMINE = intermine.org/rgd
+METABOLICMINE = (Please update) 
+
+So an externallink to RATMINE will look like this: http://www.intermine.org/rgd/portal.do?externalids=<<attributeValue>>&class=Gene&origin=Ratmine 
+
 
 In results pages, all probesets will link to Google instead of the Mine report page:
 
