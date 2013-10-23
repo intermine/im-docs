@@ -191,7 +191,21 @@ than a boolean value, eg:
     'Gene.length': geneLengthFormatter
   });
   
-  
 
+Branding
+------------------------
+
+Links to your site (or others) can be branded with icons. This is configurable by setting option
+as follows:
+
+.. code-block:: javascript
+
+  intermine.scope('intermine.options.ExternalLinkIcons',
+    {"http://myhostname": "http://myhostname/my-branding.png"}
+  );
+  
+All links in table cells with the prefix `http://myhostname` will use the given image as a logo.
+
+This requires that the `intermine.options.IndicateOffHostLinks` is set to true.
 
 .. index:: query results
