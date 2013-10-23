@@ -206,6 +206,6 @@ as follows:
   
 All links in table cells with the prefix `http://myhostname` will use the given image as a logo.
 
-This requires that the `intermine.options.IndicateOffHostLinks` is set to true.
+This requires that `intermine.options.IndicateOffHostLinks` is set to true.
 
 .. index:: query results
