@@ -53,7 +53,7 @@ Configuration
 -------------
 
 types (classes)
-	Add a class to `class_keys.properties` file to get it to show up on the list upload form. To *bold* a class, tag it with `im:preferredBagType`.
+	Add a class to `dbmodel/resources/class_keys.properties` file to get it to show up on the list upload form. To *bold* a class, tag it with `im:preferredBagType`.
 
 organisms
 	All organisms in your database will be displayed here.  You can set the default in WebProperties.
