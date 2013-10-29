@@ -96,4 +96,31 @@ After the templates are precomputed, they are "summarised". This means any dropd
 For example, if you have a template with an option to select a chromosome, all chromosomes in the database will be displayed. However if you have a non-editable constraint setting the value of the organism to be human, only the human chromosomes will be displayed after summarisation.
 
 
+FAQs
+------
+
+How do you know what to put in the precomputes file? 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This is what we did for FlyMine:
+
+1. Common joins to be done, e.g. Gene to protein
+2. Widgets - see what queries the widgets are running, add those queries 
+3. Problem areas being reported, certain queries being slower than expected, e.g. interaction queries
+
+These three things, along with precomputing templates, seems to work best.
+
+Ideally we would have some sort of query profiling and would be able to tell where precomputing helps.
+
+How do you tell if what you put in there is actually helping?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can tell the query is using a precomputed table by checking the logs for the prefix `precomp_`
+
+Were all these queries (in the flymine file) created by hand? 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+No. We ran all of our analysis tools on the list analysis page, e.g GO enrichment widget and captured the queries being run via the logs. 
+
+
 .. index:: precomputes, query speed, database speed, optimisation
