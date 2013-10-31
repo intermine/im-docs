@@ -24,15 +24,16 @@ To import the InterMine projects:
 * intermine/api/model/userprofile
 * bio/test-all/dbmodel
 
-.. note::
-
-    For the final directory you will first need to set up a properties file for the bio tests - see instructions running the bio tests and may need to run ant clean build-db if prompted to do so.
-
-Or just run this command:
+Or just run as a single command:
 
 .. code-block:: bash
 
         (cd intermine/objectstore/model/testmodel && ant clean-all && ant) && (cd intermine/integrate/model/fulldata && ant clean && ant) && (cd intermine/pathquery/main && ant clean && ant) && (cd intermine/api/model/userprofile && ant clean && ant) && (cd bio/test-all/dbmodel && ant clean && ant build-db) && (cd intermine/objectstore/test && ant clean && ant) && (cd bio/core/main && ant clean && ant) 
+
+.. note::
+
+    For the final directory you will first need to set up a properties file for the bio tests (see :doc:`instructions running the bio tests </get-started/intermine-tests>`) and may need to run `ant clean build-db` if prompted to do so.
+
 
 7. Now select all projects in the Project Explorer and Refresh. There should no longer be any errors. 
 
