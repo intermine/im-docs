@@ -69,9 +69,9 @@ Supported types
 
 Have a look into the ``test/fixtures`` directory for examples of supported filetypes:
 
-1. `CoffeeScript <http://coffeescript.org/>`_; compile-to-JS language
-1. CSS
-1. `Eco <https://github.com/sstephenson/eco>`_; a templating language
-1. JavaScript
-1. `Literate CoffeeScript <http://coffeescript.org/#literate>`_; mix `Markdown <http://daringfireball.net/projects/markdown/>`_ and CS syntax
-1. `Stylus <http://learnboost.github.io/stylus/>`_; a CSS preprocessor including `nib <http://visionmedia.github.io/nib/>`_ CSS3 extensions
+#. `CoffeeScript <http://coffeescript.org/>`_; compile-to-JS language
+#. CSS
+#. `Eco <https://github.com/sstephenson/eco>`_; a templating language
+#. JavaScript
+#. `Literate CoffeeScript <http://coffeescript.org/#literate>`_; mix `Markdown <http://daringfireball.net/projects/markdown/>`_ and CS syntax
+#. `Stylus <http://learnboost.github.io/stylus/>`_; a CSS preprocessor including `nib <http://visionmedia.github.io/nib/>`_ CSS3 extensions
