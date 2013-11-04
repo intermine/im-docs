@@ -31,9 +31,7 @@ A component consists of one ``component.json`` config file and one or more sourc
 Component config file
 ~~~~~~~~~~~~~~~~~~~~~
 
-To write a component config file in JSON refer to the `standard <https://github.com/component/component/wiki/Spec>`_. For custom types that ``apps-b`` handles enlist these source files in the ``apps-b`` section. This way our component can be installed by the default installer yet our builder know where to look for custom source files.
-
-Remember, only source files (not JS or CSS) go to the ``apps-b`` section.
+To write a component config file in JSON refer to the `standard <https://github.com/component/component/wiki/Spec>`_.
 
 .. code-block:: javascript
 
@@ -63,9 +61,9 @@ Supported types
 
 Have a look into the ``test/fixtures`` directory for examples of supported filetypes:
 
-#. `CoffeeScript <http://coffeescript.org/>`_; compile-to-JS language
-#. CSS
-#. `Eco <https://github.com/sstephenson/eco>`_; a templating language
-#. JavaScript
-#. `Literate CoffeeScript <http://coffeescript.org/#literate>`_; mix `Markdown <http://daringfireball.net/projects/markdown/>`_ and CS syntax
-#. `Stylus <http://learnboost.github.io/stylus/>`_; a CSS preprocessor including `nib <http://visionmedia.github.io/nib/>`_ CSS3 extensions
+#. `CoffeeScript <http://coffeescript.org/>`_; compile-to-JS language, goes into the ``scripts`` section
+#. CSS, goes into the ``styles`` section
+#. `Eco <https://github.com/sstephenson/eco>`_; a templating language, goes into the ``scripts`` section
+#. JavaScript, goes into the ``scripts`` section
+#. `Literate CoffeeScript <http://coffeescript.org/#literate>`_; mix `Markdown <http://daringfireball.net/projects/markdown/>`_ and CS syntax, goes into the ``scripts`` section
+#. `Stylus <http://learnboost.github.io/stylus/>`_; a CSS preprocessor including `nib <http://visionmedia.github.io/nib/>`_ CSS3 extensions, goes into the ``styles`` section
