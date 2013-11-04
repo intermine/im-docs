@@ -226,19 +226,3 @@ Why is the config in JavaScript if my App can be in *Script?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This is so they can see what the example config looks like. Someone embedding your App does not need your implementation language, but they can/should know vanilla JavaScript.
-
-What about other builders?
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-`Brunch <http://brunch.io/>`_
-    Works best for single page apps. Packages all your dependencies, vendor or otherwise, into one or more JS files. It is up to you to serve the app. This does not work well when you have multiple apps on a page and thus you cannot have one package overriding other libraries on the page that may exist there. Our approach loads vendor libs on the client making use of ``304`` and already loaded libraries where possible. In addition to that, the order the libraries go in is worked out automatically in Apps by providing an Array of strings in the ``depends`` property.
-    
-`Component <http://component.io/>`_
-    You have to write your own builder to deal with your source files. You cannot even provide regex rules that match your sources like is the case with Brunch. In addition to that, the whole build process works, moronically, in series and not in parallel. As with Brunch one big build file is produced for JS and CSS and it is again up to you to serve it somehow. What would be great is if we could load Component libs from within our loader.
-
-Apps/A
-    Serves your apps, automatically prefixes CSS rules and concatenates config coming from dev, server and the client.
-
-Am I supposed to be reading this config?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Josh? Is that you?
