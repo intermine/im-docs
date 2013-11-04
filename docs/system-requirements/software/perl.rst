@@ -1,14 +1,25 @@
 Perl
 ===========
 
-Many of the build processes are carried out by Perl programs. You will need Perl installed on your system to build or maintain an InterMine installation. Linux and MacOS systems will have a suitable Perl already installed. Perl is available for Windows, but is not actively supported by InterMine.
+Many of the build processes are carried out by Perl programs. You will need Perl
+installed on your system to build or maintain an InterMine installation. Linux
+and MacOS systems will have a suitable Perl already installed. Perl is available for Windows,
+but is not actively supported by InterMine.
 
-At various times you will be requested to install various Perl modules. Here you can find instructions for how to do this using the native CPAN tool which comes with every Perl distribution on Linux and OSX, using Debian/Ubuntu package managers, as well as manual installs:
+You are encouraged to use [http://perlbrew.pl/ perlbrew] to set up your Perl environment, and
+make use of the modern toolchain, such as [https://metacpan.org/pod/cpanm cpanm].
+
+At various times you will be requested to install various Perl modules. Here you can
+find instructions for how to do this using the native CPAN tool which comes with every
+Perl distribution on Linux and OSX, using Debian/Ubuntu package managers, as well as manual installs:
 
 CPAN
 ----------------------------
 
-CPAN stands for the Comprehensive Perl Archive Network - and is the software repository for Perl modules. (you can compare it to [http://pypi.python.org/pypi PyPi in Python], Yum/Apt repositories in Linux, or even Apple's App Store). If you have Perl you have CPAN. (To check type `cpan` in a terminal). 
+CPAN stands for the Comprehensive Perl Archive Network - and is the software repository for
+Perl modules. (you can compare it to [http://pypi.python.org/pypi PyPi in Python], Yum/Apt
+repositories in Linux, or even Apple's App Store). If you have Perl you have CPAN. (To check
+type `cpan` in a terminal).
 
 To install modules with CPAN you may first need to set up the installer: in a terminal run
 
@@ -99,10 +110,9 @@ From your check out (or unzipped tar file) go to the directory "`intermine/perl/
 
   $ cd git/intermine/perl
 
-Here there are four "distributions" of modules you may want to install:
+Here there are three "distributions" of modules you may want to install:
 
-* InterMine-TypeLibrary 
-* InterMine-Model (depends on InterMine::TypeLibrary)
+* InterMine-Model
 * InterMine-Item (depends on InterMine::Model)
 * Webservice-InterMine (depends on InterMine::Model)
 
@@ -116,7 +126,8 @@ The installation procedure for these is the same:
   $ ./Build test             # tests the modules: optional but HIGHLY recommended
   $ sudo ./Build install     # Installs the modules
 
-If you do not have Module::Build 0.36 or above, you can install the dependencies using the above methods (CPAN and Packages).
+If you do not have Module::Build 0.36 or above, you can install the
+dependencies using the above methods (CPAN and Packages).
 
 List of Perl Modules to Install
 ---------------------------------------------
