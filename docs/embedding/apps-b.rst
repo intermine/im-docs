@@ -48,18 +48,12 @@ Remember, only source files (not JS or CSS) go to the ``apps-b`` section.
             "necolas/normalize.css": "*",
             "component/marked": "*"
         },
-        // Copy these JS files when installing the component.
         "scripts": [
-            "build/build.js"
-        ],
-        // Copy these CSS files when installing the component.
-        "styles": [
-            "styles/fonts.css"
-        ],
-        // Custom sources for our builder.
-        "apps-b": [
             "app.coffee",
-            "template.eco",
+            "template.eco"
+        ],
+        "styles": [
+            "styles/fonts.css",
             "styles/app.styl"
         ]
     }
