@@ -18,6 +18,25 @@ The default rule for bio-InterMine is to put the MOD identifiers (eg. MGI:XXX or
 
 To solve this problem, each homologue source uses the NCBI identifier resolver. This resolver takes the Ensembl ID and replaces it with the corresponding MOD identifier.
 
+How to use an ID resolver
+----------------------------
+
+1. Download the identifier file - ftp://ftp.ncbi.nih.gov/gene/DATA/gene_info.gz
+2. Unzip the file to `/DATA_DIR/ncbi/gene_info`
+3. Create a sub directory `/DATA_DIR/idresolver/` as file root path and a symbolic link `entrez` to the file
+
+.. code-block:: bash
+
+  $ cd /DATA_DIR/idresolver/
+  $ ln -s /DATA_DIR/ncbi/gene_info entrez 
+
+4. Add the root path to the file in `~/.intermine/MINE.properties`
+
+.. code-block:: properties
+
+  resolver.file.rootpath=/DATA_DIR/idresolver/
+
+
 To use the NCBI gene resolver, see :doc:`/database/data-sources/id-resolvers` which also provides more information on how ID resolvers work in InterMine.
 
 .. index:: homologues, orthologues, paralogues
