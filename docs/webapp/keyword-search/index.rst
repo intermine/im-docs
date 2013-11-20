@@ -87,23 +87,39 @@ You need to re-release your webapp.  Take a look in the intermine.log file when 
 
    2013-02-04 09:26:35 INFO  org.intermine.web.search.KeywordSearch     - Indexing - Special References:
    2013-02-04 09:26:35 INFO  org.intermine.web.search.KeywordSearch     - - interface org.intermine.model.bio.Gene = [pathways, proteins.proteinDomains, goAnnotation.ontologyTerm]
+   
    2013-02-04 09:26:35 INFO  org.intermine.web.search.KeywordSearch     - - interface org.intermine.model.bio.OntologyTerm = [synonyms]
+   
    2013-02-04 09:26:35 INFO  org.intermine.web.search.KeywordSearch     - - interface org.intermine.model.bio.Protein = [proteinDomains]
+   
    2013-02-04 09:26:35 INFO  org.intermine.web.search.KeywordSearch     - - interface org.intermine.model.bio.BioEntity = [synonyms, organism, crossReferences]
+   
    2013-02-04 09:26:35 INFO  org.intermine.web.search.KeywordSearch     - Indexing - Facets:
+   
    2013-02-04 09:26:35 INFO  org.intermine.web.search.KeywordSearch     - - field = Category, name = Category, type = SINGLE
+   
    2013-02-04 09:26:35 INFO  org.intermine.web.search.KeywordSearch     - - field = organism.shortName, name = Organism, type = SINGLE
+   
    2013-02-04 09:26:35 INFO  org.intermine.web.search.KeywordSearch     - Indexing with and without attribute prefixes:
+   
    2013-02-04 09:26:35 INFO  org.intermine.web.search.KeywordSearch     - Search - Debug mode: true
+   
    2013-02-04 09:26:35 INFO  org.intermine.web.search.KeywordSearch     - Indexing - Temp Dir: /tmp/keywordSearch
+   
    2013-02-04 09:26:35 INFO  org.intermine.web.search.KeywordSearch     - Starting fetcher thread...
+   
    2013-02-04 09:26:35 INFO  org.intermine.web.search.KeywordSearch     - Preparing indexer...
+   
    2013-02-04 09:26:35 INFO  org.intermine.web.search.KeywordSearch     - Creating search index tmp dir: /tmp/keywordSearch
+   
 
 You can view the index to see what's actually in it. 
 
 1. Prevent the code from deleting the index once it's finished. You can do this by commenting out this line: https://github.com/intermine/intermine/blob/dev/intermine/web/main/src/org/intermine/web/search/KeywordSearch.java#L1906 (be sure to put this back!)
 2. Use luke: http://www.getopt.org/luke or similar to view the records in the index.
+
+Our search uses Lucene's `whitespace analyser <http://lucene.apache.org/core/3_1_0/api/all/org/apache/lucene/analysis/WhitespaceAnalyzer.html>`_, which only uses whitespace to mark word boundaries. 
+
 
 More
 -----
