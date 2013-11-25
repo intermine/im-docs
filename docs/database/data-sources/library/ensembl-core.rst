@@ -71,7 +71,7 @@ Run this command in `/bio/scripts`
 
 .. code-block:: bash
 
-  $ ./ensembl.pl [Realse Version] MINE_NAME TAXONID DATA_DESTINATION
+  $ ./ensembl.pl [Release Version] MINE_NAME TAXONID DATA_DESTINATION
 
 for example:
       
