@@ -39,7 +39,7 @@ Add the location of the downloaded Ensembl MySQL databases to your mine properti
 
   # core database
   db.ensembl.9606.core.datasource.serverName=SERVER_NAME
-  # port: uncomment the next line if use different prot other than 3306
+  # port: uncomment the next line if use different port other than 3306
   # db.ensembl.9606.core.datasource.port=PORT_NUMBER
   db.ensembl.9606.core.datasource.databaseName=homo_sapiens_core_70
   db.ensembl.9606.core.datasource.species=homo_sapiens
@@ -79,7 +79,7 @@ for example:
 
   $ ./ensembl.pl flymine 7165 /data/ensembl/current
 
-Load XML file into InterMind database
+Load XML file into InterMine database
 --------------------------------------------------
 
 
