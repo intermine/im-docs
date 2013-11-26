@@ -39,4 +39,22 @@ How to use an ID resolver
 
 To use the NCBI gene resolver, see :doc:`/database/data-sources/id-resolvers` which also provides more information on how ID resolvers work in InterMine.
 
+.. warning:: 
+
+	The entrez identifiers file appears to only have the sequence identifier for worm instead of the WBgene identifier
+
+
+Alternately you can load identifier sources.
+
+Here are the download scripts we use here at InterMine:
+
+https://github.com/intermine/intermine/tree/dev/bio/scripts/DataDownloader/lib/DataDownloader/Source
+
+We use WormMart but are happy to hear of a better source for worm identifiers.
+
+Here are the project XML entries used by FlyMine:
+
+https://github.com/intermine/intermine/blob/dev/flymine/project.xml#L36-L48
+
+
 .. index:: homologues, orthologues, paralogues
