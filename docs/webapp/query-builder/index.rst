@@ -22,4 +22,9 @@ SUMMARY
 autocomplete
 	Add fields to the ObjectStoreSummaryProperties file to have their form fields autocomplete.
 
+Hiding fields
+-------------
+
+In your ``webconfig-model.xml``, set a property ``showInQB`` for a ``<fieldconfig />`` to ``true`` to hide a field from a Class.
+
 .. index:: querybuilder, summary, autocomplete
