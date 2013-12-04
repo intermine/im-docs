@@ -27,4 +27,24 @@ Hiding fields
 
 In your ``webconfig-model.xml``, set a property ``showInQB`` for a ``<fieldconfig />`` to ``true`` to hide a field from a Class.
 
-.. index:: querybuilder, summary, autocomplete
+An example of hiding an attribute field:
+
+.. code-block:: xml
+
+      <class className="org.intermine.model.testmodel.Manager">
+          <fields>
+              <fieldconfig fieldExpr="age" showInQB="false"/>
+          </fields>
+      </class>
+
+An example of hiding a Reference or a Collection field:
+
+.. code-block:: xml
+
+      <class className="org.intermine.model.testmodel.Manager">
+          <fields>
+              <fieldconfig fieldExpr="address" showInQB="false"/>
+          </fields>
+      </class>
+
+.. index:: querybuilder, summary, autocomplete, hide
