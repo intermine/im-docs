@@ -27,13 +27,13 @@ First require the JavaScript libraries needed to run the example. You probably h
 .. code-block:: html
 
     <!-- dependencies -->
-    <script src="http://cdn.intermine.org/js/jquery/1.7/jquery.min.js"></script>
+    <script src="http://cdn.intermine.org/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
     <script src="http://cdn.intermine.org/js/underscore.js/1.3.3/underscore-min.js"></script>
     <script src="http://cdn.intermine.org/js/backbone.js/0.9.2/backbone-min.js"></script>
 
     <!-- intermine -->
     <script src="http://cdn.intermine.org/api"></script>
-    <script src="http://cdn.intermine.org/js/intermine/imjs/latest/imjs.js"></script>
+    <script src="http://cdn.intermine.org/js/intermine/imjs/latest/im.js"></script>
     <script src="http://cdn.intermine.org/js/intermine/widgets/latest/intermine.widgets.js"></script>
 
 The next step is defining a couple of variables.
@@ -74,14 +74,17 @@ Now we call the mine converting the results of the query into a list.
 
 .. code-block:: javascript
 
-    flymine.query(query, function(q) {
-        // Save the query as a list.
-        q.saveAsList({'name': name}, function(l) {
-            // Now we have created a list under a name.
-        });
-    });
+    flymine.query(query)
+           .then(function madeQuery (q) {
+             // q is an instance of intermine.Query.
+             return q.saveAsList({'name': name}); })
+           .then(function savedList (list) {
+             // list is an instance of intermine.List.
+             console.log(list.size); });
+           .fail(function onError (error) {
+             console.error("Something went wrong");});
 
-Now, in the callback that has created the list, we can instantiate the List Widgets client and display the result.
+Now, in the function `savedList`, we can instantiate the List Widgets client and display the result.
 
 .. code-block:: javascript
 
@@ -89,7 +92,10 @@ Now, in the callback that has created the list, we can instantiate the List Widg
     // A new Chart List Widget for a particular list in the target #widget.
     widgets.chart('flyfish', name, '#widget');
 
-The only problem with this approach is that if we make this sort of call multiple times, we will fail on the second and subsequent ocassions as we will get a WebService exception telling us that the 'temporary' list name is taken. *Thus inspect the code of the example to see how to make a call to the service to delete the list if it exists*.
+The only problem with this approach is that if we make this sort of call multiple times, we will
+fail on the second and subsequent ocassions as we will get a WebService exception telling us that
+the 'temporary' list name is taken. *Thus inspect the code of the example to see how to make a
+call to the service to delete/reuse the list if it exists*.
 
 Defining custom actions on widget events
 ----------------------------------------
@@ -144,12 +150,13 @@ I want to hide the title or description of a widget.
 Showing a Results Table
 -----------------------
 
-The example below assumes that you have resolved all :doc:`/webapp/query-results/index` dependencies and have a PathQuery in JSON/JavaScript format that you want to display in a ``#container``:
+The example below assumes that you have resolved all :doc:`/webapp/query-results/index` dependencies
+and have a PathQuery in JSON/JavaScript format that you want to display in a ``#container``:
 
 .. code-block:: javascript
 
-    // PathQuery needs to be in a JSON string format.
-    var pq = JSON.stringify(pq);
+    // Define a query as above
+    var pq = {from: "Gene", select: ["symbol", "organism.name"], where: {Gene: {in: "my-list"}}};
     // use an instance of a Service or perhaps you already have one.
     var service = new intermine.Service({'root': service, 'token': token});
     // Create a new ResultsTable.
