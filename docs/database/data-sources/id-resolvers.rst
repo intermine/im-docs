@@ -1,9 +1,31 @@
 Id Resolvers
 ==================================
 
-ID resolvers hold data of identifiers, synonyms and cross references for a particular class (e.g. gene). The ID resolver provides methods to resolve any identifier to the unique primary identifier.
 
-ID resolvers available in InterMine: 
+The ID resolver uses the files in the specified directory to create a large map. The key for the map is the unique identifier (the MOD ID, in this case, MGI: ID). The values in the map are all the symbols, old identifiers, dbxrefs (e.g. Ensembl).
+
+======================= ==============================================
+unique gene identifier  symbol, name, ensembl ID ...
+MGI:97490               pax6, paired box gene 6 ...
+======================= ==============================================
+
+The ID resolver then uses this map to replace old or non-unique identifiers with the unique identifier. This allows genes to be merged correctly into the database, and lets each mine be interoperable with other friendly mines.
+
+The ID resolver is used in several data sources, Homologene for example.
+
+If you look at the Homologene data, you'll see they don't use the MGI identifier. See:
+
+======== ======== ======== ======== ========================
+1212     10090    18508    Pax6     7305369 NP_038655.1
+1212     10116    25509    Pax6     6981334 NP_037133.1
+======== ======== ======== ======== ========================
+
+When parsing the Homologene data file, the ID resolver replaces the symbol "Pax6" with the MGI identifier. The parser sets MGI:97490 to be the primary identifier then stores the gene to the database. Similarly, it replaces Pax6 with "RGD:3258" for the rat gene. And so on.
+
+
+
+ID resolvers available in InterMine
+---------------------------------------
 
 ==============================  =============================================  ============================================================================================
 EntrezGeneIdResolverFactory     NCBI gene info for a collection of organisms   ftp://ftp.ncbi.nih.gov/gene/DATA/gene_info.gz 
