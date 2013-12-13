@@ -23,6 +23,12 @@ How to use an ID resolver
 
 1. Download the identifier file - ftp://ftp.ncbi.nih.gov/gene/DATA/gene_info.gz
 2. Unzip the file to `/DATA_DIR/ncbi/gene_info`
+
+.. warning:: 
+
+	Make sure permissions on the file are correct so the build process can read this file.
+
+
 3. Create a sub directory `/DATA_DIR/idresolver/` as file root path and a symbolic link `entrez` to the file
 
 .. code-block:: bash
