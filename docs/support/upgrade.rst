@@ -12,6 +12,15 @@ If you don't have a git repo yet, see :doc:`/git/index` for details.
 If you host a copy of the `CDN`_, then you should also pull in changes from
 that repository.
 
+Upgrade to InterMine 1.3
+---------------------------------
+
+* Remove all duplicate entries from web.xml
+* Model changes:
+  * DataSet now has a publication reference
+  * AnnotationExtension has been moved from GOAnnotation to GOEvidence.
+
+Also, we have changed our GO parser a bit. Each line in a gene annotation file now corresponds with an Evidence object. In prior releases, each Evidence object was unique, e.g. only a single evidence code per gene / GO term pair.
 
 Upgrade to InterMine 1.2.1
 ---------------------------------
