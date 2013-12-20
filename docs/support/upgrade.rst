@@ -17,6 +17,7 @@ Upgrade to InterMine 1.3
 
 * Remove all duplicate entries from web.xml
 * Model changes:
+
   * DataSet now has a publication reference
   * AnnotationExtension has been moved from GOAnnotation to GOEvidence.
 
