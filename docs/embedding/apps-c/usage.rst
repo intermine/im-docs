@@ -1,9 +1,7 @@
 .. index:: embedding, javascript embedding, apps, widgets
 
-Apps/C
-======
-
-.. versionadded:: 1.2.3
+Apps/C Usage
+============
 
 This document describes how to build JavaScript components using the Apps/C `Grunt <http://gruntjs.com/>`_ builder. It compiles CoffeeScript, JavaScript and Eco into CommonJS/1.1 Modules providing AMD/CommonJS/window external interface.
 
