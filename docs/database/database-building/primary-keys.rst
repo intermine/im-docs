@@ -29,7 +29,13 @@ Each key should list one or more fields that can be a combination of '''attribut
 
 Here is an example from the `uniprot` source:  [source:trunk/bio/sources/uniprot/resources/uniprot_keys.properties uniprot_keys.properties]
 
+.. warning::
+
+    The build system will use any valid key it finds so be careful. e.g. if you have keys for BioEntity and SequenceFeature and Gene in your keys file, any of the three keys may be used to merge a Gene into the database.
+
+
 It is still possible to use a legacy method of configuring keys, where keys are defined centrally in `dbmodel/resources/genomic_keyDefs.properties` and referenced in source `_keys.properties` files.
+
 
 Defining keys in a central file
 -------------------------------------------
