@@ -25,7 +25,7 @@ The `name_of_key` can be any string but you must use different names if defining
 
 It is better to use common names for identical keys between sources as this will help avoid duplicating database indexes.
 
-Each key should list one or more fields that can be a combination of '''attributes''' of the class specified or '''references''' to other classes, in this cases there should usually be a key defined for the referenced class as well.
+Each key should list one or more fields that can be a combination of `attributes` of the class specified or `references` to other classes - in which case there should be a key defined for the referenced class as well.
 
 .. warning::
 
