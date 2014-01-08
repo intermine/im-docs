@@ -181,15 +181,15 @@ Grunt is used to munge files together and execute commands on them. Create a fil
                 scripts:
                     src: [
                         # Vendor dependencies.
-                        'vendor/jquery/jquery.js'
-                        'vendor/lodash/dist/lodash.js'
-                        'vendor/canjs/can.jquery-2.js'
-                        'vendor/canjs/can.map.setter.js'
-                        'vendor/elasticsearch/index.js'
-                        'vendor/moment/moment.js'
-                        'vendor/colorbrewer/colorbrewer.js'
-                        'vendor/d3/d3.js'
-                        'vendor/simple-lru/index.js'
+                        'bower_components/jquery/jquery.js'
+                        'bower_components/lodash/dist/lodash.js'
+                        'bower_components/canjs/can.jquery-2.js'
+                        'bower_components/canjs/can.map.setter.js'
+                        'bower_components/elasticsearch/index.js'
+                        'bower_components/moment/moment.js'
+                        'bower_components/colorbrewer/colorbrewer.js'
+                        'bower_components/d3/d3.js'
+                        'bower_components/simple-lru/index.js'
                         # Our app.
                         'build/js/em.js'
                     ]
@@ -199,10 +199,10 @@ Grunt is used to munge files together and execute commands on them. Create a fil
 
                 styles:
                     src: [
-                        'vendor/foundation/css/normalize.css'
-                        'vendor/foundation/css/foundation.css'
-                        'vendor/hint.css/hint.css'
-                        'vendor/font-awesome/css/font-awesome.css'
+                        'bower_components/foundation/css/normalize.css'
+                        'bower_components/foundation/css/foundation.css'
+                        'bower_components/hint.css/hint.css'
+                        'bower_components/font-awesome/css/font-awesome.css'
                         'src/styles/fonts.css'
                         'build/css/em.css'
                     ]
@@ -210,7 +210,7 @@ Grunt is used to munge files together and execute commands on them. Create a fil
 
             copy:
                 fonts:
-                    src: [ 'vendor/font-awesome/fonts/*' ]
+                    src: [ 'bower_components/font-awesome/fonts/*' ]
                     dest: 'build/fonts/'
                     expand: yes
                     flatten: yes
@@ -276,6 +276,40 @@ While developing it is quite useful to watch the source files and re-run the bui
 
 This will run the default Grunt task every 2s.
 
+Start ElasticSearch
+~~~~~~~~~~~~~~~~~~~
+
+ES will hold our index of publications. `Fetch <http://www.elasticsearch.org/download/>`_ it and then unpack it somewhere.
+
+To start it:
+
+.. code-block:: bash
+
+    $ ./bin/elasticsearch
+
+Check that it is up by visiting port ``9200``. If you see a JSON message, it is up.
+
+Load example publications
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To index some documents, use whichever `client <http://www.elasticsearch.org/guide/>`_. I was using the JavaScript one and if you check the ``data/`` dir in ``elastic-med`` on GitHub_ you will be able to see one way that documents can be indexed. In that example:
+
+.. code-block:: bash
+
+    $ ./node_modules/.bin/coffee ./data/index.coffee
+
+That will index (after a few seconds) 1000 cancer publications found in ``cancer.json``.
+
+The ``convert.coffee`` file was used to convert source XML to JSON.
+
+Check that documents got indexed by visiting the document URL in the browser:
+
+.. code-block
+
+    http://127.0.0.1:9200/publications/publication/438
+
+You should get back a JSON document back provided you are using index ``publications``, type ``publication`` and you have a document under the id ``438``.
+
 .. _Bower: http://bower.io/
 .. _Grunt: http://gruntjs.com/
 .. _ElasticSearch: http://www.elasticsearch.org/
@@ -290,3 +324,4 @@ This will run the default Grunt task every 2s.
 .. _Stylus: http://learnboost.github.io/stylus/
 .. _Node: http://en.wikipedia.org/wiki/Nodejs
 .. _FontAwesome: http://fontawesome.io/
+.. _GitHub: https://github.com/
