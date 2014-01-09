@@ -510,11 +510,52 @@ doc/:oid route
 render
     Serves as a helper we have created that injects a template into the DOM and updates the page title.
 
+Pages
+~~~~~
 
+When discussing the router we were talking about different page templates. Let us define them now.
 
+In ``src/templates/page/index.mustache``:
 
+::
 
+    <p>ElasticSearch through a collection of cancer related publications from PubMed. Use <kbd>Tab</kbd> to autocomplete or <kbd>Enter</kbd> to search.</p>
+    <div class="page index">
+        <app-search></app-search>
+        <app-state></app-state>
+        <app-results></app-results>
+    </div>
 
+This is the index template with three custom tags corresponding to different components:
+
+app-search
+    the search form
+
+app-state
+    notification messages/titles
+
+app-results
+    the results when our search is successful
+
+Now for the template that gets rendered on a detail page, in ``src/templates/page/detail.mustache``:
+
+::
+
+    <div class="page detail">
+        <app-state></app-state>
+        <div class="document detail">
+            <app-document link-to-detail="false" show-keywords="true"></app-document>
+        </div>
+        <app-more></app-more>
+    <div>
+
+We see that ``app-state`` is present, it will tell us when a doc is not found.
+
+app-document
+    Is the view of one document. We are passing extra parameters (options) into the context saying we don't want to link to the detail page (we are on detail page) but we want to show keywords (which will not be shown on the index results set).
+
+app-more
+    is a results set similar to ``app-results`` which corresponds to a component that will automatically search for and display documents that are similar like *this one*.
 
 
 
