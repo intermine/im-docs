@@ -505,13 +505,10 @@ route
     Is a function that will be called when we are on the index page of the app. It renders the index page template.
 
 doc/:oid route
-    Matches when we are looking at a detail of a document/publication.
+    Matches when we are looking at a detail of a document/publication. So if someone manually types in the address ``#!doc/438`` or it changes as a result of user interaction, this function gets called. We are either retrieving the document from a results cache or we are explicitely calling for a document from ElasticSearch_. Consider that when we search for documents, we get their content too so we do not need to fetch them again when looking at their *detail*. In contrast, someone could type in a random document address and we need to be ready for that. In either case we are calling the ``fin`` function on *line 20* to render the results.
 
-
-
-
-
-
+render
+    Serves as a helper we have created that injects a template into the DOM and updates the page title.
 
 
 
