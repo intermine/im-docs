@@ -1,9 +1,15 @@
-/* custom box around the code, based on Trac theme */
-.highlight {
+pre {
     background: #F7F7F7;
     box-shadow: 0px 8px 6px -8px #93a1a1;
+    margin: 1px;
+    margin-top: 0;
+    border: 1px solid #eee;
+    border-top: 0;
 }
-.highlight:before {
+.highlight {
+    background: #F7F7F7;
+}
+div[class^='highlight-']:before {
     content: "Code";
     display: block;
     background: #999;
@@ -12,8 +18,8 @@
     font-weight: bold;
     font-size: 14px;
 }
-.highlight pre {
-    margin-top: 0;
+td.code {
+    width: 100%;
 }
 
 .highlight .hll { background-color: #ffffcc }

@@ -33,7 +33,7 @@ Among the important libraries we will be using:
 
 .. warning::
 
-    Some of the code block examples on this page feature line numbers. Please view the page in a wide-view mode.
+    Some of the code block examples on this page feature line numbers. Please view the page in a widescreen mode.
 
 Initialize Project
 ------------------
@@ -510,8 +510,8 @@ doc/:oid route
 render
     Serves as a helper we have created that injects a template into the DOM and updates the page title.
 
-Pages
-~~~~~
+Pages templates
+~~~~~~~~~~~~~~~
 
 When discussing the router we were talking about different page templates. Let us define them now.
 
@@ -557,7 +557,43 @@ app-document
 app-more
     is a results set similar to ``app-results`` which corresponds to a component that will automatically search for and display documents that are similar like *this one*.
 
+Application search template
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+This template will be rendered for the ``app-search`` component defined on the index page. In ``src/templates/search.mustache``:
+
+.. code-block:: mustache
+   :linenos:
+
+    <div class="row collapse">
+        <div class="large-10 columns search">
+            <div class="faux"></div>
+            <input class="text" type="text" maxlength="100" placeholder="Query..." value="{{ query.current }}" autofocus>
+            {{ #if suggestions.list.length }}
+            <ul class="f-dropdown suggestions" style="left:{{ suggestions.px }}px">
+            {{ #suggestions.list }}
+                <li {{ #active }}class="active"{{ /active }}>
+                    <a>{{ text }}</a>
+                </li>
+            {{ /suggestions.list }}
+            </ul>
+            {{ /if }}
+        </div>
+        <div class="large-2 columns">
+            <a class="button secondary postfix">
+                <span class="fa fa-search"></span> Search
+            </a>
+        </div>
+    </div>
+    {{ #if query.history.length }}
+    <div class="row collapse">
+        <h4>History</h4>
+        <ul class="breadcrumbs">
+        {{ #query.history }}
+            <li><a>{{ . }}</a></li>
+        {{ /query.history }}
+    </div>
+    {{ /if }}
 
 
 
