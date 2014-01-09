@@ -286,6 +286,9 @@ While developing it is quite useful to watch the source files and re-run the bui
 
 This will run the default Grunt task every 2s.
 
+ElasticSearch
+-------------
+
 Start ElasticSearch
 ~~~~~~~~~~~~~~~~~~~
 
@@ -319,6 +322,9 @@ Check that documents got indexed by visiting the document URL in the browser:
     http://127.0.0.1:9200/publications/publication/438
 
 You should get back a JSON document back provided you are using index ``publications``, type ``publication`` and you have a document under the id ``438``.
+
+Source files
+------------
 
 Example page
 ~~~~~~~~~~~~
@@ -386,6 +392,137 @@ query
 
 The ``require`` call on *line 17* relates to CommonJS_. It is one way of loading JavaScript modules. It avoids having to expose all of our functions and objects on the global (``window``) object and implements a way of relating between different files.
 
+App index
+~~~~~~~~~
+
+We have asked to load an app in our ``example/index.html`` page, now we are going to write the backing code.
+
+The ``apps-c`` task (in ``Gruntfile.coffee``) contains the following two options:
+
+name
+    How do we call our app for CommonJS_ ``require`` call.
+
+main
+    Contains a path (an index) that will be called when we actually call the ``require`` function.
+
+We have specified that our app index lives in ``src/app.coffee`` so let's create this file:
+
+.. code-block:: coffee-script
+   :linenos:
+
+    module.exports = (opts) ->
+        # Explode ejs options.
+        { service, index, type } = opts
+        
+        # Init the ejs client.
+        ejs.attr { index, type, 'client': new $.es.Client({ 'hosts': service }) }
+
+        # Start routing.
+        new Routing opts.el
+        do can.route.ready
+
+        # Have we launched on the index?
+        if can.route.current('')
+            # Manually change the query to init the search.
+            query.attr 'current', opts.query or '' # '' is the default...
+
+Each module (file) in our app needs to export some functionality. When we call ``require`` we will be getting this functionality.
+
+We are going to be using canJS_ which consists of objects that can be *observed*. What this means is that when their values change, others listening to this changes will be notified. When we want to `change <http://canjs.com/docs/can.Map.prototype.attr.html>`_ their value we call ``attr`` function on them. One such example is on *line 7* where we change the value of ``index``, ``type`` and ``client`` as passed in by the user from ``example/index.html``.
+
+$.es.Client
+    Refers to ElasticSearch_ client in JavaScript which we have installed using Bower_ and munged in a bundle using Grunt_ as specified in ``Gruntfile.coffee``.
+
+Routing()
+    Is a call to a future canControl_ component which will setup our routing. We need a way of change between an index page that does search and a detail page that shows a detail...
+
+can.route.ready
+    Actually tells canJS_ to start listening to changes in the browser address.
+
+On *line 14* we see an example of checking whether we are looking at the index page when the app loads. If so we are changing a ``current`` attribute on a (futute) canMap_ component which will correspond to the query, meaning user query input. Our ``example/index.html`` page contains an example query to use in this case.
+
+Router
+~~~~~~
+
+Now we need to write the actual router component. It will be a type of canControl_ and lives in the ``src/app.coffee`` file too. Since we do not want/need to export this functionality, it will be placed above the current ``module.exports`` call:
+
+.. code-block:: coffee-script
+   :linenos:
+
+    # Router switching between pages.
+    Routing = can.Control
+
+        init: ->
+            # Load the components.
+            ( require "./components/#{name}" for name in components )
+
+            # Setup the UI.
+            layout = require './templates/layout'
+            @element.html render layout, helpers
+
+        # Index.
+        route: ->
+            template = require './templates/page/index'
+            @render(template, {}, 'ElasticMed')
+
+        # Document detail.
+        'doc/:oid route': ({ oid }) ->
+            fin = (doc) =>
+                template = require './templates/page/detail'
+                title = title.value if _.isObject title = doc.attr('title')
+                @render template, doc, "#{title} - ElasticMed"
+
+            # Find the document.
+            doc = null
+            # Is it in results?
+            if (docs = results.attr('docs')).length
+                docs.each (obj) ->
+                    # Found already?
+                    return if doc
+                    # Match on oid.
+                    doc = obj if obj.attr('oid') is oid
+
+            # Found in results cache.
+            return fin(doc) if doc
+            
+            # Get the document from the index.
+            ejs.get oid, (err, doc) ->
+                # Trouble? Not found etc.
+                return state.error err if err
+                fin(doc)
+        
+        # Render a page. Update the page title.
+        render: (template, ctx, title) ->
+            @element.find('.content')
+            .html(render(template, ctx))
+            # Update title.
+            document.title = title
+
+init
+    We are loading some components that we are using in this app into the memory and then rendering our app layout. This layout will setup the structure for our whole app.
+
+route
+    Is a function that will be called when we are on the index page of the app. It renders the index page template.
+
+doc/:oid route
+    Matches when we are looking at a detail of a document/publication.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .. _Bower: http://bower.io/
 .. _Grunt: http://gruntjs.com/
 .. _ElasticSearch: http://www.elasticsearch.org/
@@ -404,3 +541,5 @@ The ``require`` call on *line 17* relates to CommonJS_. It is one way of loading
 .. _GitHub: https://github.com/
 .. _Git: http://git-scm.com/
 .. _CommonJS: http://addyosmani.com/writing-modular-js/
+.. _canControl: http://canjs.com/guides/Controls.html
+.. _canMap: http://canjs.com/docs/can.Map.html
