@@ -310,9 +310,75 @@ Check that documents got indexed by visiting the document URL in the browser:
 
 You should get back a JSON document back provided you are using index ``publications``, type ``publication`` and you have a document under the id ``438``.
 
+Example page
+~~~~~~~~~~~~
+
+One needs an access point where our app will get loaded with particular configuration. This is where the ``example/index.html`` comes in:
+
+.. code-block:: html
+
+    <!doctype html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>ElasticMed</title>
+        
+        <link href="build/css/em.bundle.css" media="all" rel="stylesheet" type="text/css" />
+        <script src="build/js/em.bundle.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script>
+            // Once scripts have loaded.
+            $(function() {
+                // ...show the app.
+                require('em')({
+                    'el': '#app',
+                    'service': 'http://newvegas:9200',
+                    'index':   'publications',
+                    'type':    'publication',
+                    'query':   'breast size exercise cancer'
+                });
+            });
+        </script>
+    </body>
+    </html>
+
+This file does not do anything else other then load our built CSS and JS files and starts our app. In our example we are pointing to a ``build`` directory relative to the ``example`` directory. So let's make a symbolic link to the actual ``build``:
+
+.. code-block:: bash
+
+    $ ln -s ../build build/
+
+Such links get preserved when version controlling using Git_. We are linking to our bundled builds that contain vendor dependencies too.
+
+Then we are waiting for the page to load and call our (future) app with some config.
+
+The name ``em`` is being configured in the ``Gruntfile.coffee`` file in the ``apps-c`` task.
+
+As for the config:
+
+el
+    Selector where our app should be displayed.
+
+service
+    Points to the ES_ endpoint. By default it starts on port ``9200``.
+
+index
+    Refers to the ES_ index we are using.
+
+type
+    Refers to the type of ES_ documents we are storing in our index.
+
+query
+    Is a default query we will want to show when our app loads.
+
+The ``require`` call relates to CommonJS_. It is one way of loading JavaScript modules. It avoids having to expose all of our functions and objects on the global (``window``) object and implements a way of relating between different files.
+
 .. _Bower: http://bower.io/
 .. _Grunt: http://gruntjs.com/
 .. _ElasticSearch: http://www.elasticsearch.org/
+.. _ES: http://www.elasticsearch.org/
 .. _CoffeeScript: http://coffeescript.org/
 .. _Mustache: http://mustache.github.io/
 .. _canJS: http://canjs.com/
@@ -325,3 +391,5 @@ You should get back a JSON document back provided you are using index ``publicat
 .. _Node: http://en.wikipedia.org/wiki/Nodejs
 .. _FontAwesome: http://fontawesome.io/
 .. _GitHub: https://github.com/
+.. _Git: http://git-scm.com/
+.. _CommonJS: http://addyosmani.com/writing-modular-js/
