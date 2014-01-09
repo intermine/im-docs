@@ -595,6 +595,26 @@ This template will be rendered for the ``app-search`` component defined on the i
     </div>
     {{ /if }}
 
+We are splitting the DOM into two parts. These parts have a ``row`` class on them representing the grid of the Foundation_ framework.
+
+div.search
+    The first part is split into two ``columns``, one for the input field and the other for a button triggering search.
+
+div.faux
+    We will want to get caret position from the input field. To do that we are going to get all of the text from the input field up to the caret position and then copy it over to a div that has the same CSS styling as us, but is invisible. Then we are going to get the width of this element. ``.faux`` is this element.
+
+input.text
+    The place where input goes. We can see Mustache_ syntax here that outputs the value of the current query.
+
+ul.suggestions
+    Show up when a list of suggestions has some items. Represents suggestions for the current word, hence the need to get the caret position. If some suggestions are "active" (we hover on them etc.) then we toggle their CSS class.
+
+ul.breadcrumbs
+    A query history. Only shows up when it has items in it.
+
+Application search component
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 
 .. _Bower: http://bower.io/
