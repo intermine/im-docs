@@ -1,6 +1,10 @@
 elastic-med
 ===========
 
+.. note::
+
+    You can view the source files for this project in the `intermine/intermine-apps-c <https://github.com/intermine/intermine-apps-c/tree/master/elastic-med>`_ repo.
+
 This document will guide you through the process of writing a JavaScript client side app (running completely in a browser) using Bower_ and Grunt_ tools. The app will connect to an ElasticSearch_ (ES) instance to do *search*. ES wraps Apache Lucene and serves as a repository of indexed documents that one can search agains. If you prefer a short gist head over to :doc:`usage` instead.
 
 The app will have the following functionality:
@@ -26,6 +30,10 @@ Among the important libraries we will be using:
 #. Node_ JavaScript desktop software platform.
 #. Stylus_ allows us to be more expressive and dynamic with CSS.
 #. Underscore_ is a utility toolbelt making actions such as iterating over items easier.
+
+.. warning::
+
+    Some of the code block examples on this page feature line numbers. Please view the page in a wide-view mode.
 
 Initialize Project
 ------------------
@@ -82,6 +90,7 @@ You can fetch `binaries <http://nodejs.org/download/>`_ from the homepage or use
 Once Node is installed, edit the ``package.json`` file like so:
 
 .. code-block:: json
+   :linenos:
 
     {
         "name": "elastic-med",
@@ -107,7 +116,7 @@ Once Node is installed, edit the ``package.json`` file like so:
 
 This file tells Node which libraries will be used to build our app. These are not client-side libraries, but server-side if you will.
 
-The top bit of the ``devDependencies`` lists a bunch of Grunt and Bower related libraries, the bottom one some libraries used to load ES with data.
+The top bit of the ``devDependencies`` lists a bunch of Grunt and Bower related libraries, the bottom one (*line 17 onward*) some libraries used to load ES with data.
 
 In order to install all of these, execute the following:
 
@@ -159,6 +168,7 @@ Grunt building
 Grunt is used to munge files together and execute commands on them. Create a file called ``Gruntfile.coffee``:
 
 .. code-block:: coffee-script
+   :linenos:
 
     module.exports = (grunt) ->
         grunt.initConfig
@@ -266,7 +276,7 @@ uglify
 cssmin
     The same as ``uglify`` but for CSS
 
-At the bottom of the file we see two calls to ``grunt.registerTask`` which bundle a bunch of tasks together. For example running ``$ grunt minify`` will run the ``uglify`` and ``cssmin`` tasks.
+*Lines 76 and 83* have two calls to ``grunt.registerTask`` which bundle a bunch of tasks together. For example running ``$ grunt minify`` will run the ``uglify`` and ``cssmin`` tasks.
 
 While developing it is quite useful to watch the source files and re-run the build task:
 
@@ -316,6 +326,7 @@ Example page
 One needs an access point where our app will get loaded with particular configuration. This is where the ``example/index.html`` comes in:
 
 .. code-block:: html
+   :linenos:
 
     <!doctype html>
     <html>
@@ -344,7 +355,7 @@ One needs an access point where our app will get loaded with particular configur
     </body>
     </html>
 
-This file does not do anything else other then load our built CSS and JS files and starts our app. In our example we are pointing to a ``build`` directory relative to the ``example`` directory. So let's make a symbolic link to the actual ``build``:
+This file does not do anything else other then load our built CSS and JS files (*lines 7 and 9*) and starts our app. In our example we are pointing to a ``build`` directory relative to the ``example`` directory. So let's make a symbolic link to the actual ``build``:
 
 .. code-block:: bash
 
@@ -373,7 +384,7 @@ type
 query
     Is a default query we will want to show when our app loads.
 
-The ``require`` call relates to CommonJS_. It is one way of loading JavaScript modules. It avoids having to expose all of our functions and objects on the global (``window``) object and implements a way of relating between different files.
+The ``require`` call on *line 17* relates to CommonJS_. It is one way of loading JavaScript modules. It avoids having to expose all of our functions and objects on the global (``window``) object and implements a way of relating between different files.
 
 .. _Bower: http://bower.io/
 .. _Grunt: http://gruntjs.com/
