@@ -469,6 +469,8 @@ Now we need to write the actual router component. It will be a type of canContro
         'doc/:oid route': ({ oid }) ->
             fin = (doc) =>
                 template = require './templates/page/detail'
+                return @render(template, {}, 'ElasticMed') unless doc
+
                 title = title.value if _.isObject title = doc.attr('title')
                 @render template, doc, "#{title} - ElasticMed"
 
@@ -484,12 +486,14 @@ Now we need to write the actual router component. It will be a type of canContro
 
             # Found in results cache.
             return fin(doc) if doc
-            
+
             # Get the document from the index.
             ejs.get oid, (err, doc) ->
-                # Trouble? Not found etc.
-                return state.error err if err
-                fin(doc)
+                # Trouble?
+                state.error err.message if err
+                # Finish with either a document or nothing
+                #  in which case (error will be shown).
+                fin doc
         
         # Render a page. Update the page title.
         render: (template, ctx, title) ->
@@ -505,7 +509,7 @@ route
     Is a function that will be called when we are on the index page of the app. It renders the index page template.
 
 doc/:oid route
-    Matches when we are looking at a detail of a document/publication. So if someone manually types in the address ``#!doc/438`` or it changes as a result of user interaction, this function gets called. We are either retrieving the document from a results cache or we are explicitely calling for a document from ElasticSearch_. Consider that when we search for documents, we get their content too so we do not need to fetch them again when looking at their *detail*. In contrast, someone could type in a random document address and we need to be ready for that. In either case we are calling the ``fin`` function on *line 20* to render the results.
+    Matches when we are looking at a detail of a document/publication. So if someone manually types in the address ``#!doc/438`` or it changes as a result of user interaction, this function gets called. We are either retrieving the document from a results cache or we are explicitely calling for a document from ElasticSearch_. Consider that when we search for documents, we get their content too so we do not need to fetch them again when looking at their *detail*. In contrast, someone could type in a random document address and we need to be ready for that. In either case we are calling the ``fin`` function on *line 19* to render the results.
 
 render
     Serves as a helper we have created that injects a template into the DOM and updates the page title.
@@ -543,13 +547,15 @@ Now for the template that gets rendered on a detail page, in ``src/templates/pag
 
     <div class="page detail">
         <app-state></app-state>
+        {{ #oid }}
         <div class="document detail">
             <app-document link-to-detail="false" show-keywords="true"></app-document>
         </div>
         <app-more></app-more>
+        {{ /oid }}
     <div>
 
-We see that ``app-state`` is present, it will tell us when a doc is not found.
+We see that ``app-state`` is present, it will tell us when a doc is not found. If it is (we have a document ``oid``) we show the rest of the page.
 
 app-document
     Is the view of one document. We are passing extra parameters (options) into the context saying we don't want to link to the detail page (we are on detail page) but we want to show keywords (which will not be shown on the index results set).
@@ -614,6 +620,24 @@ ul.breadcrumbs
 
 Application search component
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
