@@ -66,7 +66,7 @@ Ruby Client
     | `Source <https://github.com/intermine/intermine-ws-ruby>`_
 JavaScript Client (for Browser and node.js)
     `Download <https://npmjs.org/package/imjs>`_
-    | `Docs <http://ci.intermine.org/job/imjs/javadoc/>`_
+    | `Docs <http://intermine.github.io/imjs//>`_
     | `Source <https://github.com/intermine/imjs>`_
 
 
