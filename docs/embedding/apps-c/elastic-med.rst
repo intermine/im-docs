@@ -1,9 +1,9 @@
+elastic-med
+===========
+
 .. note::
 
     @in-progress
-
-elastic-med
-===========
 
 .. note::
 
