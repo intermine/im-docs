@@ -7,4 +7,5 @@ Apps/C Grunt Build
     :maxdepth: 2
       
     usage
+    publication-search
     elastic-med
