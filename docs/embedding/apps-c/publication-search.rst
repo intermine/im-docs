@@ -5,7 +5,7 @@ publication-search
 
     You can view the source files for this project in the `intermine/intermine-apps-c <https://github.com/intermine/intermine-apps-c/tree/master/publication-search>`_ repo.
 
-This document will guide you through the process of writing a JavaScript client side app (running completely in a browser) using Bower_ and Grunt_ tools. This app will connect to an InterMine_ instance to run a query. The objective will be to fetch a list of publications for each *bio entity* found that is like our query.
+This document will guide you through the process of writing a JavaScript client side app (running completely in a browser) using Bower_ and Grunt_ tools. This app will connect to an InterMine_ instance to run a query. The objective will be to fetch a list of publications for each *bio entity* found that is *like* our query.
 
 The libraries we will be using:
 
@@ -42,23 +42,23 @@ The first step will be to setup our directory structure.
     ├──bower.json
     └──package.json
 
-build/
-    Will be the directory where our final app package will live. We will develop in languages like Stylus or CoffeeScript and need a way to package all these resources into one whole... directory. This is where all these files will live.
+`build/`
+    Will be the directory where our final app package will live. We will develop in languages like Stylus_ or CoffeeScript_ and need a way to package all these resources into one whole... directory. This is where all these files will live.
 
-bower_components/
+`bower_components/`
     This directory will be automatically created and will contain libraries we have requested through the Bower system.
 
-example/
+`example/`
     Contains an example of our app in use.
 
-src/
+`src/`
     Source files that our code will consist of.
 
-bower.json
-    Will contain a listing of libraries we want to download using Bower.
+`bower.json`
+    Will contain a listing of libraries we want to download using Bower_.
 
-package.json
-    Lists libraries we will need to compile and build our app.
+`package.json`
+    Lists libraries we will need to compile and build our app with.
 
 Node.js platform
 ~~~~~~~~~~~~~~~~
@@ -120,13 +120,13 @@ Edit the ``bower.json`` file like so:
 
 The file has a bunch of key-value pairs.
 
-name
+`name`
     Name of our application in the Bower ecosystem, required.
 
-version
+`version`
     Version number in the Bower ecosystem, required.
 
-dependencies
+`dependencies`
     Lists the actual libraries and their versions to fetch. You can populate this list by executing ``$ bower install jquery --save`` for example. That will download the latest version of the ``jquery`` component into the ``bower_components/`` directory. You can `search <http://sindresorhus.com/bower-components/>`_ for available components using ``$ bower search jquery``. To actually trigger a search, execute ``$ bower install``. The different libraries will be introduced as we code along.
 
 Grunt building
@@ -157,11 +157,11 @@ Grunt is used to munge files together and execute commands on them. Create a fil
                 scripts:
                     src: [
                         # Vendor dependencies.
-                        'vendor/jquery/jquery.js'
-                        'vendor/lodash/dist/lodash.js'
-                        'vendor/canjs/can.jquery.js'
-                        'vendor/canjs/can.map.setter.js'
-                        'vendor/imjs/js/im.js'
+                        'bower_components/jquery/jquery.js'
+                        'bower_components/lodash/dist/lodash.js'
+                        'bower_components/canjs/can.jquery.js'
+                        'bower_components/canjs/can.map.setter.js'
+                        'bower_components/imjs/js/im.js'
                         # Our app.
                         'build/js/ps.js'
                     ]
@@ -171,8 +171,8 @@ Grunt is used to munge files together and execute commands on them. Create a fil
 
                 styles:
                     src: [
-                        'vendor/foundation/css/normalize.css'
-                        'vendor/foundation/css/foundation.css'
+                        'bower_components/foundation/css/normalize.css'
+                        'bower_components/foundation/css/foundation.css'
                         # Our app.
                         'build/css/ps.css'
                     ]
@@ -209,20 +209,20 @@ Grunt is used to munge files together and execute commands on them. Create a fil
 
 This file is written in CoffeeScript_ and lists the tasks to run when we want to build our app. From the top:
 
-apps_c
-    This directive says that we want to take any CoffeeScript_ and Mustache_ files we find in ``src/`` and make them into one JavaScript package.
+`apps_c`
+    This directive says that we want to take any CoffeeScript_ and Mustache_ files we find in ``src/`` and combine them into one JavaScript package.
 
-stylus
+`stylus`
     Take a Stylus_ file and turn it into CSS.
 
-concat
+`concat`
     Take our vendor files (installed using Bower_) and, together with our app, make them into a bundle. If someone else wants to use our app they need our app and its deps too, so this one file will do it for them. Do the same to CSS too.
 
-uglify
+`uglify`
     Minify our built JavaScript files. This makes them small, but unreadable so not great for debugging.
 
-cssmin
-    The same as ``uglify`` but for CSS
+`cssmin`
+    The same as `uglify` but for CSS
 
 Then we have two calls to ``grunt.registerTask`` which bundle a bunch of tasks together. For example running ``$ grunt minify`` will run the ``uglify`` and ``cssmin`` tasks.
 
@@ -282,13 +282,17 @@ The name ``ps`` is being configured in the ``Gruntfile.coffee`` file in the ``ap
 
 As for the config:
 
-el
+`el`
     Selector where our app should be displayed.
 
-mine
+`mine`
     Points to an InterMine_.
 
-The ``require`` call on relates to CommonJS_. It is one way of loading JavaScript modules. It avoids having to expose all of our functions and objects on the global (``window``) object and implements a way of relating between different files.
+The ``require`` call relates to CommonJS_. It is one way of loading JavaScript modules. It avoids having to expose all of our functions and objects on the global (``window``) object and implements a way of relating between different files. For example, to load a module on the same *directory* level as me:
+
+.. code-block:: coffee-script
+
+    require './module'
 
 App index
 ~~~~~~~~~
@@ -297,10 +301,10 @@ We have asked to load an app in our ``example/index.html`` page, now we are goin
 
 The ``apps-c`` task (in ``Gruntfile.coffee``) contains the following two options:
 
-name
+`name`
     How do we call our app for CommonJS_ ``require`` call.
 
-main
+`main`
     Contains a path (an index) that will be called when we actually call the ``require`` function.
 
 We have specified that our app index lives in ``src/app.coffee`` so let's create this file:
@@ -338,9 +342,19 @@ We have specified that our app index lives in ``src/app.coffee`` so let's create
 
 Each module (file) in our app needs to export some functionality. When we call ``require`` we will be getting this functionality.
 
-We are going to be using canJS_ which consists of objects that can be *observed*. What this means is that when their values change, others listening to these changes will be notified. When we want to `change <http://canjs.com/docs/can.Map.prototype.attr.html>`_ their value we call ``attr`` function on them. One such example is where we setup the client. We are passing an object which is set on `imjs` which is a canMap_. Or the line below where we set a symbol on a `query` which is a canCompute_. The advantage here is that whenever we set a new symbol on `query`, anyone else will be told it has changed and do something. This something means to trigger a search.
+Observable
+^^^^^^^^^^
 
-But first we are requireing some components into the memory. These are canComponents_. These wrap some user interface functionality (think widget) and are tied to a DOM tag. Whenever this tag appears on the page, a component gets automatically created with the appropriate template and data. For now, let's just say these need to be loaded before we inject our first template into the page.
+We are going to be using canJS_ which gives us objects that can be *observed*. What this means is that when their values change, others listening to these changes will be notified. When we want to `change <http://canjs.com/docs/can.Map.prototype.attr.html>`_ their value we call ``attr`` function on them. One such example is where we setup the client. We are passing an object which is set on `imjs` which is a canMap_. Or the line below where we set a symbol on a `query` which is a canCompute_. The advantage here is that whenever we set a new symbol on `query`, anyone else will be told it has changed and do something. This something means to trigger a search.
+
+Components
+^^^^^^^^^^
+
+But first we are requireing some components into the memory. These are canComponent_ instances. They wrap some user interface functionality (think widget) and are tied to a DOM tag. Whenever this tag appears on the page, a component gets automatically created with the appropriate template and data. For now, let's just say these need to be loaded before we inject our first template into the page. An example of a tag:
+
+.. code-block:: html
+
+    <app-component></app-component>
 
 We inject the said template, layout, on the line below. Layout will represent the HTML that is true for our app/page. It will have custom tags in it that automatically get rendered as components (as above).
 
@@ -408,16 +422,16 @@ The search component will bind the `query` to our input field; in `/src/componen
 
 To do so we need to require the `query` module. It is the same module we have seen in our app index. And then we are off using the standard canComponent_ notation. There is:
 
-`tag`:
+`tag`
     Which is the custom DOM tag/element for this component. Again, if this tag appears on the page, this component will spring to life.
 
-`template`:
+`template`
     This is the template that will get injected into the `tag`.
 
-`scope`:
+`scope`
     Ah, the magic. You can either pass in an object of key-value pairs that will be accessible within our `template`. A more interesting approach is to return a function that returns said object. Doing so will make this component listen in on any changes in the object. In our example we are (using slightly convoluted notation) listening to changes to `query`, which is a canCompute_.
 
-`events`:
+`events`
     Makes this component listen to events in the template and then do something. The syntax is: `<selector> <event>`. In our example, whenever the user has pressed (and raised their finger) from a key on a keyboard, we call a function. This function checks that the key was `Enter` and updates the `query`.
 
 Search template
@@ -464,13 +478,13 @@ We have been talking about this `query` for a while, it is time to write its cod
 
 First we are requiring some other modules:
 
-`pubs`:
+`pubs`
     Will represent our results collection/list.
 
-`imjs`:
+`imjs`
     A module doing the actual search.
 
-`state`:
+`state`
     Will be told what the state of the app is for alerts.
 
 We initialize the query to be empty using `''`. If a developer wants to pass an initial query, we have seen the relevant code in app index.
@@ -563,13 +577,13 @@ At the top we are defining the query that will be used to run the query. The for
 
 Our query will be looking for publications, fetching their bio entities (genes, alleles, proteins etc.) and authors. Authors is a separate collection mapped to a publication.
 
-Then we are using the canMap syntax to define a `client` attribute and a `search` function. An object can have both attributes and functions defined.
+Then we are using the canMap_ syntax to define a `client` attribute and a `search` function. An object can have both attributes and functions defined.
 
 We took care of initializing the `client` in app index. In that step, we were intiializing the imjs_ library to use a specific mine, MouseMine in our case.
 
 The search function takes two parameters, a symbol and a callback. The first is the search symbol coming from `query` module, the second a function that will be called when we have errors or results. Hopefully the latter.
 
-We are then using imjs_ syntax to extend our `query` with a constrains on a bio entity symbol, matching our symbol and returning `tableRows`.
+We are then using imjs_ syntax to extend our `query` with a constraint on a bio entity symbol, matching our symbol and returning `tableRows`.
 
 The `remap` function is just formatting the results into a format that is useful to us. In our case we want to have the following data structure which is conducive to being traversed in a Mustache_ template:
 
@@ -643,11 +657,211 @@ Each component needs a template. the alert one will look like this:
 
 What we are saying here is to display a Foundation_ alert box with a custom type and a text. We use `{{{ }}}` to display the text which allows us to use HTML in the `text` string and have it unescaped.
 
+Results table component
+~~~~~~~~~~~~~~~~~~~~~~~
 
+Now that we are searching for and updating `pubs` with new data, we have to observe them in a canComponent_ and render them. In `/src/components/table.coffee`:
 
+.. code-block:: coffee-script
 
+    pubs = require '../modules/pubs'
 
+    # Table of publication results.
+    module.exports = can.Component.extend
 
+        tag: 'app-table'
+
+        template: require '../templates/table'
+
+        scope: -> { pubs }
+
+This will make an array of publications available to us in a template under the `pubs` key.
+
+Results table template
+~~~~~~~~~~~~~~~~~~~~~~
+
+As for the template that displays the results; in `/src/templates/table.mustache`:
+
+.. code-block:: mustache
+
+    {{ #if pubs.length }}
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author(s)</th>
+                <th>Journal</th>
+                <th>Year</th>
+                <th>Match</th>
+            </tr>
+        </thead>
+        <tbody>
+        {{ #pubs }}
+            <tr>
+                <td class="title">
+                    <a target="_{{ pubMedId }}" href="http://www.ncbi.nlm.nih.gov/pubmed/{{ pubMedId }}">{{ title }}</a>
+                </td>
+                <td>
+                {{ #authors }}
+                    <span class="author">{{ name }}</span>
+                {{ /authors }}
+                </td>
+                <td>{{ journal }}</td>
+                <td>{{ year }}</td>
+                <td class="nowrap">
+                    <a target="_{{ id }}" href="http://www.mousemine.org/mousemine/report.do?id={{ id }}">
+                        {{ symbol }}
+                    </a>
+                    <span class="label">{{ type }}</span>
+                </td>
+            </tr>
+        {{ /pubs }}
+        </tbody>
+    </table>
+    {{ /if }}
+
+Firstly we are checking if we actually have any results to speak of. If so we render a table <tr/> element for each publication.
+
+We can see that `{{ #pubs }}` and `{{ #authors }}` both reresent a for loop.
+
+Style
+~~~~~
+
+We are going to wrap up by writing a stylesheet. For this we are going to use Stylus_; in `/src/styles/app.styl`:
+
+.. code-block:: stylus
+
+    @import 'nib'
+
+    body
+        padding: 20px
+
+    table
+        width: 100%
+
+        td
+            .author
+                &:not(:last-child)
+                    &:after
+                        content: ", "
+                        display: inline-block
+
+            .label
+                padding: 0 4px
+                line-height: 16px
+
+            &.title
+                width: 40%
+
+            &.nowrap
+                white-space: nowrap
+
+Stylus allows us to write nested rules, such as when we want to select a table cell, `<td/>` in a `<table/>`.
+
+At the top we can see a reference to nib_. This will make any of our rules be generated with browser vendor prefixed, where appropriate and allows us to use shorthand notation for various oft repeated rules.
+
+Fin
+---
+
+This concludes our application. Running a static web server to view the `/example` folder we are presented with a page that displays our app. Typing a symbol into the input box and pressing `Enter` then launches a request against MouseMine and, if succesfull, shows us results.
+
+Appendix
+--------
+
+pomme.js
+~~~~~~~~~~~~~
+
+What we have not covered is the case when we want to embed our app besides other apps on a page. If that were the case, all our CSS rules would start conflicting with other rules on the page. Not to speak of canComponents that may pop up in all kinds of places if we are using the same tags across different apps.
+
+One way to deal with this issue is to make use of the pommejs_ library. What it does is create a sandbox (using an `<iframe/>`) which is isolated from anything else on the page. One would load an app inside one such sandbox and not have to worry about library collusion.
+
+For example, we would create a pure pommejs_ *build* in Grunt_; in `Gruntfile.coffee` add the following task:
+
+.. code-block:: coffee-script
+
+    copy:
+        pomme:
+            src: [ 'bower_components/pomme.js/build/app.bundle.js' ]
+            dest: 'build/js/pomme.bundle.js'
+            expand: yes
+            flatten: yes
+
+    grunt.loadNpmTasks('grunt-contrib-copy')
+
+This requires you to have the following task installed:
+
+.. code-block:: bash
+
+    $ npm install grunt-contrib-copy
+
+In order to download the library itself using Bower_:
+
+.. code-block:: bash
+
+    $ bower install pomme.js
+
+Now we are copying a bundled version of pommejs_ into our build directory.
+
+Do create this sandbox we are going to require pommejs_ instead; in `/example/index.html`:
+
+.. code-block:: html
+
+    <!doctype html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Publication Search</title>
+        
+        <script src="build/js/pomme.bundle.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script>
+            // Once scripts have loaded.
+            $(function() {
+                var Pomme = require('pomme.js');
+                var channel = new Pomme({
+                    'target': '#app',
+                    'template': function() {
+                        return '<MY TEMPLATE HERE>'
+                    }
+                });
+            });
+        </script>
+    </body>
+    </html>
+
+In the section above we can see a placeholder for a template. In that place we need to return a string which will correspond to the html that needs to be executed within the sandbox. It should look something like this (but as a string!):
+
+.. code-block:: html
+
+    <!doctype html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Publication Search</title>
+        
+        <link href="build/css/ps.bundle.css" media="all" rel="stylesheet" type="text/css" />
+        <script src="build/js/ps.bundle.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script>
+            // Once scripts have loaded.
+            $(function() {
+                // ...show the app.
+                require('ps')({
+                    'el':   '#app',
+                    'mine': 'http://www.mousemine.org/mousemine'
+                });
+            });
+        </script>
+    </body>
+    </html>
+
+So our example `index.html` has moved into a string and is being executed inside an iframe.
+
+Refer to the pommejs_ documentation if you'd like to know how to open a two way communication channel between the parent page and the iframe window.
 
 .. _Bower: http://bower.io/
 .. _Grunt: http://gruntjs.com/
@@ -662,9 +876,12 @@ What we are saying here is to display a Foundation_ alert box with a custom type
 .. _jQuery: http://jquery.com/
 .. _Foundation: http://foundation.zurb.com/
 .. _Stylus: http://learnboost.github.io/stylus/
+.. _nib: http://visionmedia.github.io/nib/
 .. _Node: http://en.wikipedia.org/wiki/Nodejs
 .. _GitHub: https://github.com/
 .. _Git: http://git-scm.com/
 .. _CommonJS: http://addyosmani.com/writing-modular-js/
 .. _canMap: http://canjs.com/docs/can.Map.html
 .. _imjs: https://github.com/alexkalderimis/imjs
+.. _pommejs: https://github.com/radekstepan/pomme.js
+.. _InterMine: http://intermine.org
