@@ -19,6 +19,7 @@ The libraries we will be using:
 #. Node_ JavaScript desktop software platform.
 #. Stylus_ allows us to be more expressive and dynamic with CSS.
 #. Lodash_ is a utility toolbelt making actions such as iterating over items easier.
+#. imjs_ used to query InterMines from browser or Node. Saves you having to write raw HTTP requests.
 
 Initialize Project
 ------------------
@@ -337,26 +338,310 @@ We have specified that our app index lives in ``src/app.coffee`` so let's create
 
 Each module (file) in our app needs to export some functionality. When we call ``require`` we will be getting this functionality.
 
-We are going to be using canJS_ which consists of objects that can be *observed*. What this means is that when their values change, others listening to this changes will be notified. When we want to `change <http://canjs.com/docs/can.Map.prototype.attr.html>`_ their value we call ``attr`` function on them. One such example is on *line 7* where we change the value of ``index``, ``type`` and ``client`` as passed in by the user from ``example/index.html``.
+We are going to be using canJS_ which consists of objects that can be *observed*. What this means is that when their values change, others listening to these changes will be notified. When we want to `change <http://canjs.com/docs/can.Map.prototype.attr.html>`_ their value we call ``attr`` function on them. One such example is where we setup the client. We are passing an object which is set on `imjs` which is a canMap_. Or the line below where we set a symbol on a `query` which is a canCompute_. The advantage here is that whenever we set a new symbol on `query`, anyone else will be told it has changed and do something. This something means to trigger a search.
 
+But first we are requireing some components into the memory. These are canComponents_. These wrap some user interface functionality (think widget) and are tied to a DOM tag. Whenever this tag appears on the page, a component gets automatically created with the appropriate template and data. For now, let's just say these need to be loaded before we inject our first template into the page.
 
+We inject the said template, layout, on the line below. Layout will represent the HTML that is true for our app/page. It will have custom tags in it that automatically get rendered as components (as above).
 
+Layout
+~~~~~~
 
+Let us take a look at the layout template then; in `/src/templates/layout.mustache`:
 
+.. code-block:: mustache
 
+    <div class="row collapse">
+        <div class="small-2 columns">
+            <span class="prefix">Search:</span>
+        </div>
+        <div class="small-10 columns">
+            <app-search></app-search>
+        </div>
+    </div>
 
+    <div class="row collapse">
+        <div class="small-12 columns">
+            <app-alert></app-alert>
+        </div>
+    </div>
 
+    <div class="row collapse">
+        <div class="small-12 columns">
+            <app-table></app-table>
+        </div>
+    </div>
 
+Our app will consist of 3 components:
 
+`app-search`
+    A component that will represent our input search field.
 
+`app-alert`
+    An alert message showing in what state the app is in.
 
+`app-table`
+    A table with results of our search.
 
+Search component
+~~~~~~~~~~~~~~~~
 
+The search component will bind the `query` to our input field; in `/src/components/search.coffee`:
 
+.. code-block:: coffee-script
 
+    query = require '../modules/query'
 
+    # Search form.
+    module.exports = can.Component.extend
 
+        tag: 'app-search'
 
+        template: require '../templates/search'
+
+        scope: -> { 'query': { 'value': query } }
+
+        events:
+            'input keyup': (el, evt) ->
+                if (evt.keyCode or evt.which) is 13
+                    query do el.val
+
+To do so we need to require the `query` module. It is the same module we have seen in our app index. And then we are off using the standard canComponent_ notation. There is:
+
+`tag`:
+    Which is the custom DOM tag/element for this component. Again, if this tag appears on the page, this component will spring to life.
+
+`template`:
+    This is the template that will get injected into the `tag`.
+
+`scope`:
+    Ah, the magic. You can either pass in an object of key-value pairs that will be accessible within our `template`. A more interesting approach is to return a function that returns said object. Doing so will make this component listen in on any changes in the object. In our example we are (using slightly convoluted notation) listening to changes to `query`, which is a canCompute_.
+
+`events`:
+    Makes this component listen to events in the template and then do something. The syntax is: `<selector> <event>`. In our example, whenever the user has pressed (and raised their finger) from a key on a keyboard, we call a function. This function checks that the key was `Enter` and updates the `query`.
+
+Search template
+~~~~~~~~~~~~~~~
+
+The search template just outputs the current value of the query:
+
+.. code-block:: mustache
+
+    <input type="text" placeholder="e.g. brca, gamma" value="{{ query.value }}" autofocus>
+
+We are also giving this field the focus on the page so a user can just start typing.
+
+Query module
+~~~~~~~~~~~~
+
+We have been talking about this `query` for a while, it is time to write its code; in `/src/modules/query.coffee`:
+
+.. code-block:: coffee-script
+
+    pubs  = require './pubs'
+    imjs  = require './imjs'
+    state = require './state'
+
+    # The default search query.
+    query = can.compute ''
+
+    # Keep track of requests.
+    gid = 0
+
+    # Observe query changes to trigger a service search.
+    query.bind 'change', (ev, q) ->
+        state.attr { 'type': 'info', 'text': 'Searching &hellip;' }
+        id = ++gid
+
+        imjs.search q, (err, res) ->
+            # Too late?
+            return if id < gid
+            return state.attr { 'type': 'warning', 'Oops &hellip' } if err
+            state.attr { 'type': 'success', 'text': "Found #{res.length} results" }
+            pubs.replace res
+
+    module.exports = query
+
+First we are requiring some other modules:
+
+`pubs`:
+    Will represent our results collection/list.
+
+`imjs`:
+    A module doing the actual search.
+
+`state`:
+    Will be told what the state of the app is for alerts.
+
+We initialize the query to be empty using `''`. If a developer wants to pass an initial query, we have seen the relevant code in app index.
+
+Then we have a function that listens in on our changes. Whenever query changes, this function is triggered. We use it to first say that we are starting a search. Then we actually call the `imjs` module to do the search. If all went fine, we inject the new results into the `pubs` module.
+
+There are two things that could go wrong:
+
+#. The search might not be succesfull (mine down, malformed query etc.)
+#. The results may arrive too late when the user asks for another set of results before seeing the first set.
+
+Both cases are handled.
+
+State module
+~~~~~~~~~~~~
+
+Is a canMap_ that keeps track of the app state; it lives in `/src/modules/state.coffee`:
+
+.. code-block:: coffee-script
+    
+    module.exports = new can.Map
+        'type': 'info'
+        'text': 'Search is ready'
+
+The map has two attributes, one for a type of state we are in `[ info|success|warning ]` and the other for the actual message.
+
+IMJS module
+~~~~~~~~~~~
+
+This module will do the actual search on the mine. It is called imjs since it is going to be using the imjs_ library behind the scenes. We will find it in `/src/modules/imjs.coffee`:
+
+.. code-block:: coffee-script
+
+    query =
+        'select': [
+            'Publication.title'
+            'Publication.year'
+            'Publication.journal'
+            'Publication.pubMedId'
+            'Publication.authors.name'
+            'Publication.bioEntities.symbol'
+            'Publication.bioEntities.id'
+        ]
+        'orderBy': [
+            { 'Publication.title': 'ASC' }
+        ]
+        'joins': [
+            'Publication.authors'
+        ]
+
+    module.exports = new can.Map
+
+        # Needs to be initialized.
+        client: null
+
+        # Search publications by bio entity symbol.
+        search: (symbol, cb) ->
+            return cb 'Client is not setup' unless @client
+
+            @client.query _.extend({}, query, {
+                'where': [
+                    {
+                        'path': 'Publication.bioEntities.symbol'
+                        'op':   'CONTAINS'
+                        'value': symbol
+                    }
+                ]
+            }), (err, q) ->
+                return cb err if err
+                # Run the query.
+                q.tableRows (err, res) ->
+                    return cb err if err
+
+                    # Re-map to a useful format.
+                    remap = (rows) ->
+                        type = null
+                        _.extend _.zipObject(_.map rows, (row) ->
+                            # Add our type.
+                            type = row.class if row.column is 'Publication.bioEntities.id'
+                            # Tuple of column - value.
+                            [
+                                row.column.split('.').pop()
+                                if row.rows then _.map(row.rows, remap) else row.value
+                            ]
+                        ), { type }
+
+                    cb null, _.map res, remap
+
+At the top we are defining the query that will be used to run the query. The format is that of an InterMine PathQuery. You can see imjs_ for syntax and more information. One can generate this syntax by visiting the mine in question, running a query in QueryBuilder and then choosing to export to JavaScript in the Results Table.
+
+Our query will be looking for publications, fetching their bio entities (genes, alleles, proteins etc.) and authors. Authors is a separate collection mapped to a publication.
+
+Then we are using the canMap syntax to define a `client` attribute and a `search` function. An object can have both attributes and functions defined.
+
+We took care of initializing the `client` in app index. In that step, we were intiializing the imjs_ library to use a specific mine, MouseMine in our case.
+
+The search function takes two parameters, a symbol and a callback. The first is the search symbol coming from `query` module, the second a function that will be called when we have errors or results. Hopefully the latter.
+
+We are then using imjs_ syntax to extend our `query` with a constrains on a bio entity symbol, matching our symbol and returning `tableRows`.
+
+The `remap` function is just formatting the results into a format that is useful to us. In our case we want to have the following data structure which is conducive to being traversed in a Mustache_ template:
+
+.. code-block:: json
+
+    [
+        {
+            "title": "Distinct negative regulatory mechanisms involved in the repression of human embryonic epsilon- and fetal G gamma-globin genes in transgenic mice.",
+            "year": 1994,
+            "journal": "J Biol Chem",
+            "pubMedId": "7806539",
+            "authors": [
+                {
+                    "name": "Perez-Stable C",
+                    "type": null
+                }
+            ],
+            "symbol": "Tg(Ggamma-T)15Cps",
+            "id": 1678446,
+            "type": "Transgene"
+        }
+    ]
+
+We are extracting the type of the bio entity matched and creating a nested `authors` field.
+
+Once we have the new data we are calling back using the `cb` function. It is customary to specify an error as the first argument into said function. Since all is well, we are passing a `null` value.
+
+Publications list
+~~~~~~~~~~~~~~~~~
+
+We still have one module to cover. This is the `pubs` we have refered to elsewhere; in `/src/modules/pubs.coffee`:
+
+.. code-block:: coffee-script
+
+    module.exports = new can.List []
+
+We are using the canList_ object to store an observable array of values. To be honest, we don't need to use an observable object here, but you may want to if you are going to be changing values in the array rather than replacing the whole thing outright.
+
+Alert component
+~~~~~~~~~~~~~~~
+
+When doing our searches we have decided to keep track of the state of the application. Are we searching? Do we have errors? That sort of thing.
+
+We already wrote a module, a canMap_, to represent the data structure. Now we just need to write the canComponent_ for it.
+
+.. code-block:: coffee-script
+
+    state = require '../modules/state'
+
+    # An alert.
+    module.exports = can.Component.extend
+
+        tag: 'app-alert'
+
+        template: require '../templates/alert'
+
+        scope: -> state
+
+It does what it does. Which is to show up when `app-alert` appears and then display a template and observe when `state` changes.
+
+Alert template
+~~~~~~~~~~~~~~
+
+Each component needs a template. the alert one will look like this:
+
+.. code-block:: mustache
+
+    <div class="alert-box {{ type }}">
+        {{{ text }}}.
+    </div>
+
+What we are saying here is to display a Foundation_ alert box with a custom type and a text. We use `{{{ }}}` to display the text which allows us to use HTML in the `text` string and have it unescaped.
 
 
 
@@ -369,6 +654,10 @@ We are going to be using canJS_ which consists of objects that can be *observed*
 .. _CoffeeScript: http://coffeescript.org/
 .. _Mustache: http://mustache.github.io/
 .. _canJS: http://canjs.com/
+.. _canMap: http://canjs.com/docs/can.Map.html
+.. _canCompute: http://canjs.com/docs/can.compute.html
+.. _canComponent: http://canjs.com/docs/can.Component.html
+.. _canList: http://canjs.com/docs/can.List.html
 .. _Lodash: http://lodash.com/
 .. _jQuery: http://jquery.com/
 .. _Foundation: http://foundation.zurb.com/
@@ -378,3 +667,4 @@ We are going to be using canJS_ which consists of objects that can be *observed*
 .. _Git: http://git-scm.com/
 .. _CommonJS: http://addyosmani.com/writing-modular-js/
 .. _canMap: http://canjs.com/docs/can.Map.html
+.. _imjs: https://github.com/alexkalderimis/imjs
