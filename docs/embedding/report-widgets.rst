@@ -3,7 +3,7 @@ Report Widgets
 
 .. versionadded:: 1.1
 
-Have been retired and made into something better. See :doc:`/embedding/apps-a` or `/embedding/apps-c`. The changes are as follows:
+Have been retired and made into something better. See :doc:`/embedding/apps-a` or :doc:`/embedding/apps-c`. The changes are as follows:
 
 1. Widget becomes an App.
 2. The main class in ``presenter.[js|ts|ls|coffee]`` has been changed from ``Widget`` to ``App``.
