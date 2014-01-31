@@ -68,13 +68,6 @@ div.body {
 div.body tt.docutils.literal {
   border-bottom: 1px solid #ddd;
 }
-div.body div.highlight {
-  margin: 1em 2px;
-  border: 1px solid #eee;
-}
-div.body div.highlight pre {
-  margin: 0 0.5em;
-}
 div.body ul.video {
   padding: 0;
   list-style-type: none;
