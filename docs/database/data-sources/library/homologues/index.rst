@@ -28,27 +28,27 @@ How to use an ID resolver
 
 	Make sure permissions on the file are correct so the build process can read this file.
 
+3. Download the identifier file for humans - http://www.flymine.org/download/idresolver/humangene to another directory, eg. /DATA_DIR/human/identifiers
 
-3. Create a sub directory `/DATA_DIR/idresolver/` as file root path and a symbolic link `entrez` to the file
+4. Create a sub directory `/DATA_DIR/idresolver/` as file root path and add symbolic links to the two files.
 
 .. code-block:: bash
 
   $ cd /DATA_DIR/idresolver/
   $ ln -s /DATA_DIR/ncbi/gene_info entrez 
+  $ ln -s /DATA_DIR/human/identifiers humangene 
 
-4. Add the root path to the file in `~/.intermine/MINE.properties`
+5. Add the root path to the file in `~/.intermine/MINE.properties`
 
 .. code-block:: properties
 
   resolver.file.rootpath=/DATA_DIR/idresolver/
 
-
-To use the NCBI gene resolver, see :doc:`/database/data-sources/id-resolvers` which also provides more information on how ID resolvers work in InterMine.
+See :doc:`/database/data-sources/id-resolvers` for details on how ID resolvers work in InterMine.
 
 .. warning:: 
 
 	The entrez identifiers file appears to only have the sequence identifier for worm instead of the WBgene identifier
-
 
 Alternately you can load identifier sources.
 
