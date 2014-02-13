@@ -168,4 +168,4 @@ If you are using the List Widgets library ``(>= 1.2.4)`` then you can launch a "
 Expose your localhost mine
 --------------------------
 
-It is easier to debug (especially CSS and JS issues) if we can see your mine from our end. If it is currently deployed on localhost, use `localtunnel <http://progrium.com/localtunnel/>`_ for free.
+It is easier to debug (especially CSS and JS issues) if we can see your mine from our end. If it is currently deployed on localhost, use `ngrok <https://ngrok.com//>`_.
