@@ -53,7 +53,7 @@ HTTP API
 Java
     `Download <http://lib.intermine.org/java>`_
     | `Docs <http://ci.intermine.org/job/docs/javadoc/>`_
-    | `Source <https://github.com/intermine/intermine-ws-client.java>`_
+    | `Source <https://github.com/intermine/intermine>`_
 Perl Client
     `Download | Docs <http://search.cpan.org/perldoc?Webservice%3A%3AInterMine>`_
     | `Source <https://github.com/intermine/intermine-ws-perl>`_
