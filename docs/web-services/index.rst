@@ -52,7 +52,7 @@ HTTP API
      Documentation: `<http://iodocs.labs.intermine.org>`_
 Java
     `Download <http://lib.intermine.org/java>`_
-    | `Docs <http://ci.intermine.org/job/docs/javadoc/>`_
+    | `Docs <http://intermine.github.io/intermine/>`_
     | `Source <https://github.com/intermine/intermine>`_
 Perl Client
     `Download | Docs <http://search.cpan.org/perldoc?Webservice%3A%3AInterMine>`_
