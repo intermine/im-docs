@@ -33,7 +33,7 @@ We see that the titles are defined within the headerconfig block. Then we have t
     
     * ``primaryIdentifier`` (default): the element will be displayed without any formatting applied
     * ``*primaryIdentifier*``: the element will be in italics, useful for organism names
-    * ``[primaryIdentifier]``: the value will appear in brackets
+    * ``[primaryIdentifier]``: the value will appear in square brackets
 
 What is important to note, is that classes of objects *inherit* from their parents, thus unless we provide a different configuration for a, say, Protein title, the formatting from BioEntity will be applied. Fields resolved in the title(s) will be removed from the summary below it.
 
