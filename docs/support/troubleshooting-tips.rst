@@ -132,15 +132,6 @@ Can't find keys
 
 It is expecting to find some keys to integrate data from that source. Do you have a keys file in the `bio/sources/protfeatures/resources`? 
 
-Can't find antlib-int.xml
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: bash
-
-	Unable to find jar:file:/home/malariamine/svn/trunk/intermine/integrate/main/dist/intermine-integrate.jar!/org/intermine/task/antlib-int.xml
-
-
-This happens occasionally, probably due to a concurrency issue in the build system.  Run the ANT command again and it should work.
 
 Classpath issues
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
