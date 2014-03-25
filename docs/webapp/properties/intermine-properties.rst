@@ -30,7 +30,7 @@ db.common-tgt-items.datasource.user            postgres_user    database usernam
 db.common-tgt-items.datasource.password        SECRET           database password 
 =============================================  ===============  =================================
 
-The following properties determine the settings for the items database.  This database is used by the webapp only.  It holds all user related information, including lists, queries and tags.
+The following properties determine the settings for the user profile database.  This database is used by the webapp only.  It holds all user related information, including lists, queries and tags.
 
 ===================================================  ===============  ===========================
 Property name                                        Example          Determines  
