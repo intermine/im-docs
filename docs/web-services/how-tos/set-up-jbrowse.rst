@@ -86,8 +86,8 @@ Python script will print out a suitable `refSeqs.json` for *D. melanogaster* fro
     import json
     import intermine.webservice
 
-    sq = intermine.webservice.Service("http://www.flymine.org/query")
-    refs = sq.model.Chromosome.where("length", ">", 0).where("organism.taxonId", "=", "7227")
+    mine = intermine.webservice.Service("http://www.flymine.org/query")
+    refs = mine.model.Chromosome.where("length", ">", 0).where("organism.taxonId", "=", "7227")
 
     print json.dumps([{"name": r.primaryIdentifier, "start": 0, "end": r.length} for r in refs])
 
