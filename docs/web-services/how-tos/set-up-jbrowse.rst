@@ -20,7 +20,7 @@ This can be done by fetching and extracting the latest release:
 
 .. code-block:: bash
 
-    wget -O JBrowse-1.11.3.zip 'http://jbrowse.org/wordpress/wp-content/plugins/download-monitor/download.php?id=93
+    wget -O JBrowse-1.11.3.zip 'http://jbrowse.org/wordpress/wp-content/plugins/download-monitor/download.php?id=93'
     unzip JBrowse-1.11.3.zip
 
 Add Configuration Files
