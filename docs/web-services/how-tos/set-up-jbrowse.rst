@@ -41,6 +41,7 @@ to display the genes and inter-genic regions, and a reference track with the DNA
 *D. melanogaster* from FlyMine_ the following track list could be used:
 
 .. code-block:: javascript
+
     {
         "tracks": [
             {
@@ -81,6 +82,7 @@ in your JBrowse. This can be automatically derived from the webservice itself. T
 Python script will print out a suitable `refSeqs.json` for *D. melanogaster* from FlyMine_:
 
 .. code-block:: python
+
     import json
     import intermine.webservice
 
@@ -92,6 +94,7 @@ Python script will print out a suitable `refSeqs.json` for *D. melanogaster* fro
 This will look something like:
 
 .. code-block:: javascript
+
     [
         {"start": 0, "end": 23011544, "name": "2L"},
         {"start": 0, "end": 24543557, "name": "3L"},
