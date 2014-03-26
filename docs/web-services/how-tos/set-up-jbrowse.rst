@@ -11,7 +11,7 @@ Gene models are correctly structured.
 This documentation has been tested with JBrowse-1.11.3.
 
 Download JBrowse
------------------
+.................
 
 You will need an installation of JBrowse for this task. Instructions on doing
 this can be found at `installing JBrowse`_.
@@ -24,7 +24,7 @@ This can be done by fetching and extracting the latest release:
     unzip JBrowse-1.11.3.zip
 
 Add Configuration Files
------------------------
+.......................
 
 You need to add two configuration files to the default JBrowse installation
 to start consuming data from the web-services. These are `JBROWSE/data/trackList.json`
