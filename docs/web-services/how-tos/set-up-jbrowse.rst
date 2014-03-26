@@ -40,7 +40,7 @@ The first file, the `trackList.json`, defines the tracks you wish to display. Fo
 to display the genes and inter-genic regions, and a reference track with the DNA for
 *D. melanogaster* from FlyMine_ the following track list could be used:
 
-.. code-block:: json
+.. code-block:: javascript
     {
         "tracks": [
             {
@@ -91,7 +91,7 @@ Python script will print out a suitable `refSeqs.json` for *D. melanogaster* fro
 
 This will look something like:
 
-.. code-block:: json
+.. code-block:: javascript
     [
         {"start": 0, "end": 23011544, "name": "2L"},
         {"start": 0, "end": 24543557, "name": "3L"},
