@@ -35,6 +35,10 @@ Modify the code so it does what you want
     will probably want to refer to the API documentation for your target
     language (see below).
 
+
+How Do I?
+-------------
+
 For the kinds of things you will probably be wanting to do, see :ref:`howtows`
 
 API and Client Libraries
@@ -68,7 +72,5 @@ JavaScript Client (for Browser and node.js)
     `Download <https://npmjs.org/package/imjs>`_
     | `Docs <http://intermine.github.io/imjs//>`_
     | `Source <https://github.com/intermine/imjs>`_
-
-
 
 .. index:: Perl, Ruby, web services, REST, Python, JavaScript, code generation, clients, Java

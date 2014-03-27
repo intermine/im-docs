@@ -23,8 +23,21 @@ This can be done by fetching and extracting the latest release:
     wget -O JBrowse-1.11.3.zip 'http://jbrowse.org/wordpress/wp-content/plugins/download-monitor/download.php?id=93'
     unzip JBrowse-1.11.3.zip
 
-Add Configuration Files
-.......................
+InterMine 1.3.2: Point at an InterMine
+........................................
+
+If your target InterMine is at 1.3.2 or later (API version >= 17), then
+you can simply get the configuration files generated for you by the mine itself.
+
+All you need to do is add your new mine-based dataset to your configuration file. For
+example to add *D. melanogaster* data from FlyMine_ as a JBrowse dataset, the
+following configuration in `jbrowse_conf.json` would suffice:
+
+.. include:: /web-services/how-tos/jbrowse_conf.json
+   :code: json
+
+InterMine 1.3.1: Add Configuration Files
+.........................................
 
 You need to add two configuration files to the default JBrowse installation
 to start consuming data from the web-services. These are `JBROWSE/data/trackList.json`

@@ -1,0 +1,9 @@
+{ 
+  "datasets": {
+    "FlyMine-7227": {
+      "url": "?data=http://www.flymine.org/query/service/jbrowse/config/7227",
+      "name": "FlyMine"
+    },
+    ...
+  }
+}
