@@ -47,14 +47,14 @@ to display the genes and inter-genic regions, and a reference track with the DNA
 *D. melanogaster* from FlyMine_, enabling search for features by name and using 
 density histograms when zoomed out, the following track list could be used:
 
-.. include:: trackList.json 
+.. include:: /web-services/how-tos/trackList.json 
    :code: javascript
 
 The second file, the `refSeqs.json` is a list of the reference sequences you wish to display
 in your JBrowse. This can be automatically derived from the webservice itself. The following
 Python script will print out a suitable `refSeqs.json` for *D. melanogaster* from FlyMine_:
 
-.. include:: create-ref-seqs.py
+.. include:: /web-services/how-tos/create-ref-seqs.py
    :code: python
    :start-line: 4
 
@@ -66,7 +66,7 @@ You can use this file, or one like it, as:
 
 This will look something like:
 
-.. include:: refSeqs.json
+.. include:: /web-services/how-tos/refSeqs.json
    :code: javascript
 
 Once in place, you can visit your JBrowse `index.html` and see the data from FlyMine_.
