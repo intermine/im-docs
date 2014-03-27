@@ -36,82 +36,38 @@ for these files first:
     cd JBrowse-1.11.3
     mkdir -p data/seq
 
-The first file, the `trackList.json`, defines the tracks you wish to display. For example
+If you wanted to have several data-sources, you would want separate directories, so:
+
+.. code-block:: bash
+
+    mkdir -p data/flymine/seq
+
+The first file, `data/trackList.json`, defines the tracks you wish to display. For example
 to display the genes and inter-genic regions, and a reference track with the DNA for
-*D. melanogaster* from FlyMine_ the following track list could be used:
+*D. melanogaster* from FlyMine_, enabling search for features by name and using 
+density histograms when zoomed out, the following track list could be used:
 
-.. code-block:: javascript
-
-    {
-        "tracks": [
-            {
-                "label":      "my_gene_track",
-                "key":        "Genes",
-                "type":       "JBrowse/View/Track/CanvasFeatures",
-                "storeClass": "JBrowse/Store/SeqFeature/REST",
-                "baseUrl":    "http://www.flymine.org/query/service/jbrowse/7227",
-                "query": {
-                    "type": "Gene" 
-                }
-            },
-                {
-                "label":      "my_intergenic_track",
-                "key":        "Intergenic Regions",
-                "type":       "JBrowse/View/Track/CanvasFeatures",
-                "storeClass": "JBrowse/Store/SeqFeature/REST",
-                "baseUrl":    "http://www.flymine.org/query/service/jbrowse/7227",
-                "query": {
-                    "type": "IntergenicRegion" 
-                }
-            },
-            {
-                "label":      "my_sequence_track",
-                "key":        "DNA",
-                "type":       "JBrowse/View/Track/Sequence",
-                "storeClass": "JBrowse/Store/SeqFeature/REST",
-                "baseUrl":    "http://www.flymine.org/query/service/jbrowse/7227",
-                "query": {
-                    "reference": true
-                }
-            }
-        ]
-    }
+.. include:: trackList.json 
+   :code: javascript
 
 The second file, the `refSeqs.json` is a list of the reference sequences you wish to display
 in your JBrowse. This can be automatically derived from the webservice itself. The following
 Python script will print out a suitable `refSeqs.json` for *D. melanogaster* from FlyMine_:
 
-.. code-block:: python
+.. include:: create-ref-seqs.py
+   :code: python
+   :start-line: 4
 
-    import json
-    import intermine.webservice
+You can use this file, or one like it, as:
 
-    mine = intermine.webservice.Service("http://www.flymine.org/query")
-    refs = mine.model.Chromosome.where("length", ">", 0).where("organism.taxonId", "=", "7227")
+.. code-block:: bash
 
-    print json.dumps([{"name": r.primaryIdentifier, "start": 0, "end": r.length} for r in refs])
+    python create-ref-seqs.py > data/seq/refSeqs.json
 
 This will look something like:
 
-.. code-block:: javascript
-
-    [
-        {"start": 0, "end": 23011544, "name": "2L"},
-        {"start": 0, "end": 24543557, "name": "3L"},
-        {"start": 0, "end": 27905053, "name": "3R"},
-        {"start": 0, "end": 22422827, "name": "X"},
-        {"start": 0, "end": 21146708, "name": "2R"},
-        {"start": 0, "end": 204112, "name": "XHet"},
-        {"start": 0, "end": 3288761, "name": "2RHet"},
-        {"start": 0, "end": 10049037, "name": "U"},
-        {"start": 0, "end": 1351857, "name": "4"}, 
-        {"start": 0, "end": 19517, "name": "dmel_mitochondrion_genome"},
-        {"start": 0, "end": 2517507, "name": "3RHet"},
-        {"start": 0, "end": 368872, "name": "2LHet"},
-        {"start": 0, "end": 2555491, "name": "3LHet"}, 
-        {"start": 0, "end": 347038, "name": "YHet"},
-        {"start": 0, "end": 29004656, "name": "Uextra"}
-    ]
+.. include:: refSeqs.json
+   :code: javascript
 
 Once in place, you can visit your JBrowse `index.html` and see the data from FlyMine_.
 
