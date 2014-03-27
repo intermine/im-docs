@@ -41,8 +41,8 @@ Manually create the databases needed by the testmodel application. Execute:
 
 .. code-block:: bash
 
-	$ createdb testmodel-webapp
-	$ createdb testmodel-webapp-userprofile
+	$ createdb unittest
+	$ createdb userprofile-testmodel
 
 Initialise the two databases:
 
