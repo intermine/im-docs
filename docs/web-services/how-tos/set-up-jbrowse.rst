@@ -1,20 +1,15 @@
 How Do I Set Up JBrowse to Work With InterMine?
 -----------------------------------------------
 
-InterMine 1.3.1 supports the JBrowse REST web-service specification
-(see `configuring JBrowse`_) which means that you can run a JBrowse installation
-directly off the InterMine web-services. You do not need to do anything
-special to enable this, but you should ensure that you run the
-`populate_child_features` post-process task to make sure that the
-Gene models are correctly structured.
+InterMine 1.3.1 supports the JBrowse REST web-service specification (see `configuring JBrowse`_) which means that you can run a JBrowse installation
+directly off the InterMine web-services. You do not need to do anything special to enable this, but you should ensure that you run the `populate_child_features` post-process task to make sure that the Gene models are correctly structured.
 
 This documentation has been tested with JBrowse-1.11.3.
 
 Download JBrowse
 .................
 
-You will need an installation of JBrowse for this task. Instructions on doing
-this can be found at `installing JBrowse`_.
+You will need an installation of JBrowse for this task. Instructions on doing this can be found at `installing JBrowse`_.
 
 This can be done by fetching and extracting the latest release:
 
@@ -87,3 +82,5 @@ Once in place, you can visit your JBrowse `index.html` and see the data from Fly
 .. _configuring JBrowse: http://gmod.org/wiki/JBrowse_Configuration_Guide
 .. _installing JBrowse: http://gmod.org/wiki/JBrowse_Configuration_Guide#Making_a_New_JBrowse
 .. _FlyMine: http://www.flymine.org
+
+.. index:: JBrowse, GBrowse, das
