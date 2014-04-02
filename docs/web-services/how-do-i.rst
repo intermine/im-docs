@@ -12,8 +12,8 @@ In all the examples below, the www.flymine.org website will be used as a
 reference. Common tools used in examples will be curl, and the client libraries
 published in perl, python, ruby and javascript.
 
-Do access personal resources (those that are not available publically, and only
-accessible in the web-application after logging in, you will need to provide
+To access personal resources (those that are not available publically, and only
+accessible in the web-application after logging in), you will need to provide
 an authentication token.
 
 
