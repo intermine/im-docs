@@ -15,7 +15,7 @@ that repository.
 Upgrade to InterMine 1.3.x
 ---------------------------------
 
-No action required to upgrade. This code will work with any webapp and database created with InterMine 1.3+.
+This code will work with any webapp and database created with InterMine 1.3+.
 
 Upgrade to InterMine 1.3
 ---------------------------------
