@@ -12,13 +12,7 @@ If you don't have a git repo yet, see :doc:`/git/index` for details.
 If you host a copy of the `CDN`_, then you should also pull in changes from
 that repository.
 
-Upgrade to InterMine 1.3.2
----------------------------------
-
-The core data model has not been changed, so you should be able to release a webapp
-using InterMine 1.3 code without making any changes.
-
-Upgrade to InterMine 1.3.1
+Upgrade to InterMine 1.3.x
 ---------------------------------
 
 The core data model has not been changed, so you should be able to release a webapp
