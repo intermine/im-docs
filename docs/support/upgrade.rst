@@ -148,15 +148,4 @@ your mine. Otherwise you will get an "Unable to construct query" error on the qu
 	# used by web services for running queries, needs to be valid
 	webapp.baseurl=http://localhost:8080
 
-Tomcat 7.0
-~~~~~~~~~~~~~~~~~~~~~~
 
-If you would like to use Tomcat 7.0 with InterMine 1.1, add this property:
-
-.. code-block:: properties
-
-	# in ~/.intermine/MINE_NAME.properties
-	webapp.tomcat.version=7
-
-
-.. _CDN: https://github.com/intermine/CDN
