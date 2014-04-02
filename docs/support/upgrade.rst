@@ -15,8 +15,7 @@ that repository.
 Upgrade to InterMine 1.3.x
 ---------------------------------
 
-The core data model has not been changed, so you should be able to release a webapp
-using InterMine 1.3 code without making any changes.
+No action required to upgrade. This code will work with any webapp and database created with InterMine 1.3+.
 
 Upgrade to InterMine 1.3
 ---------------------------------
