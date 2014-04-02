@@ -6,5 +6,6 @@ Third party tools
 
     galaxy
     gbrowse
+    jbrowse
     cytoscape
     heatmap
