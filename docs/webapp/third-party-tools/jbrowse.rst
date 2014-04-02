@@ -2,7 +2,7 @@ JBrowse
 ================================
 
 JBrowse can be run directly from InterMine web-services. This means that using JBrowse from
-a report page is straightforward.
+a report page is straightforward. This section describes features available in InterMine 1.3.3.
 
 You need to:
 
