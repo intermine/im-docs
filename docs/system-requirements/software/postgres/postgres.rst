@@ -93,6 +93,22 @@ If you set Postgres to `SQL_ASCII`, then that is a special character set in Post
 
 Please try to treat InterMine as a black box. The fact that it uses Postgres to store its data should be a detail that should be hidden as much as possible. The InterMine system is written in Java, and therefore handles all text in Unicode. 
 
-Procedures to change character encoding to `SQL_ASCII` in PostgreSQL 9.1.x - https://gist.github.com/boboppie/4148428
+The template1 database is the database used as a template when you run the `createdb` command. Update the encoding for template1 to be SQL_ASCII then every database you create from now on will have the correct encoding.
 
-.. index:: PostgreSQL
+Procedures to change character encoding to `SQL_ASCII` in PostgreSQL 9.x:
+
+.. code-block:: bash
+
+	sudo -u postgres psql
+	update pg_database set datallowconn = TRUE where datname = 'template0';
+	\c template0
+	update pg_database set datistemplate = FALSE where datname = 'template1';
+	drop database template1;
+	create database template1 with template = template0 encoding = 'SQL_ASCII' LC_COLLATE='C' LC_CTYPE='C';
+	update pg_database set datistemplate = TRUE where datname = 'template1';
+	\c template1
+	update pg_database set datallowconn = FALSE where datname = 'template0';
+	\q
+	exit
+
+.. index:: PostgreSQL, SQL_ASCII, LATIN-9, UTF-8
