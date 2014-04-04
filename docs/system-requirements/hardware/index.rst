@@ -4,7 +4,7 @@ Hardware
 Recommendations 
 ----------------------
 
-The requirements for running InterMine depend on the size of data warehouse you need to create. It is possible to build small InterMine databases on most linux or Mac desktops but with more substantial databases a more powerful dedicated server is required. The recommendations below are the minimum for running substantial servers such as FlyMine or InterMines for the major model organism databases.
+The requirements for running InterMine depend on the size of data warehouse you need to create. It is possible to build small InterMine databases on most Linux or Mac desktops but with more substantial databases a more powerful dedicated server is required. The recommendations below are the minimum for running substantial servers such as FlyMine or InterMines for the major model organism databases.
 
 Database servers 
 ~~~~~~~~~~~~~~~~
@@ -44,12 +44,10 @@ A less expensive option is to run Tomcat on the database machine and not buy sep
 OS
 ~~~
 
- * Any distribution of linux/Unix should be fine as long as it runs Java and Postgres, Debian is our preference. 
+ * Any distribution of Linux/Unix should be fine as long as it runs Java and Postgres, Debian is our preference. 
  * Use something mainstream and reliable like Linux or BSD
  * Use the system that your friendly sysadmin is most familiar with.
  * Not favourites:
- 
-   * CentOS
    * Tru64
    * :doc:`solaris`
 
