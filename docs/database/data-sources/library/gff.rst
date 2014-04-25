@@ -44,6 +44,7 @@ If you follow the above steps with this data file, the following will happen:
 
 	# gff_config.properties example for E. coil gff3 attributes
 	511145.terms=gene,exon                             # feature types to load, e.g. load gene and exon for E. coli
+	511145.excludes=CDS                                # comma-separated list of feature types to exclude from load
 	511145.attributes.Dbxref.EcoGene=primaryIdentifier # use Dbxref EcoGene field as primaryIdentifier
 	511145.attributes.locus_tag=secondaryIdentifier    # use locus_tag field as secondaryIdentifier
 	511145.attributes.gene=symbol                      # use gene field as symbol
