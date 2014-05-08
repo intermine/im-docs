@@ -7,4 +7,5 @@ InterMine performance
       
    data-loading
    precomputing
+   configuration
    
