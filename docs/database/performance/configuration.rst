@@ -10,5 +10,5 @@ This involved parsing SQL strings into a Java representation, which is normally 
 are found in large queries can be slow.
 
 There is a timeout to prevent query parsing from taking too long, if the time is exceeded a query will run as normal
-without possible optimisation. The default can be overridden by setting `os.query.max-query-parse-time` to an integer value
-defining a number of milliseconds.
+without possible optimisation. The default can be overridden by setting ``os.query.max-query-parse-time`` in ``*mine.properties``
+to an integer value defining a number of milliseconds.
