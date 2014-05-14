@@ -1,5 +1,10 @@
 {% extends "basic/layout.html" %}
 
+{% block rootrellink %}
+    <a class="logohome" href="http://www.intermine.org/"><img src="{{ pathto("_static/img/logo.png", 1) }}"></img></a>
+    {{ super() }}
+{% endblock %}
+
 {%- block doctype -%}
 <!DOCTYPE html>
 {%- endblock -%}
@@ -28,7 +33,9 @@
         {%- endif %}
         
         {%- if show_sphinx %}
-            {% trans sphinx_version=sphinx_version|e %}Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> {{ sphinx_version }}.{% endtrans %}
+            {% trans sphinx_version=sphinx_version|e %}Createdd using <a href="http://sphinx.pocoo.org/">Sphinx</a> {{ sphinx_version }}.{% endtrans %}
         {%- endif %}
+
+        {{ logo }}
     </div>
 {%- endblock %}

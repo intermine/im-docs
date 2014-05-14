@@ -129,8 +129,15 @@ div.related {
 div.related ul {
   height: 2em;
   margin: 2px;
-  background: url("img/logo.png") no-repeat 20px 4px;
-  padding-left: 50px;
+  /*background: url("img/logo.png") no-repeat 20px 4px;*/
+  /*padding-left: 50px;*/
+}
+div.related a.logohome {
+  float: left;
+  width: 25px;
+  height: 21px;
+  margin: 4px 4px 4px 10px;
+
 }
 div.related ul li {
   margin: 0;
