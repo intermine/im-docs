@@ -35,6 +35,22 @@ If there are no results then no improvement can be made.  The example below show
  	Synonym    | subject | Gene       | 27836
 
 
+Switching off the DataTracker
+--------------------------------------------------
+
+In order to allow data conflicts to be managed, the system needs to keep track of where each piece of data came from. This is because conflicting values will be resolved by a priority system where one data source is regarded as more reliable than another for a particular field value. However, storing this data takes significant time while running the DataLoader, and can now be switched off on a per-class basis for the whole DataLoading run. This is useful if you know that there will never be any data conflicts for a particular class. The configuration is found in the properties file for the project, and a configuration line for "datatrackerMissingClasses" is added to the IntegrationWriter entry, like this:
+
+.. code-block:: properties
+
+	integration.production.class=org.intermine.dataloader.IntegrationWriterDataTrackingImpl
+	integration.production.osw=osw.production
+	integration.production.datatrackerMaxSize=100000
+	integration.production.datatrackerCommitSize=10000
+	integration.production.datatrackerMissingClasses=OneAttribute
+
+The parameter is a comma-separated list of class names for which no tracking data should be stored. All objects which are instances of these classes will be omitted, including subclasses. 
+
+
 Recommended Hardware and Software
 ---------------------------------------
 
