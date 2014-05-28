@@ -55,12 +55,13 @@ Non-InterMineObjects
 
 For the ultimate in performance gain, objects can be stored in the database which are not instances of InterMineObject. Such objects are stored in "flat mode" in an SQL table. Because they do not have an ID, they cannot be referenced by other objects, fetched by ID, or deleted by ID, and they cannot have a collection, or be in a many-to-many collection. They are not stored in the main InterMineObject table, and are not stored in the DataTracker, and are never merged with other objects by the DataLoader. No class hierarchy may exist in these classes, and no dynamic objects may make use of these classes. The objects take much less space in the database than instances of InterMineObject. The objects can however contain attributes and references to other objects, and can be in one-to-many collections of other objects. The full Query interface will work correctly with these simple objects. Simple objects are configured in the Model by declaring the superclass of a class to be "java.lang.Object" in the model description, like this:
 
-```xml
+.. code-block:: xml
+
     <class name="SimpleObject" is-interface="false" extends="java.lang.Object">
         <attribute name="name" type="java.lang.String"/>
         <reference name="employee" referenced-type="Employee" reverse-reference="simpleObjects"/>
     </class>
-```
+
 
 We recommend you set "is-interface" to "false" for these objects. There is no need to specify these classes in the "dataTrackerMissingClasses" property as above, because these classes are never tracked. 
 
