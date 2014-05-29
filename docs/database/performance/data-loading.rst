@@ -14,6 +14,11 @@ PostgreSQL
 
 Recommended settings for PostgreSQL are in :doc:`/system-requirements/software/postgres/postgres`
 
+Hardware
+---------------------------------------
+
+See a note about :doc:`/system-requirements/hardware`
+
 
 Storing Items in order
 ----------------------------
@@ -85,7 +90,7 @@ Performance test
 
 In objectstore/test run ‘ant test-performance’  (requires unittest database)
 
-Our results:
+Our results for comparison:
 
 .. code-block:: properties
 
@@ -102,8 +107,6 @@ Our results:
 	[run-performance-test] totalTime: 681 rowCount: 30000
 	[run-performance-test] Finished reading 30000 employee objects, took: 681ms. Average time per thousand: 22.700ms.
 
-You should expect similar.
 
-See a note about :doc:`/system-requirements/hardware`
 
 .. index:: data loading speed, performance, postgres, hardware, speed, 
