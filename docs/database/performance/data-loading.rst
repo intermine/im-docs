@@ -82,13 +82,15 @@ The hardware and support software used for a data loading has a significant impa
 
 * Install lots of RAM, like 16GB or more, but watch out for multiple RAM modules slowing down your RAM access speed.
 * Have at least two real CPUs - hyperthreading doesn't count. Preferably have at least four CPUs.
-* It is more important to have fast individual CPUs than a lot of CPUs for a build server. FlyMine does use multiple threads during data loading, but not asymmetrically - there is one thread which takes a lot of the CPU time. On the other hand, for a production server, having a few more CPUs is more important.
+* It is more important to have fast individual CPUs than a lot of CPUs for a build server. InterMine does use multiple threads during data loading, but not asymmetrically - there is one thread which takes a lot of the CPU time. On the other hand, for a production server, having a few more CPUs is more important.
 * Have a decent IO subsystem. We currently use a fibrechannel attached RAID array of 16 15krpm discs for our build servers.
-* Use a recent, correctly configured version of PostgreSQL.
-* We can actually build a database for production faster than Postgres can undump from a backup file. This is because we generate precomputed tables and indexes in parallel using several CPUs simultaneously. Therefore, it makes sense to complete the last few steps of the build (namely precomputed tables and indexes) on your production servers directly, instead of completing them on the build server and transferring the data across to the production servers.
 
-PostgreSQL Configuration
+
+PostgreSQL
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Use a recent, correctly configured version of PostgreSQL.
+* InterMine can actually build a database for production faster than Postgres can undump from a backup file. This is because we generate precomputed tables and indexes in parallel using several CPUs simultaneously. Therefore, it makes sense to complete the last few steps of the build (namely precomputed tables and indexes) on your production servers directly, instead of completing them on the build server and transferring the data across to the production servers.
 
 Recommended settings for PostgreSQL are in :doc:`/system-requirements/software/postgres/postgres`
 
