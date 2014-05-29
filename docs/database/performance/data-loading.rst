@@ -63,7 +63,16 @@ For the ultimate in performance gain, objects can be stored in the database whic
     </class>
 
 
-We recommend you set "is-interface" to "false" for these objects. There is no need to specify these classes in the "dataTrackerMissingClasses" property as above, because these classes are never tracked. 
+We recommend you set `is-interface` to "false" for these objects. There is no need to specify these classes in the "dataTrackerMissingClasses" property as above, because these classes are never tracked. 
+
+Proxies
+--------------------
+
+In object/relational mapping systems when an object is read from the database we need to know which objects it is related to in order to follow references and collections. However, if the entire object were fetched each time and then it's referenced objects were fetched, etc one request could materialise millions of objects. e.g. if Gene references Organism and has a collection of Proteins we would fetch a Gene, it's Organism and Proteins then recusively fetch all references for the new objects.
+
+Instead we use proxies. `org.intermine.objectstore.proxy.ProxyReference` appears to be a standard `InterMineObject` but in fact just contains an object id, when any method is called on the proxy the object is materialized automatically. e.g. Calling `gene.getOrganism()` returns a `ProxyReference` but calling `gene.getOrganism().getName()` de-referneces the proxy and returns the name.
+
+`org.intermine.objectstore.proxy.ProxyCollection` does the same for collections but wraps an objectstore query required to populate the collection, the collection is materialised in batches as it is iterated over by wrapping a SingletonResults object. 
 
 
 Recommended Hardware and Software
