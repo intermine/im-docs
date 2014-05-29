@@ -112,7 +112,7 @@ Our results for comparison:
 
 
 ============================ ============= ============ ============ ==============
-                             Load time     objs / min   DB size      tracker size
+.                            Load time     objs / min   DB size      tracker size
 ============================ ============= ============ ============ ==============
 Original                     4.51 min      1,525,015    9.6 GB       3.7 GB
 No tracker                   3.94 min      1,748,446    5.56 GB      1 GB
