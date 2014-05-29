@@ -9,14 +9,14 @@ The requirements for running InterMine depend on the size of data warehouse you 
 Database servers 
 ~~~~~~~~~~~~~~~~
 
-The hardware used for a data loading has a ``significant`` impact on data loading performance. The main recommendations we have are:
+The hardware used for a data loading has a **significant** impact on data loading performance. The main recommendations we have are:
 
 * Install plenty of RAM, 16GB or more, but watch out for multiple RAM modules slowing down your RAM access speed.
 * Have at least two real CPUs - hyperthreading doesn’t count. Preferably have at least four CPUs.
 * It is more important to have fast individual CPUs than a lot of CPUs for a build server. InterMine does use multiple threads during data loading, but not asymmetrically - there is one thread which takes a lot of the CPU time. On the other hand, for a production server, having a few more CPUs is more important.
 * Have a decent IO subsystem. We currently use a fibrechannel attached RAID array of 16 15krpm discs for our build servers.
 
-Suggestion for a large-ish InterMine instance
+Suggestion for a large InterMine instance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * 8 cores
@@ -62,7 +62,7 @@ FlyMine has a separate machine to run Tomcat to serve the webapp, this is the ma
 
 modENCODE - identical machines
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-For modENCODE we actually have two identical servers that switch roles with each release.  With higher data volumes and more frequent releases this makes more sense as we avoid dumping and reloading.
+For modENCODE we actually have two identical servers that switch roles with each release.  With higher data volumes and more frequent releases this makes more sense as we avoid dumping and reloading. Unlike FlyMine, modMine's database and webapp live on the same server.
 
 Database sizes/ disk space
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
