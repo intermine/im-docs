@@ -1,12 +1,18 @@
 Data loading performance
 ================================
 
-
-
 Java options
 --------------------
 
 Loading data can be memory intensive so there are some Java options that should be tuned to improve performance.  See a note about :doc:`/system-requirements/software/java`
+
+PostgreSQL
+---------------------------------------
+
+* Use a recent, correctly configured version of PostgreSQL.
+* InterMine can actually build a database for production faster than Postgres can undump from a backup file. This is because we generate precomputed tables and indexes in parallel using several CPUs simultaneously. Therefore, it makes sense to complete the last few steps of the build (namely precomputed tables and indexes) on your production servers directly, instead of completing them on the build server and transferring the data across to the production servers.
+
+Recommended settings for PostgreSQL are in :doc:`/system-requirements/software/postgres/postgres`
 
 
 Storing Items in order
@@ -74,26 +80,6 @@ Instead we use proxies. `org.intermine.objectstore.proxy.ProxyReference` appears
 
 `org.intermine.objectstore.proxy.ProxyCollection` does the same for collections but wraps an objectstore query required to populate the collection, the collection is materialised in batches as it is iterated over by wrapping a SingletonResults object. 
 
-
-Recommended Hardware
----------------------------------------
-
-The hardware and support software used for a data loading has a significant impact on data loading performance. The main recommendations we have are:
-
-* Install lots of RAM, like 16GB or more, but watch out for multiple RAM modules slowing down your RAM access speed.
-* Have at least two real CPUs - hyperthreading doesn't count. Preferably have at least four CPUs.
-* It is more important to have fast individual CPUs than a lot of CPUs for a build server. InterMine does use multiple threads during data loading, but not asymmetrically - there is one thread which takes a lot of the CPU time. On the other hand, for a production server, having a few more CPUs is more important.
-* Have a decent IO subsystem. We currently use a fibrechannel attached RAID array of 16 15krpm discs for our build servers.
-
-
-PostgreSQL
----------------------------------------
-
-* Use a recent, correctly configured version of PostgreSQL.
-* InterMine can actually build a database for production faster than Postgres can undump from a backup file. This is because we generate precomputed tables and indexes in parallel using several CPUs simultaneously. Therefore, it makes sense to complete the last few steps of the build (namely precomputed tables and indexes) on your production servers directly, instead of completing them on the build server and transferring the data across to the production servers.
-
-Recommended settings for PostgreSQL are in :doc:`/system-requirements/software/postgres/postgres`
-
 Performance test
 ---------------------------------------
 
@@ -117,5 +103,7 @@ Our results:
 	[run-performance-test] Finished reading 30000 employee objects, took: 681ms. Average time per thousand: 22.700ms.
 
 You should expect similar.
+
+See a note about :doc:`/system-requirements/hardware`
 
 .. index:: data loading speed, performance, postgres, hardware, speed, 
