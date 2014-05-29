@@ -110,6 +110,10 @@ Our results for comparison:
 	[run-performance-test] totalTime: 681 rowCount: 30000
 	[run-performance-test] Finished reading 30000 employee objects, took: 681ms. Average time per thousand: 22.700ms.
 
+Results
+---------------------------------------
+
+Here are the results of trying some of the above so you can see how effective the various strategies are:
 
 ============================ ============= ============ ============ ==============
 .                            Load time     objs / min   DB size      tracker size
