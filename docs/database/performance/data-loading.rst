@@ -20,7 +20,7 @@ Recommended settings for PostgreSQL are in :doc:`/system-requirements/software/p
 Hardware
 ---------------------------------------
 
-See a note about :doc:`/system-requirements/hardware/index.rst`
+See a note about :doc:`/system-requirements/hardware/index`
 
 
 Storing Items in order
@@ -111,13 +111,20 @@ Our results for comparison:
 	[run-performance-test] Finished reading 30000 employee objects, took: 681ms. Average time per thousand: 22.700ms.
 
 
-============= ============= ============ ============ ==============
-              Load time     objs / min   DB size      tracker size
-============= ============= ============ ============ ==============
-Original      4.51 min      1,525,015    9.6 GB       3.7 GB
-No tracker    3.94 min      1,748,446    5.56 GB      1 GB
-============= ============= ============ ============ ==============
+============================ ============= ============ ============ ==============
+                             Load time     objs / min   DB size      tracker size
+============================ ============= ============ ============ ==============
+Original                     4.51 min      1,525,015    9.6 GB       3.7 GB
+No tracker                   3.94 min      1,748,446    5.56 GB      1 GB
+Consequence as SimpleObject  3.37 min      2,044,448    4.6 GB       1.4 GB
+Both of above                3.20 min      2,153,291    4.1 GB       1 GB
+============================ ============= ============ ============ ==============
 
 
 
-.. index:: data loading speed, performance, postgres, hardware, speed, 
+
+
+
+
+
+.. index:: data loading speed, performance, postgres, hardware, speed
