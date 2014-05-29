@@ -1,6 +1,9 @@
 Data loading performance
 ================================
 
+The speed at which InterMine is able to load data into the databases depends on a number of factors including complexity of objects loaded, hardware specifications and so on. Below are some steps you can take to speed up your build.
+
+
 Java options
 --------------------
 
@@ -17,7 +20,7 @@ Recommended settings for PostgreSQL are in :doc:`/system-requirements/software/p
 Hardware
 ---------------------------------------
 
-See a note about :doc:`/system-requirements/hardware`
+See a note about :doc:`/system-requirements/hardware/index.rst`
 
 
 Storing Items in order
@@ -106,6 +109,14 @@ Our results for comparison:
 	[run-performance-test] Read  30000 employee objects, took: 101ms.
 	[run-performance-test] totalTime: 681 rowCount: 30000
 	[run-performance-test] Finished reading 30000 employee objects, took: 681ms. Average time per thousand: 22.700ms.
+
+
+============= ============= ============ ============ ==============
+              Load time     objs / min   DB size      tracker size
+============= ============= ============ ============ ==============
+Original      4.51 min      1,525,015    9.6 GB       3.7 GB
+No tracker    3.94 min      1,748,446    5.56 GB      1 GB
+============= ============= ============ ============ ==============
 
 
 
