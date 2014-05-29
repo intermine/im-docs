@@ -75,7 +75,7 @@ Instead we use proxies. `org.intermine.objectstore.proxy.ProxyReference` appears
 `org.intermine.objectstore.proxy.ProxyCollection` does the same for collections but wraps an objectstore query required to populate the collection, the collection is materialised in batches as it is iterated over by wrapping a SingletonResults object. 
 
 
-Recommended Hardware and Software
+Recommended Hardware
 ---------------------------------------
 
 The hardware and support software used for a data loading has a significant impact on data loading performance. The main recommendations we have are:
@@ -84,7 +84,7 @@ The hardware and support software used for a data loading has a significant impa
 * Have at least two real CPUs - hyperthreading doesn't count. Preferably have at least four CPUs.
 * It is more important to have fast individual CPUs than a lot of CPUs for a build server. FlyMine does use multiple threads during data loading, but not asymmetrically - there is one thread which takes a lot of the CPU time. On the other hand, for a production server, having a few more CPUs is more important.
 * Have a decent IO subsystem. We currently use a fibrechannel attached RAID array of 16 15krpm discs for our build servers.
-* Use a recent version of PostgreSQL. At the time of writing, Postgres 8.4 is promising to come out Real Soon Now with significant improvements for the type of query we run frequently, especially if the machine has a large RAID array. Make sure you check out the effective_concurrency option.
+* Use a recent, correctly configured version of PostgreSQL.
 * We can actually build a database for production faster than Postgres can undump from a backup file. This is because we generate precomputed tables and indexes in parallel using several CPUs simultaneously. Therefore, it makes sense to complete the last few steps of the build (namely precomputed tables and indexes) on your production servers directly, instead of completing them on the build server and transferring the data across to the production servers.
 
 PostgreSQL Configuration
