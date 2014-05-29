@@ -9,6 +9,15 @@ The requirements for running InterMine depend on the size of data warehouse you 
 Database servers 
 ~~~~~~~~~~~~~~~~
 
+The hardware used for a data loading has a significant impact on data loading performance. The main recommendations we have are:
+
+* Install lots of RAM, like 16GB or more, but watch out for multiple RAM modules slowing down your RAM access speed.
+* Have at least two real CPUs - hyperthreading doesn’t count. Preferably have at least four CPUs.
+* It is more important to have fast individual CPUs than a lot of CPUs for a build server. InterMine does use multiple threads during data loading, but not asymmetrically - there is one thread which takes a lot of the CPU time. On the other hand, for a production server, having a few more CPUs is more important.
+* Have a decent IO subsystem. We currently use a fibrechannel attached RAID array of 16 15krpm discs for our build servers.
+
+Example
+
  * 8 cores
  * 32 GB RAM
  * ~2TB usable storage (SAS disks are faster than SATA but more expensive)
@@ -19,18 +28,10 @@ Database servers
 
  * Linux/Unix capable of running Java and PostgreSQL 
 
-A less expensive option:
+.. note::
 
- * 4 cores
- * 16GB RAM
- * ~2TB usable storage
+  It's essential to have separate development and production machines.
 
-   *  RAID 10
-   *  hardware RAID controller with a battery backed cache (gives faster write speeds) 
-
- * Linux/Unix capable of running Java and PostgreSQL 
-
-Note:  It's fairly essential to have separate development and production machines.
 
 Web servers
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -39,17 +40,17 @@ Web servers
  * 8GB RAM (or more)
  * ~200GB local disks 
 
-A less expensive option is to run Tomcat on the database machine and not buy separate web servers, we do this for modENCODE and performance is fine.
+
 
 OS
 ~~~
 
- * Any distribution of Linux/Unix should be fine as long as it runs Java and Postgres, Debian is our preference. 
- * Use something mainstream and reliable like Linux or BSD
- * Use the system that your friendly sysadmin is most familiar with.
- * Not favourites:
-   * Tru64
-   * :doc:`solaris`
+* Any distribution of Linux/Unix should be fine as long as it runs Java and Postgres, Debian is our preference. 
+* Use something mainstream and reliable like Linux or BSD
+* Use the system that your friendly sysadmin is most familiar with.
+* Not favourites:
+ * Tru64
+ * :doc:`solaris`
 
 
 What we use
