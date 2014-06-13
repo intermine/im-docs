@@ -181,7 +181,130 @@ example:
 
 Cross references represent identifiers used in external databases, eg. FlyBase, UniProt. An object in InterMine which has CrossReference will have a identifier and data source for that cross reference. In order to find the cross reference in that data source, a url is required to link to and the full path should look like url+identifier, e.g. ''http://pfam.sanger.ac.uk/family?PF00001''. In web.properties, the first part of the full path could be configured as in "url", and identifier will be added programmatically to the rear of it. The dataSource_name should be consistent with the source name of the CrossReferences in the InterMine database.
 
+OpenAuth2 Settings
+---------------------
 
+You can configure your mine to accept delegated authentication from one or more identity
+resources which are protected by OAuth2_ authentication. For this, you must register each
+application with the provider, giving them details of your application such as its name, and
+where it will be located. This varies from provider to provider - see
+`this tutorial <http://benfoster.io/blog/oauth-providers>`_ for a good
+guide to the registration process for a number of popular providers.
+
+We are using the `Apache OLTU`_ library to help manage the authentication flow. This means
+that configuring some of the more common providers, such as Facebook, Github and Microsoft
+is very simple. It also allows us to add any identity provider that meets certain minimum
+sanity requirements.
+
+Configuration is managed through adding values to the ``web-properties``.
+
+The Callback URI
+~~~~~~~~~~~~~~~~~~
+
+Don't forget that you will need to specify the redirect URI differently at different
+providers. For the InterMine system, the callback will be ``BASE_URL/PATH/oauth2callback.do?provider=$PROVIDER``,
+but some providers require just the domain name, others will ask for a specific path. Best
+practice is to give as general a path as possible in case this needs changing in the future.
+Many providers will require a path, but allow the ``redirect_uri`` to be any subpath of that
+URI - in which case you should provide ``BASE_URL/PATH``.
+
+Enabling Supported Providers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You will need to inform the InterMine system of the names of the providers which have been
+configured to work with your application. This should be a comma separated list of provider
+names. The values are case insensitive, and will be processed as upper-case values. E.G.:
+
+.. code-block:: properties
+
+    oauth2.providers = github,facebook,microsoft,strava,aip
+
+Configuring OLTU Supported Providers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To configure an OLTU supported provider (such as Github or Facebook), you simply need to
+define the client-id and client-secret you registered your application with, eg:
+
+.. code-block:: properties
+
+    oauth2.GITHUB.client-id = $GH-CLIENT-ID
+    oauth2.GITHUB.client-secret = $GH-CLIENT-SECRET
+
+
+Configuring a Custom Provider
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To configure a custom provider some other properties need to be provided.
+Taking AIP's araport system as an example, this can be configured thusly:
+
+.. code-block:: properties
+
+    oauth2.AIP.client-id = YOUR_CLIENT_ID
+    oauth2.AIP.client-secret = YOUR_CLIENT_SECRET
+
+The URLs needed by the flow - contact your provider to find these out:
+
+.. code-block:: properties
+
+    oauth2.AIP.url.auth = https://api.araport.org/authorize
+    oauth2.AIP.url.token = https://api.araport.org/token
+
+The scopes need to access the identity resource. This should include sufficient levels of permission
+to access the name and email of the authenticating user.
+
+.. code-block:: properties
+
+    oauth2.AIP.scopes = PRODUCTION
+
+Information about the way the token endpoint functions. If the token endpoint expects parameters to be passed
+in the query-string use the value "QUERY", and if the endpoint expects the parameters to be passed
+in the message body provide the value "BODY":
+
+.. code-block:: properties
+
+    oauth2.AIP.messageformat = BODY
+
+Information about the way the token endpoint responds. If the token endpoint responds with
+``JSON``, then provide the value "JSON", and if the endpoint responds with url-encoded form-data, 
+then provide the value "FORM"
+
+.. code-block:: properties
+
+    oauth2.AIP.responsetype = JSON
+
+Information about the way the identity resource operates. If the resource expects
+the bearer token to be in the query parameters provide the value "query", and if the
+bearer token is expected to be in the ``Authorization`` header, pass the value
+"header".
+
+.. code-block:: properties
+
+    oauth2.AIP.resource-auth-mechanism = header
+
+The location of the identity resource. This must be a resource that can respond with ``JSON``. If query
+parameters are needed they should be included in the URL. An ``Accept`` header will be provided with the
+value ``application/json``.
+
+.. code-block:: properties
+
+    oauth2.AIP.identity-resource = https://api.araport.org/profiles/v2/me
+
+Guides to interpreting the response from the identity resource. These are all optional. 
+
+.. code-block:: properties
+
+    # Provide a value if the identity is within a message envelope. The value is the
+    # key of the envelope.
+    oauth2.AIP.identity-envelope = result
+    # Provide a key to access a unique identifier for the user. Default = id
+    oauth2.AIP.id-key = uid
+    # Provide a key to access the user's email. Default = email
+    oauth2.AIP.email-key = email
+    # Provide a key to access the user's name. May be a composite value (comma separated). Default = name
+    oauth2.AIP.name-key = first_name,last_name
+
+.. _OAuth2: http://oauth.net/2/
+.. _Apache OLTU: http://oltu.apache.org/
 
 Overriding properties
 ---------------------------------
@@ -189,6 +312,7 @@ Overriding properties
 * `intermine/webapp/main/resources/webapp/WEB-INF/global.web.properties` - used by all mines.  Properties set here will be available to everyone, even the test model mine.
 * `bio/webapp/resources/webapp/WEB-INF/bio.web.properties` - used by all bio-mines.  Properties set here will be available to all mines that use the bio layer.  so not the test model model. Can overwrite properties in the global.web.properties file.
 * `flymine/webapp/resources/web.properties` - used by a mine.  Properties set here will be available to only that specific mine.  Can create mine-specific properties or overwrite properties in the above two files.
+* `$HOME/.intermine/flymine.properties` - used by a mine. Properties set here will be available only to that specific mine, and will override all other properties. Put sensitive values here that should not be commited to version control.
 
 
 .. index:: web properties, cross reference links, attribute links, link outs, list upload examples, header links, meta keywords, meta description, portal welcome message, keyword search examples
