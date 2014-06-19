@@ -8,7 +8,7 @@ Contrib software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ========  ==========================================
-debian    apt-get install postgresql-contrib-8.4
+debian    apt-get install postgresql-contrib-9.3
 fedora    yum install postgresql-contrib
 ========  ==========================================
 
@@ -16,7 +16,7 @@ Header files
 ~~~~~~~~~~~~~~
 
 ========  ==========================================
-debian    apt-get install postgresql-server-dev-8.4
+debian    apt-get install postgresql-server-dev-9.3
 fedora    yum install postgresql-devel
 ========  ==========================================
 
