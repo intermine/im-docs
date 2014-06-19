@@ -52,7 +52,7 @@ You need to create the bioseg type in each database that is going to use it. If 
 Change directory to the postgres contrib directory 
 
 ========  ==========================================
-debian    /usr/share/postgresql/8.4/contrib
+debian    /usr/share/postgresql/9.3/contrib
 fedora    /usr/share/pgsql/contrib
 ========  ==========================================
 
