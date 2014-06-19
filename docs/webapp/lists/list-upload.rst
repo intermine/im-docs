@@ -26,9 +26,14 @@ First, we query for the value in key fields.  For example:
       	primaryIdentifier = 'adh' or 
       	secondaryIdentifier = 'adh';
 
-If this query returned results, that object is added to our list and we are done.
+If this query returned results, that object is added to our list and we are done. 
 
 If this query didn't return any results, we move on to the next step.
+
+.. note:
+
+You set a parameter, matchOnFirst="false", to always run all queries.
+
 
 "Bag Queries"
 ~~~~~~~~~~~~~~~~~~~
