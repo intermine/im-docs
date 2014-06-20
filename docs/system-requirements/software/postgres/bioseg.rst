@@ -85,6 +85,6 @@ See http://www.postgresql.org/docs/9.1/static/btree-gist.html.  Run the command 
 
 .. code-block:: bash
 
-	$ CREATE EXTENSION btree_gist   
+	$ CREATE EXTENSION btree_gist;   
 
 .. index:: bioseg
