@@ -156,6 +156,21 @@ Assuming you are using Google Chrome as your browser press `Ctrl+Shift+I` to ope
 
 If you are using the List Widgets library ``(>= 1.2.4)`` then you can launch a "debug mode" on them. Simply wait for your page to load. Then append ``#debug`` at the end of the page URL. You should see buttons on individual widgets allowing you to see a debug trace of events happening.
 
+
+
+Keyword Search fails
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+There is no extra configuration required to get the search working. The search uses a Lucene index not the postgres database. The Lucene index is created at build-time, and it is the last source build as part of the tutorial:
+
+https://github.com/intermine/intermine/blob/beta/bio/tutorial/project.xml#L59
+
+The search should be very quick, but depending on the machine it's on, the initial search can be quite slow. On the first search, the index is unpacked from the database and loaded into memory which can take up to a minute. (This is going to be fixed! https://github.com/intermine/intermine/issues/562)
+
+If the search is just failing instantly, check your log files ($TOMCAT/logs). When the index is unpacked from the database, it writes to disk. There may be permissions or space issues.
+
+
+
 Expose your localhost mine
 --------------------------
 

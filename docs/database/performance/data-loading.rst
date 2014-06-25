@@ -87,11 +87,36 @@ The hardware and support software used for a data loading has a significant impa
 
 
 PostgreSQL
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------
 
 * Use a recent, correctly configured version of PostgreSQL.
 * InterMine can actually build a database for production faster than Postgres can undump from a backup file. This is because we generate precomputed tables and indexes in parallel using several CPUs simultaneously. Therefore, it makes sense to complete the last few steps of the build (namely precomputed tables and indexes) on your production servers directly, instead of completing them on the build server and transferring the data across to the production servers.
 
 Recommended settings for PostgreSQL are in :doc:`/system-requirements/software/postgres/postgres`
+
+
+Performance test
+---------------------------------------
+
+In objectstore/test run ‘ant test-performance’  (requires unittest database)
+
+Our results:
+
+.. code-block:: properties
+
+	[run-performance-test] Starting performance test...
+	[run-performance-test] Stored 10000 employee objects, took: 8303ms
+	[run-performance-test] Stored 10000 employee objects, took: 7334ms
+	[run-performance-test] Stored 10000 employee objects, took: 7727ms
+	[run-performance-test] Total store time: 23364ms. Average time per thousand: 778.800ms.
+	[run-performance-test]
+	[run-performance-test] Reading all employee objects with empty object cache
+	[run-performance-test] Read  10000 employee objects, took: 444ms.
+	[run-performance-test] Read  20000 employee objects, took: 126ms.
+	[run-performance-test] Read  30000 employee objects, took: 101ms.
+	[run-performance-test] totalTime: 681 rowCount: 30000
+	[run-performance-test] Finished reading 30000 employee objects, took: 681ms. Average time per thousand: 22.700ms.
+
+You should expect similar.
 
 .. index:: data loading speed, performance 
