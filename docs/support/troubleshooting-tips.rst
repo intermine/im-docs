@@ -142,6 +142,26 @@ Classpath issues can generate various errors, eg a conflict caused by `wstx-asl-
 
 	XMLStreamWriter writer = factory.createXMLStreamWriter(sw);
 
+Failed to parse the expression
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Tomcat 7 is less permissive than Tomcat 6, so you have might see this:
+
+.. code-block:: java
+
+
+	Caused by: org.apache.jasper.JasperException: /queryBuilderConstraint.jsp (line: 90, column: 14) "${dec.boolean}" contains invalid expression(s): javax.el.ELException: Failed to parse the expression [${dec.boolean}]
+
+Add this to your Tomcat startup.sh script:
+
+.. code-block:: bash
+
+
+	JAVA_OPTS="$JAVA_OPTS -Dorg.apache.el.parser.SKIP_IDENTIFIER_CHECK=true"
+	export JAVA_OPT
+	
+See our section on Tomcat for more details.
+
 Session Error
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

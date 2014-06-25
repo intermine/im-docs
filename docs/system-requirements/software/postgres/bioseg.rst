@@ -8,7 +8,7 @@ Contrib software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ========  ==========================================
-debian    apt-get install postgresql-contrib-8.4
+debian    apt-get install postgresql-contrib-9.3
 fedora    yum install postgresql-contrib
 ========  ==========================================
 
@@ -16,7 +16,7 @@ Header files
 ~~~~~~~~~~~~~~
 
 ========  ==========================================
-debian    apt-get install postgresql-server-dev-8.4
+debian    apt-get install postgresql-server-dev-9.3
 fedora    yum install postgresql-devel
 ========  ==========================================
 
@@ -52,7 +52,7 @@ You need to create the bioseg type in each database that is going to use it. If 
 Change directory to the postgres contrib directory 
 
 ========  ==========================================
-debian    /usr/share/postgresql/8.4/contrib
+debian    /usr/share/postgresql/9.3/contrib
 fedora    /usr/share/pgsql/contrib
 ========  ==========================================
 
@@ -85,6 +85,6 @@ See http://www.postgresql.org/docs/9.1/static/btree-gist.html.  Run the command 
 
 .. code-block:: bash
 
-	$ CREATE EXTENSION btree_gist   
+	$ CREATE EXTENSION btree_gist;   
 
 .. index:: bioseg

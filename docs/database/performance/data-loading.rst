@@ -1,12 +1,26 @@
 Data loading performance
 ================================
 
+The speed at which InterMine is able to load data into the databases depends on a number of factors including complexity of objects loaded, hardware specifications and so on. Below are some steps you can take to speed up your build.
 
 
 Java options
 --------------------
 
 Loading data can be memory intensive so there are some Java options that should be tuned to improve performance.  See a note about :doc:`/system-requirements/software/java`
+
+PostgreSQL
+---------------------------------------
+
+* Use a recent, correctly configured version of PostgreSQL.
+* InterMine can actually build a database for production faster than Postgres can undump from a backup file. This is because we generate precomputed tables and indexes in parallel using several CPUs simultaneously. Therefore, it makes sense to complete the last few steps of the build (namely precomputed tables and indexes) on your production servers directly, instead of completing them on the build server and transferring the data across to the production servers.
+
+Recommended settings for PostgreSQL are in :doc:`/system-requirements/software/postgres/postgres`
+
+Hardware
+---------------------------------------
+
+See a note about :doc:`/system-requirements/hardware/index`
 
 
 Storing Items in order
@@ -74,25 +88,41 @@ Instead we use proxies. `org.intermine.objectstore.proxy.ProxyReference` appears
 
 `org.intermine.objectstore.proxy.ProxyCollection` does the same for collections but wraps an objectstore query required to populate the collection, the collection is materialised in batches as it is iterated over by wrapping a SingletonResults object. 
 
-
-Recommended Hardware
+Performance test
 ---------------------------------------
 
-The hardware and support software used for a data loading has a significant impact on data loading performance. The main recommendations we have are:
+In objectstore/test run ‘ant test-performance’  (requires unittest database)
 
-* Install lots of RAM, like 16GB or more, but watch out for multiple RAM modules slowing down your RAM access speed.
-* Have at least two real CPUs - hyperthreading doesn't count. Preferably have at least four CPUs.
-* It is more important to have fast individual CPUs than a lot of CPUs for a build server. InterMine does use multiple threads during data loading, but not asymmetrically - there is one thread which takes a lot of the CPU time. On the other hand, for a production server, having a few more CPUs is more important.
-* Have a decent IO subsystem. We currently use a fibrechannel attached RAID array of 16 15krpm discs for our build servers.
+Our results for comparison:
 
+.. code-block:: properties
 
-PostgreSQL
+	[run-performance-test] Starting performance test...
+	[run-performance-test] Stored 10000 employee objects, took: 8303ms
+	[run-performance-test] Stored 10000 employee objects, took: 7334ms
+	[run-performance-test] Stored 10000 employee objects, took: 7727ms
+	[run-performance-test] Total store time: 23364ms. Average time per thousand: 778.800ms.
+	[run-performance-test]
+	[run-performance-test] Reading all employee objects with empty object cache
+	[run-performance-test] Read  10000 employee objects, took: 444ms.
+	[run-performance-test] Read  20000 employee objects, took: 126ms.
+	[run-performance-test] Read  30000 employee objects, took: 101ms.
+	[run-performance-test] totalTime: 681 rowCount: 30000
+	[run-performance-test] Finished reading 30000 employee objects, took: 681ms. Average time per thousand: 22.700ms.
+
+Results
 ---------------------------------------
 
-* Use a recent, correctly configured version of PostgreSQL.
-* InterMine can actually build a database for production faster than Postgres can undump from a backup file. This is because we generate precomputed tables and indexes in parallel using several CPUs simultaneously. Therefore, it makes sense to complete the last few steps of the build (namely precomputed tables and indexes) on your production servers directly, instead of completing them on the build server and transferring the data across to the production servers.
+Here are the results of trying some of the above so you can see how effective the various strategies are:
 
-Recommended settings for PostgreSQL are in :doc:`/system-requirements/software/postgres/postgres`
+============================ ============= ============ ============ ==============
+.                            Load time     objs / min   DB size      tracker size
+============================ ============= ============ ============ ==============
+Original                     4.51 min      1,525,015    9.6 GB       3.7 GB
+No tracker                   3.94 min      1,748,446    5.56 GB      1 GB
+Consequence as SimpleObject  3.37 min      2,044,448    4.6 GB       1.4 GB
+Both of above                3.20 min      2,153,291    4.1 GB       1 GB
+============================ ============= ============ ============ ==============
 
 
 Performance test
@@ -119,4 +149,5 @@ Our results:
 
 You should expect similar.
 
-.. index:: data loading speed, performance 
+.. index:: data loading speed, performance, postgres, hardware, speed
+
