@@ -9,7 +9,7 @@ Software    Minimum Version  Purpose
 Git         1.7              check out and update source code
 Java SDK    6.0              build and use InterMine
 Ant         1.8              invokes the InterMine build
-Tomcat      6.0.29           website
+Tomcat      7.0.x           website
 PostgreSQL  9.1              database
 Perl        5.8.8            run build scripts
 ==========  ===============  ===================================
