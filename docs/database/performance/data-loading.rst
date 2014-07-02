@@ -88,28 +88,6 @@ Instead we use proxies. `org.intermine.objectstore.proxy.ProxyReference` appears
 
 `org.intermine.objectstore.proxy.ProxyCollection` does the same for collections but wraps an objectstore query required to populate the collection, the collection is materialised in batches as it is iterated over by wrapping a SingletonResults object. 
 
-Performance test
----------------------------------------
-
-In objectstore/test run ‘ant test-performance’  (requires unittest database)
-
-Our results for comparison:
-
-.. code-block:: properties
-
-	[run-performance-test] Starting performance test...
-	[run-performance-test] Stored 10000 employee objects, took: 8303ms
-	[run-performance-test] Stored 10000 employee objects, took: 7334ms
-	[run-performance-test] Stored 10000 employee objects, took: 7727ms
-	[run-performance-test] Total store time: 23364ms. Average time per thousand: 778.800ms.
-	[run-performance-test]
-	[run-performance-test] Reading all employee objects with empty object cache
-	[run-performance-test] Read  10000 employee objects, took: 444ms.
-	[run-performance-test] Read  20000 employee objects, took: 126ms.
-	[run-performance-test] Read  30000 employee objects, took: 101ms.
-	[run-performance-test] totalTime: 681 rowCount: 30000
-	[run-performance-test] Finished reading 30000 employee objects, took: 681ms. Average time per thousand: 22.700ms.
-
 Results
 ---------------------------------------
 
@@ -128,7 +106,7 @@ Both of above                3.20 min      2,153,291    4.1 GB       1 GB
 Performance test
 ---------------------------------------
 
-In objectstore/test run ‘ant test-performance’  (requires unittest database)
+In objectstore/test run ‘ant test-performance’  (requires unittest database, currently on beta branch)
 
 Our results:
 
