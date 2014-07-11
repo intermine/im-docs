@@ -46,9 +46,17 @@ Where a Chromosome has a sequence this will find genome features located on it t
 create-references
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create shortcut references/collections to make querying more obvious.  We are trying to eliminate the need to use this.
+Create shortcut references/collections to make querying more obvious.  
 
 *Should I use it?* Yes, for the moment if you are using standard InterMine sources.
+
+
+create-utr-references
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create shortcut references/collections to make querying more obvious.  Read the UTRs collection of MRNA then set the fivePrimeUTR and threePrimeUTR fields with the corresponding UTRs.
+
+*Should I use it?* Yes, if you think it sounds useful.
 
 create-intron-features
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
