@@ -66,13 +66,6 @@ If you have loaded genome annotation that include exons but does not specify int
 *Should I use it?* If genome annotation you have loaded does not include introns.
 
 
-create-references
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Create shortcut references/collections to make querying more obvious.  
-
-*Should I use it?* Yes, for the moment if you are using standard InterMine sources.
-
 make-spanning-locations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
