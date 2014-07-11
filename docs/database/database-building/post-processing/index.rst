@@ -65,6 +65,19 @@ If you have loaded genome annotation that include exons but does not specify int
 
 *Should I use it?* If genome annotation you have loaded does not include introns.
 
+
+create-references
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create shortcut references/collections to make querying more obvious.  
+
+*Should I use it?* Yes, for the moment if you are using standard InterMine sources.
+
+make-spanning-locations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a Location that spans the locations of some child objects.  eg. create a location for Transcript that is as big as all the exons in it's exons collection.  One new location will be created for each possible Location.object - Transcript->Chromosome, Transcript->Contig etc.
+
 Overlapping and Flanking Features
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
