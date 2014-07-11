@@ -76,7 +76,9 @@ Create shortcut references/collections to make querying more obvious.
 make-spanning-locations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a Location that spans the locations of some child objects.  eg. create a location for Transcript that is as big as all the exons in it's exons collection.  One new location will be created for each possible Location.object - Transcript->Chromosome, Transcript->Contig etc.
+Create a Location that spans the locations of some child objects. Creates a location for Transcript that is as big as all the exons in its exons collection and a location for gene that's as big as all the transcripts in its transcripts collection.
+
+*Should I use it?* Only if you don't have locations for Genes or Transcripts loaded from another source.
 
 Overlapping and Flanking Features
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
