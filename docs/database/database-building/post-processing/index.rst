@@ -117,6 +117,13 @@ This searches through all sources included in project.xml and runs post-processi
 Webapp
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
+create-attribute-indexes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create indexes on all attributes to help speed up queries.
+
+*Should I use it?* Always.  It should be run after all post-processing steps that write new records to the database as this step creates indexes for all columns in each table.
+
 create-search-index
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -124,19 +131,12 @@ Creates the lucene search index used by the webapp.
 
 *Should I use it?*  Yes, if you are releasing a webapp.
 
-create-attribute-indexes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Create indexes on all attributes to help speed up queries.
-
-*Should I use it?* Always.  It should be run last of all post-processing steps.
-
 summarise-objectstore
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Counts of the number of objects of each class and for class fields that have a small number of value, a list of those values.  See ObjectStoreSummaryProperties for more information.
 
-*Should I use it?* - Always.  
+*Should I use it?* - Always.  Run after `create-attribute-indexes` to speed this step up.
 
 create-autocomplete-index
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
