@@ -134,7 +134,7 @@ Creates the lucene search index used by the webapp.
 summarise-objectstore
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Counts of the number of objects of each class and for class fields that have a small number of value, a list of those values.  See :doc:`/database/database-building/post-processing/objectstore-summary-properties.rst` for more information.
+Counts of the number of objects of each class and for class fields that have a small number of value, a list of those values.  See :doc:`/database/database-building/post-processing/objectstore-summary-properties` for more information.
 
 *Should I use it?* - Always.  Run after `create-attribute-indexes` to speed this step up.
 
