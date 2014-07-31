@@ -20,7 +20,7 @@ SUMMARY
 	Which columns appear when you click on SUMMARY button are set in WebConfigModel.
 
 autocomplete
-	Add fields to the ObjectStoreSummaryProperties file to have their form fields autocomplete.
+	Add fields to the :doc:`/database/database-building/post-processing/objectstore-summary-properties` file to have their form fields autocomplete.
 
 Hiding fields
 -------------
