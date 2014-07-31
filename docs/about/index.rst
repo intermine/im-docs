@@ -70,4 +70,12 @@ Vacancies
 
 none
 
+Get Involved
+------------------
+
+.. toctree::
+    :maxdepth: 1
+
+    get-involved
+
 .. index:: LGPL, jobs, careers, hiring, vacancies, privacy policy, release notes, cite, about us
