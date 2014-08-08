@@ -63,4 +63,4 @@ Here are the project XML entries used by FlyMine:
 https://github.com/intermine/intermine/blob/dev/flymine/project.xml#L36-L48
 
 
-.. index:: homologues, orthologues, paralogues
+.. index:: homologues, orthologues, paralogues, id resolver
