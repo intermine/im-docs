@@ -10,8 +10,10 @@ Some fields have only a few different values, and are represented as dropdowns o
 
 Also, if your database has tables that should be ignored, you can set this too:
 
-# in objectstoresummary.config.properties
-ignore.counts=org.intermine.model.bio.GOAnnotation.withText org.intermine.model.bio.Location.subject
+.. code-block:: properties
+
+    # in objectstoresummary.config.properties
+    ignore.counts=org.intermine.model.bio.GOAnnotation.withText org.intermine.model.bio.Location.subject
 
 Auto-completion
 ---------------------------
