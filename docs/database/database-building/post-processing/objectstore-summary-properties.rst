@@ -8,7 +8,7 @@ Dropdowns
 
 Some fields have only a few different values, and are represented as dropdowns on forms so that users may see all possible values. You can set the maximum number of values to display, the default is 200.
 
-Also, if your database has tables that should be ignored, you can set this too:
+If a field is never going to have less than 200 unique values, you can set the field to be ignored. Create a space-delimited list here and those fields will be skipped:
 
 .. code-block:: properties
 
