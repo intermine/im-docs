@@ -1,4 +1,4 @@
-JavaScript Developer
+Software Developer
 ================================
 
 .. figure::  cam_bridge.jpg
@@ -22,7 +22,7 @@ Desired Skills and Experience
 
 * Comfortable with open source development tools and methodology
 * Familiarity with client side web frameworks, e.g. **Backbone.js**
-* Familiarity with **Java**, **Perl**, **Python** or **Ruby**
+* Familiarity with **Java**, **Perl** or **Python** 
 * Knowledge of **CoffeeScript**, or other transpiled language
 * Knowledge of **client side templating** and **modularity techniques** in JavaScript
 * Awareness of **HTML5**, **CSS3**, **Mocha**, and **Promises**
@@ -31,12 +31,9 @@ Our Toolset
 ------------------------------
 
 * Java
-* Python
-* Perl
 * JavaScript
 * PostgreSQL
 * Tomcat
-* Jenkins
 * Ant
 * Git
 
