@@ -9,6 +9,12 @@ Installation
 
    Several people have had problems with Tomcat installations set up by Linux package managers.  We recommend installing according to the these instructions instead.
 
+
+.. warning::
+
+   InterMine currently does not work with Tomcat 8. Our engineers are frantically working to correct this, but in the meantime you should stick with Tomcat 7
+
+
 The quickest way to get a working Tomcat:
 
 #. Download the latest stable binary distribution `tar.gz` from the Apache Tomcat site. 
@@ -24,25 +30,15 @@ The quickest way to get a working Tomcat:
 
 #. Set up the manager user as below.
 
-See Tomcat's installation instructions - http://tomcat.apache.org/tomcat-6.0-doc/setup.html.
+See Tomcat's installation instructions - http://tomcat.apache.org/tomcat-7.0-doc/setup.html.
 
 After Installation
 ----------------------
 
+Users
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Set up a tomcat user with the 'manager' role by editing `conf/tomcat-users.xml`: 
-
-Tomcat 6.0.xx
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-   
-.. code-block:: xml
-
-   <tomcat-users>
-      <role rolename="manager"/>
-      <user username="manager" password="manager" roles="manager"/>
-   </tomcat-users>
-
-Tomcat 7.0.xx
-~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: xml
 
@@ -59,7 +55,7 @@ If you used a package manager to get Tomcat, the manager may not be included. He
 
 .. code-block:: bash
 
-   $ apt-get install tomcat6-admin
+   $ apt-get install tomcat7-admin
 
 
 Server XML
@@ -76,23 +72,8 @@ You also need to check in your `server.xml` file that the correct `UTF-8` encodi
 
 Without this, permalinks may break.
 
-
-
-Tomcat 7.0 
+startup.sh 
 ~~~~~~~~~~~~
-
-Starting from InterMine 1.1, you can now deploy your mine using Tomcat 7.0
-
-Update your config files:
-
-in `$TOMCAT/conf/tomcat-users.xml` set:
-
-.. code-block:: xml
-
-   <role rolename="manager-gui"/>
-   <role rolename="manager-script"/>
-   <user username="manager" password="manager" roles="manager-gui,manager-script"/>
-
 
 Add the property in startup.sh:
 
