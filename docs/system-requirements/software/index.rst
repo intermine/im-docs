@@ -18,6 +18,11 @@ Perl        5.8.8            run build scripts
 
 	InterMine only supports installations onto Linux and Mac OS X systems. Windows systems of any kind are not supported.  We run a mixture of Debian and Fedora servers in our data centre in Cambridge.
 
+.. note::
+	
+	InterMine doesn't work with Tomcat 8 yet. We hope to resolve this issue soon.
+
+
 After installation, most programs require extra configuration to work with InterMine:
 
 .. toctree::
