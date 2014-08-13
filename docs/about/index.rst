@@ -68,7 +68,7 @@ Release Notes
 Vacancies
 ------------------
 
-none
+* :doc:`jobs`
 
 Get Involved
 ------------------
