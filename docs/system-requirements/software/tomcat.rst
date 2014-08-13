@@ -132,26 +132,6 @@ If you get a "Session Error" when you start up your webapp, you may need to upda
 
 You get this error because the home page makes several requests but your session is lost between transactions with a new session started with the first query. For instance, when you go to the beta.flymine.org home page your cookie path will initially be "/". To display the "most popular" template queries, a query is run on full URL using the path "/beta". The session with the "/" path is discarded and a new session cookie is created with the "/beta" path. (You can view the values stored in your cookies via your web browser.)
 
-Tomcat 6.0
-""""""""""""""
-
-Add `emptySessionPath` to `$TOMCAT/conf/server.xml`
-
-.. code-block:: xml
-
-    <Connector port="8080" protocol="HTTP/1.1"
-      connectionTimeout="20000"
-      redirectPort="8443"
-      emptySessionPath="true" />
-
-    <Connector port="8009" protocol="AJP/1.3" 
-      redirectPort="8443"
-      emptySessionPath="true"  /> 
-
-`Tomcat 6.0 HTTP connector documentation <http://tomcat.apache.org/tomcat-6.0-doc/config/http.html>`_  - mentions potential security hole
-
-Tomcat 7.0
-""""""""""""""
 
 Add these 2 attributes to `$TOMCAT/conf/conf/context.xml`
 
