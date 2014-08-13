@@ -37,6 +37,8 @@ Our Toolset
 * Ant
 * Git
 
+This is an opportunity for right candidate to gain experience in a wide variety of state-of-the-art tools and practices.
+
 About InterMine
 ------------------------------
 
