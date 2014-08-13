@@ -133,7 +133,7 @@ If you get a "Session Error" when you start up your webapp, you may need to upda
 You get this error because the home page makes several requests but your session is lost between transactions with a new session started with the first query. For instance, when you go to the beta.flymine.org home page your cookie path will initially be "/". To display the "most popular" template queries, a query is run on full URL using the path "/beta". The session with the "/" path is discarded and a new session cookie is created with the "/beta" path. (You can view the values stored in your cookies via your web browser.)
 
 
-Add these 2 attributes to `$TOMCAT/conf/conf/context.xml`
+Add these 2 attributes to `$TOMCAT/conf/context.xml`
 
 .. code-block:: properties
 
