@@ -20,7 +20,7 @@ Required Skills and Experience
 Desired Skills and Experience
 ------------------------------
 
-* Comfortable with open source development tools and methodology
+* Comfortable with **open source** development tools and methodology
 * Familiarity with client side web frameworks, e.g. **Backbone.js**
 * Familiarity with **Java**, **Perl** or **Python** 
 * Knowledge of **CoffeeScript**, or other transpiled language
