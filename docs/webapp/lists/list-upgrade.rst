@@ -51,7 +51,7 @@ Upgrading to a new release
 * Once the user has resolved any issues, the list can be saved clicking the button 'Upgrade a list of ...' and used for queries, etc.
 * If a user never logs in to a particular release, the bag will not be upgraded, but can still be upgraded as normal if the log in to a later release.
 
-.. figure::  ../../imgs/ListUpgrade.jpg
+.. figure::  ../../imgs/ListUpgrade.png
    :align:   center
 
 Lists not current
@@ -61,15 +61,15 @@ If a list is not current:
 
 * the user can't use it in the query/template to add bag contraints
 * the bag is not displayed in the List->View page
-* the bag is displayed in MyMine->Lists page, but the column Current is setted Not Current. Selecting the link, the user can resolve any issue.
+* the bag is displayed in MyMine->Lists page, but the column `Current` is set `Not Current`. Selecting the link, the user can resolve any issue.
 * the bag is not dispayed in the Lists section on the report pages 
 
 Userprofile database
 -----------------------------------------------
 
-The list upgrade system, needs a new bagvalues table in the userprofile database, with savedbagid and value columns. This table should be generated manually, running the load-bagvalues-table ant task in the webapp directory. The load-bagvalues-table task, should create the table and load the contents of the list using the former production db, that is the same db used to create the saved lists. Every time, you re-create the userprofile database, you have to re-generate the 'bagvalues' table. In theory, you should never re-create the userprofile db, so you should run the load-bagvalues-table task only once.
+The list upgrade system, needs a new bagvalues table in the userprofile database, with savedbagid and value columns. This table should be generated manually, running the `load-bagvalues-table` ant task in the webapp directory. The `load-bagvalues-table` task, should create the table and load the contents of the list using the former production db, that is the same db used to create the saved lists. Every time, you re-create the userprofile database, you have to re-generate the 'bagvalues' table. In theory, you should never re-create the userprofile db, so you should run the `load-bagvalues-table` task only once.
 
-The table should be populated with one row corresponding to each row in production db osbag_int table. Each row should contain the IntermineBag id and the first value not empty of the primary identifier field, defined in the class_keys propertiers file.
+The table should be populated with one row corresponding to each row in production db osbag_int table. Each row should contain the `IntermineBag` id and the first value not empty of the primary identifier field, defined in the `class_keys` propertiers file.
 
 The 'bagvalues' table is updated when the user is logged-in and:
 
@@ -84,7 +84,7 @@ When a user logs in, any lists he has created in his session become saved bags i
 * set in the savedbag table the intermine-current to true
 * update osbid.
 
-The `intermine-current`, in the table savedbag, marks whether the bag has been upgraded. The column is generated when you create the userpofile database or when load-bagvalues-table has been executed. 
+The `intermine-current`, in the table savedbag, marks whether the bag has been upgraded. The column is generated when you create the userpofile database or when `load-bagvalues-table` has been executed. 
 
 Serial Number Overview
 -----------------------------------------------
@@ -93,23 +93,18 @@ The new list upgrade functionality, uses a serialNumber that identifies, in a un
 
 We distinguish four cases:
 
-CASE1: production serialNumber and userprofile serialNumber are both null ==> we don't need upgrade the list.
-Scenario: I have released the webapp but I haven't re-build the production db.
+1. production serialNumber and userprofile serialNumber are both null ==> we don't need upgrade the list.
+   * Scenario: I have released the webapp but I haven't re-build the production db.
+2. production serialNumber is not null but userprofile serialNumber is null ==> we need upgrade the lists.
+   * Scenario: I have run `build-db` in the production db and it's the first time that I release the webapp. On startup, the webapp sets `intermine_current` to false and the userprofile serialNumber value with the production serialNumber value.
+3. production serialNumber = userprofile serialNumber ==> we don't need upgrade the lists.
+   * Scenario: we have released the webapp but we haven't changed the production db.
+4. production serialNumber != userprofile serialNumber ==> we need upgrade the lists.
+   * Scenario: we have run `build-db` in the production and a new serialNumber has been generated.
 
-CASE2: production serialNumber is not null but userprofile serialNumber is null ==> we need upgrade the lists.
-Scenario: I have run build-db in the production db and it's the first time that I release the webapp.
-On the startup, the webapp sets intermine_current to false and the userprofile serialNumber value with the production serialNumber value.
+The following diagram shows the possible states. With the green, we identify the states that don't need a list upgrade, with the red those need a list upgrade.
 
-CASE3: production serialNumber = userprofile serialNumber ==> we don't need upgrade the lists.
-Scenario: we have released the webapp but we haven't changed the production db.
-
-CASE4: production serialNumber != userprofile serialNumber ==> we need upgrade the lists.
-Scenario: we have run build-db in the production and a new serialNumber has been generated.
-
-The following diagram, shows the possible states.
-With the green, we identify the states that don't need a list upgrade, with the red those need a list upgrade.
-
-.. figure::  ../../imgs/SerialNumber.jpg
+.. figure::  ../../imgs/SerialNumber.png
    :align:   center
 
 .. index:: list upgrade
