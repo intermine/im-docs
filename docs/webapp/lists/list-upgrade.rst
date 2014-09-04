@@ -11,43 +11,48 @@ Lists are saved in the userprofile `savedbag`, `bagvalues` tables and in the pro
 Production Database
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-============ ============ 
-obsbag_int  
-============ ============ 
-bagid        bag id
-value        intermine id
-============ ============ 
+**obsbag_int table**
+
+==================== ====================
+**column**           **notes**
+==================== ====================
+bagid                unique bag id
+value                intermine object id
+==================== ====================
 
 .. note::
 
-    The InterMine ID is only valid per database. If the database changes, the IDs change.
+    The InterMine ID is only valid per database. If the database is rebuilt, the IDs change and the information in this table becomes incorrect. The lists require an *upgrade* for them to be updated with the new, correct InterMine object IDs.
 
 
 Userprofile Database
 ~~~~~~~~~~~~~~~~~~~~~~~~
+
+**savedbag table**
+
 ================================================ ================================================
-savedbag  
+**column**                                       **notes**
 ================================================ ================================================
 osbid                                            bag id
 type                                             type of object, eg. Gene
 id                                               id
-name                                             name of list
+name                                             name of list, provided by user
 datecreated                                      timestamp
-description                                      created by user
+description                                      description, provided by user
 userprofileid                                    user id
 intermine_state                                  CURRENT, NOT_CURRENT or TO_UPGRADE
 ================================================ ================================================
 
+**bagvalues table**
 
 ================================================ ================================================
-bagvalues  
+**column**                                       **notes**
 ================================================ ================================================
 savedbagid                                       bag id
 value                                            identifier originally typed in by user
 extra                                            organism short name
 ================================================ ================================================
 
-.. note::
 
 Lists are saved along with the user information in the `savedbag` table. The identifiers used to create a list are also stored in the `bagvalues` table in the userprofile database. These identifiers are used to upgrade the list to internal object ids in the new production database. 
 
@@ -63,7 +68,7 @@ Process
 Upgrading to a new release
 -----------------------------------------------
 
-* When a new production db is built, all the bags have to be upgraded.
+* When a new production db is built, all the lists have to be upgraded.
 * When a user logs in, a thread will begin upgrading their saved lists to the new release - finding and writing the corresponding object ids to the production database.
 * The user can verify the status of theirs saved bags in MyMine->Lists page.
 * If there are any issues, the user can click on the Upgrade link and browse in the bagUploadConfirm page where all conflicts will be displayed.
