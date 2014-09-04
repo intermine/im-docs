@@ -8,25 +8,27 @@ Why a list "upgrade" is needed
 
 Lists are saved in the userprofile `savedbag` table and in the production database `osbag_int` table.
 
-       Table "public.savedbag"
-    Column     |  Type   | Modifiers 
----------------+---------+-----------
- osbid         | integer | not null
- type          | text    | 
- id            | integer | not null
- name          | text    | 
- datecreated   | bigint  | 
- description   | text    | 
- userprofileid | integer | 
-Indexes:
-    "savedbag_pkey" UNIQUE, btree (id)
+.. code-block:: psql
 
-   Table "public.osbag_int"
- Column |  Type   | Modifiers 
---------+---------+-----------
- bagid  | integer | 
- value  | integer | 
-Indexes:
+	       Table "public.savedbag"
+	    Column     |  Type   | Modifiers 
+	---------------+---------+-----------
+ 	osbid         | integer | not null
+ 	type          | text    | 
+ 	id            | integer | not null
+ 	name          | text    | 
+ 	datecreated   | bigint  | 
+ 	description   | text    | 
+ 	userprofileid | integer | 
+	Indexes:
+    	"savedbag_pkey" UNIQUE, btree (id)
+
+   	Table "public.osbag_int"
+ 	Column |  Type   | Modifiers 
+	--------+---------+-----------
+ 	bagid  | integer | 
+ 	value  | integer | 
+	Indexes:
     "osbag_int_index1" UNIQUE, btree (bagid, value)
     "osbag_int_index2" btree (value, bagid)
 
