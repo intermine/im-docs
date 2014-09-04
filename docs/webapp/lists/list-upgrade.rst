@@ -8,8 +8,37 @@ Why a list "upgrade" is needed
 
 Lists are saved in the userprofile `savedbag`, `bagvalues` tables and in the production database `osbag_int` table.
 
-.. figure::  ../../imgs/list_psql.png
-   :align:   center
+Production Database
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+============ ============ 
+obsbag_int  
+============ ============ 
+bagid        bag id
+value        intermine id
+============ ============ 
+
+.. note::
+
+    The InterMine ID is only valid per database. If the database changes, the IDs change.
+
+
+Userprofile Database
+~~~~~~~~~~~~~~~~~~~~~~~~
+================================================ ================================================
+savedbag  
+================================================ ================================================
+osbid                                            bag id
+type                                             type of object, eg. Gene
+id                                               id
+name                                             name of list
+datecreated                                      timestamp
+description                                      created by user
+userprofileid                                    user id
+intermine_state                                  CURRENT, NOT_CURRENT or TO_UPGRADE
+================================================ ================================================
+
+.. note::
 
 Lists are saved along with the user information in the `savedbag` table. The identifiers used to create a list are also stored in the `bagvalues` table in the userprofile database. These identifiers are used to upgrade the list to internal object ids in the new production database. 
 
