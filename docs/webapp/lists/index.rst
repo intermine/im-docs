@@ -13,6 +13,7 @@ Lists
 
     lists-page
     list-upload
+    list-upgrade
     list-analysis/index
     /embedding/list-widgets/index
 
