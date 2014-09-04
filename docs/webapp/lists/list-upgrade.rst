@@ -38,6 +38,15 @@ userprofileid                                    user id
 intermine_state                                  CURRENT, NOT_CURRENT or TO_UPGRADE
 ================================================ ================================================
 
+
+================================================ ================================================
+bagvalues  
+================================================ ================================================
+savedbagid                                       bag id
+value                                            identifier originally typed in by user
+extra                                            organism short name
+================================================ ================================================
+
 .. note::
 
 Lists are saved along with the user information in the `savedbag` table. The identifiers used to create a list are also stored in the `bagvalues` table in the userprofile database. These identifiers are used to upgrade the list to internal object ids in the new production database. 
