@@ -202,7 +202,7 @@ Defining the model
 
   $ cd ~/git/intermine/malariamine/dbmodel
 
- * The core data model (and some extra model files) are defined in the `project.properties` file:
+The core data model (and some extra model files) are defined in the `project.properties` file:
 
 .. code-block:: properties
 
