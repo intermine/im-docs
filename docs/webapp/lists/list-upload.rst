@@ -2,9 +2,9 @@ List upload
 ================================
 
 
-InterMine has a sophisticated list import system.  The page aims to describe how it works.
+InterMine has a sophisticated list import system for genes.  The page aims to describe how it works.
 
-Users can paste any identifier into the list upload form; it can be an identifier, symbol or name.  The list upload form runs a series of queries to try to match the identifier to an object in the database.  
+Users can paste identifiers into the list upload form; e.g. for data types "gene" it can be an identifier, symbol or name.  The list upload form runs a series of queries to try to match the identifier to an object in the database.  
 
 This is also how the LOOKUP constraint works.
 
