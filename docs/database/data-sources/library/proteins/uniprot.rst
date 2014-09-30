@@ -18,7 +18,18 @@ The UniProt source expects the data files to be in a special format:
 
 	TAXONID_uniprot_sprot.xml
 	TAXONID_uniprot_trembl.xml
+	
+To download a single taxon, you can use this URL:
 
+http://www.uniprot.org/uniprot/?format=xml&query=taxonomy%3A9606+AND+reviewed%3Ayes&compress=yes 
+
+================================= =================================
+parameter                         value
+================================= =================================
+taxonomy                          e.g. 9606 for human
+reviewed                          yes for swiss prot, no for trembl
+compress                          if yes, zipped
+================================= =================================
 
 How to load the data into your mine
 --------------------------------------
