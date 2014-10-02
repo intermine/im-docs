@@ -11,7 +11,7 @@ protein domains
 How to download the data 
 ---------------------------
 
-http://www.ebi.ac.uk/interpro/interpro.xml.gz
+ftp://ftp.ebi.ac.uk/pub/databases/interpro/interpro.xml.gz
 
 How to load the data into your mine
 --------------------------------------
