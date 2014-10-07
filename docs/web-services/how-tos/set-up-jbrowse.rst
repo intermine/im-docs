@@ -6,6 +6,8 @@ directly off the InterMine web-services. You do not need to do anything special 
 
 This documentation has been tested with JBrowse-1.11.3.
 
+NOTE: If you already have a JBrowse installation working and just want to embed it in your report pages the see: Embedding JBrowse_
+
 Download JBrowse
 .................
 
@@ -82,5 +84,6 @@ Once in place, you can visit your JBrowse `index.html` and see the data from Fly
 .. _configuring JBrowse: http://gmod.org/wiki/JBrowse_Configuration_Guide
 .. _installing JBrowse: http://gmod.org/wiki/JBrowse_Configuration_Guide#Making_a_New_JBrowse
 .. _FlyMine: http://www.flymine.org
+.. _Embedding JBrowse: http://intermine.readthedocs.org/en/latest/webapp/third-party-tools/jbrowse
 
 .. index:: JBrowse, GBrowse, das
