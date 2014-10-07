@@ -1,5 +1,5 @@
-JBrowse
-================================
+How Do I Embed JBrowse on my Web pages?
+=======================================
 
 JBrowse can be run directly from InterMine web-services. This means that using JBrowse from
 a report page is straightforward. This section describes features available in InterMine 1.3.3.
@@ -14,7 +14,7 @@ You need to:
 
   ``jbrowse.install.url = http://some.jbrowse.install/somewhere/index.html``
 
-* Add the appropriate report displayer stanza to the ``webconfig.xml`` file for your mine:
+* Add the appropriate report displayer stanza to the ``webconfig-model.xml`` file for your mine:
 
 .. code-block:: xml
 
@@ -23,6 +23,8 @@ You need to:
             replacesFields=""
             placement="Genomics"
             types="SequenceFeature"/>
+
+[The `webconfig-model.xml` file can usually be found under ``yourmine/webapp/resources/webapp/WEB-INF/``]
 
 And that is it.
 
