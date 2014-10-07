@@ -6,7 +6,7 @@ directly off the InterMine web-services. You do not need to do anything special 
 
 This documentation has been tested with JBrowse-1.11.3.
 
-NOTE: If you already have a JBrowse installation working and just want to embed it in your report pages the see: Embedding JBrowse_
+NOTE: If you already have a JBrowse installation working and just want to embed it in your report pages the see: `Embedding JBrowse`_.
 
 Download JBrowse
 .................
