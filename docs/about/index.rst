@@ -65,10 +65,6 @@ Release Notes
 
     release-notes
 
-Vacancies
-------------------
-
-* :doc:`jobs`
 
 Get Involved
 ------------------
