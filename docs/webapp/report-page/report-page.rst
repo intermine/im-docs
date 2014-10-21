@@ -134,6 +134,9 @@ Templates
 
 Tag template with the ``im:report`` tag. See :doc:`/webapp/admin/index`.
 
+The template needs to have only one where clause involving the class of the object. 
+You also need to specify an aspect whithin the report page where the template will appear (e.g. ``im:aspect:Genomics``)
+
 External Links
 --------------
 
