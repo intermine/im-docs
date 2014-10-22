@@ -45,12 +45,22 @@ Next we run queries listed in `bag-queries.xml`
 
 Matches returned from this query are not added to the list (if `matchesAreIssues=true`), they are displayed under the "synonyms matched" heading.  Users can optionally add them to their list.
 
+
 If this query didn't return any results, we move on to the next step.
 
 Converters
 ~~~~~~~~~~~~~~~~~~~
 
-Next we run appropriate converter template, which are templates tagged with "im:converter".
+Next we run appropriate converter template, which are templates tagged with `im:converter`. Here is an example converter template:
+
+
+.. code-block:: xml
+
+	<template name="Gene_To_Protein_Type_Converter" title="Gene to protein type converter" comment="">
+  		<query name="Gene_To_Protein_Type_Converter" model="genomic" view="Gene.id Gene.proteins.id" longDescription="" sortOrder="Gene.id asc">
+    		<constraint path="Gene.id" editable="true" description="Gene.id" op="=" value="0"/>
+  		</query>
+	</template>
 
 Matches returned from this query are not added to the list, they are displayed under the "converted type" heading.  Users can optionally add them to their list.
 
@@ -69,4 +79,5 @@ example list
 valid delimiters
 	The default valid delimiters are comma, space, tab or new line.  You can change this value by setting the "list.upload.delimiters" property in WebProperties.
 
-.. index:: list upload
+.. index:: list upload, bagqueryrunner, bag-queries, LOOKUP, converter templates
+
