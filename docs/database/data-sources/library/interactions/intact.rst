@@ -11,7 +11,7 @@ genes, interactions
 How to download the data 
 ---------------------------
 
-ftp://ftp.ebi.ac.uk/pub/databases/IntAct/current/all.zip
+ftp://ftp.ebi.ac.uk/pub/databases/IntAct/current/psi25/species/
 
 How to load the data into your mine
 --------------------------------------
