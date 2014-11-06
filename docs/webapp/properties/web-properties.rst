@@ -330,13 +330,17 @@ Configuring Properties
 You should configure the following properties, where `$iss` is the value of the `iss` claim on
 a JWT issued by the mediator:
 
-  * `security.keystore.password`: The password for this keystore.
-  * `security.keystore.alias.$iss`: The alias for the key certificate used to sign the JWT.
+===============================  =========================================================
+`security.keystore.password`:     The password for this keystore.
+`security.keystore.alias.$iss`    The alias for the key certificate used to sign the JWT.
+===============================  =========================================================
 
 If the JWT provided does not provide a `sub` (subject) claim, the then the following property should be configured:
 
-  * `jwt.key.sub.$iss`: The name of the claim that provides the identity of the subject. This should be
-    unique for each issuer.
+===============================  ==================================================================================
+ `jwt.key.sub.$iss`                The name of the claim that provides the identity of the subject. This should be
+                                   unique for each issuer.
+===============================  ==================================================================================                                  
 
 Multiple issuers can be supported by providing a key for each alias.
 
