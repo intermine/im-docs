@@ -30,6 +30,13 @@ project XML example
 kegg_config.properties
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Decides which gene identifier fields are populated, mapping from organism taxonId to abbreviation. Only taxonIds specified in project.xml file are downloaded, if no taxonIds are configured, all are loaded.
+Decides which gene identifier fields are populated, mapping from organism taxonId to abbreviation. Only taxonIds specified in project.xml file are downloaded, if no taxonIds are configured, all are loaded. For example:
+
+
+.. code-block:: properties 
+
+ # bacteria
+ eco.taxonId = 511145
+
 
 .. index:: KEGG
