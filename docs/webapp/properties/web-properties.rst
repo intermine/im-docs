@@ -306,6 +306,40 @@ Guides to interpreting the response from the identity resource. These are all op
 .. _OAuth2: http://oauth.net/2/
 .. _Apache OLTU: http://oltu.apache.org/
 
+Delegated Authentication with JWTs
+------------------------------------
+
+InterMine supports completely automated delegated authentication, whereby a mediator may add a token
+that authenticates the user according to a chain of trust. This uses public-key cryptography to establish
+trust, and JWTs to transmit assertions.
+
+To enable this feature you need to do a couple of things:
+
+Create a Key Store
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+InterMine needs access to the public key - this means creating a JKS key store
+(http://docs.oracle.com/javase/7/docs/api/java/security/KeyStore.html) with the certificate
+used to sign the JWTs - you should store the certificate against the alias with the same
+name as used in the `iss` claim in the JWT. The keystore file should be saved as `keystore.jks`
+in the WEB_INF directory.
+
+Configuring Properties
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You should configure the following properties, where `$iss` is the value of the `iss` claim on
+a JWT issued by the mediator:
+
+  * `security.keystore.password`: The password for this keystore.
+  * `security.keystore.alias.$iss`: The alias for the key certificate used to sign the JWT.
+
+If the JWT provided does not provide a `sub` (subject) claim, the then the following property should be configured:
+
+  * `jwt.key.sub.$iss`: The name of the claim that provides the identity of the subject. This should be
+    unique for each issuer.
+
+Multiple issuers can be supported by providing a key for each alias.
+
 Overriding properties
 ---------------------------------
 
