@@ -126,6 +126,11 @@ the key also needs to be hard-coded in factory class, e.g. in  FlyBaseIdResolver
 
   private final String propName = "db.flybase";
 
+Configuration 
+~~~~~~~~~~~~~~~~~~~~~
+
+The Entrez gene identifier source has a configuration file. 
+
 
 IdResolverService
 ~~~~~~~~~~~~~~~~~~~~~
