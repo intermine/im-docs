@@ -129,7 +129,38 @@ the key also needs to be hard-coded in factory class, e.g. in  FlyBaseIdResolver
 Configuration 
 ~~~~~~~~~~~~~~~~~~~~~
 
-The Entrez gene identifier source has a configuration file. 
+The Entrez gene identifier source has a configuration file, `entrezIdResolver_config.properties`. You shouldn't have to edit this file.
+
+This config will parse fruit fly identifiers, e.g. FLYBASE:FBgn0088803
+
+.. code-block:: properties
+
+  7227.primaryIdentifier.xref=FLYBASE
+
+If you don't want to strip the prefix from the identifier, use this config:
+
+.. code-block:: properties
+
+  10116.primaryIdentifier.prefix=RGD:
+  10090.primaryIdentifier.prefix=MGI:
+  
+.. warning::
+
+  The EBI changed how they format their data. If you have a recent data file, you do NOT want the above configuration for MGI. 
+
+  
+
+To replace a taxonomy identifier with a strain, use the following:
+
+.. code-block:: properties
+
+  4932.strains=559292
+
+To ignore certain organisms, do this:
+
+.. code-block:: properties
+
+  taxon.ignored = 7165,6239
 
 
 IdResolverService
