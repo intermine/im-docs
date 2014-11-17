@@ -344,6 +344,31 @@ If the JWT provided does not provide a `sub` (subject) claim, the then the follo
 
 Multiple issuers can be supported by providing a key for each alias.
 
+Setting up the Key-Store
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You will need a Java Key Store to use public-key cryptography for security. To get started you can use
+the following command to generate a `keystore.jks` file with a new public/private key-pair:
+
+```
+  keytool -genkey -alias ALIAS_A -keyalg RSA -keystore keystore.jks -keysize 2048
+```
+
+The following command will allow you to add a certificate to your key-store:
+
+```
+  keytool -import -trustcacerts -alias ALIAS_B -file B.crt -keystore keystore.jks
+```
+
+This set-up would allow you to start accepting JWT tokens signed by the owner of `B.crt`, which could be
+configured by making sure they are associated in your property files. So if the owner of `B.crt`
+identified themselves with the `iss` (issuer) claim `http://b.com`, then you could link the certificate
+to the claim with the following property:
+
+```
+  security.keystore.alias.http://b.com = ALIAS_B
+```
+
 Overriding properties
 ---------------------------------
 
