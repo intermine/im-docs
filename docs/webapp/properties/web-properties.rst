@@ -4,40 +4,40 @@ Features
 The `web.properties` file configures several attributes for the InterMine web application.
 
 attributeLink
-	Used to configure hyperlinks, generally to external dbs.  See "External Links" section below
+    Used to configure hyperlinks, generally to external dbs.  See "External Links" section below
 
 bag.example.identifiers
-	Text present in the list upload form.  See "List upload examples" section below
+    Text present in the list upload form.  See "List upload examples" section below
 
 externallink
-	Redirect links in query results.  See :doc:`/webapp/query-results/redirects`
+    Redirect links in query results.  See :doc:`/webapp/query-results/redirects`
 
 galaxy
-	See :doc:`/webapp/third-party-tools/galaxy`
+    See :doc:`/webapp/third-party-tools/galaxy`
 
 genomicRegionSearch
-	See :doc:`/webapp/region-search/index`
+    See :doc:`/webapp/region-search/index`
 
 header.links
-	links at upper right corner
+    links at upper right corner
 
 meta.keywords
-	will populate meta tag for keywords
+    will populate meta tag for keywords
 
 meta.description
-	will populate meta tag for description.  Google uses this in their search results, I think
+    will populate meta tag for description.  Google uses this in their search results, I think
 
 portal.welcome
-	the message to show when a user arrives at the webapp via the portal action (eg. <something>/portal.do)
+    the message to show when a user arrives at the webapp via the portal action (eg. <something>/portal.do)
 
 quickSearch.identifiers
-	Text displayed in search box
+    Text displayed in search box
 
 theme
-	Colour scheme for the webapp.  Available options are:  blue, bright_blue, gold, green, grey, brown, ecoli_blue, metabolic, modmine, ratmine and purple 
+    Colour scheme for the webapp.  Available options are:  blue, bright_blue, gold, green, grey, brown, ecoli_blue, metabolic, modmine, ratmine and purple 
 
 xrefLink
-	Used to configure hyperlinks for CrossReferences.  See below
+    Used to configure hyperlinks for CrossReferences.  See below
 
 Home page
 -----------
@@ -98,36 +98,36 @@ The format for this property is:
 
 .. code-block:: properties
 
-	# on the report page - a single identifier
- 	'attributelink' + unique_name + class + taxonId + attributeName + (url|imageName|text)
+    # on the report page - a single identifier
+    'attributelink' + unique_name + class + taxonId + attributeName + (url|imageName|text)
 
-	# on the list analysis page - a list of identifiers
- 	'attributelink' + unique_name + class + taxonId + attributeName + 'list' + (url|imageName|text)
+    # on the list analysis page - a list of identifiers
+    'attributelink' + unique_name + class + taxonId + attributeName + 'list' + (url|imageName|text)
 
 
 unique_name
-	used to distinguish between multiple configurations for the same attribute/organism/class combination
+    used to distinguish between multiple configurations for the same attribute/organism/class combination
 
 class 
-	class of object to link, eg. Protein
+    class of object to link, eg. Protein
 
 taxonId 
-	either a proper id or '*' when no assumptions is made regarding the organism
+    either a proper id or '*' when no assumptions is made regarding the organism
 
 attributeName
-	which identifier field to pass to the URL, e.g. if attributeName is primaryIdentifier, the value of primary identifier field will be used as the attribute value	
-	
+    which identifier field to pass to the URL, e.g. if attributeName is primaryIdentifier, the value of primary identifier field will be used as the attribute value    
+    
 list 
-	indicates the link will have a list of identifiers
+    indicates the link will have a list of identifiers
 
 url 
-	url to link to
+    url to link to
 
 imageName 
-	name of logo (optional), must be in /model directory
+    name of logo (optional), must be in /model directory
 
 text 
-	text that will appear next to the logo
+    text that will appear next to the logo
 
 The value of the attribute (for the current object) is substituted anywhere the string "<<attributeValue>>" occurs in the text or the url
 
@@ -135,8 +135,8 @@ example:
 
 .. code-block:: properties
 
- 	attributelink.flybase.Gene.7227.primaryIdentifier.url=http://www.flybase.org/.bin/fbidq.html?<<attributeValue>>
-	attributelink.flybase.Gene.7227.primaryIdentifier.text=FlyBase: <<attributeValue>>
+    attributelink.flybase.Gene.7227.primaryIdentifier.url=http://www.flybase.org/.bin/fbidq.html?<<attributeValue>>
+    attributelink.flybase.Gene.7227.primaryIdentifier.text=FlyBase: <<attributeValue>>
 
 In this case `Gene` pages for Drosophila melanogaster will have a link that uses the `organismDbId` field.
 
@@ -144,9 +144,9 @@ A list example:
 
 .. code-block:: properties
 
- 	attributelink.flymine.Gene.*.primaryIdentifier.list.url=http://www.flymine.org/query/portal.do?externalid=<<attributeValue>>&class=Gene
- 	attributelink.flymine.Gene.*.primaryIdentifier.list.text=FlyMine
- 	attributelink.flymine.Gene.*.primaryIdentifier.list.imageName=flymine_logo_link.gif
+    attributelink.flymine.Gene.*.primaryIdentifier.list.url=http://www.flymine.org/query/portal.do?externalid=<<attributeValue>>&class=Gene
+    attributelink.flymine.Gene.*.primaryIdentifier.list.text=FlyMine
+    attributelink.flymine.Gene.*.primaryIdentifier.list.imageName=flymine_logo_link.gif
 
 Only if a taxonId is specified the code will check if the link to the external db is relevant.
 
@@ -159,24 +159,24 @@ The format for this property is:
 
 .. code-block:: properties
 
-	# on the report page
- 	'xreflink' + dataSource_name + (url|imageName)
+    # on the report page
+    'xreflink' + dataSource_name + (url|imageName)
 
 dataSource_name 
-	the name of the external database
+    the name of the external database
 
 url 
-	url to link to
+    url to link to
 
 imageName 
-	name of logo (optional), must be in /model directory
+    name of logo (optional), must be in /model directory
 
 example:
 
 .. code-block:: properties
 
-	xreflink.PFAM.url=http://pfam.sanger.ac.uk/family?
-	xreflink.PIRSF.url=http://pir.georgetown.edu/cgi-bin/ipcSF?id=
+    xreflink.PFAM.url=http://pfam.sanger.ac.uk/family?
+    xreflink.PIRSF.url=http://pir.georgetown.edu/cgi-bin/ipcSF?id=
 
 
 Cross references represent identifiers used in external databases, eg. FlyBase, UniProt. An object in InterMine which has CrossReference will have a identifier and data source for that cross reference. In order to find the cross reference in that data source, a url is required to link to and the full path should look like url+identifier, e.g. ''http://pfam.sanger.ac.uk/family?PF00001''. In web.properties, the first part of the full path could be configured as in "url", and identifier will be added programmatically to the rear of it. The dataSource_name should be consistent with the source name of the CrossReferences in the InterMine database.
@@ -313,36 +313,177 @@ InterMine supports completely automated delegated authentication, whereby a medi
 that authenticates the user according to a chain of trust. This uses public-key cryptography to establish
 trust, and JWTs to transmit assertions.
 
+[nb. All the configuration in this section can (and should) go in your `~/.intermine/MINE.properties` file]
+
 To enable this feature you need to do a couple of things:
 
-Create a Key Store
+Create a Key Store [optional]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-InterMine needs access to the public key - this means creating a JKS key store
+InterMine needs access to public keys - this can mean creating a JKS key store
 (http://docs.oracle.com/javase/7/docs/api/java/security/KeyStore.html) with the certificate
 used to sign the JWTs - you should store the certificate against the alias with the same
-name as used in the `iss` claim in the JWT. The keystore file should be saved as `keystore.jks`
-in the WEB_INF directory.
+name as used in the `iss` claim in the JWT. The keystore file should be saved as `keystore.jks.$release`
+in the `~/.intermine` directory, or moved as part of your release cycle to
+`MINE/resources/webapp/WEB-INF/` immediately prior to building your webapp.
 
-Configuring Properties
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-You should configure the following properties, where `$iss` is the value of the `iss` claim on
-a JWT issued by the mediator:
+If you do this, then you need to provide the following configuration:
 
 ===============================  =========================================================
-`security.keystore.password`:     The password for this keystore.
+`security.keystore.password`      The password for this keystore.
+===============================  =========================================================
+
+If your keystore has no password, then you do not need to set that property.
+See below for a quick guide to creating a valid keystore.
+
+Provide Public Keys in your properties files [optional]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Instead of (or in addition to) creating a keystore, you can also provide keys
+in property files. Even though these are public keys, they are best included in
+your `~/.intermine/MINE.properties.release` file, since they will be specific
+to a particular instance. Internally if you do not provide a keystore, an empty
+one will be created.
+
+This is done by listing them as follows:
+
+===============================  ============================================================
+`security.publickey.$ALIAS`       $BASE64_ENCODED_PUBLIC_KEY
+===============================  ============================================================
+
+You can provide multiple keys and they will be all stored in the applications
+key-store under the given alias. Every key must have an alias, even if there is
+only one. If there is a problem with the key (it cannot be decoded, it is not
+valid, etc) it will by default be skipped, unless the following property is set
+to `true` (in which case it will throw an error and prevent your
+web-application from starting):
+
+==================================  ============================================================
+`keystore.strictpublickeydecoding`   `true` or `false`
+==================================  ============================================================
+
+The value `BASE64_ENCODED_PUBLIC_KEY` is the base64 encoding of the bytes of public key. Below is
+a sample program to illustrate how to do this in Java and python:
+
+.. code-block:: java
+
+    import java.security.KeyPairGenerator;
+    import java.security.PublicKey;
+    import org.apache.commons.codec.binary.Base64;
+
+    public class EncodeKey {
+
+        public static void main(String... args) throws Exception {
+            PublicKey key = getKey();
+            Base64 encoder = new Base64();
+            KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
+            System.out.println(encoder.encodeToString(key.getEncoded()));
+        }
+
+        private static PublicKey getKey() {
+            // Generating a random key - provide your own of course.
+            return keyGen.generateKeyPair().getPublic();
+        }
+    }
+
+or
+
+.. code-block:: python
+
+    # using pycrypto https://www.dlitz.net/software/pycrypto/
+    from Crypto.PublicKey import RSA
+    from Crypto import Random
+
+    # Generate a new random public key.
+    random = Random.new().read
+    pair = RSA.generate(1024, random.read)
+    public_key = pair.publickey()
+
+    print(base64.encodestring(public_key.exportKey(format = 'DER')))
+
+Selecting keys at runtime.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Since this feature relies on public key cryptography, you need to tell the InterMine application
+which keys to use to verify which JWT tokens. This can be done with the following properties:
+
+===============================  ============================================================
+`jwt.verification.strategy`       `NAMED_ALIAS` (default), `ANY`, or `WHITELIST` - optional
+===============================  ============================================================
+
+This property defaults to the most secure option, `NAMED_ALIAS`, where only keys associated
+with the issuer of the token with be used to verify it. This means you will need to link the
+two. Each token must identify its issuer (with the `iss` claim), you can map from that value
+to a key available to InterMine by providing the alias it is available as in the keystore. If
+you plan on accepting your own tokens, then you can provide the alias of your private key.
+
+===============================  =========================================================
 `security.keystore.alias.$iss`    The alias for the key certificate used to sign the JWT.
 ===============================  =========================================================
 
-If the JWT provided does not provide a `sub` (subject) claim, the then the following property should be configured:
+If you use the `WHITELIST` strategy, the you must provide the list of aliases that can be
+used to verify JWTs. All of them will be tried until one verifies successfully.
 
-===============================  ==================================================================================
- `jwt.key.sub.$iss`                The name of the claim that provides the identity of the subject. This should be
-                                   unique for each issuer.
-===============================  ==================================================================================                                  
+===============================  =========================================================
+`jwt.alias.whitelist`             The comma separated list of aliases to use.
+===============================  =========================================================
+
+If you select the `ANY` strategy, no further configuration is needed.
 
 Multiple issuers can be supported by providing a key for each alias.
+
+Managing non-standard claims
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+InterMine reads to claims about the end user from the JWT - who it identifies,
+and their email address. The email claim is non-standard, and needs to be
+configured. The subject claim can be overriden if the JWT tokens you are
+receiving have their subject identified in a different claim. To do so provide
+the following properties (in the following table, `$iss` is the value of the
+`iss` claim of the token):
+
+===============================  ==================================================================================
+ `jwt.key.email.$iss`              The name of the claim that provides the email of the subject. Defaults to
+                                   `http://wso2.org/claims/emailaddress`
+ `jwt.key.sub.$iss`                The name of the claim that provides the identity of the subject. This should be
+                                   unique for each issuer. Not needed if the token provides the `sub` claim
+===============================  ==================================================================================                                  
+
+Other properties
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following properties may also be important
+
+=================================  ===================================================================================
+ `jwt.publicidentity`               Used as the `iss` claim on any tokens the application issues itself. Also, if the
+                                    tokens received include an `aud` claim (see `aud definition`_) then this value
+                                    must match that value for verification to complete.
+ `security.privatekey.password`     Used to gain access to the private key used by the application for signing its
+                                    own tokens.
+ `security.privatekey.alias`        Used to retrieve the private key used by the application for signing its own
+                                    tokens. To provide a private key you must configure a key store.
+=================================  ===================================================================================
+                                  
+.. _aud definition: http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html#audDef
+
+Checking your configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+An ant task is provided to make checking this (admittedly rather complex)
+set-up easier. To make use of it you should configure your keys as for
+production, acquire a valid JWT representative of one of the ones you expect to
+encounter in production, enter you webapp directory (`$MINE/webapp`) and then
+call the following ant task:
+
+.. code-block:: bash
+
+    ant verify-jwt \
+        -Drelease=$RELEASE \ # Needed to read the correct properties file
+        -Dkeystore=$KEYSTORE_LOCATION \
+        -Djwt=$JWT
+
+If correctly set up, you should get a message printed to the console telling
+you who the token identifies.
 
 Setting up the Key-Store
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
