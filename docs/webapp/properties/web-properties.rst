@@ -457,7 +457,7 @@ The following properties may also be important
 =================================  ===================================================================================
  `jwt.publicidentity`               Used as the `iss` claim on any tokens the application issues itself. Also, if the
                                     tokens received include an `aud` claim (see `aud definition`_) then this value
-                                    must match that value for verification to complete.
+                                    must match that value for verification to complete. Defaults to your project title.
  `jwt.verifyaudience`               `true` or `false` (default = true). Whether to verify the `aud` claim.
  `security.privatekey.password`     Used to gain access to the private key used by the application for signing its
                                     own tokens.
