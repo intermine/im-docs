@@ -36,6 +36,23 @@ This can be configured on a table by table basis when the table is initialised:
     properties: { pageSize: 20 }
   });
 
+Icons
+------------------------------------------------
+
+Two different icon style are supported, bootstrap `glyphicons` and `fontawesome`.
+These differ in the underlying technology they use, one using images
+(glyphicons) and the other SVG fonts (fontawesome). By using fonts fontawesome
+icons generally look a bit nicer, but they are not compatible with IE8. For
+this reason `glyphicons` are the default, and `fontawesome` must be selected
+explicitly:
+
+.. code-block:: javascript
+
+  intermine.setOptions({icons: 'fontawesome'}, '.Style');
+
+To apply this setting in your current web-app, see :doc:`/webapp/properties/javascript-properties`.
+
+
 The initial state of Sub-Tables
 ------------------------------------------------
 
