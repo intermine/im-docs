@@ -193,6 +193,11 @@ If you want normalize by gene length, add the attribute correctionCoefficient se
 The gene length correction coefficient is applicable only for lists containing genes with a length, so for a list of genes do not have a length the option is not shown.
 If a list contains some genes without a length these genes will be discarded.
 
+Export Values
+~~~~~~~~~~~~~
+The exported file from enrichment widgets includes the enrichment identifier as the fourth column. It is contextual to the startClass attribute in the configuration. For example, an enrichment widget for publications would return the PubMedID field, where a GO enrichment widget would return the GO Term field.
+
+
 
 Displaying widgets
 ------------------

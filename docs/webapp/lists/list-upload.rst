@@ -78,6 +78,9 @@ example list
 
 valid delimiters
 	The default valid delimiters are comma, space, tab or new line.  You can change this value by setting the "list.upload.delimiters" property in WebProperties.
+	
+matchOnFirst
+	Set this value in the bag-queries.xml file. Default value is TRUE. If false, all queries will always be run.
 
 .. index:: list upload, bagqueryrunner, bag-queries, LOOKUP, converter templates
 

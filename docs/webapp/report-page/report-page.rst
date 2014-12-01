@@ -84,13 +84,17 @@ Additionally, one can decide to either show the old style "inline tables" or use
 
     inline.collections.in.tables = true
     
-This will display any inline collections in table widgets. Unless ``use.localstorage`` is ``true`` they will appear expanded but can be collapsed.
+This will display any inline collections in table widgets. Inline collections appear expanded by default and can be manually collapsed by the user.  To make all inline collections appear as collapsed, add or edit the following property in your `web.properties`:
+
+.. code-block:: properties
+    
+    web.collections.expandonload=false
+
+If ``use.localstorage`` is ``true``, and `localStorage <http://diveintohtml5.info/storage.html>`_ is available, then a particular collection's expanded or collapsed state will be remembered and not overriden by the default state property.
 
 .. code-block:: properties
 
     use.localstorage = true
-
-Both inline collections and templates will initially appear collapsed. Their state will be tracked using `localStorage <http://diveintohtml5.info/storage.html>`_ if available.
 
 Inline Lists
 ------------
@@ -136,6 +140,20 @@ Tag template with the ``im:report`` tag. See :doc:`/webapp/admin/index`.
 
 The template needs to have only one where clause involving the class of the object. 
 You also need to specify an aspect whithin the report page where the template will appear (e.g. ``im:aspect:Genomics``)
+
+Templates appear collapsed by default. To make all templates appear expanded when a report page is loaded, add or edit the following property in your `web.properties`:
+
+.. code-block:: properties
+    
+    web.templates.expandonload=true
+
+As with collections (see above), if ``use.localstorage`` is enabled and available, then a particular template's expanded or collapsed state will be remembered and not overriden by the default state property.
+
+.. warning::
+
+    The underlying query that populates a template is executed as the template is expanded. Setting ``web.templates.expandonload`` to ``true`` can cause a significant increase in a report page's load time, particularly if there are more than a handful of templates. 
+
+
 
 External Links
 --------------
