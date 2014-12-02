@@ -93,6 +93,13 @@ There is a predictable name to package mapping: "::" becomes "-", there will be 
 * "`Moose`" becomes "`libmoose-perl`"
 * and so on
 
+These are the modules you need to build a database:
+
+.. code-block:: bash
+
+  $ sudo apt-get install libxml-writer-perl libxml-sax-base-perl libxml-perl libxml-filter-saxt-perl libtext-glob-perl
+
+
 To search for a package you can type:
 
 .. code-block:: bash
