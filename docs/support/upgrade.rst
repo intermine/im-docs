@@ -9,8 +9,24 @@ To pull changes in your local repository and merge them into your working files:
 
 If you don't have a git repo yet, see :doc:`/git/index` for details.
 
-If you host a copy of the `CDN`_, then you should also pull in changes from
+If you host a copy of the :doc:`CDN </webapp/performance>`, then you should also pull in changes from
 that repository.
+
+Upgrade to InterMine 1.4
+---------------------------------
+
+There are no model changes, but we've added some new features that require an update.
+
+Hikari
+~~~~~~~~~~~~~~~~~~~~~~
+
+We've added a new fancy connection pool, you should see a performance increase. However you do have to change the Postgres setting `maxConnections`. See HikariDocs for details.
+
+BioSEG
+~~~~~~~~~~~~~~~~~~~~~~
+
+We've gotten rid of the requirement for BioSEG in favour of Postgres' built-in range indexes. This Postgres feature was introduced in 9.2 so you'll need at least that version to take advantage. Our tests show the speed to be about the same.
+
 
 Upgrade to InterMine 1.3.x
 ---------------------------------

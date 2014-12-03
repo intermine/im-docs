@@ -16,4 +16,4 @@ We recommend doing the following:
   appropriate URL (see http://intermine.readthedocs.org/en/latest/webapp/properties/javascript-options/)
 
 
-.. index:: webapp speed, performance
+.. index:: webapp speed, performance, CDN, Content Delivery Network
