@@ -9,7 +9,7 @@ To pull changes in your local repository and merge them into your working files:
 
 If you don't have a git repo yet, see :doc:`/git/index` for details.
 
-If you host a copy of the `CDN`_, then you should also pull in changes from
+If you host a copy of the :doc:`CDN </webapp/performance>`, then you should also pull in changes from
 that repository.
 
 Upgrade to InterMine 1.4
