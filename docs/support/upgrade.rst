@@ -20,7 +20,7 @@ There are no model changes, but we've added some new features that require an up
 Hikari
 ~~~~~~~~~~~~~~~~~~~~~~
 
-We've added a new fancy connection pool, you should see a performance increase. However you do have to change the Postgres setting `maxConnections`. See HikariDocs for details.
+We've added a new fancy connection pool, you should see a performance increase. However you do have to change the Postgres setting `maxConnections`. See :doc:`/get-started/hikaricp` for details.
 
 BioSEG
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -47,9 +47,9 @@ Also, we have changed our GO parser a bit. Each line in a gene annotation file n
 Upgrade to InterMine 1.2.1
 ---------------------------------
 
-If you have your own home page (begin.jsp), you must manually make this change: `501e221 <https://github.com/intermine/intermine/commit/501e221ff1804d387cd3de7e69d99fc2fd943d41>`_   
+If you have your own home page (begin.jsp), you must manually make this change: `501e221 <https://github.com/intermine/intermine/commit/501e221ff1804d387cd3de7e69d99fc2fd943d41>`_
 
-This is a fix for the keyword search - when users submit a blank search form, see `Issue #329 <https://github.com/intermine/intermine/issues/329>`_   
+This is a fix for the keyword search - when users submit a blank search form, see `Issue #329 <https://github.com/intermine/intermine/issues/329>`_
 
 There are no model or configuration changes in this release.
 
@@ -62,21 +62,21 @@ using InterMine 1.2 code without making any changes.
 Upgrade to InterMine 1.1
 ---------------------------------
 
-The core model of InterMine has changed in release 1.1 so you may encounter more errors than usual. 
- 
+The core model of InterMine has changed in release 1.1 so you may encounter more errors than usual.
+
 update integration keys
    	You may need to update your integration keys if they are using a class or field
-        that's been changed.    
+        that's been changed.
 
 update custom converter
 	If you are storing data using a class or field that's been changed, you will have
         to change your code to use the new model. See below for the complete list of model
         changes.
 
-template queries 
+template queries
 	You will have to update your templates to use the new model
 
-interaction viewer 
+interaction viewer
 	Widget uses the new model - will not work until you build a database with the new code
 
 Model Changes
@@ -118,7 +118,7 @@ Interactions
 |                   | name              | --                   |
 +-------------------+-------------------+----------------------+
 
-Gene Ontology 
+Gene Ontology
 ^^^^^^^^^^^^^^
 
 +--------------+------------+----------------------+
@@ -141,7 +141,7 @@ Identifiers
 We have several [wiki:Homologue new homologue data converters] available in this InterMine release.
 However, some of these new data sources use Ensembl IDs. If you want to load the model organism
 database identifier instead (important for interoperation with other InterMines), you should use the
-Entrez Gene ID resolver: 
+Entrez Gene ID resolver:
 
 #. Download the identifier file - ftp://ftp.ncbi.nih.gov/gene/DATA/gene_info.gz
 #. Unzip the file
@@ -150,7 +150,7 @@ Entrez Gene ID resolver:
 .. code-block:: properties
 
 	# in ~/.intermine/MINE_NAME.properties
-	resolver.entrez.file=/DATA_DIR/ncbi/gene_info 
+	resolver.entrez.file=/DATA_DIR/ncbi/gene_info
 
 Configuration Updates
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -163,5 +163,3 @@ your mine. Otherwise you will get an "Unable to construct query" error on the qu
 	# in ~/.intermine/MINE_NAME.properties
 	# used by web services for running queries, needs to be valid
 	webapp.baseurl=http://localhost:8080
-
-
