@@ -229,7 +229,7 @@ Tripal
 
 The Chado specific tables are not in the postgres default “public” schema of the database. Instead, Tripal puts it in a postgres schema named “chado".
 
-To workaround this, you would need to alter your Chado processor to run the query first, before running any SELECT statements:
+To workaround this, you would need to alter your Chado processor to run this query first, before running any SELECT statements:
 
 .. code-block:: sql
 
