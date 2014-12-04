@@ -26,7 +26,7 @@ BioSEG
 ~~~~~~~~~~~~~~~~~~~~~~
 
 We've gotten rid of the requirement for BioSEG in favour of Postgres' built-in range indexes. This Postgres feature was introduced in 9.2 so you'll need at least that version to take advantage. Our tests show the speed to be about the same.
-
+See :doc:`/system-requirements/software/postgres/bioseg` for details.
 
 Upgrade to InterMine 1.3.x
 ---------------------------------
