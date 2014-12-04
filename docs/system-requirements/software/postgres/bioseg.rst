@@ -16,9 +16,14 @@ If range types are not available (Postgres 9.1) then queries will revert to bios
 
 New installations of Postgres may still need to install gist for the indexes to work.
 
-To use, replace ``create-bioseg-location-index`` in project.xml with ``create-location-range-index``.
 
-This will create an index of int4range(start, end) on the location table and queries will be generated to use it.
+Indexing
+--------
+Performance is improved by creating an index of int4range(start, end) on the location table.
+
+This is achieved in the post-process phase of the build of an InterMine (see :doc:`/get-started/tutorial/index`).
+
+Please use the ``create-location-range-index`` post-process, which should replace ``create-bioseg-location-index`` in the project.xml file in your YOUR_MINE directory.
 
 The ``create-overlap-view`` task will also detect whether built-in ranges are available and use them instead of bioseg for the overlappingfeatures view.
 
