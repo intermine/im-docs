@@ -63,8 +63,8 @@ Context
 Edit context.xml:
 
 .. code-block:: xml
-   <Context sessionCookiePath="/" useHttpOnly="false" 	clearReferencesStopTimerThreads="true">
 
+   <Context sessionCookiePath="/" useHttpOnly="false" clearReferencesStopTimerThreads="true">
    ... 
    </Context>
 
