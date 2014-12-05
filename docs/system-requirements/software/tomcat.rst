@@ -57,6 +57,16 @@ If you used a package manager to get Tomcat, the manager may not be included. He
 
    $ apt-get install tomcat7-admin
 
+Context
+~~~~~~~~
+
+Edit context.xml:
+
+.. code-block:: xml
+   <Context sessionCookiePath="/" useHttpOnly="false" 	clearReferencesStopTimerThreads="true">
+
+   ... 
+   </Context>
 
 Server XML
 ~~~~~~~~~~~~
