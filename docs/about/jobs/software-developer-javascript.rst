@@ -95,5 +95,5 @@ http://www.jobs.cam.ac.uk/offer for the full list):
 How to Apply
 ------------------------------
 
-For information on how to apply, see http://www.gen.cam.ac.uk/jobs/software-developer-intermine
+To be updated 5 Jan 2015
 
