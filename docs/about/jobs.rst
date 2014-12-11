@@ -6,6 +6,6 @@ InterMine has two vacancies:
 .. toctree::
     :maxdepth: 1
 
-    software-developer-java
-    software-developer-javascript
+    jobs/software-developer-java
+    jobs/software-developer-javascript
 
