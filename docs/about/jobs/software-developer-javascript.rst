@@ -1,6 +1,3 @@
-Vacancies
-===========
-
 Software Developer (JavaScript)
 ================================
 
