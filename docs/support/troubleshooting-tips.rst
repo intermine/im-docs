@@ -30,7 +30,7 @@ In order for the intermine webapp to write logs, you must correctly set the `web
 When you see an error on the webapp or get a blank page and nothing appears in the webapp log from log4j, it is likely you will be able to find more information on what went wrong in the tomcat logs:
 
 * tomcat/logs/catalina.out  
-* tomcat/logs/localhost.DATE.logs
+* tomcat/logs/localhost.$DATE.logs
 
 It will likely be the log that was modified last.  
 
@@ -38,9 +38,18 @@ A good way of looking at the output to these logs in real time is to use the com
 
 .. code-block:: bash
 
-	$ tail -f tomcat/logs/LOGNAME
+	$ tail -f tomcat/logs/$LOGNAME
 
 If you reload the webapp you will see the error output directly on the screen.
+
+IQL in logs
+~~~~~~~~~~~~~~~~~~~~
+
+If you are having problems with a specific query, you can run it directly in the console. The query is listed in the log files in IQL (InterMine Query Language). To run the query directly, go to `$MINE/dmodel` and execute this command:
+
+.. code-block:: bash
+
+	$ ant run-iql-query -Dquery='some IQL'
 
 Show all properties 
 ~~~~~~~~~~~~~~~~~~~~
