@@ -3,16 +3,16 @@ Software
 
 InterMine makes use of a variety of freely available software packages.  All of the software listed below is required. 
 
-==========  =============== =============== ===================================
-Software    Minimum Version Recommended     Purpose
-==========  =============== =============== ===================================
-Git         1.7                             check out and update source code
-Java SDK    6               7               build and use InterMine
-Ant         1.8                             invokes the InterMine build
-Tomcat      7.0.x                           website
-PostgreSQL  9.1             9.3             database
-Perl        5.8.8                           run build scripts
-==========  =============== =============== ===================================
+==========  ========= ======== =============== ===================================
+Software    At least  At most  Recommended     Purpose
+==========  ========= ======== =============== ===================================
+Git         1.7                latest          check out and update source code
+Java SDK    6         7        7               build and use InterMine
+Ant         1.8                latest          invokes the InterMine build
+Tomcat      7.0.x     < 8      latest          website
+PostgreSQL  9.1                9.3             database
+Perl        5.8.8              latest          run build scripts
+==========  ========= ======== =============== ===================================
 
 .. note::
 
