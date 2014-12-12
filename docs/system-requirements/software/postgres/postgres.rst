@@ -1,7 +1,10 @@
 Installing PostgreSQL
 ======================
 
-http://www.postgresql.org/download has packages for most systems that set up everything for you. 
+We recommend you install stable versions of PostgreSQL 9.2 and above. We currently
+run our `continuous integration tests`_ on PostgreSQL 9.2.
+`The PostgreSQL downloads page`_ has packages for most systems
+that set up everything for you. 
 
 Fedora/CentOS
 	http://wiki.openscg.com/index.php/PostgreSQL_RPM_Installation
@@ -10,19 +13,22 @@ Debian/Ubuntu
 	`sudo apt-get install postgresql`
 
 Mac
-	http://www.postgresql.org/download/macosx.  We've had the most success with MacPorts.
+    There are several good options:
+        
+        * `Postgres.app`_ - Very easy for a development machine, requires zero configuration.
+        * MacPorts_
+        * Homebrew_
+        * Manually_
 
+    We have had good experiences with Postgres.app and Macports.
 
-
-After installation, you need to update `postgresql.conf` 
-
-* This file is usually located in `/etc/postgres/`: 
-* If you are going to install Postgres 9.x:
+If you are going to install Postgres 9.x:
 
   * It's not easy to change the default encoding to SQL_ASCII anymore, so you should do this before creating any production databases.
+  * You will not need BioSeg for PostgreSQL 9.2+.
   * There are special instructions for installing BioSeg
 
-
+After installation, you need to update `postgresql.conf` (this file is usually located in `/etc/postgres/`).
 
 Required Configuration
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -31,7 +37,6 @@ Required Configuration
 listen_addresses      '*'
 port                  5432
 ====================  ===================
-
 
 Recommended Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -112,3 +117,10 @@ Procedures to change character encoding to `SQL_ASCII` in PostgreSQL 9.x:
 	exit
 
 .. index:: PostgreSQL, SQL_ASCII, LATIN-9, UTF-8
+
+.. _continuous integration tests: https://travis-ci.org/intermine/intermine
+.. _The PostgreSQL downloads page: http://www.postgresql.org/download
+.. _Postgres.app: http://postgresapp.com/
+.. _MacPorts: https://github.com/codeforamerica/ohana-api/wiki/Installing-PostgreSQL-with-MacPorts-on-OS-X
+.. _Manually: http://www.postgresql.org/download/macosx
+.. _Homebrew: http://www.moncefbelyamani.com/how-to-install-postgresql-on-a-mac-with-homebrew-and-lunchy/

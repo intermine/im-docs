@@ -1,8 +1,30 @@
 InterMine Tests
 ===============
 
+Continuous Integration
+-------------------------
 
-After getting the source code for InterMine and ensuring you have all of the required prerequisites, the next step is to try the tests to confirm that everything runs well in your environment.
+We run all our tests on every commit using the Continous Integration service
+`Travis-CI`_. You can do the same for your fork:
+
+  * Log in to Travis-CI with your GitHub account.
+  * Enable your fork of intermine for Travis builds.
+
+All the tests will be run on every change you make, and you will be notified
+of errors by email.
+
+Setting up a Local Test Environment
+----------------------------------------
+
+After getting the source code for InterMine and ensuring you have all of the
+required prerequisites, the next step is to try the tests to confirm that
+everything runs well in your environment.
+
+We also recommend looking at the files that run our continous integration tests
+for examples of how this can be automated:
+
+  * `config/travis/init.sh`
+  * `config/travis/run.sh`
 
 Running the core tests
 ---------------------------
@@ -10,7 +32,9 @@ Running the core tests
 Create databases
 ~~~~~~~~~~~~~~~~~~~
 
-Create blank databases required by the tests named:  `unittest`, `truncunittest`, `fulldatatest`, `flatmodetest`, `notxmltest`.  See PostgresBasics and introduction to some Postgres commands. 
+Create blank databases required by the tests named:  `unittest`,
+`truncunittest`, `fulldatatest`, `flatmodetest`, `notxmltest`.  See
+PostgresBasics and introduction to some Postgres commands. 
 
 .. code-block:: bash
 
@@ -20,7 +44,11 @@ Create blank databases required by the tests named:  `unittest`, `truncunittest`
 Update properties file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You need to set up a properties file to provide database details to the test code.  In your home directory create a file called `intermine-test.properties` and update the server name, database names, and database username and password.  You can use different database names as long as the actual database name used to create the database and the `db.xxx.datasource.databaseName` value match.  
+You need to set up a properties file to provide database details to the test
+code.  In your home directory create a file called `intermine-test.properties`
+and update the server name, database names, and database username and password.
+You can use different database names as long as the actual database name used
+to create the database and the `db.xxx.datasource.databaseName` value match.  
 
 .. code-block:: properties
 
@@ -170,3 +198,5 @@ You can also run a test for an individual source by running the ant command with
 The test results will be located at `uniprot/test/build/test/results/index.html`.  You can also run these as JUnit tests directly from Eclipse.
 
 .. index:: tests, unit tests
+
+.. _Travis-CI: https://travis-ci.org/intermine/intermine
