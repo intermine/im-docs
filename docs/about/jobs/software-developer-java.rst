@@ -13,7 +13,7 @@ biological data. You will build, debug and test web applications using
 JavaScript, CSS and the latest tools and libraries, with a focus on **creating
 great user experiences**. You will gain experience with every level of the stack,
 including developing complex JVM applications. There are opportunities for
-travel to conferences and meetings for interested applicants.
+travel to conferences and meetings as well.
 
 We have interesting problems to solve, both on the server and on the
 user-interface level. We deal with the issues of describing complex real world
