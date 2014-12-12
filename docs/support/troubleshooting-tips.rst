@@ -68,7 +68,7 @@ UnsupportedClassVersionError
 
 	java.lang.UnsupportedClassVersionError: org/intermine/task/FileName (Unsupported major.minor version 49.0)
 
-This means that your version of Java is too old, you need at least Java 1.5 to run !InterMine.
+This means that your version of Java is too old, you need at least Java 6 to run !InterMine.
 
 can't open datasource
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -204,3 +204,6 @@ Expose your localhost mine
 --------------------------
 
 It is easier to debug (especially CSS and JS issues) if we can see your mine from our end. If it is currently deployed on localhost, use `ngrok <https://ngrok.com//>`_.
+
+
+.. index:: LOG, intermine.log, catalina.out, IQL, JAVA_OPTS, PermGen, PSQLException
