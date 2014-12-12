@@ -313,7 +313,9 @@ InterMine supports completely automated delegated authentication, whereby a medi
 that authenticates the user according to a chain of trust. This uses public-key cryptography to establish
 trust, and JWTs to transmit assertions.
 
-[nb. All the configuration in this section can (and should) go in your `~/.intermine/MINE.properties` file]
+.. note::
+
+    All the configuration in this section can (and should) go in your `~/.intermine/MINE.properties` file
 
 To enable this feature you need to do a couple of things:
 
