@@ -37,9 +37,22 @@ Default values are set in the files
 Some further information about the order of precedence for the setting of properties is available, for the web application, at
 http://intermine.readthedocs.org/en/latest/webapp/properties/web-properties/?highlight=overrides#overriding-properties
 
+Tomcat
+-------
 
-Other HikariCP configurations.
+You'll also need to update your Tomcat settings. Add `clearReferencesStopTimerThreads` to your $TOMCAT/conf/context.xml file, so it should look like so:
+
+.. code-block:: xml
+
+ <Context sessionCookiePath="/" useHttpOnly="false" clearReferencesStopTimerThreads="true">
+ ...
+ </Context>
+
+
+
+Other HikariCP configurations
 ------------------------------
+
 While HikariCP default settings are good, there could be situations where some changes could be useful. HikariCP provides a good number of parameters that can be set (see the configuration section at https://github.com/brettwooldridge/HikariCP).
 
 For example, sometime it can be useful, to avoid exceeding the number of connections set in the database, to set the minimumIdle number of connections.
