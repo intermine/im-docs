@@ -82,6 +82,7 @@ DBmodel
 Target  		Purpose
 =============	======================================== 
 build-db 		build the objectstore
+run-iql-query   run an IQL query directly in the console
 =============	======================================== 
 
 
