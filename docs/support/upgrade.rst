@@ -39,6 +39,9 @@ in your $MINE directory:
 .. code-block:: properties
 
 	db.production.datasource.maxConnections=20
+	
+	....
+	
 	db.common-tgt-items.datasource.maxConnections=5
 
 `default.intermine.webapp.properties`
