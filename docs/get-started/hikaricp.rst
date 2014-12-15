@@ -14,8 +14,8 @@ InterMine properties has been updated to deal with the change, but you could sti
 
 .. note::
  Reasonable settings for ``datasource.maxConnections`` can be seen in the files
- * flymine/default.intermine.integrate.properties
- * flymine/default.intermine.webapp.properties
+  * flymine/default.intermine.integrate.properties
+  * flymine/default.intermine.webapp.properties
  with values of 20 for the production database and 5 for other databases.
  You may need to increase your Postgres parameter ``max connections``, for example to 250.
 
