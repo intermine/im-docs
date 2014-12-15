@@ -24,16 +24,20 @@ We've added a new fancy connection pool, you should see a performance improve. H
 
 1. Change the postgres config file 
 
+The number of connections required will depend on your usage. 100 connections is the default and should be okay for production webapps. However each webapp reserves 20 connections so on your dev machines it may be wise to raise the maximum quite a bit.
+
+| max_connections = 250
+
 2. Change your $MINE properties files.
 
 in your $MINE directory:
 
 `default.intermine.integrate.properties` 
-> db.production.datasource.maxConnections=20
-> db.common-tgt-items.datasource.maxConnections=5
+| db.production.datasource.maxConnections=20
+| db.common-tgt-items.datasource.maxConnections=5
 
 `default.intermine.webapp.properties`
-> db.production.datasource.maxConnections=20
+| db.production.datasource.maxConnections=20
 
 See :doc:`/get-started/hikaricp` for details.
 
