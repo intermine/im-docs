@@ -20,13 +20,22 @@ There are no model changes, but we've added some new features that require an up
 Hikari
 ~~~~~~~~~~~~~~~~~~~~~~
 
-We've added a new fancy connection pool, you should see a performance increase. However you do have to change the Postgres setting `maxConnections`. See :doc:`/get-started/hikaricp` for details.
+We've added a new fancy connection pool, you should see a performance improve. However you do have to change the Postgres setting `maxConnections`. 
 
-BioSEG
-~~~~~~~~~~~~~~~~~~~~~~
+1. Change the postgres config file 
 
-We've gotten rid of the requirement for BioSEG in favour of Postgres' built-in range indexes. This Postgres feature was introduced in 9.2 so you'll need at least that version to take advantage. Our tests show the speed to be about the same.
-See :doc:`/system-requirements/software/postgres/bioseg` for details.
+2. Change your $MINE properties files.
+
+in your $MINE directory:
+
+`default.intermine.integrate.properties` 
+> db.production.datasource.maxConnections=20
+> db.common-tgt-items.datasource.maxConnections=5
+
+`default.intermine.webapp.properties`
+> db.production.datasource.maxConnections=20
+
+See :doc:`/get-started/hikaricp` for details.
 
 Upgrade to InterMine 1.3.x
 ---------------------------------
