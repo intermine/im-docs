@@ -199,4 +199,56 @@ The test results will be located at `uniprot/test/build/test/results/index.html`
 
 .. index:: tests, unit tests
 
+Running the web application tests
+--------------------------------
+
+InterMine includes tests for running automated browser based user interface testing using `Selenium <http://www.seleniumhq.org/>`_. In particular the tests are meant to cover the main interface features of the generic web-application.
+
+InterMine's web applications tests are written in Python using unittest as the main test framework, selenium to interact with the Selenium webdriver and nose as a test runner.
+
+The test suite can be found in the intermine/testmodel/webapp/selenium/ directory.
+
+Environment Variables
+~~~~~~~~~~~~~~~~~~~
+
+All tests run against a target which is the base URL of an InterMine instance.
+
+.. code-block:: properties
+
+  # The base URL of the web application.
+  # Example: http://localhost:8080/intermine-demo
+  TESTMODEL_BASE
+
+Credentials for a Gmail account are required to test OpenID authentication in account-login-openid-test.py:
+
+.. code-block:: properties
+
+  # The username of a Gmail account
+  TESTMODEL_OPENID_NAME
+
+  # The password of a Gmail account
+  TESTMODEL_OPENID_PASSWORD
+
+Run the tests
+~~~~~~~~~~~~~~~~~~~
+
+The tests are normally run as part of the CI test suite. They can also be run locally which is always a good idea when a new test is added or an existing test is modified.
+
+To the run tests manually:
+
+.. code-block:: bash
+
+  # in intermine/testmodel/webapp/selenium/
+  $ virtualenv venv
+  $ source venv/bin/activate
+  $ pip install -r requirements.txt
+  $ nosetests
+
+Developing test scripts
+~~~~~~~~~~~~~~~~~~~
+
+Selenium offers a Firefox plugin called `Selinium IDE <http://www.seleniumhq.org/download/>`_ that can be used to record a user's actions in the browser and then generate Selenium code in a variety of languages. While you may need to write code for more complex scenarios, the plugin can be a fast way to generate most of the work.
+
+Python based test scrips should be placed in intermine/testmodel/webapp/selenium/test/ and their filename should end with "[filename]-test.py". Test scripts in this directory are automatically included when nosetests is executed or when continual integration takes place.
+
 .. _Travis-CI: https://travis-ci.org/intermine/intermine
