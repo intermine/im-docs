@@ -13,11 +13,11 @@ As a consequence, setting for the previously used connection pool could exhaust 
 InterMine properties has been updated to deal with the change, but you could still need to edit the `datasource.maxConnections` properties specific for your mine, see "Which properties?" section below.
 
 .. note::
-Reasonable settings for ``datasource.maxConnections`` can be seen in the files
+ Reasonable settings for ``datasource.maxConnections`` can be seen in the files
  * flymine/default.intermine.integrate.properties
  * flymine/default.intermine.webapp.properties
-with values of 20 for the production database and 5 for other databases.
-You may need to increase your Postgres parameter ``max connections``, for example to 250.
+ with values of 20 for the production database and 5 for other databases.
+ You may need to increase your Postgres parameter ``max connections``, for example to 250.
 
 .. note::
  The InterMine property ``datasource.maxConnections`` corresponds to the ``maximumPoolSize`` of the HikariCP.
