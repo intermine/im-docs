@@ -17,10 +17,7 @@ Upgrade to InterMine 1.4
 
 There are no model changes, but we've added some new features that require an update.
 
-Hikari
-~~~~~~~~~~~~~~~~~~~~~~
-
-We've added a new fancy connection pool, you should see a performance improve. However you do have to change the Postgres setting `maxConnections`. 
+We've added a new fancy connection pool, you should see a performance improvement. However you do have to change the Postgres setting `max_connections`. 
 
 1. Change the postgres config file 
 
@@ -28,7 +25,7 @@ The number of connections required will depend on your usage. 100 connections is
 
 .. code-block:: properties
 
-	max_connections = 250
+	max_connections=250
 
 2. Change your $MINE properties files.
 
@@ -39,9 +36,6 @@ in your $MINE directory:
 .. code-block:: properties
 
 	db.production.datasource.maxConnections=20
-	
-	....
-	
 	db.common-tgt-items.datasource.maxConnections=5
 
 `default.intermine.webapp.properties`
