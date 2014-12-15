@@ -13,9 +13,15 @@ As a consequence, setting for the previously used connection pool could exhaust 
 InterMine properties has been updated to deal with the change, but you could still need to edit the `datasource.maxConnections` properties specific for your mine, see "Which properties?" section below.
 
 .. note::
+Reasonable settings for ``datasource.maxConnections`` can be seen in the files
+* flymine/default.intermine.integrate.properties
+* flymine/default.intermine.webapp.properties
+with values of 20 for the production database and 5 for other databases.
+You may need to increase your Postgres parameter ``max connections``, for example to 250.
+
+.. note::
  The InterMine property ``datasource.maxConnections`` corresponds to the ``maximumPoolSize`` of the HikariCP.
 
- 
 For more information about the properties files in InterMine, please refer to our :doc:`/get-started/tutorial/index`, and in particular to sections 
 
 http://intermine.readthedocs.org/en/latest/get-started/tutorial/#creating-a-new-mine
@@ -29,10 +35,6 @@ The properties that you should check have a reasonable setting for a database `m
 2. YOUR_MINE/default.intermine.integrate.properties  (for building a mine)
 3. YOUR_MINE/default.intermine.webapp.properties  (for building a web application)
 
-Default values are set in the files
-
-* intermine/default.intermine.integrate.properties
-* intermine/default.intermine.webapp.properties
 
 Some further information about the order of precedence for the setting of properties is available, for the web application, at
 http://intermine.readthedocs.org/en/latest/webapp/properties/web-properties/?highlight=overrides#overriding-properties
