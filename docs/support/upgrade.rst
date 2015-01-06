@@ -17,7 +17,7 @@ Upgrade to InterMine 1.4
 
 There are no model changes, but we've added some new features that require an update.
 
-We've added a new fancy connection pool, you should see a performance improvement. However you do have to change the Postgres setting `max_connections`. 
+We've added a new fancy connection pool, you should see a performance improvement. However you do need to update some configuration files.
 
 Postgres config file 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -58,6 +58,18 @@ InterMine-model Refactor
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The metadata package has moved from to `InterMine-model <https://github.com/intermine/intermine/tree/beta/intermine/model/main/src/org/intermine>`. If you have custom data sources that use Util files, you may have to update your code to reflect the new location. Your IDE should be able to do this for you. 
+
+Tomcat
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Add `clearReferencesStopTimerThreads` to your $TOMCAT/conf/context.xml file, so it should look like so:
+
+.. code-block:: xml
+
+ <Context sessionCookiePath="/" useHttpOnly="false" clearReferencesStopTimerThreads="true">
+ ...
+ </Context>
+
 
 Upgrade to InterMine 1.3.x
 ---------------------------------
