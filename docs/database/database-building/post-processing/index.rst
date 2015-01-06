@@ -83,12 +83,20 @@ Looks at gene locations on chromosomes and calculates new IntergenicRegion featu
 
 *Should I use it?* Yes, if you have loaded genome annotation and think IntergenicRegions sound useful.
 
+create-location-overlap-index
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a GIST index on the location table to help with overlap queries.  
+
+*Should I use it?* Yes, if you have genome annotation and would like to query overlaps. You must have bioseg installed unless you are using Postgres 9.2 or later. See ::doc::`here data-model/overlaps/`_ for details.
+
+
 create-bioseg-location-index
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a bioseg GIST index on the location table to help with overlap queries.  
+Deprecated.
 
-*Should I use it?* Yes, if you have genome annotation and would like to query overlaps and have [BiosegInstallation bioseg] installed.
+*Should I use it?* No. Use `create-location-overlap-index` instead.
 
 create-overlap-view
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
