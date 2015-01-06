@@ -5,7 +5,7 @@ Querying over genomic ranges
   
    Starting with InterMine 1.4 Bioseg is no longer required if you are using Postgres version 9.2 or later.
 
-InterMine includes functionality for querying features with overlapping genome coordinates.  We have a custom `BIOSEG` index for postgres that is created on the `Location` table.  This is used by a 'virtual' `SequenceFeature.overlappingFeatures` collection that is a `view` in the postgres database using the `BIOSEG` index to find other features that overlap it.
+InterMine includes functionality for querying features with overlapping genome coordinates.  We have an index that is created on the `Location` table.  This is used by a 'virtual' `SequenceFeature.overlappingFeatures` collection that is a `view` in the postgres database using the index (either bioseg or the native Postgres one) to find other features that overlap it.
 
 In modMine (the InterMine for the modENCODE project) we also create `GeneFlankingRegion` features to represent specific distances upstream and downstream of genes to query for genes that are nearby other features. 
 
