@@ -17,24 +17,22 @@ Install BIOSEG (Postgres versions 9.1 and older only)
 Create the index
 --------------------------------------------------------------------------------------------------
 
-You need to create the index on the location table in your production database.  This is done simply by adding the `create-location-range-index` post-process step to your `project.xml` file:
+You need to create the index on the location table in your production database by adding the `create-location-range-index` post-process step to your `project.xml` file:
 
 .. code-block:: xml
 
 	<post-process name="create-location-range-index"/>
 
-If you are using an older version of Postgres, this will create a BIOSEG index. Otherwise it will use a native Postgres index.
+If you are using an older version of Postgres, this task will create a BIOSEG index. Otherwise it will use a native Postgres index.
 
-Create the `overlappingFeatures` view
+Create the overlappingFeatures view
 --------------------------------------------------------------------------------------------------
 
-Now create the `SequenceFeature.overlappingFeatures` view in the database.  This allows you to query for any features that overlap any other types of features in the web interface or query API.  Just add the `create-overlap-view` post-process step, it needs to be after `create-location-range-index`.
+Create the `SequenceFeature.overlappingFeatures` view in the database. This allows you to query for any features that overlap any other types of features in the web interface or query API.  Add the `create-overlap-view` post-process step, which needs to be located **after** `create-location-range-index` in your project XML file.
 
 .. code-block:: xml
 
 	<post-process name="create-overlap-view" />
-
-See FlyMine's project.xml for an example of including these steps.
 
 Now any queries on the `overlappingFeatures` collections will use this view and the new index.
 
