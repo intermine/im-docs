@@ -1,12 +1,12 @@
 Range Queries (BioSeg)
-===========
+=================================
 
 .. note::
  Starting with InterMine 1.4 Bioseg is no longer required if you are using a Postgres version higher than 9.1.
 
 
 Postgres 9.2 and higher
-=======================
+-------------------------------
 
 InterMine now can perform range queries on location table taking advantage of Postgres built in ``int4range`` type.
 
@@ -18,7 +18,8 @@ New installations of Postgres may still need to install gist for the indexes to 
 
 
 Indexing
---------
+~~~~~~~~~~~~~~
+
 Performance is improved by creating an index of int4range(start, end) on the location table.
 
 This is achieved in the post-process phase of the build of an InterMine (see :doc:`/get-started/tutorial/index`).
@@ -28,14 +29,15 @@ Please use the ``create-location-range-index`` post-process, which should replac
 The ``create-overlap-view`` task will also detect whether built-in ranges are available and use them instead of bioseg for the overlappingfeatures view.
 
 Postgres 9.1
-=============
+------------------
+
 For Postgres 9.1 bioseg is still required. Here how to install it.
 
 Prerequisites
--------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 Contrib software
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ========  ==========================================
 debian    apt-get install postgresql-contrib-9.1
@@ -43,7 +45,7 @@ fedora    yum install postgresql-contrib
 ========  ==========================================
 
 Header files
-~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ========  ==========================================
 debian    apt-get install postgresql-server-dev-9.1
@@ -51,14 +53,14 @@ fedora    yum install postgresql-devel
 ========  ==========================================
 
 pg_config
-~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ========  ==========================================
 debian    apt-get install libpq-dev
 ========  ==========================================
 
 Installation
-------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 1. Download the bioseg tar from http://www.bioinformatics.org/bioseg/wiki/.
 2. Untar the file, change to the created directory and run these commands
@@ -71,7 +73,7 @@ Installation
 
 
 Create bioseg Type
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 You need to create the bioseg type in each database that is going to use it. If you create it in the `template1`, then all newly-created databases will have the bioseg type.
 
@@ -94,7 +96,7 @@ For each database, type:
 	$ psql (database) <bioseg.sql
 
 Gist
-=====
+---------
 
 We also need to create the default gist operators too, in order to have normal types in multi-column indexes.
 
