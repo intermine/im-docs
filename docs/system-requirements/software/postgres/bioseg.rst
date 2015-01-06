@@ -1,12 +1,12 @@
-Range Queries (BioSeg)
+Range Queries 
 =================================
 
 .. note::
- Starting with InterMine 1.4 Bioseg is no longer required if you are using a Postgres version higher than 9.1.
+ Starting with InterMine 1.4, bioseg is no longer required if you are using a Postgres version higher than 9.1.
 
 
 Postgres 9.2 and higher
--------------------------------
+--------------------------------------------------------------
 
 InterMine now can perform range queries on location table taking advantage of Postgres built in ``int4range`` type.
 
@@ -29,7 +29,7 @@ Please use the ``create-location-range-index`` post-process, which should replac
 The ``create-overlap-view`` task will also detect whether built-in ranges are available and use them instead of bioseg for the overlappingfeatures view.
 
 Postgres 9.1
-------------------
+------------------------------------
 
 For Postgres 9.1 bioseg is still required. Here how to install it.
 
