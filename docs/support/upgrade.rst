@@ -48,7 +48,9 @@ in your $MINE directory:
 
 Any other data source you use should be set to five connections, raised to ten if you encounter problems, e.g. the build failing with an error like so:
 
-| Caused by: org.postgresql.util.PSQLException: FATAL: connection limit exceeded for non-superusers 
+.. error::
+
+ Caused by: org.postgresql.util.PSQLException: FATAL: connection limit exceeded for non-superusers 
 
 See :doc:`/get-started/hikaricp` for details.
 
