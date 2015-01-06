@@ -101,9 +101,9 @@ Deprecated.
 create-overlap-view
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Replace the `sequencefeatureoverlappingfeatures` table with a view that uses the [BiosegInstallation bioseg] type to calculate the overlaps.  
+Replace the `sequencefeatureoverlappingfeatures` table with a view that uses a fast index to calculate the overlaps.  
 
-*Should I use it?* Yes, if you have genome annotation and would like to query overlaps and have [BiosegInstallation bioseg] installed.  
+*Should I use it?* Yes, if you have genome annotation and would like to query overlaps. You must have bioseg installed unless you are using Postgres 9.2 or later. See ::doc::`here data-model/overlaps/`_ for details.
 
 create-gene-flanking-features
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
