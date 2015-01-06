@@ -19,7 +19,8 @@ There are no model changes, but we've added some new features that require an up
 
 We've added a new fancy connection pool, you should see a performance improvement. However you do have to change the Postgres setting `max_connections`. 
 
-1. Change the postgres config file 
+Change the postgres config file 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The number of connections required will depend on your usage. 100 connections is the default and should be okay for production webapps. However each webapp reserves 20 connections so on your dev machines it may be wise to raise the maximum quite a bit.
 
@@ -27,7 +28,8 @@ The number of connections required will depend on your usage. 100 connections is
 
 	max_connections=250
 
-2. Change your $MINE properties files.
+Change your $MINE properties files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 in your $MINE directory:
 
@@ -51,6 +53,11 @@ Any other data source you use should be set to five connections, raised to ten i
 	Caused by: org.postgresql.util.PSQLException: FATAL: connection limit exceeded for non-superusers 
 
 See :doc:`/get-started/hikaricp` for details.
+
+InterMine-model Refactor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The metadata package has moved from to [`InterMine-model`](https://github.com/intermine/intermine/tree/beta/intermine/model/main/src/org/intermine). If you have custom data sources that use Util files, you may have to update your code to reflect the new location. Your IDE should be able to do this for you. 
 
 Upgrade to InterMine 1.3.x
 ---------------------------------
