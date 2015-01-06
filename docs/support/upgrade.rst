@@ -36,6 +36,7 @@ in your $MINE directory:
 .. topic:: default.intermine.integrate.properties
 
 	db.production.datasource.maxConnections=20
+	 
 	db.common-tgt-items.datasource.maxConnections=5
 
 .. topic:: default.intermine.webapp.properties
@@ -53,7 +54,7 @@ See :doc:`/get-started/hikaricp` for details.
 InterMine-model Refactor
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The metadata package has moved from to `InterMine-model <https://github.com/intermine/intermine/tree/beta/intermine/model/main/src/org/intermine>`_. If you have custom data sources that use Util files, you may have to update your code to reflect the new location. Your IDE should be able to do this for you. 
+The metadata package has moved from to `InterMine-model <https://github.com/intermine/intermine/tree/beta/intermine/model/main/src/org/intermine>`_. If you have custom data sources that use InterMine Utils, you may have to update your code to reflect the new location. Your IDE should be able to do this for you. 
 
 Tomcat
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
