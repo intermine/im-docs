@@ -1,10 +1,7 @@
 Installing PostgreSQL
 ======================
 
-We recommend you install stable versions of PostgreSQL 9.2 and above. We currently
-run our `continuous integration tests`_ on PostgreSQL 9.2.
-`The PostgreSQL downloads page`_ has packages for most systems
-that set up everything for you. 
+We recommend you install stable versions of PostgreSQL 9.2 and above. We currently run our `continuous integration tests`_ on PostgreSQL 9.2. `The PostgreSQL downloads page`_ has packages for most systems that set up everything for you. 
 
 Fedora/CentOS
 	http://wiki.openscg.com/index.php/PostgreSQL_RPM_Installation
@@ -31,7 +28,7 @@ If you are going to install Postgres 9.x:
 After installation, you need to update `postgresql.conf` (this file is usually located in `/etc/postgres/`).
 
 Required Configuration
-~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------
 
 ====================  ===================
 listen_addresses      '*'
@@ -39,7 +36,7 @@ port                  5432
 ====================  ===================
 
 Recommended Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------------------------------------------------
 
 .. note::
 
@@ -88,7 +85,7 @@ You may also need to configure (increase) your shared memory (SHMMAX), e.g.
 You also need to install the `bioseg` data type, and the `contrib btree_gist` plug-in, as described in :doc:`bioseg`.
 
 Character Set Encoding
-~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------
 
 We recommend using either `SQL_ASCII` or `UTF-8`. Theoretically, we should be using `UTF-8`, which is more correct, however its performance is rather poor, so we use `SQL_ASCII`.
 
