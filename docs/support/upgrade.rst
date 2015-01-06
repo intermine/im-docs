@@ -22,9 +22,9 @@ We've added a new fancy connection pool, you should see a performance improvemen
 Postgres config file 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The number of connections required will depend on your usage. 100 connections is the default and should be okay for production webapps. However each webapp reserves 20 connections so on your dev machines it may be wise to raise the maximum quite a bit.
+The number of database connections required will depend on your usage. 100 connections is the default and should be okay for production webapps. However each webapp reserves 20 connections so on your dev machines it may be wise to raise the maximum quite a bit.
 
-.. code-block:: properties
+.. topic:: postgresql.conf
 
 	max_connections=250
 
@@ -33,22 +33,18 @@ $MINE properties files
 
 in your $MINE directory:
 
-`default.intermine.integrate.properties` 
-
-.. code-block:: properties
+.. topic:: default.intermine.integrate.properties
 
 	db.production.datasource.maxConnections=20
 	db.common-tgt-items.datasource.maxConnections=5
 
-`default.intermine.webapp.properties`
-
-.. code-block:: properties
+.. topic:: default.intermine.webapp.properties
 
 	db.production.datasource.maxConnections=20
 
 Any other data source you use should be set to five connections, raised to ten if you encounter problems, e.g. the build failing with an error like so:
 
-.. code-block:: properties
+.. topic:: Error message
 
 	Caused by: org.postgresql.util.PSQLException: FATAL: connection limit exceeded for non-superusers 
 
