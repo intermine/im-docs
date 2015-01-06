@@ -9,7 +9,7 @@ To pull changes in your local repository and merge them into your working files:
 
 If you don't have a git repo yet, see :doc:`/git/index` for details.
 
-If you host a copy of the :doc:`CDN </webapp/performance>`, then you should also pull in changes from
+If you host a copy of the :doc:`CDN </webapp/performance/index>`, then you should also pull in changes from
 that repository.
 
 Upgrade to InterMine 1.4
@@ -48,9 +48,9 @@ in your $MINE directory:
 
 Any other data source you use should be set to five connections, raised to ten if you encounter problems, e.g. the build failing with an error like so:
 
-.. error::
+.. code-block:: properties
 
- Caused by: org.postgresql.util.PSQLException: FATAL: connection limit exceeded for non-superusers 
+	Caused by: org.postgresql.util.PSQLException: FATAL: connection limit exceeded for non-superusers 
 
 See :doc:`/get-started/hikaricp` for details.
 
