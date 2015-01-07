@@ -19,7 +19,7 @@ Add this to the `<post-processing>` section of your project XML file and then bu
   <post-process name="populate-child-features"/>
 
 
-See :doc:`post-process </database/database-building/post-processing/index>`_ for details on post-processing.
+See :doc:/database/database-building/post-processing/index` for details on post-processing.
 
 Install JBrowse
 ~~~~~~~~~~~~~~~~~~~~
