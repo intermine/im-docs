@@ -20,5 +20,3 @@ an authentication token.
 .. include:: how-tos/get-lists.rst
 
 .. include:: how-tos/get-gene-summary.rst
-
-.. include:: how-tos/set-up-jbrowse.rst

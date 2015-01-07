@@ -1,32 +1,66 @@
-How Do I Embed JBrowse on my Web pages?
+JBrowse
 =======================================
 
-JBrowse can be run directly from InterMine web-services. This means that using JBrowse from
-a report page is straightforward. This section describes features available in InterMine 1.3.3.
+InterMine 1.3.1 supports the JBrowse REST web-service specification (see `configuring JBrowse`_) which means that you can run a JBrowse installation
+directly off the InterMine web-services. 
 
-You need to:
+This documentation has been tested with JBrowse-1.11.5.
 
-* Have a `JBrowse`_ installed somewhere that you can use (tested with 1.11.3).
- 
-* Let the webapp know where the JBrowse to be used is installed 
-  by adding the following property to a property file (eg. the one on the ``.intermine``
-  directory):
+NOTE: If you already have a JBrowse installation working and just want to embed it in your report pages then see: `Embedding JBrowse`_.
 
-  ``jbrowse.install.url = http://some.jbrowse.install/somewhere/index.html``
 
-* Add the appropriate report displayer stanza to the ``webconfig-model.xml`` file for your mine:
+Build Your InterMine Database
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Add this to the `<post-processing>` section of your project XML file and then build your database:
+
+.. code-block:: xml
+
+  <post-process name="populate-child-features"/>
+
+
+See :doc:`post-process </database/database-building/post-processing/index>`_ for details on post-processing.
+
+Install JBrowse
+~~~~~~~~~~~~~~~~~~~~
+
+You will need an installation of JBrowse for this task. Instructions on doing this can be found at `installing JBrowse`_.
+
+Add JBrowse to InterMine
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Add JBrowse to your report pages by adding this entry to your `webconfig-model.xml </webapp/properties/webconfig-model/index>`_ file:
 
 .. code-block:: xml
 
     <reportdisplayer javaClass="org.intermine.bio.web.displayer.JBrowseDisplayer"
-            jspName="model/jbrowseDisplayer.jsp"
-            replacesFields=""
-            placement="Genomics"
-            types="SequenceFeature"/>
+                     jspName="model/jbrowseDisplayer.jsp"
+                     replacesFields=""
+                     placement="Genomics"
+                     types="SequenceFeature"/>
 
-[The `webconfig-model.xml` file can usually be found under ``yourmine/webapp/resources/webapp/WEB-INF/``]
+See :doc:`/webapp/report-page/report-displayers-examples/index`_ for more information.
 
-And that is it.
+Add the location of your JBrowse installation to your `web.properties` file, for example:
 
-.. index:: JBrowse, genome browser
-.. _JBrowse: http://jbrowse.org
+.. code-block:: properties
+
+  jbrowse.url = http://your.domain.name/jbrowse/JBrowse-1.11.5/index.html
+
+
+Point JBrowse at your InterMine
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Add your new mine-based dataset to your configuration file. For example to add *D. melanogaster* data from FlyMine_ as a JBrowse dataset, the following configuration in `jbrowse_conf.json` would suffice:
+
+.. include:: /web-services/how-tos/jbrowse_conf.json
+   :code: json
+
+Once in place, you can visit your JBrowse `index.html` and see the data from FlyMine_.
+
+.. _configuring JBrowse: http://gmod.org/wiki/JBrowse_Configuration_Guide
+.. _installing JBrowse: http://jbrowse.org/code/latest-release/docs/tutorial/
+.. _FlyMine: http://www.flymine.org
+.. _Embedding JBrowse: http://intermine.readthedocs.org/en/latest/webapp/third-party-tools/jbrowse
+
+.. index:: JBrowse, GBrowse, das
