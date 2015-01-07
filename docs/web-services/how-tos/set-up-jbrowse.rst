@@ -13,12 +13,12 @@ Download JBrowse
 
 You will need an installation of JBrowse for this task. Instructions on doing this can be found at `installing JBrowse`_.
 
-This can be done by fetching and extracting the latest release:
+This can be done by fetching and extracting the latest release from jbrowse.org, e.g.:
 
 .. code-block:: bash
 
-    wget -O JBrowse-1.11.3.zip 'http://jbrowse.org/wordpress/wp-content/plugins/download-monitor/download.php?id=93'
-    unzip JBrowse-1.11.3.zip
+    wget -O JBrowse-1.11.5.zip 'http://jbrowse.org/wordpress/wp-content/plugins/download-monitor/download.php?id=98'
+    unzip JBrowse-1.11.5.zip
 
 InterMine 1.3.2: Point at an InterMine
 ........................................
