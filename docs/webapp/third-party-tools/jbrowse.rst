@@ -39,13 +39,13 @@ Add JBrowse to your report pages by adding this entry to your `webconfig-model.x
                      placement="Genomics"
                      types="SequenceFeature"/>
 
-See :doc:`/webapp/report-page/report-displayers-examples/index` for more information.
+See :doc:`/webapp/report-page/report-displayers-examples/` for more information.
 
 Add the location of your JBrowse installation to your `web.properties` file, for example:
 
 .. code-block:: properties
 
-  jbrowse.url = http://your.domain.name/jbrowse/JBrowse-1.11.5/index.html
+  jbrowse.url = http://jbrowse.intermine.org
 
 
 Point JBrowse at your InterMine
