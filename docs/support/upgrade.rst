@@ -49,6 +49,12 @@ Any other data source you use should be set to five connections, raised to ten i
 
 	Caused by: org.postgresql.util.PSQLException: FATAL: connection limit exceeded for non-superusers 
 
+Or this (See `#912 <https://github.com/intermine/intermine/issues/912>`_)
+
+.. topic:: Error message
+
+	Unable to get sub-ObjectStore for Translating ObjectStore
+
 See :doc:`/get-started/hikaricp` for details.
 
 InterMine-model Refactor
