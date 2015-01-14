@@ -19,7 +19,7 @@ Add this to the `<post-processing>` section of your project XML file and then bu
   <post-process name="populate-child-features"/>
 
 
-See :doc:/database/database-building/post-processing/index` for details on post-processing.
+See :doc:`/database/database-building/post-processing/index` for details on post-processing.
 
 Install JBrowse
 ~~~~~~~~~~~~~~~~~~~~
@@ -53,7 +53,7 @@ Point JBrowse at your InterMine
 
 Add your new mine-based dataset to your configuration file. For example to add *D. melanogaster* data from FlyMine_ as a JBrowse dataset, the following configuration in `jbrowse_conf.json` would suffice:
 
-.. include:: /web-services/how-tos/jbrowse_conf.json
+.. include::jbrowse_conf.json
    :code: json
 
 Once in place, you can visit your JBrowse `index.html` and see the data from FlyMine_.
