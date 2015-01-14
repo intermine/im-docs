@@ -19,7 +19,7 @@ Add this to the `<post-processing>` section of your project XML file and then bu
   <post-process name="populate-child-features"/>
 
 
-See :doc:`/database/database-building/post-processing/index` for details on post-processing.
+See :doc:`/database/database-building/post-processing/index` for details.
 
 Install JBrowse
 ~~~~~~~~~~~~~~~~~~~~
@@ -39,7 +39,7 @@ Add JBrowse to your report pages by adding this entry to your `webconfig-model.x
                      placement="Genomics"
                      types="SequenceFeature"/>
 
-See :doc:`/webapp/report-page/report-displayers-examples/index`_ for more information.
+See :doc:`/webapp/report-page/report-displayers-examples/index` for more information.
 
 Add the location of your JBrowse installation to your `web.properties` file, for example:
 
@@ -53,7 +53,7 @@ Point JBrowse at your InterMine
 
 Add your new mine-based dataset to your configuration file. For example to add *D. melanogaster* data from FlyMine_ as a JBrowse dataset, the following configuration in `jbrowse_conf.json` would suffice:
 
-.. include::jbrowse_conf.json
+.. include::/webapp/third-party-tools/jbrowse_conf.json
    :code: json
 
 Once in place, you can visit your JBrowse `index.html` and see the data from FlyMine_.
