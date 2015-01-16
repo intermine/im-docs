@@ -81,7 +81,9 @@ Configuration
 `web.properties`
 
 .. code-block:: properties
-   
+  # this is the default value, only set if you want to override
+  genomicRegionSearch.initBatchSize = 10000  
+  
   genomicRegionSearch.display = true
   genomicRegionSearch.service =
   genomicRegionSearch.optionsJavascript =
