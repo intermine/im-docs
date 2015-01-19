@@ -82,7 +82,6 @@ Configuration
 
 .. code-block:: properties
 
-  genomicRegionSearch.initBatchSize = 10000 
   genomicRegionSearch.display = true
   genomicRegionSearch.service =
   genomicRegionSearch.optionsJavascript =
@@ -110,6 +109,9 @@ Configuration
   ## Query fields when export results as csv/tsv
   genomicRegionSearch.query.Gene.views = {0}.primaryIdentifier,{0}.symbol,{0}.chromosomeLocation.locatedOn.primaryIdentifier,{0}.chromosomeLocation.start,{0}.chromosomeLocation.end,{0}.organism.shortName
   genomicRegionSearch.query.Gene.sortOrder = {0}.chromosomeLocation.start asc
+  ## 10,000 is the default value, only set if you want a different value
+  genomicRegionSearch.initBatchSize = 10000 
+  
 
 * Update defaultOrganisms property as needed
 * to disable genomic region search, set `genomicRegionSearch.display = false`
