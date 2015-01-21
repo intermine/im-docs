@@ -6,7 +6,7 @@ Region Search
 BiosegInstallation
 --------------------
 
-You must have `Bioseg` installed to use the region search.  
+You must have `Bioseg` installed or be using Postgres 9.2+ to use the region search.  
 
 Configuration 
 ~~~~~~~~~~~~~~~~~~~~~~~
