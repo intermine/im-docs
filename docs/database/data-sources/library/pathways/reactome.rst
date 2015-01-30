@@ -24,4 +24,15 @@ project XML example
       <property name="reactome.organisms" value="9606 10090" />
     </source>
 
-.. index:: Reactome
+This source contains a task to copy the Pathways from the proteins to the related genes. To include this, add this to the `post-processing` section of your project XML file:
+
+.. code-block:: xml
+
+  <post-processing>
+    <post-process name="do-sources" />
+    ...
+  </post-processing>
+
+See :doc:`/database/database-building/post-processing/index` for more information on post-processing.
+
+.. index:: Reactome, pathways, biopax, genes, proteins, UniProt
