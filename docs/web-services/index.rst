@@ -16,7 +16,7 @@ For a full listing of web service capabilities please see the
 Getting Started
 ----------------
 
-Install Required Dependenices
+Install Required Dependencies
     If you are reading this page, we make the assumption you know how to write and
     run programs in your language of choice. You will probably want to download
     and install the appropriate client library (see `API and Client Libraries`_),
