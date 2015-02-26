@@ -44,7 +44,7 @@ Recommended Configuration
 
 For optimum performance. Read http://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server for more information.
 
-=========================   ==============================================================
+=============================   ==============================================================
 shared_buffers			Set to around 1/4 or more of total RAM (config SHMMAX first)
 temp_buffers  			Set to around 80MB
 work_mem  			Set to around 500MB but not more than 1/10 of available RAM
@@ -56,7 +56,11 @@ geqo_threshold  		Set to 14
 from_collapse_limit  		Set to 14
 join_collapse_limit  		Set to 14
 max_locks_per_transaction 	Set to 640
-=========================   ==============================================================
+checkpoint_segments 		128                                                                                                                                                              
+checkpoint_timeout 		10min
+checkpoint_completion_target    0.9
+
+=============================   ==============================================================
 
 You should also add a line to the pg_hba.conf file to allow logging in via password:
 
