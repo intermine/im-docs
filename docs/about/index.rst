@@ -66,7 +66,6 @@ Vacancies
 -------------------
 
 .. toctree::
-    :maxdepth: 1
 
     jobs/index.rst
 
