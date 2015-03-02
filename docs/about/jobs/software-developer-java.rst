@@ -36,7 +36,8 @@ Desired Skills and Experience
 * Experience with version control. We use **git**.
 * Familiarity with client side web tools, e.g. **Angular**, **Backbone.js**,
   **React**.
-* Some awareness of modern web best-practices.
+* Some awareness of modern bioinformatics best-practices.
+* An interest in synthetic biology.
 * A need for continual self-improvement and ongoing learning.
 
 Our Toolset
