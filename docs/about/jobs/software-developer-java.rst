@@ -21,10 +21,11 @@ and improve this sector leading product.
 Required Skills and Experience
 ------------------------------
 
+* Familiarity with managed languages (such as **Java**) and/or dynamic scripting
+  languages (such as **Perl**, **Python**, **Ruby**).
 * Demonstrable software design and development experience. We do most of our new
   work in **CoffeeScript** and **JavaScript**, both in **nodejs** and in the browser. We also have
   JVM applications written in **Java** and **clojure**.
-* Experience with version control. We use **git**.
 * An understanding of **visual design** and **software engineering** principles.
 * A test-first ethos: We use **unit testing**, automated testing and continuous integration.
 
@@ -32,29 +33,22 @@ Desired Skills and Experience
 ------------------------------
 
 * Enthusiasm for **open source** development, tools and methodology.
+* Experience with version control. We use **git**.
 * Familiarity with client side web tools, e.g. **Angular**, **Backbone.js**,
   **React**.
-* Familiarity with managed languages (such as **Java**) and/or dynamic scripting
-  languages (such as **JavaScript**, **Python**, **Ruby**).
-* An interest in using new languages and libraries. We use **CoffeeScript** and
-  **clojure**.
 * Some awareness of modern web best-practices.
 * A need for continual self-improvement and ongoing learning.
 
 Our Toolset
 ------------------------------
 
+* Python / Perl
 * Java
-* Clojure
 * JavaScript/CoffeeScript
 * PostgreSQL
 * Tomcat
 * Ant
 * Git
-
-This is an opportunity for right candidate to gain experience in a wide variety
-of state-of-the-art tools and practices, and to use their own judgement and
-experience to choose their own tools and design applications from the ground up.
 
 About InterMine
 ------------------------------
