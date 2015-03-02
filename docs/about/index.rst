@@ -65,7 +65,10 @@ See https://github.com/intermine/intermine/releases
 Vacancies
 -------------------
 
-* :doc:`jobs`
+.. toctree::
+    :maxdepth: 1
+
+    jobs
 
 
 Get Involved
