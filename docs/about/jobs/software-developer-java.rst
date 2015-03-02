@@ -7,13 +7,7 @@ Software Developer (Data Scientist)
    Ability to punt desirable.
 
 Do you want to create **open-source software that makes a difference**, using
-cutting-edge tools? InterMine is looking for a software developer to help create
-powerful, attractive, user friendly data mining tools to search and display
-biological data. You will build, debug and test web applications using
-JavaScript, CSS and the latest tools and libraries, with a focus on **creating
-great user experiences**. You will gain experience with every level of the stack,
-including developing complex JVM applications. There are opportunities for
-travel to conferences and meetings as well.
+cutting-edge tools?  This role will involve creating new features for the InterMine data warehouse platform as part of an exciting project. The successful applicant will be part of a UK consortium that is developing new methods for the emerging field of Synthetic Biology, and will be responsible for maintaining the current synthetic biology InterMine, adding new data, tools and features as required.
 
 We have interesting problems to solve, both on the server and on the
 user-interface level. We deal with the issues of describing complex real world
