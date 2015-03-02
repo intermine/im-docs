@@ -60,10 +60,7 @@ Privacy Policy
 Release Notes
 ------------------
 
-.. toctree::
-    :maxdepth: 1
-
-    release-notes
+See https://github.com/intermine/intermine/releases
 
 Vacancies
 -------------------
