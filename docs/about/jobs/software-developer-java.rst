@@ -6,9 +6,6 @@ Software Developer (Data Scientist)
 
    Ability to punt desirable.
 
-Do you want to create **open-source software that makes a difference**, using
-cutting-edge tools?  This role will involve creating new features for the InterMine data warehouse platform as part of an exciting project. The successful applicant will be part of a UK consortium that is developing new methods for the emerging field of Synthetic Biology, and will be responsible for maintaining the current synthetic biology InterMine, adding new data, tools and features as required.
-
 We have interesting problems to solve, both on the server and on the
 user-interface level. We deal with the issues of describing complex real world
 systems at the right level of abstraction. We work with the leaders in the
@@ -17,6 +14,8 @@ increasingly valuable knowledgebases. This data changes frequently, so we have
 built a system that can flexibly work from any description of a data-model to
 produce a clear and powerful data-mining interface. We need you to help develop
 and improve this sector leading product.
+
+This role will involve creating new features for the InterMine data warehouse platform as part of an exciting project. The successful applicant will be part of a UK consortium (http://www.synbiuk.org/) that is developing new methods for the emerging field of Synthetic Biology, and will be responsible for maintaining the current synthetic biology InterMine, adding new data, tools and features as required.
 
 Required Skills and Experience
 ------------------------------
@@ -67,7 +66,7 @@ specific needs, as well as a powerful, scriptable web-service API to allow
 programmatic access to your data.
 
 Take a look at our codebase at GitHub http://www.github.com/intermine and some
-of our recent tools: http://intermine-report-widgets-service.labs.intermine.org.
+of our recent tools: http://staircase.herokuapp.com.
 
 InterMine was founded in 2002 and is based at the University of Cambridge. We
 offer very competitive salaries and a generous benefits package (see
