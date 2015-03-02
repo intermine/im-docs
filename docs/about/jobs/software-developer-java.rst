@@ -22,9 +22,9 @@ Required Skills and Experience
 
 * Familiarity with managed languages (such as **Java**) and/or dynamic scripting
   languages (such as **Perl**, **Python**, **Ruby**).
-* Some experience with databases, we use **Postgres**.
+* Experience with databases, we use **Postgres**.
 * Comfortable on the command line, e.g. sed and awk
-* Demonstrable software design and development experience. 
+* Exceptional communication, problem solving and critical **thinking** skills. 
 * A test-first ethos: We use **unit testing**, automated testing and continuous integration.
 
 Desired Skills and Experience
