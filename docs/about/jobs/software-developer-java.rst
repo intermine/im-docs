@@ -22,19 +22,20 @@ Required Skills and Experience
 
 * Familiarity with managed languages (such as **Java**) and/or dynamic scripting
   languages (such as **Perl**, **Python**, **Ruby**).
-* Demonstrable software design and development experience. 
 * Some experience with databases, we use **Postgres**.
+* Comfortable on the command line, e.g. sed and awk
+* Demonstrable software design and development experience. 
 * A test-first ethos: We use **unit testing**, automated testing and continuous integration.
 
 Desired Skills and Experience
 ------------------------------
 
-* Enthusiasm for **open source** development, tools and methodology.
 * Experience with version control. We use **git**.
-* Familiarity with bash, e.g. sed and awk
 * Some awareness of modern bioinformatics best-practices.
 * An interest in synthetic biology.
 * A need for continual self-improvement and ongoing learning.
+* Enthusiasm for **open source** development, tools and methodology.
+* Knowledge of different biological file formats, e.g. **GFF3**, **PSI-XML**
 
 Our Toolset
 ------------------------------
