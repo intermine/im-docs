@@ -95,5 +95,5 @@ http://www.jobs.cam.ac.uk/offer for the full list):
 How to Apply
 ------------------------------
 
-To be updated 5 Jan 2015
+Apply via the University's website here: http://www.jobs.cam.ac.uk/job/6352/
 
