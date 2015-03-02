@@ -78,7 +78,7 @@ specific needs, as well as a powerful, scriptable web-service API to allow
 programmatic access to your data.
 
 Take a look at our codebase at GitHub http://www.github.com/intermine and some
-of our recent tools: http://intermine-report-widgets-service.labs.intermine.org.
+of our recent tools: http://staircase.herokuapp.com.
 
 InterMine was founded in 2002 and is based at the University of Cambridge. We
 offer very competitive salaries and a generous benefits package (see
