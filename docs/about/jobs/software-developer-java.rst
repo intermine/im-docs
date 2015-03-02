@@ -31,11 +31,11 @@ Desired Skills and Experience
 ------------------------------
 
 * Experience with version control. We use **git**.
-* Some awareness of modern bioinformatics best-practices.
-* An interest in synthetic biology.
+* Some awareness of modern **bioinformatics** best-practices.
+* An interest in synthetic **biology**.
 * A need for continual self-improvement and ongoing learning.
 * Enthusiasm for **open source** development, tools and methodology.
-* Knowledge of different biological file formats, e.g. **GFF3**, **PSI-XML**
+* Knowledge of some different biological file formats, e.g. **GFF3**, **OWL**
 
 Our Toolset
 ------------------------------
