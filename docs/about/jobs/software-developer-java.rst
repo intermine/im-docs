@@ -1,4 +1,4 @@
-Software Developer (Java)
+Software Developer (Data Scientist)
 ================================
 
 .. figure::  cam_bridge.jpg
