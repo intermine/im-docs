@@ -22,10 +22,8 @@ Required Skills and Experience
 
 * Familiarity with managed languages (such as **Java**) and/or dynamic scripting
   languages (such as **Perl**, **Python**, **Ruby**).
-* Demonstrable software design and development experience. We do most of our new
-  work in **CoffeeScript** and **JavaScript**, both in **nodejs** and in the browser. We also have
-  JVM applications written in **Java** and **clojure**.
-* An understanding of **visual design** and **software engineering** principles.
+* Demonstrable software design and development experience. 
+* Some experience with databases, we use **Postgres**.
 * A test-first ethos: We use **unit testing**, automated testing and continuous integration.
 
 Desired Skills and Experience
@@ -33,8 +31,7 @@ Desired Skills and Experience
 
 * Enthusiasm for **open source** development, tools and methodology.
 * Experience with version control. We use **git**.
-* Familiarity with client side web tools, e.g. **Angular**, **Backbone.js**,
-  **React**.
+* Familiarity with bash, e.g. sed and awk
 * Some awareness of modern bioinformatics best-practices.
 * An interest in synthetic biology.
 * A need for continual self-improvement and ongoing learning.
