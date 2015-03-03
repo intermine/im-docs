@@ -24,6 +24,8 @@ built a system that can flexibly work from any description of a data-model to
 produce a clear and powerful data-mining interface. We need you to help develop
 and improve this sector leading product.
 
+Applications are invited for a software developer to work on InterMine (intermine.org), an open-source data mining project based in the Cambridge Systems Biology Centre at the University of Cambridge. This role will involve creating new features for the InterMine data warehouse platform as part of an exciting synthetic biology project that aims to enable the end-to-end design, construction and validation of large DNA constructs for academic and industrial application supporting a wide range of fundamental and biotechnology related research in the UK and beyond.
+
 Required Skills and Experience
 ------------------------------
 
