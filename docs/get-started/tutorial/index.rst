@@ -896,7 +896,7 @@ This will take ~15-30mins to complete.
 
 .. note::
 
-    You should set your $ANT_OPTS variable, see :doc:`/support/troubleshooting-tips`
+    If you encounter an "OutOfMemoryError", you should set your $ANT_OPTS variable, see :doc:`/support/troubleshooting-tips`
 
 Deploying the web application
 --------------------------------------------
