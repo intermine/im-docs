@@ -894,6 +894,10 @@ Run the `project_build` script from your `malariamine` directory:
 
 This will take ~15-30mins to complete.
 
+.. note::
+
+    You should set your $ANT_OPTS variable, see :doc:`/support/troubleshooting-tips/index`
+
 Deploying the web application
 --------------------------------------------
 
@@ -960,7 +964,7 @@ Visit the Tomcat manager at http://localhost:8080/.  The username and password r
 
 .. note::
 
-    There are extra steps to take if you are using Tomcat 7. See :doc:`</system-requirements/software/tomcat/index.rst>` for details.
+    There are extra steps to take if you are using Tomcat 7. See :doc:`/system-requirements/software/tomcat/index` for details.
 
 
 Webapp
