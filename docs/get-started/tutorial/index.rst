@@ -958,6 +958,10 @@ Tomcat is the webserver we use to launch InterMine webapps.  Start Tomcat with t
 
 Visit the Tomcat manager at http://localhost:8080/.  The username and password required to access the manager are `webapp.manager` and `webapp.password` as specified in  malariamine.properties.
 
+.. note::
+
+    There are extra steps to take if you are using Tomcat 7. See :doc:`</system-requirements/software/tomcat/index.rst>` for details.
+
 
 Webapp
 ^^^^^^^^^^^^
