@@ -42,6 +42,34 @@ Recommended Configuration
 
 	The default configuration is fine for a development server. It is conservative however, so for better performance we recommend you make the changes below.
 
+
+Character Set Encoding
+---------------------------------------
+
+You should only use either `SQL_ASCII` or `UTF-8`. If performance is an issue, the use of `SQL_ASCII` is strongly recommended. [#note]_
+
+
+Procedures to change character encoding to `SQL_ASCII` in PostgreSQL 9.x:
+
+.. code-block:: bash
+
+	sudo -u postgres psql
+	update pg_database set datallowconn = TRUE where datname = 'template0';
+	\c template0
+	update pg_database set datistemplate = FALSE where datname = 'template1';
+	drop database template1;
+	create database template1 with template = template0 encoding = 'SQL_ASCII' LC_COLLATE='C' LC_CTYPE='C';
+	update pg_database set datistemplate = TRUE where datname = 'template1';
+	\c template1
+	update pg_database set datallowconn = FALSE where datname = 'template0';
+	\q
+	exit
+
+
+Server configuration (Postgres parameters)
+---------------------------------------
+
+
 For optimum performance. Read http://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server for more information.
 
 =============================   ==============================================================
@@ -88,34 +116,18 @@ You may also need to configure (increase) your shared memory (SHMMAX), e.g.
 
 You also need to install the `bioseg` data type, and the `contrib btree_gist` plug-in, as described in :doc:`bioseg`.
 
-Character Set Encoding
----------------------------------------
 
-We recommend using either `SQL_ASCII` or `UTF-8`. Theoretically, we should be using `UTF-8`, which is more correct, however its performance is rather poor, so we use `SQL_ASCII`.
 
-The InterMine system stores all text in the database in `UTF-8` format. If you set Postgres to `LATIN-9`, then Postgres will perform some incorrect conversions, and may even give an error. Setting the format to `UTF-8` results in Postgres treating the text completely correctly, which is quite a complicated and slow operation in `UTF-8`.
+.. [#note]
+   The InterMine system stores all text in the database in `UTF-8` format. If you set Postgres to `LATIN-9`, then Postgres will perform some incorrect conversions, and may even give an error. Setting the format to `UTF-8` results in Postgres treating the text completely correctly, which is quite a complicated and slow operation in `UTF-8`.
 
-If you set Postgres to `SQL_ASCII`, then that is a special character set in Postgres, which basically means "do no conversions". This is sufficient for almost all operations. All comparisons and index lookups will be done on a byte-by-byte basis, which is much faster than having to deal with Unicode's complications.
+   If you set Postgres to `SQL_ASCII`, then that is a special character set in Postgres, which basically means "do no conversions". This is sufficient for almost all operations. All comparisons and index lookups will be done on a byte-by-byte basis, which is much faster than having to deal with Unicode's complications.
 
-Please try to treat InterMine as a black box. The fact that it uses Postgres to store its data should be a detail that should be hidden as much as possible. The InterMine system is written in Java, and therefore handles all text in Unicode. 
+   Please try to treat InterMine as a black box. The fact that it uses Postgres to store its data should be a detail that should be hidden as much as possible. The InterMine system is written in Java, and therefore handles all text in Unicode. 
 
-The template1 database is the database used as a template when you run the `createdb` command. Update the encoding for template1 to be SQL_ASCII then every database you create from now on will have the correct encoding.
+   The template1 database is the database used as a template when you run the `createdb` command. Update the encoding for template1 to be SQL_ASCII then every database you create from now on will have the correct encoding.
 
-Procedures to change character encoding to `SQL_ASCII` in PostgreSQL 9.x:
 
-.. code-block:: bash
-
-	sudo -u postgres psql
-	update pg_database set datallowconn = TRUE where datname = 'template0';
-	\c template0
-	update pg_database set datistemplate = FALSE where datname = 'template1';
-	drop database template1;
-	create database template1 with template = template0 encoding = 'SQL_ASCII' LC_COLLATE='C' LC_CTYPE='C';
-	update pg_database set datistemplate = TRUE where datname = 'template1';
-	\c template1
-	update pg_database set datallowconn = FALSE where datname = 'template0';
-	\q
-	exit
 
 .. index:: PostgreSQL, SQL_ASCII, LATIN-9, UTF-8
 
