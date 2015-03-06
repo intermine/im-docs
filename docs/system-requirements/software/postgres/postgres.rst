@@ -32,15 +32,29 @@ Configuration file
 ------------------
 Most of the configurations below are made updating the file `postgresql.conf`, usually located in `/etc/postgres/version-nr/main`.
 
-Required Configuration
+Required Configurations
 ---------------------------------------
 
+Allow remote connections
+~~~~~~~~~~~~~~~~~~~~~~~~
 ====================  ===================
 listen_addresses      '*'
 port                  5432
 ====================  ===================
 
-Recommended Configuration
+Install extension btree_gist
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To allow range queries. See also :doc:`bioseg`. 
+In the template1 database run:
+
+.. code-block:: sql
+
+        CREATE EXTENSION btree_gist;
+	
+	
+
+
+Recommended Configurations
 ------------------------------------------------------------------------------
 
 The system works reasonably well with the default configuration. For better performance we recommend to make the changes below.
@@ -149,25 +163,21 @@ You should also add a line to the pg_hba.conf file to allow logging in via passw
 
 
 
-
-You may also need to configure (increase) your shared memory (SHMMAX), e.g.
-
-.. code-block:: bash
-
-        # SHMMAX should not exceed 4294967295 on a 32-bit system. On x86-64 platforms, SHMMAX can be much larger than 4GB since the virtual address space is not limited by 32 bits. 
-	$ ipcs -lm # Determine current shared memory limits, e.g. max seg size is SHMMAX in kbytes
-
-	$ cat /proc/sys/kernel/shmmax # Determine the value of SHMMAX
-
-	$ sudo vim /etc/sysctl.conf # Configure SHMMAX value (Bytes) in sysctl.conf, 50% of total memory is advised, e.g. add 
-	# kernel.shmmax = 268435456
-
-	$ sudo sysctl -p # make the config take effect at runtime.
-	# Or simply do: sudo sysctl -w kernel.shmmax=268435456
+----------------------------------------------------------------------
 
 
 
-You also need to install the `bioseg` data type, and the `contrib btree_gist` plug-in, as described in :doc:`bioseg`.
+
+..        # SHMMAX should not exceed 4294967295 on a 32-bit system. On x86-64 platforms, SHMMAX can be much larger than 4GB since the virtual address space is not limited by 32 bits. 
+..	$ ipcs -lm # Determine current shared memory limits, e.g. max seg size is SHMMAX in kbytes
+
+..	$ cat /proc/sys/kernel/shmmax # Determine the value of SHMMAX
+
+..	$ sudo vim /etc/sysctl.conf # Configure SHMMAX value (Bytes) in sysctl.conf, 50% of total memory is advised, e.g. add 
+..	# kernel.shmmax = 268435456
+
+..	$ sudo sysctl -p # make the config take effect at runtime.
+..	# Or simply do: sudo sysctl -w kernel.shmmax=268435456
 
 
 
