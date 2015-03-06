@@ -19,13 +19,18 @@ Mac
 
     We have had good experiences with Postgres.app and Macports.
 
-If you are going to install Postgres 9.x:
+.. note::
 
-  * It's not easy to change the default encoding to SQL_ASCII anymore, so you should do this before creating any production databases.
-  * You will not need BioSeg for PostgreSQL 9.2+.
-  * There are special instructions for installing BioSeg
+	We recommend installing Postgres 9.2 or higher.
 
-After installation, you need to update `postgresql.conf` (this file is usually located in `/etc/postgres/`).
+
+If you are installing an older version of Postgres you will need to install Bioseg to allow range queries, as described in :doc:`bioseg`.
+
+Some of the recommended setting below may not apply to older versions.
+
+Configuration file
+------------------
+Most of the configurations below are made updating the file `postgresql.conf`, usually located in `/etc/postgres/version-nr/main`.
 
 Required Configuration
 ---------------------------------------
@@ -38,13 +43,11 @@ port                  5432
 Recommended Configuration
 ------------------------------------------------------------------------------
 
-.. note::
-
-	The default configuration is fine for a development server. It is conservative however, so for better performance we recommend you make the changes below.
+The system works reasonably well with the default configuration. For better performance we recommend to make the changes below.
 
 
 Character Set Encoding
----------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 You should only use either `SQL_ASCII` or `UTF-8`. If performance is an issue, the use of `SQL_ASCII` is strongly recommended. [#note]_
 
@@ -66,29 +69,77 @@ Procedures to change character encoding to `SQL_ASCII` in PostgreSQL 9.x:
 	exit
 
 
-Server configuration (Postgres parameters)
----------------------------------------
+you can check the expected screenshot here [#screenshot]_ .
+
+Database Server Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-For optimum performance. Read http://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server for more information.
 
-=============================   ==============================================================
-shared_buffers			Set to around 1/4 or more of total RAM (config SHMMAX first)
-temp_buffers  			Set to around 80MB
-work_mem  			Set to around 500MB but not more than 1/10 of available RAM
-maintenance_work_mem  		Set to around 3000MB but not more than 1/5 of available RAM
-default_statistics_target  	Set to around 250
-random_page_cost  		Set to around 2.0, rather than 4.0
-effective_cache_size  		Set to about 1/2 - 3/4 the amount of RAM in the computer
-geqo_threshold  		Set to 14
-from_collapse_limit  		Set to 14
-join_collapse_limit  		Set to 14
-max_locks_per_transaction 	Set to 640
-checkpoint_segments 		128                                                                                                                                                              
-checkpoint_timeout 		10min
-checkpoint_completion_target    0.9
+Kernel Memory setting
+>>>>>>>>>>>>>>>>>>>>>
+Please check your server kernel setting
 
-=============================   ==============================================================
+.. code-block:: bash
+
+        getconf PAGE_SIZE
+        getconf _PHYS_PAGES
+	
+        sysctl -a | grep -E "shmall|shmmax"
+   
+(use sudo if necessary)
+
+Set 
+
+.. code-block:: bash
+
+        shmall = phys_pages / 2
+        shmmax = shmall * pagesize
+
+by editing the file
+ 
+   /etc/sysctl.d/30-postgresql-shm.conf
+
+and sourcing it
+
+         sudo sysctl -p /etc/sysctl.d/30-postgresql-shm.conf
+
+
+
+Postgres parameters
+>>>>>>>>>>>>>>>>>>>
+
+
+For better performance. Read http://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server for more information.
+
+.. htmlonly::
+===============================   =============================
+Parameter                         Suggested value (build)
+===============================   =============================
+shared_buffers			  10-25% of RAM 
+temp_buffers  			  around 80MB
+work_mem  			  around 500MB but < 10% of RAM
+maintenance_work_mem  		  5% of RAM    but < 20% of RAM
+default_statistics_target  	  around 250
+random_page_cost  		  around 2.0-2.5
+effective_cache_size  		  50% of RAM
+synchronous_commit                off
+geqo_threshold  		  14
+from_collapse_limit  		  14
+join_collapse_limit  		  14
+max_locks_per_transaction 	  640
+max_pred_locks_per_transaction 	  640
+checkpoint_segments 		  128              
+checkpoint_timeout 		  10min
+checkpoint_completion_target      0.9
+===============================   =============================
+
+
+Note that most of the changes above require starting postgres.
+
+
+Client Authentication
+>>>>>>>>>>>>>>>>>>>>>
 
 You should also add a line to the pg_hba.conf file to allow logging in via password:
 
@@ -97,7 +148,7 @@ You should also add a line to the pg_hba.conf file to allow logging in via passw
 	host    all         all         0.0.0.0/0             password
 
 
-Note that changing some settings requires stopping/starting postgres, restart has no effect.
+
 
 You may also need to configure (increase) your shared memory (SHMMAX), e.g.
 
@@ -114,6 +165,8 @@ You may also need to configure (increase) your shared memory (SHMMAX), e.g.
 	$ sudo sysctl -p # make the config take effect at runtime.
 	# Or simply do: sudo sysctl -w kernel.shmmax=268435456
 
+
+
 You also need to install the `bioseg` data type, and the `contrib btree_gist` plug-in, as described in :doc:`bioseg`.
 
 
@@ -126,6 +179,28 @@ You also need to install the `bioseg` data type, and the `contrib btree_gist` pl
    Please try to treat InterMine as a black box. The fact that it uses Postgres to store its data should be a detail that should be hidden as much as possible. The InterMine system is written in Java, and therefore handles all text in Unicode. 
 
    The template1 database is the database used as a template when you run the `createdb` command. Update the encoding for template1 to be SQL_ASCII then every database you create from now on will have the correct encoding.
+
+
+.. [#screenshot]
+.. code-block:: sql
+
+   postgres=# update pg_database set datallowconn = TRUE where datname = 'template0';
+   UPDATE 1
+   postgres=# \c template0
+   You are now connected to database "template0" as user "postgres".
+   template0=# update pg_database set datistemplate = FALSE where datname = 'template1';
+   UPDATE 1
+   template0=# drop database template1;
+   DROP DATABASE
+   template0=# create database template1 with template = template0 encoding = 'SQL_ASCII' LC_COLLATE='C'    LC_CTYPE='C';
+   CREATE DATABASE
+   template0=# update pg_database set datistemplate = TRUE where datname = 'template1';
+   UPDATE 1
+   template0=# \c template1
+   You are now connected to database "template1" as user "postgres".
+   template1=# update pg_database set datallowconn = FALSE where datname = 'template0';
+   UPDATE 1
+
 
 
 
