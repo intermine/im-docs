@@ -894,6 +894,10 @@ Run the `project_build` script from your `malariamine` directory:
 
 This will take ~15-30mins to complete.
 
+.. note::
+
+    If you encounter an "OutOfMemoryError", you should set your $ANT_OPTS variable, see :doc:`/support/troubleshooting-tips`
+
 Deploying the web application
 --------------------------------------------
 
@@ -957,6 +961,10 @@ Tomcat is the webserver we use to launch InterMine webapps.  Start Tomcat with t
   $ bin/startup.sh
 
 Visit the Tomcat manager at http://localhost:8080/.  The username and password required to access the manager are `webapp.manager` and `webapp.password` as specified in  malariamine.properties.
+
+.. note::
+
+    There are extra steps to take if you are using Tomcat 7. See :doc:`/system-requirements/software/tomcat` for details.
 
 
 Webapp
