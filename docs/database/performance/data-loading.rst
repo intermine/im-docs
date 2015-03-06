@@ -108,11 +108,30 @@ Performance test
 
 In objectstore/test run ‘ant test-performance’  (requires unittest database, currently on beta branch)
 
-Our results:
+Build server with SATA drives:
 
 .. code-block:: properties
 
+	test-performance:
 	[run-performance-test] Starting performance test...
+	[Finalizer] INFO com.zaxxer.hikari.pool.HikariPool - HikariCP pool db.unittest is being shutdown.
+	[run-performance-test] Stored 10000 employee objects, took: 19870ms
+	[run-performance-test] Stored 10000 employee objects, took: 15231ms
+	[run-performance-test] Stored 10000 employee objects, took: 15811ms
+	[run-performance-test] Total store time: 50912ms. Average time per thousand: 1697.067ms.
+	[run-performance-test] 
+	[run-performance-test] Reading all employee objects with empty object cache
+	[run-performance-test] Read  10000 employee objects, took: 720ms.
+	[run-performance-test] Read  20000 employee objects, took: 272ms.
+	[run-performance-test] Read  30000 employee objects, took: 230ms.
+	[run-performance-test] totalTime: 1244 rowCount: 30000
+	[run-performance-test] Finished reading 30000 employee objects, took: 1244ms. Average time per thousand: 41.467ms.
+
+Workstation with SSDs:
+
+.. code-block:: properties
+
+		[run-performance-test] Starting performance test...
 	[run-performance-test] Stored 10000 employee objects, took: 8303ms
 	[run-performance-test] Stored 10000 employee objects, took: 7334ms
 	[run-performance-test] Stored 10000 employee objects, took: 7727ms
