@@ -151,6 +151,12 @@ checkpoint_completion_target      0.9
 
 Note that most of the changes above require starting postgres.
 
+.. note::
+
+	Depending on your system configuration (production or development), the type of sources used in the build (files or databases) and the load on your web application, you may need to increase the 
+	**max_connections**  
+	parameter (for example to 250).
+	
 
 Client Authentication
 >>>>>>>>>>>>>>>>>>>>>
