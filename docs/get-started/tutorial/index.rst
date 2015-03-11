@@ -312,7 +312,7 @@ The different elements of the model XML file are handled as follows:
   references to other classes are foreign keys to another table - e.g. `Protein` has a reference called `organism` to the `Organism` class so in the database the `protein` table has a column `organismid` which would contain an id that appears in the `organism` table.
 
 `collections` 
-  indirection tables are create for many-to-many collections, `Protein` has a collection of `Gene` objects, an indirection table called `genesproteins` is created. 
+  indirection tables are created for many-to-many collections - e.g. `Protein` has a collection of `Gene` objects so an indirection table called `genesproteins` is created. 
 
 This has also created necessary indexes on the tables:
 
