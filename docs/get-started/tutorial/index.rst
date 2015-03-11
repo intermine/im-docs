@@ -334,7 +334,7 @@ The model XML file is stored in the database once created, this and some other c
 Loading Data
 ----------------------
 
-We are running several data integration and post-processing steps manually, this is a good way to learn how the system works and to test individual stages.  For running actual builds there is a `project_build` script that will run all steps specified in `project.xml` automatically.  We will cover this later.
+For this tutorial we will run several data integration and post-processing steps manually.  This is a good way to learn how the system works and to test individual stages.  For running actual builds there is a `project_build` script that will run all steps specified in `project.xml` automatically.  We will cover this later.
 
 Loading data from a source
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
