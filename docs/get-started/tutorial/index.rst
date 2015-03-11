@@ -355,7 +355,7 @@ This will take a couple of minutes to complete, the command runs the following s
 3. Calls the parser included in the `uniprot` source with the list of files, this reads the original XML and creates `Items` which are metadata representations of the objects that will be loaded into the malariamine database.  These items are stored in an intermediate `items` database (more about `Items` later).
 4. Reads from the `items` database, converts items to objects and loads them into the malariamine database.
 
-This should complete after a couple of minutes, if you see an error message, this page should help diagnose the problem: CommonErrors.  
+This should complete after a couple of minutes, if you see an error message then see :doc:`/support/troubleshooting-tips`.  
  
 If an error occurred during loading and you need to try again you need to re-initialise the database again by running `clean build-db` in `dbmodel`.  This is only the case if dataloading actually started - if the following was displayed in the terminal:
 
