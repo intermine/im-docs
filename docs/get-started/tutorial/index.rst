@@ -496,7 +496,7 @@ InterMine includes a parser to load valid GFF3 files.  The creation of features,
  
 Many elements can be configured by properties in `project.xml`, to deal with any specific attributes or perform custom operations on each feature you can  write a handler in Java which will get called when reading each line of GFF.
 
-Other `gff3` properties can be congfigured in the `project.xml` The properties set for `malaria-gff` are:
+Other `gff3` properties can be configured in the `project.xml` The properties set for `malaria-gff` are:
 
 gff3.seqClsName = Chromosome
   the ids in the first column represent `Chromosome` objects, e.g. MAL1
