@@ -782,7 +782,7 @@ Fetching publication details
 
 Publications are even more likely to be cited in different formats and are prone to errors in their description.  We will often load data referring to the same publication from multiple sources and need to ensure those publications are integrated correctly.  Hence we load only the PubMed id and fetch the details from the NCBI Entrez web service as above.
 
-Several sources InterMine sources load publications:
+Several InterMine sources load publications:
 
 .. code-block:: psql
 
