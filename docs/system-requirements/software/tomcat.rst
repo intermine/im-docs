@@ -85,15 +85,15 @@ Without this, permalinks may break.
 startup.sh 
 ~~~~~~~~~~~~
 
-Add the property in startup.sh:
+Add this property in startup.sh:
 
 .. code-block:: bash
 
    JAVA_OPTS="$JAVA_OPTS -Dorg.apache.el.parser.SKIP_IDENTIFIER_CHECK=true"
    export JAVA_OPTS 
 
-Tomcat 7.0 has improved the enforcement of the Expression Language rules and doesn't allow to use java key words. 
-The flag makes Tomcat 7 more permissive.
+Tomcat 7.0 has improved the enforcement of Expression Language rules and by default doesn't allow the use of Java keywords.
+This flag makes Tomcat 7 more permissive.
 
 Starting Tomcat 
 ~~~~~~~~~~~~~~~~
