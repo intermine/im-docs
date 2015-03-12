@@ -915,7 +915,7 @@ In the `~/.intermine` directory, update the webapp properties in your malariamin
 UserProfile
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The userprofile database] stores all user-related information such as username and password, tags, queries, lists and templates.  
+The userprofile database stores all user-related information such as username and password, tags, queries, lists and templates.
 
 1. Configure 
 
