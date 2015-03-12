@@ -312,7 +312,7 @@ The different elements of the model XML file are handled as follows:
   references to other classes are foreign keys to another table - e.g. `Protein` has a reference called `organism` to the `Organism` class so in the database the `protein` table has a column `organismid` which would contain an id that appears in the `organism` table.
 
 `collections` 
-  indirection tables are create for many-to-many collections, `Protein` has a collection of `Gene` objects, an indirection table called `genesproteins` is created. 
+  indirection tables are created for many-to-many collections - e.g. `Protein` has a collection of `Gene` objects so an indirection table called `genesproteins` is created. 
 
 This has also created necessary indexes on the tables:
 
@@ -334,7 +334,7 @@ The model XML file is stored in the database once created, this and some other c
 Loading Data
 ----------------------
 
-We are running several data integration and post-processing steps manually, this is a good way to learn how the system works and to test individual stages.  For running actual builds there is a `project_build` script that will run all steps specified in `project.xml` automatically.  We will cover this later.
+For this tutorial we will run several data integration and post-processing steps manually.  This is a good way to learn how the system works and to test individual stages.  For running actual builds there is a `project_build` script that will run all steps specified in `project.xml` automatically.  We will cover this later.
 
 Loading data from a source
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -355,7 +355,7 @@ This will take a couple of minutes to complete, the command runs the following s
 3. Calls the parser included in the `uniprot` source with the list of files, this reads the original XML and creates `Items` which are metadata representations of the objects that will be loaded into the malariamine database.  These items are stored in an intermediate `items` database (more about `Items` later).
 4. Reads from the `items` database, converts items to objects and loads them into the malariamine database.
 
-This should complete after a couple of minutes, if you see an error message, this page should help diagnose the problem: CommonErrors.  
+This should complete after a couple of minutes, if you see an error message then see :doc:`/support/troubleshooting-tips`.  
  
 If an error occurred during loading and you need to try again you need to re-initialise the database again by running `clean build-db` in `dbmodel`.  This is only the case if dataloading actually started - if the following was displayed in the terminal:
 
@@ -496,7 +496,7 @@ InterMine includes a parser to load valid GFF3 files.  The creation of features,
  
 Many elements can be configured by properties in `project.xml`, to deal with any specific attributes or perform custom operations on each feature you can  write a handler in Java which will get called when reading each line of GFF.
 
-Other `gff3` properties can be congfigured in the `project.xml` The properties set for `malaria-gff` are:
+Other `gff3` properties can be configured in the `project.xml` The properties set for `malaria-gff` are:
 
 gff3.seqClsName = Chromosome
   the ids in the first column represent `Chromosome` objects, e.g. MAL1
