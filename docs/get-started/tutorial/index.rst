@@ -145,7 +145,7 @@ If you don't already have a `.intermine` directory in your home directory, creat
   $ cd
   $ mkdir .intermine
 
-There is a partially completed properties file for MalariaMine already.   Copy it into your `/intermine` directory:
+There is a partially completed properties file for MalariaMine already.   Copy it into your `.intermine` directory:
 
 .. code-block:: bash
 
