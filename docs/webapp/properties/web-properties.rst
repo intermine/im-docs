@@ -219,12 +219,12 @@ For each application you will need to register the callback URI, which looks lik
 
     ${webapp.baseurl}/${webapp.path}/oauth2callback.do?provider=${PROVIDER}
 
-You will probably be asked to register a javascript domain. This is not used by us, but you
-can enter the `webapp.baseurl`.
-
 Where `webapp.baseurl` and `webapp.path` are the corresponding values from your configuration, and 
 `PROVIDER` is the name of the provider in all uppercase letters (as configured below). Google requires
 the `provider` parameter as part of the URI, but other providers do not - you should check with each of them.
+
+You will probably be asked to register a javascript domain. This is not used by us, but you
+can enter the `webapp.baseurl`.
 
 The Callback URI
 ~~~~~~~~~~~~~~~~~~
