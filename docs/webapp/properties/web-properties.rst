@@ -210,7 +210,7 @@ details of your application such as its name, and where it will be located.
 This varies from provider to provider - see `this tutorial
 <http://benfoster.io/blog/oauth-providers>`_ for a good guide to the
 registration process for a number of popular providers. For example, for Google, you will need
-a Google+ account and to visit `the Google developer's console<https://console.developers.google.com/>`
+a Google+ account and to visit `the Google developer's console<https://console.developers.google.com/>`_
 to create an application.
 
 For each application you will need to register the callback URI, which looks like:
