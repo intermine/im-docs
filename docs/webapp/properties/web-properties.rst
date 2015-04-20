@@ -226,16 +226,6 @@ the `provider` parameter as part of the URI, but other providers do not - you sh
 You will probably be asked to register a javascript domain. This is not used by us, but you
 can enter the `webapp.baseurl`.
 
-The Callback URI
-~~~~~~~~~~~~~~~~~~
-
-Don't forget that you will need to specify the redirect URI differently at different
-providers. For the InterMine system, the callback will be ``BASE_URL/PATH/oauth2callback.do?provider=$PROVIDER``,
-but some providers require just the domain name, others will ask for a specific path. Best
-practice is to give as general a path as possible in case this needs changing in the future.
-Many providers will require a path, but allow the ``redirect_uri`` to be any subpath of that
-URI - in which case you should provide ``BASE_URL/PATH``.
-
 Enabling Supported Providers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -245,7 +235,10 @@ names. The values are case insensitive, and will be processed as upper-case valu
 
 .. code-block:: properties
 
-    oauth2.providers = github,facebook,microsoft,strava,aip
+    # You can list just a single provider:
+    oauth2.providers = GOOGLE
+    # or multiple providers, combining standard and custom providers:
+    oauth2.providers = GOOGLE,GITHUB,FACEBOOK,MICROSOFT,STRAVA,AIP
 
 Configuring OLTU Supported Providers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -257,7 +250,6 @@ define the client-id and client-secret you registered your application with, eg:
 
     oauth2.GITHUB.client-id = $GH-CLIENT-ID
     oauth2.GITHUB.client-secret = $GH-CLIENT-SECRET
-
 
 Configuring a Custom Provider
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
