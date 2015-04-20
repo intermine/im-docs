@@ -2,13 +2,21 @@ Open ID
 ================================
 
 
-InterMine web-applications allow users to create accounts and sign in to these accounts by authenticating with a selection of Open-ID providers, including Google and Yahoo.
+InterMine web-applications allow users to create accounts and sign in to these
+accounts by authenticating with a selection of Open-ID providers, including
+Yahoo.
 
 To sign in with one of these authentication providers:
 1. Click on '''login''' (in the upper-right).
 2. Click the name of the Open-ID provider you wish to use.
 3. Authenticate yourself with your provider.
 4. You will be redirected to your mine when finished.
+
+.. note::
+
+    Google has shut down its OpenID-2 service. To continue using Google authentication
+    you must use OAuth2 authentication! See the section on editing web-properties for
+    more details.
 
 To set this up for a mine you administer:
   * The most important thing is to set up a couple of properties correctly

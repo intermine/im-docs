@@ -181,22 +181,50 @@ example:
 
 Cross references represent identifiers used in external databases, eg. FlyBase, UniProt. An object in InterMine which has CrossReference will have a identifier and data source for that cross reference. In order to find the cross reference in that data source, a url is required to link to and the full path should look like url+identifier, e.g. ''http://pfam.sanger.ac.uk/family?PF00001''. In web.properties, the first part of the full path could be configured as in "url", and identifier will be added programmatically to the rear of it. The dataSource_name should be consistent with the source name of the CrossReferences in the InterMine database.
 
-OpenAuth2 Settings
----------------------
+OpenAuth2 Settings (aka. OpenID Connect)
+------------------------------------------
 
 You can configure your mine to accept delegated authentication from one or more identity
-resources which are protected by OAuth2_ authentication. For this, you must register each
-application with the provider, giving them details of your application such as its name, and
-where it will be located. This varies from provider to provider - see
-`this tutorial <http://benfoster.io/blog/oauth-providers>`_ for a good
-guide to the registration process for a number of popular providers.
+resources which are protected by OAuth2_ authentication. This involves sending the user to
+another site, having them sign in there, and being sent back to your InterMine with their
+credentials.
 
-We are using the `Apache OLTU`_ library to help manage the authentication flow. This means
-that configuring some of the more common providers, such as Facebook, Github and Microsoft
-is very simple. It also allows us to add any identity provider that meets certain minimum
-sanity requirements.
+We are using the `Apache OLTU`_ library to help manage the authentication flow.
+This means that configuring some of the more common providers, such as Google,
+Facebook, Github and Microsoft is very simple. It also allows us to add any
+identity provider that meets certain minimum sanity requirements.
+
+.. note::
+
+    Google has closed down their OpenID-2 based authentication solution
+    in favour of OpenID Connect (OAuth2). If you want to use Google as an authentication
+    provider you must use OAuth2.
 
 Configuration is managed through adding values to the ``web-properties``.
+
+Registering your Application.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You *must register your application* with the provider, giving them
+details of your application such as its name, and where it will be located.
+This varies from provider to provider - see `this tutorial
+<http://benfoster.io/blog/oauth-providers>`_ for a good guide to the
+registration process for a number of popular providers. For example, for Google, you will need
+a Google+ account and to visit `the Google developer's console<https://console.developers.google.com/>`
+to create an application.
+
+For each application you will need to register the callback URI, which looks like:
+
+.. code-block::
+
+    ${webapp.baseurl}/${webapp.path}/oauth2callback.do?provider=${PROVIDER}
+
+You will probably be asked to register a javascript domain. This is not used by us, but you
+can enter the `webapp.baseurl`.
+
+Where `webapp.baseurl` and `webapp.path` are the corresponding values from your configuration, and 
+`PROVIDER` is the name of the provider in all uppercase letters (as configured below). Google requires
+the `provider` parameter as part of the URI, but other providers do not - you should check with each of them.
 
 The Callback URI
 ~~~~~~~~~~~~~~~~~~
@@ -524,4 +552,4 @@ Overriding properties
 * `$HOME/.intermine/flymine.properties` - used by a mine. Properties set here will be available only to that specific mine, and will override all other properties. Put sensitive values here that should not be commited to version control.
 
 
-.. index:: web properties, cross reference links, attribute links, link outs, list upload examples, header links, meta keywords, meta description, portal welcome message, keyword search examples
+.. index:: web properties, cross reference links, attribute links, link outs, list upload examples, header links, meta keywords, meta description, portal welcome message, keyword search examples, oauth, oauth2, authentication, Google, openid, GMail, jwt
