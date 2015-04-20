@@ -194,7 +194,7 @@ This means that configuring some of the more common providers, such as Google,
 Facebook, Github and Microsoft is very simple. It also allows us to add any
 identity provider that meets certain minimum sanity requirements.
 
-.. note::
+.. warning::
 
     Google has closed down their OpenID-2 based authentication solution
     in favour of OpenID Connect (OAuth2). If you want to use Google as an authentication
@@ -215,7 +215,7 @@ to create an application.
 
 For each application you will need to register the callback URI, which looks like:
 
-.. code-block::
+.. code-block:: bash
 
     ${webapp.baseurl}/${webapp.path}/oauth2callback.do?provider=${PROVIDER}
 
