@@ -246,6 +246,13 @@ Configuring OLTU Supported Providers
 To configure an OLTU supported provider (such as Github or Facebook), you simply need to
 define the client-id and client-secret you registered your application with, eg:
 
+.. warning::
+
+    All secrets, including these ones (especially the client-secret) MUST not
+    be committed to version control or made publicly accessible. DO NOT add them
+    to your web.properties file, but instead add them to your mine.properties file
+    (eg. ~/.intermine/MINE.properties).
+
 .. code-block:: properties
 
     oauth2.GITHUB.client-id = $GH-CLIENT-ID
@@ -259,6 +266,7 @@ Taking AIP's araport system as an example, this can be configured thusly:
 
 .. code-block:: properties
 
+    # All OAuth2 clients need this configution. Do not commit to version control!
     oauth2.AIP.client-id = YOUR_CLIENT_ID
     oauth2.AIP.client-secret = YOUR_CLIENT_SECRET
 
