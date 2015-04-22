@@ -23,9 +23,6 @@ To use each of the search engines' webmaster tools, you need to include a `CODE`
 	# http://www.google.com/webmasters
 	searchengines.google=CODE
 
-	# http://siteexplorer.search.yahoo.com
-	searchengines.yahoo=CODE
-
 	# http://www.bing.com/webmaster
 	searchengines.msn=CODE
 
