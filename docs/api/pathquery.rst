@@ -10,12 +10,13 @@ Paths
 
 The core concept of *Path-Queries* is naturally enough the *Path*, examples of
 which are:
-* `Gene`: A plain root
-* `Gene.symbol`: A root and an attribute
-* `Gene.chromosomeLocation`: A reference to a complex attribute (a reference)
-* `Gene.organism.name`: A chain from a root to an attribute through one or more references.
-* `Gene.pathways.identifier`: A path may potentially match multiple values - there may be several pathway identifiers that match this path for any given gene.
-* `Protein.gene.homologues.homologue.alleles.alleleClass`: Paths may be of arbitrary length.
+
+* ``Gene``: A plain root
+* ``Gene.symbol``: A root and an attribute
+* ``Gene.chromosomeLocation``: A reference to a complex attribute (a reference)
+* ``Gene.organism.name``: A chain from a root to an attribute through one or more references.
+* ``Gene.pathways.identifier``: A path may potentially match multiple values - there may be several pathway identifiers that match this path for any given gene.
+* ``Protein.gene.homologues.homologue.alleles.alleleClass``: Paths may be of arbitrary length.
 
 In the XML serialization of path-queries, all paths must be completely qualified. In the JSON format a prefix can be specified with the `from` or `root` property.
 
