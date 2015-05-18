@@ -15,6 +15,10 @@ Also, if your database has tables that should be ignored, you can set this too:
   # in objectstoresummary.config.properties
   ignore.counts=org.intermine.model.bio.GOAnnotation.withText org.intermine.model.bio.Location.subject
 
+Organism
+~~~~~~~~~~~
+
+To populate the organism dropdown, include the :doc:`/database/data-sources/library/organism` data source in your build. Many of the tools available in InterMine assume this source will be loaded and expect a populated organism table.
 
 Auto-completion
 ------------------------
