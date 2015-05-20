@@ -55,6 +55,6 @@ or, whatever port if free is 8069 is being used.
 
         exec "$PRGDIR"/"$EXECUTABLE" jpda start "$@“
 
-3, Go to eclipse and debug as a remote java application. You just need to specify the host of tomcat and the port that you listed. You’ll need to have a browser window or web service call to get things going.
+4. Go to eclipse and debug as a remote java application. You just need to specify the host of tomcat and the port that you listed. You’ll need to have a browser window or web service call to get things going.
 
 .. index:: Eclipse, Intellij, IDE
