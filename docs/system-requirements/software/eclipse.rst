@@ -47,7 +47,7 @@ Debugging InterMine
 
         export JPDA_OPTS=-agentlib:jdwp=transport=dt_socket,address=<your host name>:8069,server=y,suspend=y
 
-or, whatever port if free is 8069 is being used.
+or, whatever port is free if 8069 is being used.
 
 3. Replace the final line with
 
@@ -55,6 +55,6 @@ or, whatever port if free is 8069 is being used.
 
         exec "$PRGDIR"/"$EXECUTABLE" jpda start "$@“
 
-4. Go to eclipse and debug as a remote java application. You just need to specify the host of tomcat and the port that you listed. You’ll need to have a browser window or web service call to get things going.
+4. Go to eclipse and debug as a remote Java application. You just need to specify the host of Tomcat and the port that you listed. You’ll need to have a browser window or web service call to get things going.
 
 .. index:: Eclipse, Intellij, IDE
