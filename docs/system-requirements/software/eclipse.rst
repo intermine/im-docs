@@ -1,4 +1,4 @@
-Setting up InterMine projects in Eclipse
+Eclipse
 ==============================================
 
 The InterMine checkout includes configuration to open the various code modules as Eclipse projects. This document explains how to set up your new checkout in Eclipse.
@@ -36,5 +36,25 @@ Or just run as a single command:
 
 
 7. Now select all projects in the Project Explorer and Refresh. There should no longer be any errors. 
+
+Debugging InterMine
+-------------------------------
+
+1. start up tomcat with a port open for monitoring
+2. Make a copy tomcat’s bin/startup.sh - call it debug_startup.sh -  make a version and defines the environment variable
+
+.. code-block:: properties
+
+        export JPDA_OPTS=-agentlib:jdwp=transport=dt_socket,address=<your host name>:8069,server=y,suspend=y
+
+or, whatever port if free is 8069 is being used.
+
+3. Replace the final line with
+
+.. code-block:: properties
+
+        exec "$PRGDIR"/"$EXECUTABLE" jpda start "$@“
+
+3, Go to eclipse and debug as a remote java application. You just need to specify the host of tomcat and the port that you listed. You’ll need to have a browser window or web service call to get things going.
 
 .. index:: Eclipse, Intellij, IDE
