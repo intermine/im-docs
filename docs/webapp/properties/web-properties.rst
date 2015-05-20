@@ -234,6 +234,7 @@ configured to work with your application. This should be a comma separated list 
 names. The values are case insensitive, and will be processed as upper-case values. E.G.:
 
 .. code-block:: properties
+
     # in  ~/.intermine/MINE.properties
     # You can list just a single provider:
     oauth2.providers = GOOGLE
@@ -254,6 +255,7 @@ define the client-id and client-secret you registered your application with, eg:
     (eg. ~/.intermine/MINE.properties).
 
 .. code-block:: properties
+
      ~/.intermine/MINE.properties
     oauth2.GITHUB.client-id = $GH-CLIENT-ID
     oauth2.GITHUB.client-secret = $GH-CLIENT-SECRET
