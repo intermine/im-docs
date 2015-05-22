@@ -65,10 +65,7 @@ See https://github.com/intermine/intermine/releases
 Vacancies
 -------------------
 
-.. toctree::
-
-    jobs/index.rst
-
+None.
 
 Get Involved
 ------------------
