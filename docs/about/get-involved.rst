@@ -66,7 +66,7 @@ The process for reviewing an merging a pull request is as follows:
 
 2. Fetch and checkout the new feature branch
 
-3. Merge the target branch (``stable`` or ``dev``) into the feature branch. If there are any conflicts push the pull-request back to the developer for resolution.
+3. Merge the target branch (``master`` or ``dev``) into the feature branch. If there are any conflicts push the pull-request back to the developer for resolution.
 
 4. Perform necessary automated and manual testing to verify that this branch is valid.
 
