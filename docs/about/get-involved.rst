@@ -32,76 +32,42 @@ Development does not happen on either of the special branches. The recommended p
 Developing a Feature
 ------------------------------------------------
 
-Code contributions should be discrete units of code. They should do one thing
-(be that fix a bug or add a feature) and not be code dumps. Ideally they should
-refer to existing issues in the `InterMine issue tracker`. Let's say we want to
-develop a new feature - discussed in issue ``#12345: We should be better wombles and recyle everything`` - then we would do the following:
+Code contributions should be discrete units of code. They should do one thing (be that fix a bug or add a feature) and not be code dumps. Ideally they should refer to existing issues in the `InterMine issue tracker`. Let's say we want to develop a new feature - discussed in issue ``#12345: We should be better wombles and recyle everything`` - then we would do the following:
 
-1. Checkout the current head of beta from upstream.
+1. Checkout the current head of `dev` from upstream.
 
-2. Branch beta, naming the branch something like ``i12345`` to reference the
-   issue, or something descriptive like ``womblier``.
+2. Branch `dev`, naming the branch something descriptive like ``womblier``.
 
 3. Checkout the new branch.
 
 4. Commit, commit, commit.
 
-5. Push changes to fork.
+5. Push changes to your fork.
 
-6. When you are satisfied that we have reached a sufficiently wombly state of
-   being, then create a new pull request requesting that the head of
-   ``you/womblier`` be merged into ``intermine/beta``.
+6. When you are satisfied that we have reached a sufficiently wombly state of being, then create a new pull request requesting that the head of ``you/womblier`` be merged into ``intermine/dev``.
 
-At any point in the above process you can merge switch to work on another branch and then come back. It is probably a good idea to:
+At any point in the above process you can merge switch to work on another branch and then come back. It is probably a good idea to regularly merge the head of ``intermine/dev`` into ``you/womblier``, especially if development is taking a long time. These merges should probably be ``rebase`` merges.
 
-* regularly merge the head of ``intermine/beta`` into ``you/womblier``,
-  especially if development is taking a long time. These merges should probably
-  be ``rebase`` merges.
-* regularly merge the head of ``you/womblier`` into ``you/dev``. This makes sure
-  that different branches you are developing all work together. ``dev`` is not a
-  special branch - it is just a general collection point for all changes in your
-  repository. No guarantees are made about its safety.
-
-Hot fix branches (serious bugs that are critical fixes to the current release)
-should be branched from ``master`` rather than ``beta``, and their pull requests
-should likewise be for ``master``.
-
-As a pretty diagram for developing a couple of feature branches and and a
-hot-fix branch and then getting them into master looks a bit like:
-
-::
-
-             .----.---.--.               hf-big-bug
-            /             \
-    --.--------------------.-----------.---> master
-       \                              / \
-        .-----------------------.--.-.---.-> beta
-        |\                     /  /
-        \ .---.---.---.---.---.  /         womblier
-         \                      /
-          .--.--.--.--.--.--.--.           smurfier
-
+Hot fix branches (serious bugs that are critical fixes to the current release) should be branched from ``master`` rather than ``dev``, and their pull requests should likewise be for ``master``.
 
 The Role of The Release Manager
 -----------------------------------
 
-The release manager's role is to ensure this all happens. They are the only
-person permitted to push into ``master`` and ``beta``. All code contributions
-for these branches must pass review by the release manager before they can be
-merged.
+The release manager's role is to ensure this all happens. They are the only person permitted to push into ``master`` and ``stable`` and ``dev``. All code contributions for these branches must pass review by the release manager before they can be merged.
 
 The process for reviewing an merging a pull request is as follows:
 
-1. Read the commits and review the code for style and standards. Request any    changes from the developer before proceeding (code changes, more docs, more tests, *etc*).
+1. Read the commits and review the code for style and standards. Request any changes from the developer before proceeding. The criteria for acceptance is:
+
+ * Passing unit test for new code (if applicable)
+ * Passes all tests -- according to Travis
+ * Documentation (if applicable)
 
 2. Fetch and checkout the new feature branch
 
-3. Merge the target branch (``stable`` or ``dev``) into the feature branch. If
-   there are any conflicts push the pull-request back to the developer for
-   resolution.
+3. Merge the target branch (``stable`` or ``dev``) into the feature branch. If there are any conflicts push the pull-request back to the developer for resolution.
 
-4. Perform necessary automated and manual testing to verify that this branch is
-   valid.
+4. Perform necessary automated and manual testing to verify that this branch is valid.
 
 5. Checkout the current head of ``intermine/dev`` and merge the feature branch into it.
 
