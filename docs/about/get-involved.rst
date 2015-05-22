@@ -13,36 +13,29 @@ members or outside contributers, should be treated the same.
 Branches
 -----------
 
-There are two branches in with special meaning:
+There are branches in the InterMine GitHub repository with special meaning:
 
 ``master``
-    The current public release. External users should clone this
-    branch and receive a stable, supported and well-documented application that
-    works to all specifications.
+    The current public release. External users should clone this branch and receive a stable, supported and well-documented application that works to all specifications.
 
-``beta``
-    The next release candidate. Finished and tested features land here before
-    being merged into ``master``. Users should clone this branch for a preview of
-    upcoming features. All code contributions to this branch are subject to
-    review (see below), but this branch is still *pre-release*, and so the
-    application may not meet all specifications, and documentation may be
-    incomplete.
+``stable``
+    The next release candidate. Identical to the master branch except for the time immediately before a release. Finished and tested features land here before     being merged into ``master``. Users should clone this branch for a preview of     upcoming features. All code contributions to this branch are subject to review (see below), but this branch is still *pre-release*, and so the application may not meet all specifications, and documentation may be incomplete.
+
+``dev``
+    The working branch. Features are merged onto this branch for integration testing. Not guaranteed to be stable.
 
 Setting Up a Development Environment
 ----------------------------------------
 
-Development does not happen on either of the special branches. The recommended
-practice is to fork the `intermine repo`_ and maintain development branches
-there.
+Development does not happen on either of the special branches. The recommended practice is to fork the `intermine repo`_ and maintain development branches in your own repository.
 
 Developing a Feature
-------------------------
+------------------------------------------------
 
 Code contributions should be discrete units of code. They should do one thing
 (be that fix a bug or add a feature) and not be code dumps. Ideally they should
 refer to existing issues in the `InterMine issue tracker`. Let's say we want to
-develop a new feature - discussed in issue ``#12345: We should be better wombles
-and recyle everything`` - then we would do the following:
+develop a new feature - discussed in issue ``#12345: We should be better wombles and recyle everything`` - then we would do the following:
 
 1. Checkout the current head of beta from upstream.
 
@@ -59,8 +52,7 @@ and recyle everything`` - then we would do the following:
    being, then create a new pull request requesting that the head of
    ``you/womblier`` be merged into ``intermine/beta``.
 
-At any point in the above process you can merge switch to work on another branch
-and then come back. It is probably a good idea to:
+At any point in the above process you can merge switch to work on another branch and then come back. It is probably a good idea to:
 
 * regularly merge the head of ``intermine/beta`` into ``you/womblier``,
   especially if development is taking a long time. These merges should probably
@@ -100,22 +92,20 @@ merged.
 
 The process for reviewing an merging a pull request is as follows:
 
-1. Read the commits and review the code for style and standards. Request any
-   changes from the developer before proceeding (code changes, more docs, more
-   tests, *etc*).
+1. Read the commits and review the code for style and standards. Request any    changes from the developer before proceeding (code changes, more docs, more tests, *etc*).
 
 2. Fetch and checkout the new feature branch
 
-3. Merge the target branch (``beta`` or ``master``) into the feature branch. If
+3. Merge the target branch (``stable`` or ``dev``) into the feature branch. If
    there are any conflicts push the pull-request back to the developer for
    resolution.
 
 4. Perform necessary automated and manual testing to verify that this branch is
    valid.
 
-5. Checkout the current head of ``intermine/beta`` and merge the feature branch into it.
+5. Checkout the current head of ``intermine/dev`` and merge the feature branch into it.
 
-6. Push ``beta`` to the `intermine repo`_.
+6. Push ``dev`` to the `intermine repo`_.
 
 Setting up Continuous Integration
 ------------------------------------
