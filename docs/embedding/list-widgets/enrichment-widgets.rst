@@ -99,6 +99,12 @@ NWG
     
     The relevant `InterMine source <https://github.com/intermine/intermine/blob/dev/intermine/web/main/src/org/intermine/web/logic/widget/ErrorCorrection.java>`_.
 
+Reference population
+~~~~~~~~~~~~~~~~~~~~
+The reference population is by default the collection of **all the genes with
+annotation** for the given organism. This can be changed to any available
+list of genes.
+
 References
 ----------
 
