@@ -1,4 +1,4 @@
-Ensembl SNP
+VCF files
 ================================
 
 Load SNP data from a VCF file
