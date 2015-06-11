@@ -11,7 +11,7 @@ SNPs
 How to download the data 
 ---------------------------
 
-First you will need a *.vcf file, e.g. 
+First you will need a VCF file, here is an example:
 
   ftp://ftp.ensembl.org/pub/release-79/variation/vcf/homo_sapiens/
 
