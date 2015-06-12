@@ -37,6 +37,7 @@ These are commonly used sources that you may want to use to load data into your 
     organism
     so
     uberon
+    data-sources
 
 
 FlyMine Specific sources
