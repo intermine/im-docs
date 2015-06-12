@@ -6,7 +6,7 @@ Load the official title, description and URL for data sources.
 Types of data loaded
 --------------------
 
-Update data source entires
+Update data source entries
 
 How to download the data 
 ---------------------------
