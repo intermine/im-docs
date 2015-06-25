@@ -3,22 +3,24 @@ Software
 
 InterMine makes use of a variety of freely available software packages.  All of the software listed below is required. 
 
-==========  ========= =============== ===================================
-Software    At least  Recommended     Purpose
-==========  ========= =============== ===================================
-Git         1.7       latest          check out and update source code
-Java SDK    7         8               build and use InterMine
-Ant         1.8       latest          invokes the InterMine build
-Tomcat      7.0.x     7               website
-PostgreSQL  9.1       9.3             database
-Perl        5.8.8     latest          run build scripts
-==========  ========= =============== ===================================
+==========  ========= ===================================
+Software    At least  Purpose
+==========  ========= ===================================
+Git         1.7        check out and update source code
+Java SDK    7         build and use InterMine
+Ant         1.8       invokes the InterMine build
+Tomcat      7.0.x     website
+PostgreSQL  9.1       database
+Perl        5.8.8     run build scripts
+==========  ========= ===================================
+
+You should try to use the latest versions of the above software.
 
 .. note::
 
 	InterMine only supports installations onto Linux and Mac OS X systems. Windows systems of any kind are not supported.  We run a mixture of Debian and Fedora servers in our data centre in Cambridge.
 
-.. note::
+.. warning::
 	
 	InterMine doesn't work with Tomcat 8 yet. We hope to resolve this issue soon.
 
