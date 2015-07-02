@@ -25,9 +25,9 @@ Add vcf to the list of datasources to be integrated
     <source name="my-data-source" type="vcf">
       <property name="src.data.dir" location="/data/variation/current" />
       <property name="vcf.includes" value="*.vcf" />
-      <property name="vcf.taxonId" value="9606" />
-      <property name="vcf.dataSetTitle" value="Ensembl SNP data set" />
-      <property name="vcf.dataSourceName" value="Ensembl" />
+      <property name="vcf.vcfTaxonId" value="9606" />
+      <property name="vcf.vcfDataSetTitle" value="Ensembl SNP data set" />
+      <property name="vcf.vcfDataSourceName" value="Ensembl" />
     </source>
 
 
