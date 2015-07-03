@@ -45,7 +45,7 @@ Add the location of your JBrowse installation to your `web.properties` file, for
 
 .. code-block:: properties
 
-  jbrowse.url = http://jbrowse.intermine.org
+  jbrowse.install.url = http://jbrowse.intermine.org
 
 
 Point JBrowse at your InterMine
