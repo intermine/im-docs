@@ -561,7 +561,7 @@ FASTA is a minimal format for representing sequence data.  Files comprise a head
 
 The type of feature created is defined by a property in `project.xml`, the attribute set defaults to `primaryIdentifier` but can be changed with the `fasta.classAttribute` property.  The following properties are defined in `project.xml` for `malaria-chromosome-fasta`:
 
-`fasta.className = org.flymine.model.genomic.Chromosome`
+`fasta.className = org.intermine.model.genomic.Chromosome`
   the type of feature that each sequence is for
 
 `fasta.dataSourceName = PlasmoDB`
@@ -626,7 +626,7 @@ Now look at the organism table:
   malariamine=# select * from organism;
   genus | taxonid | species | abbreviation |    id    | shortname | name |               class                
   -------+---------+---------+--------------+----------+-----------+------+------------------------------------
-        |   36329 |         |              | 83000003 |           |      | org.flymine.model.genomic.Organism
+        |   36329 |         |              | 83000003 |           |      | org.intermine.model.genomic.Organism
   (1 row)
 
 Three sources have been loaded so far that all included the organism with `taxonId` 36329, and more importantly they included objects that reference the organism.  There is still only one row in the organism table so the data from three sources has merged, in this case `taxonId` was the field used to define equivalence.
