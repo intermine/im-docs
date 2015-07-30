@@ -6,8 +6,8 @@ installed on your system to build or maintain an InterMine installation. Linux
 and MacOS systems will have a suitable Perl already installed. Perl is available for Windows,
 but is not actively supported by InterMine.
 
-You are encouraged to use [http://perlbrew.pl/ perlbrew] to set up your Perl environment, and
-make use of the modern toolchain, such as [https://metacpan.org/pod/cpanm cpanm].
+You are encouraged to use http://perlbrew.pl to set up your Perl environment, and
+make use of the modern toolchain, such as https://metacpan.org/pod/cpanm.
 
 At various times you will be requested to install various Perl modules. Here you can
 find instructions for how to do this using the native CPAN tool which comes with every
@@ -17,7 +17,7 @@ CPAN
 ----------------------------
 
 CPAN stands for the Comprehensive Perl Archive Network - and is the software repository for
-Perl modules. (you can compare it to [http://pypi.python.org/pypi PyPi in Python], Yum/Apt
+Perl modules. (you can compare it to http://pypi.python.org/pypi, Yum/Apt
 repositories in Linux, or even Apple's App Store). If you have Perl you have CPAN. (To check
 type `cpan` in a terminal).
 
@@ -145,7 +145,7 @@ List of Perl Modules to Install
  * `LWP` (Handling network communication)
  * `Module::Find` (Automatically locating modules by name)
  * `Moose` (Object system)
- * `MooseX::Roles::WithOverloading` (Allows roles to overload operators)
+ * `MooseX::Role::WithOverloading` (Allows roles to overload operators)
  * `MooseX::Types` (Type constraint system)
  * `Text::CSV_XS` (Processing .csv and .tsv files)
  * `URI` (Handling urls)
