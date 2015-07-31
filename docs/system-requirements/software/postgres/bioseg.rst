@@ -31,7 +31,7 @@ The ``create-overlap-view`` task will also detect whether built-in ranges are av
 PostgreSQL 9.1
 ------------------------------------
 
-For PostgreSQL 9.1 bioseg is still required. Here how to install it.
+For PostgreSQL 9.1 bioseg is still required. Here is how to install it.
 
 Prerequisites
 ~~~~~~~~~~~~~~~~~~~~~~
