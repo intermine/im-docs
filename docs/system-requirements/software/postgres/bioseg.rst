@@ -2,19 +2,19 @@ Range Queries
 =================================
 
 .. important::
- Starting with InterMine 1.4, bioseg is no longer required if you are using a Postgres version higher than 9.1.
+ Starting with InterMine 1.4, bioseg is no longer required if you are using a PostgreSQL version higher than 9.1.
 
 
-Postgres 9.2 and higher
+PostgreSQL 9.2 and higher
 --------------------------------------------------------------
 
-InterMine now can perform range queries on location table taking advantage of Postgres built in ``int4range`` type.
+InterMine now can perform range queries on location table taking advantage of PostgreSQL built in ``int4range`` type.
 
-The int4range type requires Postgres 9.2 and queries perform best with 9.3.
+The int4range type requires PostgreSQL 9.2 and queries perform best with 9.3.
 
-If range types are not available (Postgres 9.1) then queries will revert to bioseg if available or vanilla queries if not.
+If range types are not available (PostgreSQL 9.1) then queries will revert to bioseg if available or vanilla queries if not.
 
-New installations of Postgres may still need to install gist for the indexes to work.
+New installations of PostgreSQL may still need to install gist for the indexes to work.
 
 
 Indexing
@@ -28,10 +28,10 @@ Please use the ``create-location-range-index`` post-process, which should replac
 
 The ``create-overlap-view`` task will also detect whether built-in ranges are available and use them instead of bioseg for the overlappingfeatures view.
 
-Postgres 9.1
+PostgreSQL 9.1
 ------------------------------------
 
-For Postgres 9.1 bioseg is still required. Here how to install it.
+For PostgreSQL 9.1 bioseg is still required. Here how to install it.
 
 Prerequisites
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -100,7 +100,7 @@ Gist
 
 We also need to create the default gist operators for Bioseg too, in order to have normal types in multi-column indexes.
 
-Postgres 8.x users
+PostgreSQL 8.x users
 ~~~~~~~~~~~~~~~~~~~~~
 
 For each database, type:
@@ -110,7 +110,7 @@ For each database, type:
 	# in the contrib directory
 	$ psql (database) <btree_gist.sql
 
-Postgres 9.x users
+PostgreSQL 9.x users
 ~~~~~~~~~~~~~~~~~~~~~
 
 See http://www.postgresql.org/docs/9.1/static/btree-gist.html.  Run the command in the template1 database:
