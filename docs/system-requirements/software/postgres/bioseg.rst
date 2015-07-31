@@ -1,7 +1,7 @@
 Range Queries 
 =================================
 
-.. note::
+.. important::
  Starting with InterMine 1.4, bioseg is no longer required if you are using a Postgres version higher than 9.1.
 
 
@@ -98,7 +98,7 @@ For each database, type:
 Gist
 ---------
 
-We also need to create the default gist operators too, in order to have normal types in multi-column indexes.
+We also need to create the default gist operators for Bioseg too, in order to have normal types in multi-column indexes.
 
 Postgres 8.x users
 ~~~~~~~~~~~~~~~~~~~~~

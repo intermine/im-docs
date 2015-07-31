@@ -1,7 +1,8 @@
 Installing PostgreSQL
 ======================
 
-We recommend you install stable versions of PostgreSQL 9.2 and above. We currently run our `continuous integration tests`_ on PostgreSQL 9.2. `The PostgreSQL downloads page`_ has packages for most systems that set up everything for you. 
+.. important::
+  We recommend you install PostgreSQL 9.2 and above. We currently run our `continuous integration tests`_ on PostgreSQL 9.2. `The PostgreSQL downloads page`_ has packages for most systems that set up everything for you. 
 
 Fedora/CentOS
 	http://wiki.openscg.com/index.php/PostgreSQL_RPM_Installation
@@ -19,14 +20,7 @@ Mac
 
     We have had good experiences with Postgres.app and Macports.
 
-.. note::
-
-	We recommend installing Postgres 9.2 or higher.
-
-
-If you are installing an older version of Postgres you will need to install Bioseg to allow range queries, as described in :doc:`bioseg`.
-
-Some of the recommended setting below may not apply to older versions.
+Some of the recommended setting below may not apply to older versions of PostgreSQL.
 
 Configuration file
 ------------------
@@ -42,16 +36,9 @@ listen_addresses      '*'
 port                  5432
 ====================  ===================
 
-Install extension btree_gist
+Install Bioseg
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-To allow range queries. See also :doc:`bioseg`. 
-In the template1 database run:
-
-.. code-block:: sql
-
-        CREATE EXTENSION btree_gist;
-	
-	
+If you are installing a version of Postgres below 9.2 you will need to install Bioseg to allow :doc:`bioseg`.  See the link for instructions.  On Postgres 9.2 and above the necessary functionality is built-in.
 
 
 Recommended Configurations
