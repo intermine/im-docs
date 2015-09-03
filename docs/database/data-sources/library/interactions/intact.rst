@@ -1,7 +1,7 @@
 IntAct
 ================================
 
-Loads interactions data from IntAct
+Loads binary interactions data from IntAct
 
 Types of data loaded
 --------------------
