@@ -7,6 +7,7 @@ Interactions
 
     biogrid
     intact
+    intact-complexes
     psi-mi-ontology
 
 .. index:: interactions, PSI
