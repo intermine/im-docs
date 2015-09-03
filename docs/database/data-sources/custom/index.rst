@@ -1,7 +1,7 @@
 Writing Your Own Data Source
 ================================
 
-The aim of this tutorial is to create a new source, specifically to import data from an InterMine data format XML file.  This is achieved in two parts; the first creates the files to describe the new source while the second configures an individual mine to use these files.  The XML file containing the data could be created in any language. InterMine includes Java and Perl APIs to assist.
+The aim of this tutorial is to create a new source, specifically to import data from an InterMine data format XML file.  This is achieved in two parts; the first creates the files to describe the new source while the second configures an individual mine to use these files.  The XML file containing the data could be created in any language. InterMine includes :doc:`Java <../apis/java-items-api>` and :doc:`Perl <../apis/perl-items-api>` APIs to assist.
 
 Thanks to Anthony Smith from the MRC Dunn Human Nutrition Unit for providing this tutorial.
 
