@@ -27,7 +27,7 @@ custom-file
 """"""""""""""
 
 This a source that reads from a file in a custom format.  A custom FileConverter will be needed.  The `make_source` script will
-create a skeleton `FileConverter` in `bio/sources/<source-name>/main/src/org/intermine/bio/dataconversion`.  Edit this code to process the particular file you need to load, using the :doc:`/database/data-sources/apis/java-items-api` Java Items API to create and store items to the database.
+create a skeleton `FileConverter` in `bio/sources/<source-name>/main/src/org/intermine/bio/dataconversion`.  Edit this code to process the particular file you need to load, using the :doc:`/database/data-sources/apis/java-items-api` to create and store items to the database.
 
 intermine-items-xml-file
 """"""""""""""""""""""""""""
