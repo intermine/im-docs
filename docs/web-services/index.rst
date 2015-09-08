@@ -55,7 +55,7 @@ For information on the underlying API, and the supported libraries, please visit
 HTTP API
      Documentation: `<http://iodocs.labs.intermine.org>`_
 Java
-    `Download <https://github.com/intermine/intermine/raw/master/intermine/webservice/client/download/dist/java-intermine-webservice-client.zip>`_
+    `Download <https://github.com/intermine/intermine/raw/master/intermine/webservice/client/download/dist/java-intermine-webservice-client-2.0.zip>`_
     | `Docs <http://intermine.github.io/intermine/>`_
     | `Source <https://github.com/intermine/intermine/tree/master/intermine/webservice/client>`_
 Perl Client
