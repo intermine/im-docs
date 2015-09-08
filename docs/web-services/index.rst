@@ -70,7 +70,7 @@ Ruby Client
     | `Source <https://github.com/intermine/intermine-ws-ruby>`_
 JavaScript Client (for Browser and node.js)
     `Download <https://npmjs.org/package/imjs>`_
-    | `Docs <http://intermine.github.io/imjs//>`_
+    | `Docs <http://alexkalderimis.github.io/imjs/>`_
     | `Source <https://github.com/intermine/imjs>`_
 
 .. index:: Perl, Ruby, web services, REST, Python, JavaScript, code generation, clients, Java
