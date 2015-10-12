@@ -18,7 +18,7 @@ There are branches in the InterMine GitHub repository with special meaning:
 ``master``
     The current public release. External users should clone this branch and receive a stable, supported and well-documented application that works to all specifications.
 
-``stable``
+``release-candidate``
     The next release candidate. Finished and tested features land here before being merged into ``master``. Identical to the master branch except for the time immediately before a release. Users should clone this branch for a preview of upcoming features. All code contributions to this branch are subject to review (see below), but this branch is still *pre-release*, and so the application may not meet all specifications, and documentation may be incomplete.
 
 ``dev``
