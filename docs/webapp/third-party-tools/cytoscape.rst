@@ -19,7 +19,7 @@ Configuration
 
 2. If you host your own [Intermine CDN](https://github.com/intermine/CDN), make sure to pull the most recent update, as the interaction displayer script is loaded via CDN, under `js/intermine/gene-interaction-displayer`.
 
-2. re-release your webapp and you should see the interaction displayer on gene report pages.
+3. re-release your webapp and you should see the interaction displayer on gene report pages.
 
 Data export format
 ---------------------------------------
