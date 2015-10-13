@@ -60,7 +60,7 @@ Protein Domains
 +-------------------+-------------------+----------------------+
 | class             | old               | new                  |
 +===================+===================+======================+
-| ProteinDomain     | --                | proteinDomainRegions |
+| ProteinDomain     | proteins          | proteinDomainRegions |
 +                   +-------------------+----------------------+
 |                   | identifier        | identifier           |
 +-------------------+-------------------+----------------------+
