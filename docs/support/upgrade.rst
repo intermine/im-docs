@@ -12,6 +12,72 @@ If you don't have a git repo yet, see :doc:`/git/index` for details.
 If you host a copy of the :doc:`CDN </webapp/performance/index>`, then you should also pull in changes from
 that repository.
 
+
+Upgrade to InterMine 1.6
+---------------------------------
+
+The core model of InterMine has changed in release 1.1 so you may encounter more errors than usual.
+
+update integration keys
+   	You may need to update your integration keys if they are using a class or field
+        that's been changed.
+
+update custom converter
+	If you are storing data using a class or field that's been changed, you will have
+        to change your code to use the new model. See below for the complete list of model
+        changes.
+
+template queries
+	You will have to update your templates to use the new model
+
+interaction viewer
+	Widget uses the new model - will not work until you build a database with the new code
+
+Interactions
+^^^^^^^^^^^^^^
+
++-------------------+-------------------------+-----------------------------+
+| class             | old                     | new                         |
++===================+=========================+=============================+
+| Interaction       | gene1                   | participant1                |
++                   +-------------------------+-----------------------------+
+|                   | gene2                   | participant2                |
++                   +-------------------------+-----------------------------+
+|                   | relationshipType (Term) | relationshipType (String)   |
++                   +-------------------------+-----------------------------+
+|                   | allInteractors (Gene)   | allInteractors (Interactor) |
++-------------------+-------------------------+-----------------------------+
+| InteractionRegion | primaryIdentifier       | --                          |
++                   +-------------------------+-----------------------------+
+|                   | name                    | --                          |
++-------------------+-------------------------+-----------------------------+
+
+Protein Domains
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
++-------------------+-------------------+----------------------+
+| class             | old               | new                  |
++===================+===================+======================+
+| Interaction       | gene              | gene1                |
++                   +-------------------+----------------------+
+|                   | interactingGenes  | gene2                |
++                   +-------------------+----------------------+
+|                   | type              | details.type         |
++                   +-------------------+----------------------+
+|                   | role              | details.role1        |
++                   +-------------------+----------------------+
+|                   | --                | details.role2        |
++                   +-------------------+----------------------+
+|                   | name              | details.name         |
++                   +-------------------+----------------------+
+|                   | shortName         | --                   |
++-------------------+-------------------+----------------------+
+| InteractionRegion | primaryIdentifier | --                   |
++                   +-------------------+----------------------+
+|                   | name              | --                   |
++-------------------+-------------------+----------------------+
+
+
 Upgrade to InterMine 1.4
 ---------------------------------
 
