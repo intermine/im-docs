@@ -1,9 +1,7 @@
 Cytoscape network viewer
 ================================
 
-The network viewer is based on the CytoscapeWeb flash component.
-
-The current working example is gene interaction displayer, it links to gene/protein report pages, and displays the gene on the report page, its interacting genes, and physical and genetics interactions between them.
+This tool takes gene interaction data from Intermine and visualises it using [cytoscape.js](http://js.cytoscape.org/), a fabulous network visualisation tool. It replaces the flash-based CytoscapeWeb network viewer found in previous versions of the tool. 
 
 Configuration
 --------------------------
@@ -45,60 +43,31 @@ Configuration
 
 4. re-release your webapp and you should see the interaction displayer on gene report pages.
 
-Data format
+Data export format
 ---------------------------------------
 
-CytoscapeWeb can parse the following date formats:
+The network visualisation can be exported as:
 
-* SIF
-* XGMML
-* JSON 
-
-Network can be exported as:
-
-* SIF
-* XGMML
 * PNG
-* SVG
+* JPG
 * TSV
 * CSV
 
 Implementation
 ------------------------------------------
+This tool accesses the list of gene interactions for the target gene by calling a web service, sorting the data into edges and nodes, and inserting them into an HTML canvas for display. It can also be used externally to the report page as a stand alone application. For external setup instructions, see the [Cytoscape Intermine](https://github.com/yochannah/cytoscape-intermine) repo, and the [standalone app demo page](http://yochannah.github.io/cytoscape-intermine/)
 
-What we do for the interactions viewer (the one that targetmine has) is generate the query in Java, e.g.: 
+**Dependencies:** This tool uses [imjs](https://github.com/intermine/imjs) to query the data, and [imtables](https://github.com/intermine/im-tables) to display table data.
 
-.. code-block:: sql
-
-    select * from interactions, genes where gene = [the gene on the report page]
-
-This query returns all the interactions for that gene of interest.  Then we do another query to find out how the genes in the interactions are
-related.  These data are then sent to the Cytoscape viewer via ajax call in SIF/XGMML/JSON format, and the Cytoscape viewer displays those data.
-
-Table of some source files and their functions:
-
+A short list of Java files found on the Intermine side:
 
 CytoscapeNetworkDisplayer.java
-	the report displayer class, get a set of genes interacting with the report gene, in your case, the genes/proteins on the same pathway as the report gene/protein||
+	the report displayer class, get a set of genes interacting with the report gene, in your case, the genes/proteins on the same pathway as the report gene/protein
 
 CytoscapeNetworkDisplayer.jsp
 	the web page to display the network
 
-CytoscapeNetworkAjaxAction.java
-	the Structs action class (config in struts-config-model.xml) to handle the http request and call CytoscapeNetworkService to generate the network data
-
-CytoscapeNetworkGenerator.java
-	generate network data in SIF/XGMML/JSON format
-
 CytoscapeNetworkService.java
 	service class
-
-CytoscapeNetworkNodeData.java
-	netowrk work node model
-
-CytoscapeNetworkEdgeData.java
-	netowrk work edge model
-
-After fetching the data to the web page, you can customise the outlook of the network by using CytoscapeWeb javascript API.
 
 .. index:: Cytoscape, SIF, XGMML, PNG, SVG, interactions, network viewer, interactions widget
