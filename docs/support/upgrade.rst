@@ -31,7 +31,7 @@ template queries
 	You will have to update your templates to use the new model
 
 interaction viewer
-	Widget uses the new model - will not work until you build a database with the new code
+	The cytoscape tool uses the new model - will not work until you build a database with the new code
 
 Interactions
 ^^^^^^^^^^^^^^
@@ -44,12 +44,14 @@ Interactions
 |                   | gene2                   | participant2                |
 +                   +-------------------------+-----------------------------+
 |                   | relationshipType (Term) | relationshipType (String)   |
-+                   +-------------------------+-----------------------------+
-|                   | allInteractors (Gene)   | allInteractors (Interactor) |
 +-------------------+-------------------------+-----------------------------+
-| InteractionRegion | primaryIdentifier       | --                          |
+| InteractionDetail | allInteractors (Gene)   | allInteractors (Interactor) |
++-------------------+-------------------------+-----------------------------+
+| Interactor        | --                      | stoichiometry               |
 +                   +-------------------------+-----------------------------+
-|                   | name                    | --                          |
+|                   | InteractionDetail.role1 | role                        |
++                   +-------------------------+-----------------------------+
+|                   | InteractionDetail.type  | type                        |
 +-------------------+-------------------------+-----------------------------+
 
 Protein Domains
@@ -58,23 +60,17 @@ Protein Domains
 +-------------------+-------------------+----------------------+
 | class             | old               | new                  |
 +===================+===================+======================+
-| Interaction       | gene              | gene1                |
-+                   +-------------------+----------------------+
-|                   | interactingGenes  | gene2                |
-+                   +-------------------+----------------------+
-|                   | type              | details.type         |
-+                   +-------------------+----------------------+
-|                   | role              | details.role1        |
-+                   +-------------------+----------------------+
-|                   | --                | details.role2        |
-+                   +-------------------+----------------------+
-|                   | name              | details.name         |
-+                   +-------------------+----------------------+
-|                   | shortName         | --                   |
+| ProteinDomain     | proteins          | proteinDomainRegions |
 +-------------------+-------------------+----------------------+
-| InteractionRegion | primaryIdentifier | --                   |
+| Protein           | proteinDomains    | proteinDomainRegions |
++-------------------+-------------------+----------------------+
+|ProteinDomainRegion| --                | start                |
 +                   +-------------------+----------------------+
-|                   | name              | --                   |
+|                   | --                | end                  |
++                   +-------------------+----------------------+
+|                   | --                | identifier           |
++                   +-------------------+----------------------+
+|                   | --                | database             |
 +-------------------+-------------------+----------------------+
 
 

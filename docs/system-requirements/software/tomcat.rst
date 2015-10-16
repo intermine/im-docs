@@ -7,13 +7,7 @@ Installation
 
 .. warning::
 
-   Several people have had problems with Tomcat installations set up by Linux package managers.  We recommend installing according to the these instructions instead.
-
-
-.. warning::
-
-   InterMine currently does not work with Tomcat 8. Our engineers are frantically working to correct this, but in the meantime you should stick with Tomcat 7
-
+   Several people have had problems with Tomcat installations set up by Linux package managers, mainly due to permissions issues.  We recommend installing according to the these instructions instead. 
 
 The quickest way to get a working Tomcat:
 
@@ -23,14 +17,6 @@ The quickest way to get a working Tomcat:
 .. code-block:: bash
 
    $ tar -zxvf apache-tomcat-x.y.z.tar.gz
-
-#. Use the `startup.sh` and `shutdown.sh` scripts in `apache-tomcat-x.y.z/bin/` to start and stop Tomcat.  
- 
-   #. You can run it as your own user for development purposes, you should never run tomcat as `root`.
-
-#. Set up the manager user as below.
-
-See Tomcat's installation instructions - http://tomcat.apache.org/tomcat-7.0-doc/setup.html.
 
 After Installation
 ----------------------

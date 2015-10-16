@@ -20,10 +20,6 @@ You should try to use the latest versions of the above software.
 
 	InterMine only supports installations onto Linux and Mac OS X systems. Windows systems of any kind are not supported.  We run a mixture of Debian and Fedora servers in our data centre in Cambridge.
 
-.. warning::
-	
-	InterMine doesn't work with Tomcat 8 yet. We hope to resolve this issue soon.
-
 After installation, most programs require extra configuration to work with InterMine:
 
 .. toctree::

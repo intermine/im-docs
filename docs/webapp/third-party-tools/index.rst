@@ -4,8 +4,9 @@ Third party tools
 .. toctree::
     :maxdepth: 4
 
+    cytoscape
+    esyn
     galaxy
     gbrowse
-    jbrowse
-    cytoscape
     heatmap
+    jbrowse
