@@ -24,7 +24,6 @@ The quickest way to get a working Tomcat:
 
 #. Set up the manager user as below.
 
-See Tomcat's installation instructions - http://tomcat.apache.org/tomcat-7.0-doc/setup.html.
 
 After Installation
 ----------------------
