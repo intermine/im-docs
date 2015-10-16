@@ -18,13 +18,6 @@ The quickest way to get a working Tomcat:
 
    $ tar -zxvf apache-tomcat-x.y.z.tar.gz
 
-#. Use the `startup.sh` and `shutdown.sh` scripts in `apache-tomcat-x.y.z/bin/` to start and stop Tomcat.  
- 
-   #. You can run it as your own user for development purposes, you should never run tomcat as `root`.
-
-#. Set up the manager user as below.
-
-
 After Installation
 ----------------------
 
