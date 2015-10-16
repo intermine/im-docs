@@ -7,13 +7,7 @@ Installation
 
 .. warning::
 
-   Several people have had problems with Tomcat installations set up by Linux package managers.  We recommend installing according to the these instructions instead.
-
-
-.. warning::
-
-   InterMine currently does not work with Tomcat 8. Our engineers are frantically working to correct this, but in the meantime you should stick with Tomcat 7
-
+   Several people have had problems with Tomcat installations set up by Linux package managers, mainly due to permissions issues.  We recommend installing according to the these instructions instead. 
 
 The quickest way to get a working Tomcat:
 
