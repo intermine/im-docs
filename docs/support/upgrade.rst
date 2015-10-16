@@ -31,7 +31,7 @@ template queries
 	You will have to update your templates to use the new model
 
 interaction viewer
-	Widget uses the new model - will not work until you build a database with the new code
+	The cytoscape tool uses the new model - will not work until you build a database with the new code
 
 Interactions
 ^^^^^^^^^^^^^^
@@ -61,8 +61,8 @@ Protein Domains
 | class             | old               | new                  |
 +===================+===================+======================+
 | ProteinDomain     | proteins          | proteinDomainRegions |
-+                   +-------------------+----------------------+
-|                   | identifier        | identifier           |
++-------------------+-------------------+----------------------+
+| Protein           | proteinDomains    | proteinDomainRegions |
 +-------------------+-------------------+----------------------+
 |ProteinDomainRegion| --                | start                |
 +                   +-------------------+----------------------+
@@ -71,8 +71,6 @@ Protein Domains
 |                   | --                | identifier           |
 +                   +-------------------+----------------------+
 |                   | --                | database             |
-+-------------------+-------------------+----------------------+
-| Protein           | proteinDomains    | proteinDomainRegions |
 +-------------------+-------------------+----------------------+
 
 
