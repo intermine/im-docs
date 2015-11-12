@@ -150,9 +150,9 @@ The LOG records three queries:
 
 .. topic:: generated sql
 
-|generated sql: SELECT DISTINCT a7_.id AS a7_id, a2_.id AS a2_id, a3_.id AS a3_id, a8_.id AS a8_id, a5_.id AS a5_id, a6_.id AS a6_id, a7_.symbol AS orderbyfield1, a2_.symbol AS orderbyfield2, a3_.name AS orderbyfield3, a3_.role1 AS orderbyfield4, a3_.role2 AS orderbyfield5, a3_.type AS orderbyfield6, a8_.name AS orderbyfield7, a5_.name AS orderbyfield8, a6_.pubMedId AS orderbyfield9 FROM Interaction AS a1_, Gene AS a2_, InteractionDetail AS a3_, InteractionExperiment AS a4_, InteractionTerm AS a5_, Publication AS a6_, Gene AS a7_, InteractionTerm AS a8_, InteractionDetectionMethodsInteractionExperiment AS indirect0 WHERE a1_.gene2Id = a2_.id AND a1_.id = a3_.interactionId AND a3_.experimentId = a4_.id AND a3_.relationshipTypeId = a5_.id AND a4_.publicationId = a6_.id AND a1_.gene1Id = a7_.id AND a4_.id = indirect0.InteractionExperiment AND indirect0.InteractionDetectionMethods = a8_.id AND a7_.id IN (1007850) AND a2_.id IN (2848406) ORDER BY a7_.symbol, a2_.symbol, a3_.name, a3_.role1, a3_.role2, a3_.type, a8_.name, a5_.name, a6_.pubMedId, a7_.id, a2_.id, a3_.id, a8_.id, a5_.id, a6_.id LIMIT 5000
+	generated sql: SELECT DISTINCT a7_.id AS a7_id, a2_.id AS a2_id, a3_.id AS a3_id, a8_.id AS a8_id, a5_.id AS a5_id, a6_.id AS a6_id, a7_.symbol AS orderbyfield1, a2_.symbol AS orderbyfield2, a3_.name AS orderbyfield3, a3_.role1 AS orderbyfield4, a3_.role2 AS orderbyfield5, a3_.type AS orderbyfield6, a8_.name AS orderbyfield7, a5_.name AS orderbyfield8, a6_.pubMedId AS orderbyfield9 FROM Interaction AS a1_, Gene AS a2_, InteractionDetail AS a3_, InteractionExperiment AS a4_, InteractionTerm AS a5_, Publication AS a6_, Gene AS a7_, InteractionTerm AS a8_, InteractionDetectionMethodsInteractionExperiment AS indirect0 WHERE a1_.gene2Id = a2_.id AND a1_.id = a3_.interactionId AND a3_.experimentId = a4_.id AND a3_.relationshipTypeId = a5_.id AND a4_.publicationId = a6_.id AND a1_.gene1Id = a7_.id AND a4_.id = indirect0.InteractionExperiment AND indirect0.InteractionDetectionMethods = a8_.id AND a7_.id IN (1007850) AND a2_.id IN (2848406) ORDER BY a7_.symbol, a2_.symbol, a3_.name, a3_.role1, a3_.role2, a3_.type, a8_.name, a5_.name, a6_.pubMedId, a7_.id, a2_.id, a3_.id, a8_.id, a5_.id, a6_.id LIMIT 5000
 
-**optimised sql**
+.. topic:: optimised sql
 
 	optimised sql: SELECT DISTINCT P98.a1_id AS a7_id, P98.a3_id AS a2_id, P96.id AS a3_id, a8_.id AS a8_id, a5_.id AS a5_id, a6_.id AS a6_id, P98.a1_symbol AS orderbyfield1, P98.a3_symbol AS orderbyfield2, P96.name AS orderbyfield3, P96.role1 AS orderbyfield4, P96.role2 AS orderbyfield5, P96.type AS orderbyfield6, a8_.name AS orderbyfield7, a5_.name AS orderbyfield8, a6_.pubMedId AS orderbyfield9 FROM precomp_45503 AS P98, InteractionDetail AS P96, InteractionExperiment AS P97, InteractionTerm AS a5_, Publication AS a6_, InteractionTerm AS a8_, InteractionDetectionMethodsInteractionExperiment AS indirect0 WHERE P98.a2_id = P96.interactionId AND P96.experimentId = P97.id AND P96.relationshipTypeId = a5_.id AND P97.publicationId = a6_.id AND P97.id = indirect0.InteractionExperiment AND indirect0.InteractionDetectionMethods = a8_.id AND P98.a1_id IN (1007850) AND P98.a3_id IN (2848406) ORDER BY P98.a1_symbol, P98.a3_symbol, P96.name, P96.role1, P96.role2, P96.type, a8_.name, a5_.name, a6_.pubMedId, P98.a1_id, P98.a3_id, P96.id, a8_.id, a5_.id, a6_.id LIMIT 5000
 bag tables: 0 ms, generate: 1 ms, optimise: 0 ms,  ms,  estimate: 14 ms, execute: 11 ms, convert results: 0 ms, extra queries: 27 ms, total: 53 ms, rows: 1
@@ -162,5 +162,12 @@ Note the `FROM` clause now includes `precomp_45503`. You can query for this name
 .. code-block:: sql
 
 	select * from precompute_index where name ='precomp_45503';
+
+You can also run IQL queries directly in the console:
+
+.. code-block:: bash
+
+	$ ant run-iql-query -Dquery='some IQL'
+
 
 .. index:: precomputes, query speed, database speed, optimisation
