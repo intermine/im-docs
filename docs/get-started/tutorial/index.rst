@@ -11,7 +11,7 @@ Getting Started
 ----------------------
 
 We use `git <http://git-scm.com>`_ to manage and distribute source code.  Download InterMine software from :doc:`/git/index`
-
+inter
 Creating a new Mine
 ----------------------
 
@@ -690,34 +690,7 @@ Each key should list one or more fields that can be a combination of `attributes
 
 It is still possible to use a legacy method of configuring keys, where keys are defined centrally in `dbmodel/resources/genomic_keyDefs.properties` and referenced in source `_keys.properties` files.
 
-Dealing with conflicts
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-It is possible that two different sources could have a value for the same field, in this case we need to define which source should take precedence.
-
-Try loading data from the `interpro` source which will cause a conflict with `uniprot-malaria`.  UniProt loads a list of protein domains for each protein but doesn't include the full names and descriptions of ProteinDomain objects, the `interpro` source adds this information:
-
-.. code-block:: bash
-
-  $ ant -Dsource=interpro
-
-You will see a message that includes the text:
-
-.. code-block:: bash
-
-  Conflicting values for field ProteinDomain.shortName between uniprot-malaria (value "NAD-dep_Gly3P_DHase_N" in database with ID 1017490) and interpro (value "NAD_Gly3P_DH_N" being stored). This field needs configuring in the genomic_priorities.properties file
-
-Slightly different values have been provided for the `shortName` of a particular `ProteinDomain`.  In this case we want to take the value from `interpro`.  Edit `dbmodel/resources/genomic_priorities.properties` and add the line:
-
-.. code-block:: properties
-
-  ProteinDomain.shortName = interpro, uniprot-malaria
-
-Now run try to load `interpro` again:
-
-.. code-block:: bash
-
-  $ ant -Dsource=interpro
 
 The `tracker` table 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
