@@ -31,10 +31,10 @@ The image contains a ready deployed MalariaMine.
 2. go to the EC2 management console 
    AWS console https://console.aws.amazon.com/console/home --> EC2 console 
 3. if you don't have one, set up a security group which allows access at least to port
-   * 22 (SSH)
-   * 80 (HTTP)
-   * 8080 (TOMCAT)
-   you could set up also a few spare ones (20, 21, 8009).
+  * 22 (SSH)
+  * 80 (HTTP)
+  * 8080 (TOMCAT)
+  you could set up also a few spare ones (20, 21, 8009).
    
    .. note::
     You can do this also during step 7, but  
