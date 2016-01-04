@@ -36,19 +36,19 @@ The image contains a ready deployed MalariaMine.
   * 8080 (TOMCAT)
   you could set up also a few spare ones (20, 21, 8009).
    
-   .. note::
-    You can do this also during step 7, but  
-    **you cannot change the security group of an instance after starting it for the first time**
-    (unless you use a VPC instance, see http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html).
-   ..
+  .. note::
+   You can do this also during step 7, but  
+   **you cannot change the security group of an instance after starting it for the first time**
+   (unless you use a VPC instance, see http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html).
+  ..
  
 4. go to the IMAGES/AMI console
 5. set the location on the top header (beside your username) to *US East (N. Virginia)* 
 6. set the filter to *Public Images* and search for ``InterMine``
 7. select *BasicIntermine* AMI (AMI ID = ami-b1c7a9d8)
 8. launch (and configure) instance
-   * you can use all default options for the instance characteristics and details, but use the security group you created in step 3.
-   * when prompted, create a new key pair (``.pem`` file), or use one that you already own. 
+  * you can use all default options for the instance characteristics and details, but use the security group you created in step 3.
+  * when prompted, create a new key pair (``.pem`` file), or use one that you already own. 
 9. go to the Instance console
 10. select your new instance
 11. when public DNS appears (after checks, a couple of minutes), you can open a terminal with
