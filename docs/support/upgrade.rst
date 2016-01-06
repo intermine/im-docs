@@ -101,10 +101,14 @@ in your $MINE directory:
 	 
 	db.common-tgt-items.datasource.maxConnections=5
         
-        and replace 
+        and replace
+        
         db.production.datasource.class=org.postgresql.ds.PGPoolingDataSource
+        
         (or any other db pooling class)
+        
         with these 2 lines
+        
         db.production.datasource.class=com.zaxxer.hikari.HikariDataSource
         db.production.datasource.dataSourceClassName=org.postgresql.ds.PGSimpleDataSource
 
