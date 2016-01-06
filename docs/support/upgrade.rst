@@ -96,22 +96,23 @@ $MINE properties files
 in your $MINE directory:
 
 .. topic:: default.intermine.integrate.properties
+
         set
         
-	db.production.datasource.maxConnections=20
+	`db.production.datasource.maxConnections=20`
 	 
-	db.common-tgt-items.datasource.maxConnections=5
+	`db.common-tgt-items.datasource.maxConnections=5`
         
         and for each database replace
         
-        db.production.datasource.class=org.postgresql.ds.PGPoolingDataSource
+        `db.production.datasource.class=org.postgresql.ds.PGPoolingDataSource`
         
         (or any other db pooling class)
         
         with these 2 lines
         
-        db.production.datasource.class=com.zaxxer.hikari.HikariDataSource
-        db.production.datasource.dataSourceClassName=org.postgresql.ds.PGSimpleDataSource
+        `db.production.datasource.class=com.zaxxer.hikari.HikariDataSource
+        db.production.datasource.dataSourceClassName=org.postgresql.ds.PGSimpleDataSource`
 
 
 
@@ -119,18 +120,18 @@ in your $MINE directory:
 
         set
         
-	db.production.datasource.maxConnections=20
+	`db.production.datasource.maxConnections=20`
 	
 	and for each database replace
         
-        db.production.datasource.class=org.postgresql.ds.PGPoolingDataSource
+        `db.production.datasource.class=org.postgresql.ds.PGPoolingDataSource`
         
         (or any other db pooling class)
         
         with these 2 lines
         
-        db.production.datasource.class=com.zaxxer.hikari.HikariDataSource
-        db.production.datasource.dataSourceClassName=org.postgresql.ds.PGSimpleDataSource
+        `db.production.datasource.class=com.zaxxer.hikari.HikariDataSource
+        db.production.datasource.dataSourceClassName=org.postgresql.ds.PGSimpleDataSource`
 
 
 Any other data source you use should be set to five connections, raised to ten if you encounter problems, e.g. the build failing with an error like so:
