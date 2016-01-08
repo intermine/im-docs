@@ -1,17 +1,15 @@
 Web Services
 ================================
 
-InterMine allows, and encourages, programmatic access to
-its features, also known as *web services*. This allows
-users to automate:
+InterMine provides programmatic access to its features via web services. This allows users to automate:
 
 * Data retrieval (custom queries, templated queries, keyword searches).
 * List creation/analysis/management
 * User profile management
 * Data-model introspection
 
-For a full listing of web service capabilities please see the
-`HTTP API documentation <http://iodocs.labs.intermine.org>`_.
+For a full listing of web service capabilities on various mines please see the
+`HTTP API documentation <http://iodocs.apps.intermine.org>`_.
 
 Getting Started
 ----------------
@@ -53,7 +51,7 @@ the LGPL (see :ref:`legal`).
 For information on the underlying API, and the supported libraries, please visit the following links:
 
 HTTP API
-     Documentation: `<http://iodocs.apps.intermine.org>`_
+     Documentation on services available from mines: `<http://iodocs.apps.intermine.org>`_
 Java
     `Download <https://github.com/intermine/intermine/raw/master/intermine/webservice/client/download/dist/java-intermine-webservice-client-2.0.zip>`_
     | `Docs <http://extrac.sysbiol.cam.ac.uk/wiki/JavaClient>`_
