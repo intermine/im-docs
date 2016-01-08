@@ -53,7 +53,7 @@ the LGPL (see :ref:`legal`).
 For information on the underlying API, and the supported libraries, please visit the following links:
 
 HTTP API
-     Documentation: `<http://iodocs.labs.intermine.org>`_
+     Documentation: `<http://iodocs.apps.intermine.org>`_
 Java
     `Download <https://github.com/intermine/intermine/raw/master/intermine/webservice/client/download/dist/java-intermine-webservice-client-2.0.zip>`_
     | `Docs <http://extrac.sysbiol.cam.ac.uk/wiki/JavaClient>`_
