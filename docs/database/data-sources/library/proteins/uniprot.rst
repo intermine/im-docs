@@ -117,8 +117,8 @@ Project.xml
     <source name="uniprot" type="uniprot" >
       <property name="uniprot.organisms" value="7227 9606"/>
       <property name="src.data.dir" location="/data/uniprot"/>
-      <property name="createinterpro" value="true"/>
       <property name="creatego" value="true"/>
+      <property name="creategenes" value="true"/>
       <property name="allowduplicates" value="false"/>
       <property name="loadfragments" value="false"/>
       <property name="loadtrembl" value="true"/>
@@ -127,7 +127,7 @@ Project.xml
 ===============  ========================================================================  =========
 property         description                                                               default
 ===============  ========================================================================  =========
-createinterpro   if TRUE, process protein domains                                          false 
+creategenes      if TRUE, process genes                                                    true
 creatego         if TRUE, process GO annotation                                            false 
 allowduplicates  if TRUE, allow proteins with duplicate sequences to be processed          false 
 loadfragments    if TRUE, load all proteins even if isFragment = true                      false 
