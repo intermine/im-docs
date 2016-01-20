@@ -2,7 +2,7 @@ So You Want to Develop for InterMine
 =====================================
 
 This document sets out the development processes for those contributing to the
-`InterMine code base`_. It specifically refers to the main application
+`InterMine code base <https://github.com/intermine/intermine>`_. It specifically refers to the main application
 code-base, but these practices should be employed in an ideal world on all code
 bases. This document is normative.
 
@@ -27,7 +27,7 @@ There are branches in the InterMine GitHub repository with special meaning:
 Setting Up a Development Environment
 ----------------------------------------
 
-Development does not happen on any of the special branches. The recommended practice is to fork the `intermine repo`_ and maintain development branches in your own repository.
+Development does not happen on any of the special branches. The recommended practice is to fork the `intermine repo <https://github.com/intermine/intermine>`_ and maintain development branches in your own repository.
 
 Developing a Feature
 ------------------------------------------------
@@ -72,6 +72,6 @@ The process for reviewing an merging a pull request is as follows:
 
 5. Checkout the current head of ``intermine/dev`` and merge the feature branch into it.
 
-6. Push ``dev`` to the `intermine repo`_.
+6. Push ``dev`` to the `intermine repo <https://github.com/intermine/intermine>`_.
 
 [intermine repo]: https://github.com/intermine/intermine
