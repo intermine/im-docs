@@ -73,3 +73,5 @@ The process for reviewing an merging a pull request is as follows:
 5. Checkout the current head of ``intermine/dev`` and merge the feature branch into it.
 
 6. Push ``dev`` to the `intermine repo`_.
+
+[intermine repo]: https://github.com/intermine/intermine
