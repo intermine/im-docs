@@ -162,5 +162,5 @@ You can also follow all the steps in the build as illustrated in :doc:`/get-star
 ----------------------
 
 
-.. index:: tutorial, Amazon, malariamine, ant, project_build, cloud
+.. index:: tutorial, Amazon, malariamine, ant, project_build, cloud, AWS
 
