@@ -4,7 +4,7 @@ Panther
 
 Data
 
-ftp://ftp.pantherdb.org/ortholog/current/RefGenomeOrthologs.tar.gz 
+ftp://ftp.pantherdb.org/ortholog/current_release/RefGenomeOrthologs.tar.gz 
 
 gunzip to RefGenomeOrthologs.txt
 
