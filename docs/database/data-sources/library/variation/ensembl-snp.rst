@@ -11,7 +11,11 @@ SNPs
 How to download the data 
 ---------------------------
 
-First you will need the variation data from Ensembl, which are available via MySQL databases.  Download the Ensembl MySQL database and create the database locally:
+First you will need the variation data from Ensembl, which are available via MySQL databases.  Download the Ensembl file from their FTP site:
+
+  ftp://ftp.ensembl.org
+  
+Example:
 
   ftp://ftp.ensembl.org/pub/release-79/variation/vcf/homo_sapiens/Homo_sapiens_incl_consequences.vcf.gz
 
