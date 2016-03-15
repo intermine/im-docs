@@ -561,7 +561,7 @@ FASTA is a minimal format for representing sequence data.  Files comprise a head
 
 The type of feature created is defined by a property in `project.xml`, the attribute set defaults to `primaryIdentifier` but can be changed with the `fasta.classAttribute` property.  The following properties are defined in `project.xml` for `malaria-chromosome-fasta`:
 
-`fasta.className = org.intermine.model.genomic.Chromosome`
+`fasta.className = org.intermine.model.bio.Chromosome`
   the type of feature that each sequence is for
 
 `fasta.dataSourceName = PlasmoDB`
@@ -572,6 +572,8 @@ The type of feature created is defined by a property in `project.xml`, the attri
 
 `fasta.taxonId = 36329`
   the organism id for malaria
+  
+`fasta.includes = MAL*.fasta`
 
 This will create features of the class `Chromosome` with `primaryIdentifier` set and the `Chromosome.sequence` reference set to a `Sequence` object.  Also created are a `DataSet` and `DataSource` as evidence.
 
