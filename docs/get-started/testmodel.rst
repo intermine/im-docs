@@ -51,7 +51,7 @@ Initialise the two databases:
 	$ cd testmodel/dbmodel
 	$ ant clean build-db
 	$ ant insert-data-unittest
-	$ cd testmodel/webapp/main
+	$ cd ../webapp/main
 	$ ant build-db-userprofile
 
 Build the testmodel web application and release to the running tomcat:
