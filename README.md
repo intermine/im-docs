@@ -1,15 +1,7 @@
 intermine.org
 =============
 
-Landing page and documentation for the InterMine project.
-
-Landing page
-------------
-
-To see the source for the landing page, switch to the `gh-pages` branch.
-
-The designs and source source for the landing page can be found in the
-[intermine/design-materials][1] repo.
+Documentation for the InterMine project.
 
 Documentation
 -------------
