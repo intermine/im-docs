@@ -190,7 +190,7 @@ The final additions XML should look like:
   If all the data you wish to load is already modelled in InterMine then you don't need an additions file.
 
 
-Keys
+Keys file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Within the `resources` directory is a file called `new-source_keys.properties`.  Here we can define primary keys that will be used to integrate data from this source with any exiting objects in the database.  We want to integrate proteins by their (UniProt) primaryAccession attribute so we define that this source should use the key:
