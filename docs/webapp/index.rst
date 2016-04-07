@@ -23,6 +23,7 @@ Guide to Customising your Web Application
     user-accounts/index
     performance/index    
     diagnostic/index
+    javadoc/javadoc
 
 Overwrite any JSP
 ------------------------
