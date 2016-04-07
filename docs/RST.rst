@@ -151,7 +151,7 @@ The index page (link top right) is generated automatically using the keywords se
 
 Troubleshooting
 -------
-**Entire document not appearing?** Lines beginning with whitespace are invalid and can cause this error. Comb through your document and check things like headings tomake sure the'yre manually trimmed. 
+**Entire document not appearing?** Lines beginning with whitespace are invalid and can cause this error. Comb through your document and check things like headings to make sure they're manually trimmed. 
 
 .. code-block:: 
 
