@@ -3,7 +3,7 @@
 Syntax
 ======
 
-.. seealso:: http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html, http://packages.python.org/an_example_pypi_project/sphinx.html
+.. seealso:: http://www.sphinx-doc.org/en/stable/rest.html, http://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html, http://packages.python.org/an_example_pypi_project/sphinx.html
 
 Enumerated lists
 ----------------
@@ -148,6 +148,15 @@ The index page (link top right) is generated automatically using the keywords se
 .. code-block:: rst
 
     .. index:: keyword, another keyword
+
+Troubleshooting
+-------
+**Entire document not appearing?** Lines beginning with whitespace are invalid and can cause this error. Comb through your document and check things like headings tomake sure the'yre manually trimmed. 
+
+.. code-block:: 
+
+    This would be a bad heading because it starts with a space
+   ===========================================================
 
 ASCII Art...
 ------------
