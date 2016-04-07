@@ -49,7 +49,7 @@ To encrypt you Github token, you're need to install Travis CLI locally if you ha
 
 This will output the encrypted variable into your console, looking something like:
 
-.. code-block:: bash
+.. code-block:: yaml
 
   secure: long string of nonsense here
 
@@ -69,7 +69,7 @@ Configuring Travis to auto-deploy Javadoc from branches other than master
 _____________________________________________________________________________
 If you wish to deploy javadoc from a different branch, perhaps a development / test branch, find this line in your `.travis.yml`
 
-.. code-block:: bash
+.. code-block:: yaml
 
   after_success:
     - test $TRAVIS_BRANCH == "master" && bash config/travis/deploydocs.sh
