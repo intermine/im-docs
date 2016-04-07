@@ -17,7 +17,7 @@ To generate Javadoc at a package-specific level, change directory to the webapp 
   $ cd intermine/flymine/webapp
   $ ant javadoc
 
-Upon successful build, you'll be able to find the Javadoc under the `build/javadoc` folder. For the FlyMine example above, it'd be at `git/intermine.flymine`.
+Upon successful build, you'll be able to find the Javadoc under the `build/javadoc` folder. For the FlyMine example above, it'd be at `git/intermine/flymine/webapp/build/javadoc`.
 
 Generating Intermine-wide Javadoc
 ------------------------------------
@@ -44,16 +44,19 @@ ______________________
 To encrypt you Github token, you're need to install Travis CLI locally if you haven't already, then run
 
 .. code-block:: bash
+
   $ travis encrypt GH_TOKEN=put-your-very-secret-github-token-here
 
 This will output the encrypted variable into your console, looking something like:
 
 .. code-block:: bash
+
   secure: long string of nonsense here
 
 Copy the entire output to your `.travis.yml` under the env global section. You should end up with a section like this. It's ok to have more than one secure environment variable.
 
 .. code-block:: bash
+
   env:
     global:
     - secure: that same long string of nonsense
@@ -67,6 +70,7 @@ _____________________________________________________________________________
 If you wish to deploy javadoc from a different branch, perhaps a development / test branch, find this line in your `.travis.yml`
 
 .. code-block:: bash
+
   after_success:
     - test $TRAVIS_BRANCH == "master" && bash config/travis/deploydocs.sh
 
