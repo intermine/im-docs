@@ -44,7 +44,6 @@ ______________________
 To encrypt you Github token, you're need to install Travis CLI locally if you haven't already, then run
 
 .. code-block:: bash
-
   $ travis encrypt GH_TOKEN=put-your-very-secret-github-token-here
 
 This will output the encrypted variable into your console, looking something like:
@@ -54,11 +53,10 @@ This will output the encrypted variable into your console, looking something lik
 
 Copy the entire output to your `.travis.yml` under the env global section. You should end up with a section like this. It's ok to have more than one secure environment variable.
 
-```
+.. code-block:: bash
 env:
   global:
   - secure: that same long string of nonsense
-```
 
 See `Travis's documentation on encrypting environment variables<https://docs.travis-ci.com/user/encryption-keys/>` for more information.
 
@@ -68,9 +66,8 @@ Configuring Travis to auto-deploy Javadoc from branches other than master
 _____________________________________________________________________________
 If you wish to deploy javadoc from a different branch, perhaps a development / test branch, find this line in your `.travis.yml`
 
-```
+.. code-block:: bash
 after_success:
 - test $TRAVIS_BRANCH == "master" && bash config/travis/deploydocs.sh
-```
 
 Simply change the value of "master" to the branch you wish to use. 
