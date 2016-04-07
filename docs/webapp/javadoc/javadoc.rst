@@ -36,7 +36,7 @@ In order to deploy, there must be an encrypted `$GH_TOKEN` set in `.travis.yml` 
 
 Generating a token
 ____________________
-Go to the `Personal access tokens`<https://github.com/settings/tokens/new>`_ section of Github, and create a now token with `repo` permissions only. If it's a public repo, then `public_repo` permissions will suffice. Name it something memorable, and copy it down somewhere safe when you are shown it, as you're only shown it the once.
+Go to the `Personal access tokens <https://github.com/settings/tokens/new>`_ section of Github, and create a now token with `repo` permissions only. If it's a public repo, then `public_repo` permissions will suffice. Name it something memorable, and copy it down somewhere safe when you are shown it, as you're only shown it the once.
 
 Encrypting the token
 ______________________
@@ -58,7 +58,7 @@ env:
   global:
   - secure: that same long string of nonsense
 
-See `Travis's documentation on encrypting environment variables<https://docs.travis-ci.com/user/encryption-keys/>`_ for more information.
+See `Travis's documentation on encrypting environment variables <https://docs.travis-ci.com/user/encryption-keys/>`_ for more information.
 
 Assuming the repo is already set up to be tested in Travis, this should be all you need to set up automatic deployments
 
