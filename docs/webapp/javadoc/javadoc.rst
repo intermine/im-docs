@@ -9,7 +9,7 @@ Dependency note
 Note that package-specific Javadoc generation only works if you have successfully built the package first. If you haven't built it before, you're likely to get error messages about missing files.
 
 Building
-~~~~~~~~~~~~
+~~~~~~~~~
 To generate Javadoc at a package-specific level, change directory to the webapp directory of a given mine, and run `ant javadoc`:
 
 .. code-block:: bash
@@ -64,7 +64,7 @@ See [Travis's documentation on encrypting environment variables](https://docs.tr
 
 Assuming the repo is already set up to be tested in Travis, this should be all you need to set up automatic deployments
 
- Configuring Travis to auto-deploy Javadoc from branches other than master
+Configuring Travis to auto-deploy Javadoc from branches other than master
 _____________________________________________________________________________
 If you wish to deploy javadoc from a different branch, perhaps a development / test branch, find this line in your `.travis.yml`
 
