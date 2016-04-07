@@ -10,21 +10,39 @@ Note that package-specific Javadoc generation only works if you have successfull
 
 Building
 ~~~~~~~~~
-To generate Javadoc at a package-specific level, change directory to the webapp directory of a given mine, and run `ant javadoc`:
+To generate Javadoc at a package-specific level, change directory to the webapp directory of a given mine, and run `ant javadoc`. Assuming you're at the root of your intermine directory:
 
 .. code-block:: bash
 
-  $ cd intermine/flymine/webapp
+  $ cd flymine/webapp
   $ ant javadoc
 
 Upon successful build, you'll be able to find the Javadoc under the `build/javadoc` folder. For the FlyMine example above, it'd be at `git/intermine/flymine/webapp/build/javadoc`.
 
 Generating Intermine-wide Javadoc
 ------------------------------------
+If you just want to browse the docs, you can see the most recent version at http://intermine.org/intermine/. If you'd like to generate it yourself, read on.
 
-Dependency
+Dependencies
 ~~~~~~~~~~
-The Javadoc depends on the database model under `bio/testall` being built first.
+The Javadoc depends on the database model under `bio/testall` being built first. To do this, from the intermine root directory:
+
+.. code-block:: bash
+
+  $ cd bio/test-all/dbmodel
+  $ ant clean-all
+  $ ant build-db
+
+Building
+~~~~~~~~
+Once you've successfully run build-db above, you'll need to change to the `imbuild/javadoc` directory and generate the documentation: 
+.. code-block:: bash
+
+  $ cd ../../../imbuild/javadoc
+  $ ant clean
+  $ ant
+
+That's it! You'll be able to see the documentation under` intermine/imbuild/javadoc/build/javadoc`. 
 
 Using Travis to auto-deploy Javadoc to GitHub Pages
 --------------------------------------------------------------------------------
