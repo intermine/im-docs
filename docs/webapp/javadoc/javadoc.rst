@@ -36,13 +36,14 @@ The Javadoc depends on the database model under `bio/testall` being built first.
 Building
 ~~~~~~~~
 Once you've successfully run build-db above, you'll need to change to the `imbuild/javadoc` directory and generate the documentation: 
+
 .. code-block:: bash
 
   $ cd ../../../imbuild/javadoc
   $ ant clean
   $ ant
 
-That's it! You'll be able to see the documentation under` intermine/imbuild/javadoc/build/javadoc`. 
+That's it! You'll be able to see the documentation under `intermine/imbuild/javadoc/build/javadoc`. 
 
 Using Travis to auto-deploy Javadoc to GitHub Pages
 --------------------------------------------------------------------------------
