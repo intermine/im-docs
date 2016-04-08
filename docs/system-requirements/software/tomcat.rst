@@ -81,6 +81,8 @@ Add this property in startup.sh:
 Tomcat 7.0 has improved the enforcement of Expression Language rules and by default doesn't allow the use of Java keywords.
 This flag makes Tomcat 7 more permissive.
 
+If tomcat is installed as service, add org.apache.el.parser.SKIP_IDENTIFIER_CHECK=true to /etc/tomcat7/catalina.properties instead of adding JAVA_OPTS in startup.sh.
+
 Starting Tomcat 
 ~~~~~~~~~~~~~~~~
 
