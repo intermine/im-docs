@@ -189,6 +189,40 @@ The final additions XML should look like:
 
   If all the data you wish to load is already modelled in InterMine then you don't need an additions file.
 
+Properties
+~~~~~~~~~~
+Any properties you define in a source entry in your mine's project.xml will be set on that source's converter or post-processing class, providing that there is a setter with an appropriate name.
+
+This applies to any class that inherits from
+
+* org.intermine.dataconversion.DataConverter
+
+* org.intermine.dataconversion.DBConverter
+
+* org.intermine.dataconversion.DirectoryConverter
+
+* org.intermine.dataconversion.FileConverter
+
+* org.intermine.postprocess.PostProcessor
+
+For instance, if you have the source entry
+
+.. code-block:: xml
+
+    <source name="my-new-source-name" type="">
+      <property name="fooFile" location="/some/directory/objects_in_intermine_format.xml"/>
+      <property name="bar.info" location="baz"/>
+      <property name="bazMoreInfo" name="hello-world"/>
+    </source>
+
+in your project.xml file and a class that extends org.intermine.postprocess.PostProcessor, then before post-processing the following methods will be called on that class with these parameters
+
+.. code-block:: java
+
+  myPostProcessor.setFooFile(new File("/some/directory/objects_in_intermine_format.xml"));
+  myPostProcessor.setBarInfo("baz");
+  myPostProcessor.setBazMoreInfo("hello-world");
+
 
 Keys file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
