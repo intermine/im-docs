@@ -3,10 +3,10 @@ Mailing list
 
 Please join the InterMine developers mailing list ``dev [at] intermine [dot] org`` to receive updates and ask questions.
 
-`Join list <http://mail.intermine.org/cgi-bin/mailman/listinfo/dev>`_
+`Join list <https://lists.intermine.org/mailman/listinfo/dev>`_
 
 Archives of old messages are available here:
 
-`Message archive <http://mail.intermine.org/pipermail/dev>`_
+`Message archive <https://lists.intermine.org/pipermail/dev/>`_
 
 .. index:: email, help, developers, mailing list
