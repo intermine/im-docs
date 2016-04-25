@@ -1,7 +1,7 @@
 Mailing list
 ============
 
-Please join the InterMine developers mailing list ``dev [at] intermine [dot] org`` to receive updates and ask questions.
+Please join the InterMine developers mailing list ``dev [at] lists [dot] intermine [dot] org`` to receive updates and ask questions.
 
 `Join list <https://lists.intermine.org/mailman/listinfo/dev>`_
 
