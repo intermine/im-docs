@@ -72,6 +72,9 @@ Footer
     in :doc:`/webapp/properties/intermine-properties` changes the recipient email address for contact form
  ``funding``
     in :doc:`/webapp/properties/model-properties` changes the "funded by" text
+``project.citation``
+    in :doc:`/webapp/properties/web-properties` changes the "cite" text
+
 
 Favicon
 ~~~~~~~
