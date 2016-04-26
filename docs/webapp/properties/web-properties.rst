@@ -27,6 +27,9 @@ meta.keywords
 meta.description
     will populate meta tag for description.  Google uses this in their search results, I think
 
+project.citation
+    populates the "Cite" text in the footer.
+
 portal.welcome
     the message to show when a user arrives at the webapp via the portal action (eg. <something>/portal.do)
 
