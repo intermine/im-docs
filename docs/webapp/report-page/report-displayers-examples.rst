@@ -180,6 +180,24 @@ A summary view of features that overlap the chromosome location of the reported 
 
    An Overlapping features displayer in modMine.
 
+Complexes - Protein interactions
+----------------------------------------
+
+Viewer displaying complex interactions. Data must be loaded from IntAct. Original Source: http://interactionviewer.org/.
+
+.. code-block:: xml
+
+    <reportdisplayer javaClass="org.intermine.bio.web.displayer.ComplexDisplayer"
+                     jspName="model/complexDisplayer.jsp"
+                     replacesFields=""
+                     placement="summary"
+                     types="Complex"/>
+
+.. figure::  img/complex_viewer.png
+   :align:   center
+
+   A Complex interaction displayer in HumanMine.
+
 Specific Displayers
 -------------------
 
