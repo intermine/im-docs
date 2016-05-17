@@ -16,6 +16,6 @@ We'll be available for technical support guidance.
 Full Implementation
 ------------------------------------------------
 
-Please contact us to find out more!
+Please :doc:`/about/contact-us` to find out more!
 
 .. index:: InterMine
