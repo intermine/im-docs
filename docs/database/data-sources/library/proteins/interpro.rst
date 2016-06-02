@@ -39,6 +39,7 @@ How to download the data
 ---------------------------
 
 ftp://ftp.ebi.ac.uk/pub/databases/interpro/protein2ipr.dat.gz
+ftp://ftp.ebi.ac.uk/pub/databases/interpro/match_complete.dat.gz
 
 How to load the data into your mine
 --------------------------------------
@@ -49,13 +50,17 @@ project XML example
 
     <!-- has to be after UniProt because only loads protein domains for loaded proteins -->
     <source name="protein2ipr" type="protein2ipr">
-     <property name="src.data.dir" location="/data/interpro"/>
-     <property name="src.data.dir.includes" value="protein2ipr.dat"/>
+        <property name="src.data.dir" location="/data/interpro"/>
+        <property name="src.data.dir.includes" value="protein2ipr.dat"/>
+        <property name="protein2ipr.organisms" value="9606"/>
     </source>
 
 
+You'll also need the DTD file here:
 
+ftp://ftp.ebi.ac.uk/pub/databases/interpro/match_complete.dtd
 
+Put it in your $MINE/integrate directory.
 
 
 
