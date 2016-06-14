@@ -11,7 +11,7 @@ Getting Started
 ----------------------
 
 We use `git <http://git-scm.com>`_ to manage and distribute source code.  Download InterMine software from :doc:`/git/index`
-inter
+
 Creating a new Mine
 ----------------------
 
