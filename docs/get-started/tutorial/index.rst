@@ -10,7 +10,7 @@ Following the steps on this page you will set up an example InterMine.  You will
 Getting Started
 ----------------------
 
-We use `git <http://git-scm.com>`_ to manage and distribute source code.  Download InterMine software from :doc:`/git/index`.
+We use `git <http://git-scm.com>`_ to manage and distribute source code.  Download InterMine software from :doc:`/git/index` and dependences from  :doc:`/docs/system-requirements/index`.
 
 Creating a new Mine
 ----------------------
