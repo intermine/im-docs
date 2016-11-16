@@ -1,9 +1,13 @@
 Report Widgets
 ==============
 
-.. versionadded:: 1.1
+Have been retired and made into something better. Use Report Displayers instead.
 
-Have been retired and made into something better. See :doc:`/embedding/apps-a` or :doc:`/embedding/apps-c/index`. The changes are as follows:
+
+-----------------------------------------------------------------
+
+
+See :doc:`/embedding/apps-a` or :doc:`/embedding/apps-c/index`. The changes are as follows:
 
 1. Widget becomes an App.
 2. The main class in ``presenter.[js|ts|ls|coffee]`` has been changed from ``Widget`` to ``App``.
