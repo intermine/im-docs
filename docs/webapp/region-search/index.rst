@@ -164,8 +164,8 @@ Results table and download links
 	
 .. index:: region search, genomic region search
 
-Adding a strand specific search option
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Adding the strand specific search option
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Since InterMine 1.7, there is an additional feature on the Region Search page to restrict searches to a specific strand.  The user activiates this by ticking a checkbox.  For example, Chr1:12345-23456 indicates a region on the + strand; Chr1:23456-12345 indicates a region on the - strand.  One situation in which this is useful is when you have a series of BLAST-generated regions on which you'd like to search for upstream gene flanking regions.  In this case, there is no point in matching with gene flanking regions on the opposite strand.  
 
