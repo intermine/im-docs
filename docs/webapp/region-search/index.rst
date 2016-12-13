@@ -163,3 +163,27 @@ Results table and download links
 	Replaced by InterMine results table. 
 	
 .. index:: region search, genomic region search
+
+Adding a strand specific search option
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Since InterMine 1.7, there is an additional feature on the Region Search page to restrict searches to a specific strand.  The user activiates this by ticking a checkbox.  For example, Chr1:12345-23456 indicates a region on the + strand; Chr1:23456-12345 indicates a region on the - strand.  One situation in which this is useful is when you have a series of BLAST-generated regions on which you'd like to search for upstream gene flanking regions.  In this case, there is no point in matching with gene flanking regions on the opposite strand.  
+
+However, adding this feature to the Region Search page requires a new entry in an InterMine installation's $MINE/webapp/resources/struts-config-form-model.xml file.  A new InterMine installation will have this entry but existing updated InterMine installations will not.  Therefore, to add this feature for an existing InterMine installation, the steps are to
+
+1. Add a strandSpecific form property to the installations Region Search form in $MINE/webapp/resources/struts-config-form-model.xml
+
+.. code-block:: xml
+
+  <form-bean name="genomicRegionSearchForm" type="org.intermine.bio.web.struts.GenomicRegionSearchForm">
+      ...
+      <form-property name="strandSpecific" type="java.lang.Boolean"/>
+  </form-bean>
+
+2. Activate this by setting the following property in $MINE/webapp/resources/web.properties
+
+.. code-block:: properties
+
+  genomicRegionSearch.enableStrandSpecificSearch = true
+
+If this feature is not present or the checkbox is unchecked, then the default behaviour remains to search both strands.
