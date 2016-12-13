@@ -139,6 +139,13 @@ Creates the lucene search index used by the webapp.
 
 *Should I use it?*  Yes, if you are releasing a webapp.
 
+populate-child-features
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Populate the SequenceFeature.childFeatures() collection.
+
+*Should I use it?*  Yes, only if you use JBrowse and you want your JBrowse web-service endpoints available (see also :doc:`/webapp/third-party-tools/jbrowse` and :doc:`/web-services/index`).
+
 summarise-objectstore
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
