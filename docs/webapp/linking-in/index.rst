@@ -76,6 +76,6 @@ http://www.flymine.org/query/portal.do?externalid=EVE_DROME&class=Gene
 More examples
 ----------------
 
-See FlyMine for more examples: http://blog.flymine.org/link-to-flymine
+See FlyMine for more examples: https://intermineorg.wordpress.com/flymine/link-to-flymine/
 
 .. index:: mine links, links
