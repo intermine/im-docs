@@ -68,6 +68,35 @@ Add your new mine-based dataset to your configuration file. For example to add *
 
 Once in place, you can visit your JBrowse `index.html` and see the data from FlyMine_.
 
+Configuring InterMine's JBrowse integration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+By default, all InterMine classes that inherit from the SequenceFeature model class will have tracks.
+
+However, this can be inappropriate since some of those classes may not have data.
+
+You can make entries in `web.properties` to configure which tracks appear.  For instance, if you just want Gene, CDS, UTR and Promoter tracks then in `<mine>/webapp/resources/web.properties` configure
+
+.. code-block:: guess
+
+  org.intermine.webservice.server.jbrowse.genomic.track.Gene.class=Gene
+  org.intermine.webservice.server.jbrowse.genomic.track.CDS.class=CDS
+  org.intermine.webservice.server.jbrowse.genomic.track.UTR.class=UTR
+  org.intermine.webservice.server.jbrowse.genomic.track.Promoter.class=Promoter
+
+Here, track names are the first component of the key after org.intermine.webservice.server.jbrowse.genomic.track (e.g. Gene on the first line).  These track names are used to group related properties and are not used in JBrowse display.  The rest of the key name (here always class) specifies the InterMine class to be used for this track.
+
+JBrowse parameters can also be set for individual tracks within InterMine.  For instance, in `web.properties`, if one wanted to give all 4 of the tracks defined above different colours then one would set
+
+.. code-block:: guess
+
+  org.intermine.webservice.server.jbrowse.genomic.track.Gene.style.color=red
+  org.intermine.webservice.server.jbrowse.genomic.track.CDS.style.color=yellow
+  org.intermine.webservice.server.jbrowse.genomic.track.UTR.style.color=green
+  org.intermine.webservice.server.jbrowse.genomic.track.Promoter.style.color=blue
+
+For the full list of properties, please see the canvas section of the `JBrowse Configuration Guide <http://gmod.org/wiki/JBrowse_Configuration_Guide>`_.
+
 .. _configuring JBrowse: http://gmod.org/wiki/JBrowse_Configuration_Guide
 .. _installing JBrowse: http://jbrowse.org/code/latest-release/docs/tutorial/
 .. _FlyMine: http://www.flymine.org
