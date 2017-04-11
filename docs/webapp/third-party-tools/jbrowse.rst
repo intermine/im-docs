@@ -41,7 +41,7 @@ Add JBrowse to your report pages by adding this entry to your `webconfig-model.x
 
 See :doc:`/webapp/report-page/report-displayers-examples/` for more information.
 
-Add the location of your JBrowse installation to your `web.properties` file, for example:
+Add the location of your JBrowse installation to your `web.properties` or mine properties file, for example:
 
 .. code-block:: properties
 
