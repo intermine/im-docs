@@ -28,12 +28,12 @@ If you already have a userprofile database and want to keep the data it contains
 
 .. code-block:: bash
 
-	# run in production and userprofile database.  when releasing a new porduct
+	# run in production and userprofile database.  when releasing a new product
 	select * from intermine_metadata where key='serialNumber';
 
 2. Release the webapp pointing to the new production db.
 
-3. In the `savedbag` table the field `intermine_current` should be set to `false`.  
+3. In the `savedbag` table the field `intermine_state` should be set to `false`.  
 
 4. When the user logs in, the upgrading list process will update the list (using `bagvalues` table) 
 
