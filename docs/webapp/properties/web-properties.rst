@@ -150,6 +150,7 @@ A list example:
     attributelink.flymine.Gene.*.primaryIdentifier.list.url=http://www.flymine.org/query/portal.do?externalid=<<attributeValue>>&class=Gene
     attributelink.flymine.Gene.*.primaryIdentifier.list.text=FlyMine
     attributelink.flymine.Gene.*.primaryIdentifier.list.imageName=flymine_logo_link.gif
+    attributelink.flymine.Gene.*.primaryIdentifier.list.usePost=true
 
 Only if a taxonId is specified the code will check if the link to the external db is relevant.
 
