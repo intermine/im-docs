@@ -72,7 +72,7 @@ Upgrading to a new release
 * When a user logs in, a thread will begin upgrading their saved lists to the new release - finding and writing the corresponding object ids to the production database. If there are no issues (all identifiers are resolved automatically) the state of the list is set to CURRENT.
 * The user can verify the state of theirs saved bags in MyMine->Lists page.
 * If there are any issues, the state of the list is set to TO_UPGRADE. These lists are shown in MyMine->List page in a separate table. The user can click on the Upgrade List link and browse in the bagUploadConfirm page where all conflicts will be displayed.
-* Once the user has resolved any issues, the list can be saved clicking the button 'Upgrade a list of ...' and used for queries, etc.
+* Once the user has resolved any issues, the list can be saved clicking the button 'Upgrade a list of ...' and used for queries, etc. The state is set to CURRENT.
 * If a user never logs in to a particular release, the list will not be upgraded, but can still be upgraded as normal if the log in to a later release.
 
 Lists not current
