@@ -26,7 +26,7 @@ Look at some example code
     interface includes a mechanism for generating code using one of the client libraries
     which generates the same results as those seen in the table (click on the **code**
     button). The generated code is meant to help get you started with the use of the
-    client libraries. 
+    client libraries.
 
 Modify the code so it does what you want
     Working from the generated stub, you can edit the code to perform your intended task. You
@@ -71,4 +71,9 @@ JavaScript Client (for Browser and node.js)
     | `Docs <http://alexkalderimis.github.io/imjs/>`_
     | `Source <https://github.com/intermine/imjs>`_
 
-.. index:: Perl, Ruby, web services, REST, Python, JavaScript, code generation, clients, Java
+Authentication
+-----------------
+
+Authenticated web services are accessed via tokens: either 24-hour anonymous tokens or permanent user API key tokens. See :ref:`ws-authentication`
+
+.. index:: Perl, Ruby, web services, REST, Python, JavaScript, code generation, clients, Java, authentication, tokens
