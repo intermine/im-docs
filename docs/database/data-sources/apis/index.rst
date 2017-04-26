@@ -8,5 +8,6 @@ Contents
 
     java-items-api
     perl-items-api
+    python-items-api
     intermine-items-xml
     
