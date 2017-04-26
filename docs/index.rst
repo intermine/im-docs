@@ -22,7 +22,6 @@ Contents
     web-services/index
     embedding/index
     api/index
-    developing
     support/index
     about/index
 
