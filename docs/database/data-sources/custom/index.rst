@@ -1,9 +1,13 @@
-Writing Your Own Data Source
+Writing your own data source
 ================================
 
-The aim of this tutorial is to create a new source, specifically to import data from an InterMine data format XML file.  This is achieved in two parts; the first creates the files to describe the new source while the second configures an individual mine to use these files.  The XML file containing the data could be created in any language. InterMine includes :doc:`Java <../apis/java-items-api>` and :doc:`Perl <../apis/perl-items-api>` APIs to assist.
+The aim of this tutorial is to create a new source. Often this will be to import data from an InterMine Items XML format file that you create, though other types of source can also be created (e.g. a source that extends InterMine's existing GFF3 importer. 
 
-Thanks to Anthony Smith from the MRC Dunn Human Nutrition Unit for providing this tutorial.
+There are three parts to creating a new source:
+
+1. Create the directory structure in InterMine that contains files that describe the source.
+2. Configure the mine to use this source (make an entry in your `project.xml`).
+3. Write code to parse the source. You can either do this in InterMine directly, by extending the `DataConverter` class, or you can use some other language to generate a standalone InterMine Items XML file, and set `have.file.xml.tgt = true` in the source's project.properties file.  See `this page <../apis/index.html>`_ for more information on the InterMine Items XML file format and links to language-specific APIs (Perl, Python, etc.) that can help create it.
 
 Create source files
 -----------------------
@@ -27,25 +31,25 @@ custom-file
 """"""""""""""
 
 This a source that reads from a file in a custom format.  A custom FileConverter will be needed.  The `make_source` script will
-create a skeleton `FileConverter` in `bio/sources/<source-name>/main/src/org/intermine/bio/dataconversion`.  Edit this code to process the particular file you need to load, using the :doc:`/database/data-sources/apis/java-items-api` to create and store items to the database.
+create a skeleton `FileConverter` in `bio/sources/<source-name>/main/src/org/intermine/bio/dataconversion`.  Edit this code to process the particular file you need to load, using the internal :doc:`/database/data-sources/apis/java-items-api` to create and store items to the database.
 
 intermine-items-xml-file
 """"""""""""""""""""""""""""
 
-This type of source can read a in InterMine XML format and store the results in a mine.  It should be configured like this in the `project.xml` file for the mine:
+This type of source can read a file in InterMine Items XML format and store the data in a mine.  The `project.xml` configuration is as below:
 
 .. code-block:: xml
 
-    <source name="my-new-source-name" type="">
+    <source name="my-new-source-name" type="my-new-source">
       <property name="src.data.file" location="/some/directory/objects_in_intermine_format.xml"/>
     </source>
 
-The InterMine Perl Items API can be used to generate these XML files.  Or you can create XML from any language.  This source type doesn't generate any stub Java code.
+See `this page <../apis/index.html>`_ for more information on the Items XML format and links to APIs that can generate it. This source type doesn't generate any stub Java code.
 
 intermine-items-large-xml-file
 """"""""""""""""""""""""""""""""""""""""""
 
-This source works as above but writes the XML to an intermediate Items database to avoid reading the whole file into memory at once.  This is the best choice for large XML files, where large is several hundred megabytes (although this depends on the amount of RAM specified in your `ANT_OPTS` environment variable).  
+This source works as above but writes the XML to an intermediate items database to avoid reading the whole file into memory at once.  This is the best choice for large XML files, where large is several hundred megabytes (although this depends on the amount of RAM specified in your `ANT_OPTS` environment variable).  
 
 db
 """"""""""""""""""""""""""""
@@ -209,7 +213,7 @@ For instance, if you have the source entry
 
 .. code-block:: xml
 
-    <source name="my-new-source-name" type="">
+    <source name="my-new-source-name" type="my-new-source">
       <property name="fooFile" location="/some/directory/objects_in_intermine_format.xml"/>
       <property name="bar.info" location="baz"/>
       <property name="bazMoreInfo" name="hello-world"/>
@@ -259,33 +263,6 @@ If you have more that one file you can set this up to point at a '''directory'''
 
 The first line defines the name you wish to give to the of the source and the type - the name of the directory in 'bio/sources'.  The second line defines the location and name of the data file.
 
-The data file should have the same format as the XML below:
-
-.. code-block:: xml
-
-  <items>
-     <item id="0_1" class="" implements="http://www.intermine.org/model/bio#NewFeature>
-        <attribute name="identifier" value="feature2" />
-        <attribute name="confidence" value="0.8" />
-        <reference name="protein" ref_id="0_3" /> 
-    </item>
-    <item id="0_2" class="" implements="http://www.intermine.org/model/bio#NewFeature>
-        <attribute name="identifier" value="feature2" />
-        <attribute name="confidence" value="0.37" />
-        <reference name="protein" ref_id="0_3" /> 
-    </item>
-    <item id="0_3" class="" implements="http://www.intermine.org/model/bio#Protein">
-        <attribute name="primaryAccession" value="Q8I5D2" />
-        <attribute name="extraData" value="proteinInfo"/>
-        <collection name="features">
-         <reference ref_id="0_1" />
-         <reference ref_id="0_2" />
-        </collection>
-    </item>
-  </items>
-
-An example of a perl script to create InterMine data XML can be found at: `bio/scripts/intermine_items_example.pl`
-
 If you are using data from a database:
 
 .. code-block:: xml
@@ -294,7 +271,6 @@ If you are using data from a database:
       <property name="source.db.name" value="db.NAME"/>
       ...
     </source>
-
 
 The value of `source.db.name` must match the value set in the MINE_NAME.properties file.
 

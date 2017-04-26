@@ -1,7 +1,55 @@
-Items APIs
+InterMine Items XML
 ================================
 
-Contents
+InterMine items XML is a generic format that encodes data the matches InterMine class definitions.
+
+Unfortunately, there is no document giving the formal specification for this format yet (please ping us on
+the mailing list or elsewhere if you need this). However, an example of the format is given below.
+
+.. code-block:: xml
+
+  <items>
+     <item id="0_1" class="NewFeature" implements="">
+        <attribute name="identifier" value="feature2"/>
+        <attribute name="confidence" value="0.8"/>
+        <reference name="protein" ref_id="0_3"/> 
+    </item>
+    <item id="0_2" class="NewFeature" implements="">
+        <attribute name="identifier" value="feature2"/>
+        <attribute name="confidence" value="0.37"/>
+        <reference name="protein" ref_id="0_3"/> 
+    </item>
+    <item id="0_3" class="Protein" implements="">
+        <attribute name="primaryAccession" value="Q8I5D2" />
+        <attribute name="extraData" value="proteinInfo"/>
+        <collection name="features">
+            <reference ref_id="0_1" />
+            <reference ref_id="0_2" />
+        </collection>
+    </item>
+  </items>
+
+Here, the root element is always <items>.
+
+Within <items> each object has is within a separate <item> element.
+
+Each <item> has an id with the format <NAMESPACE_SUBID>. For simple cases, the namespace can always be '0'.  These IDs are used to signify connections between items within the item XML file - once the data is loaded into InterMine its own serial IDs are used instead and these Item XML ids disappear.
+
+The child elements of an <item> are either
+
+* <attribute> - this has the name of the attribute (matching the defined class name) and a value
+* <reference> - where the property is a reference to some other item by its Items XML id.
+* <collection> - this is a collection of <reference>s
+
+Example scripts used to generate InterMine Items XML can be found at: 
+
+* `bio/scripts/intermine_items_example.pl`
+* RedFly testing objects file at `bio/sources/flymine/redfly/test/resources/RedFlyGFF3RecordHandlerTest.xml`.
+
+APIs
+""""
+
+InterMine Items XML can either be generated directly in your favourite programming language, or there are a number of language-specific APIs that can generate it, and handle issues like Item XML allocation and referencing automatically.  
 
 .. toctree::
     :maxdepth: 1
@@ -9,5 +57,3 @@ Contents
     java-items-api
     perl-items-api
     python-items-api
-    intermine-items-xml
-    
