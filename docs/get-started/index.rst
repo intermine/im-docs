@@ -9,5 +9,5 @@ Get started
    testmodel
    intermine-tests
    amazon
-   
+   hikaricp
    
