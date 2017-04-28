@@ -1,5 +1,7 @@
 .. _ws-authentication:
 
+:orphan:
+
 Authentication
 ==============
 
