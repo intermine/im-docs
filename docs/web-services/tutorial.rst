@@ -1,5 +1,7 @@
-API Workshop
-============
+:orphan:
+
+Tutorial
+========
 
 The InterMine API is made more accessible through
 the publication of a number of client libraries in
@@ -150,18 +152,4 @@ other DB query libraries.
              order_by("symbol")
    for row in query.rows(start=10, size=5):
        handle_row(row)
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
 
