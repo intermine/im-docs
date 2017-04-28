@@ -30,5 +30,4 @@ Indices
 ----------------------------------
  
 * :ref:`genindex`
-* :doc:`site-map`
 * :ref:`search`
