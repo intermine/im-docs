@@ -24,6 +24,7 @@ Contents
     api/index
     support/index
     about/index
+    help/index
 
 Indices
 ----------------------------------
