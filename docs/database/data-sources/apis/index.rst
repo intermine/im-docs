@@ -4,7 +4,7 @@ InterMine Items XML
 InterMine items XML is a generic format that encodes data the matches InterMine class definitions.
 
 Unfortunately, there is no document giving the formal specification for this format yet (please ping us on
-the mailing list or elsewhere if you need this). However, an example of the format is given below.
+the mailing list or elsewhere if you need this). However, an example and some information is below
 
 .. code-block:: xml
 
@@ -47,7 +47,7 @@ Example scripts used to generate InterMine Items XML can be found at:
 * RedFly testing objects file at `bio/sources/flymine/redfly/test/resources/RedFlyGFF3RecordHandlerTest.xml`.
 
 APIs
-""""
+----
 
 InterMine Items XML can either be generated directly in your favourite programming language, or there are a number of language-specific APIs that can generate it, and handle issues like Item XML allocation and referencing automatically.  
 
