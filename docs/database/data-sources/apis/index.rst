@@ -46,6 +46,19 @@ Example scripts used to generate InterMine Items XML can be found at:
 * `bio/scripts/intermine_items_example.pl`
 * RedFly testing objects file at `bio/sources/flymine/redfly/test/resources/RedFlyGFF3RecordHandlerTest.xml`.
 
+Datatypes
+---------
+
+The data formats required for attributes in InterMine Items XML need proper documentation.  However, for the most part they are fairly obvious and match internal Java types (e.g. strings are UTF-8, doubles are 64-bit IEEE 754 floating point).
+
+One exception is the format required for Dates.  InterMine allows this to be expressed in 3 different ways.
+
+1. As the number of seconds since the Unix epoch.
+2. In the string format 'yyyy-MM-dd HH:mm:ss', assuming UTC.
+3. In the string format 'yyyy-MM-dd', assuming UTC.
+
+If parsing fails for all these formats then InterMine will throw a RuntimeException.
+
 APIs
 ----
 
