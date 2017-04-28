@@ -88,7 +88,7 @@ create-location-overlap-index
 
 Create a GIST index on the location table to help with overlap queries.  
 
-*Should I use it?* Yes, if you have genome annotation and would like to query overlaps. You must have bioseg installed unless you are using Postgres 9.2 or later. See ::doc::`here data-model/overlaps/`_ for details.
+*Should I use it?* Yes, if you have genome annotation and would like to query overlaps. You must have bioseg installed unless you are using Postgres 9.2 or later. See ::doc::`here data-model/overlaps` for details.
 
 
 create-bioseg-location-index
@@ -103,7 +103,7 @@ create-overlap-view
 
 Replace the `sequencefeatureoverlappingfeatures` table with a view that uses a fast index to calculate the overlaps.  
 
-*Should I use it?* Yes, if you have genome annotation and would like to query overlaps. You must have bioseg installed unless you are using Postgres 9.2 or later. See ::doc::`here data-model/overlaps/`_ for details.
+*Should I use it?* Yes, if you have genome annotation and would like to query overlaps. You must have bioseg installed unless you are using Postgres 9.2 or later. See ::doc::`here data-model/overlaps` for details.
 
 create-gene-flanking-features
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -160,5 +160,9 @@ Creates the indexes for the fields set to be autocompleted in the ObjectStoreSum
 
 *Should I use it?* Yes, if you have a webapp.  
 
+.. toctree::
+    :maxdepth: 1
+
+    objectstore-summary-properties
 
 .. index:: create-chromosome-locations-and-lengths, transfer-sequences, create-references, create-intron-features, create-intergenic-region-features, create-overlap-view, create-bioseg-location-index, create-gene-flanking-features, do-sources, create-search-index, create-attribute-indexes, summarise-objectstore, create-autocomplete-index
