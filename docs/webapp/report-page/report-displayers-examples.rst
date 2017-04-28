@@ -193,7 +193,7 @@ Viewer displaying complex interactions. Data must be loaded from IntAct. Origina
                      placement="summary"
                      types="Complex"/>
 
-.. figure::  img/complex_viewer.png
+.. figure::  img/complex-viewer.png
    :align:   center
 
    A Complex interaction displayer in HumanMine.
