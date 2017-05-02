@@ -11,7 +11,7 @@ Update data source and data set entries
 How to download the data 
 ---------------------------
 
-Create your own datasets.xml file with your data in InterMine items XML format and put in $MINE/integrate/datasets.xml.
+Create your own datasets.xml file with your data in InterMine items XML format and put in $MINE/integrate/datasets.xml. Use FlyMine's datasets.xml as an example: https://github.com/intermine/intermine/blob/dev/flymine/integrate/datasets.xml
 
 How to load the data into your mine
 --------------------------------------
