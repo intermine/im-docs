@@ -53,11 +53,11 @@ Report page
 
 Links directly to report page.  URL available on report page in webapp.
 
-http://human.intermine.org/human/portal.do?externalids=pparg&class=Gene&origin=readthedocs
+http://www.humanmine.org/humanmine/portal.do?externalids=pparg&class=Gene&origin=readthedocs
 
 Optionally, add `extraVlue` parameter with the organism name, e.g.:
 
-http://human.intermine.org/human/portal.do?externalids=pparg&class=Gene&extraValue=H.+sapiens
+http://www.humanmine.org/humanmine/portal.do?externalids=pparg&class=Gene&extraValue=H.+sapiens
 
 Link into Mine with Orthologues
 ------------------------------------
