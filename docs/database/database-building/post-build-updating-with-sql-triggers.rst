@@ -90,20 +90,13 @@ What can't be done (yet)
 
 Please note that there are a number of database changes that the triggers CAN NOT handle as of yet:
 
-1. Foreign key constraints are not enforced. If you delete a gene,
-there may still entries in the genesproteins table or a reference to
-this from the geneid field in the mrna table. Foreign keys are enforced
-at the application layer. This means whoever is doing the update needs
-to keep things straight. (This is possible to implement.  It may be done
-in the future.)
+1. Foreign key constraints are not enforced. If you delete a gene, there may still entries in the genesproteins table or a reference to
+   this from the geneid field in the mrna table. Foreign keys are enforced at the application layer. This means whoever is doing the update needs
+   to keep things straight. (This is possible to implement.  It may be done in the future.)
 
-2. The tracker table is not updated. If you do an integration step after
-manual operations and the integrator is trying to update a column value
-that you inserted manually, the integration step will fail.
+2. The tracker table is not updated. If you do an integration step after manual operations and the integrator is trying to update a column value that you inserted manually, the integration step will fail.
 
 3. The clob table cannot be manipulated. Again, this may also be changed in the future.
 
-4. If the id field in InterMineObject has exceeded 2^31 and gone negative,
-the sequence im_post_build_insert_serial cannot be used in INSERT operations
-without (probably) colliding with another object. The value of the serial
-must be set manually in this case.
+4. If the id field in InterMineObject has exceeded 2^31 and gone negative, the sequence im_post_build_insert_serial cannot be used in INSERT operations
+   without (probably) colliding with another object. The value of the serial must be set manually in this case.
