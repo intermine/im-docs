@@ -14,5 +14,6 @@ Each mine has an integrate project that reads the project.xml file and builds th
     primary-keys
     priority-config
     post-processing/index
+    post-build-updating-with-sql-triggers
 
 .. index:: database building
