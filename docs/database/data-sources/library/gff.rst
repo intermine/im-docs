@@ -36,6 +36,9 @@ If you follow the above steps with this data file, the following will happen:
 #. start = 183057, end = 184457
 #. gene will be located in -1 strand, mRNA will be located on the 1 strand.
 
+Configuration File
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 .. note::
 
 	By default, columns such as "type", "start", "end", "strand" and "ID" field in "attributes" column are parsed automatically. To do more processing or access the attributes, you are able to configure in gff_config.properties. For more advanced processing, you will have to write your own GFF3 parser.  See below for details.
@@ -50,6 +53,8 @@ If you follow the above steps with this data file, the following will happen:
 	511145.attributes.gene=symbol                      # use gene field as symbol
 	511145.attributes.gene_synonym=synonym             # use gene_synonym field for synonym
 	511145.exon.attributes.type=scoreType              # a class specific attribute 
+
+You can edit the main gff_config.properties file in the bio/core package, or edit the config file in your new data source -- in main/resources/<data-source>_config.properties.
 
 Parent relationship
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
