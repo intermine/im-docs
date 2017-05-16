@@ -1,7 +1,7 @@
 Chado
 ================================
 
-We have developed an InterMine data source that can use a GMOD Chado database as a source for an InterMine warehouse. The eventual aim is to allow import of any Chado database with some configuration.  This will provide a web environment to perform rapid, complex queries on Chado databases with minimal development effort. 
+We have developed an InterMine data source that can use a GMOD Chado database as a source for an InterMine warehouse. The eventual aim is to allow import of any Chado database with some configuration.  This will provide a web environment to perform rapid, complex queries on Chado databases with minimal development effort.
 
 Converter
 ----------
@@ -15,13 +15,13 @@ The `chado-db` source is able to integrate objects from a Chado database.  Curre
 
 These tables are queried from the chado database:
 
-`feature` 
+`feature`
   used to create objects in the ObjectStore
 
 * The default configuration only supports features that have a Sequence Ontology type (eg. `gene`, `exon`, `chromosome`)
 * Each new feature in InterMine will be a sub-class of `SequenceFeature`.
 
-`featureloc` 
+`featureloc`
   used to create `Location` objects to set `chromosomeLocation` reference in each `SequenceFeature`
 
 `feature_relationship`
@@ -32,7 +32,7 @@ These tables are queried from the chado database:
 
 `dbxref` and `feature_dbxref`
   used to create `Synonym` objects for external identifiers of features
- 
+
 * the `Synonym`s will be added to the `synonyms` collection of the relevant `SequenceFeature`
 
 `featureprop`
@@ -130,7 +130,7 @@ Handled by `ChadoSequenceProcessor.processFeatureTable()`
 
 For each feature it calls: `ChadoSequenceProcessor.makeFeatureData()`, which may be overridden by subclasses.  If `makeFeatureData()` returns null (eg. because the sub-class does not need that feature) the row is discarded, otherwise processing of the feature continues.
 
-Based on the configuration, fields in the `BioEntity` are set using `feature.uniquename` and 
+Based on the configuration, fields in the `BioEntity` are set using `feature.uniquename` and
 `feature.name` from Chado.
 
 If the `residues` column in the feature is set, create a `Sequence` object and add it to the new `BioEntity`.
@@ -153,7 +153,7 @@ Handled by `ChadoSequenceProcessor.processRelationTable()`.
 
 This method calls `getFeatureRelationshipResultSet()` to return the relations of interest.  The relations will be used to create references and collections.
 
-The method will automatically attempt to find and set the appropriate references and collections for `part_of` relations.  As an example, if there is a `part_of` relation in the table between `Gene` and `Transcript` and there `Gene.transcript` reference or a `Gene.transcripts` collection, it will be set.  
+The method will automatically attempt to find and set the appropriate references and collections for `part_of` relations.  As an example, if there is a `part_of` relation in the table between `Gene` and `Transcript` and there `Gene.transcript` reference or a `Gene.transcripts` collection, it will be set.
 
 There are two modes of operation, controlled by the `subjectFirst` parameters.  If true, order by the `subject_id` of the `feature_relationship` table so we get results like:
 
@@ -220,7 +220,7 @@ The chado database has to be on the local network.
  $ cd MINE_NAME/integrate
  $ (cd ../dbmodel && ant build-db -v); ant -Dsource=chado-db -v
 
-See :doc:`/database/database-building/index` for more information on running builds. 
+See :doc:`/database/database-building/index` for more information on running builds.
 
 This will load the data using the default chado loader. If you want to load more data you will have to write a custom chado converter. FlyMine uses a FlyBase chado "processor" to parse interactions, etc. See `FlyBaseProcessor.java <http://https://github.com/intermine/intermine/blob/dev/bio/sources/chado-db/main/src/org/intermine/bio/dataconversion/FlyBaseProcessor.java>`_ for an example.
 
@@ -235,4 +235,18 @@ To workaround this, you would need to alter your Chado processor to run this que
 
 	ALTER DATABASE <dbname> SET search_path TO chado, public
 
-.. index:: chado, FlyBase, WormBase 
+
+
+Starting with **InterMine 1.8**, you can instead directly define the schema in the properties of the database in your properties file, like
+
+.. code-block:: properties
+
+ db.your_source.datasource.schema=your_schema
+
+for example
+
+.. code-block:: properties
+
+ db.tripaldbname.datasource.schema=chado
+
+.. index:: chado, FlyBase, WormBase
