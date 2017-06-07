@@ -76,6 +76,6 @@ JavaScript Client (for Browser and node.js)
 Authentication
 -----------------
 
-Authenticated web services are accessed via tokens: either 24-hour anonymous tokens or permanent user API key tokens. See `Authentication <http://intermine.readthedocs.io/en/latest/web-services/authentication/>`
+Authenticated web services are accessed via tokens: either 24-hour anonymous tokens or permanent user API key tokens. See `Authentication <http://intermine.readthedocs.io/en/latest/web-services/authentication/>`_
 
 .. index:: Perl, Ruby, web services, REST, Python, JavaScript, code generation, clients, Java, authentication, tokens
