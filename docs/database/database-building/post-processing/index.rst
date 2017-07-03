@@ -88,7 +88,7 @@ create-location-overlap-index
 
 Create a GIST index on the location table to help with overlap queries.  
 
-*Should I use it?* Yes, if you have genome annotation and would like to query overlaps. You must have bioseg installed unless you are using Postgres 9.2 or later. See ::doc::`/data-model/overlaps` for details.
+*Should I use it?* Yes, if you have genome annotation and would like to query overlaps. You must have bioseg installed unless you are using Postgres 9.2 or later. See :doc:`/data-model/overlaps` for details.
 
 
 create-bioseg-location-index
@@ -103,7 +103,7 @@ create-overlap-view
 
 Replace the `sequencefeatureoverlappingfeatures` table with a view that uses a fast index to calculate the overlaps.  
 
-*Should I use it?* Yes, if you have genome annotation and would like to query overlaps. You must have bioseg installed unless you are using Postgres 9.2 or later. See ::doc::`/data-model/overlaps` for details.
+*Should I use it?* Yes, if you have genome annotation and would like to query overlaps. You must have bioseg installed unless you are using Postgres 9.2 or later. See :doc:`/data-model/overlaps` for details.
 
 create-gene-flanking-features
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
