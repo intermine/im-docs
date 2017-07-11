@@ -50,7 +50,7 @@ These parameters are returned by the branding API end point, and are used by ext
 ===========================  ========================================================
 branding.images.logo         This image should be 45px by 45px
 branding.colors.header.main  Main colour for your mine, defaults to grey, #595455 
-randing.colors.header.text   Text colour for your mine, defaults to white, #fff
+branding.colors.header.text  Text colour for your mine, defaults to white, #fff
 ===========================  ========================================================
 
 
