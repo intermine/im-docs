@@ -42,6 +42,16 @@ theme
 xrefLink
     Used to configure hyperlinks for CrossReferences.  See below
 
+Branding
+-----------
+These parameters are returned by the branding API end point, and are used by external applications, e.g. the InterMine iOS app, the InterMine registry and the InterMine R client.
+
+===========================  ==============================================
+branding.images.logo         This image should be 45px by 45px
+branding.colors.header.main  Main colour for your mine, defaults to grey
+branding.colors.header.text  Text colour for your mine, defaults to white
+===========================  ==============================================
+
 Home page
 -----------
 
