@@ -11,7 +11,7 @@ While a core biological model based on the Sequence Ontology is provided, the da
 Fast, flexible querying
 --------------------------------------------
 
-The sophisticated query optimisation means that users can construct and perform a wide range of queries across the data model, while retaining good query speed. The query optimisation method is constructed around the use of precomputed tables, meaning that the data schema does not need to be denormalized in order to speed up query time. The system is also fast enough to deal with large quantities of data - the modMine database contains 130 million objects, and its size with precomputed tables is 750 GB, with metabolicMine being even larger, containing 260 million objects and almost 2000GB including precomputed tables. 
+The sophisticated query optimisation means that users can construct and perform a wide range of queries across the data model, while retaining good query speed. The query optimisation method is constructed around the use of precomputed tables, meaning that the data schema does not need to be denormalized in order to speed up query time. The system is also fast enough to deal with large quantities of data - the HumanMine database, for example, contains 50 million objects taking up 200 GB. PhtyoMine is the largest InterMine as it has data for 77 organisms -- that's over two billion objects and a database over 1.5 TB. 
 
 User-friendly web interface and analysis tools 
 ------------------------------------------------
