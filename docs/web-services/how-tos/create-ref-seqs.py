@@ -5,7 +5,7 @@
 import json
 import intermine.webservice
 
-mine_uri = "http://www.flymine.org/query"
+mine_uri = "http://www.flymine.org/service"
 taxonId = "7227"
 
 mine = intermine.webservice.Service(mine_uri)
