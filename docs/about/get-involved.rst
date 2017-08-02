@@ -18,9 +18,6 @@ There are branches in the InterMine GitHub repository with special meaning:
 ``master``
     The current public release. External users should clone this branch and receive a stable, supported and well-documented application that works to all specifications.
 
-``release-candidate``
-    The next release candidate. Finished and tested features land here before being merged into ``master``. Identical to the master branch except for the time immediately before a release. Users should clone this branch for a preview of upcoming features. All code contributions to this branch are subject to review (see below), but this branch is still *pre-release*, and so the application may not meet all specifications, and documentation may be incomplete.
-
 ``dev``
     The working branch. Features are merged onto this branch for integration testing. Not guaranteed to be stable.
 
@@ -40,7 +37,7 @@ Code contributions should be discrete units of code. They should do one thing (b
 
 3. Checkout the new branch.
 
-4. Commit, commit, commit.
+4. Commit, commit, commit. Using detailed commit messages.
 
 5. Push changes to your fork.
 
@@ -53,7 +50,7 @@ Hot fix branches (serious bugs that are critical fixes to the current release) s
 The Role of The Release Manager
 -----------------------------------
 
-The release manager's role is to ensure this all happens. They are the only person permitted to push into ``master`` and ``stable`` and ``dev``. All code contributions for these branches must pass review by the release manager before they can be merged.
+The release manager's role is to ensure this all happens. They are the only person permitted to push into ``master`` and ``dev``. All code contributions for these branches must pass review by the release manager before they can be merged.
 
 The process for reviewing an merging a pull request is as follows:
 
@@ -63,6 +60,9 @@ The process for reviewing an merging a pull request is as follows:
  * Passes all tests -- according to Travis
  * Documentation (if applicable)
  * Single purpose
+ * Detailed commit messages
+ * Well commented code
+ * Checkstyle
 
 2. Fetch and checkout the new feature branch
 
