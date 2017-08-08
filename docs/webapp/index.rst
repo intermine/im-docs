@@ -4,6 +4,7 @@ Guide to Customising your Web Application
 .. toctree::
     :maxdepth: 2
 
+    blue-genes/index
     homepage/index
     report-page/index
     lists/index
