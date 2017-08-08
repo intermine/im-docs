@@ -13,7 +13,7 @@ default query builder query              services.defaults.query
 default keyword search                   quickSearch.identifiers
 =======================================  ================================================  
 
-Please see web.properties for details on these parameters.
+Please see :doc:`/webapp/properties/web-properties` for details on these parameters.
 
 .. index:: blue genes
 
