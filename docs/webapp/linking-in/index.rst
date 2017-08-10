@@ -14,6 +14,8 @@ Links to results of specified template.  URL generated on template form in webap
 
 http://www.flymine.org/query/loadTemplate.do?name=Chromosome_Gene&constraint1=Gene.chromosome.primaryIdentifier&op1=eq&value1=2L&constraint2=Gene.organism.name&op2=eq&value2=Drosophila+melanogaster&method=results
 
+Make sure to include `&method=results` at the end of the query string.
+
 Query XML
 ~~~~~~~~~~~~~~~~~
 
