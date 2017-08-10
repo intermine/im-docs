@@ -71,7 +71,8 @@ Add these for PostgreSQL:
 
 .. code-block:: xml
 
-  db.sourcename.datasource.class=org.postgresql.jdbc3.Jdbc3PoolingDataSource
+  db.sourcename.datasource.class=com.zaxxer.hikari.HikariDataSource
+  db.sourcename.datasource.dataSourceClassName=org.postgresql.ds.PGSimpleDataSource
   db.sourcename.driver=org.postgresql.Driver
   db.sourcename.platform=PostgreSQL
 
@@ -104,7 +105,8 @@ The db value has to match the '''source.db.name''' in your project XML entry, fo
 
   # flymine.properties
 
-  db.flybase.datasource.class=org.postgresql.ds.PGPoolingDataSource
+  db.flybase.datasource.class=com.zaxxer.hikari.HikariDataSource
+  db.flybase.datasource.dataSourceClassName=org.postgresql.ds.PGSimpleDataSource
   db.flybase.datasource.dataSourceName=db.flybase
   db.flybase.datasource.serverName=LOCALHOST
   db.flybase.datasource.databaseName=FB2011_01
