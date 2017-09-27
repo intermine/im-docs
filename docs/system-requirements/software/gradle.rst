@@ -6,9 +6,23 @@ Gradle
 Quick Start
 ----------------------------
 
-To run a build, run `gradle <task> ...`
-To see a list of available tasks, run `gradle tasks`
-To see a list of command-line options, run `gradle --help`
+To run a build, run 
+
+.. code-block:: guess
+
+    gradle <task> ...
+
+To see a list of available tasks
+
+.. code-block:: guess
+    
+    `gradle tasks`
+
+To see a list of command-line options, run 
+
+.. code-block:: guess 
+
+    `gradle --help`
 
 
 Details

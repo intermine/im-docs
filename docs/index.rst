@@ -25,6 +25,7 @@ Contents
     support/index
     about/index
     help/index
+    upgrade-path/index
 
 Indices
 ----------------------------------
