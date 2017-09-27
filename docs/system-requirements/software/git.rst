@@ -1,7 +1,7 @@
 Git
 ====
 
-`Git <http://http://git-scm.com>`_ is our source control software.  Download and install git on your local machine.
+`Git <http://git-scm.com>`_ is our source control software.  Download and install git on your local machine.
 
 1. install the Git command line tool
 
