@@ -21,7 +21,7 @@ Download data from BioMart
 
   #. check the `Homologs` radio button at the top of the center panel
   #. uncheck the `Ensembl Transcript ID` option, `Ensembl Gene ID` is now the only output
-  #. click on `ORTHOLOGS (Max select 3 orthologs):` to open that section of the form
+  #. click on `ORTHOLOGS (Max select 6 orthologs):` to open that section of the form
   #. select on the Gene ID for the organism of interest, eg. Drosophila Ensembl Gene ID 
 
 #. Run query
