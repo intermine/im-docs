@@ -1,7 +1,7 @@
 Upgrading InterMine
 ======================
 
-InterMine 2.0 is a disruptive release and is not backwards compatible. This means that databases, webapps and code from previous releases will need to be updated to work with the new InterMine release. Below are detailed instructions on how to do that.
+**InterMine 2.0** is a disruptive release and is not backwards compatible. This means that databases, webapps and code from previous releases will need to be updated to work with the new InterMine release. Below are detailed instructions on how to do that.
 
 
 Gradle 
@@ -26,14 +26,25 @@ How to update your data sources to use Gradle
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Run this script to copy your sources over to the new directory system.
+
+.. code-block:: guess
+
+    build_script.py <file location>
+
 * Do this to make your sources available to Gradle when you build a database.
+
+See <Gradle docs> for details.
 
 How to run a database build
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Use this script to run a build.
 
-See Gradle for details.
+.. code-block:: guess
+
+    build_script.py <dump file location>
+
+See <Gradle docs> for details.
 
 
 Data Model
@@ -62,21 +73,29 @@ Software dependency requirements have been updated to the latest versions. This 
 API changes
 --------------------------
 
-We are making some non-backwards compatible changes to our API.
+We are making some non-backwards compatible changes to our API. These three end points have a parameter called `xml` which holds the XML query. We are going to rename this parameter to be `query` (as we now accept JSON queries!) to match the syntax of all the other end points.
 
-/user/queries will be moved to /queries
+.. code-block:: guess
 
-These three end points have a parameter called xml which holds the XML query. We are going to rename this parameter to be query (as we now accept JSON queries!) to match the syntax of all the other end points.
+    /query/upload
+    /template/upload
+    /user/queries (POST)
 
-/query/upload
-/template/upload
-/user/queries (POST)
+Blue Genes
+-----------
+
+Run this command to deploy a Blue genes instance:
+
+.. code-block:: guess
+
+    <blue genes command goes here>
 
 
 
-
+######################################
 Pre-InterMine 2.0 Upgrade Instructions
----------------------------------
+######################################
+
 
 To pull changes in your local repository and merge them into your working files:
 
