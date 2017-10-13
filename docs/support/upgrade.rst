@@ -1,5 +1,3 @@
-
-
 Upgrading InterMine
 ======================
 
@@ -77,7 +75,7 @@ These three end points have a parameter called xml which holds the XML query. We
 
 
 
-Upgrade Instructions
+Pre-InterMine 2.0 Upgrade Instructions
 ---------------------------------
 
 To pull changes in your local repository and merge them into your working files:
