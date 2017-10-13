@@ -150,10 +150,10 @@ The index page (link top right) is generated automatically using the keywords se
     .. index:: keyword, another keyword
 
 Troubleshooting
--------
+---------------------
 **Entire document not appearing?** Lines beginning with whitespace are invalid and can cause this error. Comb through your document and check things like headings to make sure they're manually trimmed. 
 
-.. code-block:: 
+.. code-block:: guess
 
     This would be a bad heading because it starts with a space
    ===========================================================
