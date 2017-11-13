@@ -28,7 +28,9 @@ identifier        which field to set                  primaryIdentifier (default
 readcolumn [1]_   which column to use for identifier  identifier (default) or symbol
 ================= =================================== ==========================================================
 
+
 .. [1] See http://www.geneontology.org/GO.format.gaf-2_0.shtml for column descriptioins
+
 
 .. code-block:: properties
 
