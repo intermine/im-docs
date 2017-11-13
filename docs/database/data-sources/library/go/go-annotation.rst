@@ -25,10 +25,10 @@ parameter       definition                         possible values
 =============== ================================== ==========================================================
 typeAnnotated   class of what is being annotated   gene (default) or protein
 identifier      which field to set                 primaryIdentifier (default), symbol, or primaryAccession
-readcolumn*     which column to use for identifier identifier (default) or symbol
+readcolumn [1]_ which column to use for identifier identifier (default) or symbol
 =============== ================================== ==========================================================
 
-* See http://www.geneontology.org/GO.format.gaf-2_0.shtml for column descriptioins
+.. [1] See http://www.geneontology.org/GO.format.gaf-2_0.shtml for column descriptioins
 
 .. code-block:: properties
 
