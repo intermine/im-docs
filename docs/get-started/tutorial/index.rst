@@ -639,7 +639,7 @@ How data integration works
 Data integration works by defining keys for each class of object to describe fields that can be used to define equivalence for objects of that class.  For the examples above:
 
 * `primaryIdentifier` was used as a key for `Gene`
-* `taxonId ` was used as a key for `Organism`
+* `taxonId` was used as a key for `Organism`
 
 For each `Gene` object loaded by `malaria-gff` a query was performed in the `malariamine` database to find any existing `Gene` objects with the same `primaryIdentifier`.  If any were found fields from both objects were merged and the resulting object stored.
 
