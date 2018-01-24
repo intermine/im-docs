@@ -2,7 +2,7 @@ Installing PostgreSQL
 ======================
 
 .. important::
-  We recommend you install PostgreSQL 9.2 and above. We currently run our `continuous integration tests`_ on PostgreSQL 9.2. `The PostgreSQL downloads page`_ has packages for most systems that set up everything for you. 
+  We recommend you install PostgreSQL 9.2 and above. We currently run our `continuous integration tests`_ on PostgreSQL 9.2. `The PostgreSQL downloads page`_ has packages for most systems that set up everything for you.
 
 Fedora/CentOS
 	http://wiki.openscg.com/index.php/PostgreSQL_RPM_Installation
@@ -12,7 +12,7 @@ Debian/Ubuntu
 
 Mac
     There are several good options:
-        
+
         * `Postgres.app`_ - Very easy for a development machine, requires zero configuration.
         * MacPorts_
         * Homebrew_
@@ -35,10 +35,6 @@ Allow remote connections
 listen_addresses      '*'
 port                  5432
 ====================  ===================
-
-Install Bioseg
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-If you are installing a version of PostgreSQL below 9.2 you will need to install Bioseg to allow :doc:`bioseg`.  See the link for instructions.  On PostgreSQL 9.2 and above the necessary functionality is built-in.
 
 
 Recommended Configurations
@@ -85,12 +81,12 @@ Please check your server kernel setting
 
         getconf PAGE_SIZE
         getconf _PHYS_PAGES
-	
+
         sysctl -a | grep -E "shmall|shmmax"
-   
+
 (use sudo if necessary)
 
-Set 
+Set
 
 .. code-block:: bash
 
@@ -98,7 +94,7 @@ Set
         shmmax = shmall * pagesize
 
 by editing the file
- 
+
    /etc/sysctl.d/30-postgresql-shm.conf
 
 and sourcing it
@@ -117,7 +113,7 @@ For better performance. Read http://wiki.postgresql.org/wiki/Tuning_Your_Postgre
 ===============================   =============================
 Parameter                         Suggested value (build)
 ===============================   =============================
-shared_buffers			  10-25% of RAM 
+shared_buffers			  10-25% of RAM
 temp_buffers  			  around 80MB
 work_mem  			  around 500MB but < 10% of RAM
 maintenance_work_mem  		  5% of RAM    but < 20% of RAM
@@ -130,7 +126,7 @@ from_collapse_limit  		  14
 join_collapse_limit  		  14
 max_locks_per_transaction 	  640
 max_pred_locks_per_transaction 	  640
-checkpoint_segments 		  128              
+checkpoint_segments 		  128
 checkpoint_timeout 		  10min
 checkpoint_completion_target      0.9
 ===============================   =============================
@@ -140,10 +136,10 @@ Note that most of the changes above require starting postgres.
 
 .. note::
 
-	Depending on your system configuration (production or development), the type of sources used in the build (files or databases) and the load on your web application, you may need to increase the 
-	**max_connections**  
+	Depending on your system configuration (production or development), the type of sources used in the build (files or databases) and the load on your web application, you may need to increase the
+	**max_connections**
 	parameter (for example to 250).
-	
+
 
 Client Authentication
 >>>>>>>>>>>>>>>>>>>>>
@@ -161,12 +157,12 @@ You should also add a line to the pg_hba.conf file to allow logging in via passw
 
 
 
-..        # SHMMAX should not exceed 4294967295 on a 32-bit system. On x86-64 platforms, SHMMAX can be much larger than 4GB since the virtual address space is not limited by 32 bits. 
+..        # SHMMAX should not exceed 4294967295 on a 32-bit system. On x86-64 platforms, SHMMAX can be much larger than 4GB since the virtual address space is not limited by 32 bits.
 ..	$ ipcs -lm # Determine current shared memory limits, e.g. max seg size is SHMMAX in kbytes
 
 ..	$ cat /proc/sys/kernel/shmmax # Determine the value of SHMMAX
 
-..	$ sudo vim /etc/sysctl.conf # Configure SHMMAX value (Bytes) in sysctl.conf, 50% of total memory is advised, e.g. add 
+..	$ sudo vim /etc/sysctl.conf # Configure SHMMAX value (Bytes) in sysctl.conf, 50% of total memory is advised, e.g. add
 ..	# kernel.shmmax = 268435456
 
 ..	$ sudo sysctl -p # make the config take effect at runtime.
@@ -179,7 +175,7 @@ You should also add a line to the pg_hba.conf file to allow logging in via passw
 
    If you set PostgreSQL to `SQL_ASCII`, then that is a special character set in Postgres, which basically means "do no conversions". This is sufficient for almost all operations. All comparisons and index lookups will be done on a byte-by-byte basis, which is much faster than having to deal with Unicode's complications.
 
-   Please try to treat InterMine as a black box. The fact that it uses PostgreSQL to store its data should be a detail that should be hidden as much as possible. The InterMine system is written in Java, and therefore handles all text in Unicode. 
+   Please try to treat InterMine as a black box. The fact that it uses PostgreSQL to store its data should be a detail that should be hidden as much as possible. The InterMine system is written in Java, and therefore handles all text in Unicode.
 
    The template1 database is the database used as a template when you run the `createdb` command. Update the encoding for template1 to be SQL_ASCII then every database you create from now on will have the correct encoding.
 
