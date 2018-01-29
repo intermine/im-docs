@@ -25,7 +25,7 @@ JavaScript)
 Bonus points for
 --------------------------
 
-* Experience with ​ Clojure​ / ​ ClojureScript​ , especially ​ re-frame​ and ​ reagent​ .
+* Experience with Clojure / ClojureScript, especially re-frame and reagent.
 * Biology knowledge!
 
 About InterMine
@@ -50,8 +50,8 @@ Some of our other initiatives include
 
 * We currently have experimental prototype implementations of a ​ Neo4j-powered
 backend​ .
-* * Native mobile applications for ​ Android​ and i ​ OS​ .
-Long-term plans include expanding InterMine to become a ​ cloud-based service​ with
+* Native mobile applications for ​ Android​ and i ​ OS​ .
+* Long-term plans include expanding InterMine to become a ​ cloud-based service​ with
 a guided user set-up wizard so non-technical users can easily analyse their data.
 * We have a ​ registry of production InterMine instances​ around the world.
 
