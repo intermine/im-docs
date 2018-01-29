@@ -72,6 +72,11 @@ JavaScript Client (for Browser and node.js)
     `Download <https://npmjs.org/package/imjs>`_
     | `Docs <http://alexkalderimis.github.io/imjs/>`_
     | `Source <https://github.com/intermine/imjs>`_
+R Client
+    `Download <http://bioconductor.org/packages/release/bioc/html/InterMineR.html>`_
+    | `Docs <http://bioconductor.org/packages/release/bioc/html/InterMineR.html>`_
+    | `Source <http://bioconductor.org/packages/release/bioc/html/InterMineR.html>`_
+
 
 Authentication
 -----------------

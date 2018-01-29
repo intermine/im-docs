@@ -62,10 +62,14 @@ Release Notes
 
 See https://github.com/intermine/intermine/releases
 
+
 Vacancies
 -------------------
 
-None.
+.. toctree::
+    :maxdepth: 1
+
+    jobs/software-developer-javascript
 
 Get Involved
 ------------------

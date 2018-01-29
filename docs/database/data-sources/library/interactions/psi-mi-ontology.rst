@@ -11,7 +11,7 @@ ontology terms
 How to download the data 
 ---------------------------
 
-http://psidev.sourceforge.net/mi/psi-mi.obo psi-mi.obo 
+https://raw.githubusercontent.com/HUPO-PSI/psi-mi-CV/master/psi-mi.obo
 
 How to load the data into your mine
 --------------------------------------

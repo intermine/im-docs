@@ -1,9 +1,5 @@
 Vacancies
 ===========
 
-InterMine has two vacancies:
+InterMine has one vacancy:
 
-.. toctree::
-
-    software-developer-java
-    software-developer-javascript
