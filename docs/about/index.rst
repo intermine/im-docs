@@ -68,6 +68,10 @@ Vacancies
 
 :doc:`/about/jobs/software-developer-javascript`
 
+:doc:`Software Developer (JavaScript) </about/contact-us>`
+
+:doc:`Talk to us please! </about/contact-us>`
+
 Get Involved
 ------------------
 
