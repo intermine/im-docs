@@ -66,10 +66,7 @@ See https://github.com/intermine/intermine/releases
 Vacancies
 -------------------
 
-.. toctree::
-    :maxdepth: 1
-
-    jobs/software-developer-javascript
+:doc:`/about/jobs/software-developer-javascript`
 
 Get Involved
 ------------------
