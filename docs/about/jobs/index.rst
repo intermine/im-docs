@@ -1,7 +1,7 @@
 Vacancies
 ===========
 
-InterMine has two vacancies:
+InterMine has one vacancy:
 
 .. toctree::
 
