@@ -1,101 +1,88 @@
-Software Developer (JavaScript)
-================================
+Software Developer (Closure / JavaScript)
+=================================================
 
-.. figure::  cam_bridge.jpg
-   :align:   right
+Are you passionate about open source and making user friendly client-side web
+applications? We’re a small team comprised of five developers (six, if you join us!) and a
+biologist, looking for a developer to help us with ​ BlueGenes​ , an open source
+Clojure​ -powered user interface for the biological data warehouse ​ InterMine​ .
+Clojure/​ ClojureScript​ experience is​ not ​ required, so long as you have experience with
+JavaScript and are willing to learn Clojure.
+As well as working on BlueGenes, you’ll also get the chance to support some of our older
+Javascript and CoffeeScript based applications and plugins. Development is likely to range
+from data wrangling through to interface design and data visualisation. We’d like to find
+someone who is comfortable collaborating with others on different aspects of the same
+project.
 
-   Ability to punt desirable.
+Required skills and experience
+------------------------------------
 
-Do you want to create **open-source software that makes a difference**, using
-cutting-edge tools? InterMine is looking for a software developer to help create
-powerful, attractive, user friendly data mining tools to search and display
-biological data. You will build, debug and test web applications using
-JavaScript, CSS and the latest tools and libraries, with a focus on **creating
-great user experiences**. You will gain experience with every level of the stack,
-including developing complex JVM applications. There are opportunities for
-travel to conferences and meetings as well.
+* HTML, CSS, JavaScript, some experience with Node.js
+* Creating client-driven applications in JavaScript (or a language that compiles to
+JavaScript)
+* Creating and maintaining tests (UI, integration, unit).
+* Some experience with version control. We use git.
 
-We have interesting problems to solve, both on the server and on the
-user-interface level. We deal with the issues of describing complex real world
-systems at the right level of abstraction. We work with the leaders in the
-fields of genomic life-sciences, helping them structure and manage their
-increasingly valuable knowledgebases. This data changes frequently, so we have
-built a system that can flexibly work from any description of a data-model to
-produce a clear and powerful data-mining interface. We need you to help develop
-and improve this sector leading product.
+Bonus points for
+--------------------------
 
-Applications are invited for a software developer to work on InterMine (intermine.org), an open-source data mining project based in the Cambridge Systems Biology Centre at the University of Cambridge. This role will involve creating new features for the InterMine data warehouse platform as part of an exciting synthetic biology project that aims to enable the end-to-end design, construction and validation of large DNA constructs for academic and industrial application supporting a wide range of fundamental and biotechnology related research in the UK and beyond.
+* Experience with ​ Clojure​ / ​ ClojureScript​ , especially ​ re-frame​ and ​ reagent​ .
+* Biology knowledge!
 
-Required Skills and Experience
-------------------------------
-
-* Demonstrable software design and development experience. We do most of our new
-  work in **CoffeeScript** and **JavaScript**, both in **nodejs** and in the browser. We also have
-  JVM applications written in **Java** and **clojure**.
-* Experience with version control. We use **git**.
-* An understanding of **visual design** and **software engineering** principles.
-* A test-first ethos: We use **unit testing**, automated testing and continuous integration.
-
-Desired Skills and Experience
-------------------------------
-
-* Enthusiasm for **open source** development, tools and methodology.
-* Familiarity with client side web tools, e.g. **Angular**, **Backbone.js**,
-  **React**.
-* Familiarity with managed languages (such as **Java**) and/or dynamic scripting
-  languages (such as **JavaScript**, **Python**, **Ruby**).
-* An interest in using new languages and libraries. We use **CoffeeScript** and
-  **clojure**.
-* Some awareness of modern web best-practices.
-* A need for continual self-improvement and ongoing learning.
-
-Our Toolset
-------------------------------
-
-* Java
-* Clojure
-* JavaScript/CoffeeScript
-* PostgreSQL
-* Tomcat
-* Ant
-* Git
-
-This is an opportunity for right candidate to gain experience in a wide variety
-of state-of-the-art tools and practices, and to use their own judgement and
-experience to choose their own tools and design applications from the ground up.
 
 About InterMine
-------------------------------
+--------------------------
 
-The numerous genome sequencing projects have produced an huge amount of
-biological data, presenting tremendous opportunities for scientific discovery.
-InterMine is an open-source data warehouse committed to making complex
-biological data sets easily accessible to biologists for exploration and
-analysis. InterMine enables the creation of biological databases accessed by
-sophisticated web query tools. Parsers are provided for integrating data from
-many common biological data sources and formats, and there is a framework for
-adding your own data. InterMine includes an attractive, user-friendly web
-interface that works 'out of the box' and can be easily customised for your
-specific needs, as well as a powerful, scriptable web-service API to allow
-programmatic access to your data.
+Our projects
+~~~~~~~~~~~~~~~~
 
-Take a look at our codebase at GitHub http://www.github.com/intermine and some
-of our recent tools: http://staircase.herokuapp.com.
+InterMine​ is an open source Java-based data warehouse, integrating biological data in
+varied formats into a PostgreSQL database. It also includes a legacy JSP user interface and
+web services​ with ​ client libraries​ in R, Python, Perl, Ruby, Java, and JavaScript. ​ BlueGenes​ ,
+the new user interface, loads its data via these web services and is in early beta release at
+the moment.
 
-InterMine was founded in 2002 and is based at the University of Cambridge. We
-offer very competitive salaries and a generous benefits package (see
-http://www.jobs.cam.ac.uk/offer for the full list):
+Most InterMines are oriented around a certain organism or range of organisms, with ​ FlyMine
+and ​ HumanMine​ run in-house by the core Cambridge team, with a variety of other InterMine
+instances run by academic institutions around the world, from the UK and France to USA
+and Japan.
+
+Some of our other initiatives include
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* We currently have experimental prototype implementations of a ​ Neo4j-powered
+backend​ .
+* * Native mobile applications for ​ Android​ and i ​ OS​ .
+Long-term plans include expanding InterMine to become a ​ cloud-based service​ with
+a guided user set-up wizard so non-technical users can easily analyse their data.
+* We have a ​ registry of production InterMine instances​ around the world.
+
+
+Opportunities to learn and grow
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As a member of a small team, you’ll have the chance to learn and extend your skills
+significantly. Opportunities include:
+
+* interacting with a ​ worldwide community of open-source contributors​ .
+* mentoring students through programs such as ​ Google Summer of Code​ .
+* user testing your applications, both in person and via video conferencing.
+* presenting papers, posters, and talks at technical and academic conferences.
+
+Working For the University of Cambridge
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+InterMine was founded in 2002 and is based at the University of Cambridge. We offer very
+competitive salaries and a generous benefits package (see ​ http://www.jobs.cam.ac.uk/offer
+for the full list):
+
+Benefits
 
 * 33 days annual holiday
 * 37.5 hour work week
 * University pension
 * Child care and bike to work salary sacrifice schemes
-* Access to `University sports facilities <http://www.sport.cam.ac.uk/information/staff.html>`_
-* `Family friendly benefits <http://www.admin.cam.ac.uk/offices/hr/staff/benefits/family.html>`_ like maternity, paternity and parental leave, flexible working and career break schemes.
+* Access to ​ University sports facilities
+Family friendly benefits​ like maternity, paternity and parental leave, flexible working
+and career break schemes.
 
-
-How to Apply
-------------------------------
-
-Apply via the University website here: http://www.jobs.cam.ac.uk/job/6353/
-
+To apply, please see http://www.jobs.cam.ac.uk/job/16360/
