@@ -28,7 +28,6 @@ Bonus points for
 * Experience with ​ Clojure​ / ​ ClojureScript​ , especially ​ re-frame​ and ​ reagent​ .
 * Biology knowledge!
 
-
 About InterMine
 --------------------------
 
