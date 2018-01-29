@@ -69,7 +69,7 @@ Vacancies
 .. toctree::
     :maxdepth: 1
 
-    jobs/index
+    jobs/software-developer-javascript
 
 Get Involved
 ------------------
