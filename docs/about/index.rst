@@ -62,14 +62,14 @@ Release Notes
 
 See https://github.com/intermine/intermine/releases
 
+
 Vacancies
 -------------------
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
-    jobs/index.rst
-
+    get-involved
 
 Get Involved
 ------------------
