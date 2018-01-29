@@ -18,7 +18,7 @@ Required skills and experience
 
 * HTML, CSS, JavaScript, some experience with Node.js
 * Creating client-driven applications in JavaScript (or a language that compiles to
-JavaScript)
+JavaScript) 
 * Creating and maintaining tests (UI, integration, unit).
 * Some experience with version control. We use git.
 
