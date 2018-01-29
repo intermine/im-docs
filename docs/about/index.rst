@@ -68,13 +68,9 @@ Vacancies
 
 :doc:`/git/index`
 
-:doc:`jobs/software-developer-javascript`
+:doc:`/about/jobs/software-developer-javascript`
 
-:doc:`Software Developer (JavaScript) </jobs/software-developer-javascript>`
-
-:doc:`Talk to us please! </jobs>`
-
-:doc:`Talk to us please! </jobs/index>`
+:doc:`/about/jobs/index`
 
 Get Involved
 ------------------
