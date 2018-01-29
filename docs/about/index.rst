@@ -66,6 +66,8 @@ See https://github.com/intermine/intermine/releases
 Vacancies
 -------------------
 
+:doc:`/git/index`
+
 :doc:`jobs/software-developer-javascript`
 
 :doc:`Software Developer (JavaScript) </jobs/software-developer-javascript>`
