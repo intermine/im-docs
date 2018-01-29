@@ -66,13 +66,13 @@ See https://github.com/intermine/intermine/releases
 Vacancies
 -------------------
 
-:doc:`/about/jobs/software-developer-javascript`
+:doc:`jobs/software-developer-javascript`
 
-:doc:`Software Developer (JavaScript) </about/jobs/software-developer-javascript>`
+:doc:`Software Developer (JavaScript) </jobs/software-developer-javascript>`
 
-:doc:`Talk to us please! </about/jobs>`
+:doc:`Talk to us please! </jobs>`
 
-:doc:`Talk to us please! </about/jobs/index>`
+:doc:`Talk to us please! </jobs/index>`
 
 Get Involved
 ------------------
