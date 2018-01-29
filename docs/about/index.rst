@@ -69,7 +69,7 @@ Vacancies
 .. toctree::
     :maxdepth: 1
 
-    get-involved
+    jobs/index.rst
 
 Get Involved
 ------------------
