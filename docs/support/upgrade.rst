@@ -1,13 +1,24 @@
 Upgrading InterMine
 ======================
 
-**InterMine 2.0** is a disruptive release and is not backwards compatible. This means that databases, webapps and code from previous releases will need to be updated to work with the new InterMine release. Below are detailed instructions on how to do that.
+**InterMine 2.0** is a disruptive release and is not backwards compatible. This means that databases, webapps and code from previous releases will need to be updated to work with the new InterMine release. 
+
+Below are detailed instructions on how to do that.
 
 
 Gradle 
 -------
 
-InterMine now uses Gradle to manage dependencies and to build and run InterMine.
+InterMine now uses Gradle to manage dependencies and to build and run InterMine. Please see https://intermineorg.wordpress.com/2017/09/13/intermine-2-0-gradle/ for details.
+
+Maven
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We use Maven to manage InterMine dependencies, including your mine-specific data sources. Please install Maven locally.
+
+.. code-block:: base
+
+  sudo apt-get install maven
 
 New directory structure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -21,30 +32,37 @@ InterMine has switched to use the standard directory structure.
    src/test/java
    src/test/resources
 
+You will have to run two migration scripts to move your current mine over to this new layout.
 
-How to update your data sources to use Gradle
+Migrate Data Sources
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Run this script to copy your sources over to the new directory system.
+* Run this script to move your sources over to the new directory system.
 
-.. code-block:: guess
+.. code-block:: sh
 
-    build_script.py <file location>
+    ~/git/flymine-bio-sources $ `migrateBioSources.sh <http://https://github.com/intermine/intermine-scripts/blob/master/gradle-migration/data-sources/migrateBioSources.sh>`_ 
 
-* Do this to make your sources available to Gradle when you build a database.
+* Run this command to make your sources available to the database build:
 
-See <Gradle docs> for details.
+.. code-block:: sh
 
-How to run a database build
+  ~/git/flymine-bio-sources $ ./gradlew install
+
+You will have to `install` your sources every time you update the source code.
+
+
+Migrate Mine webapp
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Use this script to run a build.
+* Run this script to copy your mine over to the new directory system.
 
-.. code-block:: guess
+.. code-block:: sh
 
-    build_script.py <dump file location>
+    $ `migrateMine.sh <http://https://github.com/intermine/intermine-scripts/blob/master/gradle-migration/mine/migrateMine.sh>`_ ~/git/flymine 
 
-See <Gradle docs> for details.
+
+See <Gradle docs> for details on the new commands to run a database build and release a webapp.
 
 
 Data Model
@@ -57,6 +75,7 @@ Data Model
 
 See https://intermineorg.wordpress.com/2017/09/08/intermine-2-0-proposed-model-changes-iii/ for details.
 
+You have may to update your data sources and queries to match the new data model.
 
 Dependencies
 --------------------------
@@ -68,6 +87,8 @@ Software dependency requirements have been updated to the latest versions. This 
    Java SDK 8
    Tomcat 8.5.x
    Postgres 9.3+
+
+You will get errors if you use older versions. e.g. If you use Java 7, you will get this error: `Caused by: java.security.NoSuchProviderException: no such provider: SunEC` 
 
 
 API changes
@@ -81,16 +102,18 @@ We are making some non-backwards compatible changes to our API. These three end 
     /template/upload
     /user/queries (POST)
 
+Please update any code that references these end points.
+
 Blue Genes
 -----------
 
 Run this command to deploy a Blue genes instance:
 
-.. code-block:: guess
+.. code-block:: sh
 
-    <blue genes command goes here>
+    ~/git/flymine $ ./gradlew blueGenesStart
 
-
+This command deploys the bluegenes app to port 5000. It uses bluegenes parameters available in flymine.properties and uses your local mine's userprofile database.
 
 ######################################
 Pre-InterMine 2.0 Upgrade Instructions
