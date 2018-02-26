@@ -3,13 +3,16 @@ Upgrading InterMine
 
 **InterMine 2.0** is a disruptive release and is not backwards compatible. This means that databases, webapps and code from previous releases will need to be updated to work with the new InterMine release. 
 
-Below are detailed instructions on how to do that.
+.. note::
 
+  If you have custom InterMine code, your changes will likely not work as expected. Please contact us and we can help you migrate your edits to the new system.
+
+Below are detailed instructions on how to migrate your InterMine to the new build system.
 
 Gradle 
 -------
 
-InterMine now uses Gradle to manage dependencies and to build and run InterMine. Please see https://intermineorg.wordpress.com/2017/09/13/intermine-2-0-gradle/ for details.
+InterMine now uses Gradle to manage dependencies and to build and run InterMine. Please see :doc:`Gradle docs </system-requirements/software/gradle>` for details on Gradle and Gradle commands.
 
 Maven
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -17,7 +20,8 @@ Maven
 We use Maven to manage InterMine dependencies, including your mine-specific data sources. Please install Maven locally.
 
 .. code-block:: base
-
+  
+  # for Ubuntu
   sudo apt-get install maven
 
 New directory structure
@@ -37,11 +41,14 @@ You will have to run two migration scripts to move your current mine over to thi
 Migrate Data Sources
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+* Please put your data sources in their own GitHub repository.
+* The migration scripts are located in the `intermine-scripts <https://github.com/intermine/intermine-scripts/blob/master/gradle-migration/data-sources/migrateBioSources.sh>`_ repository.
+
 * Run this script to move your sources over to the new directory system.
 
 .. code-block:: sh
 
-    ~/git/flymine-bio-sources $ `migrateBioSources.sh <http://https://github.com/intermine/intermine-scripts/blob/master/gradle-migration/data-sources/migrateBioSources.sh>`_ 
+    ~/git/flymine-bio-sources $ migrateBioSources.sh 
 
 * Run this command to make your sources available to the database build:
 
@@ -51,18 +58,35 @@ Migrate Data Sources
 
 You will have to `install` your sources every time you update the source code.
 
+Using other mines's data sources
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you want to use FlyMine or HumanMine or any other mine's data sources:
+
+1. Clone the repo:
+   * https://github.com/intermine/flymine-bio-sources
+   * https://github.com/intermine/humanmine-bio-sources
+2. ./gradlew install
+
+And the data source will be on the classpath and available for you to use in your project XML file. We could eventually publish these sources to Maven so these steps aren't needed.
 
 Migrate Mine webapp
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Run this script to copy your mine over to the new directory system.
+* The migration scripts are located in the `intermine-scripts <https://github.com/intermine/intermine-scripts/blob/master/gradle-migration/mine/migrateMine.sh>`_ repository.
 
 .. code-block:: sh
 
-    $ `migrateMine.sh <http://https://github.com/intermine/intermine-scripts/blob/master/gradle-migration/mine/migrateMine.sh>`_ ~/git/flymine 
+    $ migrateMine.sh ~/git/flymine 
 
+Update config
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See <Gradle docs> for details on the new commands to run a database build and release a webapp.
+1. Remove `<property name="source.location" location="../bio/sources/"/>` from your project XML file
+2. Set `GRADLE_OPTS` instead of `ANT_OPTS`
+
+Please see :doc:`Gradle docs </system-requirements/software/gradle>` for details on Gradle and Gradle commands.
 
 
 Data Model
@@ -115,9 +139,13 @@ Run this command to deploy a Blue genes instance:
 
 This command deploys the bluegenes app to port 5000. It uses bluegenes parameters available in flymine.properties and uses your local mine's userprofile database.
 
-######################################
+
+---------------------------------
+---------------------------------
+---------------------------------
+
 Pre-InterMine 2.0 Upgrade Instructions
-######################################
+------------------------------------------------------------------
 
 
 To pull changes in your local repository and merge them into your working files:
