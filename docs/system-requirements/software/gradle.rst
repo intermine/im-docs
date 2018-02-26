@@ -18,7 +18,7 @@ To run a single source
     
     ~/git/flymine $ ./gradlew integrate -Psource=uniprot  --stacktrace --no-daemon
 
-(You can try `--info` or `--debug` too.)
+(You can try --info or --debug too.)
 
 To run a full build 
 
@@ -68,12 +68,12 @@ To update your local packages
 
     ./gradlew install
 
-* Always use `./gradlew` instead of `gradle. This is the wrapper that comes with InterMine and ensure that everyone is using the same version.
+* Always use `./gradlew` instead of `gradle`. This is the wrapper that comes with InterMine and ensure that everyone is using the same version.
 
 Daemons
 ~~~~~~~~~~~~~
 
-The updated Gradle version comes with `daemons` enabled by default. These are helper processes that exist in the background. This can speed up builds for example but sometimes, under heavy development, can cause problems when InterMine does not properly dereference assets. We are working on fixing this! In the meantime, you can use `--no-daemon` to disable this gradle feature.
+The updated Gradle version comes with `daemons` enabled by default. These are helper processes that exist in the background. This can speed up builds for example but sometimes, under heavy development, can cause problems when InterMine does not properly dereference assets. We are working on fixing this! In the meantime, you can use "--no-daemon" to disable this gradle feature.
 
 * See: https://docs.gradle.org/current/userguide/gradle_daemon.html
 
