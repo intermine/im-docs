@@ -2,6 +2,6 @@ PostgreSQL
 ===========
 
 .. toctree::
-   
+
    postgres
-   bioseg
+  
