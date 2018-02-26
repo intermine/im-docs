@@ -7,7 +7,7 @@ Developed by the Micklem lab at the University of Cambridge, InterMine enables t
 
 `This guide in a PDF format <https://media.readthedocs.org/pdf/intermine/latest/intermine.pdf>`_
 
-:ref:`support/upgrade`
+:doc:`InterMine 2.0 - UPGRADE </support/upgrade>`
 
 Contents
 --------
