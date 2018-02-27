@@ -5,7 +5,7 @@ Upgrading InterMine
 
 .. note::
 
-  If you have custom InterMine code, your changes will likely not work as expected. Please contact us and we can help you migrate your edits to the new system.
+  If you have custom InterMine code, your changes will likely not work as expected after the upgrade. Please contact us and we can help you migrate your edits to the new system.
 
 Below are detailed instructions on how to migrate your InterMine to the new build system.
 
@@ -38,7 +38,7 @@ InterMine has switched to use the standard directory structure.
 
 You will have to run two migration scripts to move your current mine over to this new layout.
 
-Migrate Data Sources
+Migrate Data Sources to New directory structure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Please put your data sources in their own GitHub repository.
@@ -64,13 +64,15 @@ Using other mines's data sources
 If you want to use FlyMine or HumanMine or any other mine's data sources:
 
 1. Clone the repo:
+
    * https://github.com/intermine/flymine-bio-sources
    * https://github.com/intermine/humanmine-bio-sources
+
 2. ./gradlew install
 
 And the data source will be on the classpath and available for you to use in your project XML file. We could eventually publish these sources to Maven so these steps aren't needed.
 
-Migrate Mine webapp
+Migrate Mine webapp to New directory structure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Run this script to copy your mine over to the new directory system.
@@ -95,9 +97,10 @@ Data Model
 * Syntenic Regions have been added to the data model
 * Protein.molecularWeight is now a float instead of an integer
 * GO evidence codes now have a name and URL
-* OntologyAnnotation can now annotate any InterMine object, as long as that class inherits `Annotatable`.
+* OntologyAnnotation can now annotate any InterMine object, as long as that class inherits `Annotatable`
+* Sequence Ontolgy has been updated to the latest version
 
-See https://intermineorg.wordpress.com/2017/09/08/intermine-2-0-proposed-model-changes-iii/ for details.
+See the `Model Changes <https://intermineorg.wordpress.com/2017/09/08/intermine-2-0-proposed-model-changes-iii/>`_ blog post for details.
 
 You have may to update your data sources and queries to match the new data model.
 
