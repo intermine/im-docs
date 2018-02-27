@@ -9,6 +9,8 @@ Upgrading InterMine
 
 Below are detailed instructions on how to migrate your InterMine to the new build system.
 
+Please contact us if you have any questions or concerns! We are on email and chat.intermine.org. If you are having difficulties, we can also arrange a skype call to walk through any problems together.
+
 Gradle 
 -------
 
@@ -23,6 +25,21 @@ We use Maven to manage InterMine dependencies, including your mine-specific data
   
   # for Ubuntu
   sudo apt-get install maven
+
+Previously you had to download and compile InterMine. Now, instead, you'll be using the compiled InterMine JARs available via Maven. 
+
+Remove InterMine code
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Your mine-specific bio/sources and your webapp should be in git. 
+2. They do not have to be in separate repositories, but we've found that's easiest.
+
+   * Here are easy to follow directions on how to move a directory to a new repository: 
+   * https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/
+
+3. They DO have to be in their own directories though!
+4. You should not have any core InterMine code in your repository.
+
 
 New directory structure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -41,7 +58,7 @@ You will have to run two migration scripts to move your current mine over to thi
 Migrate Data Sources to New directory structure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Please put your data sources in their own GitHub repository.
+* Your sources don't have to be in their own repository, although we found this was easiest. They will have to be in their own separate directory however.
 * The migration scripts are located in the `intermine-scripts <https://github.com/intermine/intermine-scripts/blob/master/gradle-migration/data-sources/migrateBioSources.sh>`_ repository.
 
 * Run this script to move your sources over to the new directory system.

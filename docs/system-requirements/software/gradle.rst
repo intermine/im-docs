@@ -75,12 +75,13 @@ Daemons
 
 The updated Gradle version comes with `daemons` enabled by default. These are helper processes that exist in the background. This can speed up builds for example but sometimes, under heavy development, can cause problems when InterMine does not properly dereference assets. We are working on fixing this! In the meantime, you can use "--no-daemon" to disable this gradle feature.
 
-* See: https://docs.gradle.org/current/userguide/gradle_daemon.html
+* See: `Daemon docs <https://docs.gradle.org/current/userguide/gradle_daemon.html>`_
 
 Further Reading
 ---------------------------- 
 
 * https://gradle.org/docs/
-* https://intermineorg.wordpress.com/2017/09/13/intermine-2-0-gradle/
- 
+* `InterMine blog post <https://intermineorg.wordpress.com/2017/09/13/intermine-2-0-gradle/>`_
+* `InterMine presentation <https://docs.google.com/presentation/d/1mgcC7TSieHa4JdYzxYUVspftKO8rDpFN0X9JaKQXkDM/edit>`_
+
 .. index:: gradle, ant
