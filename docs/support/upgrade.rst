@@ -35,10 +35,10 @@ Remove InterMine code
 2. They do not have to be in separate repositories, but we've found that's easiest.
 
    * example
-     * FlyMine - https://github.com/intermine/flymine/
-     * FlyMine specific data sources - https://github.com/intermine/flymine-bio-sources
+   * FlyMine - https://github.com/intermine/flymine/
+   * FlyMine specific data sources - https://github.com/intermine/flymine-bio-sources
    * Here are easy to follow directions on how to move a directory to a new repository: 
-     * https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/
+   * https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/
 
 3. They DO have to be in their own directories though!
 4. You should not have any core InterMine code in your repository.
@@ -153,6 +153,10 @@ Please update any code that references these end points.
 
 Blue Genes
 -----------
+
+Blue genes uses its own properties file. Please add these properties:
+
+<!-- properties go here -->
 
 Run this command to deploy a Blue genes instance:
 
