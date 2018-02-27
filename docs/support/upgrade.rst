@@ -34,8 +34,11 @@ Remove InterMine code
 1. Your mine-specific bio/sources and your webapp should be in git. 
 2. They do not have to be in separate repositories, but we've found that's easiest.
 
+   * example
+     * FlyMine - https://github.com/intermine/flymine/
+     * FlyMine specific data sources - https://github.com/intermine/flymine-bio-sources
    * Here are easy to follow directions on how to move a directory to a new repository: 
-   * https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/
+     * https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/
 
 3. They DO have to be in their own directories though!
 4. You should not have any core InterMine code in your repository.
@@ -67,13 +70,13 @@ Migrate Data Sources to New directory structure
 
     ~/git/flymine-bio-sources $ migrateBioSources.sh 
 
-* Run this command to make your sources available to the database build:
+* Run this command to put your sources on the classpath and therefore available to the database build:
 
 .. code-block:: sh
 
   ~/git/flymine-bio-sources $ ./gradlew install
 
-You will have to `install` your sources every time you update the source code.
+You will have to `install` your sources every time you update the source code to update the JAR being used by the build.
 
 Using other mines's data sources
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -92,7 +95,7 @@ And the data source will be on the classpath and available for you to use in you
 Migrate Mine webapp to New directory structure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Run this script to copy your mine over to the new directory system.
+* Run this script to move your mine over to the new directory system.
 * The migration scripts are located in the `intermine-scripts <https://github.com/intermine/intermine-scripts/blob/master/gradle-migration/mine/migrateMine.sh>`_ repository.
 
 .. code-block:: sh
