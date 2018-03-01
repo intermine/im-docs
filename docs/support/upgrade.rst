@@ -88,7 +88,7 @@ If you want to use FlyMine or HumanMine or any other mine's data sources:
    * https://github.com/intermine/flymine-bio-sources
    * https://github.com/intermine/humanmine-bio-sources
 
-2. ./gradlew install
+2. `./gradlew install`
 
 And the data source will be on the classpath and available for you to use in your project XML file. We could eventually publish these sources to Maven so these steps aren't needed.
 

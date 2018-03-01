@@ -10,9 +10,9 @@ Below are common commands you will use when building InterMine database and depl
 Data sources
 ----------------------------
 
-One of the biggest shifts is how InterMine handles dependencies. Previously the build compiled all dependencies. Instead, using Gradle and Maven, 
+One of the biggest shifts is how InterMine handles dependencies. Previously all third party JARs were kept in the InterMine code repository and the build compiled all InterMine dependencies. Now, Gradle and Maven manage and download all JARs and only your local project is compiled.
 
-To use local data sources
+**To use local data sources**
 
 .. code-block:: sh
     
@@ -26,7 +26,7 @@ To use local data sources
 * When installed locally, the JAR that is produced is available in the Gradle cache, `.gradle/caches`.
 * Maven JARs are located in `~/.m2`
 
-To use common data sources in the InterMine library
+**To use common data sources in the InterMine library**
 
 * No action required. Use project XML file as normal.
 
