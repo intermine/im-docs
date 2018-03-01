@@ -3,6 +3,35 @@ Gradle
 
 `Gradle <https://gradle.org>`_ is InterMine's build tool. In InterMine 2.0 Gradle replaced ant.
 
+Please see :doc:`Upgrade instructions </support/upgrade>` for details on how to migrate your system to use Gradle.
+
+Below are common commands you will use when building InterMine database and deploying webapps.
+
+Data sources
+----------------------------
+
+One of the biggest shifts is how InterMine handles dependencies. Previously the build compiled all dependencies. Instead, using Gradle and Maven, 
+
+To use local data sources
+
+.. code-block:: sh
+    
+    ~/git/flymine-bio-sources $ ./gradlew install
+
+.. note::
+
+    If you make any changes to your data sources, install again to make those changes visible to the build.
+
+* https://github.com/intermine/flymine-bio-sources - FlyMine-specific data sources.
+* When installed locally, the JAR that is produced is available in the Gradle cache, `.gradle/caches`.
+* Maven JARs are located in `~/.m2`
+
+To use common data sources in the InterMine library
+
+* No action required. Use project XML file as normal.
+
+The migration script you used set up the dependency to the `intermine-bio-sources` project already. This project includes `uniprot` and other data sources, and are on the classpath. During the build, the code will look for the uniprot jar, e.g. `bio-source-uniprot-2.0.jar` and find it on the classpath successfully. Maven will download it for you.
+
 Database
 ----------------------------
 
@@ -18,7 +47,9 @@ To run a single source
     
     ~/git/flymine $ ./gradlew integrate -Psource=uniprot  --stacktrace --no-daemon
 
-(You can try --info or --debug too.)
+.. note::
+
+    You can try --info or --debug too
 
 To run a full build 
 
@@ -34,6 +65,9 @@ Deploy a webapp
 .. code-block:: sh
 
     ~/git/flymine $ ./gradlew tomcatStartWar
+
+* Shut down your local tomcat, we are using embedded tomcat here
+* Logs are in $HOME/logs, for more details: http://akhikhl.github.io/gretty-doc/Logging.html
 
 Deploy blue genes
 
