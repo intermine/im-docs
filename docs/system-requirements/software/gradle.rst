@@ -18,13 +18,13 @@ One of the biggest shifts is how InterMine handles dependencies. Previously all 
     
     ~/git/flymine-bio-sources $ ./gradlew install
 
+* https://github.com/intermine/flymine-bio-sources - FlyMine-specific data sources.
+* When installed locally, the JAR that is produced is available in the Gradle cache, `~/.gradle/caches`.
+* Maven JARs are located in `~/.m2`
+
 .. note::
 
-    If you make any changes to your data sources, install again to make those changes visible to the build.
-
-* https://github.com/intermine/flymine-bio-sources - FlyMine-specific data sources.
-* When installed locally, the JAR that is produced is available in the Gradle cache, `.gradle/caches`.
-* Maven JARs are located in `~/.m2`
+    The build is going to be looking at the resulting JAR created by this command. If you make any changes to your data sources, install again to update the JAR to make those changes visible to the build.
 
 **To use common data sources in the InterMine library**
 
