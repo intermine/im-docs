@@ -63,7 +63,7 @@ Perl Client
     | `Source <https://github.com/intermine/intermine-ws-perl>`_
 Python Client
     `Download <http://pypi.python.org/pypi/intermine>`_
-    | `Docs <http://packages.python.org/intermine/>`_
+    | `API <http://packages.python.org/intermine/>`_   `Examples <https://github.com/intermine/intermine-ws-python-docs/>`_ 
     | `Source <https://github.com/intermine/intermine-ws-client.py>`_
 Ruby Client
     `Download | Docs <http://www.rubygems.org/gems/intermine>`_
