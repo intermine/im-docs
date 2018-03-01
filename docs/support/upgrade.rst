@@ -26,7 +26,7 @@ We use Maven to manage InterMine dependencies, including your mine-specific data
   # for Ubuntu
   sudo apt-get install maven
 
-Previously you had to download and compile InterMine. Now, instead, you'll be using the compiled InterMine JARs available via Maven. 
+Previously you had to download and compile InterMine. Now, instead, you'll be using the compiled InterMine JARs available via Maven. These JARs are located in `~/.m2`.
 
 Remove InterMine code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -107,6 +107,9 @@ Update config
 
 1. Remove `<property name="source.location" location="../bio/sources/"/>` from your project XML file
 2. Set `GRADLE_OPTS` instead of `ANT_OPTS`
+3. Update project XML for some sources
+   * `SO` source's location has been updated to be: `<property name="src.data.file" location="so.obo" />` 
+   * `Protein2ipr` source has a new attribute: `<property name="osAlias" value="os.production"/>`
 
 Please see :doc:`Gradle docs </system-requirements/software/gradle>` for details on Gradle and Gradle commands.
 
