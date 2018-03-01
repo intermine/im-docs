@@ -34,11 +34,11 @@ Remove InterMine code
 1. Your mine-specific bio/sources and your webapp should be in git. 
 2. They do not have to be in separate repositories, but we've found that's easiest.
 
-   * example
-   * FlyMine - https://github.com/intermine/flymine/
-   * FlyMine specific data sources - https://github.com/intermine/flymine-bio-sources
-   * Here are easy to follow directions on how to move a directory to a new repository: 
-   * https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/
+  * `Directions <https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/>`_ on how to move a directory to a new repository and keep your history
+  * example
+   
+      * FlyMine - https://github.com/intermine/flymine/
+      * FlyMine specific data sources - https://github.com/intermine/flymine-bio-sources
 
 3. They DO have to be in their own directories though!
 4. You should not have any core InterMine code in your repository.
@@ -108,6 +108,7 @@ Update config
 1. Remove `<property name="source.location" location="../bio/sources/"/>` from your project XML file
 2. Set `GRADLE_OPTS` instead of `ANT_OPTS`
 3. Update project XML for some sources
+
    * `SO` source's location has been updated to be: `<property name="src.data.file" location="so.obo" />` 
    * `Protein2ipr` source has a new attribute: `<property name="osAlias" value="os.production"/>`
 
