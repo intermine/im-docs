@@ -83,6 +83,10 @@ Deploy blue genes
 
     ~/git/flymine $ ./gradlew blueGenesStart
 
+Bluegenes uses the webservices provided by the current webapp. For the time being, you have to have an InterMine webapp running to launch a bluegenes instance.
+
+Bluegenes gets the mine name and URL from the *mine.properties file.
+
 Gradle
 ----------------------------
 
