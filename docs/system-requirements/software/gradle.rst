@@ -51,11 +51,19 @@ To run a single source
 
     You can try --info or --debug too
 
+To run a single postprocess
+
+.. code-block:: sh
+    
+    ~/git/flymine $ ./gradlew postprocess -Pprocess=do-sources --stacktrace --no-daemon
+
 To run a full build 
 
 .. code-block:: sh
 
-    ~/git/flymine $ ./project_build flymine
+    ~/git/flymine $ ./project_build -b localhost /tmp/flymine-dump
+
+We are using the same `project build <https://github.com/intermine/intermine-scripts/blob/master/project_build>`_ script, but we've moved it to the `intermine-scripts` repository with our other scripts. 
 
 Webapp
 ----------------------------
