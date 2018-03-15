@@ -68,7 +68,7 @@ Migrate Data Sources to New directory structure
 
 .. code-block:: sh
 
-    ~/git/flymine-bio-sources $ migrateBioSources.sh 
+    $ migrateBioSources.sh ~/git/flymine-bio-sources  
 
 * Run this command to put your sources on the classpath and therefore available to the database build:
 
