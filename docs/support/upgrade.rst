@@ -26,7 +26,9 @@ We use Maven to manage InterMine dependencies, including your mine-specific data
   # for Ubuntu
   sudo apt-get install maven
 
-Previously you had to download and compile InterMine. Now, instead, you'll be using the compiled InterMine JARs available via Maven. These JARs are located in `~/.m2`.
+Previously you had to download and compile InterMine. Now, instead, you’ll be using the compiled InterMine JARs available via jCenter. They will be automatically dowloaded and stored in the gradle cache ~/.gradle/caches/modules-2/files-2.1/org.intermine/.
+
+To use your mine-specific bio sources, you will install maven locally.  The install task, recompiles the bio-source code, creates a new jar and installs it in you local Maven. These JARs are located in ~/.m2.
 
 Remove InterMine code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -77,20 +79,6 @@ Migrate Data Sources to New directory structure
   ~/git/flymine-bio-sources $ ./gradlew install
 
 You will have to `install` your sources every time you update the source code to update the JAR being used by the build.
-
-Using other mines's data sources
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you want to use FlyMine or HumanMine or any other mine's data sources:
-
-1. Clone the repo:
-
-   * https://github.com/intermine/flymine-bio-sources
-   * https://github.com/intermine/humanmine-bio-sources
-
-2. `./gradlew install`
-
-And the data source will be on the classpath and available for you to use in your project XML file. We could eventually publish these sources to Maven so these steps aren't needed.
 
 Migrate Mine webapp to New directory structure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
