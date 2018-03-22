@@ -30,7 +30,7 @@ We will look at each of the sub-directories in much more detail later, they are:
 ``webapp`` 
   basic configuration and commands for building and deploying the web application
 
-In addition there are two gradle files, used By the InterMine build system, which we won't need to edit and a `project.xml` file.
+In addition there are two gradle files, used by the InterMine build system, which we won't need to edit (`build.gradle` and `settings.gradle`) and a `project.xml` file.
 
 Project.xml
 ~~~~~~~~~~~~~~~~~~
@@ -40,7 +40,7 @@ The `project.xml` allows you to configure which data to load into your Mine. The
 <sources>
 ^^^^^^^^^^
 
-The `<source>` elements list and configure the data sources to be loaded, each one has a `type` that corresponds to a directory in `git/intermine/bio/sources` or a subdirectory (the locations of sources to read are defined by `source.location` properties at the top of the file).  These directories include parsers to retrieve data and information on how it will be integrated.  The `name` can be anything and can be the same as `type`, using a more specific name allows you to define specific integration keys (more on this later).  
+The `<source>` elements list and configure the data sources to be loaded, each one has a `type` that corresponds to the name of the bio-source artifact (jar) which includes parsers to retrieve data and information on how it will be integrated.  The `name` can be anything and can be the same as `type`, using a more specific name allows you to define specific integration keys (more on this later).  
 
 `<source>` elements can have several properties: `src.data.dir`, `src.data.file` and `src.data.includes` are all used to define locations of files that the source should load.  Other properties are used as parameters to specific parsers.
 
@@ -64,11 +64,11 @@ Copy this to some local directory (your home directory is fine for this workshop
   $ cp git/intermine/bio/tutorial/malaria-data.tar.gz .
   $ tar -zxvf malaria-data.tar.gz
 
-In your `biotestmine` directory edit `project.xml` to point each source at the extracted data, just replace `DATA_DIR` with `/home/username` (or on a mac `/Users/username`). Do use absolute path.
+In your `` directory edit `project.xml` to point each source at the extracted data, just replace `DATA_DIR` with `/home/username` (or on a mac `/Users/username`). Do use absolute path.
 
 .. code-block:: bash
 
-  $ cd ~/git/intermine/malariamine
+  $ cd ~/git/biotestmine
   $ sed -i 's/DATA_DIR/\/home\/username/g' project.xml
 
 For example, the `uniprot-malaria` source:
@@ -91,7 +91,7 @@ The `project.xml` file is now ready to use.
 Properties file
 ~~~~~~~~~~~~~~~~~
 
-Configuration of local databases and tomcat deployment is kept in a `MINE_NAME.properties` file in a `.intermine` directory under your home directory.  We need to set up a `malariamine.properties` file.  
+Configuration of local databases and tomcat deployment is kept in a `MINE_NAME.properties` file in a `.intermine` directory under your home directory.  We need to set up a `biotestmine.properties` file.  
 
 If you don't already have a `.intermine` directory in your home directory, create one now:
 
@@ -152,8 +152,7 @@ Defining the model
 
  * You can easily adapt InterMine to include your own data by creating new additions files, we'll see how to do this later.
 
-The core data model is released in the bio-core artifact downloaded as biotestmine dependency (and some extra model files) are defined in the `project.properties` file:
-
+The core data model, defined in core.xml file, is released in the bio-core artifact downloaded as biotestmine dependency (and some extra model files).
 You can view the contents of the core model here ...
 
 Note the fields defined for `Protein`:
@@ -188,7 +187,7 @@ The model is generated from a core model XML file and any number of additions fi
     extraModelsEnd = ""
   }
 
-The first file merged into the core model is the `so_additions.xml` file.  This XML file is generated from terms listed in the so_terms file.  The build system creates classes corresponding to the Sequence Ontology terms.
+The first file merged into the core model is the `so_additions.xml` file.  This XML file is generated from terms listed in the so_terms file, located in biotestmine/dbmodel/resources.  The build system creates classes corresponding to the Sequence Ontology terms.
 The model is then combined with any extra classes and fields defined in the sources to integrate, those listed as `<source>` elements in `project.xml`.  Look at an example 'additions' file for the UniProt source ADD LINK
 
 This defines extra fields for the `Protein` class which will be added to those from the core model.
@@ -233,11 +232,7 @@ Each term from `so_term` was added to the model, according to the sequence ontol
 
 Each of the fields has appropriate getters and setters generated for it, note that these are `interfaces` and are turned into actual classes dynamically at runtime - this is how the model copes with multiple inheritance.
 
-4. Automatically created database tables in the postgres database specified in `malariamine.properties` as `db.production` - in our case `malariamine`.  Log into this database and list the tables and the columns in the protein table:
-
-.. note::
-  
-    It may be necessary to switch to the user `malariamine` before continuing.
+4. Automatically created database tables in the postgres database specified in `biotestmine.properties` as `db.production` - in our case `malariamine`.  Log into this database and list the tables and the columns in the protein table:
 
 .. code-block:: bash
 
@@ -300,16 +295,7 @@ This will take a couple of minutes to complete, the command runs the following s
 
 This should complete after a couple of minutes, if you see an error message then see :doc:`/support/troubleshooting-tips`.  
  
-If an error occurred during loading and you need to try again you need to re-initialise the database again by running `clean build-db` in `dbmodel`.  This is only the case if dataloading actually started - if the following was displayed in the terminal:
-
-.. code-block:: properties
-
-  [ant] load:
-  [ant]      [echo]
-  [ant]      [echo]       Loading uniprot-malaria (uniprot) tgt items into production DB
-  [ant]      [echo]
-
-
+If an error occurred during loading and you need to try again you need to re-initialise the database again by running `buildDB`.
 A useful command to initialise the database and load a source from the integrate directory is:
 
 .. code-block:: bash
@@ -527,7 +513,7 @@ Now load the `malaria-chromosome-fasta` source by running this command in `malar
 
 .. code-block:: bash
 
-  $ ant -Dsource=malaria-chromosome-fasta -v
+  $ ./gradlew -Psource=malaria-chromosome-fasta --stacktrace --no-daemon
 
 This has integrated the chromosome objects with those already in the database.  In the next step we will look at how this data integration works.
 
@@ -600,19 +586,19 @@ Important points:
 Primary keys in MalariaMine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The keys used by each source are configured in the corresponding `bio/sources/` directory.
+The keys used by each source are set in the main directory of the corresponding `bio/sources/` directory.
 
 For `uniprot-malaria`:
 
 .. code-block:: bash
 
-  $ less ../../bio/sources/uniprot/resources/uniprot_keys.properties
+  $ less bio/sources/uniprot/src/main/resourcesuniprot_keys.properties
 
 And `malaria-gff`:
 
 .. code-block:: bash
 
-  $ less ../../bio/sources/example-sources/malaria-gff/resources/malaria-gff_keys.properties
+  $ less bio/sources/example-sources/malaria-gff/resources/malaria-gff_keys.properties
 
 The key on `Gene.primaryIdentifier` is defined in both sources, that means that the same final result would have been achieved regardless of the order in the two sources were loaded.  
 
@@ -634,7 +620,6 @@ It is better to use common names for identical keys between sources as this will
 Each key should list one or more fields that can be a combination of `attributes` of the class specified or `references` to other classes, in this cases there should usually be a key defined for the referenced class as well.
 
 It is still possible to use a legacy method of configuring keys, where keys are defined centrally in `dbmodel/resources/genomic_keyDefs.properties` and referenced in source `_keys.properties` files.
-
 
 
 The `tracker` table 
@@ -916,4 +901,4 @@ If the error occurs while you are browsing your webapp, the error message will b
    
    test-data 
 
-.. index:: tutorial, ant, logs, userprofile, malariamine, data integration, keys, primary keys, priority conflicts, make_mine, project XML, FASTA, GFF3, data integration, UniProt, publications, build-db, creating a database
+.. index:: tutorial, ant, logs, userprofile, malariamine, data integration, keys, primary keys, priority conflicts, make_mine, project XML, FASTA, GFF3, data integration, UniProt, publications, build-db, creating a databasebiotestmine
