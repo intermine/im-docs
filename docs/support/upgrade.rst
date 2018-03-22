@@ -99,6 +99,10 @@ Update config
 
    * `SO` source's location has been updated to be: `<property name="src.data.file" location="so.obo" />` 
    * `Protein2ipr` source has a new attribute: `<property name="osAlias" value="os.production"/>`
+   * `intermine-items-xml-file` isn't a valid value for "type" anymore. Use the project name instead.
+
+4. If your data source has a post-process, you'll have to add that dependency manually. We couldn't figure out a way to do that via the upgrade script.
+5. Previously the data model was merged for all sources then validated. Since each source is in its own JAR now, the data model for each data source is self-contained. Therefore if you reference a class in your data parser, it must be present it that source's additions file.
 
 Please see :doc:`Gradle docs </system-requirements/software/gradle>` for details on Gradle and Gradle commands.
 
