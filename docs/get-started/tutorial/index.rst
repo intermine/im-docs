@@ -10,77 +10,32 @@ Following the steps on this page you will set up an example InterMine.  You will
 Getting Started
 ----------------------
 
-We use `git <http://git-scm.com>`_ to manage and distribute source code.  Download InterMine software from :doc:`/git/index` and dependencies from  :doc:`/system-requirements/index`.
+We use `git <http://git-scm.com>`_ to manage and distribute source code.  Download dependencies from  :doc:`/system-requirements/index`.
+Clone biotestmine project from https://github.com/intermine/biotestmine
 
-Creating a new Mine
+BioTest Mine
 ----------------------
 
-Change into the directory you checked out the InterMine source code to and look at the sub-directories:
+Change into the directory you checked out the BiotestMine source code to and look at the sub-directories:
 
 .. code-block:: bash
 
-  $ cd git/intermine
-  $ ls
-
-The directories include:
-
-``intermine`` 
-  the core InterMine code, this is generic code to work with any data model.
-``bio`` 
-  code to deal specifically with biological data, it includes `sources` to load data from standard biological formats.
-``flymine`` 
-  the configuration used to create FlyMine, a useful reference when building your own Mine.
-``testmodel`` 
-  a non-biological test data model used for testing the core InterMine system.
-``imbuild`` 
-  InterMine's ant-based build system, you shouldn't need to edit anything here.
-
-All configuration to create a new Mine is held in a directory in `git/intermine`, your Mine will depend on code in `intermine`, `bio` and `imbuild`.  Any Mine needs to be a top level directory in your InterMine checkout.
-
-There is a script for creating the Mine; in `git/intermine` run:
-
-.. code-block:: bash
-
-  # in git/intermine
-  $ bio/scripts/make_mine MalariaMine
-
-You will see the message: ``Created malariamine directory for MalariaMine``
-
-A `malariamine` directory has been created with several sub-directories, change into the directory and look what is created:
-
-.. code-block:: bash
-
-  $ cd malariamine
+  $ cd biotestmine
   $ ls
 
 We will look at each of the sub-directories in much more detail later, they are:
 
 ``dbmodel``
   contains information about the data model to be used and ant targets relating to the data model and database creation.
-``integrate``
-  provides ant targets for loading data into the Mine.
-``postprocess`` 
-  ant targets to run post-processing operations on the data in the Mine once it is integrated.
 ``webapp`` 
   basic configuration and commands for building and deploying the web application
 
-In addition there are two ``default.intermine.xxx.properties`` files which we won't need to edit and a `project.xml` file. Most generated directories have a ``project.properties`` file and a short ``build.xml`` file, these are used by the InterMine build system.
+In addition there are two gradle files, used By the InterMine build system, which we won't need to edit and a `project.xml` file.
 
 Project.xml
 ~~~~~~~~~~~~~~~~~~
 
-The `project.xml` allows you to configure which data to load into your Mine.  The automatically generated file has empty `<sources>` and `<post-processing>` sections:
-
-.. code-block:: bash
-
-  $ less project.xml
-
-There is a `project.xml` already prepared to define a new MalariaMine, copy it to this directory now and look at it:
-
-.. code-block:: bash
-
-  $ cp ../bio/tutorial/project.xml .
-  $ less project.xml
+The `project.xml` allows you to configure which data to load into your Mine. The file has two sections: sources and post-processing.
 
 <sources>
 ^^^^^^^^^^
@@ -109,7 +64,7 @@ Copy this to some local directory (your home directory is fine for this workshop
   $ cp git/intermine/bio/tutorial/malaria-data.tar.gz .
   $ tar -zxvf malaria-data.tar.gz
 
-In your `malariamine` directory edit `project.xml` to point each source at the extracted data, just replace `DATA_DIR` with `/home/username` (or on a mac `/Users/username`). Do use absolute path.
+In your `biotestmine` directory edit `project.xml` to point each source at the extracted data, just replace `DATA_DIR` with `/home/username` (or on a mac `/Users/username`). Do use absolute path.
 
 .. code-block:: bash
 
@@ -145,12 +100,12 @@ If you don't already have a `.intermine` directory in your home directory, creat
   $ cd
   $ mkdir .intermine
 
-There is a partially completed properties file for MalariaMine already.   Copy it into your `.intermine` directory:
+There is a partially completed properties file for BiotestMine already.   Copy it into your `.intermine` directory:
 
 .. code-block:: bash
 
   $ cd
-  $ cp git/intermine/bio/tutorial/malariamine.properties .intermine/
+  $ cp git/biotestmine/dbmodel/resources/biotestmine.properties .intermine/
 
 Update this properties file with your postgres server location, username and password information for the two databases you just created.  The rest of the information is needed for the webapp and will be updated in Step 13.
 
@@ -171,12 +126,12 @@ If you don't have a password for your postgres account you can leave `password` 
 Create databases
 ~~~~~~~~~~~~~~~~~
 
-Finally, we need to create `malariamine` and `items-malariamine` postgres databases as specified in the `malariamine.properties` file:
+Finally, we need to create `biotestmine` and `items-biotestmine` postgres databases as specified in the `biotestmine.properties` file:
 
 .. code-block:: bash
 
-  $ createdb malariamine
-  $ createdb items-malariamine
+  $ createdb biotestmine
+  $ createdb items-biotestmine
 
 New postgres databases default to `UTF-8` as the character encoding.  This will work with InterMine but performance is better with `SQL_ASCII`.  
 
@@ -196,23 +151,10 @@ Defining the model
   * The Java classes and database schema are automatically generated from an XML file.
 
  * You can easily adapt InterMine to include your own data by creating new additions files, we'll see how to do this later.
- * All targets relating to the model for a Mine are in the `dbmodel` directory, go there now:
 
-.. code-block:: bash
+The core data model is released in the bio-core artifact downloaded as biotestmine dependency (and some extra model files) are defined in the `project.properties` file:
 
-  $ cd ~/git/intermine/malariamine/dbmodel
-
-The core data model (and some extra model files) are defined in the `project.properties` file:
-
-.. code-block:: properties
-
-    core.model.path = bio/core
-
-You can view the contents of the core model:
-
-.. code-block:: bash
-
-  $ less ../../bio/core/core.xml
+You can view the contents of the core model here ...
 
 Note the fields defined for `Protein`:
 
@@ -236,41 +178,42 @@ Protein is a subclass of `BioEntity`, defined by `extends="BioEntity"`.  The `Pr
       <attribute name="secondaryIdentifier" type="java.lang.String"/>
     ...
 
-The model is generated from a core model XML file and any number of additions files.  The first file merged into the core model is the `so_additions.xml` file.  This XML file is generated from terms listed in the so_terms file.  The build system creates classes corresponding to the Sequence Ontology terms:
+The model is generated from a core model XML file and any number of additions files defined in the `dbmodel/build.gradle` file, in the mineDBModelConfig.
 
 .. code-block:: bash
 
-  $ less resources/so_terms
+  mineDBModelConfig {
+    modelName = "genomic"
+    extraModelsStart = "so_additions.xml genomic_additions.xml"
+    extraModelsEnd = ""
+  }
 
-The model is then combined with any extra classes and fields defined in the sources to integrate, those listed as `<source>` elements in `project.xml`.  Look at an example 'additions' file for the UniProt source:
-
-.. code-block:: bash
-
-  $ less ../../bio/sources/uniprot/uniprot_additions.xml
+The first file merged into the core model is the `so_additions.xml` file.  This XML file is generated from terms listed in the so_terms file.  The build system creates classes corresponding to the Sequence Ontology terms.
+The model is then combined with any extra classes and fields defined in the sources to integrate, those listed as `<source>` elements in `project.xml`.  Look at an example 'additions' file for the UniProt source ADD LINK
 
 This defines extra fields for the `Protein` class which will be added to those from the core model.
-* Other model components can be included by specifying in the `dbmodel/project.properties` file, for example we include `bio/core/genomic_additions.xml`
+* Other model components can be included by specifying in the `dbmodel/build.gradle` file, for example we include `genomic_additions.xml`
 * The `reverse-reference` elements in definitions of some references and collections, this defines in the model that two references/collections are opposing ends of the same relationship.  The value should be set to the name of the reference/collection in the `referenced-type`.
 
 Creating a database
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now run the ant target to merge all the model components, generate Java classes and create the database schema, in `dbmodel` run:
+Now run the gradle task to merge all the model components, generate Java classes and create the database schema, in `biotestmine` run:
 
 .. code-block:: bash
 
-  # in malariamine/dbmodel
-  $ ant clean build-db
+  # in biotestmine
+  $ ./gradlew buildDB
 
-The clean is necessary when you have used the target before, it removes the `build` and `dist` directories and any previously generated model.  
+The clean task is necessary when you have run the task before, it removes the `build` directory and any previously generated model.  
 
-This target has done several things:
+This task has done several things:
 
 1. Merged the core model with other model additions and created a new XML file:
 
 .. code-block:: bash
 
-   $ less build/model/genomic_model.xml 
+   $ less biotestmine/dbmodel/build/resources/main/genomic_model.xml 
 
 Look for the `Protein` class, you can see it combines fields from the core model and the UniProt additions file.
 
@@ -278,7 +221,7 @@ Look for the `Protein` class, you can see it combines fields from the core model
 
 .. code-block:: bash
 
-  $ less build/model/so_additions.xml 
+  $ less biotestmine/dbmodel/build/so_additions.xml 
 
 Each term from `so_term` was added to the model, according to the sequence ontology.
 
@@ -286,7 +229,7 @@ Each term from `so_term` was added to the model, according to the sequence ontol
 
 .. code-block:: bash
 
-   $ less build/gen/src/org/intermine/model/bio/Protein.java
+   $ less build/gen/org/intermine/model/bio/Protein.java
 
 Each of the fields has appropriate getters and setters generated for it, note that these are `interfaces` and are turned into actual classes dynamically at runtime - this is how the model copes with multiple inheritance.
 
@@ -298,9 +241,9 @@ Each of the fields has appropriate getters and setters generated for it, note th
 
 .. code-block:: bash
 
-    $ psql malariamine
-    malariamine=#  \d
-    malariamine=#  \d protein
+    $ psql biotestmine
+    biotestmine=#  \d
+    biotestmine=#  \d protein
 
 
 The different elements of the model XML file are handled as follows:
@@ -318,7 +261,7 @@ This has also created necessary indexes on the tables:
 
 .. code-block:: bash
 
-    malariamine=#  \d genesproteins
+    biotestmine=#  \d genesproteins
 
 .. warning::
 
@@ -329,7 +272,7 @@ The model XML file is stored in the database once created, this and some other c
  
 .. code-block:: bash
 
-   malariamine=# select key from intermine_metadata;
+   biotestmine=# select key from intermine_metadata;
 
 Loading Data
 ----------------------
@@ -339,14 +282,14 @@ For this tutorial we will run several data integration and post-processing steps
 Loading data from a source
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Loading of data is done by running `ant` in the `integrate` directory.  You can specify one or more sources to load or choose to load all sources listed in the `project.xml` file.  When you specify sources by name the order that they appear in `project.xml` doesn't matter.  Now load data from the uniprot-malaria source:
+Loading of data is done by running `integrate`.  You can specify one or more sources to load or choose to load all sources listed in the `project.xml` file.  When you specify sources by name the order that they appear in `project.xml` doesn't matter.  Now load data from the uniprot-malaria source:
 
 .. code-block:: bash
 
-  $ cd ../integrate
-  $ ant -Dsource=uniprot-malaria -v
+  $ cd biotestmine
+  $ ./gradlew -Psource=uniprot-malaria --stacktrace --no-daemon
 
-The `-v` flag is to run `ant` in verbose mode, this will display complete stack traces if there is a problem.
+The `--stacktrace` option will display complete stack traces if there is a problem.
  
 This will take a couple of minutes to complete, the command runs the following steps:
 
@@ -371,20 +314,20 @@ A useful command to initialise the database and load a source from the integrate
 
 .. code-block:: bash
 
-  $ (cd ../dbmodel; ant clean build-db) && ant -Dsource=uniprot-malaria
+  $ (./gradlew clean buildDB) && ./gradlew -Psource=uniprot-malaria --stacktrace --no-daemon
 
 Now that the data has loaded, log into the database and view the contents of the protein table:
 
 .. code-block:: bash
 
-  $ psql malariamine
-  malariamine#  select count(*) from protein;
+  $ psql biotestmine
+  biotestmine#  select count(*) from protein;
 
 And see the first few rows of data:
  
 .. code-block:: bash
 
- malariamine#  select * from protein limit 5;
+ biotestmine#  select * from protein limit 5;
 
 Object relational mapping
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -398,26 +341,26 @@ We can see how see how inheritance is represented in the database:
 
  .. code-block:: bash
 
-   malariamine#  select * from gene limit 5;
+   biotestmine#  select * from gene limit 5;
  
  The same rows appear in the `sequencefeature` table:
  
 .. code-block:: bash
 
-  malariamine#  select * from sequencefeature limit 5;
+  biotestmine#  select * from sequencefeature limit 5;
 
 All classes in the object model inherit from `InterMineObject`.  Querying the `intermineobject` table in the database is a useful way to find the total number of objects in a Mine:
 
 .. code-block:: bash
 
-  malariamine#  select count(*) from intermineobject;
+  biotestmine#  select count(*) from intermineobject;
 
 All tables include an `id` column for unique ids and a `class` column with the actual class of that object.  Querying the `class` column of `intermineobject` you can find the 
 counts of different objects in a Mine:
 
 .. code-block:: bash
 
-  malariamine#  select class, count(*) from intermineobject group by class;
+  biotestmine#  select class, count(*) from intermineobject group by class;
 
 A technical detail: for speed when retrieving objects and to deal with inheritance correctly (e.g. to ensure a `Gene` object with all of its fields is returned even if the query was on the `SequenceFeature` class) a serialised copy of each object is stored in the `intermineobject` table.  When queries are run by the ObjectStore they actually return the ids of objects - these objects are may already be in a cache, if not the are retrieved from the `intermineobject` table.
 
@@ -438,7 +381,7 @@ First, look at the information currently loaded for gene "PFL1385c" from UniProt
 
 .. code-block:: sql
 
-  malariamine=#  select * from gene where primaryIdentifier = 'PFL1385c';
+  biotestmine=#  select * from gene where primaryIdentifier = 'PFL1385c';
 
 GFF3 files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -517,7 +460,7 @@ In some cases specific code is required to deal with attributes in the gff file 
 
 From the example above, by default: `ID=gene.46311;description=hypothetical%20protein;Name=PFA0210c` would make `Gene.primaryIdentifier` be `gene.46311` and `Gene.symbol` be `PFA0210c`.  We need `PFA0210c` to be the `primaryIdentifier`.
 
-The `malaria-gff` source is held in the `bio/sources/example-sources/malaria-gff` directory.  Look at the `project.properties` file in this directory, there are two properties of interest:
+The `malaria-gff` source is held in the `malaria-gff` subproject.  Look at the `malaria-gff.properties` file in this directory, there are two properties of interest:
 
 .. code-block:: properties
 
@@ -537,18 +480,18 @@ Look at the `MalariaGFF3RecordHandler` class in `bio/sources/example-sources/mal
 Loading GFF3 data
 ~~~~~~~~~~~~~~~~~
 
-Now load the `malaria-gff` source by running this command in `malariamine/integrate`:
+Now load the `malaria-gff` source by running this command in `biotestmine`:
 
 .. code-block:: bash
 
-  $ ant -Dsource=malaria-gff -v
+  $ ./gradlew -Psource=malaria-gff --stacktrace --no-daemon
 
-This will take a few minutes to run.  Note that this time we don't run `build-db` in `dbmodel` as we are loading this data into the same database as UniProt.  As before you can run a query to see how many objects of each class are loaded:
+This will take a few minutes to run.  Note that this time we don't run `buildDB` as we are loading this data into the same database as UniProt.  As before you can run a query to see how many objects of each class are loaded:
 
 .. code-block:: bash
 
-  $ psql malariamine
-  malariamine#  select class, count(*) from intermineobject group by class;
+  $ psql biotestmine
+  biotestmine#  select class, count(*) from intermineobject group by class;
 
 FASTA files
 ~~~~~~~~~~~~~~~~~
@@ -598,7 +541,7 @@ The sources `uniprot-malaria` and `malaria-gff` have both loaded information abo
 
 ::
 
-  malariamine=# select id, primaryidentifier, secondaryidentifier, symbol, length , chromosomeid, chromosomelocationid, organismid from gene where primaryIdentifier = 'PFL1385c';
+  biotestmine=# select id, primaryidentifier, secondaryidentifier, symbol, length , chromosomeid, chromosomelocationid, organismid from gene where primaryIdentifier = 'PFL1385c';
       id    | primaryidentifier | secondaryidentifier | symbol | length | chromosomeid | chromosomelocationid | organismid 
   ----------+-------------------+---------------------+--------+--------+--------------+----------------------+------------
   83000626 | PFL1385c          |                     | ABRA   |        |              |                      |   83000003
@@ -610,7 +553,7 @@ Running the same query after `malaria-gff` is added shows that more fields have 
 
 ::
 
-  malariamine=# select id, primaryidentifier, secondaryidentifier, symbol, length , chromosomeid, chromosomelocationid, organismid from gene where primaryIdentifier = 'PFL1385c';
+  biotestmine=# select id, primaryidentifier, secondaryidentifier, symbol, length , chromosomeid, chromosomelocationid, organismid from gene where primaryIdentifier = 'PFL1385c';
       id    | primaryidentifier | secondaryidentifier | symbol | length | chromosomeid | chromosomelocationid | organismid 
   ----------+-------------------+---------------------+--------+--------+--------------+----------------------+------------
   83000626 | PFL1385c          | gene.33449          | ABRA   |   2232 |     84017653 |             84018828 |   83000003
@@ -625,7 +568,7 @@ Now look at the organism table:
 
 ::
 
-  malariamine=# select * from organism;
+  biotestmine=# select * from organism;
   genus | taxonid | species | abbreviation |    id    | shortname | name |               class                
   -------+---------+---------+--------------+----------+-----------+------+------------------------------------
         |   36329 |         |              | 83000003 |           |      | org.intermine.model.genomic.Organism
@@ -726,7 +669,7 @@ Looking at the `organism` table in the database you will see that the only colum
 .. code-block:: bash
 
   $ psql malariamine
-  malariamine#  select * from organism;
+  biotestmine#  select * from organism;
 
 From the `integrate` directory run the `entrez-organism` source:
 
@@ -745,8 +688,8 @@ Now run the same query in the production database, you should see details for ''
 
 .. code-block:: psql
 
-  $ psql malariamine
-  malariamine#  select * from organism;
+  $ psql biotestmine
+  biotestmine#  select * from organism;
 
 .. note::
 
@@ -761,8 +704,8 @@ Several InterMine sources load publications:
 
 .. code-block:: psql
 
-  malariamine#  select count(*) from publication;
-  malariamine#  select * from publication limit 5;
+  biotestmine#  select count(*) from publication;
+  biotestmine#  select * from publication limit 5;
 
 Now run the `update-publications` source to fill in the details:
 
@@ -776,7 +719,7 @@ Now details will have been added to the `publication` table:
 
 .. code-block:: psql
 
-  malariamine#  select * from publication where title is not null limit 5;
+  biotestmine#  select * from publication where title is not null limit 5;
 
 Sometimes, especially with very large numbers of publications, this source will fail to fetch details correctly.  Usually running it again will work correctly.
 
@@ -812,7 +755,7 @@ This fills in some shortcut references in the data model to make querying easier
 
 .. code-block:: sql
 
-  malariamine#  select * from exon limit 5;
+  biotestmine#  select * from exon limit 5;
 
 The empty `geneid` column will be filled in representing the reference to gene.
 
@@ -823,7 +766,7 @@ The sequence for chromosomes is loaded by `malaria-chromosome-fasta` but no sequ
 
 .. code-block:: sql
 
-  malariamine# select * from exon where primaryidentifier = 'exon.32017';
+  biotestmine# select * from exon where primaryidentifier = 'exon.32017';
 
 After running `transfer-sequences` the `sequenceid` column is filled in.
 
@@ -844,8 +787,7 @@ To run all the post-processing steps:
 
 .. code-block:: bash
 
-  $ cd ../postprocess
-  $ ant -v
+  $ ./gradlew postProcess --no-daemon
 
 This will take a few minutes.  When complete you can re-run the queries above to see what has been added.
 
@@ -907,57 +849,45 @@ Update your malariamine.properties file  with correct information for the `db.us
 
 .. code-block:: bash
 
-  $ createdb userprofile-malariamine
+  $ createdb userprofile-biotestmine
 
 3. Build the database:
 
 .. code-block:: bash
 
-  # in malariamine/webapp
-  $ ant build-db-userprofile
+  # in biotestmine
+  $ ./gradlew buildUserDB
+
+You only need to build the userprofile database once.
 
 .. warning::
 
-  The build-db and build-db-userprofile commands rebuild the database and thus will delete any data.  
+  The build-db and build-db-userprofile commands rebuild the database and thus will delete any data. 
 
-This command creates the SuperUser account and loads the `default-template-queries.xml` file. You only need to build the userprofile database once.  
-
-Deploying the webapp
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Tomcat
-^^^^^^^^^^^^
-
-Tomcat is the webserver we use to launch InterMine webapps.  Start Tomcat with this command:
+4. Load default templates:
 
 .. code-block:: bash
 
-  # from the directory where tomcat is installed.  
-  $ bin/startup.sh
+  # in biotestmine
+  $ ./gradlew loadDefaultTemplates
 
-Visit the Tomcat manager at http://localhost:8080/.  The username and password required to access the manager are `webapp.manager` and `webapp.password` as specified in  malariamine.properties.
+This command loads the `default-template-queries.xml` file.  
 
-.. note::
-
-    There are extra steps to take if you are using Tomcat 7. See :doc:`/system-requirements/software/tomcat` for details.
-
-
-Webapp
-^^^^^^^^^^^^
+Deploying the webapp
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Run the following command to release your webapp: 
 
 .. code-block:: bash
 
-  # in malariamine/webapp
-  $ ant default remove-webapp release-webapp
+  # in biotestmine
+  $ ./gradlew tomcatStartWar
 
-This will fetch the model from the database and generate the model java code, remove and release the webapp.  The `default` target forces a rebuild of the .war file.  If you've made updates, you may want to add `clean`, which removes temporary directories.
 
 Using the webapp
 ~~~~~~~~~~~~~~~~~
 
-Navigate to http://localhost:8080/malariamine to view your webapp.  The path to your webapp is the `webapp.path` value set in malariamine.properties.
+Navigate to http://localhost:8080/biotestmine to view your webapp.  The path to your webapp is the `webapp.path` value set in biotestmine.properties.
 
 .. topic:: Next 
 
@@ -967,14 +897,10 @@ Navigate to http://localhost:8080/malariamine to view your webapp.  The path to 
 Help
 ----------------------
 
-Ant
+Gradle
 ~~~~~~~~~~~~~~~~~
 
-Anytime you run `ant` and something bad happens, add the verbose tag:
-
-.. code-block:: bash
-
-  $ ant -v
+Anytime you run `./gradlew` and something bad happens, add the --stacktrace --debug options.
 
 This will give you more detailed output and hopefully a more helpful error message.
 
