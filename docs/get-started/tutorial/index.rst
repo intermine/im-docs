@@ -54,14 +54,14 @@ Specific operations can be performed on the Mine once data is loaded, these are 
 Data to load
 ~~~~~~~~~~~~~~~
 
-The InterMine checkout includes a tar file with data to load into MalariaMine.  These are real, complete data sets for ''P. falciparum''.  We will load genome annotation from PlasmoDB, protein data from UniProt and GO annotation also from PlasmoDB.
+The biotestmine checkout includes a tar file with data to load into MalariaMine.  These are real, complete data sets for ''P. falciparum''.  We will load genome annotation from PlasmoDB, protein data from UniProt and GO annotation also from PlasmoDB.
 
 Copy this to some local directory (your home directory is fine for this workshop) and extract the archive:
 
 .. code-block:: bash
 
   $ cd
-  $ cp git/intermine/bio/tutorial/malaria-data.tar.gz .
+  $ cp git/biotestmine/data/malaria-data.tar.gz .
   $ tar -zxvf malaria-data.tar.gz
 
 In your `` directory edit `project.xml` to point each source at the extracted data, just replace `DATA_DIR` with `/home/username` (or on a mac `/Users/username`). Do use absolute path.
