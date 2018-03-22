@@ -653,14 +653,14 @@ Looking at the `organism` table in the database you will see that the only colum
 
 .. code-block:: bash
 
-  $ psql malariamine
+  $ psql biotestmine
   biotestmine#  select * from organism;
 
 From the `integrate` directory run the `entrez-organism` source:
 
 .. code-block:: bash
 
-  $ ant -v -Dsource=entrez-organism
+  $ ./gradlew -Psource=entrez-organim --stacktrace --no-daemon
 
 This should only take a few seconds.  This source does the following:
 
@@ -696,7 +696,7 @@ Now run the `update-publications` source to fill in the details:
 
 .. code-block:: bash
 
-  $ ant -v -Dsource=update-publications
+  $ ./gradlew -Psource=update-publications --stacktrace --no-daemon
 
 As there are often large numbers of publications they are retrieved in batches from the web service.
 
