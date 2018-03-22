@@ -19,7 +19,7 @@ InterMine now uses Gradle to manage dependencies and to build and run InterMine.
 Maven
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We use Maven to manage InterMine dependencies, including your mine-specific data sources. Please install Maven locally.
+We use Maven to manage InterMine dependencies, including your mine-specific data sources.
 
 .. code-block:: base
   
