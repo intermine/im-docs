@@ -41,6 +41,12 @@ Delete and recreate all database tables
     
     ~/git/flymine $ ./gradlew buildDB
 
+Delete and recreate all database tables using a specific property file.
+
+.. code-block:: sh
+    
+    ~/git/flymine $ ./gradlew buildDB -Dorg.gradle.project.release=dev
+
 To run a single source
 
 .. code-block:: sh
@@ -86,6 +92,17 @@ Deploy blue genes
 Bluegenes uses the webservices provided by the current webapp. For the time being, you have to have an InterMine webapp running to launch a bluegenes instance.
 
 Bluegenes gets the mine name and URL from the *mine.properties file.
+
+Specify properties file
+----------------------------
+
+To use a specific properties file, set the file suffix with the `-Dorg.gradle.project.release` parameter like so:
+
+.. code-block:: sh
+    
+    ~/git/flymine $ ./gradlew builddb -Dorg.gradle.project.release=dev
+
+That command will build the database set in the `flymine.properties.dev` file.
 
 Gradle
 ----------------------------
