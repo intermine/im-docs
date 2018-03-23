@@ -39,7 +39,7 @@ Delete and recreate all database tables
 
 .. code-block:: sh
     
-    ~/git/flymine $ ./gradlew builddb
+    ~/git/flymine $ ./gradlew buildDB
 
 To run a single source
 
