@@ -30,6 +30,8 @@ We will look at each of the sub-directories in much more detail later, they are:
   contains information about the data model to be used and ant targets relating to the data model and database creation.
 ``webapp`` 
   basic configuration and commands for building and deploying the web application
+``data``
+  contains a tar file with data to load
 
 In addition there are two gradle files, used by the InterMine build system, which we won't need to edit (`build.gradle` and `settings.gradle`) and a `project.xml` file.
 
@@ -55,7 +57,7 @@ Specific operations can be performed on the Mine once data is loaded, these are 
 Data to load
 ~~~~~~~~~~~~~~~
 
-The biotestmine checkout includes a tar file with data to load into MalariaMine.  These are real, complete data sets for ''P. falciparum''.  We will load genome annotation from PlasmoDB, protein data from UniProt and GO annotation also from PlasmoDB.
+The biotestmine checkout includes a tar file with data to load into BiotestMine.  These are real, complete data sets for ''P. falciparum''.  We will load genome annotation from PlasmoDB, protein data from UniProt and GO annotation also from PlasmoDB.
 
 Copy this to some local directory (your home directory is fine for this workshop) and extract the archive:
 
@@ -65,7 +67,7 @@ Copy this to some local directory (your home directory is fine for this workshop
   $ cp git/biotestmine/data/malaria-data.tar.gz .
   $ tar -zxvf malaria-data.tar.gz
 
-In your `` directory edit `project.xml` to point each source at the extracted data, just replace `DATA_DIR` with `/home/username` (or on a mac `/Users/username`). Do use absolute path.
+In your `biotestmine` directory edit `project.xml` to point each source at the extracted data, just replace `DATA_DIR` with `/home/username` (or on a mac `/Users/username`). Do use absolute path.
 
 .. code-block:: bash
 
@@ -153,7 +155,7 @@ Defining the model
 
  * You can easily adapt InterMine to include your own data by creating new additions files, we'll see how to do this later.
 
-The core data model, defined in core.xml file, is released in the bio-core artifact downloaded as biotestmine dependency (and some extra model files).
+The core data model, defined in core.xml file, is released in the bio-core artifact downloaded as biotestmine dependency.
 You can view the contents of the core model here ...
 
 Note the fields defined for `Protein`:
@@ -188,7 +190,16 @@ The model is generated from a core model XML file and any number of additions fi
     extraModelsEnd = ""
   }
 
-The first file merged into the core model is the `so_additions.xml` file.  This XML file is generated from terms listed in the so_terms file, located in biotestmine/dbmodel/resources.  The build system creates classes corresponding to the Sequence Ontology terms.
+The first file merged into the core model is the `so_additions.xml` file.  This XML file is generated in the `dbmodel/build/` directory from terms listed in the so_terms file, as configured in the `dbmodel/build.gradle` file, in dbModelConfig.
+
+.. code-block:: bash
+
+  dbModelConfig {
+    soTermListFilePath = "dbmodel/resources/so_terms"
+    soAdditionFilePath = "dbmodel/build/so_additions.xml"
+  }
+
+The build system creates classes corresponding to the Sequence Ontology terms.
 The model is then combined with any extra classes and fields defined in the sources to integrate, those listed as `<source>` elements in `project.xml`.  Look at an example 'additions' file for the UniProt source ADD LINK
 
 This defines extra fields for the `Protein` class which will be added to those from the core model.
@@ -261,7 +272,7 @@ This has also created necessary indexes on the tables:
 
 .. warning::
 
-  Running `build-db` will destroy any existing data loaded in the malariamine database and re-create all the tables.
+  Running `buildDB` will destroy any existing data loaded in the biotestmine database and re-create all the tables.
 
 
 The model XML file is stored in the database once created, this and some other configuration files are held in the `intermine_metadata` table which has `key` and `value` columns:
@@ -777,7 +788,11 @@ To run all the post-processing steps:
 
 This will take a few minutes.  When complete you can re-run the queries above to see what has been added.
 
-Post-processing steps can also be run individually,
+Post-processing steps can also be run individually:
+
+.. code-block:: bash
+
+  $ ./gradlew postProcess -Pprocess=update-publications --no-daemon
 
 Building a Mine
 ----------------------
