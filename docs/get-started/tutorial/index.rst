@@ -10,7 +10,7 @@ Following the steps on this page you will set up an example InterMine.  You will
 Getting Started
 ----------------------
 
-We use `git <http://git-scm.com>`_ to manage and distribute source code and :doc:`/system-requirements/software/gradle` as buold systems.
+We use `git <http://git-scm.com>`_ to manage and distribute source code and :doc:`/system-requirements/software/gradle` as build systems.
 Download dependencies from  :doc:`/system-requirements/index`.
 Clone biotestmine project from https://github.com/intermine/biotestmine.
 
