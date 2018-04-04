@@ -241,7 +241,7 @@ Each term from `so_term` was added to the model, according to the sequence ontol
 
 .. code-block:: bash
 
-   $ less build/gen/org/intermine/model/bio/Protein.java
+   $ less biotestmine/dbmodel/build/gen/org/intermine/model/bio/Protein.java
 
 Each of the fields has appropriate getters and setters generated for it, note that these are `interfaces` and are turned into actual classes dynamically at runtime - this is how the model copes with multiple inheritance.
 
