@@ -6,7 +6,7 @@ Get started
    
    tutorial/index
    tutorial/webapp
-   testmodel
+   testmine
    intermine-tests
    amazon
    hikaricp
