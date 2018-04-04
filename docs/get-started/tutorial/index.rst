@@ -202,9 +202,10 @@ The first file merged into the core model is the `so_additions.xml` file.  This 
 The build system creates classes corresponding to the Sequence Ontology terms.
 The model is then combined with any extra classes and fields defined in the sources to integrate, those listed as `<source>` elements in `project.xml`.  Look at an example 'additions' file for the  `UniProt source <https://github.com/intermine/intermine/blob/dev/bio/sources/uniprot/uniprot_additions.xml>`_  
 
-This defines extra fields for the `Protein` class which will be added to those from the core model.
-* Other model components can be included by specifying in the `dbmodel/build.gradle` file, for example we include `genomic_additions.xml`
-* The `reverse-reference` elements in definitions of some references and collections, this defines in the model that two references/collections are opposing ends of the same relationship.  The value should be set to the name of the reference/collection in the `referenced-type`.
+This defines extra fields for the `Protein` class which will be added to those from the core model.  
+
+* Other model components can be included by specifying in the `dbmodel/build.gradle` file, for example we include `genomic_additions.xml`  
+* The `reverse-reference` elements in definitions of some references and collections, this defines in the model that two references/collections are opposing ends of the same relationship.  The value should be set to the name of the reference/collection in the `referenced-type`.  
 
 Creating a database
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
