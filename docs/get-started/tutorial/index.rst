@@ -57,7 +57,7 @@ Specific operations can be performed on the Mine once data is loaded, these are 
 Data to load
 ~~~~~~~~~~~~~~~
 
-The biotestmine checkout includes a tar file with data to load into BiotestMine.  These are real, complete data sets for ''P. falciparum''.  We will load genome annotation from PlasmoDB, protein data from UniProt and GO annotation also from PlasmoDB.
+The biotestmine checkout includes a tar file with data to load into BiotestMine. These are real, complete data sets for ''P. falciparum'' (but very old!). We will load genome annotation from PlasmoDB, protein data from UniProt and GO annotation also from PlasmoDB.
 
 Copy this to some local directory (your home directory is fine for this workshop) and extract the archive:
 
@@ -67,12 +67,12 @@ Copy this to some local directory (your home directory is fine for this workshop
   $ cp git/biotestmine/data/malaria-data.tar.gz .
   $ tar -zxvf malaria-data.tar.gz
 
-In your `biotestmine` directory edit `project.xml` to point each source at the extracted data, just replace `DATA_DIR` with `/home/username` (or on a mac `/Users/username`). Do use absolute path.
+In your `biotestmine` directory edit `project.xml` to point each source at the extracted data, just replace `/data` with `/home/username` (or on a mac `/Users/username`). Do use the absolute path.
 
 .. code-block:: bash
 
   $ cd ~/git/biotestmine
-  $ sed -i 's/DATA_DIR/\/home\/username/g' project.xml
+  $ sed -i 's/\/data/\/home\/username/g' project.xml
 
 For example, the `uniprot-malaria` source:
 
