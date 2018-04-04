@@ -1,8 +1,15 @@
 Maven
 ========
 
-InterMine uses `Maven <https://maven.apache.org/>`_ to manage local dependencies.  
+InterMine uses `Maven <https://maven.apache.org/>`_ to manage local dependencies, including your mine-specific data sources.
 
-If you do not have any local dependencies, you do not need to install Maven. If you have local data sources, you will need Maven to manage the sources and put them on the build's classpath.
+.. code-block:: base
+  
+  # for Ubuntu
+  sudo apt-get install maven
+
+Previously you had to download and compile InterMine. Now, instead, you’ll be using the compiled InterMine JARs available via jCenter. They will be automatically dowloaded and stored in the gradle cache ~/.gradle/caches/modules-2/files-2.1/org.intermine/.
+
+To use your mine-specific bio sources, you will install Maven locally. The install task, recompiles the bio-source code, creates a new jar and installs it in you local Maven. These JARs are located in ~/.m2.
 
 .. index:: maven

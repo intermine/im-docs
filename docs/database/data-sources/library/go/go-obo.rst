@@ -21,8 +21,10 @@ project XML example
 .. code-block:: xml
 
     <source name="go" type="go">
-      <property name="src.data.file" location="/data/go-annotation/gene_ontology.obo"/>
+      <property name="src.data.file" location="/data/go-annotation/go-basic.obo"/>
     </source>
+
+`go-basic.obo` should load in a few minutes. `go.obo` is much more complex and takes a few hours and lots of memory.
 
 Optional parameter: <property name="ontologyPrefix" value="FBbt"/>
 
