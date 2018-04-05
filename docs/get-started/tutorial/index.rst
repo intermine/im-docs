@@ -479,7 +479,7 @@ Now load the `malaria-gff` source by running this command in `biotestmine`:
 
 .. code-block:: bash
 
-  $ ./gradlew -Psource=malaria-gff --stacktrace --no-daemon
+  $ ./gradlew integrate -Psource=malaria-gff --stacktrace --no-daemon
 
 This will take a few minutes to run.  Note that this time we don't run `buildDB` as we are loading this data into the same database as UniProt.  As before you can run a query to see how many objects of each class are loaded:
 
