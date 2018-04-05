@@ -459,7 +459,7 @@ In some cases specific code is required to deal with attributes in the gff file 
 
 From the example above, by default: `ID=gene.46311;description=hypothetical%20protein;Name=PFA0210c` would make `Gene.primaryIdentifier` be `gene.46311` and `Gene.symbol` be `PFA0210c`.  We need `PFA0210c` to be the `primaryIdentifier`.
 
-The `malaria-gff` source is held in the `malaria-gff` subproject.  Look at the `malaria-gff.properties` file in this directory, there are two properties of interest:
+The `malaria-gff` source is held `in the main InterMine repository<https://github.com/intermine/intermine/blob/3328168aa750f1175d9e7c6bb2a516455cfc9bd1/bio/sources/example-sources/malaria-gff/project.properties>`_ (included as a biotestmine project dependency).  Look at the `malaria-gff.properties` file - there are two properties of interest:
 
 .. code-block:: properties
 
@@ -469,11 +469,7 @@ The `malaria-gff` source is held in the `malaria-gff` subproject.  Look at the `
   # specify a Java class to be called on each row of the gff file to cope with attributes
   gff3.handlerClassName = org.intermine.bio.dataconversion.MalariaGFF3RecordHandler
 
-Look at the `MalariaGFF3RecordHandler` class in `bio/sources/example-sources/malaria-gff/main/src/org/intermine/bio/dataconversion`.  This code changes which fields the `ID` and `Name` attributes from the GFF file have been assigned to.
-
-.. code-block:: bash
-
-  $ less ~/git/intermine/bio/sources/example-sources/malaria-gff/main/src/org/intermine/bio/dataconversion/MalariaGFF3RecordHandler.java
+Look at the `MalariaGFF3RecordHandler` `class in InterMine<https://github.com/intermine/intermine/blob/3ae2631dbe244a029baf9d369510bd87e49ac927/bio/sources/example-sources/malaria-gff/main/src/org/intermine/bio/dataconversion/MalariaGFF3RecordHandler.java>`_: .  This code changes which fields the `ID` and `Name` attributes from the GFF file have been assigned to.
 
 
 Loading GFF3 data
