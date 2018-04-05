@@ -385,7 +385,7 @@ First, look at the information currently loaded for gene "PFL1385c" from UniProt
 GFF3 files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-GFF3 is a standard format use to represent genome features and their locations.  It is flexible and expressive and defined by a clear standard - http://www.sequenceontology.org/gff3.shtml.  An example of the file will load can be used to explain the format, each line represents one feature and has nine tab-delimited columns:
+GFF3 is a standard format use to represent genome features and their locations.  It is flexible and expressive and defined by a clear standard - https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md.  An example of the file will load can be used to explain the format, each line represents one feature and has nine tab-delimited columns:
 
 .. code-block:: properties
 
