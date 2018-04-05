@@ -295,7 +295,7 @@ Loading of data is done by running `integrate`.  You can specify one or more sou
 .. code-block:: bash
 
   $ cd biotestmine
-  $ ./gradlew -Psource=uniprot-malaria --stacktrace --no-daemon
+  $ ./gradlew integrate -Psource=uniprot-malaria --stacktrace --no-daemon
 
 The `--stacktrace` option will display complete stack traces if there is a problem.
  
@@ -313,7 +313,7 @@ A useful command to initialise the database and load a source from the integrate
 
 .. code-block:: bash
 
-  $ (./gradlew clean buildDB) && ./gradlew -Psource=uniprot-malaria --stacktrace --no-daemon
+  $ (./gradlew clean buildDB) && ./gradlew integrate -Psource=uniprot-malaria --stacktrace --no-daemon
 
 Now that the data has loaded, log into the database and view the contents of the protein table:
 
