@@ -429,7 +429,7 @@ The files we are loading are from PlasmoDB and contain `gene`, `exon` and `mRNA`
 
 .. code-block:: bash
 
-  $ less DATA_DIR/malaria/genome/gff/MAL1.gff3
+  $ less /data/malaria/genome/gff/MAL1.gff3
 
 The GFF3 source
 ~~~~~~~~~~~~~~~~~
@@ -499,7 +499,7 @@ FASTA is a minimal format for representing sequence data.  Files comprise a head
 
 .. code-block:: bash
 
-  $ less DATA_DIR/malaria/genome/fasta/MAL1.fasta
+  $ less /data/malaria/genome/fasta/MAL1.fasta
 
 The type of feature created is defined by a property in `project.xml`, the attribute set defaults to `primaryIdentifier` but can be changed with the `fasta.classAttribute` property.  The following properties are defined in `project.xml` for `malaria-chromosome-fasta`:
 
