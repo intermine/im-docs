@@ -595,19 +595,14 @@ Important points:
 Primary keys in MalariaMine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The keys used by each source are set in the main directory of the corresponding `bio/sources/` directory.
+The keys used by each source are set in the main directory of the corresponding `bio/sources/` directory in the intermine repo.
 
-For `uniprot-malaria`:
+For `uniprot-malaria`: https://github.com/intermine/intermine/blob/b582b5029075e86d20810d666de122039645dbf5/bio/sources/uniprot/src/main/resources/uniprot_keys.properties 
 
-.. code-block:: bash
-
-  $ less bio/sources/uniprot/src/main/resourcesuniprot_keys.properties
 
 And `malaria-gff`:
 
-.. code-block:: bash
-
-  $ less bio/sources/example-sources/malaria-gff/resources/malaria-gff_keys.properties
+https://github.com/intermine/intermine/blob/b582b5029075e86d20810d666de122039645dbf5/bio/sources/example-sources/malaria-gff/src/main/resources/malaria-gff_keys.properties
 
 The key on `Gene.primaryIdentifier` is defined in both sources, that means that the same final result would have been achieved regardless of the order in the two sources were loaded.  
 
