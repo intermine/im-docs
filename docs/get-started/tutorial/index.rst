@@ -660,11 +660,11 @@ Looking at the `organism` table in the database you will see that the only colum
   $ psql biotestmine
   biotestmine#  select * from organism;
 
-From the `integrate` directory run the `entrez-organism` source:
+From the root `biotestmine` directory run the `entrez-organism` source:
 
 .. code-block:: bash
 
-  $ ./gradlew -Psource=entrez-organim --stacktrace --no-daemon
+  $ ./gradlew integrate -Psource=entrez-organism --stacktrace --no-daemon
 
 This should only take a few seconds.  This source does the following:
 
