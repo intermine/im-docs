@@ -522,7 +522,7 @@ Now load the `malaria-chromosome-fasta` source by running this command in `malar
 
 .. code-block:: bash
 
-  $ ./gradlew -Psource=malaria-chromosome-fasta --stacktrace --no-daemon
+  $ ./gradlew integrate -Psource=malaria-chromosome-fasta --stacktrace --no-daemon
 
 This has integrated the chromosome objects with those already in the database.  In the next step we will look at how this data integration works.
 
