@@ -24,6 +24,17 @@ These tasks may be helpful:
 
 Gradle tasks can be overridden by your local Gradle `build.gradle` file. You can also add new tasks.
 
+How does my mine know to use the Plugin? How do dependencies work?
+--------------------------------------------------------------------------------------------
+
+In the mine `build.gradle` file you will see the `plugin` added to the mine's dependencies:
+
+.. code-block:: gradle
+
+    dependencies {
+        classpath group: 'org.intermine', name: 'plugin', version: System.getProperty("imVersion")
+    }
+
 Where is InterMine code on my server?
 --------------------------------------------------------------------------------------------
 
