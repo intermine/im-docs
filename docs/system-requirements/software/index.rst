@@ -24,12 +24,13 @@ After installation, most programs require extra configuration to work with Inter
    :maxdepth: 2
 
    git
-   gradle/index
    java
    perl
    postgres/index
    tomcat
    macs
    maven
+
+InterMine uses :doc:`Gradle </system-requirements/software/gradle/index>` to manage the build but do not install Gradle locally. Instead use the wrapper provided.
    
 .. index:: software dependencies, git, Java, Perl, PostgreSQL, Mac, Apples, gradle, Tomcat, maven
