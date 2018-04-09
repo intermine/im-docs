@@ -1,9 +1,9 @@
-Gradle
-========
+Gradle - Quick Start
+========================
 
 `Gradle <https://gradle.org>`_ is InterMine's build tool. In InterMine 2.0 Gradle replaced ant.
 
-Please see :doc:`Upgrade instructions </support/upgrade>` for details on how to migrate your system to use Gradle.
+Please see :doc:`Upgrade instructions </support/upgrade>` for details on how to migrate your system to use Gradle and :doc:`Gradle FAQs </system-requirements/software/gradle/FAQs>` for commonly asked questions about Gradle.
 
 Below are common commands you will use when building InterMine database and deploying webapps.
 
