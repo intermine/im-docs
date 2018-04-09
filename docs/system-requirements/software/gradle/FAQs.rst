@@ -8,9 +8,7 @@ Please see :doc:`Upgrade instructions </support/upgrade>` for details on how to 
 `./gradlew builddb` works but I don't see `builddb` in my `build.gradle` file. Where is it?
 --------------------------------------------------------------------------------------------------------------------
 
-The Gradle tasks are located in the InterMine Plugin
-
-For example, the `builddb <https://github.com/intermine/intermine/blob/gradle/plugin/src/main/groovy/org/intermine/plugin/dbmodel/DBModelPlugin.groovy>`_ task is located in the `DBModelPlugin <https://github.com/intermine/intermine/blob/gradle/plugin/src/main/groovy/org/intermine/plugin>`_ 
+The Gradle tasks are located in the InterMine Plugin. For example, the `builddb <https://github.com/intermine/intermine/blob/gradle/plugin/src/main/groovy/org/intermine/plugin/dbmodel/DBModelPlugin.groovy>`_ task is located in the `DBModelPlugin <https://github.com/intermine/intermine/blob/gradle/plugin/src/main/groovy/org/intermine/plugin>`_ 
 
 These tasks may be helpful:
 
@@ -35,10 +33,14 @@ In the mine `build.gradle` file you will see the `plugin` added to the mine's de
         classpath group: 'org.intermine', name: 'plugin', version: System.getProperty("imVersion")
     }
 
+If you look at the Plugin, you will see that it depends on InterMine specific packages, e.g. intermine-objectstore and bio-core.
+
+The `System.getProperty("imVersion")` by default is set to be `2.0.+` in your local `gradle.properties` file but you can change this.
+
 Where is InterMine code on my server?
 --------------------------------------------------------------------------------------------
 
-The JARs are here on your machine:
+The InterMine JARs are here on your machine:
 
 .. code-block:: bash
 
