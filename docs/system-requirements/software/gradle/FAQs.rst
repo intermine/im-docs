@@ -86,6 +86,32 @@ If Gradle does NOT find a local JAR, it will look in the remote repositories (JC
 
 Gradle will pull down the correct JAR and store in `~/.gradle/caches/modules-2/files-2.1/org.intermine/`.
 
+I don't want to use the InterMine JAR provided. I have custom code for only me and want to use my own JAR.
+------------------------------------------------------------------------------------------------------------------------
+
+1. Clone the repo https://github.com/intermine/intermine as normal.
+2. Change to use the gradle branch.
+3. Merge your code changes into the InterMine repo.
+4. "Install" the InterMine JAR
+
+.. code-block:: bash
+
+    # if your code changes are in InterMine        
+    ~/git/intermine/intermine $ ./gradlew install
+    # if your code changes are in the plugin        
+    ~/git/intermine/plugin $ ./gradlew install
+    # if your code changes are in bio
+    ~/git/intermine/bio $ ./gradlew install
+    # if your code changes are in a bio-source
+    ~/git/intermine/bio/sources $ ./gradlew install
+
+Installing a Gradle project:
+
+1. Compiles the code and creates a JAR
+2. Maven puts this JAR on the classpath by copying to local `~/.m2` directory.
+3. Because of the order of repos, local JARs are always used first
+
+
 I got an out of memory error! Help!
 ----------------------------------------------
 
