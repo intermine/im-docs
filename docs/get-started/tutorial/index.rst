@@ -120,7 +120,7 @@ For the moment you need to change `PSQL_USER` and `PSQL_PWD` in the `db.producti
   db.production.datasource.serverName=localhost
   # port: uncomment the next line if use different prot other than 3306
   # db.production.datasource.port=PORT_NUMBER
-  db.production.datasource.databaseName=malariamine
+  db.production.datasource.databaseName=biotestmine
   db.production.datasource.user=PSQL_USER
   db.production.datasource.password=PSQL_PWD
 
@@ -141,7 +141,7 @@ New postgres databases default to `UTF-8` as the character encoding.  This will 
 The Data Model
 ----------------------
 
-Now we're ready to set up a database schema and load some data into our MalariaMine, first some information on how data models are defined in InterMine.
+Now we're ready to set up a database schema and load some data into our BioTestMine, first some information on how data models are defined in InterMine.
 
 Defining the model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -245,7 +245,7 @@ Each term from `so_term` was added to the model, according to the sequence ontol
 
 Each of the fields has appropriate getters and setters generated for it, note that these are `interfaces` and are turned into actual classes dynamically at runtime - this is how the model copes with multiple inheritance.
 
-4. Automatically created database tables in the postgres database specified in `biotestmine.properties` as `db.production` - in our case `malariamine`.  Log into this database and list the tables and the columns in the protein table:
+4. Automatically created database tables in the postgres database specified in `biotestmine.properties` as `db.production` - in our case `biotestmine`.  Log into this database and list the tables and the columns in the protein table:
 
 .. code-block:: bash
 
@@ -303,8 +303,8 @@ This will take a couple of minutes to complete, the command runs the following s
 
 1. Checks that a source with name `uniprot-malaria` exists in `project.xml`
 2. Reads the UniProt XML files at the location specified by `src.data.dir`
-3. Calls the parser included in the `uniprot` source with the list of files, this reads the original XML and creates `Items` which are metadata representations of the objects that will be loaded into the malariamine database.  These items are stored in an intermediate `items` database (more about `Items` later).
-4. Reads from the `items` database, converts items to objects and loads them into the malariamine database.
+3. Calls the parser included in the `uniprot` source with the list of files, this reads the original XML and creates `Items` which are metadata representations of the objects that will be loaded into the biotestmine database.  These items are stored in an intermediate `items` database (more about `Items` later).
+4. Reads from the `items` database, converts items to objects and loads them into the biotestmine database.
 
 This should complete after a couple of minutes, if you see an error message then see :doc:`/support/troubleshooting-tips`.  
  
@@ -518,7 +518,7 @@ This will create features of the class `Chromosome` with `primaryIdentifier` set
 Loading FASTA data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now load the `malaria-chromosome-fasta` source by running this command in `malariamine/integrate`:
+Now load the `malaria-chromosome-fasta` source by running this command in `biotestmine/integrate`:
 
 .. code-block:: bash
 
@@ -529,7 +529,7 @@ This has integrated the chromosome objects with those already in the database.  
 Data Integration
 ----------------------
 
-Data integration in MalariaMine
+Data integration in BioTestMine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The sources `uniprot-malaria` and `malaria-gff` have both loaded information about the same genes.  Before loading genome data we ran a query to look at the information UniProt provided about the gene "PFL1385c":
@@ -579,7 +579,7 @@ Data integration works by defining keys for each class of object to describe fie
 * `primaryIdentifier` was used as a key for `Gene`
 * `taxonId` was used as a key for `Organism`
 
-For each `Gene` object loaded by `malaria-gff` a query was performed in the `malariamine` database to find any existing `Gene` objects with the same `primaryIdentifier`.  If any were found fields from both objects were merged and the resulting object stored.
+For each `Gene` object loaded by `malaria-gff` a query was performed in the `biotestmine` database to find any existing `Gene` objects with the same `primaryIdentifier`.  If any were found fields from both objects were merged and the resulting object stored.
 
 Many performance optimisation steps are applied to this process.  We don't actually run a query for each object loaded, requests are batched and queries can be avoided completely if the system can work out no integration will be needed.
 
@@ -592,7 +592,7 @@ Important points:
 * One source can use multiple primary keys for a class if the objects of that class don't consistently have the same identifier type
 * `null` - if a source has no value for a field that is defined as a primary key then the key is not used and the data is loaded without being integrated.
 
-Primary keys in MalariaMine
+Primary keys in BioTestMine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The keys used by each source are set in the main directory of the corresponding `bio/sources/` directory in the intermine repo.
@@ -729,10 +729,10 @@ Some post-process steps are used to homogenize data from different sources or fi
 
 Finally, there are post-process operations that create summary information to be used by the web application: `summarise-objectstore`, `create-search-index` and `create-autocomplete-indexes`.
 
-MalariaMine Post Processing
+BioTestMine Post Processing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following `<post-process>` targets are included in the MalariaMine `project.xml`. 
+The following `<post-process>` targets are included in the BioTestMine `project.xml`. 
 The post-processes are run as a single stage of the build process. (see step 11.2 below for how to run the post-processing steps).
 
 Run queries listed here before and after running the post-processing to see examples of what each step does. 
@@ -762,7 +762,7 @@ After running `transfer-sequences` the `sequenceid` column is filled in.
 `do-sources` 
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Each source can also provide code to execute post-process steps if required.  This command loops through all of the sources and checks whether there are any post-processing steps configured.  There aren't any for the sources we are using for MalariaMine but you should always include the `do-sources` element.
+Each source can also provide code to execute post-process steps if required.  This command loops through all of the sources and checks whether there are any post-processing steps configured.  There aren't any for the sources we are using for BioTestMine but you should always include the `do-sources` element.
 
 `summarise-objectstore`, `create-search-index` & `create-autocomplete-index` 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -791,16 +791,16 @@ Building a Mine
 
 So far we have created databases, integrated data and run post-processing with individual `ant` targets.  InterMine includes a perl program called `project_build` that reads the `project.xml` definition and runs all of the steps in sequence.  It also has the option of dumping the production database during the build and recovering from these dumps in case of problems.
 
-Build complete MalariaMine
+Build complete BioTestMine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Build MalariaMine now using the `project_build` script, we will need a completed MalariaMine for the webapp.
+Build BioTestMine now using the `project_build` script, we will need a completed BioTestMine for the webapp.
 
-Run the `project_build` script from your `malariamine` directory:
+Run the `project_build` script from your `biotestmine` directory:
 
 .. code-block:: bash
 
-  $ ../bio/scripts/project_build -b -v localhost ~/malariamine-dump
+  $ ../bio/scripts/project_build -b -v localhost ~/biotestmine-dump
 
 This will take ~15-30mins to complete.
 
@@ -817,7 +817,7 @@ Once you have read access to a production database, you can build and release a 
 Configure
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In the `~/.intermine` directory, update the webapp properties in your malariamine.properties file].  Update the following properties:
+In the `~/.intermine` directory, update the webapp properties in your biotestmine.properties file].  Update the following properties:
 
 * tomcat username and password
 * superuser username and password
@@ -829,12 +829,12 @@ The userprofile database stores all user-related information such as username an
 
 1. Configure 
 
-Update your malariamine.properties file  with correct information for the `db.userprofile-production` database:
+Update your biotestmine.properties file  with correct information for the `db.userprofile-production` database:
 
 .. code-block:: properties
 
   db.userprofile-production.datasource.serverName=DB_SERVER
-  db.userprofile-production.datasource.databaseName=userprofile-malariamine
+  db.userprofile-production.datasource.databaseName=userprofile-biotestmine
   db.userprofile-production.datasource.user=USER_NAME
   db.userprofile-production.datasource.password=USER_PASSWORD
 
@@ -909,4 +909,4 @@ If the error occurs while you are browsing your webapp, the error message will b
    
    test-data 
 
-.. index:: tutorial, ant, logs, userprofile, malariamine, data integration, keys, primary keys, priority conflicts, make_mine, project XML, FASTA, GFF3, data integration, UniProt, publications, build-db, creating a databasebiotestmine
+.. index:: tutorial, ant, logs, userprofile, malariamine, biotestmine, data integration, keys, primary keys, priority conflicts, make_mine, project XML, FASTA, GFF3, data integration, UniProt, publications, build-db, creating a databasebiotestmine
