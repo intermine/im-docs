@@ -8,7 +8,7 @@ Please see :doc:`Upgrade instructions </support/upgrade>` for details on how to 
 `./gradlew builddb` works but I don't see `builddb` in my `build.gradle` file. Where is it?
 --------------------------------------------------------------------------------------------------------------------
 
-The Gradle tasks are located in the InterMine Plugin, but can be overridden by your local Gradle `build.gradle` file. 
+The Gradle tasks are located in the InterMine Plugin
 
 For example, the `builddb <https://github.com/intermine/intermine/blob/gradle/plugin/src/main/groovy/org/intermine/plugin/dbmodel/DBModelPlugin.groovy>`_ task is located in the `DBModelPlugin <https://github.com/intermine/intermine/blob/gradle/plugin/src/main/groovy/org/intermine/plugin>`_ 
 
@@ -22,23 +22,26 @@ These tasks may be helpful:
     # see which tasks are being run during the execution of a specific command
     ~/git/flymine $ ./gradlew builddb --info
 
-I see the `builddb` task in the Plugin. Where is that code on my server?
+Gradle tasks can be overridden by your local Gradle `build.gradle` file. You can also add new tasks.
+
+Where is InterMine code on my server?
 --------------------------------------------------------------------------------------------
 
 The JARs are here on your machine:
 
-# gradle - remote repos
-~/.gradle/caches/modules-2/files-2.1/org.intermine/
+.. code-block:: bash
 
-# maven - local installs
-~/.m2
+    # gradle - remote repos
+    ~/.gradle/caches/modules-2/files-2.1/org.intermine/
+    # maven - local installs
+    ~/.m2
 
-You normally will be pulling the JARs down from the remote repository, unless you have installed the JARs locally.
+You normally will be pulling the JARs down from the remote repository, unless you have installed the JARs locally yourself.
 
-Which JAR am I using?
+Which JAR am I using? I have JARs in both of those directories.
 --------------------------------------------------------------------------------------------
 
-Here is an excerpt from the mine's build.gradle file the determines which JAR is being used:
+Here is an excerpt from the mine's `build.gradle` file the determines which JAR is being used:
 
 .. code-block:: guess
 
@@ -55,7 +58,7 @@ Gradle will go through these respositories in order. It stops when it finds a ma
 Maven Local
 ~~~~~~~~~~~~~~~
 
-Gradle first looks in `mavenLocal()` which is your `~/.m2` (maven) directory. 
+Gradle first looks in `mavenLocal()` which is your `~/.m2/repository` directory. 
 
 These are JARs you have installed locally. 
 
@@ -68,6 +71,7 @@ If Gradle does NOT find a local JAR, it will look in the remote repositories (JC
 
 `JFrog <https://oss.jfrog.org/artifactory/webapp/#/home>`_ is where our InterMine SNAPSHOT JARs are currently.
 
+Gradle will pull down the correct JAR and store in `~/.gradle/caches/modules-2/files-2.1/org.intermine/`.
 
 I got an out of memory error! Help!
 ----------------------------------------------
@@ -77,9 +81,9 @@ Gradle gets its properties differently from ant. Instead of `ANT_OPTS`, set `GRA
 I set `GRADLE_OPTS` properly and I still am getting an "out of memory" error message
 --------------------------------------------------------------------------------------------
 
-Use the `--no-daemon` flag when running `./gradlew` commands. This will prevent the use of daemons, and instead use the values set in `GRADLE_OPTS`.
+Use the `--no-daemon` flag when running `./gradlew` commands. This will prevent the use of daemons.
 
-The Gradle daemon's memory settings are set in the `gradle.properties` file. If you do not have them set, the default value is 1 GB of memory. This is insufficient for building an InterMine and you will get errors.
+The Gradle daemon's memory settings are set in the `gradle.properties` file. If you do not have them set, the default value is 1 GB of memory. This is insufficient for building an InterMine and you will get errors. If you don't use daemons, the Gradle process will use the values set in `GRADLE_OPTS`.
 
 I got a different error! Help!
 ----------------------------------------------
