@@ -12,7 +12,7 @@ Run the build script from the mine directory:
 
 .. code-block:: bash
 
-  $ ../bio/scripts/project_build -l -t -v server_name /some/dump/location/dump_file_prefix
+  $ ../bio/scripts/project_build -b -v server_name /some/dump/location/dump_file_prefix
 
 The `server_name` is hostname of the machine where the `pg_dump` command should be run.  If you are running `project_build` on the same machine as PostgreSQL then you should specify `localhost` as the server name.  If the PostgreSQL server is on a remote machine, give its hostname.  In that case the script will try to run `pg_dump` on the remote machine using `ssh`.  This makes dumping a little faster and allows for the case where `/some/dump/location/dump_file_prefix` is only visible on the remote machine.
 
