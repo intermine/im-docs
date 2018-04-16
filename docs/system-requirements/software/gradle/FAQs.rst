@@ -8,7 +8,7 @@ Please see :doc:`Upgrade instructions </support/upgrade>` for details on how to 
 `./gradlew builddb` works but I don't see `builddb` in my `build.gradle` file. Where is it?
 --------------------------------------------------------------------------------------------------------------------
 
-The Gradle tasks are located in the InterMine Plugin. For example, the `builddb <https://github.com/intermine/intermine/blob/gradle/plugin/src/main/groovy/org/intermine/plugin/dbmodel/DBModelPlugin.groovy>`_ task is located in the `DBModelPlugin <https://github.com/intermine/intermine/blob/gradle/plugin/src/main/groovy/org/intermine/plugin>`_ 
+All the ant tasks that were in the `imbuild` directory are now Gradle tasks located in the InterMine Plugin. For example, the `builddb <https://github.com/intermine/intermine/blob/gradle/plugin/src/main/groovy/org/intermine/plugin/dbmodel/DBModelPlugin.groovy>`_ task is located in the `DBModelPlugin <https://github.com/intermine/intermine/blob/gradle/plugin/src/main/groovy/org/intermine/plugin>`_ 
 
 These tasks may be helpful:
 
