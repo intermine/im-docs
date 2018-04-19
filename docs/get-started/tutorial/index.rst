@@ -700,7 +700,7 @@ Now run the `update-publications` source to fill in the details:
 
 .. code-block:: bash
 
-  $ ./gradlew -Psource=update-publications --stacktrace --no-daemon
+  $ ./gradlew integrate -Psource=update-publications --stacktrace --no-daemon
 
 As there are often large numbers of publications they are retrieved in batches from the web service.
 
