@@ -43,33 +43,15 @@ The `project_build` script accepts the following flags:
 -l
   attempt to restart by reading the last dump file (see note below)
 
--r
-  attempt to restart just after the last dump point _without_ loading a dump (see note below)
-
 -b
   run build-db before starting build and drop any existing backup databases  (created when using the -t flag)
-
--n
-  parse files and report actions, but don't execute anything
 
 -V
   set the release number to pass to ant (as -Drelease=release_number) [1]_.
 
--D
-  set the destination database for the completed build; the database will be copied to this name in the same postgres server that the build used
+Dump files take the name `dump_file_prefix`.final.  
 
--a
-  set the list of actions (ie. source integrations or post-processes) to perform - the list must be a subset of the sources/postprocesses in the project.xml file
-
-* The -l and -r operate as usual.
-* To run all steps starting at <some_action> use a dash after the action name: '''-a <some_action>-'''
-* To perform only the final dump use: '''-a final-dump'''
-* To refer to dump step and skip the corresponding action, use action name with "-dump" appended. eg.
-  
-  * '''-a fly-fish-dump-''' - dump the `fly-fish` source and continues integrating
-  * '''-a fly-fish-dump,flymine-static,create-utr-references,final-dump''' - do just those steps
-
-Dump files take the name `dump_file_prefix`.final.  These dumps can be used by `project_build` to restart a build process after a previous problem.  Running project_build with '''`-l`''' will reload the latest dump (if any) with `dump_file_prefix` exist and restart the build from that point.
+Running project_build with '''`-l`''' will reload the latest dump (if any) with `dump_file_prefix` and restart the build from that point.
 
 .. note::
 
