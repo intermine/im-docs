@@ -95,6 +95,9 @@ Update config
 
 1. Remove `<property name="source.location" location="../bio/sources/"/>` from your project XML file
 2. Set `GRADLE_OPTS` instead of `ANT_OPTS`
+
+   * Append `-Dorg.gradle.daemon=false` to prevent daemons from being used.
+
 3. Update project XML for some sources
 
    * `SO` source's location has been updated to be: `<property name="src.data.file" location="so.obo" />` 
