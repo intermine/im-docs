@@ -789,18 +789,30 @@ Post-processing steps can also be run individually:
 Building a Mine
 ----------------------
 
-So far we have created databases, integrated data and run post-processing with individual `ant` targets.  InterMine includes a perl program called `project_build` that reads the `project.xml` definition and runs all of the steps in sequence.  It also has the option of dumping the production database during the build and recovering from these dumps in case of problems.
+So far we have created databases, integrated data and run post-processing with individual `ant` targets.  InterMine has a perl program called `project_build` that reads the `project.xml` definition and runs all of the steps in sequence.  It also has the option of dumping the production database during the build and recovering from these dumps in case of problems.
 
 Build complete BioTestMine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Build BioTestMine now using the `project_build` script, we will need a completed BioTestMine for the webapp.
 
+First, you'll need to clone the repository that contains the project_build script. From your biotestmine directory: 
+
+.. code-block:: bash
+
+  $ git clone https://github.com/intermine/intermine-scripts
+  
+You'll need to make the `project_build` script executable before it will run:
+
+.. code-block:: bash
+
+  $ chmod +x intermine-scripts/project_build
+
 Run the `project_build` script from your `biotestmine` directory:
 
 .. code-block:: bash
 
-  $ ../bio/scripts/project_build -b -v localhost ~/biotestmine-dump
+  $ ./intermine-scripts/project_build -b -v localhost ~/biotestmine-dump
 
 This will take ~15-30mins to complete.
 
@@ -817,7 +829,7 @@ Once you have read access to a production database, you can build and release a 
 Configure
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In the `~/.intermine` directory, update the webapp properties in your biotestmine.properties file].  Update the following properties:
+In the `~/.intermine` directory, update the webapp properties in your biotestmine.properties file.  Update the following properties:
 
 * tomcat username and password
 * superuser username and password
