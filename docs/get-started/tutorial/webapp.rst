@@ -95,14 +95,14 @@ These values are set in :doc:`/webapp/properties/intermine-properties` file. Thi
 
 .. code-block:: bash 
 
-	$ emacs ~/.intermine/malariamine.properties
+	$ emacs ~/.intermine/biotestmine.properties
 
 2. Update the values of the subtitle and release version. Save your work.
 
 .. code-block:: properties
 
 	# text that appears in the header and elsewhere
-	project.title=MalariaMine
+	project.title=BioTestMine
 	project.subTitle=An example of InterMine.bio with data from <i>Plasmodium falciparum</i>
 	project.releaseVersion=tutorialx
 
@@ -112,7 +112,7 @@ These values are set in :doc:`/webapp/properties/intermine-properties` file. Thi
 
 	$ ant default remove-webapp release-webapp
 
-4. Navigate to your mine's home page and see the updated values: http://localhost:8080/malaria
+4. Navigate to your mine's home page and see the updated values: http://localhost:8080/biotestmine
 
 .. figure:: ../../imgs/new-subtitle.png
    :align:   center
@@ -143,7 +143,7 @@ Ask us!
 	You can also see and edit the values of every property set for your mine.
 
 	1. Log in as the superuser for your mine. (See :doc:`/webapp/admin/index` for details on how to do this.)
-	2. Change the last part of the URL in your browser to be `showProperties.do`, e.g. http://localhost:8080/malaria/showProperties.do
+	2. Change the last part of the URL in your browser to be `showProperties.do`, e.g. http://localhost:8080/biotestmine/showProperties.do
 
 	This lists of all properties that are used in your webapp. You can update the values for each property and instantly see how the webapp is changed, without worrying about breaking anything. (The changes only last for that session, to permanently change a value you'll need to update the appropriate config file.)
 
@@ -194,7 +194,7 @@ The :doc:`model.properties </webapp/properties/model-properties>` is the third c
 
 .. topic:: InterMine properties files
 
-	:doc:`~/.intermine/malariamine.properties </webapp/properties/intermine-properties>`
+	:doc:`~/.intermine/biotestmine.properties </webapp/properties/intermine-properties>`
   		database and webapp names and locations. includes passwords and shouldn't be in source control.
 
 	:doc:`web.properties </webapp/properties/web-properties>`
