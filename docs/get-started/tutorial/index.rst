@@ -13,7 +13,7 @@ Getting Started
 We use `git <http://git-scm.com>`_ to manage and distribute source code and `Gradle <http://gradle.org>`_ as build system.
 Download dependencies from  :doc:`/system-requirements/index`.
 Clone biotestmine project from https://github.com/intermine/biotestmine.
-Set GRADLE_OPTS  appending -Dorg.gradle.daemon=false to prevent daemons from being used.
+Add the flag -Dorg.gradle.daemon=false to the GRADLE_OPTS environment variable to prevent daemons from being used.
 
 BioTest Mine
 ----------------------
