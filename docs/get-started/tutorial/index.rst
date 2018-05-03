@@ -296,7 +296,7 @@ Loading of data is done by running `integrate`.  You can specify one or more sou
 .. code-block:: bash
 
   $ cd biotestmine
-  $ ./gradlew integrate -Psource=uniprot-malaria --stacktrace --no-daemon
+  $ ./gradlew integrate -Psource=uniprot-malaria --stacktrace
 
 The `--stacktrace` option will display complete stack traces if there is a problem.
  
@@ -314,7 +314,7 @@ A useful command to initialise the database and load a source from the integrate
 
 .. code-block:: bash
 
-  $ (./gradlew clean buildDB) && ./gradlew integrate -Psource=uniprot-malaria --stacktrace --no-daemon
+  $ (./gradlew clean buildDB) && ./gradlew integrate -Psource=uniprot-malaria --stacktrace
 
 Now that the data has loaded, log into the database and view the contents of the protein table:
 
@@ -480,7 +480,7 @@ Now load the `malaria-gff` source by running this command in `biotestmine`:
 
 .. code-block:: bash
 
-  $ ./gradlew integrate -Psource=malaria-gff --stacktrace --no-daemon
+  $ ./gradlew integrate -Psource=malaria-gff --stacktrace
 
 This will take a few minutes to run.  Note that this time we don't run `buildDB` as we are loading this data into the same database as UniProt.  As before you can run a query to see how many objects of each class are loaded:
 
@@ -523,7 +523,7 @@ Now load the `malaria-chromosome-fasta` source by running this command in `biote
 
 .. code-block:: bash
 
-  $ ./gradlew integrate -Psource=malaria-chromosome-fasta --stacktrace --no-daemon
+  $ ./gradlew integrate -Psource=malaria-chromosome-fasta --stacktrace
 
 This has integrated the chromosome objects with those already in the database.  In the next step we will look at how this data integration works.
 
@@ -665,7 +665,7 @@ From the root `biotestmine` directory run the `entrez-organism` source:
 
 .. code-block:: bash
 
-  $ ./gradlew integrate -Psource=entrez-organism --stacktrace --no-daemon
+  $ ./gradlew integrate -Psource=entrez-organism --stacktrace
 
 This should only take a few seconds.  This source does the following:
 
@@ -701,7 +701,7 @@ Now run the `update-publications` source to fill in the details:
 
 .. code-block:: bash
 
-  $ ./gradlew integrate -Psource=update-publications --stacktrace --no-daemon
+  $ ./gradlew integrate -Psource=update-publications --stacktrace
 
 As there are often large numbers of publications they are retrieved in batches from the web service.
 
@@ -777,7 +777,7 @@ To run all the post-processing steps:
 
 .. code-block:: bash
 
-  $ ./gradlew postProcess --no-daemon
+  $ ./gradlew postProcess
 
 This will take a few minutes.  When complete you can re-run the queries above to see what has been added.
 
@@ -785,7 +785,7 @@ Post-processing steps can also be run individually:
 
 .. code-block:: bash
 
-  $ ./gradlew postProcess -Pprocess=update-publications --no-daemon
+  $ ./gradlew postProcess -Pprocess=update-publications
 
 Building a Mine
 ----------------------
