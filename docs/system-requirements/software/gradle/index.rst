@@ -77,12 +77,14 @@ Webapp
 There are several ways to deploy your InterMine webapp. You can use `cargo` to deploy your webapp to a running Tomcat instance, or `gretty` to use an embedded Tomcat instance. Run `./gradlew tasks` to see all the available tasks.
 
 Deploy a webapp (cargo)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: sh
 
     ~/git/flymine $ ./gradlew cargoRedeployRemote
 
- Uses the config in the mine properties file, e.g. `flymine.properties`, to deploy the webapp, see below
+
+Uses the config in the mine properties file, e.g. `flymine.properties`, to deploy the webapp, see below.
 
 ================== ============= ===========================================================
 Property name      Example       Determines  
@@ -101,6 +103,7 @@ webapp.port        8081          OPTIONAL, defaults to 8080
 
 
 Deploy a webapp (gretty)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: sh
 
@@ -110,14 +113,14 @@ Deploy a webapp (gretty)
 * Logs are in $HOME/logs, for more details: http://akhikhl.github.io/gretty-doc/Logging.html
 
 Deploy blue genes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: sh
 
     ~/git/flymine $ ./gradlew blueGenesStart
 
-Bluegenes uses the webservices provided by the current webapp. For the time being, you have to have an InterMine webapp running to launch a bluegenes instance.
-
-Bluegenes gets the mine name and URL from the *mine.properties file.
+* Uses the webservices provided by the current webapp. For the time being, you have to have an InterMine webapp running to launch a bluegenes instance.
+* Gets the mine name and URL from the *mine.properties file.
 
 Specify properties file
 ----------------------------
@@ -162,7 +165,7 @@ To update your local packages
 Daemons
 ~~~~~~~~~~~~~
 
-The updated Gradle version comes with `daemons` enabled by default. These are helper processes that exist in the background. This can speed up builds for example but sometimes, under heavy development, can cause problems when InterMine does not properly dereference assets. We are working on fixing this! In the meantime, you can use "--no-daemon" to disable this gradle feature.
+The updated Gradle version comes with `daemons` enabled by default. These are helper processes that exist in the background. This can speed up builds for example but sometimes, under heavy development, can cause problems when InterMine does not properly dereference assets. We are working on fixing this! In the meantime, you should append `-Dorg.gradle.daemon=false` to your `GRADLE_OPTS` variable.
 
 * See: `Daemon docs <https://docs.gradle.org/current/userguide/gradle_daemon.html>`_
 
@@ -173,4 +176,4 @@ Further Reading
 * `InterMine blog post <https://intermineorg.wordpress.com/2017/09/13/intermine-2-0-gradle/>`_
 * `InterMine presentation <https://docs.google.com/presentation/d/1mgcC7TSieHa4JdYzxYUVspftKO8rDpFN0X9JaKQXkDM/edit>`_
 
-.. index:: gradle, ant
+.. index:: gradle, ant, cargo, gretty, bluegenes, tomcat
