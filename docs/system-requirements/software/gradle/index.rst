@@ -74,7 +74,7 @@ We are using the same `project build <https://github.com/intermine/intermine-scr
 Webapp
 ----------------------------
 
-There are several ways to deploy your InterMine webapp. You can use `cargo` to deploy your webapp to an running Tomcat instance, or `gretty` to use an embedded tomcat instance. Run `./gradlew tasks` to see all the available tasks
+There are several ways to deploy your InterMine webapp. You can use `cargo` to deploy your webapp to a running Tomcat instance, or `gretty` to use an embedded Tomcat instance. Run `./gradlew tasks` to see all the available tasks.
 
 Deploy a webapp (cargo)
 
@@ -95,6 +95,10 @@ webapp.protocol    https         OPTIONAL, defaults to http
 webapp.port        8081          OPTIONAL, defaults to 8080
 ================== ============= ===========================================================
 
+.. warning::
+
+    Cargo uses hot deployment which over time fills up the PermGen memory of the JVM process running your container. Continuously deploying an artifact will inevitablity lead to a java.lang.OutOfMemoryError
+
 
 Deploy a webapp (gretty)
 
@@ -102,7 +106,7 @@ Deploy a webapp (gretty)
 
     ~/git/flymine $ ./gradlew tomcatStartWar
 
-* Shut down your local tomcat, we are using embedded tomcat here
+* Embedded tomcat, uses port 8080. 
 * Logs are in $HOME/logs, for more details: http://akhikhl.github.io/gretty-doc/Logging.html
 
 Deploy blue genes
