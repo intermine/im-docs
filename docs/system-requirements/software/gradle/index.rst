@@ -74,25 +74,26 @@ We are using the same `project build <https://github.com/intermine/intermine-scr
 Webapp
 ----------------------------
 
+There are several ways to deploy your InterMine webapp. You can use `cargo` to deploy your webapp to an running Tomcat instance, or `gretty` to use an embedded tomcat instance. Run `./gradlew tasks` to see all the available tasks
+
 Deploy a webapp (cargo)
 
 .. code-block:: sh
 
     ~/git/flymine $ ./gradlew cargoRedeployRemote
 
-* Uses the config in the mine properties file, e.g. `flymine.properties`, to deploy the webapp
-* Add a new `webapp.hostname` parameter to your properties file
-* Run `./gradlew tasks` to see all the available tasks
-* If you want to change the port or protocol, change these in your mine's `webap/build.gradle` file
+ Uses the config in the mine properties file, e.g. `flymine.properties`, to deploy the webapp, see below
 
-================== ============= ============================================
+================== ============= ===========================================================
 Property name      Example       Determines  
-================== ============= ============================================
-webapp.hostname    localhost     name of host
+================== ============= ===========================================================
+webapp.hostname    localhost     name of host. If not set, tries to use `webapp.deploy.url`
 webapp.path        malariamine   location of path of webapp 
 webapp.manager     TOMCAT_USER   tomcat username, needed to deploy webapp 
 webapp.password    TOMCAT_PWD    tomcat password, needed to deploy webapp 
-================== ============= ============================================
+webapp.protocol    https         OPTIONAL, defaults to http
+webapp.port        8081          OPTIONAL, defaults to 8080
+================== ============= ===========================================================
 
 
 Deploy a webapp (gretty)
