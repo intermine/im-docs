@@ -49,7 +49,9 @@ Web application name and location
 Property name                    Example                                                                    Determines  
 ===============================  =========================================================================  ======================================================================
 os.production.verboseQueryLog    true                                                                       if true, all queries are logged.  Defaults to false 
-webapp.deploy.url                http://localhost:8080                                                      location of tomcat server 
+webapp.deploy.url                http://localhost:8080                                                      location of 
+tomcat server 
+webapp.hostname                  localhost                                                                  name of host
 webapp.path                      malariamine                                                                location of path of webapp 
 webapp.manager                   TOMCAT_USER                                                                tomcat username, needed to deploy webapp 
 webapp.password                  TOMCAT_PWD                                                                 tomcat password, needed to deploy webapp 

@@ -14,8 +14,6 @@ You need to create the index on the location table in your production database b
 
 	<post-process name="create-location-range-index"/>
 
-If you are using an older version of Postgres, this task will create a BIOSEG index. Otherwise it will use a native Postgres index.
-
 Create the overlappingFeatures view
 --------------------------------------------------------------------------------------------------
 
@@ -26,7 +24,5 @@ Create the `SequenceFeature.overlappingFeatures` view in the database. This allo
 	<post-process name="create-overlap-view" />
 
 Now any queries on the `overlappingFeatures` collections will use this view and the new index.
-
-
 
 .. index:: overlaps, region search, bioseg, genome coordinates, overlappingFeatures, create-overlap-view, create-bioseg-location-index
