@@ -38,7 +38,7 @@ A better practice would be to add the model extension to a source specific addit
 Controller
 ~~~~~~~~~~~~~~~~~~~
 
-The controller class `HeatMapController <https://github.com/intermine/intermine/blob/master/modmine/webapp/src/org/modmine/web/HeatMapController.java>`_ is a component of `Struts MVC framework <http://struts.apache.org/1.x/userGuide/building_controller.html>`_. It holds the logic to process user requests, and seletcs a proper wabpage to user.
+The controller class `HeatMapController <https://github.com/modENCODE-DCC/modmine/blob/dev/modmine/webapp/src/org/modmine/web/HeatMapController.java>`_ is a component of `Struts MVC framework <https://struts.apache.org/>`_. It holds the logic to process user requests, and seletcs a proper wabpage to user.
 
 In HeatMapController, a query is run to fetch expression scores from database (ref method `queryExpressionScore`), then the results are parsed to JSON string (ref method `getJSONString`) and set in the request (ref method `findExpression`).
 
@@ -65,7 +65,7 @@ Struts config:
 Web page
 ~~~~~~~~~~~~~~~~~~~
 
-`heatMap.jsp <https://github.com/intermine/intermine/blob/master/modmine/webapp/resources/webapp/model/heatMap.jsp>`_ displays heatmap. canvasXpress object takes expression JSON string and other parameters in to create a heatmap (in modMine, we have two separate heatmaps for cell line and developmental stage respectively). jQuery was used to adjust page layout.
+`heatMap.jsp <https://github.com/modENCODE-DCC/modmine/blob/dev/modmine/webapp/resources/webapp/model/heatMap.jsp>`_ displays heatmap. canvasXpress object takes expression JSON string and other parameters in to create a heatmap (in modMine, we have two separate heatmaps for cell line and developmental stage respectively). jQuery was used to adjust page layout.
 
 Further development
 ----------------------------------
