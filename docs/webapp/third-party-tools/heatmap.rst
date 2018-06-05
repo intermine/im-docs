@@ -71,4 +71,4 @@ Further development
 
 A modern way of creating widget like heatmap would be using InterMine webservices framework to query and generate JSON strings and embed heatmap on any web page. To `learn more... <http://github.com/intermine/intermine-embedding-examples>`_
 
-An alternative library would be `D3.js <http://d3js.org/>`_, an example of heatmap can be found `here <http://www.larsko.org/v/mpte/>`_. However canvasXpress is particular designed to display genomics data, D3 is for a broader use. 
+An alternative library would be `D3.js <http://d3js.org/>`_, an example of heatmap can be found `here <http://www.larsko.org/v/mpte/>`_. In `ThaleMine <https://apps.araport.org/thalemine/begin.do>`_ there is a D3 implementation (see any gene list report page, for example `here <https://apps.araport.org/thalemine/bagDetails.do?scope=all&bagName=Demo+1+-+Sucrose+Transporters+List>`_, `code<https://github.com/intermine/CDN/blob/master/js/intermine/expression/1.0.3/expression.js>`_. However canvasXpress is particular designed to display genomics data, D3 is for a broader use. 
