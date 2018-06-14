@@ -3,7 +3,7 @@ Upgrading InterMine
 
 **InterMine 2.0** is a disruptive release and is not backwards compatible. This means that databases, webapps and code from previous releases will need to be updated to work with the new InterMine release. 
 
-.. note::
+.. warn::
 
   If you have custom InterMine code, your changes will likely not work as expected after the upgrade. Please contact us and we can help you migrate your edits to the new system.
 
