@@ -113,17 +113,17 @@ Update config
 4. If your data source has a post-process, you'll have to add that dependency manually. We couldn't figure out a way to do that via the upgrade script.
 5. Previously the data model was merged for all sources then validated. Since each source is in its own JAR now, the data model for each data source is self-contained. Therefore if you reference a class in your data parser, it must be present it that source's additions file.
 
-Please see :doc:`Gradle docs </system-requirements/software/gradle>` for details on Gradle and Gradle commands.
-
+Please see :doc:`Gradle Quick Start </system-requirements/software/gradle/index>` for details on Gradle and common Gradle commands and :doc:`Gradle FAQs </system-requirements/software/gradle/FAQs>` for help with common questions and errors.
 
 Data Model
 -----------
 
 * Syntenic Regions have been added to the data model
-* Protein.molecularWeight is now a float instead of an integer
+* Protein.molecularWeight is now a Float instead of an Integer
 * GO evidence codes now have a name and URL
 * OntologyAnnotation can now annotate any InterMine object, as long as that class inherits `Annotatable`
 * Sequence Ontolgy has been updated to the latest version
+* Organism.taxonId is a String instead of an Integer.
 
 See the `Model Changes <https://intermineorg.wordpress.com/2017/09/08/intermine-2-0-proposed-model-changes-iii/>`_ blog post for details.
 
