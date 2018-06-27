@@ -5,6 +5,17 @@ Gradle - FAQs
 
 Please see :doc:`Upgrade instructions </support/upgrade>` for details on how to migrate your system to use Gradle and :doc:`Gradle Quick Start </system-requirements/software/gradle/index>` for common Gradle commands.
 
+
+I got an error: "Caused by: java.security.InvalidKeyException: EC parameters error"
+--------------------------------------------------------------------------------------------------------------------
+
+InterMine 2.0 only works with Java 8+. Please update your Java version and that will fix this error.
+
+I got an error: "Caused by: java.security.NoSuchProviderException: no such provider: SunEC"
+--------------------------------------------------------------------------------------------------------------------
+
+InterMine 2.0 only works with Java 8+. Please update your Java version and that will fix this error.
+
 `./gradlew builddb` works but I don't see `builddb` in my `build.gradle` file. Where is it?
 --------------------------------------------------------------------------------------------------------------------
 
