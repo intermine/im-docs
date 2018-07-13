@@ -77,6 +77,6 @@ The process for reviewing an merging a pull request is as follows:
 Release Process
 -----------------------------------
 
-Once all pull requests and tickets for a specific milestone are tested and complete, the release manager merges the dev branch onto the master branch tagging the merge with the milestone's label.  The release notes are available on the `Releases <http://github.com/intermine/intermine/releases>`_ page, and announcments are posted on twitter and the mailing lists and discussed in detail on the community calls.
+Once all pull requests and tickets for a specific milestone are tested and complete, the release manager merges the `dev` branch onto the `master` branch tagging the merge with the milestone's label.  The release notes are available on the `Releases <http://github.com/intermine/intermine/releases>`_ page, and announcments are posted on twitter and the mailing lists and discussed in detail on the community calls.
 
 [intermine repo]: https://github.com/intermine/intermine
