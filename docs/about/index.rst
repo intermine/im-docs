@@ -62,16 +62,6 @@ Release Notes
 
 See https://github.com/intermine/intermine/releases
 
-
-Vacancies
--------------------
-
-:doc:`/git/index`
-
-:doc:`/about/jobs/software-developer-javascript`
-
-:doc:`/about/jobs/index`
-
 Get Involved
 ------------------
 
