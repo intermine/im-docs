@@ -16,6 +16,13 @@ I got an error: "Caused by: java.security.NoSuchProviderException: no such provi
 
 InterMine 2.0 only works with Java 8+. Please update your Java version and that will fix this error.
 
+I got ANOTHER error: "java.lang.ClassCastException: org.apache.xerces.parsers.XIncludeAwareParserConfiguration cannot be cast to org.apache.xerces.xni.parser.XMLParserConfiguration "
+--------------------------------------------------------------------------------------------------------------------
+
+Updated your `GRADLE_OPTS` to disable deamons. 
+
+`export GRADLE_OPTS="-Dorg.gradle.daemon=false"`
+
 `./gradlew builddb` works but I don't see `builddb` in my `build.gradle` file. Where is it?
 --------------------------------------------------------------------------------------------------------------------
 
