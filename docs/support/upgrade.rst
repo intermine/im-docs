@@ -57,7 +57,7 @@ InterMine has switched to use the standard directory structure.
 You will have to run two migration scripts to move your current mine over to this new layout.
 
 Migrate Data Sources to New directory structure
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Your sources don't have to be in their own repository, although we found this was easiest. They will have to be in their own separate directory however.
 * The migration scripts are located in the `intermine-scripts <https://github.com/intermine/intermine-scripts/blob/master/gradle-migration/data-sources/migrateBioSources.sh>`_ repository.
@@ -77,7 +77,7 @@ Migrate Data Sources to New directory structure
 You will have to `install` your sources every time you update the source code to update the JAR being used by the build.
 
 Migrate Mine webapp to New directory structure
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Run this script to move your mine over to the new directory system.
 * The migration scripts are located in the `intermine-scripts <https://github.com/intermine/intermine-scripts/blob/master/gradle-migration/mine/migrateMine.sh>`_ repository.
