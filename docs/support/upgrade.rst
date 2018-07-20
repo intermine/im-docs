@@ -26,23 +26,18 @@ We use Maven to manage InterMine dependencies, including your mine-specific data
   # for Ubuntu
   sudo apt-get install maven
 
-Previously you had to download and compile InterMine. Now, instead, you’ll be using the compiled InterMine JARs available via jCenter. They will be automatically dowloaded and stored in the gradle cache ~/.gradle/caches/modules-2/files-2.1/org.intermine/.
+Previously you had to download and compile InterMine. Now, instead, you’ll be using the compiled InterMine JARs available via jCenter. They will be automatically dowloaded and stored in the gradle cache `~/.gradle/caches/modules-2/files-2.1/org.intermine/`.
 
-To use your mine-specific bio sources, you will install maven locally.  The install task, recompiles the bio-source code, creates a new jar and installs it in you local Maven. These JARs are located in ~/.m2.
+To use your mine-specific bio sources, you will install maven locally.  The install task, recompiles the bio-source code, creates a new jar and installs it in you local Maven. These JARs are located in `~/.m2`.
 
 Remove InterMine code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Your mine-specific bio/sources and your webapp should be in git. 
-2. They do not have to be in separate repositories, but we've found that's easiest.
-
-  * `Directions <https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/>`_ on how to move a directory to a new repository and keep your history
-  * example
-   
-      * FlyMine - https://github.com/intermine/flymine/
-      * FlyMine specific data sources - https://github.com/intermine/flymine-bio-sources
-
-3. They DO have to be in their own directories though!
+2. `Directions <https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/>`_ on how to move a directory to a new repository and keep your history
+3. examples
+   * FlyMine - https://github.com/intermine/flymine/
+   * FlyMine specific data sources - https://github.com/intermine/flymine-bio-sources
 4. You should not have any core InterMine code in your repository.
 
 
