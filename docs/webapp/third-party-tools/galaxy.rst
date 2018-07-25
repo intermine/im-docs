@@ -11,7 +11,7 @@ Add to ''web.properties''' file, replacing FlyMine with your Mine name:
 	# in web.properties
 	galaxy.display = true
 	galaxy.disabledMessage = Galaxy export is disabled.
-	galaxy.baseurl.default = http://main.g2.bx.psu.edu
+	galaxy.baseurl.default = https://usegalaxy.org
 	galaxy.url.value = /tool_runner?tool_id=flymine
 	galaxy.welcomeMessage = <b>Welcome to FlyMine, GALAXY users</b><br/><br/>You can run queries by clicking on the 'Templates' tab at the top of this page.&nbsp;&nbsp;You can end the query results to Galaxy from the 'EXPORT' menu in the results page.
 

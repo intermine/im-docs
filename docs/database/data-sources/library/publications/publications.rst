@@ -1,12 +1,12 @@
 Publications
 ================================
 
-All publications are referred to by PubMed id by other sources.  This source should be included at the end of the build.  It will query all PubMed ids from the database, fetch details from the Entrez web service and fill in Publication objects.
+All publications are referred to by PubMed id by other sources.  This source should be included at the end of the build.  It will query all PubMed ids from the database (where the `title`, `year`, or `first author` columns are NULL), fetch details from the Entrez web service and fill in Publication objects.
 
 Types of data loaded
 --------------------
 
-None, the publciation records already in the database are updated.
+None, the publciation records already in the database are updated. 
 
 How to download the data 
 ---------------------------
