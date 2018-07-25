@@ -1,7 +1,7 @@
 InterMine documentation (2.0)
 ================================
 
-** PLEASE NOTE THESE ARE DOCS FOR INTERMINE 2.0 **
+**PLEASE NOTE THESE ARE DOCS FOR INTERMINE 2.0**
 
 InterMine is an open source data warehouse build specifically for the integration and analysis of complex biological data.
 
@@ -9,7 +9,7 @@ Developed by the Micklem lab at the University of Cambridge, InterMine enables t
 
 :doc:`InterMine 2.0 - UPGRADE </support/upgrade>`
 
-** PLEASE NOTE THESE ARE DOCS FOR INTERMINE 2.0 **
+**PLEASE NOTE THESE ARE DOCS FOR INTERMINE 2.0** If you need earlier docs, select the appropriate version via the link in the bottom right corner of this page.
 
 Contents
 --------
