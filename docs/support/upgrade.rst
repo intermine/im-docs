@@ -162,16 +162,6 @@ We are making some non-backwards compatible changes to our API. These three end 
 
 Please update any code that references these end points.
 
-Blue Genes
------------
-
-Run this command to deploy a Blue genes instance:
-
-.. code-block:: sh
-
-    ~/git/flymine $ ./gradlew blueGenesStart
-
-This command deploys the bluegenes app to port 5000. It uses bluegenes parameters available in flymine.properties and uses your local mine's userprofile database.
 
 
 ---------------------------------
