@@ -32,20 +32,17 @@ Remove InterMine code
 
 Previously you had to download and compile InterMine. Now, instead, you’ll be using the compiled InterMine JARs available via Maven. This means you should remove all InterMine code from your repos, and only have your mine and data sources.
 
-1. Your mine-specific bio/sources and your webapp should be in git. 
-2. `Directions <https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/>`_ on how to move a directory to a new repository and keep your history
+1. You should not have any core InterMine code locally.
+2. `Directions <https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/>`_ on how to move a directory to a new repository and keep your history in GitHub.
 3. examples
 
    * FlyMine - https://github.com/intermine/flymine/
    * FlyMine specific data sources - https://github.com/intermine/flymine-bio-sources
-   
-4. You should not have any core InterMine code in your repository.
-
 
 New directory structure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-InterMine has switched to use the standard directory structure.
+InterMine has switched to use the standard `Maven directory structure <https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html>`_.
 
 .. code-block:: guess
 
@@ -54,12 +51,11 @@ InterMine has switched to use the standard directory structure.
    src/test/java
    src/test/resources
 
-You will have to run two migration scripts to move your current mine over to this new layout.
+You will have to run two migration scripts to move your current mine over to this new layout -- one for your mine and one for your mine's data parsers.
 
 Migrate Data Sources to New directory structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Your sources don't have to be in their own repository, although we found this was easiest. They will have to be in their own separate directory however.
 * The migration scripts are located in the `intermine-scripts <https://github.com/intermine/intermine-scripts/blob/master/gradle-migration/data-sources/migrateBioSources.sh>`_ repository.
 
 * Run this script to move your sources over to the new directory system.
@@ -75,6 +71,19 @@ Migrate Data Sources to New directory structure
   ~/git/flymine-bio-sources $ ./gradlew install
 
 You will have to `install` your sources every time you update the source code to update the JAR being used by the build.
+
+.. warning::
+
+    Previously the data model was merged for all sources then validated. Since each source is in its own JAR now, the data model for each data source is self-contained. Therefore if you reference a class in your data parser, it must be present it that source's additions file.
+
+.. code-block:: sh
+
+    // uncomment to specify an extra additions file for your bio-sources
+    // this file will be merged with the additions file for each data source
+    // and included in each source JAR.
+    //bioSourceDBModelConfig {
+    //    extraAdditionsFile = "MY-MINE_additions.xml"
+    //}
 
 Migrate Mine webapp to New directory structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -101,13 +110,14 @@ Update config
    * `intermine-items-xml-file` isn't a valid value for "type" anymore. Use the project name instead.
    * `src.data.dir` can only have a `location` attribute. `src.data.dir` cannot have a `value` attribute.
 
-3. InterPro data file needs to be updated. The file incorrectly references `interpro.dtd` when you should have the full path instead.
+4. InterPro data file needs to be updated. The file incorrectly references `interpro.dtd` when you should have the full path instead.
 
    * Update interpro.xml 
    * `<!DOCTYPE interprodb SYSTEM "ftp://ftp.ebi.ac.uk/pub/databases/interpro/interpro.dtd">`
+   * I asked InterPro to fix but they said no. Maybe you could ask too?
 
-4. If your data source has a post-process, you'll have to add that dependency manually. We couldn't figure out a way to do that via the upgrade script.
-5. Previously the data model was merged for all sources then validated. Since each source is in its own JAR now, the data model for each data source is self-contained. Therefore if you reference a class in your data parser, it must be present it that source's additions file.
+5. If your data source has a post-process, you'll have to add that dependency manually. We couldn't figure out a way to do that via the upgrade script.
+6. Previously the data model was merged for all sources then validated. Since each source is in its own JAR now, the data model for each data source is self-contained. Therefore if you reference a class in your data parser, it must be present it that source's additions file.
 
 Please see :doc:`Gradle Quick Start </system-requirements/software/gradle/index>` for details on Gradle and common Gradle commands and :doc:`Gradle FAQs </system-requirements/software/gradle/FAQs>` for help with common questions and errors.
 
@@ -154,10 +164,6 @@ Please update any code that references these end points.
 
 Blue Genes
 -----------
-
-Blue genes uses its own properties file. Please add these properties:
-
-<!-- properties go here -->
 
 Run this command to deploy a Blue genes instance:
 
