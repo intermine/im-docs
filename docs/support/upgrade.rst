@@ -14,7 +14,7 @@ Please contact us if you have any questions or concerns! We have a mailing list 
 Gradle 
 -------
 
-InterMine now uses Gradle to manage dependencies and to build and run InterMine. Please see :doc:`Gradle Quick Start </system-requirements/software/gradle/index>` for details on Gradle and common Gradle commands and :doc:`Gradle FAQs </system-requirements/software/gradle/FAQs>` for help with common questions and errors.
+InterMine now uses Gradle to manage dependencies and to build and run InterMine. Please see :doc:`Gradle Quick Start </system-requirements/software/gradle/index>` for useful Gradle commands and :doc:`Gradle FAQs </system-requirements/software/gradle/FAQs>` for help with common questions and errors.
 
 Maven
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

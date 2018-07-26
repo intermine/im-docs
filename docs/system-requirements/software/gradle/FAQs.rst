@@ -16,13 +16,6 @@ I got an error: "Caused by: java.security.NoSuchProviderException: no such provi
 
 InterMine 2.0 only works with Java 8+. Please update your Java version and that will fix this error.
 
-I got ANOTHER error: "java.lang.ClassCastException: org.apache.xerces.parsers.XIncludeAwareParserConfiguration cannot be cast to org.apache.xerces.xni.parser.XMLParserConfiguration "
---------------------------------------------------------------------------------------------------------------------
-
-Update your `GRADLE_OPTS` to disable deamons. 
-
-`export GRADLE_OPTS="-Dorg.gradle.daemon=false"`
-
 I got an out of memory error! Help!
 ----------------------------------------------
 
@@ -32,6 +25,13 @@ I set `GRADLE_OPTS` properly and I still am getting an "out of memory" error mes
 --------------------------------------------------------------------------------------------
 
 Append `-Dorg.gradle.daemon=false` to prevent the use of Gradle daemons.
+
+I got ANOTHER error: "java.lang.ClassCastException: org.apache.xerces.parsers.XIncludeAwareParserConfiguration cannot be cast to org.apache.xerces.xni.parser.XMLParserConfiguration "
+--------------------------------------------------------------------------------------------------------------------
+
+Update your `GRADLE_OPTS` to disable deamons. 
+
+`export GRADLE_OPTS="-Dorg.gradle.daemon=false"`
 
 Where is InterMine code on my server?
 --------------------------------------------------------------------------------------------
@@ -82,6 +82,8 @@ Gradle will pull down the JAR with the latest version and store in `~/.gradle/ca
 
 The versions for the JARs are set in each project:
 
+.. code-block:: guess
+
      intermine/build.gradle
      plugin/build.gradle
      bio/build.gradle
@@ -92,13 +94,15 @@ Currently this version is **2.0.0-RC-01**
 
 Which dependency versions to use is set in the gradle.properties file for each project:
 
+.. code-block:: guess
+
      intermine/gradle.properties
      plugin/gradle.properties
      bio/gradle.properties
      bio/sources/gradle.properties
      bio/postprocess/gradle.properties
 
-**Currently set to 2.0+**
+Currently set to **2.0+**
 
 I got a different error! Help!
 ----------------------------------------------
@@ -108,6 +112,6 @@ Please send a detailed stacktrace to the dev mailing list.
 Common issues:
 
 * Always use the wrapper provided. `./gradlew` and NOT `gradle`.
-* Using a `daemon`. Always use the `--no-daemon` flag. Run `./gradlew --stop` to stop the running daemons.
+* Using a `daemon`. Update your `GRADLE_OPTS` with the `no-daemon` flag.
 
-.. index:: gradle, ant
+.. index:: gradle, ant, Maven

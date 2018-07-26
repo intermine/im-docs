@@ -18,9 +18,9 @@ One of the biggest shifts is how InterMine handles dependencies. Previously all 
     
     ~/git/flymine-bio-sources $ ./gradlew install
 
-* https://github.com/intermine/flymine-bio-sources - FlyMine-specific data sources.
+* Example: https://github.com/intermine/flymine-bio-sources - FlyMine-specific data sources.
 * When installed locally, the JAR that is produced is available in the maven repo located in `~/.m2/repository`
-* The JAR downloded as dependecies, are available in the Gradle cache, `~/.gradle/caches/modules-2/files-2.1/`.
+* The JAR downloaded as dependencies, are available in the Gradle cache, `~/.gradle/caches/modules-2/files-2.1/`.
 
 .. note::
 
