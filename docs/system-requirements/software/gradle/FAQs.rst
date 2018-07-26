@@ -78,7 +78,7 @@ Gradle then looks in the remote repositories (JCenter and Jfrog).
 
 `JFrog <https://oss.jfrog.org/artifactory/webapp/#/home>`_ is where our InterMine SNAPSHOT JARs are currently.
 
-Gradle will pull down the JAR with the latest version and store in `~/.gradle/caches/modules-2/files-2.1/org.intermine/`.
+Gradle will use the JAR with the latest version. This is because we use the `2.0+` notation. 
 
 The versions for the JARs are set in each project:
 
@@ -103,6 +103,8 @@ Which dependency versions to use is set in the gradle.properties file for each p
      bio/postprocess/gradle.properties
 
 Currently set to **2.0+**
+
+You can overwrite this value and set these values in your mine's `gradle.properties` file.
 
 I got a different error! Help!
 ----------------------------------------------
