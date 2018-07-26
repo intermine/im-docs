@@ -82,6 +82,7 @@ Deploy a webapp (cargo)
 .. code-block:: sh
 
     ~/git/flymine $ ./gradlew cargoRedeployRemote
+    ~/git/flymine $ ./gradlew cargoUndeployRemote
 
 
 Uses the config in the mine properties file, e.g. `flymine.properties`, to deploy the webapp, see below.
@@ -108,6 +109,7 @@ Deploy a webapp (gretty)
 .. code-block:: sh
 
     ~/git/flymine $ ./gradlew tomcatStartWar
+    ~/git/flymine $ ./gradlew tomcatStop
 
 * Embedded tomcat, uses port 8080. 
 * Logs are in $HOME/logs, for more details: http://akhikhl.github.io/gretty-doc/Logging.html
@@ -142,11 +144,11 @@ To see a list of command-line options, run
 
     ./gradlew --help
 
-To stop all daemons
+To see what tasks are available
 
 .. code-block:: sh 
 
-    ./gradlew --stop
+    ./gradlew tasks
 
 To get rid of compiled files
 
@@ -176,4 +178,4 @@ Further Reading
 * `InterMine blog post <https://intermineorg.wordpress.com/2017/09/13/intermine-2-0-gradle/>`_
 * `InterMine presentation <https://docs.google.com/presentation/d/1mgcC7TSieHa4JdYzxYUVspftKO8rDpFN0X9JaKQXkDM/edit>`_
 
-.. index:: gradle, ant, cargo, gretty, bluegenes, tomcat
+.. index:: gradle, ant, cargo, gretty, bluegenes, tomcat, JARs

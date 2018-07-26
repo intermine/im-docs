@@ -26,6 +26,9 @@ We use Maven to manage InterMine dependencies, including your mine-specific data
   # for Ubuntu
   sudo apt-get install maven
 
+.. note::
+
+  Do not install gradle locally. Instead, use the gradlew wrapper provided.
 
 Remove InterMine code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -69,6 +72,8 @@ Migrate Data Sources to New directory structure
 .. code-block:: sh
 
   ~/git/flymine-bio-sources $ ./gradlew install
+
+Note the command is `./gradlew` instead of `gradlew`. Use the provided gradle wrapper instead of locally installed gradlew. This is to keep everyone using the same gradle version and prevent version conflicts.
 
 You will have to `install` your sources every time you update the source code to update the JAR being used by the build.
 
