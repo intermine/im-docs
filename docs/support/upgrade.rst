@@ -3,13 +3,13 @@ Upgrading InterMine
 
 **InterMine 2.0** is a disruptive release and is not backwards compatible. This means that databases, webapps and code from previous releases will need to be updated to work with the new InterMine release. 
 
-.. warn::
+.. warning::
 
   If you have custom InterMine code, your changes will likely not work as expected after the upgrade. Please contact us and we can help you migrate your edits to the new system.
 
 Below are detailed instructions on how to migrate your InterMine to the new build system.
 
-Please contact us if you have any questions or concerns! We are on email and chat.intermine.org. If you are having difficulties, we can also arrange a skype call to walk through any problems together.
+Please contact us if you have any questions or concerns! We have a mailing list or you can contact us directly via email or our discord channel (chat.intermine.org). If you are having difficulties, we can also arrange a skype call to walk through any problems together. Please make sure your code is public, e.g. GitHub, so we can help test!
 
 Gradle 
 -------
@@ -19,7 +19,7 @@ InterMine now uses Gradle to manage dependencies and to build and run InterMine.
 Maven
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We use Maven to manage InterMine dependencies, including your mine-specific data sources.
+You will need Maven installed. We use Maven to manage mine-specific InterMine dependencies, including your mine-specific data parsers.
 
 .. code-block:: base
   
