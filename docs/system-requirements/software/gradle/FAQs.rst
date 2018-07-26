@@ -19,41 +19,19 @@ InterMine 2.0 only works with Java 8+. Please update your Java version and that 
 I got ANOTHER error: "java.lang.ClassCastException: org.apache.xerces.parsers.XIncludeAwareParserConfiguration cannot be cast to org.apache.xerces.xni.parser.XMLParserConfiguration "
 --------------------------------------------------------------------------------------------------------------------
 
-Updated your `GRADLE_OPTS` to disable deamons. 
+Update your `GRADLE_OPTS` to disable deamons. 
 
 `export GRADLE_OPTS="-Dorg.gradle.daemon=false"`
 
-`./gradlew builddb` works but I don't see `builddb` in my `build.gradle` file. Where is it?
---------------------------------------------------------------------------------------------------------------------
+I got an out of memory error! Help!
+----------------------------------------------
 
-All the ant tasks that were in the `imbuild` directory are now Gradle tasks located in the InterMine Plugin. For example, the `builddb <https://github.com/intermine/intermine/blob/gradle/plugin/src/main/groovy/org/intermine/plugin/dbmodel/DBModelPlugin.groovy>`_ task is located in the `DBModelPlugin <https://github.com/intermine/intermine/blob/gradle/plugin/src/main/groovy/org/intermine/plugin>`_ 
+Gradle gets its properties differently from ant. Instead of `ANT_OPTS`, set `GRADLE_OPTS`. Use the same values but also append `-Dorg.gradle.daemon=false` to prevent the use of Gradle daemons.
 
-These tasks may be helpful:
-
-.. code-block:: sh
-    
-    # see the available tasks to run
-    ~/git/flymine $ ./gradlew tasks
-    
-    # see which tasks are being run during the execution of a specific command
-    ~/git/flymine $ ./gradlew builddb --info
-
-Gradle tasks can be overridden by your local Gradle `build.gradle` file. You can also add new tasks.
-
-How does my mine know to use the Plugin? How do dependencies work?
+I set `GRADLE_OPTS` properly and I still am getting an "out of memory" error message
 --------------------------------------------------------------------------------------------
 
-In the mine `build.gradle` file you will see the `plugin` added to the mine's dependencies:
-
-.. code-block:: gradle
-
-    dependencies {
-        classpath group: 'org.intermine', name: 'plugin', version: System.getProperty("imVersion")
-    }
-
-If you look at the Plugin, you will see that it depends on InterMine specific packages, e.g. intermine-objectstore and bio-core.
-
-The `System.getProperty("imVersion")` by default is set to be `2.0.+` in your local `gradle.properties` file but you can change this.
+Append `-Dorg.gradle.daemon=false` to prevent the use of Gradle daemons.
 
 Where is InterMine code on my server?
 --------------------------------------------------------------------------------------------
@@ -84,63 +62,43 @@ Here is an excerpt from the mine's `build.gradle` file the determines which JAR 
         }
     }
 
-Gradle will go through these respositories in order. It stops when it finds a match for the specfied JAR.
+Gradle will go through each of these repositories and use the best version it finds.
 
 Maven Local
 ~~~~~~~~~~~~~~~
 
-Gradle first looks in `mavenLocal()` which is your `~/.m2/repository` directory. 
-
-These are JARs you have installed locally. 
+Gradle first looks in `mavenLocal()` which is your `~/.m2/repository` directory. These are JARs you have installed locally. 
 
 Remote Repositiories (JCenter and JFrog)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If Gradle does NOT find a local JAR, it will look in the remote repositories (JCenter and Jfrog).
+Gradle then looks in the remote repositories (JCenter and Jfrog).
 
-`JCenter <https://jcenter.bintray.com/>`_ is where our InterMine release JARs will be stored remotely. 
+`JCenter <https://jcenter.bintray.com/>`_ is where our InterMine JARs are stored remotely. 
 
 `JFrog <https://oss.jfrog.org/artifactory/webapp/#/home>`_ is where our InterMine SNAPSHOT JARs are currently.
 
-Gradle will pull down the correct JAR and store in `~/.gradle/caches/modules-2/files-2.1/org.intermine/`.
+Gradle will pull down the JAR with the latest version and store in `~/.gradle/caches/modules-2/files-2.1/org.intermine/`.
 
-I don't want to use the InterMine JAR provided. I have custom code for only me and want to use my own JAR.
-------------------------------------------------------------------------------------------------------------------------
+The versions for the JARs are set in each project:
 
-1. Clone the repo https://github.com/intermine/intermine as normal.
-2. Change to use the gradle branch.
-3. Merge your code changes into the InterMine repo.
-4. "Install" the InterMine JAR
+     intermine/build.gradle
+     plugin/build.gradle
+     bio/build.gradle
+     bio/sources/build.gradle
+     bio/postprocess/build.gradle
 
-.. code-block:: bash
+Currently this version is **2.0.0-RC-01**
 
-    # if your code changes are in InterMine        
-    ~/git/intermine/intermine $ ./gradlew install
-    # if your code changes are in the plugin        
-    ~/git/intermine/plugin $ ./gradlew install
-    # if your code changes are in bio
-    ~/git/intermine/bio $ ./gradlew install
-    # if your code changes are in a bio-source
-    ~/git/intermine/bio/sources $ ./gradlew install
+Which dependency versions to use is set in the gradle.properties file for each project:
 
-Installing a Gradle project:
+     intermine/gradle.properties
+     plugin/gradle.properties
+     bio/gradle.properties
+     bio/sources/gradle.properties
+     bio/postprocess/gradle.properties
 
-1. Compiles the code and creates a JAR
-2. Maven puts this JAR on the classpath by copying to local `~/.m2` directory.
-3. Because of the order of repos, local JARs are always used first
-
-
-I got an out of memory error! Help!
-----------------------------------------------
-
-Gradle gets its properties differently from ant. Instead of `ANT_OPTS`, set `GRADLE_OPTS`. Use the same values.
-
-I set `GRADLE_OPTS` properly and I still am getting an "out of memory" error message
---------------------------------------------------------------------------------------------
-
-Use the `--no-daemon` flag when running `./gradlew` commands. This will prevent the use of daemons.
-
-The Gradle daemon's memory settings are set in the `gradle.properties` file. If you do not have them set, the default value is 1 GB of memory. This is insufficient for building an InterMine and you will get errors. If you don't use daemons, the Gradle process will use the values set in `GRADLE_OPTS`.
+**Currently set to 2.0+**
 
 I got a different error! Help!
 ----------------------------------------------

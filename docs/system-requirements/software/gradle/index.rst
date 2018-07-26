@@ -51,7 +51,7 @@ To run a single source
 
 .. code-block:: sh
     
-    ~/git/flymine $ ./gradlew integrate -Psource=uniprot  --stacktrace --no-daemon
+    ~/git/flymine $ ./gradlew integrate -Psource=uniprot  --stacktrace 
 
 .. note::
 
@@ -61,7 +61,7 @@ To run a single postprocess
 
 .. code-block:: sh
     
-    ~/git/flymine $ ./gradlew postprocess -Pprocess=do-sources --stacktrace --no-daemon
+    ~/git/flymine $ ./gradlew postprocess -Pprocess=do-sources --stacktrace
 
 To run a full build 
 
@@ -75,6 +75,8 @@ Webapp
 ----------------------------
 
 There are several ways to deploy your InterMine webapp. You can use `cargo` to deploy your webapp to a running Tomcat instance, or `gretty` to use an embedded Tomcat instance. Run `./gradlew tasks` to see all the available tasks.
+
+We use `cargo` for our production instances and `gretty` on our local dev machines.
 
 Deploy a webapp (cargo)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
