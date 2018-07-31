@@ -10,7 +10,7 @@ Below are common commands you will use when building InterMine database and depl
 Data sources
 ----------------------------
 
-One of the biggest shifts is how InterMine handles dependencies. Previously all third party JARs were kept in the InterMine code repository and the build compiled all InterMine dependencies. Now, Gradle and Maven manage and download all JARs and only your local project is compiled.
+Previously all third party JARs were kept in the InterMine code repository and the build compiled all InterMine dependencies. Now, Gradle, via the Maven plugin, manage and download all JARs and only your local project is compiled.
 
 **To use local data sources**
 

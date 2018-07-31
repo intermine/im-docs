@@ -92,7 +92,7 @@ Run this command to put your sources on the classpath and therefore available to
 .. code-block:: sh
 
   # not part of the upgradle process. You will install every time you make a change
-  ~/git/flymine-bio-sources $ ./gradlew install
+  ~/git/flymine-bio-sources $ ./gradlew install --stacktrace
 
 Note the command is `./gradlew` instead of `gradle`. Use the provided Gradle wrapper instead of locally installed Gradle.
 
@@ -133,6 +133,7 @@ Update config
    * I asked InterPro to fix but they said no. Maybe you could ask too?
 
 5. Update each data source's additions file to be correct. Alternatively you can use the `extraAdditionsFile` (see previous section).
+6. `PostprocessUtil.java` moved to the `bio` package, so you maybe have to update your import to be `import org.intermine.bio.util.PostProcessUtil;`.
 
 Please see :doc:`Gradle Quick Start </system-requirements/software/gradle/index>` for details on Gradle and common Gradle commands and :doc:`Gradle FAQs </system-requirements/software/gradle/FAQs>` for help with common questions and errors.
 
