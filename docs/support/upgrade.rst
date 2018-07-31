@@ -1,10 +1,7 @@
 Upgrading InterMine
 ======================
 
-**InterMine 2.0** is a disruptive release and is not backwards compatible. This means that databases, webapps and code from previous releases will need to be updated to work with the new InterMine release. 
-
-
-See the `InterMine 2.0 blog post <https://intermineorg.wordpress.com/2017/09/22/intermine-2-0-summer-update/>`_ for details.
+`InterMine 2.0 <https://intermineorg.wordpress.com/2017/09/22/intermine-2-0-summer-update/>`_ is a disruptive release and is not backwards compatible. This means that databases, webapps and code from previous releases will need to be updated to work with the new InterMine release. 
 
 .. warning::
 
@@ -31,9 +28,7 @@ You will need Maven installed. We use Maven to manage mine-specific InterMine de
   # for Ubuntu
   sudo apt-get install maven
 
-.. note::
-
-  Do not install gradle locally. Instead, use the gradlew wrapper provided.
+You do not need to install Gradle locally. Instead, use the Gradle wrapper provided.
 
 Remove InterMine code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -61,14 +56,23 @@ InterMine has switched to use the standard `Maven directory structure <https://m
 
 You will have to run two migration scripts to move your current mine over to this new layout -- one for your mine and one for your mine's data parsers.
 
-Migrate Data Sources to New directory structure
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 The migration scripts are located in the `intermine-scripts <https://github.com/intermine/intermine-scripts/blob/master/gradle-migration/data-sources/migrateBioSources.sh>`_ repository. 
 
 .. code-block:: sh
 
     ~/git $ git clone https://github.com/intermine/intermine-scripts.git
+
+Migrate Mine webapp to New directory structure
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Run "migrateMine" script to move your mine over to the new directory system.
+
+.. code-block:: sh
+
+    ~/git/intermine-scripts/gradle-migration/mine $ migrateMine.sh ~/git/flymine 
+
+Migrate Data Sources to New directory structure
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Run the "migrateBioSources" script to move your sources over to the new directory system.
 
@@ -76,7 +80,7 @@ Run the "migrateBioSources" script to move your sources over to the new director
 
     ~/git/intermine-scripts/gradle-migration/data-sources $ migrateBioSources.sh ~/git/flymine-bio-sources  
 
-* Run this command to put your sources on the classpath and therefore available to the database build:
+Run this command to put your sources on the classpath and therefore available to the database build:
 
 .. code-block:: sh
 
@@ -98,14 +102,7 @@ Previously the data model was merged for all sources then validated. Since each 
     //    extraAdditionsFile = "MY-MINE_additions.xml"
     //}
 
-Migrate Mine webapp to New directory structure
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Run this script to move your mine over to the new directory system.
-
-.. code-block:: sh
-
-    ~/git/intermine-scripts/gradle-migration/mine $ migrateMine.sh ~/git/flymine 
 
 Update config
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
