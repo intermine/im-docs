@@ -33,6 +33,15 @@ Remove InterMine code
 
 Previously you had to download and compile InterMine. Now, instead, you’ll be using the compiled InterMine JARs available via Maven. This means you should remove all InterMine code from your mine repositories. Your mine repositories should only contain your mine (webapp and dbmodel) and your mine's custom data sources.
 
+If you have your mine and bio/sources in your InterMine checkout, instead of in their own repository, you'll have to separate them out. 
+
+Examples
+
+   * FlyMine - https://github.com/intermine/flymine/
+   * FlyMine specific data sources - https://github.com/intermine/flymine-bio-sources
+
+Options
+
 1. You can copy over your directories directly. Don't do this! You'll lose your history.
 
   * cp intermine/flymine flymine
@@ -41,11 +50,7 @@ Previously you had to download and compile InterMine. Now, instead, you’ll be 
 
 2. Instead, use `git filter-branch` command. Follow the `directions <https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/>`_ on how to move a directory to a new repository and keep your history in GitHub.
 
-* You should not have any core InterMine code locally.
-* examples
-
-   * FlyMine - https://github.com/intermine/flymine/
-   * FlyMine specific data sources - https://github.com/intermine/flymine-bio-sources
+**You should not have any core InterMine code locally.**
 
 New directory structure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -68,11 +73,15 @@ You will have to run two migration scripts to move your current mine over to thi
 Migrate Mine webapp to New directory structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Run "migrateMine" script to move your mine over to the new directory system.
+Run "migrateMine" script to move your mine over to the new directory system. 
 
 .. code-block:: sh
 
     ~/git/intermine-scripts/gradle-migration/mine $ ./migrateMine.sh ~/git/flymine 
+
+.. note::
+  
+  Create a new `gradle` branch for testing.
 
 Migrate Data Sources to New directory structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
