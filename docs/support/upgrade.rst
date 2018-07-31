@@ -35,7 +35,7 @@ Previously you had to download and compile InterMine. Now, instead, you’ll be 
 
 If you have your mine and bio/sources in your InterMine checkout, instead of in their own repository, you'll have to separate them out. 
 
-Examples
+What you want to end up with:
 
    * FlyMine - https://github.com/intermine/flymine/
    * FlyMine specific data sources - https://github.com/intermine/flymine-bio-sources
@@ -73,15 +73,11 @@ You will have to run two migration scripts to move your current mine over to thi
 Migrate Mine webapp to New directory structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Run "migrateMine" script to move your mine over to the new directory system. 
+Run "migrateMine" script to move your mine over to the new directory system. You might want to create a new `gradle` branch for testing.
 
 .. code-block:: sh
 
     ~/git/intermine-scripts/gradle-migration/mine $ ./migrateMine.sh ~/git/flymine 
-
-.. note::
-  
-  Create a new `gradle` branch for testing.
 
 Migrate Data Sources to New directory structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
