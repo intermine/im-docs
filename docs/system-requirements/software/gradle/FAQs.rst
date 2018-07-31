@@ -38,6 +38,15 @@ Error in log file when I deploy my webapp: "Caused by: java.io.IOException: Erro
 
 Try `./gradlew cargoRedeployRemote` instead of `./gradlew cargoDeployRemote`
 
+I tried to install my data source, but I got an exception saying it can't find a class. I know this class IS in my data model though!
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Update your source's additions file to include this class.
+
+Previously, all additions files listed in your project XML were merged into a single genomic_model.xml that was placed on your classpath. Now, instead, only the core data model and your additions file are merged into genomic_model.xml and placed in the JAR of the data source. 
+
+Alternatively, you can set the `extraAdditionsFile` parameter to specify a single file that will be merged into each of your data sources. Look for this configuration in your mine's bio sources `build.gradle` file.
+
 Where is InterMine code on my server?
 --------------------------------------------------------------------------------------------
 
