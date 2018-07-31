@@ -3,6 +3,9 @@ Upgrading InterMine
 
 **InterMine 2.0** is a disruptive release and is not backwards compatible. This means that databases, webapps and code from previous releases will need to be updated to work with the new InterMine release. 
 
+
+See the `InterMine 2.0 blog post <https://intermineorg.wordpress.com/2017/09/22/intermine-2-0-summer-update/>`_ for details.
+
 .. warning::
 
   If you have custom InterMine code, your changes will likely not work as expected after the upgrade. Please contact us and we can help you migrate your edits to the new system.
@@ -15,6 +18,8 @@ Gradle
 -------
 
 InterMine now uses Gradle to manage dependencies and to build and run InterMine. Please see :doc:`Gradle Quick Start </system-requirements/software/gradle/index>` for useful Gradle commands and :doc:`Gradle FAQs </system-requirements/software/gradle/FAQs>` for help with common questions and errors.
+
+See the `Gradle <https://intermineorg.wordpress.com/2017/09/13/intermine-2-0-gradle/>`_ blog post for details as to why we made this change.
 
 Maven
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -59,13 +64,17 @@ You will have to run two migration scripts to move your current mine over to thi
 Migrate Data Sources to New directory structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* The migration scripts are located in the `intermine-scripts <https://github.com/intermine/intermine-scripts/blob/master/gradle-migration/data-sources/migrateBioSources.sh>`_ repository.
-
-* Run this script to move your sources over to the new directory system.
+The migration scripts are located in the `intermine-scripts <https://github.com/intermine/intermine-scripts/blob/master/gradle-migration/data-sources/migrateBioSources.sh>`_ repository. 
 
 .. code-block:: sh
 
-    $ migrateBioSources.sh ~/git/flymine-bio-sources  
+    ~/git $ git clone https://github.com/intermine/intermine-scripts.git
+
+Run the "migrateBioSources" script to move your sources over to the new directory system.
+
+.. code-block:: sh
+
+    ~/git/intermine-scripts/gradle-migration/data-sources $ migrateBioSources.sh ~/git/flymine-bio-sources  
 
 * Run this command to put your sources on the classpath and therefore available to the database build:
 
@@ -77,12 +86,11 @@ Note the command is `./gradlew` instead of `gradlew`. Use the provided gradle wr
 
 You will have to `install` your sources every time you update the source code to update the JAR being used by the build.
 
-.. warning::
-
-    Previously the data model was merged for all sources then validated. Since each source is in its own JAR now, the data model for each data source is self-contained. Therefore if you reference a class in your data parser, it must be present it that source's additions file.
+Previously the data model was merged for all sources then validated. Since each source is in its own JAR now, the data model for each data source is self-contained. Therefore if you reference a class in your data parser, it must be present it that source's additions file. Alternatively, you can specify a single data model file that will be merged into each source:
 
 .. code-block:: sh
 
+    // in bio/sources/build.gradle
     // uncomment to specify an extra additions file for your bio-sources
     // this file will be merged with the additions file for each data source
     // and included in each source JAR.
@@ -93,12 +101,11 @@ You will have to `install` your sources every time you update the source code to
 Migrate Mine webapp to New directory structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Run this script to move your mine over to the new directory system.
-* The migration scripts are located in the `intermine-scripts <https://github.com/intermine/intermine-scripts/blob/master/gradle-migration/mine/migrateMine.sh>`_ repository.
+Run this script to move your mine over to the new directory system.
 
 .. code-block:: sh
 
-    $ migrateMine.sh ~/git/flymine 
+    ~/git/intermine-scripts/gradle-migration/mine $ migrateMine.sh ~/git/flymine 
 
 Update config
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -122,7 +129,7 @@ Update config
    * I asked InterPro to fix but they said no. Maybe you could ask too?
 
 5. If your data source has a post-process, you'll have to add that dependency manually. We couldn't figure out a way to do that via the upgrade script.
-6. Previously the data model was merged for all sources then validated. Since each source is in its own JAR now, the data model for each data source is self-contained. Therefore if you reference a class in your data parser, it must be present it that source's additions file.
+6. Previously the data model was merged for all sources then validated. Since each source is in its own JAR now, the data model for each data source is self-contained. Therefore if you reference a class in your data parser, it must be present it that source's additions file. Alternatively you can use the `extraAdditionsFile` (see previous section).
 
 Please see :doc:`Gradle Quick Start </system-requirements/software/gradle/index>` for details on Gradle and common Gradle commands and :doc:`Gradle FAQs </system-requirements/software/gradle/FAQs>` for help with common questions and errors.
 

@@ -33,6 +33,11 @@ Update your `GRADLE_OPTS` to disable deamons.
 
 `export GRADLE_OPTS="-Dorg.gradle.daemon=false"`
 
+Error in log file when I deploy my webapp: "Caused by: java.io.IOException: Error writing request body to server"
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Try `./gradlew cargoRedeployRemote` instead of `./gradlew cargoDeployRemote`
+
 Where is InterMine code on my server?
 --------------------------------------------------------------------------------------------
 
@@ -74,9 +79,9 @@ Remote Repositiories (JCenter and JFrog)
 
 Gradle then looks in the remote repositories (JCenter and Jfrog).
 
-`JCenter <https://jcenter.bintray.com/>`_ is where our InterMine JARs are stored remotely. 
+`JCenter <https://jcenter.bintray.com/org/intermine/>`_ is where our InterMine JARs are stored remotely. 
 
-`JFrog <https://oss.jfrog.org/artifactory/webapp/#/home>`_ is where our InterMine SNAPSHOT JARs are currently.
+`JFrog <https://oss.jfrog.org/artifactory>`_ is where our InterMine SNAPSHOT JARs are currently.
 
 Gradle will use the JAR with the latest version. This is because we use the `2.0+` notation. 
 
@@ -105,6 +110,8 @@ Which dependency versions to use is set in the gradle.properties file for each p
 Currently set to **2.0+**
 
 You can overwrite this value and set these values in your mine's `gradle.properties` file.
+
+
 
 I got a different error! Help!
 ----------------------------------------------
