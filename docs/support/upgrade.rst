@@ -47,8 +47,8 @@ Options to separate out your mine repo:
 .. code-block:: sh
 
   # don't do this
-  cp intermine/flymine flymine
-  git init; git add *; git commit -am "initial commit"
+  ~/git $ cp intermine/flymine flymine; cd flymine
+  ~/git/flymine $ git init; git add *; git commit -am "initial commit"
 
 2. Instead, use `git filter-branch` command. Follow the `directions <https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/>`_ on how to move a directory to a new repository and keep your history in GitHub.
 
