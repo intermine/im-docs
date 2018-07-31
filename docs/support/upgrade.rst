@@ -52,9 +52,7 @@ InterMine has switched to use the standard `Maven directory structure <https://m
    src/test/java
    src/test/resources
 
-You will have to run two migration scripts to move your current mine over to this new layout -- one script for your mine and one for your mine's data parsers.
-
-The migration scripts are located in the `intermine-scripts <https://github.com/intermine/intermine-scripts/blob/master/gradle-migration/data-sources/migrateBioSources.sh>`_ repository. 
+You will have to run two migration scripts to move your current mine over to this new layout -- one script for your mine and one for your mine's data parsers. The migration scripts are located in the `intermine-scripts <https://github.com/intermine/intermine-scripts/blob/master/gradle-migration/data-sources/migrateBioSources.sh>`_ repository. 
 
 .. code-block:: sh
 
@@ -84,15 +82,15 @@ Run this command to put your sources on the classpath and therefore available to
 
   ~/git/flymine-bio-sources $ ./gradlew install
 
-Note the command is `./gradlew` instead of `gradlew`. Use the provided gradle wrapper instead of locally installed gradlew. This is to keep everyone using the same gradle version and prevent version conflicts.
+Note the command is `./gradlew` instead of `gradle`. Use the provided Gradle wrapper instead of locally installed Gradle.
 
 You will have to `install` your sources every time you update the source code to update the JAR being used by the build.
 
-Previously the data model was merged for all sources then validated. Since each source is in its own JAR now, the data model for each data source is self-contained. Therefore if you reference a class in your data parser, it must be present it that source's additions file. Alternatively, you can specify a single data model file that will be merged into each source:
+Previously the data model was merged from all data sources' additions XML file. This is no longer true. Since each source is in its own JAR now, the data model is self-contained. Therefore if you reference a class in your data parser, it must be present in the additions file. Alternatively, you can specify a single data model file that will be merged into each source:
 
 .. code-block:: sh
 
-    // in bio/sources/build.gradle
+    // [in bio/sources/build.gradle]
     // uncomment to specify an extra additions file for your bio-sources
     // this file will be merged with the additions file for each data source
     // and included in each source JAR.
@@ -100,14 +98,13 @@ Previously the data model was merged for all sources then validated. Since each 
     //    extraAdditionsFile = "MY-MINE_additions.xml"
     //}
 
-
-
 Update config
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Remove `<property name="source.location" location="../bio/sources/"/>` from your project XML file
 2. Set `GRADLE_OPTS` instead of `ANT_OPTS`
 
+   * Use the same parameters.
    * Append `-Dorg.gradle.daemon=false` to prevent daemons from being used.
 
 3. Update project XML for some sources
@@ -123,8 +120,7 @@ Update config
    * `<!DOCTYPE interprodb SYSTEM "ftp://ftp.ebi.ac.uk/pub/databases/interpro/interpro.dtd">`
    * I asked InterPro to fix but they said no. Maybe you could ask too?
 
-5. If your data source has a post-process, you'll have to add that dependency manually. We couldn't figure out a way to do that via the upgrade script.
-6. Previously the data model was merged for all sources then validated. Since each source is in its own JAR now, the data model for each data source is self-contained. Therefore if you reference a class in your data parser, it must be present it that source's additions file. Alternatively you can use the `extraAdditionsFile` (see previous section).
+5. Update each data source's additions file to be correct. Alternatively you can use the `extraAdditionsFile` (see previous section).
 
 Please see :doc:`Gradle Quick Start </system-requirements/software/gradle/index>` for details on Gradle and common Gradle commands and :doc:`Gradle FAQs </system-requirements/software/gradle/FAQs>` for help with common questions and errors.
 
