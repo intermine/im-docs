@@ -1,13 +1,11 @@
 Upgrading InterMine
 ======================
 
-`InterMine 2.0 <https://intermineorg.wordpress.com/2017/09/22/intermine-2-0-summer-update/>`_ is a disruptive release and is not backwards compatible. This means that databases, webapps and code from previous releases will need to be updated to work with the new InterMine release. 
+`InterMine 2.0 <https://intermineorg.wordpress.com/2017/09/22/intermine-2-0-summer-update/>`_ is a disruptive release and is not backwards compatible. This means that databases, webapps and code from previous releases will need to be updated to work with the new InterMine release. Below are detailed instructions on how to migrate your InterMine to the new build system. 
 
 .. warning::
 
   If you have custom InterMine code, your changes will likely not work as expected after the upgrade. Please contact us and we can help you migrate your edits to the new system.
-
-Below are detailed instructions on how to migrate your InterMine to the new build system.
 
 Please contact us if you have any questions or concerns! We have a mailing list or you can contact us directly via email or our discord channel (chat.intermine.org). If you are having difficulties, we can also arrange a skype call to walk through any problems together. Please make sure your code is public, e.g. GitHub, so we can help test!
 
@@ -33,7 +31,7 @@ You do not need to install Gradle locally. Instead, use the Gradle wrapper provi
 Remove InterMine code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Previously you had to download and compile InterMine. Now, instead, you’ll be using the compiled InterMine JARs available via Maven. This means you should remove all InterMine code from your repos, and only have your mine and data sources.
+Previously you had to download and compile InterMine. Now, instead, you’ll be using the compiled InterMine JARs available via Maven. This means you should remove all InterMine code from your mine repositories. Your mine repositories should only contain your mine (webapp and dbmodel) and your mine's custom data sources.
 
 1. You should not have any core InterMine code locally.
 2. `Directions <https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/>`_ on how to move a directory to a new repository and keep your history in GitHub.
@@ -54,7 +52,7 @@ InterMine has switched to use the standard `Maven directory structure <https://m
    src/test/java
    src/test/resources
 
-You will have to run two migration scripts to move your current mine over to this new layout -- one for your mine and one for your mine's data parsers.
+You will have to run two migration scripts to move your current mine over to this new layout -- one script for your mine and one for your mine's data parsers.
 
 The migration scripts are located in the `intermine-scripts <https://github.com/intermine/intermine-scripts/blob/master/gradle-migration/data-sources/migrateBioSources.sh>`_ repository. 
 
