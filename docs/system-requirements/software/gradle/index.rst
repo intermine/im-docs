@@ -5,7 +5,7 @@ Gradle - Quick Start
 
 Please see :doc:`Upgrade instructions </support/upgrade>` for details on how to migrate your system to use Gradle and :doc:`Gradle FAQs </system-requirements/software/gradle/FAQs>` for commonly asked questions about Gradle.
 
-Below are common commands you will use when building InterMine database and deploying webapps.
+Below are common commands you will use when building InterMine database and deploying webapps. See `Gradle docs <https://docs.gradle.org/current/userguide/command_line_interface.html>`_ for the full list.
 
 Data sources
 ----------------------------
@@ -176,7 +176,7 @@ The updated Gradle version comes with `daemons` enabled by default. These are he
 Further Reading
 ---------------------------- 
 
-* https://gradle.org/docs/
+* `Gradle docs <https://docs.gradle.org/current/userguide/command_line_interface.html>`_
 * `InterMine blog post <https://intermineorg.wordpress.com/2017/09/13/intermine-2-0-gradle/>`_
 * `InterMine presentation <https://docs.google.com/presentation/d/1mgcC7TSieHa4JdYzxYUVspftKO8rDpFN0X9JaKQXkDM/edit>`_
 

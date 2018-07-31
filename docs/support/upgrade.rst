@@ -92,6 +92,7 @@ Run this command to put your sources on the classpath and therefore available to
 
 .. code-block:: sh
 
+  # not part of the upgradle process. You will install every time you make a change
   ~/git/flymine-bio-sources $ ./gradlew install
 
 Note the command is `./gradlew` instead of `gradle`. Use the provided Gradle wrapper instead of locally installed Gradle.
