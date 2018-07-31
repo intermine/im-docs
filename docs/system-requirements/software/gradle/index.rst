@@ -5,7 +5,7 @@ Gradle - Quick Start
 
 Please see :doc:`Upgrade instructions </support/upgrade>` for details on how to migrate your system to use Gradle and :doc:`Gradle FAQs </system-requirements/software/gradle/FAQs>` for commonly asked questions about Gradle.
 
-Below are common commands you will use when building InterMine database and deploying webapps. See `Gradle docs <https://docs.gradle.org/current/userguide/command_line_interface.html>`_ for the full list.
+Below are common commands you will use when building InterMine database and deploying webapps. See `docs.gradle.org <https://docs.gradle.org/current/userguide/command_line_interface.html>`_ for the full list.
 
 Data sources
 ----------------------------
@@ -18,6 +18,7 @@ One of the biggest shifts is how InterMine handles dependencies. Previously all 
     
     ~/git/flymine-bio-sources $ ./gradlew install
 
+* See the maven plugin docs on the `install task <https://docs.gradle.org/current/userguide/maven_plugin.html>`_ for details.
 * Example: https://github.com/intermine/flymine-bio-sources - FlyMine-specific data sources.
 * When installed locally, the JAR that is produced is available in the maven repo located in `~/.m2/repository`
 * The JAR downloaded as dependencies, are available in the Gradle cache, `~/.gradle/caches/modules-2/files-2.1/`.
@@ -83,6 +84,7 @@ Deploy a webapp (cargo)
 
 .. code-block:: sh
 
+    ~/git/flymine $ ./gradlew cargoDeployRemote
     ~/git/flymine $ ./gradlew cargoRedeployRemote
     ~/git/flymine $ ./gradlew cargoUndeployRemote
 
