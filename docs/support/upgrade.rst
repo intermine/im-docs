@@ -40,12 +40,15 @@ What you want to end up with:
    * FlyMine - https://github.com/intermine/flymine/
    * FlyMine specific data sources - https://github.com/intermine/flymine-bio-sources
 
-Options
+Options to separate out your mine repo:
 
 1. You can copy over your directories directly. Don't do this! You'll lose your history.
 
-  * cp intermine/flymine flymine
-  * git init; git add *; git commit -am "initial commit"
+.. code-block:: sh
+
+  # don't do this
+  cp intermine/flymine flymine
+  git init; git add *; git commit -am "initial commit"
 
 2. Instead, use `git filter-branch` command. Follow the `directions <https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/>`_ on how to move a directory to a new repository and keep your history in GitHub.
 
