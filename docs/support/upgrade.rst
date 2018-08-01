@@ -26,8 +26,6 @@ You will need Maven installed. We use Maven to manage mine-specific InterMine de
   # for Ubuntu
   sudo apt-get install maven
 
-This task builds the JARs and places them on your classpath in `~/.m2/repository`.
-
 You do not need to install Gradle locally. Instead, use the Gradle wrapper provided.
 
 Remove InterMine code
@@ -98,6 +96,8 @@ Run this command to put your sources on the classpath and therefore available to
 
   # not part of the upgradle process. You will install every time you make a change
   ~/git/flymine-bio-sources $ ./gradlew install --stacktrace
+
+This task builds the JARs and places them on your classpath in `~/.m2/repository`.
 
 Note the command is `./gradlew` instead of `gradle`. Use the provided Gradle wrapper instead of locally installed Gradle.
 
