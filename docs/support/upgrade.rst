@@ -26,6 +26,8 @@ You will need Maven installed. We use Maven to manage mine-specific InterMine de
   # for Ubuntu
   sudo apt-get install maven
 
+This task builds the JARs and places them on your classpath in `~/.m2/repository`.
+
 You do not need to install Gradle locally. Instead, use the Gradle wrapper provided.
 
 Remove InterMine code
