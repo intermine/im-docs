@@ -84,6 +84,8 @@ Here is an example GFF3 entry in the project XML file:
       <property name="gff3.taxonId" value="7227"/>
       <property name="gff3.seqClsName" value="Chromosome"/>
       <property name="src.data.dir" location="/DATA/*.gff3"/>
+      <property name="gff3.dataSourceName" value="NCBI"/>
+      <property name="gff3.dataSetTitle" value="Release GRCh38 of the Homo sapiens genome sequence"/>
     </source>
 
 Here are the descriptions of the properties available:
