@@ -21,8 +21,6 @@ This tutorial is intended to give a general idea of what you can customise in In
 
 	If your webapp is under heavy usage or development, Tomcat may run out of memory. See :doc:`/system-requirements/software/tomcat` for details on how to update your settings to adjust the amount of memory available to Tomcat. 
 
-	If Tomcat has run out of memory, it may not shut down correctly. Memory handling seems to have greatly improved with Tomcat 7 however.
-
 General Layout
 ---------------------
 
@@ -49,12 +47,12 @@ First, let's update the logo of your site. The logo should be 45x43 and named `l
 
    FlyMine's logo
 
-1. Copy your image into this directory: `MINE_NAME/webapp/resources/webapp/model/images`. (If you don't have a logo for your mine yet, you can still test updating your mine by using the FlyMine logo above.)
+1. Copy your image into this directory: `./webapp/src/main/webapp/model/images/logo.png`. 
 2. Deploy your webapp with this command:
 
 .. code-block:: bash
 
-	$ ant default remove-webapp release-webapp
+	$ ./gradlew cargoRedeployRemote
 
 3. Refresh your browser
 
@@ -65,19 +63,18 @@ First, let's update the logo of your site. The logo should be 45x43 and named `l
 
 You should see your new logo in the top left corner of your webapp. If you don't, try clearing your browser's cache.
 
-ant targets
+clean
 ^^^^^^^^^^^^^^^^^^^^^^
 
 If your changes are still not being reflected in your webapp, add the `clean` target:
 
 .. code-block:: bash
 
-	$ ant clean; ant default remove-webapp release-webapp
+	$ ./gradlew clean; ./gradlew cargoRedeployRemote
 
-This removes all temporary directories so you are certain your new files are being used. The `clean-all` target removes
-temporary directories from all dependencies as well.
+This removes all temporary directories so you are certain your new files are being used. 
 
-See :doc:`/system-requirements/software/ant/` for a list of all ant targets.
+See :doc:`/system-requirements/software/gradle/` for a list of all available Gradle tasks.
 
 Subtitle and Release version
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -110,7 +107,7 @@ These values are set in :doc:`/webapp/properties/intermine-properties` file. Thi
 
 .. code-block:: bash
 
-	$ ant default remove-webapp release-webapp
+	$ ./gradlew cargoRedeployRemote
 
 4. Navigate to your mine's home page and see the updated values: http://localhost:8080/biotestmine
 
@@ -227,30 +224,4 @@ Notice the text box already has an example, `e.g. X, Y, Z`. This is the default 
 
 Add `begin.listBox.example` to your mine's :doc:`/webapp/properties/web-properties` file and redeploy your webapp to see your changes.
 
-InterMine, bio and mine /webapp
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-In Intermine there are 3 webapp projects: InterMine, bio and mine. You shouldn't ever have to change the files in InterMine and bio, you'll only ever update your mine's files. When the webapp is compiled, the build system starts with the InterMine webapp project, then merges bio into that. Finally your mine's webapp is added. The files and properties set in bio override any in the InterMine project. Your mine's files and properties override any in bio or InterMine.
-
-Therefore when you set `begin.listBox.example` in your properties file, it overrode the same property set in the InterMine properties file. This will be true of any property.
-
-Use your own
-~~~~~~~~~~~~~~~~~~~
-
-The text and settings are configurable, but you may want a different layout for your home page. 
-
-
-1. Copy `begin.jsp` from `intermine/webapp` into your own webapp directory: `MINE_NAME/webapp/resources/webapp/model`.
-2. Edit your begin.jsp 
-3. Redeploy your webapp to show your change
-
-We saw in the previous section that properties override InterMine properties. The same holds true for JSP pages.
-
-Note: Changes made to the home page, or whichever page you updated, will not be reflected in your custom copy.
-
-
 See :doc:`/webapp/homepage/index` for more details on how to update your home page.
-
-
-
-
