@@ -94,33 +94,20 @@ to create the database and the `db.xxx.datasource.databaseName` value match.
   db.unittest.datasource.user=USERNAME
   db.unittest.datasource.password=SECRET_PASSWORD
 
-
-
-There are separate test projects for the main InterMine libraries: core objectstore code, the integration code and the web code.  These are the
-packages/directories:
-
-* intermine/objectstore/test
-* intermine/integrate/test
-
 Run the tests
 ~~~~~~~~~~~~~~~~~~~
 
-Run the tests by changing to the appropriate directory and running `ant` with no arguments.  For example:
-
 .. code-block:: bash
 
-  # in intermine/objectstore/test/
-  $ ant
-
-In this initial setup you may see some Java Exceptions, for diagnosis of common errors see: CommonErrors
+  # in intermine
+  $ ./gradlew test
 
 View results
 ~~~~~~~~~~~~~~~~~~~
 
 The HTML test report will be created in the build directory, eg. `intermine/objectstore/test/build/test/results/index.html`
 
-We aim to keep the tests at a 100% pass rate at all times.
-
+Pull requests are not accepted without passing tests, and we have Travis set up to run tests on every commit. We keep the tests at a 100% pass rate at all times. 
 
 Running the bio tests
 --------------------------------
@@ -168,86 +155,32 @@ Set up a properties file to provide database details to the test code. In `.inte
 Build the databases
 ~~~~~~~~~~~~~~~~~~~
 
-Build database tables automatically generated from the bio model by running the following in `bio/test-all/dbmodel`:
+Build database tables automatically generated from the bio model by running the following in `bio`:
 
 .. code-block:: bash
 
-  $ ant clean build-db
+  $ ./gradlew builddb
 
 Run the tests
 ~~~~~~~~~~~~~~~~~~~
 
-Execute the tests, in `bio/test-all` run:
+Execute the tests, in `bio` run:
 
 .. code-block:: bash
 
-  $ ant clean; ant
+  $ ./gradlew test
 
 
 Run a single test
 ~~~~~~~~~~~~~~~~~~~
 
-You can also run a test for an individual source by running the ant command with no arguments.
+You can also run a test for an individual source by using this syntax:
 
 .. code-block:: bash
 
-  # in bio/sources/uniprot/test
-  $ ant
+  # in bio
+  $ ./gradlew bio-model:test
 
-The test results will be located at `uniprot/test/build/test/results/index.html`.  You can also run these as JUnit tests directly from Eclipse.
+The test results will be located at `bio/model/test/build/test/results/index.html`.  You can also run these as JUnit tests directly from Eclipse or Intellij.
 
 .. index:: tests, unit tests
-
-Running the web application tests
---------------------------------
-
-InterMine includes tests for running automated browser based user interface testing using `Selenium <http://www.seleniumhq.org/>`_. In particular the tests are meant to cover the main interface features of the generic web-application.
-
-InterMine's web applications tests are written in Python using unittest as the main test framework, selenium to interact with the Selenium webdriver and nose as a test runner.
-
-The test suite can be found in the intermine/testmodel/webapp/selenium/ directory.
-
-Environment Variables
-~~~~~~~~~~~~~~~~~~~
-
-All tests run against a target which is the base URL of an InterMine instance.
-
-.. code-block:: properties
-
-  # The base URL of the web application.
-  # Example: http://localhost:8080/intermine-demo
-  TESTMODEL_BASE
-
-Credentials for a Gmail account are required to test OpenID authentication in account-login-openid-test.py:
-
-.. code-block:: properties
-
-  # The username of a Gmail account
-  TESTMODEL_OPENID_NAME
-
-  # The password of a Gmail account
-  TESTMODEL_OPENID_PASSWORD
-
-Run the tests
-~~~~~~~~~~~~~~~~~~~
-
-The tests are normally run as part of the CI test suite. They can also be run locally which is always a good idea when a new test is added or an existing test is modified.
-
-To the run tests manually:
-
-.. code-block:: bash
-
-  # in intermine/testmodel/webapp/selenium/
-  $ virtualenv venv
-  $ source venv/bin/activate
-  $ pip install -r requirements.txt
-  $ nosetests
-
-Developing test scripts
-~~~~~~~~~~~~~~~~~~~
-
-Selenium offers a Firefox plugin called `Selinium IDE <http://www.seleniumhq.org/download/>`_ that can be used to record a user's actions in the browser and then generate Selenium code in a variety of languages. While you may need to write code for more complex scenarios, the plugin can be a fast way to generate most of the work.
-
-Python based test scrips should be placed in intermine/testmodel/webapp/selenium/test/ and their filename should end with "[filename]-test.py". Test scripts in this directory are automatically included when nosetests is executed or when continual integration takes place.
-
-.. _Travis-CI: https://travis-ci.org/intermine/intermine

@@ -1,18 +1,23 @@
 project_build script
 ========================
 
-We recommend running long builds from the `bio/scripts/project_build` script.  This is a perl program that reads a project.xml file and loads each source in turn.  This makes multiple calls to ant to avoid memory problems encountered when running many Java task sequentially from ant.  It also has the option of dumping the production database during the build and recovering from these dumps in case of problems.
+To run a full build of InterMine, you must use the  `project_build` script.  This is a Perl program that reads a project.xml file and loads each source in turn.  This makes multiple calls to ant to avoid memory problems encountered when running many Java task sequentially from ant.  It also has the option of dumping the production database during the build and recovering from these dumps in case of problems.
 
 .. note::
 
   This script requires the Expect and XML::Parser::PerlSAX Text::Glob perl modules - install with: `sudo cpan -i XML::Parser::PerlSAX Expect Text::Glob`
 
+Download the file from the intermine-scripts repository:
+
+.. code-block:: bash
+
+  flymine $ wget https://raw.githubusercontent.com/intermine/intermine-scripts/master/project_build
 
 Run the build script from the mine directory:
 
 .. code-block:: bash
 
-  $ ../bio/scripts/project_build -b -v server_name /some/dump/location/dump_file_prefix
+  flymine $ ./project_build -b -v server_name /some/dump/location/dump_file_prefix
 
 The `server_name` is hostname of the machine where the `pg_dump` command should be run.  If you are running `project_build` on the same machine as PostgreSQL then you should specify `localhost` as the server name.  If the PostgreSQL server is on a remote machine, give its hostname.  In that case the script will try to run `pg_dump` on the remote machine using `ssh`.  This makes dumping a little faster and allows for the case where `/some/dump/location/dump_file_prefix` is only visible on the remote machine.
 
@@ -58,7 +63,6 @@ Running project_build with '''`-l`''' will reload the latest dump (if any) with 
     You must use the full path to the dump file, e.g. `/some/dump/location/dump_file_prefix`
 
 
-
 Running a Single Datasource
 ----------------------------
 
@@ -66,40 +70,54 @@ Before starting the build process you will need to set up the appropriate proper
 
 .. code-block:: bash
 
-  $ cd MINE_NAME/dbmodel/
-  $ ant build-db
+  flymine $ ./gradlew builddb
 
 .. warning::
 
-    Running the `build-db` target will drop the current database and create a new, blank database.
+    Running the `builddb` target will drop the current database and create a new, blank database.
 
-To run a data source, run this command in the `MINE_NAME/integrate/` directory, specifying the source name (as it appears in project.xml):
+To run a data source, run this command in your mine directory, specifying the source name (as it appears in project.xml):
 
 .. code-block:: bash
 
-  $ ant -v -Dsource=malaria-gff
+  flymine $ ./gradlew integrate -Psource=uniprot --stacktrace
+
 
 Most sources have multiple stages in retrieving data, to run just one stage use:
 
 .. code-block:: bash
 
-  $ ant -v -Dsource=malaria-gff -Daction=[retrieve|load]
+  flymine $ ./gradlew integrate -Psource=uniprot -Paction=load --stacktrace
 
 The stages are:
+
+preretrieve
+  pre-processing that is done
 
 retrieve
   load data from source database/files into an items database
 
-translate
-  convert from a source items database to a target items database
-
 load
   read from a target items database and integrate into the production database
 
-Most sources do not have a `translate` step so `retrieve` will write to the `common-tgt-items` database.
+See `/system-requirements/software/gradle/` for the full list of common Gradle tasks, or run `./gradlew tasks` to see the list of available tasks on the command line.
 
+Running a Custom Datasource
+----------------------------
 
-.. [1] this allows multiple sets of properties file.  eg. passing '''-V test'' causes the build system to look for `MINE_NAME.properties.test` instead of the default file `MINE_NAME.properties`
+The build script expects the data source to be on the classpath already. If you are using a data source provided by InterMine, that parser will be put on the classpath for you. If you are using a custom source, you will need to put it on the classpath yourself. You can use the Gradle Maven plugin task `install` to compile your Java code, build the JAR and put on your classpath.
+
+.. code-block:: bash
+
+  # run the install task to build your JAR
+  flymine-bio-sources $ ./gradlew install
+
+.. code-block:: bash
+
+  # you can install a single source
+  flymine-bio-sources $ ./gradlew rnai:install
+
+The `install` task will place the JAR in the Maven directory "~/.m2/repository".
 
 
 .. index:: building database, project_build script, running a build, build-db, Dsource, Daction

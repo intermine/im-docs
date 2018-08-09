@@ -98,7 +98,7 @@ In ``/webapp`` you'll find tomcat6. You can start the webapp using this command:
 
  $ ./start.sh
 
-Your MalariaMine web application will be then available on
+Your BioTestMine web application will be then available on
 
   http://the_instance_public_DNS:8080/malariamine
 
