@@ -3,24 +3,41 @@ Model Merging
 
 An InterMine model describes the classes available to the InterMine system and their relationships.  The model is used to generate the database tables, the Java class files and the web application.
 
-A model can be described using a model file.  The model can be either read from one file or built up from several files using "model merging".  An example of a single file model is used in the testmodel project.
+A model can be described using a model file.  The model can be either read from one file or built up from several files using "model merging".  An example of a single file model is used in the "testmine".
 
 Configuration
 --------------
 
-An InterMine datamine is built from sources.  Each source can contribute to the data model and also provides data.  When a mine is built with the `ant build-db` command, the model is created from small "additions" file contributed by each source.  Specifically, the model is created by reading the `project.xml` file and merging the model fragment from each addition file for each source.  As an example the additions file for uniprot is `bio/sources/uniprot/uniprot_additions.xml`
+An InterMine datamine is built from sources. Each source can contribute to the data model and also provides data. When a mine is built with the `./gradlew builddb` command, the model is created from small "additions" file contributed by each source. Specifically, the model is created by reading the `project.xml` file and merging the model fragment from each addition file for each source. 
 
-Other additions files (ie. not from sources) can be explicitly merged by setting the `extra.model.paths.start` and `extra.model.paths.end` properties in the `project.properties` of your `dbmodel` directory.  An example from FlyMine is:
+Other additions files (ie. not from sources) can be explicitly merged by setting the `extra.model.paths.start` and `extra.model.paths.end` properties in the `project.properties` of your `dbmodel` directory.  An example from FlyMine's `build.gradle` is:
 
 .. code-block:: properties
 
-  extra.model.paths.start = bio/core/genomic_additions.xml bio/sources/so/so_additions.xml
-  extra.model.paths.end = bio/core/shortcuts.xml
+  mineDBModelConfig {
+    modelName = "genomic"
+    extraModelsStart = "so_additions.xml genomic_additions.xml"
+    extraModelsEnd = "flybase-chado-db_additions.xml chado-db-stock_additions.xml"
+  }
 
+Here `genomic_additions.xml` and `so_additions.xml` will be merged first and `flybase-chado-db_additions.xml' and 'chado-db-stock_additions.xml` will be merged after all other model fragments.
 
-Here `genomic_additions.xml` and `so_additions.xml` will be merged first and `shortcuts.xml` will be merged after all other model fragments.
+Note that bio-model's `core.xml` model fragment is always used as a base for the merging - everything will be merge into the classes in `core.xml`
 
-Note that the `bio/core/core.xml` model fragment is always used as a base for the merging - everything will be merge into the classes in `core.xml`
+Global Additions file
+-------------------------
+
+You can also specify an additions file, `extraAdditionsFile`, that will be merged into every source's additions file.
+
+.. code-block:: sh
+
+    // [in bio/sources/build.gradle]
+    // uncomment to specify an extra additions file for your bio-sources
+    // this file will be merged with the additions file for each data source
+    // and included in each source JAR.
+    //bioSourceDBModelConfig {
+    //    extraAdditionsFile = "MY-MINE_additions.xml"
+    //}
 
 Example
 -----------
@@ -73,4 +90,4 @@ Final, merged, model definition:
 
 The resulting class has all attributes of the `Protein` from `core.xml` and from `uniprot_additions.xml`.  Note that in uniprot we don't need to declare a base class for `Protein` (like as `extends="BioEntity"`) as the base class from `core.xml` is merged into the final class.
 
-.. index:: model merging, data model
+.. index:: model merging, data model, extraAdditionsFile

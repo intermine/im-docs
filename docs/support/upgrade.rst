@@ -37,7 +37,7 @@ If you have your mine and bio/sources in your InterMine checkout, instead of in 
 
 What you want to end up with:
 
-   * FlyMine - https://github.com/intermine/flymine/
+   * FlyMine - https://github.com/intermine/flymine/ (MUST be the name of your mine)
    * FlyMine specific data sources - https://github.com/intermine/flymine-bio-sources
 
 Options to separate out your mine repo:

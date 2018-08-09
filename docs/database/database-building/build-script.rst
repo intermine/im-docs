@@ -119,5 +119,4 @@ The build script expects the data source to be on the classpath already. If you 
 
 The `install` task will place the JAR in the Maven directory "~/.m2/repository".
 
-
 .. index:: building database, project_build script, running a build, build-db, Dsource, Daction

@@ -36,14 +36,14 @@ needs to at least:
 One way to do this is by installing triggers into the PostgreSQL database that will co-ordinate these updates. InterMine
 can now generate such triggers if you invoke the ant generate-update-triggers in your mine's dbmodel/ directory like so:
 
-.. code-block:: guess
+.. code-block:: bash
 
-  cd $MINE/dbmodel
-  ant generate-update-triggers
+  cd $MINE
+  ./gradlew generateUpdateTriggers
 
 This will generate two SQL files in the build/model/ subdirectory
 
-.. code-block:: guess
+.. code-block:: bash
 
   add-update-triggers.sql
   remove-update-triggers.sql
