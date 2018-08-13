@@ -121,11 +121,15 @@ Currently set to **2.0+**
 You can overwrite this value and set these values in your mine's `gradle.properties` file.
 
 
+ERROR: "FAIL - Deployed application at context path [/flymine] but context failed to start
+-------------------------------------------------------------------------------------------- 
+
+You deployed a webapp with `cargo` and are trying to redeploy using `gretty`. (or vice versa). That's not allowed, they are using different tomcat instances. Instead, undeploy the webapp using the same command you used to deploy it.
 
 I got a different error! Help!
 ----------------------------------------------
 
-Please send a detailed stacktrace to the dev mailing list. 
+Please send a detailed stacktrace to the dev mailing list, or pop onto our discord -- chat.intermine.org.
 
 Common issues:
 
