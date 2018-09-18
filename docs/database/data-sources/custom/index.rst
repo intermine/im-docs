@@ -5,7 +5,7 @@ The aim of this tutorial is to create a new source. Often this will be to import
 
 There are three parts to creating a new source:
 
-1. Create the directory structure in InterMine that contains files that describe the source.
+1. Create a directory for your data sources.  
 2. Configure the mine to use this source (make an entry in your `project.xml`).
 3. Write code to parse the source. You can either do this in InterMine directly, by extending the `DataConverter` class, or you can use some other language to generate a standalone InterMine Items XML file, and set `have.file.xml.tgt = true` in the source's properties file.  See `this page <../apis/index.html>`_ for more information on the InterMine Items XML file format and links to language-specific APIs (Perl, Python, etc.) that can help create it.
 
@@ -15,12 +15,14 @@ Create source files
 Run make_source script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This script creates the basic skeleton for a source. It should be run in the top level directory of an InterMine checkout, like this:
+The `make_source <https://raw.githubusercontent.com/intermine/intermine-scripts/master/make_source>`_ script creates the basic skeleton for a source. It should be run in your data sources directory, like this:
 
 .. code-block:: bash
 
-  $ ./make_source <source-name> <source-type>
+  # create a directory for your data sources
+  ~/git/flymine-bio-sources $ ./make_source <source-name> <source-type>
 
+The script also creates a gradle project if one does not exist.
 
 Possible source types
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -31,7 +33,7 @@ custom-file
 """"""""""""""
 
 This a source that reads from a file in a custom format.  A custom FileConverter will be needed.  The `make_source` script will
-create a skeleton `FileConverter` in `bio/sources/<source-name>/main/src/org/intermine/bio/dataconversion`.  Edit this code to process the particular file you need to load, using the internal :doc:`/database/data-sources/apis/java-items-api` to create and store items to the database.
+create a skeleton `FileConverter` in `<source-name>/src/main/java/org/intermine/bio/dataconversion`.  Edit this code to process the particular file you need to load, using the :doc:`/database/data-sources/apis/java-items-api` to create and store items to the database.
 
 intermine-items-xml-file
 """"""""""""""""""""""""""""
