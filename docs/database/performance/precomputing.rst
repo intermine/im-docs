@@ -19,14 +19,14 @@ Precomputing template queries makes sure that public templates will always run q
 .. code-block:: bash
 
 	# in <mine>
-	$ ant precompute-templates
+	flymine $ precompute-templates
 
 Sometimes it can be slow to precompute complex templates, an ignore flag lets you specify a comma separated list of template names not to precompute. For example:
 
 .. code-block:: bash
 
 	# in <mine>/webapp
-	$ ant -Dignore=template1,template2 precompute-templates
+	flymine $ ant -Dignore=template1,template2 precompute-templates
 
 Manual specification of queries
 --------------------------------------------

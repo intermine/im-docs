@@ -225,3 +225,5 @@ Notice the text box already has an example, `e.g. X, Y, Z`. This is the default 
 Add `begin.listBox.example` to your mine's :doc:`/webapp/properties/web-properties` file and redeploy your webapp to see your changes.
 
 See :doc:`/webapp/homepage/index` for more details on how to update your home page.
+
+
