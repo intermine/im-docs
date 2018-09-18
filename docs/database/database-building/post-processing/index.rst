@@ -1,30 +1,30 @@
 Post processing
 ================================
 
-Some operations are performed on the integrated data before the webapp is released - post-processing. For example, setting sequences of SequenceFeatures, filling in additional references and collections or transferring orthologues from translations to genes.  These are steps that run after the data loading is completed.  They are used to set calculate/set fields that are difficult to do when data loading or that require multiple sources to be loaded. Some postprocessing steps are core to InterMine.bio and should always be run, others are contributed by particular sources.
+Some operations are performed on the integrated data before the webapp is released - post-processing. For example, setting sequences of SequenceFeatures, filling in additional references and collections or transferring orthologues from translations to genes. These are steps that run after the data loading is completed. They are used to set calculate/set fields that are difficult to do when data loading or that require multiple sources to be loaded. Some postprocessing steps are core to InterMine.bio and should always be run, others are contributed by particular sources.
 
-Post-processing steps are specified in the project XML file and run from the `MINE_NAME/postprocess` project with:
+Post-processing steps are specified in the project XML file and run from the mine:
 
 .. code-block:: bash
 
-	$ ant -v
+	~/git/flymine $ ./gradlew postprocess --stacktrace
 
 
 To run individual post-process steps use, for example:
 
 .. code-block:: bash
 
-	$ ant -v -Daction=create-references
+	~/git/flymine $ ./gradlew postprocess -Pprocess=do-sources --stacktrace
 
-When running one postprocess step like this (multiple steps separated by comma is not supported), the `action` used must match an `post-process` in the `post-processing` section of the `project.xml` file.
+When running one postprocess step like this (multiple steps separated by comma is not supported), the `-Pprocess` used must match an `post-process` in the `post-processing` section of the `project.xml` file.
 
-Post-processing is run automatically after integrating if using the `project_build` script (see above).
+Post-processing is run automatically after integrating if using the `project_build` script.
 
 To add a post-process step to InterMine, you need to add the Java definition to the project and call the post-process from the `PostProcessOperationsTask` class.
 
 .. note::
 
-	Be sure to put the postprocesses in the correct order.  Each task is executed in the order listed on your project XML so be sure to put the webapp tasks last in the last, for example.  Take a look at the FlyMine or modMine project XML file if you need help.
+	Be sure to put the postprocesses in the correct order.  Each task is executed in the order listed on your project XML so be sure to put the webapp tasks last in the last, for example.  Take a look at the FlyMine project XML file if you need help.
 
 Sequence Features
 ~~~~~~~~~~~~~~~~~~~~~~~~~

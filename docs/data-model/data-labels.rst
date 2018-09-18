@@ -54,7 +54,7 @@ This is most helpful in the case of compound field-expressions ("organism.name")
 Configuring classes and fields globally
 -----------------------------------------------
 
-For this, the mine needs to be made aware of properties files that hold the appropriate translations. Biological mines automatically get three of these files:
+To configuring classes and fields globally, the mine needs to be made aware of properties files that hold the appropriate translations. Biological mines automatically get three of these files:
 
 `bio/webapp/src/main/webapp/WEB-INF/soClassName.properties`
   used to generate readable names using the SO term a class represents

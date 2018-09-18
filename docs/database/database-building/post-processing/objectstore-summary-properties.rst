@@ -14,7 +14,7 @@ If a field is never going to have less than 200 unique values, you can set the f
 
 .. code-block:: properties
 
-    # in objectstoresummary.config.properties
+    # in MINE_NAME/dbmodel/resources/objectstoresummary.config.properties
     ignore.counts=org.intermine.model.bio.GOAnnotation.withText org.intermine.model.bio.Location.subject
 
 Auto-completion
@@ -43,8 +43,7 @@ You can set up autocompletion by completing these steps:
 
 .. code-block:: bash
 
-    # in malariamine/postprocess
-    $ ant -Daction=create-autocomplete-index
+    ~/git/flymine $ ./gradlew postprocess -Pprocess=create-autocomplete-index --stacktrace
 
 This process will add all fields set in this properties file to the autocompletion index. 
 
