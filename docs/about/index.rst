@@ -9,13 +9,15 @@ InterMine has been developed with the support of the Wellcome Trust [067205], [0
 The publicly available InterMine instances include: 
 
 * `FlyMine <http://www.flymine.org>`_  - a data warehouse of integrated fruit fly genetic, genomic and proteomic data 
-* `modMine <http://modmine.modencode.org>`_ - a data warehouse including a repository for modENCODE project fly and worm data, alongside analysis tools
 * `YeastMine <http://yeastmine.yeastgenome.org>`_ - an integrated data warehouse of yeast genomic data, developed by SGD
 * `RatMine <http://ratmine.mcw.edu/ratmine>`_ - an integrated data warehouse of rat genomic data, developed by RGD
-* `MouseMine <http://beta.mousemine.org>`_ - an integrated data warehouse of mouse genomic data, developed by MGI
-* `metabolicMine <http://www.metabolicmine.org>`_ - a  data warehouse targeted at the metabolic disease community, containing relevant datasets from rat, mouse and human
+* `MouseMine <http://www.mousemine.org>`_ - an integrated data warehouse of mouse genomic data, developed by MGI
 * `TargetMine <http://targetmine.nibio.go.jp>`_ - a data warehouse for candidate gene prioritisation and drug target discovery, developed at NIBIO, Japan
-* `mitominer <http://mitominer.mrc-mbu.cam.ac.uk>`_ - a data warehouse of mitochondrial proteomics data for a range of organisms
+* `Zebrafishmine <http://www.Zebrafishmine.org>`_ - an integrated data warehouse of zebrafish genomic data, developed by ZFIN
+* `Thalemine <https://apps.araport.org/thalemine>`_ - a data warehouse for Arabidopsis thaliana Col-0 for the ARAPORT project
+* `PhytoMine <https://phytozome.jgi.doe.gov/phytomine>`_ - an integrated data warehouse of over 50 plant genomes from Phytozome.
+
+See the InterMine `registry <http://registry.intermine.org>`_ for the full list of InterMine instances.
 
 More information:
 
@@ -33,14 +35,7 @@ If you use the InterMine framework in your research, we would appreciate it if y
 
 * InterMine: a flexible data warehouse system for the integration and analysis of heterogeneous biological data. Smith RN et al. (2012). Bioinformatics, in press. 
 
-Individual data warehouses also have specific publications associated with them. To cite those in a paper, where available, please use the individual publication associated with the data warehouse in question: 
-
-* FlyMine: an integrated database for Drosophila and Anopheles genomics. Lyne, R. et al.  Genome Biol. 8, R129 (2007).
-* MitoMiner: a data warehouse for mitochondrial proteomics data. Smith, A. C., Blackshaw, J. A. & Robinson, A. J.  Nucleic Acids Res. 40, D1160-1167 (2012). 
-* modMine: flexible access to modENCODE data. Contrino, S. et al. Nucleic Acids Res. 40, D1082-1088 (2012).
-* TargetMine, an integrated data warehouse for candidate gene prioritisation and target discovery. Chen, Y. A., Tripathi, L. P. & Mizuguchi, K. PLoS One 6, e17844 (2011).
-* YeastMine - an integrated data warehouse for Saccharomyces cerevisiae data as a multipurpose tool-kit. Balakrishnan, R. et al.  Database 2012, bar062 (2012). 
-
+See the InterMine `zotero <https://www.zotero.org/groups/2117194/intermine/>`_ group for the full list of InterMine publications.
 
 .. _legal:
 

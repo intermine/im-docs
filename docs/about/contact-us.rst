@@ -15,21 +15,15 @@ blog
 chat 
     http://chat.intermine.org (Our public support channel on discord)
 
-telephone
-    +44 (0)1223 760 262 
-
-fax
-    +44 (0)1223 760 241 (please clearly indicate: *InterMine - Micklem lab*)
-
 post
     | InterMine
-    | Systems Biology Centre
-    | Tennis Court Road
-    | CAMBRIDGE CB2 1QR
+    | Department of Genetics
+    | Downing St
+    | CAMBRIDGE CB2 3EH
     | United Kingdom
 
 in person (please contact us first so we know to expect you)
-    http://map.cam.ac.uk/Cambridge+Systems+Biology+Centre
+    https://map.cam.ac.uk/Department+of+Genetics
 
 
 .. index:: Cambridge, contact, email, phone, fax, twitter, blog, chat
