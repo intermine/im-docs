@@ -56,19 +56,20 @@ Configuring classes and fields globally
 
 For this, the mine needs to be made aware of properties files that hold the appropriate translations. Biological mines automatically get three of these files:
 
-`bio/webapp/resources/webapp/WEB-INF/soClassName.properties`
+`bio/webapp/src/main/webapp/WEB-INF/soClassName.properties`
   used to generate readable names using the SO term a class represents
 
-`bio/webapp/resources/webapp/WEB-INF/bioClassNames.properties`
+`bio/webapp/src/main/webapp/WEB-INF/bioClassNames.properties`
   used to map non-SO classes to readable names
 
-`bio/webapp/resources/webapp/WEB-INF/bioFieldNames.properties`
+`bio/webapp/src/main/webapp/WEB-INF/bioFieldNames.properties`
   uses to map field names to readable names
 
 Additional files can be specified. Add the the following properties to your web.properties:
 
 .. code-block:: properties
-
+  
+  # put in your mines' web.properties file
   web.config.classname.mappings.{SOME_ID}={RESOURCE_NAME}
   web.config.fieldname.mappings.{SOME_ID}={RESOURCE_NAME}
 
