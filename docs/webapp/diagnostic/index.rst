@@ -20,7 +20,7 @@ This file must live in the `.intermine` directory.
 Verify Tomcat config
 ~~~~~~~~~~~~~~~~~~~~~~
 
-If you are using Tomcat 7, please make sure you have configured it correctly. See :doc:`/system-requirements/software/tomcat`
+Please make sure you have configured Tomcat correctly. See :doc:`/system-requirements/software/tomcat`
 
 Force recompile
 ~~~~~~~~~~~~~~~~
@@ -29,7 +29,7 @@ Run this command in your `webapp` directory:
 
 .. code-block:: bash
 
-	$ ant clean-all
+	$ ./gradlew clean
 
 Verify `/build` is gone from your `webapp` directory.
 
@@ -38,6 +38,6 @@ Re-release webapp
 
 .. code-block:: bash
 
-	$ ant default remove-webapp release-webapp
+	$ ./gradlew cargoReDeployRemote
 
 

@@ -75,11 +75,11 @@ The fields displayed in the keyword search results are determined by the WebConf
 Search Index
 --------------------
 
-You can rebuild the search index by running this command in <MINE>/postprocess:
+You can rebuild the search index by running this command in in your mine:
 
 .. code-block:: bash
 
-   $ ant -Daction=create-search-index
+   ~/git/flymine $ ./gradlew postprocess -Pprocess=create-search-index
 
 You need to re-release your webapp.  Take a look in the intermine.log file when it's done to see which tables and fields were indexed.
 
