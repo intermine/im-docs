@@ -14,7 +14,7 @@ The maximum number of connections allocated to a database, set in the properties
 Which properties?
 -----------------
 
-The `maxConnections` property is set in `default.intermine.production.properties <https://github.com/intermine/intermine/blob/release-candidate/intermine/resources/src/main/resources/default.intermine.production.properties>`_
+The `maxConnections` property is set in `default.intermine.production.properties` in InterMine:
 
 .. code-block:: properties
 

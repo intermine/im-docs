@@ -6,13 +6,13 @@ This page describes what to do if you encounter problems when installing or main
 Error messages
 --------------
 
-If you encounter a problem when running Ant, try adding the verbose flag:
+If you encounter a problem when running a task, try adding the verbose flag:
 
 .. code-block:: bash
 
-	$ ant -verbose
+	# add --stacktrace flag to get the complete error message
+	$ ./gradlew builddb --stacktrace
 
-This should output a more useful error message.
 
 Logs
 ----
@@ -20,7 +20,7 @@ Logs
 Data warehouse
 ~~~~~~~~~~~~~~
 
-When integrating data, usually the errors are in intermine.log file in the directory you are in, eg. `/integrate` or `/dbmodel`
+When integrating data, usually the errors are in intermine.log file in the directory you are in, eg. `/webapp` or `/dbmodel`
 
 Webapp
 ~~~~~~~~~~~~~~
@@ -49,7 +49,7 @@ If you are having problems with a specific query, you can run it directly in the
 
 .. code-block:: bash
 
-	$ ant run-iql-query -Dquery='some IQL'
+	$ ./gradlew runIQLQuery -Pquery='some IQL'
 
 Show all properties 
 ~~~~~~~~~~~~~~~~~~~~
@@ -68,7 +68,7 @@ UnsupportedClassVersionError
 
 	java.lang.UnsupportedClassVersionError: org/intermine/task/FileName (Unsupported major.minor version 49.0)
 
-This means that your version of Java is too old, you need at least Java 6 to run !InterMine.
+This means that your version of Java is too old, you need at least Java 8 to run !InterMine.
 
 can't open datasource
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -86,7 +86,7 @@ FATAL: sorry, too many clients already
 
 	org.postgresql.util.PSQLException: Backend start-up failed: FATAL: sorry, too many clients already - for database: db.bio-fulldata-test
 
-This occurs when the number of connections to a database exceeds the maximum configured in the postgres configuration. You need to increase the value of `max_connections` in the `postgresql.conf` file and restart postgres.  Try 50 connections:
+This occurs when the number of connections to a database exceeds the maximum configured in the postgres configuration. You need to increase the value of `max_connections` in the `postgresql.conf` file and restart postgres.  Try 100 connections:
 
 .. code-block:: java
 
@@ -101,26 +101,12 @@ OutOfMemoryError: Java heap space
 
 	java.lang.OutOfMemoryError: Java heap space
 
-This means that a Java process hasn't been allocated enough memory to function correctly.  You can increase the amount of memory by changing the `-Xmx` property in your `ANT_OPTS` environment variable.  We recommend `1000M` as a minimum, more is often needed during dataloading.  Your `ANT_OPTS` variable should include the following:
+This means that a Java process hasn't been allocated enough memory to function correctly.  You can increase the amount of memory by changing the `-Xmx` property in your `GRADLE_OPTS` environment variable.  We recommend `8G` as a minimum, more is often needed during dataloading.  Your `GRADLE_OPTS` variable should include the following:
 
 .. code-block:: bash
 
-	$ echo $ANT_OPTS
-	$ -Xmx1000M -XX:MaxPermSize=256M
-
-OutOfMemoryError: PermGen space
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: java
-
-	java.lang.OutOfMemoryError: PermGen space
-
-This occurs when Java has run out for !PermGen space - where it stores !ClassLoaders and Class definitions, etc.  It can be fixed by increasing the `-XX:MaxPermSize` value in your `ANT_OPTS` environment variable, the default is `128M`, trying `256M` would be best.  The `ANT_OPTS` variable should include the following:
-
-.. code-block:: bash
-
-	$ echo $ANT_OPTS
-	$-Xmx1000M -XX:MaxPermSize=256M
+	$ echo $GRADLE_OPTS
+	$ -Xmx8G -Dorg.gradle.daemon=false
 
 Can't find class name `ClassName`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -129,7 +115,7 @@ Can't find class name `ClassName`
 
 	Exception caught: java.lang.IllegalArgumentException: Unknown class name Protein in package org.intermine.model.bio
 
-In this example a class named `Protein`  could not be found in the data model, this will usually arise when running a parser and attempting to create an `Item` for a class that does not exist.  Check your `sourcename_additions.xml` files to see if the class is listed, only the additions files for sources lists on `project.xml` when `ant build-db` was run will be included in the data model.
+In this example a class named `Protein` could not be found in the data model, this will usually arise when running a parser and attempting to create an `Item` for a class that does not exist.  Check your `SOURCE-NAME_additions.xml` files to see if the class is listed, only the additions files for sources lists on `project.xml` when `./gradlew builddb` was run will be included in the data model.
 
 Can't find keys
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -139,8 +125,7 @@ Can't find keys
 	Caused by: java.lang.IllegalArgumentException: Unable to find keys for source protfeatures_source in file protfeatures_source_keys.properties
 
 
-It is expecting to find some keys to integrate data from that source. Do you have a keys file in the `bio/sources/protfeatures/resources`? 
-
+It is expecting to find some keys to integrate data from that source. Do you have a keys file in the `protfeatures/src/main/resources`? 
 
 Classpath issues
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -195,9 +180,6 @@ There is no extra configuration required to get the search working. The search u
 The search should be very quick, but depending on the machine it's on, the initial search can be quite slow. On the first search, the index is unpacked from the database and loaded into memory which can take up to a minute.
 
 If the search is just failing instantly, check your log files ($TOMCAT/logs). When the index is unpacked from the database, it writes to disk. There may be permissions or space issues.
-
-
-
 
 
 .. index:: LOG, intermine.log, catalina.out, IQL, JAVA_OPTS, PermGen, PSQLException
