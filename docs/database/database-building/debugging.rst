@@ -12,9 +12,7 @@ Error message
 
 .. code-block:: guess
 
-    $INTERMINE/imbuild/integrate.xml:54: The following error occurred while executing this line:
-    $INTERMINE/imbuild/source.xml:330: java.lang.RuntimeException: Exception while dataloading - to allow multiple errors, set the property "dataLoader.allowMultipleErrors" to true 
-    Problem while loading item identifier 6_1083 because Given a ProxyReference, but id not in ID Map. Source object ID: <ProxyReference os: org.intermine.objectstore.translating.ObjectStoreTranslatingImpl@1607c7a, id:  66342, proxied class: interface org.intermine.model.InterMineObject>
+    java.lang.RuntimeException: Exception while dataloading - to allow multiple errors, set the property "dataLoader.allowMultipleErrors" to true Problem while loading item identifier 6_1083 because Given a ProxyReference, but id not in ID Map. Source object ID: <ProxyReference os: org.intermine.objectstore.translating.ObjectStoreTranslatingImpl@1607c7a, id:  66342, proxied class: interface org.intermine.model.InterMineObject>
 
 
 Problem

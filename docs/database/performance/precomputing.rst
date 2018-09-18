@@ -18,26 +18,18 @@ Precomputing template queries makes sure that public templates will always run q
 
 .. code-block:: bash
 
-	# in <mine>
-	flymine $ precompute-templates
+	~/git/flymine $ ./gradlew precomputeTemplates
 
-Sometimes it can be slow to precompute complex templates, an ignore flag lets you specify a comma separated list of template names not to precompute. For example:
-
-.. code-block:: bash
-
-	# in <mine>/webapp
-	flymine $ ant -Dignore=template1,template2 precompute-templates
 
 Manual specification of queries
 --------------------------------------------
 
-You can specify any IQL query to precompute in the file `<mine>/dbmodel/resources/genomic_precompute.properties`. These allow you to design queries you think are likely to be created commonly or be parts of larger queries. It is the place to put queries that will be used in list upload and widgets to ensure they run fast.
+You can specify any IQL query to precompute in the file `MINE_NAME/dbmodel/resources/genomic_precompute.properties`. These allow you to design queries you think are likely to be created commonly or be parts of larger queries. It is the place to put queries that will be used in list upload and widgets to ensure they run fast.
 
 
 .. code-block:: bash
 
-	# in <mine>/webapp
-	> ant precompute-queries
+	~/git/flymine $ ./gradlew precomputeQueries
 
 Here is an example query:
 
@@ -61,8 +53,7 @@ To drop all precomputed tables in a database:
 
 .. code-block:: bash
 
-	# in <mine>/webapp
-	$ ant drop-precomputed-tables
+	~/git/flymine $ ./gradlew dropPrecomputedTables
 
 Size of precomputed tables
 --------------------------------------------
@@ -167,7 +158,7 @@ You can also run IQL queries directly in the console:
 
 .. code-block:: bash
 
-	$ ant run-iql-query -Dquery='some IQL'
+	~/git/flymine $ ./gradlew runIQLQuery -Pquery='some IQL'
 
 
 .. index:: precomputes, query speed, database speed, optimisation

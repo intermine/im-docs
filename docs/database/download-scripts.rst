@@ -6,7 +6,7 @@ The DataDownloader system uses a plugin architecture to make it more straightfor
 Location
 -----------------
 
-The system is a package located at `bio/scripts/DataDownloader`.
+The system is a package located in our scripts repo here: https://github.com/intermine/intermine-scripts/tree/master/bio/DataDownloader
 
 The package contains:
 
@@ -57,7 +57,7 @@ Data Source Configuration
 ---------------------------
 To learn how to configure data sources of your mine, look here for examples: 
 
-    `bio/scripts/DataDownloader/config`
+    `DataDownloader/config`
 
 The yaml file of your mine is where data download script reads the instruction  
 
@@ -68,7 +68,7 @@ To run a set of data downloads, the following call should suffice:
 
 .. code-block:: bash
 
-    perl bio/scripts/DataDownloader/bin/download_data -e intermine
+    perl DataDownloader/bin/download_data -e intermine
 
 
 The Current working directory of the script is immaterial.
@@ -77,7 +77,7 @@ Specific sources can be run by naming them on the command line:
 
 .. code-block:: bash
 
-    perl bio/scripts/DataDownloader/bin/download_data -e intermine Uniprot GOAnnotation
+    perl DataDownloader/bin/download_data -e intermine Uniprot GOAnnotation
 
 Source names are case-sensitive. You can get a list of the available sources with the
 switch '--sources'.

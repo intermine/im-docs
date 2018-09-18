@@ -8,7 +8,7 @@ Data source keys configuration files
 
 For each data source, there is a properties file providing a list of the primary keys that can be used when integrating that data source. The file lists the primary keys by name for each class.  When loading objects of a particular class the keys define which fields should be used to look up in the database for existing objects to merge with.
 
-The keys are specified in each source in a file: `bio/sources/sourcename/resources/sourcename_keys.properties`.
+The keys are specified in each source in a file: `SOURCE_NAME/src/main/resources/sourcename_keys.properties`.
 
 These `_keys.properties` files define keys in the format:
 
