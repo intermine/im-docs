@@ -128,18 +128,20 @@ Output:
 Example
 ---------
 
-In `bio/scripts` there is a longer example: [source:trunk/bio/scripts/intermine_items_example.pl intermine_items_example.pl]
+In the InterMine `scripts` repository there is a longer example: `intermine_items_example.pl https://github.com/intermine/intermine-scripts/blob/master/examples/intermine_items_example.pl>`_
+
+https://github.com/intermine/intermine-scripts/blob/master/examples/intermine_items_example.pl
 
 The script has three arguments:
  * a string describing a `DataSet`
  * a taxon id
  * the path to a genomic model file
 
-If you install XML::Writer, the script should run as is from the `bio/scripts/` directory
+If you install XML::Writer, the script should run as:
 
 Example command line:
 .. code-block:: perl
 
-  ./intermine_items_example.pl "FlyMine" 5833 ../../flymine/dbmodel/build/model/genomic_model.xml
+  ./intermine_items_example.pl "FlyMine" 5833 flymine/dbmodel/resources/main/genomic_model.xml
 
 .. index:: Perl Items API

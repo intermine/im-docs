@@ -3,8 +3,6 @@ InterMine Items XML
 
 InterMine items XML is a generic format that encodes data the matches InterMine class definitions.
 
-Unfortunately, there is no document giving the formal specification for this format yet (please ping us on
-the mailing list or elsewhere if you need this). However, an example and some information is below
 
 .. code-block:: xml
 
@@ -41,15 +39,12 @@ The child elements of an <item> are either
 * <reference> - where the property is a reference to some other item by its Items XML id.
 * <collection> - this is a collection of <reference>s
 
-Example scripts used to generate InterMine Items XML can be found at: 
-
-* `bio/scripts/intermine_items_example.pl`
-* RedFly testing objects file at `bio/sources/flymine/redfly/test/resources/RedFlyGFF3RecordHandlerTest.xml`.
+Example scripts used to generate InterMine Items XML can be found at `intermine_items_example.pl https://github.com/intermine/intermine-scripts/blob/master/examples/intermine_items_example.pl>`_.
 
 Datatypes
 ---------
 
-The data formats required for attributes in InterMine Items XML need proper documentation.  However, for the most part they are fairly obvious and match internal Java types (e.g. strings are UTF-8, doubles are 64-bit IEEE 754 floating point).
+The data formats required for attributes in InterMine Items XML for the most part they are fairly obvious and match internal Java types (e.g. strings are UTF-8, doubles are 64-bit IEEE 754 floating point).
 
 One exception is the format required for Dates.  InterMine allows this to be expressed in 3 different ways.
 

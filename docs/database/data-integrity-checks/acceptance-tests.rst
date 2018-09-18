@@ -4,15 +4,14 @@ Acceptance Tests
 How to run the tests
 --------------------
 
-1. Add a file to `MINE_NAME/integrate/resources`, eg. `flymine_acceptance_test.conf`
+1. Add a file to `MINE_NAME/dbmodel/resources`, eg. `flymine_acceptance_test.conf`
 2. run acceptance tests here:
 
 .. code-block:: bash
 
-    $ cd MINE_NAME/integrate
-    $ ant acceptance-tests 
+    ~/git/flymine $ ./gradlew runAcceptanceTests
 
-The results will be in `MINE_NAME/integrate/build/acceptance_test.html`
+The results will be in `MINE_NAME/dbmodel/build/acceptance_test.html`
 
 Types of tests 
 --------------------

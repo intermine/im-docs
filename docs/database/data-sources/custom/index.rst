@@ -1,13 +1,13 @@
 Writing your own data source
 ================================
 
-The aim of this tutorial is to create a new source. Often this will be to import data from an InterMine Items XML format file that you create, though other types of source can also be created (e.g. a source that extends InterMine's existing GFF3 importer. 
+The aim of this tutorial is to create a new source. Often this will be to import data from an InterMine Items XML format file that you create, though other types of source can also be created (e.g. a source that extends InterMine's existing GFF3 importer). 
 
 There are three parts to creating a new source:
 
 1. Create the directory structure in InterMine that contains files that describe the source.
 2. Configure the mine to use this source (make an entry in your `project.xml`).
-3. Write code to parse the source. You can either do this in InterMine directly, by extending the `DataConverter` class, or you can use some other language to generate a standalone InterMine Items XML file, and set `have.file.xml.tgt = true` in the source's project.properties file.  See `this page <../apis/index.html>`_ for more information on the InterMine Items XML file format and links to language-specific APIs (Perl, Python, etc.) that can help create it.
+3. Write code to parse the source. You can either do this in InterMine directly, by extending the `DataConverter` class, or you can use some other language to generate a standalone InterMine Items XML file, and set `have.file.xml.tgt = true` in the source's properties file.  See `this page <../apis/index.html>`_ for more information on the InterMine Items XML file format and links to language-specific APIs (Perl, Python, etc.) that can help create it.
 
 Create source files
 -----------------------
@@ -15,11 +15,11 @@ Create source files
 Run make_source script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This script creates the basic skeleton for a source.   It should be run in the top level directory of an InterMine checkout, like this:
+This script creates the basic skeleton for a source. It should be run in the top level directory of an InterMine checkout, like this:
 
 .. code-block:: bash
 
-  $ ./bio/scripts/make_source <source-name> <source-type>
+  $ ./make_source <source-name> <source-type>
 
 
 Possible source types
@@ -252,7 +252,7 @@ In the `project.xml` file, in the root of your mine directory (e.g. /malariamine
 .. code-block:: xml
 
   <source name="new-source-name" type="new-source">
-    <property name="src.data.file" location="my_data_dir/example.xml"/>
+    <property name="src.data.file" location="/my_data_dir/example.xml"/>
   </source>
 
 If you have more that one file you can set this up to point at a '''directory''':
@@ -260,7 +260,7 @@ If you have more that one file you can set this up to point at a '''directory'''
 .. code-block:: xml
 
   <source name="new-source-name" type="new-source">
-    <property name="src.data.dir" location="my_data_dir/source_files/"/>
+    <property name="src.data.dir" location="/my_data_dir/source_files/"/>
   </source>
 
 The first line defines the name you wish to give to the of the source and the type - the name of the directory in 'bio/sources'.  The second line defines the location and name of the data file.
