@@ -9,10 +9,7 @@ The following are libraries that compile to JavaScript which can be embedded on 
     :maxdepth: 2
       
     list-widgets/index
-    apps-a
-    apps-b
     apps-c/index
-    apps-comparison
     /webapp/query-results/index
     api-loader
     imjs
