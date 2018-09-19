@@ -41,12 +41,12 @@ You can set up autocompletion by completing these steps:
     <post-process name="create-autocomplete-index"/>
   </post-processing>
 
-2. In the `/postprocess` directory, run this command:
+2. Then run this command:
 
 .. code-block:: bash
 
-  # in malariamine/postprocess
-  $ ant -Daction=create-autocomplete-index
+  # run postprocess
+  ~/git/flymine $ ./gradlew postprocess -Pprocess=create-autocomplete-index --stacktrace
 
 This process will add all fields set in this properties file to the autocompletion index.
 

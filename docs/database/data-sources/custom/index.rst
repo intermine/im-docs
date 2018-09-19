@@ -249,7 +249,7 @@ Including your source in a Mine
 Project XML
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In the `project.xml` file, in the root of your mine directory (e.g. /malariamine), the following entries should be added and altered accordingly:
+In the `project.xml` file, in the root of your mine directory (e.g. ~/git/flymine), the following entries should be added and altered accordingly:
 
 .. code-block:: xml
 

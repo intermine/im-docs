@@ -95,7 +95,7 @@ Uses the config in the mine properties file, e.g. `flymine.properties`, to deplo
 Property name      Example       Determines  
 ================== ============= ===========================================================
 webapp.hostname    localhost     name of host. If not set, tries to use `webapp.deploy.url`
-webapp.path        malariamine   location of path of webapp 
+webapp.path        flymine       location of path of webapp 
 webapp.manager     TOMCAT_USER   tomcat username, needed to deploy webapp 
 webapp.password    TOMCAT_PWD    tomcat password, needed to deploy webapp 
 webapp.protocol    https         OPTIONAL, defaults to http

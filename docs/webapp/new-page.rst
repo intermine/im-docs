@@ -8,7 +8,7 @@ This tutorial describes how to add a new page to your InterMine webapp.
 Struts config
 --------------
 
-Add your new page to your struts config located in your /webapp directory.
+Add your new page to your struts config located in your MINE_NAME/webapp directory.
 
 
 struts-config-model.xml
@@ -46,7 +46,7 @@ Update your `model.properties` file to set which tab to use for this JSP.
 
 .. code-block:: xml
 
-	dataSummary.title = Data sources loaded into MalariaMine
+	dataSummary.title = Data sources loaded into FlyMine
 	dataSummary.tab = dataCategories
 
 

@@ -1,11 +1,11 @@
 Data files to integrate
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-All data required to build an InterMine is included in `bio/tutorial/malaria-data.tar.gz <https://github.com/intermine/intermine/blob/dev/bio/tutorial/malaria-data.tar.gz>`_.  Copy this file to your local directory and extract from the archive.
+All data required to build an InterMine is included in `biotestmine/data/malaria-data.tar.gz <https://github.com/intermine/biotestmine/tree/master/data/malaria-data.tar.gz>`_. Copy this file to your local directory and extract from the archive.
 
 .. code-block:: bash
 
-	cp bio/tutorial/malariamine/malaria-data.tar.gz DATA_DIR
+	cp biotestmine/data/malaria-data.tar.gz DATA_DIR
 	cd DATA_DIR
 	tar -zxvf malaria-data.tar.gz
 
