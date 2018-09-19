@@ -37,13 +37,13 @@ You can add additional export options to your InterMine by creating a custom exp
 
 .. code-block:: xml
 
-	# MINE/webapp/resources/struts-config-model.xml
+	# struts-config-model.xml
 	<action path="/bedExportAction" name="bedExportForm" type="org.intermine.web.struts.TableExportAction" parameter="method"/>
 	
-	# MINE/webapp/resources/tiles-defs-model.xml
+	# tiles-defs-model.xml
 	<definition name="bedExportOptions.tile" path="/model/bedExportOptions.jsp" controllerUrl="/initSequenceFeatureExportOptions.do" />
 
-	# MINE/webapp/resources/struts-config-model-form.xml
+	# struts-config-model-form.xml
 	<form-bean name="bedExportForm" type="org.intermine.bio.web.struts.BEDExportForm"/>
 
 Customisation

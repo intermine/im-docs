@@ -1,15 +1,8 @@
 Region Search
 ================================
 
-
-
-BiosegInstallation
---------------------
-
-You must have `Bioseg` installed or be using Postgres 9.2+ to use the region search.  
-
 Configuration 
-~~~~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 `struts-config-model.xml`
 
@@ -130,7 +123,7 @@ Configuration
   precompute.query.31 = SELECT a4_.class AS a1_, a5_.name AS a2_, a5_.description AS a3_ FROM org.intermine.model.bio.SequenceFeature AS a4_, org.intermine.model.bio.SOTerm AS a5_ WHERE a4_.sequenceOntologyTerm CONTAINS a5_ 
 
 Region Search V2
-~~~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 Search page
   This page can be kept as it is, but the query can be constructed and sent to the server side by webservice. The Structs elements can be removed.
@@ -165,11 +158,11 @@ Results table and download links
 .. index:: region search, genomic region search
 
 Adding the strand specific search option
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------------------------------
 
 Since InterMine 1.7, there is an additional feature on the Region Search page to restrict searches to a specific strand.  The user activiates this by ticking a checkbox.  For example, Chr1:12345-23456 indicates a region on the + strand; Chr1:23456-12345 indicates a region on the - strand.  One situation in which this is useful is when you have a series of BLAST-generated regions on which you'd like to search for upstream gene flanking regions.  In this case, there is no point in matching with gene flanking regions on the opposite strand.  
 
-However, adding this feature to the Region Search page requires a new entry in an InterMine installation's $MINE/webapp/resources/struts-config-form-model.xml file.  A new InterMine installation will have this entry but existing updated InterMine installations will not.  Therefore, to add this feature for an existing InterMine installation, the steps are to
+However, adding this feature to the Region Search page requires a new entry in an InterMine installation's `struts-config-form-model.xml` file.  A new InterMine installation will have this entry but existing updated InterMine installations will not.  Therefore, to add this feature for an existing InterMine installation, the steps are to
 
 1. Add a strandSpecific form property to the installations Region Search form in $MINE/webapp/resources/struts-config-form-model.xml
 
@@ -180,7 +173,7 @@ However, adding this feature to the Region Search page requires a new entry in a
       <form-property name="strandSpecific" type="java.lang.Boolean"/>
   </form-bean>
 
-2. Activate this by setting the following property in $MINE/webapp/resources/web.properties
+2. Activate this by setting the following property in `web.properties`
 
 .. code-block:: properties
 

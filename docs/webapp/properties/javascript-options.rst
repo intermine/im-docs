@@ -9,7 +9,7 @@ context of the InterMine web-application, we recommend following the following
 steps:
 
 * Create a new javascript file, named something like `model-includes.js`, and place 
-  it in the `{YOUR_APP}/resources/webapp` directory.
+  it in the `MINE_NAME/webapp/src/main/resources` directory.
 * Add your options to the file (see below).
 * Configure your mine to load this file on every page (see below).
 

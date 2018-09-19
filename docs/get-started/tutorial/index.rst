@@ -10,20 +10,49 @@ Following the steps on this page you will set up an example InterMine.  You will
 Getting Started
 ----------------------
 
-We use `git <http://git-scm.com>`_ to manage and distribute source code and `Gradle <http://gradle.org>`_ as build system.
-Download dependencies from  :doc:`/system-requirements/index`.
-Clone biotestmine project from https://github.com/intermine/biotestmine.
-Add the flag -Dorg.gradle.daemon=false to the GRADLE_OPTS environment variable to prevent daemons from being used.
+Software
+^^^^^^^^^^
+
+We use `git <http://git-scm.com>`_ to manage and distribute source code and `Gradle <http://gradle.org>`_ as build system. For this tutorial you will need the following software pacakges installed locally:
+
+* PostgreSQL
+* Git
+* Java
+* Perl (for the final build script)
+
+See :doc:`/system-requirements/index` for the full list.
+
+BioTestMine
+^^^^^^^^^^^^^^^^^^^^
+
+Download the mine code from GitHub.
+
+.. code-block:: git
+  
+  $ mkdir git
+  $ cd git
+  ~/git $ git clone https://github.com/intermine/biotestmine
+
+Get rid of daemons
+^^^^^^^^^^^^^^^^^^^^
+
+Gradle has helper processes enabled by default. We're going to disable those by setting `-Dorg.gradle.daemon=false`
+
+.. code-block:: properties
+
+  export GRADLE_OPTS="-Dorg.gradle.daemon=false"
 
 BioTest Mine
 ----------------------
 
-Change into the directory you checked out the BiotestMine source code to and look at the sub-directories:
+BioTestMine is a dummy test mine we use to test out new features which contains real (old) data for Malaria (''P. falciparum'').
+
+To get started, change into the directory you checked out the BiotestMine source code to and look at the sub-directories:
 
 .. code-block:: bash
 
-  $ cd biotestmine
-  $ ls
+  ~/git $ cd biotestmine
+  ~/git/biotestmine $ ls
 
 We will look at each of the sub-directories in much more detail later, they are:
 
@@ -44,7 +73,7 @@ The `project.xml` allows you to configure which data to load into your Mine. The
 <sources>
 ^^^^^^^^^^
 
-The `<source>` elements list and configure the data sources to be loaded, each one has a `type` that corresponds to the name of the bio-source artifact (jar) which includes parsers to retrieve data and information on how it will be integrated.  The `name` can be anything and can be the same as `type`, using a more specific name allows you to define specific integration keys (more on this later).  
+The `<source>` elements list and configure the data sources to be loaded, each one has a `type` that corresponds to the name of the bio-source artifact (jar) which includes parsers to retrieve data and information on how it will be integrated. The `name` can be anything and can be the same as `type`, using a more specific name allows you to define specific integration keys (more on this later).  
 
 `<source>` elements can have several properties: `src.data.dir`, `src.data.file` and `src.data.includes` are all used to define locations of files that the source should load.  Other properties are used as parameters to specific parsers.
 
@@ -73,7 +102,7 @@ In your `biotestmine` directory edit `project.xml` to point each source at the e
 .. code-block:: bash
 
   $ cd ~/git/biotestmine
-  $ sed -i 's/\/data/\/home\/username/g' project.xml
+  ~/git/biotestmine $ sed -i 's/\/data/\/home\/username/g' project.xml
 
 For example, the `uniprot-malaria` source:
 
@@ -104,7 +133,7 @@ If you don't already have a `.intermine` directory in your home directory, creat
   $ cd
   $ mkdir .intermine
 
-There is a partially completed properties file for BiotestMine already.   Copy it into your `.intermine` directory:
+There is a partially completed properties file for BiotestMine already. Copy it into your `.intermine` directory:
 
 .. code-block:: bash
 
@@ -201,7 +230,7 @@ The first file merged into the core model is the `so_additions.xml` file.  This 
   }
 
 The build system creates classes corresponding to the Sequence Ontology terms.
-The model is then combined with any extra classes and fields defined in the sources to integrate, those listed as `<source>` elements in `project.xml`.  Look at an example 'additions' file for the  `UniProt source <https://github.com/intermine/intermine/blob/dev/bio/sources/uniprot/uniprot_additions.xml>`_  
+The model is then combined with any extra classes and fields defined in the sources to integrate, those listed as `<source>` elements in `project.xml`.  Look at an example 'additions' file for the  `UniProt source`. 
 
 This defines extra fields for the `Protein` class which will be added to those from the core model.  
 
@@ -215,8 +244,8 @@ Now run the gradle task to merge all the model components, generate Java classes
 
 .. code-block:: bash
 
-  # in biotestmine
-  $ ./gradlew buildDB
+  # creates the empty database tables
+  ~/git/biotestmine $ ./gradlew buildDB
 
 The clean task is necessary when you have run the task before, it removes the `build` directory and any previously generated model.  
 
@@ -226,7 +255,7 @@ This task has done several things:
 
 .. code-block:: bash
 
-   $ less biotestmine/dbmodel/build/resources/main/genomic_model.xml 
+   ~/git/biotestmine$ less dbmodel/build/resources/main/genomic_model.xml 
 
 Look for the `Protein` class, you can see it combines fields from the core model and the UniProt additions file.
 
@@ -234,7 +263,7 @@ Look for the `Protein` class, you can see it combines fields from the core model
 
 .. code-block:: bash
 
-  $ less biotestmine/dbmodel/build/so_additions.xml 
+  ~/git/biotestmine $ less dbmodel/build/so_additions.xml 
 
 Each term from `so_term` was added to the model, according to the sequence ontology.
 
@@ -242,7 +271,7 @@ Each term from `so_term` was added to the model, according to the sequence ontol
 
 .. code-block:: bash
 
-   $ less biotestmine/dbmodel/build/gen/org/intermine/model/bio/Protein.java
+   ~/git/biotestmine $ less dbmodel/build/gen/org/intermine/model/bio/Protein.java
 
 Each of the fields has appropriate getters and setters generated for it, note that these are `interfaces` and are turned into actual classes dynamically at runtime - this is how the model copes with multiple inheritance.
 
@@ -295,8 +324,8 @@ Loading of data is done by running `integrate`.  You can specify one or more sou
 
 .. code-block:: bash
 
-  $ cd biotestmine
-  $ ./gradlew integrate -Psource=uniprot-malaria --stacktrace
+  # load the uniprot data sources
+  ~/git/biotestmine $ ./gradlew integrate -Psource=uniprot-malaria --stacktrace
 
 The `--stacktrace` option will display complete stack traces if there is a problem.
  
@@ -470,7 +499,7 @@ The `malaria-gff` source is held `in the main InterMine repository<https://githu
   # specify a Java class to be called on each row of the gff file to cope with attributes
   gff3.handlerClassName = org.intermine.bio.dataconversion.MalariaGFF3RecordHandler
 
-Look at the `MalariaGFF3RecordHandler` `class in InterMine<https://github.com/intermine/intermine/blob/3ae2631dbe244a029baf9d369510bd87e49ac927/bio/sources/example-sources/malaria-gff/main/src/org/intermine/bio/dataconversion/MalariaGFF3RecordHandler.java>`_: .  This code changes which fields the `ID` and `Name` attributes from the GFF file have been assigned to.
+Look at the `MalariaGFF3RecordHandler` class.  This code changes which fields the `ID` and `Name` attributes from the GFF file have been assigned to.
 
 
 Loading GFF3 data
@@ -480,7 +509,8 @@ Now load the `malaria-gff` source by running this command in `biotestmine`:
 
 .. code-block:: bash
 
-  $ ./gradlew integrate -Psource=malaria-gff --stacktrace
+  # load the GFF source
+  ~/git/biotestmine $ ./gradlew integrate -Psource=malaria-gff --stacktrace
 
 This will take a few minutes to run.  Note that this time we don't run `buildDB` as we are loading this data into the same database as UniProt.  As before you can run a query to see how many objects of each class are loaded:
 
@@ -523,7 +553,8 @@ Now load the `malaria-chromosome-fasta` source by running this command in `biote
 
 .. code-block:: bash
 
-  $ ./gradlew integrate -Psource=malaria-chromosome-fasta --stacktrace
+  # load FASTA source
+  ~/git/biotestmine $ ./gradlew integrate -Psource=malaria-chromosome-fasta --stacktrace
 
 This has integrated the chromosome objects with those already in the database.  In the next step we will look at how this data integration works.
 
@@ -665,7 +696,8 @@ From the root `biotestmine` directory run the `entrez-organism` source:
 
 .. code-block:: bash
 
-  $ ./gradlew integrate -Psource=entrez-organism --stacktrace
+  # load organism data
+  ~/git/biotestmine $ ./gradlew integrate -Psource=entrez-organism --stacktrace
 
 This should only take a few seconds.  This source does the following:
 
@@ -701,7 +733,7 @@ Now run the `update-publications` source to fill in the details:
 
 .. code-block:: bash
 
-  $ ./gradlew integrate -Psource=update-publications --stacktrace
+  ~/git/biotestmine $ ./gradlew integrate -Psource=update-publications --stacktrace
 
 As there are often large numbers of publications they are retrieved in batches from the web service.
 
@@ -777,7 +809,7 @@ To run all the post-processing steps:
 
 .. code-block:: bash
 
-  $ ./gradlew postProcess
+  ~/git/biotestmine $ ./gradlew postProcess
 
 This will take a few minutes.  When complete you can re-run the queries above to see what has been added.
 
@@ -785,7 +817,7 @@ Post-processing steps can also be run individually:
 
 .. code-block:: bash
 
-  $ ./gradlew postProcess -Pprocess=update-publications
+  ~/git/biotestmine $ ./gradlew postProcess -Pprocess=update-publications
 
 Building a Mine
 ----------------------
@@ -797,29 +829,26 @@ Build complete BioTestMine
 
 Build BioTestMine now using the `project_build` script, we will need a completed BioTestMine for the webapp.
 
-First, you'll need to clone the repository that contains the project_build script. From your biotestmine directory: 
+First, you'll need to clone the repository that contains the `project_build` script.
 
 .. code-block:: bash
 
-  $ git clone https://github.com/intermine/intermine-scripts
-  
-You'll need to make the `project_build` script executable before it will run:
-
-.. code-block:: bash
-
-  $ chmod +x intermine-scripts/project_build
+  # download the script
+  ~/git/biotestmine $ wget https://raw.githubusercontent.com/intermine/intermine-scripts/master/project_build
+  # make executable
+  ~/git/biotestmine $ chmod +x intermine-scripts/project_build
 
 Run the `project_build` script from your `biotestmine` directory:
 
 .. code-block:: bash
 
-  $ ./intermine-scripts/project_build -b -v localhost ~/biotestmine-dump
+  ~/git/biotestmine $ ./project_build -b -v localhost ~/biotestmine-dump
 
 This will take ~15-30mins to complete.
 
 .. note::
 
-    If you encounter an "OutOfMemoryError", you should set your $ANT_OPTS variable, see :doc:`/support/troubleshooting-tips`
+    If you encounter an "OutOfMemoryError", you should set your $GRADLE_OPTS variable, see :doc:`/support/troubleshooting-tips`
 
 Deploying the web application
 --------------------------------------------
@@ -862,22 +891,14 @@ Update your biotestmine.properties file  with correct information for the `db.us
 .. code-block:: bash
 
   # in biotestmine
-  $ ./gradlew buildUserDB
+  ~/git/biotestmine $ ./gradlew buildUserDB
 
 You only need to build the userprofile database once.
 
 .. warning::
 
-  The build-db and build-db-userprofile commands rebuild the database and thus will delete any data. 
+  The buildDB and buildUserDB commands rebuild the database and thus will delete any data. 
 
-4. Load default templates:
-
-.. code-block:: bash
-
-  # in biotestmine
-  $ ./gradlew loadDefaultTemplates
-
-This command loads the `default-template-queries.xml` file.  
 
 Deploying the webapp
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -886,8 +907,8 @@ Run the following command to release your webapp:
 
 .. code-block:: bash
 
-  # in biotestmine
-  $ ./gradlew tomcatStartWar
+  # start tomcat
+  ~/git/biotestmine $ ./gradlew tomcatStartWar
 
 
 Using the webapp

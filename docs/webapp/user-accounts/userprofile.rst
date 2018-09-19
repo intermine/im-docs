@@ -10,14 +10,15 @@ First you must create the empty database in Postgres.  Use this command, replaci
 
 .. code-block:: bash
 
-	$ createdb userprofile -h HOST -u USER
+    # create the new database
+	~/git/flymine $  createdb userprofile-biotestmine
 
 These commands are needed in the webapp to initialise a userprofile database:
 
 .. code-block:: bash
 
-	# in <MINE_NAME>/webapp
-	$ ant build-db-userprofile
+	# this comment populates superuser, default templates etc.
+    ~/git/flymine $ ./gradlew buildUserDB
 
 Releasing a webapp with a new production database
 -------------------------------------------------
