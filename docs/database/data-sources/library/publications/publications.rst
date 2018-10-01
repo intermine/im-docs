@@ -21,8 +21,7 @@ project XML example
 .. code-block:: xml
 
     <source name="update-publications" type="update-publications" dump="true">
-      <property name="src.data.file" location="build/publications.xml"/>
-      <!-- <property name="cacheDirName" value="build/"/> -->
+      <property name="src.data.file" location="publications.xml"/>
       <!-- <property name="loadFullRecord" value="true"/> -->
     </source>
 
