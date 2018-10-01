@@ -130,6 +130,7 @@ Update config
    * `Protein2ipr` source has a new attribute: `<property name="osAlias" value="os.production"/>`
    * `intermine-items-xml-file` isn't a valid value for "type" anymore. Use the project name instead.
    * `src.data.dir` can only have a `location` attribute. `src.data.dir` cannot have a `value` attribute.
+   * Change the location of the generated files for `entrez-organism` and `update-publications` data sources to be `organisms.xml` and `publications.xml` (instead of in the `build` directory)
 
 4. InterPro data file needs to be updated. The file incorrectly references `interpro.dtd` when you should have the full path instead.
 
