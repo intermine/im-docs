@@ -54,7 +54,7 @@ Java
     | `Source <https://github.com/intermine/intermine/tree/master/intermine/webservice/client>`_
 Perl Client
     `Download | Docs <http://search.cpan.org/perldoc?Webservice%3A%3AInterMine>`_
-    | `Source <https://github.com/intermine/intermine-ws-perl>`_
+    _`Tutorial <https://metacpan.org/pod/distribution/Webservice-InterMine/lib/Webservice/InterMine/Cookbook.pod>`_ | `Source <https://github.com/intermine/intermine-ws-perl>`_
 Python Client
     `Download <http://pypi.python.org/pypi/intermine>`_
     | `API <http://intermine.org/intermine-ws-python>`_   `Examples <https://github.com/intermine/intermine-ws-python-docs/>`_ 
