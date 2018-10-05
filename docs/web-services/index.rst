@@ -50,25 +50,31 @@ HTTP API
      Documentation on services available from mines: `<http://iodocs.apps.intermine.org>`_
 Java
     `Download <https://github.com/intermine/intermine/raw/master/download/dist/java-intermine-webservice-client-2.0.zip>`_
-    | `Docs <http://intermine.org/intermine/>`_
+    | `API <http://intermine.org/intermine/>`_
+    | Tutorial 
     | `Source <https://github.com/intermine/intermine/tree/master/intermine/webservice/client>`_
 Perl Client
-    `Download | Docs <http://search.cpan.org/perldoc?Webservice%3A%3AInterMine>`_
-    _`Tutorial <https://metacpan.org/pod/distribution/Webservice-InterMine/lib/Webservice/InterMine/Cookbook.pod>`_ | `Source <https://github.com/intermine/intermine-ws-perl>`_
+    `Download | API <http://search.cpan.org/perldoc?Webservice%3A%3AInterMine>`_
+    | `Tutorial <https://metacpan.org/pod/distribution/Webservice-InterMine/lib/Webservice/InterMine/Cookbook.pod>`_ 
+    | `Source <https://github.com/intermine/intermine-ws-perl>`_
 Python Client
     `Download <http://pypi.python.org/pypi/intermine>`_
-    | `API <http://intermine.org/intermine-ws-python>`_   `Examples <https://github.com/intermine/intermine-ws-python-docs/>`_ 
+    | `API <http://intermine.org/intermine-ws-python>`_  
+    | `Tutorial <https://github.com/intermine/intermine-ws-python-docs/>`_ 
     | `Source <https://github.com/intermine/intermine-ws-client.py>`_
 Ruby Client
-    `Download | Docs <http://www.rubygems.org/gems/intermine>`_
+    `Download | API <http://www.rubygems.org/gems/intermine>`_
+    | Tutorial 
     | `Source <https://github.com/intermine/intermine-ws-ruby>`_
 JavaScript Client (for Browser and node.js)
     `Download <https://npmjs.org/package/imjs>`_
-    | `Docs <http://alexkalderimis.github.io/imjs/>`_
+    | `API <http://alexkalderimis.github.io/imjs/>`_
+    | Tutorial
     | `Source <https://github.com/intermine/imjs>`_
 R Client
     `Download <http://bioconductor.org/packages/release/bioc/html/InterMineR.html>`_
     | `Docs <http://bioconductor.org/packages/release/bioc/html/InterMineR.html>`_
+    | `Tutorial <http://bioconductor.org/packages/release/bioc/html/InterMineR.html>`_
     | `Source <http://bioconductor.org/packages/release/bioc/html/InterMineR.html>`_
 
 
