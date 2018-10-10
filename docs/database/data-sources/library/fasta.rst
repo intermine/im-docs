@@ -19,7 +19,7 @@ project XML example
 
 .. code-block:: xml
 
-    <source name="flybase-dmel-gene-fasta" type="fasta">
+    <source name="flybase-dmel-gene-fasta" type="flybase-dmel-gene-fasta">
       <property name="fasta.taxonId" value="7227"/>
       <property name="fasta.dataSetTitle" value="FlyBase fasta data set for Drosophila melanogaster"/>
       <property name="fasta.dataSourceName" value="FlyBase"/>
