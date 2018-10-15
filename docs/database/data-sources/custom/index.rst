@@ -45,7 +45,7 @@ This type of source can read a file in InterMine Items XML format and store the 
 .. code-block:: xml
 
     # add your source to your project XML file
-    <source name="my-new-source-name" type="my-new-source">
+    <source name="my-new-source-name" type="my-new-source-name">
       <property name="src.data.file" location="/some/directory/objects_in_intermine_format.xml"/>
     </source>
 
@@ -198,9 +198,24 @@ The final additions XML should look like:
     </class>
   </classes>
 
-.. note::
+If all the data you wish to load is already modelled in InterMine then you don't need an additions file.
 
-  If all the data you wish to load is already modelled in InterMine then you don't need an additions file.
+Global Additions File
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you don't want to create an additions file for each of your mine's data sources, you can also create a "global" additions file.
+
+.. code-block:: sh
+
+    // [in bio/sources/build.gradle]
+    // uncomment to specify an extra additions file for your bio-sources
+    // this file will be merged with the additions file for each data source
+    // and included in each source JAR.
+    //bioSourceDBModelConfig {
+    //    extraAdditionsFile = "MY-MINE_additions.xml"
+    //}
+
+See :doc:`/data-model/overview` for details.
 
 Properties
 ~~~~~~~~~~
@@ -219,7 +234,7 @@ For instance, if you have the source entry
 
 .. code-block:: xml
 
-    <source name="my-new-source-name" type="my-new-source" version="2.0.0">
+    <source name="my-new-source-name" type="my-new-source-name" version="2.0.0">
       <property name="fooFile" location="/some/directory/objects_in_intermine_format.xml"/>
       <property name="bar.info" location="baz"/>
       <property name="bazMoreInfo" name="hello-world"/>
@@ -277,6 +292,8 @@ If you are using data from a database:
     </source>
 
 The value of `source.db.name` must match the value set in the MINE_NAME.properties file. The "version" has to match the version of the JAR you create. The version is set in your `bio/sources/build.gradle` file. If you do not provide a version, the default InterMine version will be used which won't likely match your local version.
+
+See :doc:`/database/data-sources/versions` for details.
 
 Run build-db
 ~~~~~~~~~~~~~~~~~~~~~~~~~~

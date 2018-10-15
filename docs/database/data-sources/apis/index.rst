@@ -39,7 +39,7 @@ The child elements of an <item> are either
 * <reference> - where the property is a reference to some other item by its Items XML id.
 * <collection> - this is a collection of <reference>s
 
-Example scripts used to generate InterMine Items XML can be found at `intermine_items_example.pl https://github.com/intermine/intermine-scripts/blob/master/examples/intermine_items_example.pl>`_.
+Example scripts used to generate InterMine Items XML can be found at `intermine_items_example.pl <https://github.com/intermine/intermine-scripts/blob/master/examples/intermine_items_example.pl>`_.
 
 Datatypes
 ---------

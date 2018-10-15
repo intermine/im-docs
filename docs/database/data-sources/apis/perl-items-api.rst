@@ -128,9 +128,7 @@ Output:
 Example
 ---------
 
-In the InterMine `scripts` repository there is a longer example: `intermine_items_example.pl https://github.com/intermine/intermine-scripts/blob/master/examples/intermine_items_example.pl>`_
-
-https://github.com/intermine/intermine-scripts/blob/master/examples/intermine_items_example.pl
+In the InterMine `scripts` repository there is a longer example: `intermine_items_example.pl <https://github.com/intermine/intermine-scripts/blob/master/examples/intermine_items_example.pl>`_
 
 The script has three arguments:
  * a string describing a `DataSet`
