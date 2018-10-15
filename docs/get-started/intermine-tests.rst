@@ -5,7 +5,7 @@ Continuous Integration
 -------------------------
 
 We run all our tests on every commit using the Continous Integration service
-`Travis-CI`_. You can do the same for your fork:
+`Travis <https://travis-ci.org/intermine/intermine>`_. You can do the same for your fork:
 
   * Log in to Travis-CI with your GitHub account.
   * Enable your fork of intermine for Travis builds.

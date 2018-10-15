@@ -9,5 +9,3 @@ Get started
    testmine
    intermine-tests
    amazon
-   hikaricp
-   

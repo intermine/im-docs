@@ -4,4 +4,4 @@ PostgreSQL
 .. toctree::
 
    postgres
-  
+   hikari  

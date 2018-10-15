@@ -201,7 +201,7 @@ You should also add a line to the pg_hba.conf file to allow logging in via passw
    UPDATE 1
 
 
-
+See also: :doc:`/system-requirements/software/postgres/hikari`
 
 .. index:: PostgreSQL, SQL_ASCII, LATIN-9, UTF-8
 
