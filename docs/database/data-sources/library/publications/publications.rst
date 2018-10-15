@@ -27,7 +27,6 @@ project XML example
 
 properties:
 
-#. cacheDirName - the directory to generate publication cache files, default value "build/"
 #. loadFullRecord - load MeSH terms and abstract, value "true"/"false"    
 
 .. index:: NCBI

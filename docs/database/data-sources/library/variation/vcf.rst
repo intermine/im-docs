@@ -31,13 +31,4 @@ Add vcf to the list of datasources to be integrated
     </source>
 
 
-Run InterMine build
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Run a build.  The entry in `project.xml` will instruct the build process to load the XML files you created in the previous step into the database.  For example, run this command in `MINE_NAME/integrate`:
-      
-.. code-block:: bash
-
-  $ ant -v -Dsource=my-data-source
-
 .. index:: SNPs, vcf, .vcf, variant file format, insertions, deletions, SNVs

@@ -33,13 +33,4 @@ Add Ensembl snp to the list of datasources to be integrated
     <property name="ensembl-snp.includes" value="Homo_sapiens_incl_consequences.gvf" />
   </source>
 
-Run InterMine build
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Run a build.  The entry in `project.xml` will instruct the build process to load the GVF file you downloaded in the previous step into the database.  For example, run this command in `MINE_NAME/integrate`:
-      
-.. code-block:: bash
-
-  $ ant -v -Dsource=ensembl-snp
-
-.. index:: SNPs, variation, GVF
+.. index:: SNPs, variation, VCF

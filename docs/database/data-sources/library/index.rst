@@ -22,7 +22,6 @@ These are commonly used sources that you may want to use to load data into your 
     pathways/index
     proteins/index
     publications/index
-    variation/index
     
 .. toctree::
     :maxdepth: 1
