@@ -15,7 +15,7 @@ How do I specify which version JAR to generate for my own data sources?
 
 To specify the version for your mine's custom source, you would edit the `version` value in the `build.gradle` file in your `/bio-sources` directory. When you install your source, the JAR of the correct version will be created.
 
-See FlyMine's `build.gradle https://github.com/intermine/flymine-bio-sources/blob/master/build.gradle#L26`_ file.
+See FlyMine's `build.gradle <https://github.com/intermine/flymine-bio-sources/blob/master/build.gradle#L26`_ file.
 
 How do I specify which version to use in my build?
 ------------------------------------------------------------------
@@ -32,6 +32,14 @@ You will get an error if it can't find a JAR with this version.
 
 If no version is provided, the default InterMine version is used. For InterMine's bio sources, a global variable is set in the `gradle.properties` file in your mine. 
 
-See FlyMine's `gradle.propertiesttps://github.com/intermine/flymine/blob/master/gradle.properties#L1-L2`_ file.
+.. code-block:: properties
+
+    # in your mine gradle.properties
+    systemProp.imVersion=2.1.+
+    systemProp.bioVersion=2.1.+
+
+These are global variables used by the build system. If you do not specify a version in your project XML for a source, the `systemProp.bioVersion` value is used by default. 
+
+See FlyMine's `gradle.properties <https://github.com/intermine/flymine/blob/master/gradle.properties#L1-L2`_ file.
 
 .. index:: version, semantic versioning, JAR version

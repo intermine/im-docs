@@ -1,6 +1,13 @@
 Java
 ===========
 
+We recommend you use OpenJDK rather than Sun's JDK. There isn't much difference now between the two, as far as InterMine is concerned, but going forward it's probably safer.
+
+The version of Gradle we are using isn't compatible with Java 11, this issue is being addressed but for now please use Java 8.
+
+GRADLE_OPTS
+---------------------
+
 InterMine can be rather memory-intensive, so you will probably need to set memory options for Java. To do this, set the environment variable `GRADLE_OPTS` to pass in to Java, by placing the following line in your `~/.bashrc` file: 
 
 .. code-block:: bash

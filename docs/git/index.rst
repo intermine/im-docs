@@ -3,6 +3,10 @@ Get the Software
 
 The latest InterMine release is hosted on GitHub in the InterMine organization: https://github.com/intermine/intermine
 
+.. warning::
+
+    We don't recommend you download the InterMine code directly. The compiled JARs are available for you to use instead.
+
 #. Create an account at GitHub.
 
 #. Visit the InterMine GitHub repository at https://github.com/intermine/intermine and click on the "Fork" button in the top right corner of the page.

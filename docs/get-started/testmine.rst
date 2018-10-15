@@ -3,13 +3,13 @@ Testmine
 
 This is an InterMine used for testing new features, and for continuous integration tests on Travis. It's tables include: Employee, Company, Department, the mine does not contain biological data. 
 
-To start a testmine, run the `setup <https://github.com/intermine/intermine/blob/release-candidate/testmine/setup.sh>`_ script:
+To start a testmine, run the `setup <https://github.com/intermine/intermine/blob/master/testmine/setup.sh>`_ script:
 
 .. code-block:: sh
 
 	testmine $ ./setup.sh
 
-It uses your UNIX username if you haven't set the PSQL_USER, PSQL_PWD ENV variables. The script copies the `testmodel.properties <https://github.com/intermine/intermine/blob/release-candidate/testmine/dbmodel/resources/testmodel.properties>`_ file into your home `.intermine` directory.
+It uses your UNIX username if you haven't set the PSQL_USER, PSQL_PWD ENV variables. The script copies the `testmodel.properties <https://github.com/intermine/intermine/blob/master/testmine/dbmodel/resources/testmodel.properties>`_ file into your home `.intermine` directory.
 
 There are different targets to load data:
 
