@@ -2,7 +2,7 @@
 Useful ObjectStore properties
 =============================
 
-You can configure some parameters to update how queries are handled. 
+You can configure some parameters to update how queries are handled by setting these in your mine.properties file. If you do not, the default values will be used.
 
 os.query.max-query-parse-time
 ---------------------------------

@@ -20,12 +20,10 @@ Logs
 Data warehouse
 ~~~~~~~~~~~~~~
 
-When integrating data, usually the errors are in intermine.log file in the directory you are in, eg. `/webapp` or `/dbmodel`
+When integrating data, usually the errors are in intermine.log in your mine's directory.
 
 Webapp
 ~~~~~~~~~~~~~~
-
-In order for the intermine webapp to write logs, you must correctly set the `webapp.logdir` property in your mine properties file. The property must be an absolute path to a directory on the tomcat machine, writable by tomcat.
 
 When you see an error on the webapp or get a blank page and nothing appears in the webapp log from log4j, it is likely you will be able to find more information on what went wrong in the tomcat logs:
 
@@ -54,7 +52,7 @@ If you are having problems with a specific query, you can run it directly in the
 Show all properties 
 ~~~~~~~~~~~~~~~~~~~~
 
-Note that you can do this in a running web-app to check that it works by visiting the `HOST/PREFIX/showProperties.do` url when logged in as superuser. 
+Note that you can do this in a running web-app to check that it works by visiting the `HOST/PATH/showProperties.do` url when logged in as superuser. 
 
 Common Errors 
 ~~~~~~~~~~~~~~
@@ -68,7 +66,7 @@ UnsupportedClassVersionError
 
 	java.lang.UnsupportedClassVersionError: org/intermine/task/FileName (Unsupported major.minor version 49.0)
 
-This means that your version of Java is too old, you need at least Java 8 to run !InterMine.
+This means that your version of Java is too old, you need at least Java 8 to run InterMine.
 
 can't open datasource
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -77,7 +75,7 @@ can't open datasource
 
 	java.lang.RuntimeException: can't open datasource for {platform=PostgreSQL, datasource.dataSourceName=db.flatmodeunittest, ...
 
-Errors of this type mean there was a problem accessing a database, in this example with `db.flatmodeunittest`.  Either the database specified in the xxx.properties file doesn't exist or the server/user/password details in the properties are incorrect.
+Errors of this type mean there was a problem accessing a database, in this example with `db.flatmodeunittest`.  Either the database specified in the `mine.properties` file doesn't exist or the server/user/password details in the properties are incorrect.
 
 FATAL: sorry, too many clients already
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -150,11 +148,10 @@ Add this to your Tomcat startup.sh script:
 
 .. code-block:: bash
 
-
 	JAVA_OPTS="$JAVA_OPTS -Dorg.apache.el.parser.SKIP_IDENTIFIER_CHECK=true"
-	export JAVA_OPT
+	export JAVA_OPTS
 	
-See our section on Tomcat for more details.
+See :doc:`/system-requirements/software/tomcat` for more details.
 
 Session Error
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -181,5 +178,6 @@ The search should be very quick, but depending on the machine it's on, the initi
 
 If the search is just failing instantly, check your log files ($TOMCAT/logs). When the index is unpacked from the database, it writes to disk. There may be permissions or space issues.
 
+See :doc:`/system-requirements/software/gradle/FAQs` for more error messages.
 
 .. index:: LOG, intermine.log, catalina.out, IQL, JAVA_OPTS, PermGen, PSQLException

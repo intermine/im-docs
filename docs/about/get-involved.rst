@@ -1,14 +1,9 @@
-So You Want to Develop for InterMine
+How to Get Involved
 =====================================
 
-This document sets out the development processes for those contributing to the
-`InterMine code base <https://github.com/intermine/intermine>`_. It specifically refers to the main application
-code-base, but these practices should be employed in an ideal world on all code
-bases. This document is normative.
+This document sets out the development processes for those contributing to the `InterMine code base <https://github.com/intermine/intermine>`_. It specifically refers to the main application code-base, but these practices should be employed in an ideal world on all code bases. 
 
-There is no distinction between the processes that developers should follow
-internally or externally - all code contributions, whether from core team
-members or outside contributers, should be treated the same.
+There is no distinction between the processes that developers should follow internally or externally - all code contributions, whether from core team members or outside contributers, should be treated the same.
 
 Branches
 -----------
@@ -24,12 +19,12 @@ There are branches in the InterMine GitHub repository with special meaning:
 Setting Up a Development Environment
 ----------------------------------------
 
-Development does not happen on any of the special branches. The recommended practice is to fork the `intermine repo <https://github.com/intermine/intermine>`_ and maintain development branches in your own repository.
+Development does not happen on the master or dev branch. The recommended practice is to fork the `intermine repo <https://github.com/intermine/intermine>`_ and maintain development branches in your own repository.
 
 Developing a Feature
 ------------------------------------------------
 
-Code contributions should be discrete units of code. They should do one thing (be that fix a bug or add a feature) and not be code dumps. Ideally they should refer to existing issues in the `InterMine issue tracker`. Let's say we want to develop a new feature - discussed in issue ``#12345: We should be better wombles and recyle everything`` - then we would do the following:
+Code contributions should be discrete units of code. They should do one thing (be that fix a bug or add a feature) and not be code dumps. Ideally they should refer to existing issues in the `InterMine issue tracker`. Let's say we want to develop a new feature - discussed in issue ``#12345: We should be better wombles and recycle everything`` - then we would do the following:
 
 1. Checkout the current head of `dev` from upstream.
 

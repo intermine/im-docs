@@ -130,4 +130,6 @@ Common issues:
 * Always use the wrapper provided. `./gradlew` and NOT `gradle`.
 * Using a `daemon`. Update your `GRADLE_OPTS` with the `no-daemon` flag.
 
+See :doc:`/support/troubleshooting-tips` for common error messages.
+
 .. index:: gradle, ant, Maven
