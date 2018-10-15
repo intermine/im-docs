@@ -82,7 +82,7 @@ Previously the data model was merged from all data sources' additions XML file (
     //}
 
 
-Model Generation
+Model Merging
 -----------------------
 
 The InterMine build system generates the data model by merging the following data files:
@@ -93,5 +93,6 @@ The InterMine build system generates the data model by merging the following dat
 * SOURCE_additions files for each data source listed in your project XML file
 * `extraAdditionsFile` if specified (see above)
 
+See :doc:`/database/database-building/model-merging/` for details.
 
 .. index:: data source, data set, data model overview, data model, organism, organism name, chromosome location, strand

@@ -28,7 +28,7 @@ To use a specific version, add a parameter to your project XML entry.
       <property name="src.data.dir" location="/data/flyatlas"/>
     </source>
 
-You will get an error if it can't find a JAR with this version.
+You will get an error if it can't find a JAR with this version. Note that this is a simple string comparison, e.g. "2.0" will NOT match with "2.0.0".
 
 If no version is provided, the default InterMine version is used. For InterMine's bio sources, a global variable is set in the `gradle.properties` file in your mine. 
 

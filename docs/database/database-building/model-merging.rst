@@ -24,20 +24,7 @@ Here `genomic_additions.xml` and `so_additions.xml` will be merged first and `fl
 
 Note that bio-model's `core.xml` model fragment is always used as a base for the merging - everything will be merge into the classes in `core.xml`
 
-Global Additions file
--------------------------
 
-You can also specify an additions file, `extraAdditionsFile`, that will be merged into every source's additions file.
-
-.. code-block:: sh
-
-    // [in bio/sources/build.gradle]
-    // uncomment to specify an extra additions file for your bio-sources
-    // this file will be merged with the additions file for each data source
-    // and included in each source JAR.
-    //bioSourceDBModelConfig {
-    //    extraAdditionsFile = "MY-MINE_additions.xml"
-    //}
 
 Example
 -----------
@@ -89,5 +76,20 @@ Final, merged, model definition:
   ...
 
 The resulting class has all attributes of the `Protein` from `core.xml` and from `uniprot_additions.xml`.  Note that in uniprot we don't need to declare a base class for `Protein` (like as `extends="BioEntity"`) as the base class from `core.xml` is merged into the final class.
+
+Global Additions file
+-------------------------
+
+You can also specify an additions file, `extraAdditionsFile`, that will be merged into every source's additions file.
+
+.. code-block:: sh
+
+    // [in bio/sources/build.gradle]
+    // uncomment to specify an extra additions file for your bio-sources
+    // this file will be merged with the additions file for each data source
+    // and included in each source JAR.
+    //bioSourceDBModelConfig {
+    //    extraAdditionsFile = "MY-MINE_additions.xml"
+    //}
 
 .. index:: model merging, data model, extraAdditionsFile

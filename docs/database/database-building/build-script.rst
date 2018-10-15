@@ -100,7 +100,7 @@ retrieve
 load
   read from a target items database and integrate into the production database
 
-See `/system-requirements/software/gradle/` for the full list of common Gradle tasks, or run `./gradlew tasks` to see the list of available tasks on the command line.
+See `/system-requirements/software/gradle/index` for the full list of common Gradle tasks, or run `./gradlew tasks` to see the list of available tasks on the command line.
 
 Running a Custom Datasource
 ----------------------------
@@ -111,6 +111,7 @@ The build script expects the data source to be on the classpath already. If you 
 
   # run the install task to build your JAR
   flymine-bio-sources $ ./gradlew install
+
 
 .. code-block:: bash
 
