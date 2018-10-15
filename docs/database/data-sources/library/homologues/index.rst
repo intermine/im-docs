@@ -54,13 +54,12 @@ Alternately you can load identifier sources.
 
 Here are the download scripts we use here at InterMine:
 
-https://github.com/intermine/intermine/tree/dev/bio/scripts/DataDownloader/lib/DataDownloader/Source
+`Data Download <https://github.com/intermine/intermine-scripts/tree/master/bio/DataDownloader>`_
 
 We use WormMart but are happy to hear of a better source for worm identifiers.
 
 Here are the project XML entries used by FlyMine:
 
-https://github.com/intermine/intermine/blob/dev/flymine/project.xml#L36-L48
-
+`FlyMine Project XML <https://github.com/intermine/flymine/blob/master/project.xml>`_
 
 .. index:: homologues, orthologues, paralogues, id resolver

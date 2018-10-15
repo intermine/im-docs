@@ -21,7 +21,7 @@ project XML example
 .. code-block:: xml
 
     <source name="so" type="so">
-      <property name="src.data.file" location="../../bio/sources/so/so.obo"/>
+      <property name=”src.data.file” location=”so.obo” />
     </source>
 
 To add or remove SO terms from your model, update your `so_terms` file in `dbmodel/resources`

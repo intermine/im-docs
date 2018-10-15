@@ -53,6 +53,7 @@ project XML example
         <property name="src.data.dir" location="/data/interpro"/>
         <property name="src.data.dir.includes" value="protein2ipr.dat"/>
         <property name="protein2ipr.organisms" value="9606"/>
+        <property name=”osAlias” value=”os.production”/>
     </source>
 
 
