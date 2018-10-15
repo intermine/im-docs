@@ -20,16 +20,12 @@ When the query is executed, via `ObjectStoreInterMineImpl.executeWithConnection(
 
 Defaults to 100000000 milliseconds.
 
-See `ObjectStoreInterMineImpl.java` for the exact exception that is thrown.
-
 os.query.max-limit
 ---------------------------------
 
 When the query is executed, via `ObjectStoreInterMineImpl.executeWithConnection()`, `SQL EXPLAIN <https://www.postgresql.org/docs/9.1/static/sql-explain.html>`_ is run on the generated query. If the estimated number of rows is more than the `max-limit` parameter set, the query will fail.
 
 Note this relies on Postgres's statistics being up to date and correct, be sure to run `ANALYSE`.
-
-See `objectstore/query/ResultsBatches.java` for the exact exception that is thrown.
 
 Defaults to 100000000 rows.
 
