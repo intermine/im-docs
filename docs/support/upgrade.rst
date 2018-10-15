@@ -137,6 +137,7 @@ Update config
    * Update interpro.xml 
    * `<!DOCTYPE interprodb SYSTEM "ftp://ftp.ebi.ac.uk/pub/databases/interpro/interpro.dtd">`
    * I asked InterPro to fix but they said no. Maybe you could ask too?
+   * See https://github.com/intermine/intermine/issues/1914 for the discussion.
 
 5. Update each data source's additions file to be correct. Alternatively you can use the `extraAdditionsFile` (see previous section).
 6. `PostprocessUtil.java` moved to the `bio` package, so you maybe have to update your import to be `import org.intermine.bio.util.PostProcessUtil;`.

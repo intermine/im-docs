@@ -219,7 +219,7 @@ For instance, if you have the source entry
 
 .. code-block:: xml
 
-    <source name="my-new-source-name" type="my-new-source">
+    <source name="my-new-source-name" type="my-new-source" version="2.0.0">
       <property name="fooFile" location="/some/directory/objects_in_intermine_format.xml"/>
       <property name="bar.info" location="baz"/>
       <property name="bazMoreInfo" name="hello-world"/>
@@ -253,7 +253,7 @@ In the `project.xml` file, in the root of your mine directory (e.g. ~/git/flymin
 
 .. code-block:: xml
 
-  <source name="new-source-name" type="new-source">
+  <source name="new-source-name" type="new-source" version="2.0.0">
     <property name="src.data.file" location="/my_data_dir/example.xml"/>
   </source>
 
@@ -261,7 +261,7 @@ If you have more that one file you can set this up to point at a '''directory'''
 
 .. code-block:: xml
 
-  <source name="new-source-name" type="new-source">
+  <source name="new-source-name" type="new-source" version="2.0.0">
     <property name="src.data.dir" location="/my_data_dir/source_files/"/>
   </source>
 
@@ -271,12 +271,12 @@ If you are using data from a database:
 
 .. code-block:: xml
 
-    <source name="new-source-name" type="new-source">
+    <source name="new-source-name" type="new-source" version="2.0.0">
       <property name="source.db.name" value="db.NAME"/>
       ...
     </source>
 
-The value of `source.db.name` must match the value set in the MINE_NAME.properties file.
+The value of `source.db.name` must match the value set in the MINE_NAME.properties file. The "version" has to match the version of the JAR you create. The version is set in your `bio/sources/build.gradle` file. If you do not provide a version, the default InterMine version will be used which won't likely match your local version.
 
 Run build-db
 ~~~~~~~~~~~~~~~~~~~~~~~~~~

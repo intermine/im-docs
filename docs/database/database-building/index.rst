@@ -9,6 +9,7 @@ Each mine has an integrate project that reads the project.xml file and builds th
     :maxdepth: 4
     
     build-script
+    project-xml
     data-integration
     model-merging
     primary-keys
