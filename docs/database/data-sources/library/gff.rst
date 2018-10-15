@@ -39,9 +39,7 @@ If you follow the above steps with this data file, the following will happen:
 Configuration File
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. note::
-
-	By default, columns such as "type", "start", "end", "strand" and "ID" field in "attributes" column are parsed automatically. To do more processing or access the attributes, you are able to configure in gff_config.properties. For more advanced processing, you will have to write your own GFF3 parser.  See below for details.
+By default, columns such as "type", "start", "end", "strand" and "ID" field in "attributes" column are parsed automatically. To do more processing or access the attributes, you are able to configure in `gff_config.properties`. This file should live in your mine's `dbmodel/resources` directory.
 
 .. code-block:: properties
 
@@ -54,7 +52,7 @@ Configuration File
 	511145.attributes.gene_synonym=synonym             # use gene_synonym field for synonym
 	511145.exon.attributes.type=scoreType              # a class specific attribute 
 
-You can edit the main gff_config.properties file in the bio/core package, or edit the config file in your new data source -- in main/resources/<data-source>_config.properties.
+For more advanced processing, you will have to write your own GFF3 parser. 
 
 Parent relationship
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
