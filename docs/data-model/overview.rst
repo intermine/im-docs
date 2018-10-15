@@ -66,5 +66,32 @@ Adding sequence ontology terms to the `so_terms` text file will add these classe
  
 * The generated model can be further augmented in the usual way by a source's source_additions.xml file and the global additions file. 
 
+Global Additions File
+-----------------------
+
+Previously the data model was merged from all data sources' additions XML file (plus the SO terms, core and genomic additons). This is no longer true. Since each source is in its own JAR now, the data model is self-contained. Therefore if you reference a class in your data parser, it must be present in the additions file. Alternatively, you can specify a single data model file that will be merged into each source:
+
+.. code-block:: sh
+
+    // [in bio/sources/build.gradle]
+    // uncomment to specify an extra additions file for your bio-sources
+    // this file will be merged with the additions file for each data source
+    // and included in each source JAR.
+    //bioSourceDBModelConfig {
+    //    extraAdditionsFile = "MY-MINE_additions.xml"
+    //}
+
+
+Model Generation
+-----------------------
+
+The InterMine build system generates the data model by merging the following data files:
+
+* core.xml
+* genomic_additions.xml
+* so_terms (see above)
+* SOURCE_additions files for each data source listed in your project XML file
+* `extraAdditionsFile` if specified (see above)
+
 
 .. index:: data source, data set, data model overview, data model, organism, organism name, chromosome location, strand

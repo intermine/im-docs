@@ -125,22 +125,8 @@ A short example
 
 For a more complete example, see `FlyMine <http://www.flymine.org/flymine/service/model>`_ which covers all the features available in the model.
 
-The Model defines the set of data that is  searchable  in the database. Other data can be written to the database, but only the classes and attributes that are defined in the model are searchable. So you may, if you wish, compile a Java class which inherits InterMineObject (to allow it to stored in the database) or some other class in the model, with extra fields, and store instances of that class in the database, but you will not be able to search for instances of that class, or for instances with a particular value for the field that is not in the model. 
+The Model defines the set of data that is searchable  in the database. Other data can be written to the database, but only the classes and attributes that are defined in the model are searchable. So you may, if you wish, compile a Java class which inherits InterMineObject (to allow it to stored in the database) or some other class in the model, with extra fields, and store instances of that class in the database, but you will not be able to search for instances of that class, or for instances with a particular value for the field that is not in the model. 
 
-Global Additons File
------------------------
-
-Previously the data model was merged from all data sources' additions XML file (plus the SO terms, core and genomic additons). This is no longer true. Since each source is in its own JAR now, the data model is self-contained. Therefore if you reference a class in your data parser, it must be present in the additions file. Alternatively, you can specify a single data model file that will be merged into each source:
-
-.. code-block:: sh
-
-    // [in bio/sources/build.gradle]
-    // uncomment to specify an extra additions file for your bio-sources
-    // this file will be merged with the additions file for each data source
-    // and included in each source JAR.
-    //bioSourceDBModelConfig {
-    //    extraAdditionsFile = "MY-MINE_additions.xml"
-    //}
 
 
 .. index:: model, data model, additions file, global additions file

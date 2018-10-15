@@ -2,7 +2,7 @@ Data Source Library
 ================================
 
 
-This page lists the current sources available for use in InterMine.  All the sources here are found in `bio/sources`.  Look at `flymine/project.xml` for examples of how to use these sources.  
+This page lists the current sources available for use in InterMine. All the sources here are found as ready-to-use JARs in the central repository, `JCenter <https://jcenter.bintray.com/org/intermine/>`_. Look at `FlyMine <https://github.com/intermine/flymine/blob/master/project.xml>`_ for examples of how to use these sources.  
 
 You can also add your own sources to load custom file formats, see :doc:`/database/data-sources/custom/index` for more information.  In addition, the :doc:`/get-started/tutorial/index` contains detailed steps on creating sources for a variety of different data formats.
 
@@ -44,12 +44,9 @@ These are commonly used sources that you may want to use to load data into your 
 FlyMine Specific sources
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-These are sources that load Drosophila specific data sets into FlyMine, we don't expect you will re-use these unless you are creating a Drosophila warehouse.  All of these sources are located in `bio/sources/fly`.
+These are sources that load Drosophila specific data sets into FlyMine, we don't expect you will re-use these unless you are creating a Drosophila warehouse.  All of these sources are located in https://github.com/intermine/flymine-bio-sources.
 
 * affy-probes                         
-* anoest                       
-* anopheles-identifiers                   
-* anoph-expr               
 * arbeitman-items-xml                      
 * bdgp-clone                       
 * bdgp-insitu                                
@@ -57,33 +54,35 @@ These are sources that load Drosophila specific data sets into FlyMine, we don't
 * drosophila-homology    
 * fly-anatomy-ontology
 * flyatlas 
+* flybase-alleles
+* flybase-expression
 * fly-development-ontology
 * fly-fish
 * fly-misc-cvterms
 * flyreg
-* flyrnai-screens
-* homophila
 * long_oligo
-* protein_structure
+* miranda
 * redfly
 * rnai
-* tiffin
-* tiffin-expression
-* tiling_path
 
-See FlyMine for more information about these datasets.  Look at `flymine/project.xml` for examples of how to use these sources.
+See `FlyMine <http://www.flymine.org>`_ for more information about these datasets. Look at `FlyMine <https://github.com/intermine/flymine/blob/master/project.xml>`_ for examples of how to use these sources.
  
-Other loaders
-~~~~~~~~~~~~~~
+HumanMine Specific sources
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-These loaders were written by InterMine users.
+* arrayexpress-atlas
+* atlas-express
+* clinvar
+* ensembl-hgnc
+* gtex
+* hgnc
+* hpo
+* hpo-annotation
+* huge-gwas
+* human-gene
+* mgi-alleles
+* ncbi-summaries
+* orphanet
+* protein-atlas
 
-* CHEBI
-* Disease ontology
-* haem-atlas
-* HGNC
-* HuGE
-* Mammalian phenotypes
-* pride
-* stitch
-* huge gwas
+See `HumanMine <http://www.humanmine.org>`_ for more information about these datasets. Look at `HumanMine <https://github.com/intermine/humanmine/blob/master/project.xml>`_ for examples of how to use these sources.
