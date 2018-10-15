@@ -11,7 +11,25 @@ Update data source and data set entries
 How to download the data 
 ---------------------------
 
-Create your own datasets.xml file with your data in InterMine items XML format and put in $MINE/integrate/datasets.xml. Use FlyMine's datasets.xml as an example: https://github.com/intermine/intermine/blob/dev/flymine/integrate/datasets.xml
+Create your own datasets.xml file with your data in InterMine items XML format and put in your mine's `dbmodel/resources` directory so that it's on your classpath. 
+
+.. code-block:: xml
+
+    <?xml version="1.0"?>
+    <items>
+    <item id="09" class="" implements="DataSource">
+        <attribute name="name" value="NCBI"/>
+        <attribute name="description" value="National Centre for Biotechnology Information"/>
+        <attribute name="url" value="https://www.ncbi.nlm.nih.gov"/>
+    </item>
+    <item id="10" class="" implements="DataSet">
+        <attribute name="name" value="Homo sapiens genome sequence"/>
+        <attribute name="description" value="Release GRCh38 of the Homo sapiens genome sequence"/>
+        <attribute name="version" value="GRCh38.p12"/>
+        <attribute name="url" value="https://www.ncbi.nlm.nih.gov"/>
+        <reference name="dataSource" ref_id="09"/>
+    </item>
+    </items>
 
 How to load the data into your mine
 --------------------------------------
@@ -20,8 +38,8 @@ project XML example
 
 .. code-block:: xml
 
-    <source name="flymine-static" type="intermine-items-xml-file">
-      <property name="src.data.file" location="datasets.xml"/>
+    <source name="flymine-static" type="flymine-static">
+      <property name="src.data.file" location="/data/datasets.xml"/>
     </source>
 
 .. index:: data sources, data sets, provenance

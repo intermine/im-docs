@@ -6,6 +6,12 @@ Types of data loaded
 
 genes, diseases
 
+How to download the data 
+---------------------------
+
+N/A - source uses OMIM's web services
+
+
 How to load the data into your mine
 --------------------------------------
 

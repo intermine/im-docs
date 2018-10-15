@@ -27,7 +27,6 @@ These are commonly used sources that you may want to use to load data into your 
     :maxdepth: 1
 
     chado
-    ensembl-core
     fasta
     gff
     identifiers/index
