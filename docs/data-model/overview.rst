@@ -46,15 +46,15 @@ All sequence features should have a reference to the appropriate `sequence ontol
 so_terms
 ----------------------------
 
-Adding sequence ontology terms to the so_terms text file will add these classes to your data model.
+Adding sequence ontology terms to the `so_terms` text file will add these classes to your data model.
 
 * There is a mechanism for automatically generating a set of class definitions that reflect the structure of the SO.
 
   * Is-a relationships in the SO become subclass relationships in the model.
   
-  * Part-of/member relationships in the SO become many-to-one or many-to-many relationships in the model (determined by the configs at the bottom of so_term_list.txt).
+  * Part-of/member relationships in the SO become many-to-one or many-to-many relationships in the model (determined by the configs at the bottom of `so_terms`).
   
-* Only the terms listed in so_term_list.txt become classes in the model. 
+* Only the terms listed in `so_terms` become classes in the model. 
 
   * In particular, a descendant class D and an ancestor class A may be included while none of the intervening classes (B and C) are. 
   
@@ -62,11 +62,9 @@ Adding sequence ontology terms to the so_terms text file will add these classes 
   
   * A particular example is transcript, which is four levels below sequence_feature in the SO, but Transcript is a direct subclass of SequenceFeature in the model. In addition, Transcript has a reference to Gene, inherited from the intervening SO term gene_member_region, which is omitted from the model.
   
-* The model generated from so_term_list.txt is augmented by the contents of intermine/bio/core/core.xml and intermine/bio/core/genomic_additions.xml (e.g., core.xml is where SequenceFeature is made a subclass of BioEntity).
+* The model generated from `so_term` is augmented by the contents of intermine/bio/model/core.xml and intermine/bio/model/genomic_additions.xml (e.g., core.xml is where SequenceFeature is made a subclass of BioEntity).
  
-* The generated model can be further augmented in the usual way by a source's source_additions.xml file. 
-
-
+* The generated model can be further augmented in the usual way by a source's source_additions.xml file and the global additions file. 
 
 
 .. index:: data source, data set, data model overview, data model, organism, organism name, chromosome location, strand
