@@ -3,6 +3,10 @@ Git
 
 `Git <http://git-scm.com>`_ is our source control software.  Download and install git on your local machine.
 
+.. note::
+
+    All InterMine code is available via JCenter as executable JARs. We do not recommend downloading the source code. 
+
 1. install the Git command line tool
 
 	.. code-block:: bash

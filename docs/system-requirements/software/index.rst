@@ -30,6 +30,7 @@ After installation, most programs require extra configuration to work with Inter
    tomcat
    macs
    maven
+   intellij
 
 InterMine uses :doc:`Gradle </system-requirements/software/gradle/index>` to manage the build but do not install Gradle locally. Instead use the wrapper provided.
    
