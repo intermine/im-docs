@@ -7,6 +7,16 @@ Intellij has a Gradle plugin so it automatically handles Gradle projects correct
 
 https://www.jetbrains.com/help/idea/gradle.html
 
+Depending on your Intellij version you should:
+
+ 1. New >
+ 2. Project from existing source >
+ 3. Then select the `build.gradle` file from your `bio/sources` directory. 
+
+.. warning::
+
+    Don't select the `build.gradle` files from your sources. Instead, select the `build.gradle` file from the `bio/sources` directory. The dependencies are listed in the main project's `build.gradle` file. If you load each subproject by itself, Intellij won't load the dependencies correctly.
+
 You should import two projects for your mine:
 
 * flymine (webapp and dbmodel)
