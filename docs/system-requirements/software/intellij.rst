@@ -9,16 +9,16 @@ https://www.jetbrains.com/help/idea/gradle.html
 
 You should import two projects for your mine:
 
-    flymine (webapp and dbmodel)
-    flymine-bio-sources
+* flymine (webapp and dbmodel)
+* flymine-bio-sources
 
 If you are working with the core InterMine code for whatever reason, we have several projects to import:
 
-    plugin
-    intermine
-    bio
-    bio-sources
-    bio-postprocess
+* plugin
+* intermine
+* bio
+* bio-sources
+* bio-postprocess
 
 
 Errors
