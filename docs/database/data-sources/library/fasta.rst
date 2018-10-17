@@ -20,13 +20,13 @@ project XML example
 .. code-block:: xml
 
     <source name="flybase-dmel-gene-fasta" type="flybase-dmel-gene-fasta">
-      <property name="fasta.taxonId" value="7227"/>
-      <property name="fasta.dataSetTitle" value="FlyBase fasta data set for Drosophila melanogaster"/>
-      <property name="fasta.dataSourceName" value="FlyBase"/>
-      <property name="fasta.className" value="org.intermine.model.bio.Gene"/>
-      <property name="fasta.classAttribute" value="primaryIdentifier"/>
-      <property name="fasta.includes" value="dmel-all-gene-*.fasta"/>
-      <property name="src.data.dir" location="/DATA/flybase/fasta/current"/>
+      <property name="flybase-dmel-gene-fasta.taxonId" value="7227"/>
+      <property name="flybase-dmel-gene-fasta.dataSetTitle" value="FlyBase fasta data set for Drosophila melanogaster"/>
+      <property name="flybase-dmel-gene-fasta.dataSourceName" value="FlyBase"/>
+      <property name="flybase-dmel-gene-fasta.className" value="org.intermine.model.bio.Gene"/>
+      <property name="flybase-dmel-gene-fasta.classAttribute" value="primaryIdentifier"/>
+      <property name="flybase-dmel-gene-fasta.includes" value="dmel-all-gene-*.fasta"/>
+      <property name="src.data.dir" location="/DATA/flybase/fasta"/>
     </source>
 
 
