@@ -44,3 +44,5 @@ To run a unit test, right click on the "test" task and execute. "Test" is under 
 Here is a detailed explanation:
 
 https://www.jetbrains.com/help/idea/gradle.html#gradle_context_menu
+
+.. index:: Intellij, IDE, Eclipse

@@ -12,6 +12,7 @@ Tomcat      8.5.x     website
 PostgreSQL  9.3.x     database
 Perl        5.8.8     run build scripts
 Maven       3.0.5     manage local dependencies
+SOLR        7.2.1     search engine
 ==========  ========= ===================================
 
 .. note::
@@ -31,6 +32,7 @@ After installation, most programs require extra configuration to work with Inter
    macs
    maven
    intellij
+   solr
 
 InterMine uses :doc:`Gradle </system-requirements/software/gradle/index>` to manage the build but do not install Gradle locally. Instead use the wrapper provided.
    
