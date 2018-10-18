@@ -18,6 +18,7 @@ We use `git <http://git-scm.com>`_ to manage and distribute source code and `Gra
 * PostgreSQL
 * Git
 * Java
+* Solr
 * Perl (for the final build script)
 
 See :doc:`/system-requirements/index` for the full list.
