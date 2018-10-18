@@ -12,8 +12,9 @@ Configure the search end point
 
 .. code-block:: properties
 
-    # keyword_search.properties
-    index.solrurl = http://localhost:8983/solr/intermine-search
+    # keyword_search.properties 
+    # change "flymine-search" to match your mine
+    index.solrurl = http://localhost:8983/solr/flymine-search
     index.batch.size = 1000
 
 Configure the autocomplete
@@ -21,7 +22,8 @@ Configure the autocomplete
 .. code-block:: properties
 
     # objectstoresummary.config.properties
-    autocomplete.solrurl = http://localhost:8983/solr/autocomplete
+    # change "flymine-autocomplete" to match your mine
+    autocomplete.solrurl = http://localhost:8983/solr/flymine-autocomplete
 
 Configure XML library
 
@@ -54,14 +56,16 @@ To create a Intermine collection for search process, run this command inside the
 .. code-block:: bash
 
     # Initialises the search index
-    solr-7.2.1 $ ./bin/solr create -c intermine-search
+    # replace "flymine-search" with whatever you configured above in the properties file
+    solr-7.2.1 $ ./bin/solr create -c flymine-search
 
 To create a Intermine collection for autocomplete process, run this command inside the solr directory. 
 
 .. code-block:: bash
 
     # Initaliases the autocomplete index
-    solr-7.2.1 $ ./bin/solr create -c autocomplete
+    # replace "flymine-autocomplete" with whatever you configured above in the properties file
+    solr-7.2.1 $ ./bin/solr create -c flymine-autocomplete
 
 Create Search Indexes
 -----------------------------
