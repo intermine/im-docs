@@ -13,7 +13,7 @@ Configure the search end point
 .. code-block:: properties
 
     # keyword_search.properties 
-    # change "flymine-search" to match your mine
+    # replace "flymine" with your mine's name
     index.solrurl = http://localhost:8983/solr/flymine-search
     index.batch.size = 1000
 
@@ -22,7 +22,7 @@ Configure the autocomplete
 .. code-block:: properties
 
     # objectstoresummary.config.properties
-    # change "flymine-autocomplete" to match your mine
+    # replace "flymine" with your mine's name
     autocomplete.solrurl = http://localhost:8983/solr/flymine-autocomplete
 
 Configure XML library
