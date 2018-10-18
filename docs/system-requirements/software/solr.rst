@@ -71,4 +71,9 @@ To populate your search index, you'll need to add postprocesses to your mine's p
 
 See :doc:`/database/database-building/project-xml` and :doc:`/database/database-building/post-processing/index` for details.
 
+Configuring Search Results
+--------------------------------
+
+See :doc:`/webapp/keyword-search/index` for details on how to configure the search results.
+
 .. index:: SOLR, Lucene, search index, autocomplete
