@@ -88,6 +88,6 @@ To inspect the index directly: http://localhost:8983/solr/
 SOLR
 ----------
 
-See See :doc:`/system-requirements/software/solr` for details on how to install SOLR.
+See :doc:`/system-requirements/software/solr` for details on how to install SOLR.
 
 .. index:: keyword search, quick search, search, SOLR, Lucene
