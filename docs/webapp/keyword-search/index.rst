@@ -1,7 +1,7 @@
 Keyword Search
 ================================
 
-InterMine uses SOLR for its keyword search index.
+InterMine uses Solr for its keyword search index.
 
 By default the index will include the text fields of all objects in the database. Each object in the database becomes a document in the index with text attributes attached. You can configure classes to ignore, such as locations and scores that don't provide text information. You can also add related information to an object, for example you can configure that the synonyms, pathways and GO terms should be included in the Gene's entry. 
 
@@ -85,9 +85,9 @@ You need to re-release your webapp.
 
 To inspect the index directly: http://localhost:8983/solr/
 
-SOLR
+Solr
 ----------
 
-See :doc:`/system-requirements/software/solr` for details on how to install SOLR.
+See :doc:`/system-requirements/software/solr` for details on how to install Solr.
 
-.. index:: keyword search, quick search, search, SOLR, Lucene
+.. index:: keyword search, quick search, search, Solr, Lucene
