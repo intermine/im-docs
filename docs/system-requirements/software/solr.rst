@@ -43,7 +43,7 @@ Download `Solr binary package <http://archive.apache.org/dist/lucene/solr/7.2.1/
     # Starts the server instance on port 8983
     solr-7.2.1 $ ./bin/solr start
 
-Create Search Indexes
+Initialising Search Indexes
 ----------------------------------
 
 .. note::
@@ -64,7 +64,7 @@ To create a Intermine collection for autocomplete process, run this command insi
     # Initaliases the autocomplete index
     solr-7.2.1 $ ./bin/solr create -c autocomplete
 
-Running a build
+Create Search Indexes
 -----------------------------
 
 To populate your search index, you'll need to add postprocesses to your mine's project XML file: `create-search-index` and `create-autocomplete-index`.
