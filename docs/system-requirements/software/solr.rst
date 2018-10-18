@@ -22,7 +22,6 @@ Configure the autocomplete
 
     # objectstoresummary.config.properties
     autocomplete.solrurl = http://localhost:8983/solr/autocomplete
-    index.batch.size = 1000
 
 Configure XML library
 
