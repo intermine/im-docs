@@ -57,6 +57,12 @@ The config file is located at `MINE_NAME/dbmodel/resources/keyword_search.proper
 
    * debug setting off, used only for testing
 
+* index.optimize
+
+   * boolean, defaults to false.
+   * If set to `true`, reorganises the index so chunks are placed together in storage which might improve the search time. (Similar to defragmentation of a hard disk.) Requires an empty space in the storage as large as the index, and takes additional time.
+
+
 Search Results
 ----------------------
 
