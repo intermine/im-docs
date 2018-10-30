@@ -96,7 +96,7 @@ It's possible to use several properties files by adding a suffix.  Here's an exa
 
     * `biotestmine.properties.dev` - points to the development database and a webapp
 
-#. use the `-Dorg.gradle.project.release=dev` ant target
+#. use `-Dorg.gradle.project.release=dev` 
   
 # `dev` is the suffix on the properties filename
 
