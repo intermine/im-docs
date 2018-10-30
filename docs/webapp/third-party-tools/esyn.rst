@@ -11,7 +11,7 @@ Configuration
 Report page
 ~~~~~~~~~~~~~
 
-Add the following entry to your '''webconfig-model.xml''' file:
+Add the following entry to your `webconfig-model.xml` file:
 
 .. code-block:: xml
 
@@ -24,13 +24,13 @@ Add the following entry to your '''webconfig-model.xml''' file:
 List analysis
 ~~~~~~~~~~~~~
 
-1. add the following entries to your '''struts-config-model.xml''' file:
+1. add the following entries to your `struts-config-model.xml` file:
 
 .. code-block:: xml
 
 	<action path="/initEsynListDisplayer" type="org.intermine.bio.web.EsynListDisplayer"/>
 
-2. add the following entries to your '''tiles-def-model.xml''' file:
+2. add the following entries to your `tiles-def-model.xml` file:
 
 .. code-block:: xml    
 
