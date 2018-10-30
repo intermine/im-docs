@@ -6,18 +6,18 @@ The user profile is an InterMine ObjectStore which stores Profile information su
 Creating a new UserProfile database
 ---------------------------------------
 
-First you must create the empty database in Postgres.  Use this command, replacing HOST and USER with the correct values:
+First you must create the empty database in Postgres. 
 
 .. code-block:: bash
 
-    # create the new database
-	~/git/flymine $  createdb userprofile-biotestmine
+    # create the new empty database
+    ~/git/flymine $  createdb userprofile-biotestmine
 
 These commands are needed in the webapp to initialise a userprofile database:
 
 .. code-block:: bash
 
-	# this comment populates superuser, default templates etc.
+    # this comment populates superuser, default templates etc.
     ~/git/flymine $ ./gradlew buildUserDB
 
 Releasing a webapp with a new production database
@@ -52,15 +52,6 @@ These are loaded when you build a userprofile database.
 Back ups
 --------------------------
 
-1. cron job on production runs this script:
-
-* `userprofile_backup_cron`
-* dumps db, only saves copy if different from previous version
-* updates sym links
-
-2. userprofile_backup_cron script runs this script:
-   
-* `userprofile_backup`
-* does the dumping
+For our mines, we have a script to back up the user databases every five minutes, but only if there has been a change.
 
 .. index:: userprofile, default-template-queries.xml
