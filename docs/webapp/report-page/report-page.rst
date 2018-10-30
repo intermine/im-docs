@@ -62,7 +62,7 @@ The example above has been inserted as a child of the Gene class ``<class classN
 ``url``
     this is where we specify the target of the link. The item in the curly brackets is a variable parameter that will get resolved as a property for the current object.
 ``image`` (optional)
-    defines a name of the image from "model/images" (e.g.: ``flymine/webapp/resources/webapp/model/images``) to resolve.
+    defines a name of the image from "model/images" (e.g.: ``webapp/src/main/webapp/model/images``) to resolve.
 ``text`` (optional)
     defines a link text that will appear (next to an image if provided). The link will then appear in the top right corner of the header. If no image or text is provided, the link text will default to the URL.
 
