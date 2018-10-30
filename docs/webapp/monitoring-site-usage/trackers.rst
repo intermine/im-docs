@@ -46,47 +46,4 @@ Furthemore, in the ''Template usage'' section, there is a pie diagram showing th
 Under the label 'Other' the number of executions of templates from 10th to 15th position.
 
 
-Import/Export XML
--------------------------------
-
-Import and export XML functionalities allow you to:
-
- * export all tracks from the userprofile database into an XML file
- * import all tracks from an XML file into the userprofile database 
-
-The import functionality generates the tracker tables, if these haven't been created before.
-
-When you release a webapp, you may need to recreate the userprofile database without losing all tracks saved until that moment.
-Before running `create-db-userprofile`, execute `write-userprofile-xml` in order to save all the tracks into the `userprofile.xml` file.
-
-The file has the following structure:
-
-.. code-block:: xml
-
-	<userprofiles>
-	<tracks>
-	<templatetracks>
-	<templatetrack templatename="fourConstraints" username="butano@flymine.org" sessionidentifier="18FB96389B8C44817780B1B778C6F1C2" timestamp="2011-05-06 14:43:42.779"></templatetrack>
-	...
-	</templatetracks>
-	<logintracks>
-	<logintrack username="butano@flymine.org" timestamp="2011-05-17 16:27:38.729"></logintrack>
-	...
-	</logintracks>
-	<listtracks>
-	<listtrack type="Company" count="2" buildmode="IDENTIFIERS" event="CREATION" username="butano@flymine.org" sessionidentifier="65C4AD9C3C3EEC86FDB88BAC9EFFC7FF"
-	timestamp="2011-05-18 09:42:16.905"></listtrack>
-	...
-	</listtracks>
-	<querytracks>
-	<querytrack type="Address" username="butano@flymine.org" sessionidentifier="EDD0090DE148413B1B35E8DFF2FE4CF1" timestamp="2011-05-18 10:40:29.961"></querytrack>
-	...
-	</querytracks>
-	<searchtracks>
-	<searchtrack keyword="CompanyA" username="" sessionidentifier="C83EAE50F49A7777E15C69AF31412839" timestamp="2011-05-18 12:38:09.0"></searchtrack>
-	...
-	</searchtracks></tracks></userprofiles>
-
-Then run `create-db-userprofile` and `read-userprofile-xml`
-
 .. index:: tracking Mine usage
