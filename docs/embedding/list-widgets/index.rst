@@ -175,11 +175,10 @@ Examples
 
 See other mines' config files for more examples, eg:
 
-* ``branches/intermod_workshop/flymine/webapp/resources/webapp/WEB-INF/webconfig-model.xml`` in FlyMine
-* ``branches/intermod_workshop/modmine/webapp/resources/webapp/WEB-INF/webconfig-model.xml`` in modMine
-* ``branches/intermod_workshop/metabolicmine/webapp/resources/webapp/WEB-INF/webconfig-model.xml`` in metabolicMine
+* `FlyMine's webconfig-model.xml <https://github.com/intermine/flymine/blob/master/webapp/src/main/webapp/WEB-INF/webconfig-model.xml>`_
+* `HumanMine's webconfig-model.xml <https://github.com/intermine/humanmine/blob/master/webapp/src/main/webapp/WEB-INF/webconfig-model.xml>`_
 
-Backgroud population
+Background population
 ~~~~~~~~~~~~~~~~~~~~
 In the enrichement widgets, you can change the reference population.
 The reference population is specific for widget, list and user.
@@ -212,7 +211,7 @@ Create a new Widgets instance pointing to a service:
 
 .. code-block:: javascript
 
-    var widgets = new intermine.widgets("http://beta.flymine.org/query/service/");
+    var widgets = new intermine.widgets("http://beta.flymine.org/beta/service/");
 
 Choose a widget
 ^^^^^^^^^^^^^^^
@@ -242,10 +241,6 @@ Embedding mine widgets on a custom page
 
 Following is a documentation describing how to embed widgets not in a mine context.
 
-.. note::
-    
-    Online example can be visited at `tinkerbin <http://tinkerbin.com/Xb3SZhOK>`_.
-
 #. Open up a document in your text editor.
 #. Use the :doc:`/embedding/api-loader` that always gives you the latest version of the widgets. In the ``<head>`` element of the page, add the following line:
 
@@ -259,13 +254,13 @@ Following is a documentation describing how to embed widgets not in a mine conte
 
         <script type="text/javascript">
             intermine.load('widgets', function() {
-                var Widgets = new intermine.widgets('http://beta.flymine.org/query/service/');
+                var Widgets = new intermine.widgets('http://beta.flymine.org/beta/service/');
             });
         </script>
 
     ``intermine.load`` represents a block of code that loads the widgets by pointing them to a specific mine.
 #. Use the widget web service to view which widgets are available on the mine, eg: `http://beta.flymine.org/beta/service/widgets/`
-#. See which lists are available in the mine: `http://beta.flymine.org/query/service/lists`
+#. See which lists are available in the mine: `http://beta.flymine.org/beta/service/lists`
 #. Add a widget (from the list in the previous step) to JavaScript. So within the ``intermine.load`` block, after creating the ``Widgets`` instance, do this:
 
     .. code-block:: javascript
@@ -292,7 +287,7 @@ Following is a documentation describing how to embed widgets not in a mine conte
             <script src="http://cdn.intermine.org/api"></script>
             <script type="text/javascript">
                 intermine.load('widgets', function() {
-                    var Widgets = new intermine.widgets('http://beta.flymine.org/query/service/');
+                    var Widgets = new intermine.widgets('http://beta.flymine.org/beta/service/');
                     // Load all Widgets:
                     Widgets.all('Gene', 'myList', '#all-widgets');
                 });
