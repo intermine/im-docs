@@ -4,7 +4,7 @@ Galaxy
 Enable Galaxy export 
 --------------------
 
-Add to ''web.properties''' file, replacing FlyMine with your Mine name:
+Add to `web.properties` file, replacing FlyMine with your Mine name:
 
 .. code-block:: properties
 
@@ -19,7 +19,7 @@ Update Struts config
 
 .. code-block:: xml
 
-	# MINE/webapp/resources/struts-config-model.xml
+	# webapp/src/main/resources/struts-config-model.xml
 	<action path="/galaxyExportOptions" forward="galaxyExportOptions.page"/>
 	<action path="/initGalaxyExportOptions"
         	type="org.intermine.bio.web.struts.GalaxyExportOptionsController"/>
@@ -28,7 +28,7 @@ Update Struts config
 
 .. code-block:: xml
 	
-	# MINE/webapp/resources/tiles-defs-model.xml
+	# webapp/src/main/resources/tiles-defs-model.xml
 	<definition name="galaxyExportOptions.page" extends="layout.template">
 	    <put name="body" value="galaxyExportOptions.tile"/>
     	<put name="pageName" value="galaxyExportOptions"/>
@@ -38,7 +38,7 @@ Update Struts config
 
 .. code-block:: xml
 
-	# MINE/webapp/resources/struts-config-model-form.xml
+	# webapp/src/main/resources/struts-config-model-form.xml
 	<form-bean name="galaxyExportForm" type="org.intermine.bio.web.struts.GalaxyExportForm"/>
 
 Customization
@@ -70,7 +70,7 @@ welcomeMessage   displays on the homepage when coming from Galaxy  yes
 	## set to "false" to disable galaxy
 	galaxy.display = true
 	galaxy.disabledMessage = Galaxy export is disabled.
-	galaxy.baseurl.default = http://main.g2.bx.psu.edu
+	galaxy.baseurl.default = https://usegalaxy.org
 	galaxy.url.value = /tool_runner?tool_id=flymine
 	galaxy.welcomeMessage = <b>Welcome to FlyMine, GALAXY users</b><br/><br/>You can run queries by \
 	clicking on the 'Templates' tab at the top of this page.&nbsp;&nbsp;You can send the query results \
