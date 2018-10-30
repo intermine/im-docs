@@ -11,7 +11,7 @@ If you have just installed a new mine, your homepage probably looks something li
 
 .. image:: img/initial_homepage.jpg
 
-In order to do any sort of customizations, one has to add/edit a configuration file for the mine. You will find this file in ``<your_mine_name>/webapp/resources/web.properties``.
+In order to do any sort of customizations, one has to add/edit a configuration file for the mine. You will find this file in ``webapp/src/main/webapp/WEB-INF/web.properties``.
 
 Open this file in your editor of choice and follow the text below.
 
@@ -117,7 +117,7 @@ The last thing we will show is how to specify a custom category name to show as 
     begin.tabs.1.description = This is some descriptive text
     begin.tabs.1.name = Genes
 
-Example configuration file: `FlyMine <https://github.com/intermine/intermine/blob/dev/flymine/webapp/resources/web.properties#L554-L570>`_ 
+Example configuration file: `FlyMine <https://github.com/intermine/flymine/blob/master/webapp/src/main/webapp/WEB-INF/web.properties#L489>`_ 
 
 Featured Lists
 --------------
