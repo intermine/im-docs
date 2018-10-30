@@ -5,7 +5,7 @@ documenting the :doc:`../web-services/index` available in InterMine, see `<http:
 
 To set your mine default query for the *'query/results'* service of your mine, add it to your web.properties configuration file, e.g.
 
-add to ``your_mine/webapp/resource/web.properties``
+add to ``webapp/src/main/webapp/WEB-INF/web.properties``
 
 ::
 
