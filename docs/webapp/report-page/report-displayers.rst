@@ -42,24 +42,24 @@ Configuration is placed in a ``<reportdisplayers>`` section of ``webconfig-model
 ``types``
     a comma separated list of class names for this displayer can be used
 ``parameters``
-    this is a JSON string used to pass arbitrary parameters to particular displayers, you can make use of this for detailed configuration of any displayers you write. For example, the ``trunk/bio/webapp/src/org/intermine/bio/web/displayer/HomologueDisplayer.java`` is passed a list of data sets to displayer homologues from: ``parameters="{'dataSets': ['TreeFam data set', 'KEGG orthologues data set']}"``.
+    this is a JSON string used to pass arbitrary parameters to particular displayers, you can make use of this for detailed configuration of any displayers you write. For example, the `HomologueDisplayer.java <https://github.com/intermine/intermine/blob/dev/bio/webapp/src/main/java/org/intermine/bio/web/displayer/HomologueDisplayer.java>`_ is passed a list of data sets to displayer homologues from: ``parameters="{'dataSets': ['TreeFam data set', 'KEGG orthologues data set']}"``.
 
 Useful displayers
 -----------------
 
-There are several displayers for common data types that may be useful in many Mines. To enable these just copy the configuration from FlyMine's ``trunk/flymine/webapp/resources/webapp/WEB-INF/webconfig-model.xml``.
+There are several displayers for common data types that may be useful in many Mines. To enable these just copy the configuration from FlyMine's `webconfig-model.xml <https://github.com/intermine/flymine/blob/master/webapp/src/main/webapp/WEB-INF/webconfig-model.xml>`_.
 
-For examples of the common displayers and configuration details please see ReportDisplayerGallery.
+For examples of the common displayers and configuration details please see :doc:`report-displayers-examples`..
 
 Creating a new Displayer
 ------------------------
 
 If you've loaded some new data into your Mine or have some great ideas about presenting data from the common data loaders you can create a new displayer.  Here are brief instructions, take a look at the many examples for more details.
 
-#. Create a Java class [1]_ in ``<mine>/webapp/src/org/intermine/web/displayers`` that inherits from ``org.intermine.web.displayer.ReportDisplayer``.
+#. Create a Java class [1]_ in your mine, e.g. `/displayers <https://github.com/intermine/flymine/tree/master/webapp/src/main/java/flymine/web/displayer>`_ that inherits from ``org.intermine.web.displayer.ReportDisplayer``.
 #. Implement ``public void display(HttpServletRequest request, ReportObject reportObject)`` to perform any queries or processing required and put results on the request.
-#. Create a JSP file in ``<mine>/webapp/resources/webapp/model`` to display the results.
-#. Add configuration to ``<mine>/webapp/resources/webapp/WEB-INF/webconfig-model.xml`` to set up the ``javaClass`` and ``jspName`` created above and set the ``types`` for which the displayer should appear and the *summary* or a data category (aspect) as the ``placement`` for the displayer. Optionally set any fields in the report page that should be hidden when this displayer is used.
+#. Create a JSP file in `webapp/src/main/webapp/model` to display the results.
+#. Add configuration to `webapp/src/main/webapp/WEB-INF/webconfig-model.xml` to set up the ``javaClass`` and ``jspName`` created above and set the ``types`` for which the displayer should appear and the *summary* or a data category (aspect) as the ``placement`` for the displayer. Optionally set any fields in the report page that should be hidden when this displayer is used.
  
 Troubleshooting
 ~~~~~~~~~~~~~~~
