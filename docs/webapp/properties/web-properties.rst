@@ -99,12 +99,6 @@ List upload examples
 
 Using the `bag.example.identifiers` key, one can provide a list of keyword examples on the list create/upload page. This could lead to a mixed list of items being updated and only, say Protein or Gene, identifiers being uploaded.
 
-If one wants to provide different example identifiers per different types, like Genes, Proteins, SNPs, you can do so by using the following key:
-
-`bag.example.identifiers.gene`, `bag.example.identifiers.protein` etc.
-
-Then, when the user selects a Genes from a dropdown select box for type and choose the Example list link, the text box will be populated keywords associated only with `bag.example.identifiers.gene` key in the config file.
-
 External links
 ----------------------
 
@@ -160,7 +154,7 @@ A list example:
 
 .. code-block:: properties
 
-    attributelink.flymine.Gene.*.primaryIdentifier.list.url=http://www.flymine.org/query/portal.do?externalid=<<attributeValue>>&class=Gene
+    attributelink.flymine.Gene.*.primaryIdentifier.list.url=http://www.flymine.org/flymine/portal.do?externalid=<<attributeValue>>&class=Gene
     attributelink.flymine.Gene.*.primaryIdentifier.list.text=FlyMine
     attributelink.flymine.Gene.*.primaryIdentifier.list.imageName=flymine_logo_link.gif
     attributelink.flymine.Gene.*.primaryIdentifier.list.usePost=true
@@ -170,7 +164,7 @@ Only if a taxonId is specified the code will check if the link to the external d
 Settings for the xrefLink property
 --------------------------------------------
 
-You can configure the URLs for querying CrossReference from external sources by adding entries to the {{{web.properties}}} file.  
+You can configure the URLs for querying CrossReference from external sources by adding entries to the `web.properties` file.  
 
 The format for this property is:
 
