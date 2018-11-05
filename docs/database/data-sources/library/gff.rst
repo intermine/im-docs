@@ -46,8 +46,8 @@ By default, columns such as "type", "start", "end", "strand" and "ID" field in "
 	# gff_config.properties example for E. coil gff3 attributes
 	511145.terms=gene,exon                             # feature types to load, e.g. load gene and exon for E. coli
 	511145.excludes=CDS                                # comma-separated list of feature types to exclude from load
-	511145.attributes.Dbxref.EcoGene=primaryIdentifier # use Dbxref EcoGene field as primaryIdentifier
-	511145.attributes.locus_tag=secondaryIdentifier    # use locus_tag field as secondaryIdentifier
+	511145.gene.attributes.Dbxref.EcoGene=primaryIdentifier # use Dbxref EcoGene field as primaryIdentifier
+	511145.gene.attributes.locus_tag=secondaryIdentifier    # use locus_tag field as secondaryIdentifier
 	511145.attributes.gene=symbol                      # use gene field as symbol
 	511145.attributes.gene_synonym=synonym             # use gene_synonym field for synonym
 	511145.exon.attributes.type=scoreType              # a class specific attribute 
