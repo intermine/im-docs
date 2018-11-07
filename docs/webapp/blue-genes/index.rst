@@ -11,9 +11,10 @@ default separators                       list.upload.delimiters                 
 default regionsearch                     genomicRegionSearch.*                             ``H. sapiens`` (note: please do not use long format, e.g. ``Homo sapiens``)
 default query builder query              services.defaults.query                           ``<query model="genomic" view="Gene.secondaryIdentifier Gene.symbol Gene.primaryIdentifier Gene.organism.name" sortOrder="Gene.secondaryIdentifier ASC" ><constraint path="Gene.organism.name" op="=" value="Homo sapiens" code="A" /></query>``
 default keyword search                   quickSearch.identifiers                           ``e.g. PPARG, Insulin, rs876498``
+location of JavaScript tools             bluegenes.toolLocation                            `/intermine/tools/node_modules/`
 =======================================  ================================================  =======================================  
 
 Please see :doc:`/webapp/properties/web-properties` for details on these parameters.
 
-.. index:: blue genes
+.. index:: blue genes, tools
 
