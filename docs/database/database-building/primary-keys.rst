@@ -42,7 +42,7 @@ Global primary key configuration file [DEPRECATED]
 
 	This is an older method of defining keys in a central configuration file. Use the method described above instead.
 
-Define keys in a central file
+Define keys in a central file [DEPRECATED]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This file is a Java properties file, so all the data is in form of single lines of the form "property name = property value". A line is a comment if it begins with a hash character, and blank lines may be present. This file defines a set of primary keys by name for each class. Defining a primary key on a class makes it apply to all the subclasses too. This file should be located in `MINE_NAME/dbmodel/resources`.
@@ -69,16 +69,20 @@ Here is a short example of the configuration file. The configuration file we use
 	Protein.key_primaryacc=primaryAccession
 
 
-Using keys (from central file) in each source
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Using keys (from central file) in each source [DEPRECATED]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this case the properties file for each data source lists primary key names from the the central `genomic_keyDefs.properties` file that can be used when integrating that data source. The file lists the primary keys by name for each class; the primary key names must be defined in the global keyDefs file mentioned in the previous section. If a class is not mentioned, then instances of that class will never be merged with other objects. Each class must be mentioned only once in this file, unlike the global configuration. For each class, there should be a line like the following: 
+The properties file for each data source lists primary key names from the the central `genomic_keyDefs.properties` file. The file lists the primary keys by name for each class; the primary key names must be defined in the global keyDefs file mentioned in the previous section. If a class is not mentioned, then instances of that class will never be merged with other objects. For each class, there should be a line like the following: 
      
 .. code-block:: properties
 
 	# keys file in SOURCE/resources that references keys defined in global keyDefs properties file. 
-	Classname = primary_key_name, primary_key_name2 
+	Gene = key_identifier_org, key_symbol_org
 
-This line means that the class "Classname" and all its subclasses have a two primary keys available for this data source, called "primary_key_name" and "primary_key_name2", which should be defined properly in the global configuration. 
+This line means that the class "Gene" and all its subclasses have a two primary keys available for this data source, called "key_identifier_org" and "key_symbol_org", which should be defined properly in the global configuration. 
+
+.. warning::
+
+	This is an older method of defining keys in a central configuration file. Use the method described in the first section instead.
 
 .. index:: primary keys, genomic_keyDefs.properties, integration keys, keys
