@@ -57,12 +57,6 @@ project XML example
     </source>
 
 
-You'll also need the DTD file here:
-
-ftp://ftp.ebi.ac.uk/pub/databases/interpro/match_complete.dtd
-
-Put it in your $MINE/integrate directory.
-
 
 
 .. index:: InterPro, protein domains
