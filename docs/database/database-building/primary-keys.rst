@@ -1,14 +1,14 @@
 Primary Keys
 ================================
 
-This document describes the configuration used by the InterMine integration system to identify objects that are identical to each other. Two objects are deemed to be identical if they have matching fields for at least one primary key used for the class of object. Primary keys are defined in a global file called "MODEL-NAME_keyDefs.properties" which must be in the classpath.  Each data source needs an additional configuration file defining which primary keys should be used when integrating data, which can also define some extra keys. These files should be in the resources directory of the data source, and should be called "DATA-SOURCE-NAME_keys.properties".
+This document describes the configuration used by the InterMine integration system to identify objects that are identical to each other. Two objects are deemed to be identical if they have matching fields for at least one primary key used for the class of object. Primary keys are defined in the resources directory of the data source, and should be called "$DATA-SOURCE-NAME_keys.properties".
 
 Data source keys configuration files
 ------------------------------------------
 
-For each data source, there is a properties file providing a list of the primary keys that can be used when integrating that data source. The file lists the primary keys by name for each class.  When loading objects of a particular class the keys define which fields should be used to look up in the database for existing objects to merge with.
+For each data source, there is a properties file providing a list of the primary keys that can be used when integrating that data source. The file lists the primary keys by name for each class. When loading objects of a particular class the keys define which fields should be used to look up in the database for existing objects to merge with.
 
-The keys are specified in each source in a file: `SOURCE_NAME/src/main/resources/sourcename_keys.properties`.
+The keys are specified in each source in a file: `$DATA-SOURCE-NAME/src/main/resources/$DATA-SOURCE-NAME_keys.properties`.
 
 These `_keys.properties` files define keys in the format:
 
@@ -23,7 +23,7 @@ The `name_of_key` can be any string but you must use different names if defining
 	Gene.key_primaryidentifier = primaryIdentifier
 	Gene.key_secondaryidentifier = secondaryIdentifier
 
-It is better to use common names for identical keys between sources as this will help avoid duplicating database indexes.
+Use common names for identical keys between sources as this will help avoid duplicating database indexes. Postgres uses the key names to create indexes.
 
 Each key should list one or more fields that can be a combination of `attributes` of the class specified or `references` to other classes - in which case there should be a key defined for the referenced class as well.
 
@@ -31,8 +31,7 @@ Each key should list one or more fields that can be a combination of `attributes
 
     The build system will use any valid key it finds - so be careful! e.g. if you have keys for BioEntity and SequenceFeature and Gene in your keys file, any of the three keys may be used to merge a Gene into the database.
 
-
-It is still possible to use a legacy method of configuring keys, where keys are defined centrally in `dbmodel/resources/genomic_keyDefs.properties` and referenced in source `_keys.properties` files.
+It is still possible to use a legacy method of configuring keys, where keys are defined centrally in `dbmodel/resources/genomic_keyDefs.properties` and referenced in source `$DATA-SOURCE-NAME_keys.properties` files.
 
 
 Global primary key configuration file [DEPRECATED]
