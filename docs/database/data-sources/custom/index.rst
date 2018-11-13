@@ -207,12 +207,13 @@ If you don't want to create an additions file for each of your mine's data sourc
 
 .. code-block:: sh
 
-    // [in bio/sources/build.gradle]
+    // [in build.gradle in root of your mine's bio/sources directory]
     // uncomment to specify an extra additions file for your bio-sources
     // this file will be merged with the additions file for each data source
     // and included in each source JAR.
     //bioSourceDBModelConfig {
-    //    extraAdditionsFile = "MY-MINE_additions.xml"
+    //    # file should live in your mine's bio/sources directory
+    //    globalAdditionsFile = "MY-MINE_additions.xml"
     //}
 
 See :doc:`/data-model/overview` for details.
