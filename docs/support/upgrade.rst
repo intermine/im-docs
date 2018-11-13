@@ -107,12 +107,12 @@ Previously the data model was merged from all data sources' additions XML file. 
 
 .. code-block:: sh
 
-    // [in bio/sources/build.gradle]
+    // [in build.gradle in flymine-bio-sources]
     // uncomment to specify an extra additions file for your bio-sources
     // this file will be merged with the additions file for each data source
     // and included in each source JAR.
     //bioSourceDBModelConfig {
-    //    extraAdditionsFile = "MY-MINE_additions.xml"
+    //    globalAdditionsFile = "MY-MINE_additions.xml"
     //}
 
 Update config
