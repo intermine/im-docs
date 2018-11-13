@@ -45,7 +45,7 @@ Update your source's additions file to include this class.
 
 Previously, all additions files listed in your project XML were merged into a single genomic_model.xml that was placed on your classpath. Now, instead, only the core data model and your additions file are merged into genomic_model.xml and placed in the JAR of the data source. 
 
-Alternatively, you can set the `extraAdditionsFile` parameter to specify a single file that will be merged into each of your data sources. Look for this configuration in your mine's bio sources `build.gradle` file.
+Alternatively, you can set the `globalAdditionsFile` parameter to specify a single file that will be merged into each of your data sources. Look for this configuration in your mine's bio sources `build.gradle` file.
 
 Where is InterMine code on my server?
 --------------------------------------------------------------------------------------------
@@ -104,7 +104,7 @@ The versions for the JARs are set in each project:
      bio/sources/build.gradle
      bio/postprocess/build.gradle
 
-Currently this version is **2.0.0-RC-01**
+Currently this version is **2.1.1**
 
 Which dependency versions to use is set in the gradle.properties file for each project:
 
@@ -116,7 +116,7 @@ Which dependency versions to use is set in the gradle.properties file for each p
      bio/sources/gradle.properties
      bio/postprocess/gradle.properties
 
-Currently set to **2.0+**
+Currently set to **2.1+**
 
 You can overwrite this value and set these values in your mine's `gradle.properties` file.
 
