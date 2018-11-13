@@ -72,8 +72,8 @@ Global Additions File
 Previously the data model was merged from all data sources' additions XML file (plus the SO terms, core and genomic additons). This is no longer true. Since each source is in its own JAR now, the data model is self-contained for each data source. Therefore if you reference a class in your data parser, it must be present in the additions file. Alternatively, you can specify a single data model file that will be merged into each source:
 
 .. code-block:: sh
-
-    // [in build.gradle in the root of your mine's bio/sources directory]
+    
+    // [in build.gradle in root of your mine bio/sources directory, e.g. flymine-bio-sources]
     // uncomment to specify an extra additions file for your bio-sources
     // this file will be merged with the additions file for each data source
     // and included in each source JAR.
