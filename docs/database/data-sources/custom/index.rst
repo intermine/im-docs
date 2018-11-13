@@ -203,20 +203,7 @@ If all the data you wish to load is already modelled in InterMine then you don't
 Global Additions File
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you don't want to create an additions file for each of your mine's data sources, you can also create a "global" additions file.
-
-.. code-block:: sh
-
-    // [in build.gradle in root of your mine's bio/sources directory]
-    // uncomment to specify an extra additions file for your bio-sources
-    // this file will be merged with the additions file for each data source
-    // and included in each source JAR.
-    //bioSourceDBModelConfig {
-    //    # file should live in your mine's bio/sources directory
-    //    globalAdditionsFile = "MY-MINE_additions.xml"
-    //}
-
-See :doc:`/data-model/overview` for details.
+If you don't want to create an additions file for each of your mine's data sources, you can also create a "global" additions file. See :doc:`/data-model/overview` for details.
 
 Properties
 ~~~~~~~~~~
