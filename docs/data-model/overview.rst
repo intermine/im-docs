@@ -73,12 +73,13 @@ Previously the data model was merged from all data sources' additions XML file (
 
 .. code-block:: sh
 
-    // [in bio/sources/build.gradle]
+    // [in build.gradle in the root of your mine's bio/sources directory]
     // uncomment to specify an extra additions file for your bio-sources
     // this file will be merged with the additions file for each data source
     // and included in each source JAR.
     //bioSourceDBModelConfig {
-    //    extraAdditionsFile = "MY-MINE_additions.xml"
+    //    # file should be in the root of your mine's bio/sources directory
+    //    globalAdditionsFile = "MY-MINE_additions.xml"
     //}
 
 
@@ -91,7 +92,7 @@ The InterMine build system generates the data model by merging the following dat
 * genomic_additions.xml
 * so_terms (see above)
 * SOURCE_additions files for each data source listed in your project XML file
-* `extraAdditionsFile` if specified (see above)
+* `globalAdditionsFile` if specified (see above)
 
 See :doc:`/database/database-building/model-merging/` for details.
 
