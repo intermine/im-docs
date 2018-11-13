@@ -80,16 +80,17 @@ The resulting class has all attributes of the `Protein` from `core.xml` and from
 Global Additions file
 -------------------------
 
-You can also specify an additions file, `extraAdditionsFile`, that will be merged into every source's additions file.
+You can also specify an additions file, `globalAdditionsFile`, that will be merged into every source's additions file.
 
 .. code-block:: sh
 
-    // [in bio/sources/build.gradle]
+    // [in build.gradle in flymine-bio-sources]
     // uncomment to specify an extra additions file for your bio-sources
     // this file will be merged with the additions file for each data source
     // and included in each source JAR.
     //bioSourceDBModelConfig {
-    //    extraAdditionsFile = "MY-MINE_additions.xml"
+    //    # file should be in the root of flymine-bio-sources
+    //    globalAdditionsFile = "MY-MINE_additions.xml"
     //}
 
 .. index:: model merging, data model, extraAdditionsFile
