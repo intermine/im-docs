@@ -88,19 +88,30 @@ referenced-type
 reverse-reference
   this is an optional name of a reference or collection in the referenced-type that is the reverse of this relationship. Specifying this turns the relationship into a bidirectional relationship.
 
-There are effectively two types of reference and two types of collection, depending on the type or presence of a reverse relationship:
+.. There are effectively two types of reference and two types of collection, depending on the type or presence of a reverse relationship:
 
+Types of relationship
+^^^^^^^^^^^^^^^^^^^^^^
 One to one relationship 
   this is where a reference has a reverse-relationship that is also a reference. Use of these is discouraged, because they suffer from performance and consistency problems, and can possibly be better modelled by combining the two classes into one.
 
-Many to one relationship
-  this is where a reference has a reverse-relationship that is a collection, or where a reference does not have a reverse-relationship.
+.. Many to one relationship
+..  this is where a reference has a reverse-relationship that is a collection, or where a reference does not have a reverse-relationship.
 
 One to many relationship
-  this is where a collection has a reverse-relationship that is a reference. This kind of relationship is a side-effect of a many to one relationship, and cannot be written to from this end. All alterations should be made on the many to one relationship instead.
+  a collection has a reverse-relationship that is a reference. In this case you should always fill in the reference and leave the collection empty (it will be ignored). 
+  ::
+   e.g. Gene has a collection Transcripts and Transcript references one Gene, fill in Transcript.gene only.
+
 
 Many to many relationship
-  this is where a collection has a reverse-relationship that is a collection, or where a collection does not have a reverse-relationship. This type of collection can be altered from either side, and the changes will be observed from both sides.
+  this is where a collection has a reverse-relationship that is a collection, or where a collection does not have a reverse-relationship. This type of collection can be altered from either side, and the changes will be observed in both sides.
+  
+  In practice if one side is very large and the other smaller it is faster to populate the smaller collection.
+  ::
+   e.g. Gene has a collection of Pathways and Pathway has a collection of Genes, fill in either Gene.pathways or Pathway.genes but not both.  
+   If Pathway.genes contains e.g. 20,000 items and Gene.pathways typically 100 items then it is faster to populate Gene.pathways.
+
 
 A short example
 -----------------------
