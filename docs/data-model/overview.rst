@@ -69,19 +69,22 @@ Adding sequence ontology terms to the `so_terms` text file will add these classe
 Global Additions File
 -----------------------
 
-Previously the data model was merged from all data sources' additions XML file (plus the SO terms, core and genomic additons). This is no longer true. Since each source is in its own JAR now, the data model is self-contained for each data source. Therefore if you reference a class in your data parser, it must be present in the additions file. Alternatively, you can specify a single data model file that will be merged into each source:
+Previously the data model was merged from all data sources' additions XML file (plus the SO terms, core and genomic additons). This is no longer true. Since each source is in its own JAR now, the data model is self-contained for each data source. Therefore if you reference a class in your data parser, it must be present in the additions file. 
+
+Alternatively, you can specify a single data model file that will be merged into each source:
 
 .. code-block:: sh
     
-    // [in build.gradle in root of your mine bio/sources directory, e.g. flymine-bio-sources]
-    // uncomment to specify an extra additions file for your bio-sources
-    // this file will be merged with the additions file for each data source
-    // and included in each source JAR.
+    // Place this in build.gradle in root of your mine-bio-sources directory, e.g. flymine-bio-sources
+    // 
+    // Must be in the subprojects {} section of the build.gradle file
+    // 
     // bioSourceDBModelConfig {
-    //    # file should be in the root of your mine's bio/sources directory
+    //    # file should be in the root of your mine-bio-sources directory
     //    globalAdditionsFile = "MY-MINE_additions.xml"
     // }
 
+This setting will merge the specified additions file, e.g. `MY-MINE_additions.xml` into each of your mine's data sources' data models.
 
 Model Merging
 -----------------------
