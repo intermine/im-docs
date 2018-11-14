@@ -203,7 +203,7 @@ If all the data you wish to load is already modelled in InterMine then you don't
 Global Additions File
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you don't want to create an additions file for each of your mine's data sources, you can also create a "global" additions file. See :doc:`/data-model/overview` for details.
+If you don't want to create an additions file for each of your mine's data sources, you can also create a "global" additions file. See the "Global Additions File" section of :doc:`/database/database-building/model-merging/` for details on how to set this parameter.
 
 Properties
 ~~~~~~~~~~
