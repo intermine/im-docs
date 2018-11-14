@@ -86,7 +86,7 @@ Alternatively, you can specify a single data model file that will be merged into
 
 .. code-block:: sh
     
-    // Place this in build.gradle in root of your mine-bio-sources directory, e.g. flymine-bio-sources
+    // Place this in build.gradle in root of your mine-bio-sources directory, e.g. flymine-bio-sources/build.gradle
     // 
     // Must be in the subprojects {} section of the build.gradle file
     // 
@@ -95,6 +95,6 @@ Alternatively, you can specify a single data model file that will be merged into
     //    globalAdditionsFile = "MY-MINE_additions.xml"
     // }
 
-This setting will merge the specified additions file, e.g. `MY-MINE_additions.xml` into each of your mine's data sources' data models.
+This setting will merge the specified additions file, e.g. `MY-MINE_additions.xml`, into the data model for everyone of your mine's data sources.
 
 .. index:: model merging, data model, globalAdditionsFile, additions files
