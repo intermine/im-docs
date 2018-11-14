@@ -20,7 +20,7 @@ The `make_source <https://raw.githubusercontent.com/intermine/intermine-scripts/
 .. code-block:: bash
 
   # run the script in the directory you created for your mine data sources
-  ~/git/flymine-bio-sources $ ./make_source <source-name> <source-type>
+  ~/git/flymine-bio-sources $ /path/to/intermine-scripts/make_source <source-name> <source-type>
 
 The script also creates a gradle project if one does not exist.
 
