@@ -13,11 +13,12 @@ This release adds Solr to InterMine. To upgrade, you will need to rebuild your d
  
  1. Change your mine's `gradle.properties` file to `3.0.+`.
  
- ```
-# example -- flymine's gradle.properties
-systemProp.imVersion=3.0.+
-systemProp.bioVersion=3.0.+
-```
+ .. code-block:: javascript
+
+	# example -- flymine's gradle.properties
+	systemProp.imVersion=3.0.+
+	systemProp.bioVersion=3.0.+
+
 2. Install Solr
  
   `Solr installation <https://intermine.readthedocs.io/en/latest/system-requirements/software/solr/>`_
