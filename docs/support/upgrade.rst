@@ -1,6 +1,41 @@
 Upgrading InterMine
 ======================
 
+See `Release notes <https://github.com/intermine/intermine/releases>`_ for details on each of the InterMine releases.
+
+InterMine 3.0.0
+---------------------
+
+This release adds Solr to InterMine. To upgrade, you will need to rebuild your database and install Solr.
+  
+ To Upgrade
+ ~~~~~~~~~~~
+ 
+ 1. Change your mine's `gradle.properties` file to `3.0.+`.
+ 
+ ```
+# example -- flymine's gradle.properties
+systemProp.imVersion=3.0.+
+systemProp.bioVersion=3.0.+
+```
+2. Install Solr
+ 
+  `Solr installation <https://intermine.readthedocs.io/en/latest/system-requirements/software/solr/>`_
+ 
+3. Configure Solr
+
+ `Solr configuration <https://intermine.readthedocs.io/en/latest/webapp/keyword-search/>`_
+ 
+4. Rebuild your database. 
+
+Specifically the postprocesses that build the search index.  
+
+You should then be able to deploy your webapp as normal, with the new and improved search.
+ 
+
+InterMine 2.+
+---------------------
+
 `InterMine 2.0 <https://intermineorg.wordpress.com/2017/09/22/intermine-2-0-summer-update/>`_ is a disruptive release and is not backwards compatible. This means that databases, webapps and code from previous releases will need to be updated to work with the new InterMine release. Below are detailed instructions on how to migrate your InterMine to the new build system. 
 
 .. warning::
