@@ -11,7 +11,7 @@ This release adds Solr to InterMine. To upgrade, you will need to rebuild your d
  To Upgrade
  ~~~~~~~~~~~
  
- 1. Change your mine's `gradle.properties` file to `3.0.+`.
+1. Change your mine's `gradle.properties` file to `3.0.+`.
  
  .. code-block:: javascript
 
