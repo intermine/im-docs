@@ -156,7 +156,11 @@ This source works as above but writes the XML to an intermediate items database 
 db
 ^^^^^^^^^^^^^^^^^
 
-This source reads directly from a relational database, it will generate a skeleton `DBConverter` in `<source-name>/src/main/java/org/intermine/bio/dataconversion`. To connect to the database you need to add properties in xxxmine.properties with the prefix `db.sourcename`. This is tested for PostgreSQL and MySQL.
+This source reads directly from a relational database, it will generate a skeleton `DBConverter` in `<source-name>/src/main/java/org/intermine/bio/dataconversion`. You will use the Java API to store data to the InterMine database.
+
+To connect to the original database you need to add properties in xxxmine.properties with the prefix `db.sourcename`. 
+
+This is tested for PostgreSQL and MySQL.
 
 Common properties:
 
@@ -186,7 +190,7 @@ Add these for MySQL:
   db.sourcename.driver=com.mysql.jdbc.Driver
   db.sourcename.platform=MySQL
 
-The db value has to match the '''source.db.name''' in your project XML entry, for example:
+The db value has to match the `source.db.name` in your project XML entry, for example:
 
 .. code-block:: xml
 
@@ -196,14 +200,17 @@ The db value has to match the '''source.db.name''' in your project XML entry, fo
       ...
     </source>
 
+
+Example entry in flymine.properties:
+
+
 .. code-block:: properties
 
   # flymine.properties
-
   db.flybase.datasource.class=com.zaxxer.hikari.HikariDataSource
   db.flybase.datasource.dataSourceClassName=org.postgresql.ds.PGSimpleDataSource
   db.flybase.datasource.dataSourceName=db.flybase
-  db.flybase.datasource.serverName=LOCALHOST
+  db.flybase.datasource.serverName=localhost
   db.flybase.datasource.databaseName=FB2011_01
   db.flybase.datasource.user=USERNAME
   db.flybase.datasource.password=SECRET
