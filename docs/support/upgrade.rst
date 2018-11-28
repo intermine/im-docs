@@ -14,6 +14,8 @@ The class `Strain` was added to the core InterMine data model in this release.
 
 See our `blog post <https://intermineorg.wordpress.com>`_ for details on the model change.
 
+To update to use the new InterMine release:
+
 * Change your mine's `gradle.properties` file to `3.1.+`.
  
  .. code-block:: javascript
