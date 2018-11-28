@@ -13,7 +13,7 @@ The project XML file has two sections:
 
 The `<source>` elements list and configure the data sources to be loaded, each one has a `type` that corresponds to the name of the bio-source artifact (jar) which includes parsers to retrieve data and information on how it will be integrated. The `name` can be anything and can be the same as `type`, using a more specific name allows you to define specific integration keys. Each source also has a `version`. If one is not provided, the default InterMine version will be used. 
 
-`<source>` elements can have several properties: `src.data.dir`, `src.data.file` and `src.data.includes` are all used to define locations of files that the source should load.  Other properties are used as parameters to specific parsers. 
+`<source>` elements can have several properties: `src.data.dir`, `src.data.file` and `src.data.includes` are all used to define locations of files that the source should load. Different parser types accept different properties, see the two links below for the full list and example project XML entries.
 
 * For details on the project XML specific data sources, see the individual sources page at :doc:`/database/data-sources/library/index`. 
 * For details on how to write a project XML for a custom source, see :doc:`/database/data-sources/custom/index`
