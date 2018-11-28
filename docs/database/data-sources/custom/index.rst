@@ -6,17 +6,15 @@ The aim of this tutorial is to create a new data source to parse your data file 
 There are three parts to creating a new source:
 
 1. Create a directory for your data sources, e.g. `flymine-bio-sources`  
-2. Configure the mine to use this source (make an entry in your `project.xml`)
-3. Write a data parser
+2. Write a data parser (not required for OBO or GFF sources)
+3. Configure the mine to use this source (make an entry in your `project.xml`)
 
-You can write a data parser in Java, by extending the `DataConverter` class, or you can use some other language to generate a standalone InterMine Items XML file. See `this page <../apis/index.html>`_ for more information on the InterMine Items XML file format and links to language-specific APIs (Perl, Python, etc.) that can help create it.
-
-Writing your own parser is not required for OBO or GFF sources.
+To get started, create a directory to put all of your data sources in. You only need to that once. Then follow the instructions below and run the script to create your data source. If necessary, use the APIs provided to write code to parse your data file and load into the InterMine database. Finally, add your new data source to your project XML file. 
 
 Run make_source script
 ------------------------
 
-The `make_source <https://raw.githubusercontent.com/intermine/intermine-scripts/master/make_source>`_ script creates the basic skeleton for a source. It should be run in your data sources directory, like this:
+The `make_source <https://raw.githubusercontent.com/intermine/intermine-scripts/master/make_source>`_ script creates the basic skeleton for a source. It should be run in your mine's data sources directory, like this:
 
 .. code-block:: bash
 
@@ -32,6 +30,20 @@ Possible source types
 
   Run `make_source` with no arguments to get a full list of source types.
 
+Which source type do I need? It depends! 
+
+=============================== ============================================================================
+Source type                     When to use?
+=============================== ============================================================================
+db                              To load data directly from another database
+gff                             for GFF files
+obo                             for Ontology files
+custom-file                     If you have a data file and want to parse using Java
+intermine-items-xml-file        If you have a data file and want to parse using a language other than Java
+intermine-items-large-xml-file  Same as above but the file is very very large
+=============================== ============================================================================
+
+
 custom-file
 ^^^^^^^^^^^^^^^^^
 
@@ -41,12 +53,14 @@ The `project.xml` configuration is as below:
 
 .. code-block:: xml
 
-    # add your source to your project XML file
+    <!-- your project XML -->
     <source name="my-new-source-name" type="my-new-source-name" version="1.2.3">
       <property name="src.data.dir" location="/some/data/directory"/>
       <!-- optionally specify includes or excludes -->
       <property name="src.data.dir.includes" value="*.xml"/>
     </source>
+
+** Additional Properties **
 
 Any properties you define in a source entry in your mine's project.xml will be available on that source's converter or post-processing class, providing that there is a setter with an appropriate name.
 
