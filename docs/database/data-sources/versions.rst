@@ -53,7 +53,7 @@ See FlyMine's `gradle.properties <https://github.com/intermine/flymine/blob/mast
 What's the deal with the plus sign in the version number?
 ------------------------------------------------------------------
 
-The plus sign is interpreted by Maven to mean "get the latest version." e.g. `3.1.+` will retreive intermine-api-3.1.0.jar and `2.+` will retreive `intermine-api-2.1.1.jar`. `
+The plus sign is interpreted by Maven to mean "get the latest version." e.g. `3.1.+` will retrieve intermine-api-3.1.0.jar and `2.+` will retrieve `intermine-api-2.1.1.jar`. `
 
 It will be up to you how strict you want to be with version numbers. You have several options:
 
@@ -94,7 +94,7 @@ That would look like this:
     systemProp.imVersion=3.1.+
     systemProp.bioVersion=3.1.+
 
-Default option. Includes all patches automatically but not new features.
+Default option. Includes all patches automatically but not new features. Recommended for dev mines.
 
 
 OPTION 4: Only get me the exact version I specify
