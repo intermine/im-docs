@@ -3,6 +3,25 @@ Upgrading InterMine
 
 See `Release notes <https://github.com/intermine/intermine/releases>`_ for details on each of the InterMine releases.
 
+InterMine 3.1.0
+---------------------
+
+The class `Strain` was added to the core InterMine data model in this release.
+
+* You will need to rebuild your database with the new model to release a new webapp.
+* No classes were changed, so you don't need to change your code. 
+* However, if you do have Strains in your data, you might think about using the core data classes now. 
+
+See our `blog post <https://intermineorg.wordpress.com>`_ for details on the model change.
+
+* Change your mine's `gradle.properties` file to `3.1.+`.
+ 
+ .. code-block:: javascript
+
+  # example -- flymine's gradle.properties
+  systemProp.imVersion=3.1.+
+  systemProp.bioVersion=3.1.+
+
 InterMine 3.0.0
 ---------------------
 
