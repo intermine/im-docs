@@ -1,14 +1,17 @@
 Writing your own data source
 ================================
 
-The aim of this tutorial is to create a new source. Often this will be to import data from an InterMine Items XML format file that you create, though other types of source can also be created (e.g. a source that extends InterMine's existing GFF3 importer). 
+The aim of this tutorial is to create a new data source to parse your data file and load the data into your InterMine database.
 
 There are three parts to creating a new source:
 
 1. Create a directory for your data sources, e.g. `flymine-bio-sources`  
-2. Configure the mine to use this source (make an entry in your `project.xml`).
-3. Write code to parse the source. You can either do this in InterMine directly, by extending the `DataConverter` class, or you can use some other language to generate a standalone InterMine Items XML file, and set `have.file.xml.tgt = true` in the source's properties file.  See `this page <../apis/index.html>`_ for more information on the InterMine Items XML file format and links to language-specific APIs (Perl, Python, etc.) that can help create it.
+2. Configure the mine to use this source (make an entry in your `project.xml`)
+3. Write a data parser
 
+You can write a data parser in Java, by extending the `DataConverter` class, or you can use some other language to generate a standalone InterMine Items XML file. See `this page <../apis/index.html>`_ for more information on the InterMine Items XML file format and links to language-specific APIs (Perl, Python, etc.) that can help create it.
+
+Writing your own parser is not required for OBO or GFF sources.
 
 Run make_source script
 ------------------------
