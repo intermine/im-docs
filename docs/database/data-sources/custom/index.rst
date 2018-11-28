@@ -47,20 +47,23 @@ intermine-items-large-xml-file  Same as above but the file is very very large
 custom-file
 ^^^^^^^^^^^^^^^^^
 
-This a source that reads from a file in a custom format. A custom FileConverter will be needed. The `make_source` script will create a skeleton `FileConverter` in `<source-name>/src/main/java/org/intermine/bio/dataconversion`.  Edit this code to process the particular file you need to load, using the :doc:`/database/data-sources/apis/java-items-api` to create and store items to the database.
+This a source that reads from a file in a custom format. A custom Java FileConverter will be needed. The `make_source` script will create a skeleton `FileConverter` in `<source-name>/src/main/java/org/intermine/bio/dataconversion`. Edit this code to process the particular file you need to load, using the :doc:`/database/data-sources/apis/java-items-api` to create and store items to the database.
 
 The `project.xml` configuration is as below:
 
 .. code-block:: xml
 
-    <!-- your project XML -->
+    <!-- add to your mine's project XML file -->
     <source name="my-new-source-name" type="my-new-source-name" version="1.2.3">
       <property name="src.data.dir" location="/some/data/directory"/>
       <!-- optionally specify includes or excludes -->
       <property name="src.data.dir.includes" value="*.xml"/>
     </source>
 
-** Additional Properties **
+See :doc:`/database/data-sources/versions` for details on how to version your data parser.
+
+Additional Properties in Project XML
+""""""""""""""""""""""""""""""""""""""""""
 
 Any properties you define in a source entry in your mine's project.xml will be available on that source's converter or post-processing class, providing that there is a setter with an appropriate name.
 
