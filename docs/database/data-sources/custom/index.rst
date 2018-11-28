@@ -11,24 +11,36 @@ There are three parts to creating a new source:
 
 To get started, create a directory to put all of your data sources in. You only need to that once. Then follow the instructions below and run the script to create your data source. If necessary, use the APIs provided to write code to parse your data file and load into the InterMine database. Finally, add your new data source to your project XML file. 
 
-Run make_source script
-------------------------
+1. Create bio-sources directory
+----------------------------------
 
-The `make_source <https://raw.githubusercontent.com/intermine/intermine-scripts/master/make_source>`_ script creates the basic skeleton for a source. It should be run in your mine's data sources directory, like this:
+You only need to do this once, but you need a directory to hold all of your mine's data sources. 
+
+* Place next to your mine, e.g. ~/git/flymine and ~/git/flymine-bio-sources
+* Keep in source control. Please. We use Git.
+
+2. Run make_source script
+--------------------------
+
+Checkout the intermine scripts repository that contains the `make_source` script.
+
+.. code-block:: bash
+  
+  # check out the repository that has the scripts we need
+  ~/git $ git clone https://github.com/intermine/intermine-scripts.git
+
+The `make_source` script creates the basic skeleton for a source. It should be run in your mine's data sources directory, like this:
 
 .. code-block:: bash
 
   # run the script in the directory you created for your mine data sources
-  ~/git/flymine-bio-sources $ /path/to/intermine-scripts/make_source <source-name> <source-type>
+  ~/git/flymine-bio-sources $ ~/git/intermine-scripts/make_source $SOURCE_NAME $SOURCE_TYPE
 
-The script also creates a gradle project if one does not exist.
+SOURCE_NAME
+  The name of your source, e.g. uniprot-fasta or biogrid. The script expects a lowercase word without any special characters. Dashes are fine.
 
-Possible source types
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. note::
-
-  Run `make_source` with no arguments to get a full list of source types.
+SOURCE_TYPE
+  The type of your source. One of six options, see below.
 
 Which source type do I need? It depends! 
 
@@ -43,6 +55,29 @@ intermine-items-xml-file        If you have a data file and want to parse using 
 intermine-items-large-xml-file  Same as above but the file is very very large
 =============================== ============================================================================
 
+The script also creates a gradle project if one does not exist.
+
+3. Add your source to your project XML file
+----------------------------------------------------
+
+You need to add your data source to the project XML file for it to be run during the database build process. Above are example project XML snippets to show you how to add each source type. Note that different parser types have different expected parameters.
+
+See :doc:`/database/database-building/project-xml/` for details.
+
+Versions
+~~~~~~~~~~~
+
+The "version" provided for each source has to match the version of the JAR you create. The version is set in your `bio/sources/build.gradle` file. If you do not provide a version, the default InterMine version will be used -- which won't likely match your local version.
+
+See :doc:`/database/data-sources/versions` for details.
+
+
+Possible source types
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. note::
+
+  Run `make_source` with no arguments to get a full list of source types.
 
 custom-file
 ^^^^^^^^^^^^^^^^^
@@ -65,7 +100,7 @@ See :doc:`/database/data-sources/versions` for details on how to version your da
 Additional Properties in Project XML
 """"""""""""""""""""""""""""""""""""""""""
 
-Any properties you define in a source entry in your mine's project.xml will be available on that source's converter or post-processing class, providing that there is a setter with an appropriate name.
+Any properties you define in a source entry in your mine's project.xml will be available in that source's converter or post-processing class, providing that there is a setter with an appropriate name.
 
 This applies to any class that inherits from:
 
@@ -85,7 +120,7 @@ For instance, if you have this entry:
       <property name="bazMoreInfo" value="hello-world"/>
     </source>
 
-In a class that extends org.intermine.postprocess.PostProcessor, then before post-processing the following methods will be called on that class with these parameters
+Then those values will be available (provided you create the setters correctly):
 
 .. code-block:: java
 
@@ -98,8 +133,6 @@ In a class that extends org.intermine.postprocess.PostProcessor, then before pos
     // given the example project XML values above, "moreInfo" has the value of "hello-world"
     this.moreInfo = moreInfo;
   }
-
-
 
 intermine-items-xml-file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -195,24 +228,8 @@ Create a obo source to load ontology in OBO format.
       <property name="src.data.file" location="/data/go/go.obo" version="1.2.3"/>
     </source>
 
-Project XML file 
------------------------
-
-You need to add your data source to the project XML file for it to be run during the database build process. Above are example project XML snippets to show you how to add each source type. Note that different parser types have different expected parameters.
-
-See :doc:`/database/database-building/project-xml/` for details.
-
-Versions
-~~~~~~~~~~~
-
-The "version" provided for each source has to match the version of the JAR you create. The version is set in your `bio/sources/build.gradle` file. If you do not provide a version, the default InterMine version will be used -- which won't likely match your local version.
-
-See :doc:`/database/data-sources/versions` for details.
-
-
-
-Additions file 
-------------------------
+4. Update the Additions file 
+----------------------------------
 
 Update the file in the source folder called `new-source_additions.xml`. This file details any extensions needed to the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. The file is in the same format as a complete Model description.
 
@@ -283,7 +300,7 @@ Global Additions File
 
 If you don't want to create an additions file for each of your mine's data sources, you can also create a "global" additions file. See the "Global Additions File" section of :doc:`/database/database-building/model-merging/` for details on how to set this parameter.
 
-Keys file
+5. Update Keys file
 -----------------------
 
 Within the `src/main/resources` directory is a file called `new-source_keys.properties`. Here we can define primary keys that will be used to integrate data from this source with any exiting objects in the database. We want to integrate genes by their primaryIdentifier attribute so we define that this source should use the key:
@@ -295,8 +312,8 @@ Within the `src/main/resources` directory is a file called `new-source_keys.prop
 See :doc:`/database/database-building/model-merging/`
 
 
-Run build-db
------------------------
+6. Run a build and load your data!
+----------------------------------------------
 
 Once you've updated the config files, and written your parser (if necessary), create the database as usual. The source should now be included when building the mine.
 
