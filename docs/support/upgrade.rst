@@ -9,10 +9,29 @@ InterMine 3.1.0
 The class `Strain` was added to the core InterMine data model in this release.
 
 * You will need to rebuild your database with the new model to release a new webapp.
-* No classes were changed, so you don't need to change your code. 
-* However, if you do have Strains in your data, you might think about using the core data classes now. 
+* If you do have Strains in your data, you might think about using the core data classes now available.
 
-See our `blog post <https://intermineorg.wordpress.com>`_ for details on the model change.
+.. code-block:: xml
+
+    <!-- core.xml -->
+    <class name="Strain" extends="BioEntity" is-interface="true">
+        <attribute name="annotationVersion" type="java.lang.String"/>
+        <attribute name="assemblyVersion" type="java.lang.String"/>
+        <collection name="features" referenced-type="SequenceFeature" reverse-reference="strain" />
+    </class>
+
+    <class name="SequenceFeature" extends="BioEntity" is-interface="true">
+        <!-- snip -->
+        <reference name="strain" referenced-type="Strain"  reverse-reference="features" />
+    </class>
+
+    <class name="Organism" is-interface="true">
+        <!-- snip -->
+        <collection name="strains" referenced-type="Strain"/>
+    </class>
+
+
+To start using the new InterMine release:
 
 * Change your mine's `gradle.properties` file to `3.1.+`.
  
@@ -76,7 +95,7 @@ Maven
 
 You will need Maven installed. We use Maven to manage mine-specific InterMine dependencies, including your mine-specific data parsers.
 
-.. code-block:: base
+.. code-block:: bash
   
   # for Ubuntu
   sudo apt-get install maven
