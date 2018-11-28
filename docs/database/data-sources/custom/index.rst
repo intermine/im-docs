@@ -89,7 +89,7 @@ This type of source can read a file in InterMine Items XML format and store the 
 .. code-block:: xml
 
     # add your source to your project XML file
-    <source name="my-new-source-name" type="my-new-source-name">
+    <source name="my-new-source-name" type="my-new-source-name" version="1.2.3">
       <property name="src.data.file" location="/some/directory/objects_in_intermine_format.xml"/>
     </source>
 
@@ -138,7 +138,7 @@ The db value has to match the '''source.db.name''' in your project XML entry, fo
 .. code-block:: xml
 
     # project XML
-    <source name="chado-db-flybase-dmel" type="chado-db">
+    <source name="chado-db-flybase-dmel" type="chado-db" version="1.2.3">
       <property name="source.db.name" value="flybase"/>
       ...
     </source>
@@ -172,8 +172,22 @@ Create a obo source to load ontology in OBO format.
 
     # an example OBO entry
     <source name="go" type="go">
-      <property name="src.data.file" location="/data/go/go.obo"/>
+      <property name="src.data.file" location="/data/go/go.obo" version="1.2.3"/>
     </source>
+
+Project XML file 
+-----------------------
+
+You need to add your data source to the project XML file for it to be run during the database build process. Above are example project XML snippets to show you how to add each source type. Note that different parser types have different expected parameters.
+
+See :doc:`/database/database-building/project-xml/` for details.
+
+Versions
+~~~~~~~~~~~
+
+The "version" provided for each source has to match the version of the JAR you create. The version is set in your `bio/sources/build.gradle` file. If you do not provide a version, the default InterMine version will be used -- which won't likely match your local version.
+
+See :doc:`/database/data-sources/versions` for details.
 
 
 
@@ -245,7 +259,7 @@ The final additions XML should look like:
 If all the data you wish to load is already modelled in InterMine then you don't need an additions file. See :doc:`/data-model/model/` for details.
 
 Global Additions File
------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you don't want to create an additions file for each of your mine's data sources, you can also create a "global" additions file. See the "Global Additions File" section of :doc:`/database/database-building/model-merging/` for details on how to set this parameter.
 
@@ -260,12 +274,6 @@ Within the `src/main/resources` directory is a file called `new-source_keys.prop
 
 See :doc:`/database/database-building/model-merging/`
 
-Versions
------------------------
-
-The "version" has to match the version of the JAR you create. The version is set in your `bio/sources/build.gradle` file. If you do not provide a version, the default InterMine version will be used -- which won't likely match your local version.
-
-See :doc:`/database/data-sources/versions` for details.
 
 Run build-db
 -----------------------
