@@ -34,9 +34,17 @@ To update to use the new InterMine release:
 
 * Change your mine's `gradle.properties` file to `3.1.+`.
  
- .. code-block:: javascript
+ .. code-block:: properties
 
   # example -- flymine's gradle.properties
+  systemProp.imVersion=3.1.+
+  systemProp.bioVersion=3.1.+
+
+* Change your data sources' `gradle.properties` file to `3.1.+`.
+ 
+ .. code-block:: properties
+
+  # example -- flymine-bio-sources gradle.properties
   systemProp.imVersion=3.1.+
   systemProp.bioVersion=3.1.+
 
