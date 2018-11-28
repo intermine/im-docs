@@ -9,11 +9,9 @@ There are three parts to creating a new source:
 2. Configure the mine to use this source (make an entry in your `project.xml`).
 3. Write code to parse the source. You can either do this in InterMine directly, by extending the `DataConverter` class, or you can use some other language to generate a standalone InterMine Items XML file, and set `have.file.xml.tgt = true` in the source's properties file.  See `this page <../apis/index.html>`_ for more information on the InterMine Items XML file format and links to language-specific APIs (Perl, Python, etc.) that can help create it.
 
-Create your data source
-------------------------
 
 Run make_source script
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
 The `make_source <https://raw.githubusercontent.com/intermine/intermine-scripts/master/make_source>`_ script creates the basic skeleton for a source. It should be run in your data sources directory, like this:
 
@@ -25,20 +23,66 @@ The `make_source <https://raw.githubusercontent.com/intermine/intermine-scripts/
 The script also creates a gradle project if one does not exist.
 
 Possible source types
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
 
   Run `make_source` with no arguments to get a full list of source types.
 
 custom-file
-""""""""""""""
+^^^^^^^^^^^^^^^^^
 
-This a source that reads from a file in a custom format.  A custom FileConverter will be needed.  The `make_source` script will
-create a skeleton `FileConverter` in `<source-name>/src/main/java/org/intermine/bio/dataconversion`.  Edit this code to process the particular file you need to load, using the :doc:`/database/data-sources/apis/java-items-api` to create and store items to the database.
+This a source that reads from a file in a custom format. A custom FileConverter will be needed. The `make_source` script will create a skeleton `FileConverter` in `<source-name>/src/main/java/org/intermine/bio/dataconversion`.  Edit this code to process the particular file you need to load, using the :doc:`/database/data-sources/apis/java-items-api` to create and store items to the database.
+
+The `project.xml` configuration is as below:
+
+.. code-block:: xml
+
+    # add your source to your project XML file
+    <source name="my-new-source-name" type="my-new-source-name" version="1.2.3">
+      <property name="src.data.dir" location="/some/data/directory"/>
+      <!-- optionally specify includes or excludes -->
+      <property name="src.data.dir.includes" value="*.xml"/>
+    </source>
+
+Any properties you define in a source entry in your mine's project.xml will be available on that source's converter or post-processing class, providing that there is a setter with an appropriate name.
+
+This applies to any class that inherits from:
+
+* org.intermine.dataconversion.DataConverter
+* org.intermine.dataconversion.DBConverter
+* org.intermine.dataconversion.DirectoryConverter
+* org.intermine.dataconversion.FileConverter
+* org.intermine.postprocess.PostProcessor
+
+For instance, if you have this entry:
+
+.. code-block:: xml
+
+    <!-- in project XML -->
+    <source name="my-new-source-name" type="my-new-source-name" version="2.3.4">
+      <property name="bar.info" value="baz"/>
+      <property name="bazMoreInfo" value="hello-world"/>
+    </source>
+
+In a class that extends org.intermine.postprocess.PostProcessor, then before post-processing the following methods will be called on that class with these parameters
+
+.. code-block:: java
+
+  // In a class that extends org.intermine.postprocess.PostProcessor, for example
+  public void setBarInfo(String info) {
+    // given the example project XML values above, "info" has the value of "baz"
+    this.info = info;
+  }
+  public void setBazMoreInfo(String moreInfo) {
+    // given the example project XML values above, "moreInfo" has the value of "hello-world"
+    this.moreInfo = moreInfo;
+  }
+
+
 
 intermine-items-xml-file
-""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This type of source can read a file in InterMine Items XML format and store the data in a mine.  The `project.xml` configuration is as below:
 
@@ -52,12 +96,12 @@ This type of source can read a file in InterMine Items XML format and store the 
 See `this page <../apis/index.html>`_ for more information on the Items XML format and links to APIs that can generate it. This source type doesn't generate any stub Java code.
 
 intermine-items-large-xml-file
-""""""""""""""""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This source works as above but writes the XML to an intermediate items database to avoid reading the whole file into memory at once. This is the best choice for large XML files where large is several hundred megabytes (although this depends on the amount of RAM specified in your `GRADLE_OPTS` environment variable).  
 
 db
-""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^
 
 This source reads directly from a relational database, it will generate a skeleton `DBConverter` in `<source-name>/src/main/java/org/intermine/bio/dataconversion`. To connect to the database you need to add properties in xxxmine.properties with the prefix `db.sourcename`. This is tested for PostgreSQL and MySQL.
 
@@ -115,12 +159,12 @@ The db value has to match the '''source.db.name''' in your project XML entry, fo
   db.flybase.platform=PostgreSQL
 
 gff
-""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^
 
 Create a gff source to load genome annotation in GFF3 format. This creates an empty `GFF3RecordHandler` in `<source-name>/src/main/java/org/intermine/bio/dataconversion`. The source will work without any changes but you can edit the `GFF3RecordHandler` to read specific attributes from the last column of the GFF3 file. See the InterMine tutorial and :doc:`/database/data-sources/library/gff/` for more information on integrating GFF3.
 
 obo
-""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^
 
 Create a obo source to load ontology in OBO format.
 
@@ -134,7 +178,7 @@ Create a obo source to load ontology in OBO format.
 
 
 Additions file 
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
 Update the file in the source folder called `new-source_additions.xml`. This file details any extensions needed to the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. The file is in the same format as a complete Model description.
 
@@ -161,7 +205,7 @@ To create a new class the `new-source_additions.xml` file should include content
     </class>
   </classes>
 
-The extends clause is optional and is used to inherit (include all the attributes of) an existing class, in this case we extend `SequenceFeature`, an InterMine class that represents any genome feature.  `is-interface` should always be set to true.  The attribute lines as before define the names and types of data to be stored.  A new class will be created with the name `NewFeature` that extends `SequenceFeature`. 
+The extends clause is optional and is used to inherit (include all the attributes of) an existing class, in this case we extend `SequenceFeature`, an InterMine class that represents any genome feature. `is-interface` should always be set to true. The attribute lines as before define the names and types of data to be stored. A new class will be created with the name `NewFeature` that extends `SequenceFeature`. 
 
 To cross reference this with another class, similar XML should be used as the example below:
 
@@ -198,95 +242,35 @@ The final additions XML should look like:
     </class>
   </classes>
 
-If all the data you wish to load is already modelled in InterMine then you don't need an additions file.
+If all the data you wish to load is already modelled in InterMine then you don't need an additions file. See :doc:`/data-model/model/` for details.
 
 Global Additions File
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 
 If you don't want to create an additions file for each of your mine's data sources, you can also create a "global" additions file. See the "Global Additions File" section of :doc:`/database/database-building/model-merging/` for details on how to set this parameter.
 
-Properties
-~~~~~~~~~~
-
-Any properties you define in a source entry in your mine's project.xml will be set on that source's converter or post-processing class, providing that there is a setter with an appropriate name.
-
-This applies to any class that inherits from
-
-* org.intermine.dataconversion.DataConverter
-* org.intermine.dataconversion.DBConverter
-* org.intermine.dataconversion.DirectoryConverter
-* org.intermine.dataconversion.FileConverter
-* org.intermine.postprocess.PostProcessor
-
-For instance, if you have the source entry
-
-.. code-block:: xml
-
-    <source name="my-new-source-name" type="my-new-source-name" version="2.0.0">
-      <property name="fooFile" location="/some/directory/objects_in_intermine_format.xml"/>
-      <property name="bar.info" location="baz"/>
-      <property name="bazMoreInfo" name="hello-world"/>
-    </source>
-
-in your project.xml file and a class that extends org.intermine.postprocess.PostProcessor, then before post-processing the following methods will be called on that class with these parameters
-
-.. code-block:: java
-
-  myPostProcessor.setFooFile(new File("/some/directory/objects_in_intermine_format.xml"));
-  myPostProcessor.setBarInfo("baz");
-  myPostProcessor.setBazMoreInfo("hello-world");
-
-
 Keys file
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
-Within the `src/main/resources` directory is a file called `new-source_keys.properties`.  Here we can define primary keys that will be used to integrate data from this source with any exiting objects in the database.  We want to integrate genes by their primaryIdentifier attribute so we define that this source should use the key:
+Within the `src/main/resources` directory is a file called `new-source_keys.properties`. Here we can define primary keys that will be used to integrate data from this source with any exiting objects in the database. We want to integrate genes by their primaryIdentifier attribute so we define that this source should use the key:
 
 .. code-block:: properties
 
   Gene.key_primaryidentifier=primaryIdentifier
 
-Including your source in a Mine
-----------------------------------------------
+See :doc:`/database/database-building/model-merging/`
 
-Project XML
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Versions
+-----------------------
 
-In the `project.xml` file, in the root of your mine directory (e.g. ~/git/flymine), the following entries should be added and altered accordingly:
-
-.. code-block:: xml
-
-  <source name="new-source-name" type="new-source" version="2.0.0">
-    <property name="src.data.file" location="/my_data_dir/example.xml"/>
-  </source>
-
-If you have more that one file you can set this up to point at a '''directory''':
-
-.. code-block:: xml
-
-  <source name="new-source-name" type="new-source" version="2.0.0">
-    <property name="src.data.dir" location="/my_data_dir/source_files/"/>
-  </source>
-
-The first line defines the name you wish to give to the of the source and the type - the name of the directory.  The second line defines the location and name of the data file.
-
-If you are using data from a database:
-
-.. code-block:: xml
-
-    <source name="new-source-name" type="new-source" version="2.0.0">
-      <property name="source.db.name" value="db.NAME"/>
-      ...
-    </source>
-
-The value of `source.db.name` must match the value set in the MINE_NAME.properties file. The "version" has to match the version of the JAR you create. The version is set in your `bio/sources/build.gradle` file. If you do not provide a version, the default InterMine version will be used which won't likely match your local version.
+The "version" has to match the version of the JAR you create. The version is set in your `bio/sources/build.gradle` file. If you do not provide a version, the default InterMine version will be used -- which won't likely match your local version.
 
 See :doc:`/database/data-sources/versions` for details.
 
 Run build-db
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
-Create the database as usual. The source should now be included when building the mine.
+Once you've updated the config files, and written your parser (if necessary), create the database as usual. The source should now be included when building the mine.
 
 .. code-block:: bash
 
