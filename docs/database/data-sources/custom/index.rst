@@ -6,10 +6,10 @@ The aim of this tutorial is to create a new data source to parse your data file 
 There are three parts to creating a new source:
 
 1. Create a directory for your data sources, e.g. `flymine-bio-sources`  
-2. Write a data parser (not required for OBO or GFF sources)
-3. Configure the mine to use this source (make an entry in your `project.xml`)
+2. Write a data parser
+3. Configure the mine to use this new source
 
-To get started, create a directory to put all of your data sources in. You only need to that once. Then follow the instructions below and run the script to create your data source. If necessary, use the APIs provided to write code to parse your data file and load into the InterMine database. Finally, add your new data source to your project XML file. 
+To get started, create a directory to put all of your data sources in. You only need to that once. Then follow the instructions below and run the script to create your data source. If necessary, use the APIs provided to write code to parse your data file. Finally, add your new data source to your project XML file. 
 
 1. Create bio-sources directory
 ----------------------------------
@@ -37,50 +37,53 @@ The `make_source` script creates the basic skeleton for a source. It should be r
   ~/git/flymine-bio-sources $ ~/git/intermine-scripts/make_source $SOURCE_NAME $SOURCE_TYPE
 
 SOURCE_NAME
-  The name of your source, e.g. uniprot-fasta or biogrid. The script expects a lowercase word without any special characters. Dashes are fine.
+  The name of your source, e.g. uniprot-fasta or biogrid. The script expects a lowercase word without any special characters (except dashes, dashes are fine).
 
 SOURCE_TYPE
   The type of your source. One of six options, see below.
 
-Which source type do I need? It depends! 
+Which source type do I need? It depends! If you want to use Java and have a custom data file, use `custom-file`. If you want to use the Perl API, then select `intermine-items-xml-file`.
 
-=============================== ============================================================================
+=============================== ===============================================================================
 Source type                     When to use?
-=============================== ============================================================================
-db                              To load data directly from another database
+=============================== ===============================================================================
+db                              To load data directly from another **database**
 gff                             for GFF files
+fasta                           for FASTA files
 obo                             for Ontology files
-custom-file                     If you have a data file and want to parse using Java
-intermine-items-xml-file        If you have a data file and want to parse using a language other than Java
+custom-file                     If you have a data file and want to parse using **Java**
+intermine-items-xml-file        If you have a data file and want to parse using a **language other than Java**
 intermine-items-large-xml-file  Same as above but the file is very very large
-=============================== ============================================================================
+=============================== ===============================================================================
 
 The script also creates a gradle project if one does not exist.
 
 3. Add your source to your project XML file
 ----------------------------------------------------
 
-You need to add your data source to the project XML file for it to be run during the database build process. Above are example project XML snippets to show you how to add each source type. Note that different parser types have different expected parameters.
+Add your new source to the project XML file so it will be run during your build. Below are example project XML snippets for each source type. Note that different parser types have different expected parameters.
 
-See :doc:`/database/database-building/project-xml/` for details.
+See :doc:`/database/database-building/project-xml/` for further reading about the project XML file.
 
 Versions
 ~~~~~~~~~~~
 
-The "version" provided for each source has to match the version of the JAR you create. The version is set in your `bio/sources/build.gradle` file. If you do not provide a version, the default InterMine version will be used -- which won't likely match your local version.
+The "version" provided for each source has to match the version of the JAR you create. The version is set in your `bio/sources/build.gradle` file. If you do not provide a version in the project XML file, the default InterMine version will be used for the build -- which won't likely match your local version.
 
 See :doc:`/database/data-sources/versions` for details.
 
 
-Possible source types
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3. Write your parser
+----------------------------------------------------
+
+For most types of data, you'll have to write some code to store your data into InterMine.
 
 .. note::
 
   Run `make_source` with no arguments to get a full list of source types.
 
 custom-file
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This a source that reads from a file in a custom format. A custom Java FileConverter will be needed. The `make_source` script will create a skeleton `FileConverter` in `<source-name>/src/main/java/org/intermine/bio/dataconversion`. Edit this code to process the particular file you need to load, using the :doc:`/database/data-sources/apis/java-items-api` to create and store items to the database.
 
@@ -98,7 +101,7 @@ The `project.xml` configuration is as below:
 See :doc:`/database/data-sources/versions` for details on how to version your data parser.
 
 Additional Properties in Project XML
-""""""""""""""""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Any properties you define in a source entry in your mine's project.xml will be available in that source's converter or post-processing class, providing that there is a setter with an appropriate name.
 
@@ -135,7 +138,7 @@ Then those values will be available (provided you create the setters correctly):
   }
 
 intermine-items-xml-file
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This type of source can read a file in InterMine Items XML format and store the data in a mine.  The `project.xml` configuration is as below:
 
@@ -149,12 +152,12 @@ This type of source can read a file in InterMine Items XML format and store the 
 See `this page <../apis/index.html>`_ for more information on the Items XML format and links to APIs that can generate it. This source type doesn't generate any stub Java code.
 
 intermine-items-large-xml-file
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This source works as above but writes the XML to an intermediate items database to avoid reading the whole file into memory at once. This is the best choice for large XML files where large is several hundred megabytes (although this depends on the amount of RAM specified in your `GRADLE_OPTS` environment variable).  
 
 db
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This source reads directly from a relational database, it will generate a skeleton `DBConverter` in `<source-name>/src/main/java/org/intermine/bio/dataconversion`. You will use the Java API to store data to the InterMine database.
 
@@ -218,13 +221,18 @@ Example entry in flymine.properties:
   db.flybase.driver=org.postgresql.Driver
   db.flybase.platform=PostgreSQL
 
-gff
-^^^^^^^^^^^^^^^^^
+GFF3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Create a gff source to load genome annotation in GFF3 format. This creates an empty `GFF3RecordHandler` in `<source-name>/src/main/java/org/intermine/bio/dataconversion`. The source will work without any changes but you can edit the `GFF3RecordHandler` to read specific attributes from the last column of the GFF3 file. See the InterMine tutorial and :doc:`/database/data-sources/library/gff/` for more information on integrating GFF3.
 
-obo
-^^^^^^^^^^^^^^^^^
+FASTA
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Create a fasta source to load sequence data in FASTA format. This creates an empty `*FastaConverter.java` file in `<source-name>/src/main/java/org/intermine/bio/dataconversion`. The source will work without any changes but you can edit the `*FastaConverter.java` to read specific attributes from the fasta file. See the InterMine tutorial and :doc:`/database/data-sources/library/fasta/` for more information on integrating FASTA.
+
+OBO
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Create a obo source to load ontology in OBO format.
 
@@ -235,10 +243,12 @@ Create a obo source to load ontology in OBO format.
       <property name="src.data.file" location="/data/go/go.obo" version="1.2.3"/>
     </source>
 
+You don't need to write any code to parse the OBO file, the ontology terms are created automatically.
+
 4. Update the Additions file 
 ----------------------------------
 
-Update the file in the source folder called `new-source_additions.xml`. This file details any extensions needed to the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. The file is in the same format as a complete Model description.
+Update the file in the `src/main/resources` directory called `new-source_additions.xml`. This file details any extensions needed to the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. The file is in the same format as a complete Model description.
 
 To add to an existing class the contents should be similar to the example code below. The class name is a class already in the model, the attribute name is the name of the new field to be added and the type describes the type of data to be stored. In the example the `Protein` class will be extended to include a new attribute called `extraData` which will hold data as a string.   
 
@@ -310,10 +320,11 @@ If you don't want to create an additions file for each of your mine's data sourc
 5. Update Keys file
 -----------------------
 
-Within the `src/main/resources` directory is a file called `new-source_keys.properties`. Here we can define primary keys that will be used to integrate data from this source with any exiting objects in the database. We want to integrate genes by their primaryIdentifier attribute so we define that this source should use the key:
+Within the `src/main/resources` directory is a file called `new-source_keys.properties`. Here we can define primary keys that will be used to integrate data from this source with any exiting objects in the database. We want to integrate genes by their `primaryIdentifier` attribute so we define that this source should use the key:
 
 .. code-block:: properties
 
+  # new-source_keys.properties
   Gene.key_primaryidentifier=primaryIdentifier
 
 See :doc:`/database/database-building/model-merging/`
@@ -330,6 +341,9 @@ Once you've updated the config files, and written your parser (if necessary), cr
 
 .. note::
 
-  Unless the 'clean' is run (which deletes the build directory) in `MINE_NAME/dbmodel` any changes will append to the current model structure and any unwanted classes/attributes will remain.
+  Run the `clean` task before `builddb` when changing the model. `clean` removes the `build` directory which is the location of the data model. If you don't, you won't see your new data model changes!
+
+
+It's also recommended that you write a unit test for your source. It saves time!
 
 .. index:: writing a custom data source, custom data source
