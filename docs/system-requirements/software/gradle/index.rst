@@ -129,7 +129,7 @@ Deploy blue genes
 
 * Gets the `mine name`, `URL` and tools location from the *mine.properties file.
 * Uses the webservices from the webapp specified in the mine.properties file. For the time being, you have to have an InterMine webapp running to launch a bluegenes instance.
-* Please see :doc:`Blue genes </webapp/blue-genes/>` for details on how to configure your bluegenes instance.
+* Please see :doc:`Blue genes </webapp/blue-genes/index>` for details on how to configure your bluegenes instance.
 
 Specify properties file
 ----------------------------
