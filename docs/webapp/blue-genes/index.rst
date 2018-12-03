@@ -1,7 +1,10 @@
 Guide to Customising Blue Genes
 ================================================================
 
-Certain features of the blue genes app are controlled by parameters set in the web.properties file.
+Blue genes content
+------------------------
+
+Certain features of the blue genes app are controlled by parameters set in the `web.properties` file. These properties are also used in the current webapp user interface.
 
 =======================================  ================================================  =======================================  
 purpose                                  parameters                                        example
@@ -11,10 +14,22 @@ default separators                       list.upload.delimiters                 
 default regionsearch                     genomicRegionSearch.*                             ``H. sapiens`` (note: please do not use long format, e.g. ``Homo sapiens``)
 default query builder query              services.defaults.query                           ``<query model="genomic" view="Gene.secondaryIdentifier Gene.symbol Gene.primaryIdentifier Gene.organism.name" sortOrder="Gene.secondaryIdentifier ASC" ><constraint path="Gene.organism.name" op="=" value="Homo sapiens" code="A" /></query>``
 default keyword search                   quickSearch.identifiers                           ``e.g. PPARG, Insulin, rs876498``
-location of JavaScript tools             bluegenes.toolLocation                            `/intermine/tools/node_modules/`
 =======================================  ================================================  =======================================  
 
 Please see :doc:`/webapp/properties/web-properties` for details on these parameters.
 
-.. index:: blue genes, tools
+Tool location
+------------------------
+
+To specify a location for your JavaScript tools to be used in your BlueGenes instance, set this parameter in your `~/.intermine/$MINE.property` file.
+
+================================== ================================== ==================================
+purpose                            parameters                         example
+================================== ================================== ==================================
+location of JavaScript tools       bluegenes.toolLocation             `/intermine/tools/node_modules/`
+================================== ================================== ==================================
+
+Please see :doc:`/webapp/properties/intermine-properties` for details on this property file.
+
+.. index:: bluegenes, tools, javascript
 
