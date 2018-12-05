@@ -800,7 +800,7 @@ Each source can also provide code to execute post-process steps if required.  Th
 `summarise-objectstore`, `create-search-index` & `create-autocomplete-index` 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-These generate summary data and indexes used by the web application, see :doc:`/webapp/keyword-search` for details. You must have Solr installed and running for the indexes to be populated correctly. 
+These generate summary data and indexes used by the web application, see :doc:`/webapp/keyword-search/index` for details. You must have Solr installed and running for the indexes to be populated correctly. 
 
 **Install SOLR** 
 
