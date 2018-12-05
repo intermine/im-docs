@@ -822,7 +822,6 @@ To create a Intermine collection for search process, run this command inside the
 .. code-block:: bash
 
     # Initialises the search index
-    # replace "flymine-search" with whatever you configured above in the properties file
     solr-7.2.1 $ ./bin/solr create -c biotestmine-search
 
 To create a Intermine collection for autocomplete process, run this command inside the solr directory. 
@@ -830,7 +829,6 @@ To create a Intermine collection for autocomplete process, run this command insi
 .. code-block:: bash
 
     # Initaliases the autocomplete index
-    # replace "flymine-autocomplete" with whatever you configured above in the properties file
     solr-7.2.1 $ ./bin/solr create -c biotestmine-autocomplete
 
 See :doc:`/system-requirements/software/solr` for details.
