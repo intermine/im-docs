@@ -21,14 +21,14 @@ We use `git <http://git-scm.com>`_ to manage and distribute source code and `Gra
 * Solr
 * Perl (for the final build script)
 
-See :doc:`/system-requirements/index` for the full list.
+See :doc:`/system-requirements/index` for configuration details.
 
 BioTestMine
 ^^^^^^^^^^^^^^^^^^^^
 
 Download the mine code from GitHub.
 
-.. code-block:: bash
+.. code-block:: console
   
   $ mkdir git
   $ cd git
@@ -55,7 +55,7 @@ BioTestMine is a dummy test mine we use to test out new features which contains 
 
 To get started, change into the directory you checked out the BiotestMine source code to and look at the sub-directories:
 
-.. code-block:: bash
+.. code-block:: console
 
   ~/git $ cd biotestmine
   ~/git/biotestmine $ ls
@@ -97,7 +97,7 @@ The biotestmine checkout includes a tar file with data to load into BiotestMine.
 
 Copy this to some local directory (your home directory is fine for this workshop) and extract the archive:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ cd
   $ cp git/biotestmine/data/malaria-data.tar.gz .
@@ -105,7 +105,7 @@ Copy this to some local directory (your home directory is fine for this workshop
 
 In your `biotestmine` directory edit `project.xml` to point each source at the extracted data, just replace `/data` with `/home/username` (or on a mac `/Users/username`). Do use the absolute path.
 
-.. code-block:: bash
+.. code-block:: console
 
   $ cd ~/git/biotestmine
   ~/git/biotestmine $ sed -i 's/\/data/\/home\/username/g' project.xml
@@ -134,14 +134,14 @@ Configuration of local databases and tomcat deployment is kept in a `MINE_NAME.p
 
 If you don't already have a `.intermine` directory in your home directory, create one now:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ cd
   $ mkdir .intermine
 
 There is a partially completed properties file for BiotestMine already. Copy it into your `.intermine` directory:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ cd
   $ cp git/biotestmine/dbmodel/resources/biotestmine.properties .intermine/
@@ -167,7 +167,7 @@ Create databases
 
 Finally, we need to create `biotestmine` and `items-biotestmine` postgres databases as specified in the `biotestmine.properties` file:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ createdb biotestmine
   $ createdb items-biotestmine
@@ -217,7 +217,7 @@ Protein is a subclass of `BioEntity`, defined by `extends="BioEntity"`.  The `Pr
 
 The model is generated from a core model XML file and any number of additions files defined in the `dbmodel/build.gradle` file, in the mineDBModelConfig.
 
-.. code-block:: bash
+.. code-block:: console
 
   mineDBModelConfig {
     modelName = "genomic"
@@ -227,7 +227,7 @@ The model is generated from a core model XML file and any number of additions fi
 
 The first file merged into the core model is the `so_additions.xml` file.  This XML file is generated in the `dbmodel/build/` directory from terms listed in the so_terms file, as configured in the `dbmodel/build.gradle` file, in dbModelConfig.
 
-.. code-block:: bash
+.. code-block:: console
 
   dbModelConfig {
     soTermListFilePath = "dbmodel/resources/so_terms"
@@ -246,7 +246,7 @@ Creating a database
 
 Now run the gradle task to merge all the model components, generate Java classes and create the database schema:
 
-.. code-block:: bash
+.. code-block:: console
 
   # creates the empty database tables
   ~/git/biotestmine $ ./gradlew buildDB
@@ -257,7 +257,7 @@ This task has done several things:
 
 1. Merged the core model with other model additions and created a new XML file:
 
-.. code-block:: bash
+.. code-block:: console
 
    ~/git/biotestmine$ less dbmodel/build/resources/main/genomic_model.xml 
 
@@ -265,7 +265,7 @@ Look for the `Protein` class, you can see it combines fields from the core model
 
 2. The `so_additions.xml` file has also been created using the sequence ontology terms in `so_term`:
 
-.. code-block:: bash
+.. code-block:: console
 
   ~/git/biotestmine $ less dbmodel/build/so_additions.xml 
 
@@ -273,7 +273,7 @@ Each term from `so_term` was added to the model, according to the sequence ontol
 
 3. Generated and compiled a Java class for each of the `<class>` elements in the file.  For example `Protein.java`:
 
-.. code-block:: bash
+.. code-block:: console
 
    ~/git/biotestmine $ less dbmodel/build/gen/org/intermine/model/bio/Protein.java
 
@@ -281,7 +281,7 @@ Each of the fields has appropriate getters and setters generated for it, note th
 
 4. Automatically created database tables in the postgres database specified in `biotestmine.properties` as `db.production` - in our case `biotestmine`.  Log into this database and list the tables and the columns in the protein table:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ psql biotestmine
     biotestmine=#  \d
@@ -301,7 +301,7 @@ The different elements of the model XML file are handled as follows:
 
 This has also created necessary indexes on the tables:
 
-.. code-block:: bash
+.. code-block:: console
 
     biotestmine=#  \d genesproteins
 
@@ -325,7 +325,7 @@ Loading data from a source
 
 Loading of data is done by running the `integrate` task. You can specify one or more sources to load or choose to load all sources listed in the `project.xml` file. Now load data from the uniprot-malaria source:
 
-.. code-block:: bash
+.. code-block:: console
 
   # load the uniprot data sources
   ~/git/biotestmine $ ./gradlew integrate -Psource=uniprot-malaria --stacktrace
@@ -343,20 +343,20 @@ This should complete after a couple of minutes, if you see an error message then
  
 If an error occurred during loading and you need to try again you need to re-initialise the database again by running `buildDB`. A useful command to initialise the database and load a source from the integrate directory is:
 
-.. code-block:: bash
+.. code-block:: console
 
   ~/git/biotestmine $ (./gradlew clean buildDB) && ./gradlew integrate -Psource=uniprot-malaria --stacktrace
 
 Now that the data has loaded, log into the database and view the contents of the protein table:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ psql biotestmine
   biotestmine#  select count(*) from protein;
 
 And see the first few rows of data:
  
-.. code-block:: bash
+.. code-block:: console
 
  biotestmine#  select * from protein limit 5;
 
@@ -370,26 +370,26 @@ We can see how see how inheritance is represented in the database:
 * One table is created for each class in the data model.
 * Where one class inherits from another, entries are written to both tables.  For example:
 
- .. code-block:: bash
+ .. code-block:: console
 
    biotestmine#  select * from gene limit 5;
  
  The same rows appear in the `sequencefeature` table:
  
-.. code-block:: bash
+.. code-block:: console
 
   biotestmine#  select * from sequencefeature limit 5;
 
 All classes in the object model inherit from `InterMineObject`.  Querying the `intermineobject` table in the database is a useful way to find the total number of objects in a Mine:
 
-.. code-block:: bash
+.. code-block:: console
 
   biotestmine#  select count(*) from intermineobject;
 
 All tables include an `id` column for unique ids and a `class` column with the actual class of that object.  Querying the `class` column of `intermineobject` you can find the 
 counts of different objects in a Mine:
 
-.. code-block:: bash
+.. code-block:: console
 
   biotestmine#  select class, count(*) from intermineobject group by class;
 
@@ -458,7 +458,7 @@ A dot means there is no value provided for the column.
 
 The files we are loading are from PlasmoDB and contain `gene`, `exon` and `mRNA` features, there is one file per chromosome.  Look at an example:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ less /data/malaria/genome/gff/MAL1.gff3
 
@@ -508,14 +508,14 @@ Loading GFF3 data
 
 Now load the `malaria-gff` source by running this command:
 
-.. code-block:: bash
+.. code-block:: console
 
   # load the GFF data
   ~/git/biotestmine $ ./gradlew integrate -Psource=malaria-gff --stacktrace
 
 This will take a few minutes to run. Note that this time we don't run `buildDB` as we are loading this data into the same database as UniProt. As before you can run a query to see how many objects of each class are loaded:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ psql biotestmine
   biotestmine#  select class, count(*) from intermineobject group by class;
@@ -525,7 +525,7 @@ FASTA files
 
 FASTA is a minimal format for representing sequence data. Files comprise a header with some identifier information preceded by '>' and a sequence.  At present the InterMine FASTA parser loads just the first entry in header after `>` and assigns it to be an attribute of the feature created. Here we will load one FASTA file for each malaria chromosome. Look at an example of the files we will load:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ less /data/malaria/genome/fasta/MAL1.fasta
 
@@ -552,7 +552,7 @@ Loading FASTA data
 
 Now load the `malaria-chromosome-fasta` source by running this command:
 
-.. code-block:: bash
+.. code-block:: console
 
   # load FASTA data
   ~/git/biotestmine $ ./gradlew integrate -Psource=malaria-chromosome-fasta --stacktrace
@@ -682,14 +682,14 @@ You will have noticed that in previous sources and in `project.xml` we have refe
 
 Looking at the `organism` table in the database you will see that the only column filled in is `taxonid`:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ psql biotestmine
   biotestmine#  select * from organism;
 
 From the root `biotestmine` directory run the `entrez-organism` source:
 
-.. code-block:: bash
+.. code-block:: console
 
   # load organism data
   ~/git/biotestmine $ ./gradlew integrate -Psource=entrez-organism --stacktrace
@@ -726,7 +726,7 @@ Several InterMine sources load publications:
 
 Now run the `update-publications` source to fill in the details:
 
-.. code-block:: bash
+.. code-block:: console
 
   ~/git/biotestmine $ ./gradlew integrate -Psource=update-publications --stacktrace
 
@@ -798,7 +798,7 @@ These generate summary data and indexes used by the web application, see :doc:`/
 
 Download `Solr binary package <http://archive.apache.org/dist/lucene/solr/7.2.1/>`_ and extract it to any place you like. Inside `/solr-7.2.1` directory start the server with this command:
 
-.. code-block:: bash
+.. code-block:: console
     
     # Starts the server instance on port 8983
     solr-7.2.1 $ ./bin/solr start
@@ -807,14 +807,14 @@ Download `Solr binary package <http://archive.apache.org/dist/lucene/solr/7.2.1/
 
 To create a Intermine collection for search process, run this command inside the solr directory. 
 
-.. code-block:: bash
+.. code-block:: console
 
     # Initialises the search index
     solr-7.2.1 $ ./bin/solr create -c biotestmine-search
 
 To create a Intermine collection for autocomplete process, run this command inside the solr directory. 
 
-.. code-block:: bash
+.. code-block:: console
 
     # Initaliases the autocomplete index
     solr-7.2.1 $ ./bin/solr create -c biotestmine-autocomplete
@@ -826,7 +826,7 @@ Run the post-procesing
 
 To run all the post-processing steps:
 
-.. code-block:: bash
+.. code-block:: console
 
   ~/git/biotestmine $ ./gradlew postProcess
 
@@ -834,7 +834,7 @@ This will take a few minutes.  When complete you can re-run the queries above to
 
 Post-processing steps can also be run individually:
 
-.. code-block:: bash
+.. code-block:: console
 
   ~/git/biotestmine $ ./gradlew postProcess -Pprocess=update-publications
 
@@ -848,7 +848,7 @@ Build complete BioTestMine
 
 Build BioTestMine now using the `project_build` script, we will need a completed BioTestMine for the webapp.
 
-.. code-block:: bash
+.. code-block:: console
 
   # download the script
   ~/git/biotestmine $ wget https://raw.githubusercontent.com/intermine/intermine-scripts/master/project_build
@@ -857,7 +857,7 @@ Build BioTestMine now using the `project_build` script, we will need a completed
 
 Run the `project_build` script from your `biotestmine` directory:
 
-.. code-block:: bash
+.. code-block:: console
 
   ~/git/biotestmine $ ./project_build -b -v localhost ~/biotestmine-dump
 
@@ -899,13 +899,13 @@ Update your biotestmine.properties file  with correct information for the `db.us
 
 2. Create the empty database:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ createdb userprofile-biotestmine
 
 3. Build the database:
 
-.. code-block:: bash
+.. code-block:: console
 
   # in biotestmine
   ~/git/biotestmine $ ./gradlew buildUserDB
@@ -922,7 +922,7 @@ Deploying the webapp
 
 Run the following command to release your webapp: 
 
-.. code-block:: bash
+.. code-block:: console
 
   # start tomcat
   ~/git/biotestmine $ ./gradlew tomcatStartWar
