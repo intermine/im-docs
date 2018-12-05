@@ -97,6 +97,11 @@ Data to load
 
 The biotestmine checkout includes a tar file with data to load into BiotestMine. These are real, complete data sets for *P. falciparum* (but very old!). We will load genome annotation from PlasmoDB, protein data from UniProt and GO annotation also from PlasmoDB.
 
+.. toctree::
+   :maxdepth: 2
+   
+   test-data 
+
 Copy this to some local directory (your home directory is fine for this workshop) and extract the archive:
 
 ::
@@ -819,6 +824,8 @@ To create a Intermine collection for autocomplete process, run this command insi
     # Initaliases the autocomplete index
     solr-7.2.1 $ ./bin/solr create -c biotestmine-autocomplete
 
+These are empty search indexes. These will be populated by the `create-search-index` & `create-autocomplete-index` postprocesses. 
+
 See :doc:`/system-requirements/software/solr` for details.
 
 Run post-processes
@@ -907,7 +914,7 @@ Update your biotestmine.properties file  with correct information for the `db.us
 
 ::
 
-  # in biotestmine
+  # creates the empty tables
   ~/git/biotestmine $ ./gradlew buildUserDB
 
 You only need to build the userprofile database once.
@@ -944,7 +951,7 @@ Help
 Gradle
 ~~~~~~~~~~~~~~~~~
 
-Anytime you run `./gradlew` and something bad happens, add the --stacktrace --debug options.
+Anytime you run `./gradlew` and something bad happens, add the `--stacktrace` or `--debug` options.
 
 This will give you more detailed output and hopefully a more helpful error message.
 
@@ -955,9 +962,9 @@ If the error occurs while you are integrating data, the error message will be in
 
 If the error occurs while you are browsing your webapp, the error message will be located in the Tomcat logs:  `$TOMCAT/logs`.  
 
-.. toctree::
-   :maxdepth: 2
-   
-   test-data 
+Contact us!
+~~~~~~~~~~~~~~~~~~
 
-.. index:: tutorial, ant, logs, userprofile, malariamine, biotestmine, data integration, keys, primary keys, priority conflicts, make_mine, project XML, FASTA, GFF3, data integration, UniProt, publications, build-db, creating a databasebiotestmine
+Please `contact us <http://intermine.org/contact/>`_ if you run into problems. We have a discord server, twitter and a developer mailing list.
+
+.. index:: tutorial, logs, userprofile, malariamine, biotestmine, data integration, keys, primary keys, priority conflicts, make_mine, project XML, FASTA, GFF3, data integration, UniProt, publications, build-db, creating a database
