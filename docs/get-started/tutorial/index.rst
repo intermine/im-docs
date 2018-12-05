@@ -802,7 +802,7 @@ Each source can also provide code to execute post-process steps if required.  Th
 
 These generate summary data and indexes used by the web application, see :doc:`/webapp/keyword-search` for details. You must have Solr installed and running for the indexes to be populated correctly. 
 
-** Install SOLR ** 
+**Install SOLR** 
 
 Download `Solr binary package <http://archive.apache.org/dist/lucene/solr/7.2.1/>`_ and extract it to any place you like. Inside `/solr-7.2.1` directory start the server with this command:
 
@@ -811,7 +811,7 @@ Download `Solr binary package <http://archive.apache.org/dist/lucene/solr/7.2.1/
     # Starts the server instance on port 8983
     solr-7.2.1 $ ./bin/solr start
 
-** Initialising Search Indexes ** 
+**Initialising Search Indexes** 
 
 .. note::
 
