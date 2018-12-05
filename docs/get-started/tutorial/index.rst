@@ -3,7 +3,7 @@ Tutorial
 
 Following the steps on this page you will set up an example InterMine.  You will:
 
- * Load some real data sets for Malaria (''P. falciparum'')
+ * Load some real data sets for Malaria (*P. falciparum*)
  * Learn about post-processing after data is loaded
  * Deploy a webapp to query the data
 
@@ -13,7 +13,7 @@ Getting Started
 Software
 ^^^^^^^^^^
 
-We use `git <http://git-scm.com>`_ to manage and distribute source code and `Gradle <http://gradle.org>`_ as our build system. For this tutorial you will need the following software pacakges installed locally and running:
+We use `git <http://git-scm.com>`_ to manage and distribute source code and `Gradle <http://gradle.org>`_ as our build system. For this tutorial you will need the following software packages installed locally and running:
 
 * PostgreSQL
 * Git
@@ -51,7 +51,7 @@ If at any point you need help or have a quick (or not so quick) question, please
 BioTest Mine
 ----------------------
 
-BioTestMine is a dummy test mine we use to test out new features which contains real (old) data for Malaria (''P. falciparum'').
+BioTestMine is a dummy test mine we use to test out new features which contains real (old) data for Malaria (*P. falciparum*).
 
 To get started, change into the directory you checked out the BiotestMine source code to and look at the sub-directories:
 
@@ -65,13 +65,13 @@ To get started, change into the directory you checked out the BiotestMine source
 We will look at each of the sub-directories in much more detail later, they are:
 
 ``dbmodel``
-  contains information about the data model to be used and ant targets relating to the data model and database creation.
+  contains information about the data model and related configuration files
 ``webapp`` 
-  basic configuration and commands for building and deploying the web application
+  basic configuration for the webapp
 ``data``
   contains a tar file with data to load
 
-In addition there are two gradle files, used by the InterMine build system, which we won't need to edit (`build.gradle` and `settings.gradle`) and a `project.xml` file.
+In addition there are gradle files, used by the InterMine build system, which we won't need to edit (`build.gradle`, `gradle.properties`, and `settings.gradle`) and a `project.xml` file.
 
 Project.xml
 ~~~~~~~~~~~~~~~~~~
@@ -95,11 +95,11 @@ Specific operations can be performed on the Mine once data is loaded, these are 
 Data to load
 ~~~~~~~~~~~~~~~
 
-The biotestmine checkout includes a tar file with data to load into BiotestMine. These are real, complete data sets for ''P. falciparum'' (but very old!). We will load genome annotation from PlasmoDB, protein data from UniProt and GO annotation also from PlasmoDB.
+The biotestmine checkout includes a tar file with data to load into BiotestMine. These are real, complete data sets for *P. falciparum* (but very old!). We will load genome annotation from PlasmoDB, protein data from UniProt and GO annotation also from PlasmoDB.
 
 Copy this to some local directory (your home directory is fine for this workshop) and extract the archive:
 
-.. code-block:: console
+::
 
   $ cd
   $ cp git/biotestmine/data/malaria-data.tar.gz .
@@ -107,7 +107,7 @@ Copy this to some local directory (your home directory is fine for this workshop
 
 In your `biotestmine` directory edit `project.xml` to point each source at the extracted data, just replace `/data` with `/home/username` (or on a mac `/Users/username`). Do use the absolute path.
 
-.. code-block:: console
+::
 
   $ cd ~/git/biotestmine
   ~/git/biotestmine $ sed -i 's/\/data/\/home\/username/g' project.xml
@@ -136,14 +136,14 @@ Configuration of local databases and tomcat deployment is kept in a `MINE_NAME.p
 
 If you don't already have a `.intermine` directory in your home directory, create one now:
 
-.. code-block:: console
+::
 
   $ cd
   $ mkdir .intermine
 
-There is a partially completed properties file for BiotestMine already. Copy it into your `.intermine` directory:
+There is a partially completed properties file for BioTestMine already. Copy it into your `.intermine` directory:
 
-.. code-block:: console
+::
 
   $ cd
   $ cp git/biotestmine/dbmodel/resources/biotestmine.properties .intermine/
@@ -156,7 +156,7 @@ For the moment you need to change `PSQL_USER` and `PSQL_PWD` in the `db.producti
 
   # Access to the postgres database to build into and access from the webapp                              
   db.production.datasource.serverName=localhost
-  # port: uncomment the next line if use different prot other than 3306
+  # port: uncomment the next line if use different port other than 5432
   # db.production.datasource.port=PORT_NUMBER
   db.production.datasource.databaseName=biotestmine
   db.production.datasource.user=PSQL_USER
@@ -193,7 +193,7 @@ Defining the model
 
  * You can easily adapt InterMine to include your own data by creating new additions files, we'll see how to do this later.
 
-The core data model, defined in `core.xml <https://github.com/intermine/intermine/blob/master/bio/model/core.xml>`_ file, is released in the bio-model artifact downloaded as biotestmine dependency.
+The core data model is defined in `core.xml <https://github.com/intermine/intermine/blob/master/bio/model/core.xml>`_ file.
 
 Note the fields defined for `Protein`:
 
