@@ -324,7 +324,7 @@ The model XML file is stored in the database once created, this and some other c
 Loading Data
 ----------------------
 
-Now we have the correct data model and the correct empty tables in the database. We will now run several data parsers to load our data into our database.
+Now we have the correct data model and the correct empty tables in the database. We can now run several data parsers to load our data into our database.
 
 For this tutorial we will run several data integration and post-processing steps manually. This is a good way to learn how the system works and to test individual stages. For running actual builds there is a `project_build` script that will run all steps specified in `project.xml` automatically. We will cover this later.
 
@@ -351,7 +351,7 @@ This will take a couple of minutes to complete, the command runs the following s
 
 1. Checks that a source with name `uniprot-malaria` exists in `project.xml`
 2. Reads the UniProt XML files at the location specified by `src.data.dir` in the `project.xml` file
-3. Calls the parser included in the UniProt JAR. The JARs for every core InterMine data source are published in `JCenter <https://jcenter.bintray.com/org/intermine/>`_. The build looks for jar with the name matching "bio-source-<source-type>-<version>.jar", e.g. `bio-source-uniprot-2.0.0.jar`. Maven will automatically download the correct JARs for you.
+3. Runs the parser included in the UniProt JAR. The JARs for every core InterMine data source are published in `JCenter <https://jcenter.bintray.com/org/intermine/>`_. The build looks for jar with the name matching "bio-source-<source-type>-<version>.jar", e.g. `bio-source-uniprot-2.0.0.jar`. Maven will automatically download the correct JARs for you.
 4. The UniProt data parser reads the original XML and creates `Items` which are metadata representations of the objects that will be loaded into the biotestmine database. These items are stored in an intermediate `items` database (more about `Items` later).
 5. Reads from the `items` database, converts items to objects and loads them into the biotestmine database.
 
@@ -378,11 +378,11 @@ We can see how see how inheritance is represented in the database:
 * One table is created for each class in the data model.
 * Where one class inherits from another, entries are written to both tables.  For example:
 
- ::
+::
 
    biotestmine#  select * from gene limit 5;
  
- The same rows appear in the `sequencefeature` table:
+The same rows appear in the `sequencefeature` table:
  
 ::
 
@@ -416,7 +416,7 @@ Data integration
 
 Note that genes from the gff3 file will have the same `primaryIdentifier` as those already loaded from UniProt.  These will  merge in the database such that there is only one copy of each gene with information from both data sources. We will load the genome data then look at how data integration in InterMine works.
 
-First, look at the information currently loaded for gene "PFL1385c" from UniProt:
+First, look at the information currently loaded for gene `PFL1385c` from UniProt:
 
 .. code-block:: sql
 
@@ -425,7 +425,7 @@ First, look at the information currently loaded for gene "PFL1385c" from UniProt
 GFF3 files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-GFF3 is a standard format use to represent genome features and their locations. It is a flexible and expressive file format, and defined by a `clear standard <https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md>`_. An example of the file will load can be used to explain the format, each line represents one feature and has nine tab-delimited columns:
+`GFF3 <https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md>`_ is a standard format use to represent genome features and their locations, each line represents one feature and has nine tab-delimited columns:
 
 .. code-block:: properties
 
@@ -441,7 +441,7 @@ col 2: "source"
   the database or algorithm that provided the feature
 
 col 3: "type"
-  a valid SO term defining the feature type - here `gene` or `mRNA`
+  a valid Sequence Ontology term defining the feature type - here `gene` or `mRNA`
 
 col 4 & 5: "start" and "end"
   coordinates of the feature on the landmark in col 1
@@ -508,13 +508,13 @@ Look at the `malaria-gff.properties` file - there are two properties of interest
   # specify a Java class to be called on each row of the gff file to cope with attributes
   gff3.handlerClassName = org.intermine.bio.dataconversion.MalariaGFF3RecordHandler
 
-The property file has specified a Java class to process the GFF file. Look at the `MalariaGFF3RecordHandler <https://github.com/intermine/intermine/blob/master/bio/sources/example-sources/malaria-gff/src/main/java/org/intermine/bio/dataconversion/MalariaGFF3RecordHandler.java>`_ class. This code changes which fields the `ID` and `Name` attributes from the GFF file have been assigned to.
+The property file has specified a Java class to process the GFF file, `MalariaGFF3RecordHandler <https://github.com/intermine/intermine/blob/master/bio/sources/example-sources/malaria-gff/src/main/java/org/intermine/bio/dataconversion/MalariaGFF3RecordHandler.java>`_. This code changes which fields the `ID` and `Name` attributes from the GFF file have been assigned to.
 
 
 Loading GFF3 data
 ~~~~~~~~~~~~~~~~~
 
-Now load the `malaria-gff` source by running this command:
+Now execute the `malaria-gff` source by running this command:
 
 ::
 
@@ -552,13 +552,14 @@ The type of feature created is defined by a property in `project.xml`, the attri
   the organism id for malaria
   
 `fasta.includes = MAL*.fasta`
+  files to process
 
 This will create features of the class `Chromosome` with `primaryIdentifier` set and the `Chromosome.sequence` reference set to a `Sequence` object. Also created are a `DataSet` and `DataSource` as evidence.
 
 Loading FASTA data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now load the `malaria-chromosome-fasta` source by running this command:
+Now run the `malaria-chromosome-fasta` source by running this command:
 
 ::
 
@@ -628,12 +629,12 @@ We may also load data from some other source that provides information about gen
 
 Important points:
 
-* A `primary key` defines a field or fields of a class that can be used to search for equivalent objects
+* A `key` defines a field or fields of a class that can be used to search for equivalent objects
 * Multiple primary keys can be defined for a class, sources can use different keys for a class if they provide different identifiers
 * One source can use multiple primary keys for a class if the objects of that class don't consistently have the same identifier type
 * `null` - if a source has no value for a field that is defined as a primary key then the key is not used and the data is loaded without being integrated.
 
-Primary keys in BioTestMine
+Integration Keys in BioTestMine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The keys used by each source are set in the source's `resources` directory.
@@ -657,9 +658,6 @@ The `name_of_key` can be any string but you must use different names if defining
   Gene.key_secondaryidentifier = secondaryIdentifier
 
 It is better to use common names for identical keys between sources as this will help avoid duplicating database indexes. Each key should list one or more fields that can be a combination of `attributes` of the class specified or `references` to other classes, in this cases there should usually be a key defined for the referenced class as well.
-
-It is still possible to use a legacy method of configuring keys, where keys are defined centrally in `dbmodel/resources/genomic_keyDefs.properties` and referenced in source `_keys.properties` files.
-
 
 The `tracker` table 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -686,7 +684,7 @@ Organisms and publications in InterMine are loaded by their taxon id and PubMed 
 Fetching organism details
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You will have noticed that in previous sources and in `project.xml` we have referred to organisms by their NCBI Taxonomy id. These are numerical ids assigned to each species and strain. We use these for convenience in integrating data, the taxon id is a good unique identifier for organisms whereas names can come in many different formats: for example in fly data sources we see: ''Drosophila melanogaster'', ''D. melanogaster'', Dmel, DM, etc.
+You will have noticed that in previous sources and in `project.xml` we have referred to organisms by their NCBI Taxonomy id. These are numerical ids assigned to each species. We use these for convenience in integrating data, the taxon id is a good unique identifier for organisms whereas names can come in many different formats: for example in fly data sources we see: ''Drosophila melanogaster'', ''D. melanogaster'', Dmel, DM, etc.
 
 Looking at the `organism` table in the database you will see that the only column filled in is `taxonid`:
 
@@ -716,9 +714,7 @@ Now run the same query in the production database, you should see details for ''
   $ psql biotestmine
   biotestmine#  select * from organism;
 
-.. note::
-
-  As this source depends on organism data previously loaded it should be one of the last sources run and should appear at the end of `<sources>` in `project.xml`.
+As this source depends on organism data previously loaded it should be one of the last sources run and should appear at the end of `<sources>` in `project.xml`.
 
 Fetching publication details
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -746,11 +742,7 @@ Now details will have been added to the `publication` table:
 
   biotestmine#  select * from publication where title is not null limit 5;
 
-Sometimes, especially with very large numbers of publications, this source will fail to fetch details correctly.  Usually running it again will work correctly.
-
-.. note::
-
-  As this source depends on publication data previously loaded it should be one of the last sources run and should appear at the end of `<sources>` in `project.xml`.
+As this source depends on publication data previously loaded it should be one of the last sources run and should appear at the end of `<sources>` in `project.xml`.
 
 Post Processing
 --------------------------------------------
@@ -800,7 +792,7 @@ Each source can also provide code to execute post-process steps if required. Thi
 `summarise-objectstore`, `create-search-index` & `create-autocomplete-index` 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-These generate summary data and indexes used by the web application, see :doc:`/webapp/keyword-search/index` for details. You must have Solr installed and running for the indexes to be populated correctly. 
+These generate summary data and search indexes used by the web application, see :doc:`/webapp/keyword-search/index` for details. You must have Solr installed and running for the indexes to be populated correctly. 
 
 **Install SOLR** 
 
@@ -829,7 +821,7 @@ To create a Intermine collection for autocomplete process, run this command insi
 
 See :doc:`/system-requirements/software/solr` for details.
 
-Run the post-procesing
+Run post-processes
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To run all the post-processing steps:
