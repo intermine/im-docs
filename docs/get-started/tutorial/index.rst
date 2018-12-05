@@ -13,7 +13,7 @@ Getting Started
 Software
 ^^^^^^^^^^
 
-We use `git <http://git-scm.com>`_ to manage and distribute source code and `Gradle <http://gradle.org>`_ as build system. For this tutorial you will need the following software pacakges installed locally and running:
+We use `git <http://git-scm.com>`_ to manage and distribute source code and `Gradle <http://gradle.org>`_ as our build system. For this tutorial you will need the following software pacakges installed locally and running:
 
 * PostgreSQL
 * Git
@@ -28,7 +28,7 @@ BioTestMine
 
 Download the mine code from GitHub.
 
-.. code-block:: git
+.. code-block:: bash
   
   $ mkdir git
   $ cd git
@@ -42,6 +42,11 @@ Gradle has helper processes enabled by default. We're going to disable those by 
 .. code-block:: properties
 
   export GRADLE_OPTS="-Dorg.gradle.daemon=false"
+
+Help! Something's gone wrong.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If at any point you need help or have a quick (or not so quick) question, please `get in touch <http://intermine.org/contact/>`_! We have a discord server, twitter and a developer mailing list. 
 
 BioTest Mine
 ----------------------
@@ -76,7 +81,7 @@ The `project.xml` allows you to configure which data to load into your Mine. The
 
 The `<source>` elements list and configure the data sources to be loaded, each one has a `type` that corresponds to the name of the bio-source artifact (jar) which includes parsers to retrieve data and information on how it will be integrated. The `name` can be anything and can be the same as `type`, using a more specific name allows you to define specific integration keys (more on this later).  
 
-`<source>` elements can have several properties: `src.data.dir`, `src.data.file` and `src.data.includes` are all used to define locations of files that the source should load.  Other properties are used as parameters to specific parsers.
+`<source>` elements can have several properties depending on source type: `src.data.dir`, `src.data.file` and `src.data.includes` are all used to define locations of files that the source should load. Other properties are used as parameters to specific parsers.
 
 
 <post-processing>
@@ -167,7 +172,7 @@ Finally, we need to create `biotestmine` and `items-biotestmine` postgres databa
   $ createdb biotestmine
   $ createdb items-biotestmine
 
-New postgres databases default to `UTF-8` as the character encoding.  This will work with InterMine but performance is better with `SQL_ASCII`.  
+New postgres databases default to `UTF-8` as the character encoding. This will work with InterMine but performance is better with `SQL_ASCII`.  
 
 The Data Model
 ----------------------
@@ -186,8 +191,7 @@ Defining the model
 
  * You can easily adapt InterMine to include your own data by creating new additions files, we'll see how to do this later.
 
-The core data model, defined in core.xml file, is released in the bio-core artifact downloaded as biotestmine dependency.
-You can view the contents of the core model here ...
+The core data model, defined in `core.xml <https://github.com/intermine/intermine/blob/master/bio/model/core.xml>`_ file, is released in the bio-model artifact downloaded as biotestmine dependency.
 
 Note the fields defined for `Protein`:
 
@@ -230,18 +234,17 @@ The first file merged into the core model is the `so_additions.xml` file.  This 
     soAdditionFilePath = "dbmodel/build/so_additions.xml"
   }
 
-The build system creates classes corresponding to the Sequence Ontology terms.
-The model is then combined with any extra classes and fields defined in the sources to integrate, those listed as `<source>` elements in `project.xml`.  Look at an example 'additions' file for the  `UniProt source`. 
+The build system creates classes corresponding to the Sequence Ontology terms. The model is then combined with any extra classes and fields defined in the sources to integrate, those listed as `<source>` elements in `project.xml`.  Look at an example 'additions' file for the  `UniProt source`. 
 
 This defines extra fields for the `Protein` class which will be added to those from the core model.  
 
 * Other model components can be included by specifying in the `dbmodel/build.gradle` file, for example we include `genomic_additions.xml`  
-* The `reverse-reference` elements in definitions of some references and collections, this defines in the model that two references/collections are opposing ends of the same relationship.  The value should be set to the name of the reference/collection in the `referenced-type`.  
+* The `reverse-reference` elements in definitions of some references and collections, this defines in the model that two references/collections are opposing ends of the same relationship. The value should be set to the name of the reference/collection in the `referenced-type`.  
 
 Creating a database
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now run the gradle task to merge all the model components, generate Java classes and create the database schema, in `biotestmine` run:
+Now run the gradle task to merge all the model components, generate Java classes and create the database schema:
 
 .. code-block:: bash
 
@@ -306,29 +309,28 @@ This has also created necessary indexes on the tables:
 
   Running `buildDB` will destroy any existing data loaded in the biotestmine database and re-create all the tables.
 
-
 The model XML file is stored in the database once created, this and some other configuration files are held in the `intermine_metadata` table which has `key` and `value` columns:
  
-.. code-block:: bash
+.. code-block:: sql
 
    biotestmine=# select key from intermine_metadata;
 
 Loading Data
 ----------------------
 
-For this tutorial we will run several data integration and post-processing steps manually.  This is a good way to learn how the system works and to test individual stages.  For running actual builds there is a `project_build` script that will run all steps specified in `project.xml` automatically.  We will cover this later.
+For this tutorial we will run several data integration and post-processing steps manually. This is a good way to learn how the system works and to test individual stages. For running actual builds there is a `project_build` script that will run all steps specified in `project.xml` automatically. We will cover this later.
 
 Loading data from a source
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Loading of data is done by running `integrate`.  You can specify one or more sources to load or choose to load all sources listed in the `project.xml` file.  When you specify sources by name the order that they appear in `project.xml` doesn't matter.  Now load data from the uniprot-malaria source:
+Loading of data is done by running the `integrate` task. You can specify one or more sources to load or choose to load all sources listed in the `project.xml` file. Now load data from the uniprot-malaria source:
 
 .. code-block:: bash
 
   # load the uniprot data sources
   ~/git/biotestmine $ ./gradlew integrate -Psource=uniprot-malaria --stacktrace
 
-The `--stacktrace` option will display complete stack traces if there is a problem.
+The `--stacktrace` option will display complete error messages if there is a problem.
  
 This will take a couple of minutes to complete, the command runs the following steps:
 
@@ -339,12 +341,11 @@ This will take a couple of minutes to complete, the command runs the following s
 
 This should complete after a couple of minutes, if you see an error message then see :doc:`/support/troubleshooting-tips`.  
  
-If an error occurred during loading and you need to try again you need to re-initialise the database again by running `buildDB`.
-A useful command to initialise the database and load a source from the integrate directory is:
+If an error occurred during loading and you need to try again you need to re-initialise the database again by running `buildDB`. A useful command to initialise the database and load a source from the integrate directory is:
 
 .. code-block:: bash
 
-  $ (./gradlew clean buildDB) && ./gradlew integrate -Psource=uniprot-malaria --stacktrace
+  ~/git/biotestmine $ (./gradlew clean buildDB) && ./gradlew integrate -Psource=uniprot-malaria --stacktrace
 
 Now that the data has loaded, log into the database and view the contents of the protein table:
 
@@ -362,7 +363,7 @@ And see the first few rows of data:
 Object relational mapping
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  
-InterMine works with objects, objects are loaded into the production system and queries return lists of objects.  These objects are persisted to a relational database.  Internal InterMine code (the ObjectStore) handles the storage and retrieval of objects from the database automatically.  By using an object model InterMine queries benefit from inheritance, for example the `Gene` and `Exon` classes are both subclasses of `SequenceFeature`.  When querying for SequenceFeatures (representing any genome feature) both Genes and Exons will be returned automatically.  
+InterMine works with objects, objects are loaded into the production system and queries return lists of objects.  These objects are persisted to a relational database. Internal InterMine code (the ObjectStore) handles the storage and retrieval of objects from the database automatically. By using an object model InterMine queries benefit from inheritance, for example the `Gene` and `Exon` classes are both subclasses of `SequenceFeature`.  When querying for SequenceFeatures (representing any genome feature) both Genes and Exons will be returned automatically.  
 
 We can see how see how inheritance is represented in the database:
 
@@ -399,7 +400,7 @@ Loading Genome Data from GFF3 and FASTA
 
 We will load genome annotation data for *P. falciparum* from PlasmoDB
 
-* genes, mRNAs, exons and their chromosome locations - in GFF3 format:
+* genes, mRNAs, exons and their chromosome locations - in GFF3 format
 * chromosome sequences - in FASTA format
 
 Data integration
@@ -416,14 +417,13 @@ First, look at the information currently loaded for gene "PFL1385c" from UniProt
 GFF3 files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-GFF3 is a standard format use to represent genome features and their locations.  It is flexible and expressive and defined by a clear standard - https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md.  An example of the file will load can be used to explain the format, each line represents one feature and has nine tab-delimited columns:
+GFF3 is a standard format use to represent genome features and their locations. It is a flexible and expressive file format, and defined by a `clear standard <https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md>`_. An example of the file will load can be used to explain the format, each line represents one feature and has nine tab-delimited columns:
 
 .. code-block:: properties
 
   MAL1    ApiDB   gene    183057  184457  .       -       .       ID=gene.46311;description=hypothetical%20protein;Name=PFA0210c
   MAL1    ApiDB   mRNA    183057  184457  .       +       .       ID=mRNA.46312;Parent=gene.46311
   MAL1    ApiDB   exon    183057  184457  .       -       0       ID=exon.46313;Parent=mRNA.46312
-
 
 
 col 1: "seqid"
@@ -465,7 +465,7 @@ The files we are loading are from PlasmoDB and contain `gene`, `exon` and `mRNA`
 The GFF3 source
 ~~~~~~~~~~~~~~~~~
 
-InterMine includes a parser to load valid GFF3 files.  The creation of features, sequence features (usually chromosomes), locations and standard attributes is taken care of automatically.  
+InterMine includes a parser to load valid GFF3 files. The creation of features, sequence features (usually chromosomes), locations and standard attributes is taken care of automatically.  
  
 Many elements can be configured by properties in `project.xml`, to deal with any specific attributes or perform custom operations on each feature you can  write a handler in Java which will get called when reading each line of GFF.
 
@@ -486,11 +486,11 @@ gff3.seqDataSourceName = PlasmoDB
 gff3.dataSetTitle = PlasmoDB P. falciparum genome
   a DataSet object is created as evidence for the features, it is linked to a DataSource (PlasmoDB)
 
-In some cases specific code is required to deal with attributes in the gff file and any special cases.  A specific `source` can be created to contain the code to do this and any additions to the data model necessary.  For malaria gff we need a handler to switch which fields from the file are set as `primaryIdentifier` and `symbol`/`secondaryIdentifier` in the features created.  This is to match the identifiers from UniProt, it is quite a common issue when integrating from multiple data sources.
+In some cases specific code is required to deal with attributes in the gff file and any special cases.  A specific `source` can be created to contain the code to do this and any additions to the data model necessary.  For malaria gff we need a handler to switch which fields from the file are set as `primaryIdentifier` and `symbol`/`secondaryIdentifier` in the features created. This is to match the identifiers from UniProt, it is quite a common issue when integrating from multiple data sources.
 
 From the example above, by default: `ID=gene.46311;description=hypothetical%20protein;Name=PFA0210c` would make `Gene.primaryIdentifier` be `gene.46311` and `Gene.symbol` be `PFA0210c`.  We need `PFA0210c` to be the `primaryIdentifier`.
 
-The `malaria-gff` source is held `in the main InterMine repository<https://github.com/intermine/intermine/blob/3328168aa750f1175d9e7c6bb2a516455cfc9bd1/bio/sources/example-sources/malaria-gff/project.properties>`_ (included as a biotestmine project dependency).  Look at the `malaria-gff.properties` file - there are two properties of interest:
+Look at the `malaria-gff.properties` file - there are two properties of interest:
 
 .. code-block:: properties
 
@@ -500,20 +500,20 @@ The `malaria-gff` source is held `in the main InterMine repository<https://githu
   # specify a Java class to be called on each row of the gff file to cope with attributes
   gff3.handlerClassName = org.intermine.bio.dataconversion.MalariaGFF3RecordHandler
 
-Look at the `MalariaGFF3RecordHandler` class.  This code changes which fields the `ID` and `Name` attributes from the GFF file have been assigned to.
+The property file has specified a Java class to process the GFF file. Look at the `MalariaGFF3RecordHandler <https://github.com/intermine/intermine/blob/master/bio/sources/example-sources/malaria-gff/src/main/java/org/intermine/bio/dataconversion/MalariaGFF3RecordHandler.java>`_ class. This code changes which fields the `ID` and `Name` attributes from the GFF file have been assigned to.
 
 
 Loading GFF3 data
 ~~~~~~~~~~~~~~~~~
 
-Now load the `malaria-gff` source by running this command in `biotestmine`:
+Now load the `malaria-gff` source by running this command:
 
 .. code-block:: bash
 
-  # load the GFF source
+  # load the GFF data
   ~/git/biotestmine $ ./gradlew integrate -Psource=malaria-gff --stacktrace
 
-This will take a few minutes to run.  Note that this time we don't run `buildDB` as we are loading this data into the same database as UniProt.  As before you can run a query to see how many objects of each class are loaded:
+This will take a few minutes to run. Note that this time we don't run `buildDB` as we are loading this data into the same database as UniProt. As before you can run a query to see how many objects of each class are loaded:
 
 .. code-block:: bash
 
@@ -523,7 +523,7 @@ This will take a few minutes to run.  Note that this time we don't run `buildDB`
 FASTA files
 ~~~~~~~~~~~~~~~~~
 
-FASTA is a minimal format for representing sequence data.  Files comprise a header with some identifier information preceded by '>' and a sequence.  At present the InterMine FASTA parser loads just the first entry in header after `>` and assigns it to be an attribute of the feature created.  Here we will load one FASTA file for each malaria chromosome.  Look at an example of the files we will load:
+FASTA is a minimal format for representing sequence data. Files comprise a header with some identifier information preceded by '>' and a sequence.  At present the InterMine FASTA parser loads just the first entry in header after `>` and assigns it to be an attribute of the feature created. Here we will load one FASTA file for each malaria chromosome. Look at an example of the files we will load:
 
 .. code-block:: bash
 
@@ -545,19 +545,19 @@ The type of feature created is defined by a property in `project.xml`, the attri
   
 `fasta.includes = MAL*.fasta`
 
-This will create features of the class `Chromosome` with `primaryIdentifier` set and the `Chromosome.sequence` reference set to a `Sequence` object.  Also created are a `DataSet` and `DataSource` as evidence.
+This will create features of the class `Chromosome` with `primaryIdentifier` set and the `Chromosome.sequence` reference set to a `Sequence` object. Also created are a `DataSet` and `DataSource` as evidence.
 
 Loading FASTA data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now load the `malaria-chromosome-fasta` source by running this command in `biotestmine/integrate`:
+Now load the `malaria-chromosome-fasta` source by running this command:
 
 .. code-block:: bash
 
-  # load FASTA source
+  # load FASTA data
   ~/git/biotestmine $ ./gradlew integrate -Psource=malaria-chromosome-fasta --stacktrace
 
-This has integrated the chromosome objects with those already in the database.  In the next step we will look at how this data integration works.
+This has integrated the chromosome objects with those already in the database. In the next step we will look at how this data integration works.
 
 Data Integration
 ----------------------
@@ -607,16 +607,16 @@ Three sources have been loaded so far that all included the organism with `taxon
 How data integration works
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Data integration works by defining keys for each class of object to describe fields that can be used to define equivalence for objects of that class.  For the examples above:
+Data integration works by defining keys for each class of object to describe fields that can be used to define equivalence for objects of that class. For the examples above:
 
 * `primaryIdentifier` was used as a key for `Gene`
 * `taxonId` was used as a key for `Organism`
 
-For each `Gene` object loaded by `malaria-gff` a query was performed in the `biotestmine` database to find any existing `Gene` objects with the same `primaryIdentifier`.  If any were found fields from both objects were merged and the resulting object stored.
+For each `Gene` object loaded by `malaria-gff` a query was performed in the `biotestmine` database to find any existing `Gene` objects with the same `primaryIdentifier`. If any were found fields from both objects were merged and the resulting object stored.
 
-Many performance optimisation steps are applied to this process.  We don't actually run a query for each object loaded, requests are batched and queries can be avoided completely if the system can work out no integration will be needed.
+Many performance optimisation steps are applied to this process. We don't actually run a query for each object loaded, requests are batched and queries can be avoided completely if the system can work out no integration will be needed.
 
-We may also load data from some other source that provides information about genes but doesn't use the identifier scheme we have chosen for `primaryIdentifier` (in our example `PFL1385c`).  Instead it only knows about the `symbol` (`ABRA`), in that case we would want that source to use the `symbol` to define equivalence for `Gene`.
+We may also load data from some other source that provides information about genes but doesn't use the identifier scheme we have chosen for `primaryIdentifier` (in our example `PFL1385c`). Instead it only knows about the `symbol` (`ABRA`), in that case we would want that source to use the `symbol` to define equivalence for `Gene`.
 
 Important points:
 
@@ -628,14 +628,10 @@ Important points:
 Primary keys in BioTestMine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The keys used by each source are set in the main directory of the corresponding `bio/sources/` directory in the intermine repo.
+The keys used by each source are set in the source's `resources` directory.
 
-For `uniprot-malaria`: https://github.com/intermine/intermine/blob/b582b5029075e86d20810d666de122039645dbf5/bio/sources/uniprot/src/main/resources/uniprot_keys.properties 
-
-
-And `malaria-gff`:
-
-https://github.com/intermine/intermine/blob/b582b5029075e86d20810d666de122039645dbf5/bio/sources/example-sources/malaria-gff/src/main/resources/malaria-gff_keys.properties
+* `uniprot-malaria <https://github.com/intermine/intermine/blob/master/bio/sources/uniprot/src/main/resources/uniprot_keys.properties>`_
+* `malaria-gff <https://github.com/intermine/intermine/blob/master/bio/sources/example-sources/malaria-gff/src/main/resources/malaria-gff_keys.properties>`_
 
 The key on `Gene.primaryIdentifier` is defined in both sources, that means that the same final result would have been achieved regardless of the order in the two sources were loaded.  
 
@@ -652,9 +648,7 @@ The `name_of_key` can be any string but you must use different names if defining
   Gene.key_primaryidentifier = primaryIdentifier
   Gene.key_secondaryidentifier = secondaryIdentifier
 
-It is better to use common names for identical keys between sources as this will help avoid duplicating database indexes.
-
-Each key should list one or more fields that can be a combination of `attributes` of the class specified or `references` to other classes, in this cases there should usually be a key defined for the referenced class as well.
+It is better to use common names for identical keys between sources as this will help avoid duplicating database indexes. Each key should list one or more fields that can be a combination of `attributes` of the class specified or `references` to other classes, in this cases there should usually be a key defined for the referenced class as well.
 
 It is still possible to use a legacy method of configuring keys, where keys are defined centrally in `dbmodel/resources/genomic_keyDefs.properties` and referenced in source `_keys.properties` files.
 
@@ -860,14 +854,12 @@ Build complete BioTestMine
 
 Build BioTestMine now using the `project_build` script, we will need a completed BioTestMine for the webapp.
 
-First, you'll need to clone the repository that contains the `project_build` script.
-
 .. code-block:: bash
 
   # download the script
   ~/git/biotestmine $ wget https://raw.githubusercontent.com/intermine/intermine-scripts/master/project_build
   # make executable
-  ~/git/biotestmine $ chmod +x intermine-scripts/project_build
+  ~/git/biotestmine $ chmod +x project_build
 
 Run the `project_build` script from your `biotestmine` directory:
 
@@ -884,7 +876,7 @@ This will take ~15-30mins to complete.
 Deploying the web application
 --------------------------------------------
 
-Once you have read access to a production database, you can build and release a web application against it.  
+You can deploy a web application against your newly built database.
 
 
 Configure
