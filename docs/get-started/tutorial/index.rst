@@ -181,17 +181,18 @@ The Data Model
 
 Now we're ready to set up a database schema and load some data into our BioTestMine, first some information on how data models are defined in InterMine.
 
-Defining the model
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
- * InterMine uses an object-oriented data model, classes in the model and relationships between them are defined in an XML file.  Depending on which data types you include you will need different classes and fields in the model, so the model is generated from a core model XML file and any number of `additions` files.  These additions files can define extra classes to be added to the model and define extra fields for additional classes.
+Defining the model
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ InterMine uses an object-oriented data model, classes in the model and relationships between them are defined in an XML file.  Depending on which data types you include you will need different classes and fields in the model, so the model is generated from a core model XML file and any number of `additions` files.  These additions files can define extra classes to be added to the model and define extra fields for additional classes.
 
   * Elements of the model are represented by Java classes and references between them.
   * These Java classes map automatically to tables in the database schema.
   * The object model is defined as an XML file, that defines `classes`, their `attributes` and `references` between classes.
   * The Java classes and database schema are automatically generated from an XML file.
 
- * You can easily adapt InterMine to include your own data by creating new additions files, we'll see how to do this later.
+ You can easily adapt InterMine to include your own data by creating new additions files, we'll see how to do this later.
 
 The core data model is defined in `core.xml <https://github.com/intermine/intermine/blob/master/bio/model/core.xml>`_ file.
 
@@ -217,9 +218,9 @@ Protein is a subclass of `BioEntity`, defined by `extends="BioEntity"`.  The `Pr
       <attribute name="secondaryIdentifier" type="java.lang.String"/>
     ...
 
-The model is generated from a core model XML file and any number of additions files defined in the `dbmodel/build.gradle` file, in the mineDBModelConfig.
+The model is generated from a core model XML file and any number of additions files defined in the `dbmodel/build.gradle <https://github.com/intermine/biotestmine/blob/master/dbmodel/build.gradle#L37>`_ file.
 
-.. code-block:: console
+::
 
   mineDBModelConfig {
     modelName = "genomic"
@@ -227,16 +228,16 @@ The model is generated from a core model XML file and any number of additions fi
     extraModelsEnd = ""
   }
 
-The first file merged into the core model is the `so_additions.xml` file.  This XML file is generated in the `dbmodel/build/` directory from terms listed in the so_terms file, as configured in the `dbmodel/build.gradle` file, in dbModelConfig.
+The first file merged into the core model is the `so_additions.xml` file.  This XML file is generated in the `dbmodel/build` directory from terms listed in the `so_terms` file, as configured in the `dbmodel/build.gradle <https://github.com/intermine/biotestmine/blob/master/dbmodel/build.gradle#L31>`_ file.
 
-.. code-block:: console
+::
 
   dbModelConfig {
     soTermListFilePath = "dbmodel/resources/so_terms"
     soAdditionFilePath = "dbmodel/build/so_additions.xml"
   }
 
-The build system creates classes corresponding to the Sequence Ontology terms. The model is then combined with any extra classes and fields defined in the sources to integrate, those listed as `<source>` elements in `project.xml`.  Look at an example 'additions' file for the  `UniProt source`. 
+The build system creates classes corresponding to the Sequence Ontology terms. The model is then combined with any extra classes and fields defined in the sources to integrate, those listed as `<source>` elements in `project.xml`. Look at an example 'additions' file for the  `UniProt source`. 
 
 This defines extra fields for the `Protein` class which will be added to those from the core model.  
 
