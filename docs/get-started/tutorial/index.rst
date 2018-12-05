@@ -28,7 +28,7 @@ BioTestMine
 
 Download the mine code from GitHub.
 
-.. code-block:: console
+::
   
   $ mkdir git
   $ cd git
@@ -39,9 +39,9 @@ Get rid of daemons
 
 Gradle has helper processes enabled by default. We're going to disable those by setting `-Dorg.gradle.daemon=false`
 
-.. code-block:: properties
+::
 
-  export GRADLE_OPTS="-Dorg.gradle.daemon=false"
+  ~/git $ export GRADLE_OPTS="-Dorg.gradle.daemon=false"
 
 Help! Something's gone wrong.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -55,7 +55,9 @@ BioTestMine is a dummy test mine we use to test out new features which contains 
 
 To get started, change into the directory you checked out the BiotestMine source code to and look at the sub-directories:
 
-.. code-block:: console
+.. highlight:: bash
+
+::
 
   ~/git $ cd biotestmine
   ~/git/biotestmine $ ls
