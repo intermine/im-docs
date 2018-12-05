@@ -79,4 +79,9 @@ Configuring Search Results
 
 See :doc:`/webapp/keyword-search/index` for details on how to configure the search results.
 
+Production search
+----------------------------------
+
+You can easily copy your index from your dev to your production server. You can copy the entire `/solr` directory then do `./bin/solr start`. You can also `dump / restore the index <https://lucene.apache.org/solr/guide/6_6/making-and-restoring-backups.html>`_. Be sure to copy the `managed-schema` file over as well the first time. Don't forget to restart Solr after making changes.
+
 .. index:: Solr, Lucene, search index, autocomplete
