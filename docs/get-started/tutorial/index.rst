@@ -191,7 +191,7 @@ InterMine uses an object-oriented data model, classes in the model and relations
 * The object model is defined as an XML file, that defines `classes`, their `attributes` and `references` between classes.
 * The Java classes and database schema are automatically generated from an XML file.
 
- You can easily adapt InterMine to include your own data by creating new additions files, we'll see how to do this later.
+The model is generated from a core model XML file and any number of additions files defined in the `dbmodel/build.gradle <https://github.com/intermine/biotestmine/blob/master/dbmodel/build.gradle#L37>`_ file.
 
 core.xml
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -222,8 +222,6 @@ Protein is a subclass of `BioEntity`, defined by `extends="BioEntity"`.  The `Pr
 
 Sequence Ontology
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The model is generated from a core model XML file and any number of additions files defined in the `dbmodel/build.gradle <https://github.com/intermine/biotestmine/blob/master/dbmodel/build.gradle#L37>`_ file.
 
 ::
 
@@ -267,7 +265,7 @@ This task has done several things:
 
 ::
 
-   ~/git/biotestmine$ less dbmodel/build/resources/main/genomic_model.xml 
+   ~/git/biotestmine $ less dbmodel/build/resources/main/genomic_model.xml 
 
 Look for the `Protein` class, you can see it combines fields from the core model and the UniProt additions file.
 
@@ -319,43 +317,45 @@ This has also created necessary indexes on the tables:
 
 The model XML file is stored in the database once created, this and some other configuration files are held in the `intermine_metadata` table which has `key` and `value` columns:
  
-.. code-block:: sql
+::
 
    biotestmine=# select key from intermine_metadata;
 
 Loading Data
 ----------------------
 
+Now we have the correct data model and the correct empty tables in the database. We will now run several data parsers to load our data into our database.
+
 For this tutorial we will run several data integration and post-processing steps manually. This is a good way to learn how the system works and to test individual stages. For running actual builds there is a `project_build` script that will run all steps specified in `project.xml` automatically. We will cover this later.
 
 Loading data from a source
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Loading of data is done by running the `integrate` task. You can specify one or more sources to load or choose to load all sources listed in the `project.xml` file. Now load data from the uniprot-malaria source:
+Loading of data is done by running the `integrate` gradle task. 
 
 ::
 
-  # load the uniprot data sources
+  # load the uniprot data source
   ~/git/biotestmine $ ./gradlew integrate -Psource=uniprot-malaria --stacktrace
 
-The `--stacktrace` option will display complete error messages if there is a problem.
+============= ==========================================================================================
+command       purpose
+============= ==========================================================================================
+./gradlew     Use the provided gradle wrapper so that we can be sure everyone is using the same version.
+integrate     Gradle task to run the specified data source 
+-Psource=     Data source to run. Source name should match the value in your project XML file
+--stacktrace  The `--stacktrace` option will display complete error messages if there is a problem.
+============= ==========================================================================================
  
 This will take a couple of minutes to complete, the command runs the following steps:
 
 1. Checks that a source with name `uniprot-malaria` exists in `project.xml`
-2. Reads the UniProt XML files at the location specified by `src.data.dir`
-3. Calls the parser included in the `uniprot` source with the list of files, this reads the original XML and creates `Items` which are metadata representations of the objects that will be loaded into the biotestmine database.  These items are stored in an intermediate `items` database (more about `Items` later).
-4. Reads from the `items` database, converts items to objects and loads them into the biotestmine database.
+2. Reads the UniProt XML files at the location specified by `src.data.dir` in the `project.xml` file
+3. Calls the parser included in the UniProt JAR. The JARs for every core InterMine data source are published in `JCenter <https://jcenter.bintray.com/org/intermine/>`_. The build looks for jar with the name matching "bio-source-<source-type>-<version>.jar", e.g. `bio-source-uniprot-2.0.0.jar`. Maven will automatically download the correct JARs for you.
+4. The UniProt data parser reads the original XML and creates `Items` which are metadata representations of the objects that will be loaded into the biotestmine database. These items are stored in an intermediate `items` database (more about `Items` later).
+5. Reads from the `items` database, converts items to objects and loads them into the biotestmine database.
 
-This should complete after a couple of minutes, if you see an error message then see :doc:`/support/troubleshooting-tips`.  
- 
-If an error occurred during loading and you need to try again you need to re-initialise the database again by running `buildDB`. A useful command to initialise the database and load a source from the integrate directory is:
-
-::
-
-  ~/git/biotestmine $ (./gradlew clean buildDB) && ./gradlew integrate -Psource=uniprot-malaria --stacktrace
-
-Now that the data has loaded, log into the database and view the contents of the protein table:
+This should complete after a couple of minutes. Now that the data has loaded, log into the database and view the contents of the protein table:
 
 ::
 
