@@ -13,7 +13,7 @@ Getting Started
 Software
 ^^^^^^^^^^
 
-We use `git <http://git-scm.com>`_ to manage and distribute source code and `Gradle <http://gradle.org>`_ as build system. For this tutorial you will need the following software pacakges installed locally:
+We use `git <http://git-scm.com>`_ to manage and distribute source code and `Gradle <http://gradle.org>`_ as build system. For this tutorial you will need the following software pacakges installed locally and running:
 
 * PostgreSQL
 * Git
@@ -141,7 +141,7 @@ There is a partially completed properties file for BiotestMine already. Copy it 
   $ cd
   $ cp git/biotestmine/dbmodel/resources/biotestmine.properties .intermine/
 
-Update this properties file with your postgres server location, username and password information for the two databases you just created.  The rest of the information is needed for the webapp and will be updated in Step 13.
+Update this properties file with your postgres server location, username and password information for the two databases you just created.  The rest of the information is needed for the webapp and will be updated later.
 
 For the moment you need to change `PSQL_USER` and `PSQL_PWD` in the `db.production` and `db.common-tgt-items` properties.
 
@@ -766,8 +766,7 @@ Finally, there are post-process operations that create summary information to be
 BioTestMine Post Processing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following `<post-process>` targets are included in the BioTestMine `project.xml`. 
-The post-processes are run as a single stage of the build process. (see step 11.2 below for how to run the post-processing steps).
+The following `<post-process>` targets are included in the BioTestMine `project.xml`. The post-processes are run as a single stage of the build process. 
 
 Run queries listed here before and after running the post-processing to see examples of what each step does. 
 
@@ -801,7 +800,40 @@ Each source can also provide code to execute post-process steps if required.  Th
 `summarise-objectstore`, `create-search-index` & `create-autocomplete-index` 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-These generate summary data and indexes used by the web application, see WebappConfig.
+These generate summary data and indexes used by the web application, see :doc:`/webapp/keyword-search` for details. You must have Solr installed and running for the indexes to be populated correctly. 
+
+** Install SOLR ** 
+
+Download `Solr binary package <http://archive.apache.org/dist/lucene/solr/7.2.1/>`_ and extract it to any place you like. Inside `/solr-7.2.1` directory start the server with this command:
+
+.. code-block:: bash
+    
+    # Starts the server instance on port 8983
+    solr-7.2.1 $ ./bin/solr start
+
+** Initialising Search Indexes ** 
+
+.. note::
+
+    Be sure your $GRADLE_OPTS parameter is set correctly so you have enough memory and disk space for the search index.
+
+To create a Intermine collection for search process, run this command inside the solr directory. 
+
+.. code-block:: bash
+
+    # Initialises the search index
+    # replace "flymine-search" with whatever you configured above in the properties file
+    solr-7.2.1 $ ./bin/solr create -c biotestmine-search
+
+To create a Intermine collection for autocomplete process, run this command inside the solr directory. 
+
+.. code-block:: bash
+
+    # Initaliases the autocomplete index
+    # replace "flymine-autocomplete" with whatever you configured above in the properties file
+    solr-7.2.1 $ ./bin/solr create -c biotestmine-autocomplete
+
+See :doc:`/system-requirements/software/solr` for details.
 
 Run the post-procesing
 ~~~~~~~~~~~~~~~~~~~~~~~~~
