@@ -184,7 +184,7 @@ Now we're ready to set up a database schema and load some data into our BioTestM
 Defining the model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
- InterMine uses an object-oriented data model, classes in the model and relationships between them are defined in an XML file.  Depending on which data types you include you will need different classes and fields in the model, so the model is generated from a core model XML file and any number of `additions` files.  These additions files can define extra classes to be added to the model and define extra fields for additional classes.
+InterMine uses an object-oriented data model, classes in the model and relationships between them are defined in an XML file.  Depending on which data types you include you will need different classes and fields in the model, so the model is generated from a core model XML file and any number of `additions` files.  These additions files can define extra classes to be added to the model and define extra fields for additional classes.
 
 * Elements of the model are represented by Java classes and references between them.
 * These Java classes map automatically to tables in the database schema.
@@ -196,7 +196,7 @@ Defining the model
 core.xml
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The core data model is defined in `core.xml <https://github.com/intermine/intermine/blob/master/bio/model/core.xml>`_ file.
+The core InterMine data model is defined in `core.xml <https://github.com/intermine/intermine/blob/master/bio/model/core.xml>`_ file.
 
 Note the fields defined for `Protein`:
 
