@@ -678,7 +678,7 @@ Organisms and publications in InterMine are loaded by their taxon id and PubMed 
 Fetching organism details
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You will have noticed that in previous sources and in `project.xml` we have referred to organisms by their NCBI Taxonomy id.  These are numerical ids assigned to each species and strain.  We use these for convenience in integrating data, the taxon id is a good unique identifier for organisms whereas names can come in many different formats: for example in fly data sources we see: ''Drosophila melanogaster'', ''D. melanogaster'', Dmel, DM, etc.
+You will have noticed that in previous sources and in `project.xml` we have referred to organisms by their NCBI Taxonomy id. These are numerical ids assigned to each species and strain. We use these for convenience in integrating data, the taxon id is a good unique identifier for organisms whereas names can come in many different formats: for example in fly data sources we see: ''Drosophila melanogaster'', ''D. melanogaster'', Dmel, DM, etc.
 
 Looking at the `organism` table in the database you will see that the only column filled in is `taxonid`:
 
@@ -715,11 +715,11 @@ Now run the same query in the production database, you should see details for ''
 Fetching publication details
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Publications are even more likely to be cited in different formats and are prone to errors in their description.  We will often load data referring to the same publication from multiple sources and need to ensure those publications are integrated correctly.  Hence we load only the PubMed id and fetch the details from the NCBI Entrez web service as above.
+Publications are even more likely to be cited in different formats and are prone to errors in their description.  We will often load data referring to the same publication from multiple sources and need to ensure those publications are integrated correctly. Hence we load only the PubMed id and fetch the details from the NCBI Entrez web service as above.
 
 Several InterMine sources load publications:
 
-.. code-block:: psql
+.. code-block:: sql
 
   biotestmine#  select count(*) from publication;
   biotestmine#  select * from publication limit 5;
@@ -740,8 +740,6 @@ Now details will have been added to the `publication` table:
 
 Sometimes, especially with very large numbers of publications, this source will fail to fetch details correctly.  Usually running it again will work correctly.
 
-Occasionally erroneous PubMed ids are included from some sources and their details will not be updated, there is no good way to deal with this situation.
-
 .. note::
 
   As this source depends on publication data previously loaded it should be one of the last sources run and should appear at the end of `<sources>` in `project.xml`.
@@ -751,7 +749,7 @@ Post Processing
 
 Post-processing steps are run after all data is loaded, they are specified as `<post-process>` elements in `project.xml`.  
 
-Some of these can only be run after data from multiple sources are loaded.  For example, for the Malaria genome information we load features and their locations on chromosomes from `malaria-gff` but the sequences of chromosomes from `malaria-chromosome-fasta`.  These are loaded independently and the `Chromosome` objects from each are integrated, neither of these on their own could set the sequence of each `Exon`.  However, now they are both loaded the `transfer-sequences` post-process can calculate and set the sequences for all features located on a `Chromosome` for which the sequence is known.
+Some of these can only be run after data from multiple sources are loaded. For example, for the Malaria genome information we load features and their locations on chromosomes from `malaria-gff` but the sequences of chromosomes from `malaria-chromosome-fasta`. These are loaded independently and the `Chromosome` objects from each are integrated, neither of these on their own could set the sequence of each `Exon`. However, now they are both loaded the `transfer-sequences` post-process can calculate and set the sequences for all features located on a `Chromosome` for which the sequence is known.
 
 Some post-process steps are used to homogenize data from different sources or fill in shortcuts in the data model to improve usability - e.g. `create-references`.
 
@@ -760,14 +758,14 @@ Finally, there are post-process operations that create summary information to be
 BioTestMine Post Processing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following `<post-process>` targets are included in the BioTestMine `project.xml`. The post-processes are run as a single stage of the build process. 
+The following `<post-process>` targets are included in the BioTestMine `project.xml`.
 
 Run queries listed here before and after running the post-processing to see examples of what each step does. 
 
 `create-references`
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-This fills in some shortcut references in the data model to make querying easier.  For example, `Gene` has a collection of `transcripts` and `Transcript` has a collection of `exons`.  `create-references` will follow these collections and create a `gene` reference in `Exon` and the corresponding `exons` collection in `Gene`.
+This fills in some shortcut references in the data model to make querying easier. For example, `Gene` has a collection of `transcripts` and `Transcript` has a collection of `exons`.  `create-references` will follow these collections and create a `gene` reference in `Exon` and the corresponding `exons` collection in `Gene`.
 
 .. code-block:: sql
 
@@ -778,7 +776,7 @@ The empty `geneid` column will be filled in representing the reference to gene.
 `transfer-sequences` 
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The sequence for chromosomes is loaded by `malaria-chromosome-fasta` but no sequence is set for the features located on them.  This step reads the locations of features, calculates and stores their sequence and sets the `sequenceid` column.  The `sequenceid` column for this exon is empty:
+The sequence for chromosomes is loaded by `malaria-chromosome-fasta` but no sequence is set for the features located on them. This step reads the locations of features, calculates and stores their sequence and sets the `sequenceid` column. The `sequenceid` column for this exon is empty:
 
 .. code-block:: sql
 
@@ -789,7 +787,7 @@ After running `transfer-sequences` the `sequenceid` column is filled in.
 `do-sources` 
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Each source can also provide code to execute post-process steps if required.  This command loops through all of the sources and checks whether there are any post-processing steps configured.  There aren't any for the sources we are using for BioTestMine but you should always include the `do-sources` element.
+Each source can also provide code to execute post-process steps if required. This command loops through all of the sources and checks whether there are any post-processing steps configured. There aren't any for the sources we are using for BioTestMine but you should always include the `do-sources` element.
 
 `summarise-objectstore`, `create-search-index` & `create-autocomplete-index` 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -806,10 +804,6 @@ Download `Solr binary package <http://archive.apache.org/dist/lucene/solr/7.2.1/
     solr-7.2.1 $ ./bin/solr start
 
 **Initialising Search Indexes** 
-
-.. note::
-
-    Be sure your $GRADLE_OPTS parameter is set correctly so you have enough memory and disk space for the search index.
 
 To create a Intermine collection for search process, run this command inside the solr directory. 
 
@@ -847,7 +841,7 @@ Post-processing steps can also be run individually:
 Building a Mine
 ----------------------
 
-So far we have created databases, integrated data and run post-processing with individual `ant` targets.  InterMine has a perl program called `project_build` that reads the `project.xml` definition and runs all of the steps in sequence.  It also has the option of dumping the production database during the build and recovering from these dumps in case of problems.
+So far we have created databases, integrated data and run post-processing with individual gradle tasks.  InterMine has a Perl program called `project_build` that reads the `project.xml` definition and runs all of the steps in sequence. The script has the option of creating snapshots during the build at specified checkpoints.
 
 Build complete BioTestMine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
