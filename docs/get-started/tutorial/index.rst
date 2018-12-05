@@ -11,7 +11,7 @@ Getting Started
 ----------------------
 
 Software
-^^^^^^^^^^
+~~~~~~~~~~~~~~
 
 We use `git <http://git-scm.com>`_ to manage and distribute source code and `Gradle <http://gradle.org>`_ as our build system. For this tutorial you will need the following software packages installed locally and running:
 
@@ -24,7 +24,7 @@ We use `git <http://git-scm.com>`_ to manage and distribute source code and `Gra
 See :doc:`/system-requirements/index` for configuration details.
 
 BioTestMine
-^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~
 
 Download the mine code from GitHub.
 
@@ -35,7 +35,7 @@ Download the mine code from GitHub.
   ~/git $ git clone https://github.com/intermine/biotestmine
 
 Get rid of daemons
-^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Gradle has helper processes enabled by default. We're going to disable those by setting `-Dorg.gradle.daemon=false`
 
@@ -44,7 +44,7 @@ Gradle has helper processes enabled by default. We're going to disable those by 
   ~/git $ export GRADLE_OPTS="-Dorg.gradle.daemon=false"
 
 Help! Something's gone wrong.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If at any point you need help or have a quick (or not so quick) question, please `get in touch <http://intermine.org/contact/>`_! We have a discord server, twitter and a developer mailing list. 
 
@@ -259,7 +259,7 @@ Now run the gradle task to merge all the model components, generate Java classes
   # creates the empty database tables
   ~/git/biotestmine $ ./gradlew buildDB
 
-The clean task is necessary when you have run the task before, it removes the `build` directory and any previously generated model.  
+The clean task is necessary when you have run the task before, it removes the `build` directory and any previously generated models.  
 
 This task has done several things:
 
