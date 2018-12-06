@@ -39,4 +39,4 @@ Examples
 
 For an example project XML file, see Biotestmine's `project.xml <https://github.com/intermine/biotestmine/blob/master/data/project.xml>`_ file.
 
-.. index:: project XML, versions
+.. index:: project XML

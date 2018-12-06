@@ -23,9 +23,23 @@ You should use the JARs available via `JCenter <https://jcenter.bintray.com/org/
 
     ~/git $ git clone https://github.com/intermine/intermine.git
 
-2. Copy in your changes.
+2. Checkout the InterMine version you need
 
-3. Rebuild JARs locally.
+::
+
+    # change into the correct directory
+    ~/git $ cd intermine
+    # get a list of tags
+    ~/git/intermine $ git tag -l
+
+::
+
+    # get the correct version of the InterMine software
+    ~/git/intermine $ git checkout tags/<tag_name> -b <branch_name>
+
+3. Copy in your changes.
+
+4. Rebuild JARs locally.
 
 Run the Maven command `./install` to compile and create the JARs you need to run an InterMine instance.
 
@@ -34,12 +48,12 @@ Run the Maven command `./install` to compile and create the JARs you need to run
     ~/git/intermine $ (cd plugin && ./gradlew clean && ./gradlew install) && (cd intermine && ./gradlew clean && ./gradlew install) && (cd bio && ./gradlew clean && ./gradlew install) && (cd bio/sources && ./gradlew clean && ./gradlew install)  && (cd bio/postprocess/ && ./gradlew clean && ./gradlew install)
 
 Why will Maven use my JARs instead of the published JARs?
----------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Gradle build files are configured so that Maven looks in your local Maven (`~/.m2/respository`) directory first before looking in JCenter. If Maven finds the correct version locally, those are the JARs it will use. But make sure you have the correct version!
 
 Set your InterMine version 
----------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The InterMine version you use is determined by the system variables set in your mine's `gradle.properties` file.
 
