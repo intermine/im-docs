@@ -53,7 +53,7 @@ These are global variables used by the build system. If you do not specify a ver
 
 See FlyMine's `gradle.properties <https://github.com/intermine/flymine/blob/master/gradle.properties#L1-L2>`_ file for an example.
 
-What's the deal with the plus sign in the version number?
+Which version should I use?
 ------------------------------------------------------------------
 
 The plus sign is interpreted by Maven to mean "get the latest version." e.g. `3.1.+` will retrieve intermine-api-3.1.0.jar and `2.+` will retrieve `intermine-api-2.1.1.jar`. `

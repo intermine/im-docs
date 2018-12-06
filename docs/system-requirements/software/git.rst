@@ -36,16 +36,16 @@ Run the Maven command `./install` to compile and create the JARs you need to run
 Why will Maven use my JARs instead of the published JARs?
 ---------------------------------------------------------------
 
-The Gradle build files are set up that Maven looks in your local Maven (`~/.m2/respository`) directory first before looking in JCenter. If Maven finds the correct version locally, those are the JARs it will use. But make sure you have the correct version!
+The Gradle build files are configured so that Maven looks in your local Maven (`~/.m2/respository`) directory first before looking in JCenter. If Maven finds the correct version locally, those are the JARs it will use. But make sure you have the correct version!
 
 Set your InterMine version 
 ---------------------------------------------
 
 The InterMine version you use is determined by the system variables set in your mine's `gradle.properties` file.
 
-Make sure you have your :doc:`InterMine Version /database/data-sources/versions/` set correctly. If you want to use local JARs, it's best to specify the exact version, e.g. `2.1.1`, of your local JARs. Do this in your mine's `gradle.properties` file.
+Make sure you have your :doc:`/database/data-sources/versions/` set correctly. If you want to use local JARs, it's best to specify the exact version, e.g. `2.1.1`, of your local JARs. Do this in your mine's `gradle.properties` file.
 
-If you use `2.1.+` there's a possiblity a 
+If you use `2.1.+` there's a possiblity a newer version of InterMine is published. The plus sign instructs Maven to get the latest version of InterMine in *any* repository. In which case, Maven would use the newer JARs in JCenter instead of your local JARs.
 
 
 .. index:: git
