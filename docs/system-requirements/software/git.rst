@@ -3,11 +3,49 @@ Git
 
 `Git <http://git-scm.com>`_ is our source control software.  Download and install git on your local machine.
 
-InterMine is available via JCenter as executable JARs. We do not recommend downloading the source code. 
+.. note::
 
-Our code is available on `GitHub <https://github.com/intermine/intermine>`_
+    InterMine is available via JCenter as executable JARs. We do not recommend downloading the InterMine source code. 
+
+InterMine code is available on `GitHub <https://github.com/intermine/intermine>`_
 
 * `create your account in github <https://github.com/signup/free>`_
 * login and go in 'Account Settings' section to configure the `SSH keys <https://help.github.com/articles/generating-ssh-keys>`_
- 
+
+Local Installation
+----------------------
+
+You should use the JARs available via `JCenter <https://jcenter.bintray.com/org/intermine/>`_. However, if you want to make custom changes to InterMine, you can install locally.
+
+1. Get InterMine code
+
+::
+
+    ~/git $ git clone https://github.com/intermine/intermine.git
+
+2. Copy in your changes.
+
+3. Rebuild JARs locally.
+
+Run the Maven command `./install` to compile and create the JARs you need to run an InterMine instance.
+
+::
+
+    ~/git/intermine $ (cd plugin && ./gradlew clean && ./gradlew install) && (cd intermine && ./gradlew clean && ./gradlew install) && (cd bio && ./gradlew clean && ./gradlew install) && (cd bio/sources && ./gradlew clean && ./gradlew install)  && (cd bio/postprocess/ && ./gradlew clean && ./gradlew install)
+
+Why will Maven use my JARs instead of the published JARs?
+---------------------------------------------------------------
+
+The Gradle build files are set up that Maven looks in your local Maven (`~/.m2/respository`) directory first before looking in JCenter. If Maven finds the correct version locally, those are the JARs it will use. But make sure you have the correct version!
+
+Set your InterMine version 
+---------------------------------------------
+
+The InterMine version you use is determined by the system variables set in your mine's `gradle.properties` file.
+
+Make sure you have your :doc:`InterMine Version /database/data-sources/versions/` set correctly. If you want to use local JARs, it's best to specify the exact version, e.g. `2.1.1`, of your local JARs. Do this in your mine's `gradle.properties` file.
+
+If you use `2.1.+` there's a possiblity a 
+
+
 .. index:: git
