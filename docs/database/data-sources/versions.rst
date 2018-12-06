@@ -1,10 +1,10 @@
-Data Source Versions
+InterMine Versions
 ================================
 
 InterMine JARs are versioned
 ---------------------------------
 
-The JAR for each InterMine source and postprocess is versioned. This version is set in the `build.gradle` for that source. 
+The JAR for each InterMine package is versioned. This version is set in the `build.gradle` for that package. 
 
 For example, the latest InterMine version is set in the `build.gradle <https://github.com/intermine/intermine/blob/dev/bio/sources/build.gradle#L24>`_ file for InterMine's bio-sources. If the version is set to be `2.3.4` in that file, for example, the JARs on Maven will be available for that version, e.g. "bio-source-uniprot-2.3.4.jar". 
 

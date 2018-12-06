@@ -7,10 +7,7 @@ Git
 
     InterMine is available via JCenter as executable JARs. We do not recommend downloading the InterMine source code. 
 
-InterMine code is available on `GitHub <https://github.com/intermine/intermine>`_
-
-* `create your account in github <https://github.com/signup/free>`_
-* login and go in 'Account Settings' section to configure the `SSH keys <https://help.github.com/articles/generating-ssh-keys>`_
+InterMine source code is available via `GitHub <https://github.com/intermine/intermine>`_.
 
 Local Installation
 ----------------------
@@ -25,6 +22,8 @@ You should use the JARs available via `JCenter <https://jcenter.bintray.com/org/
 
 2. Checkout the InterMine version you need
 
+Get the list of valid tags.
+
 ::
 
     # change into the correct directory
@@ -32,16 +31,18 @@ You should use the JARs available via `JCenter <https://jcenter.bintray.com/org/
     # get a list of tags
     ~/git/intermine $ git tag -l
 
+Checkout the correct tag for the InterMine version you want to use.
+
 ::
 
     # get the correct version of the InterMine software
     ~/git/intermine $ git checkout tags/<tag_name> -b <branch_name>
 
-3. Copy in your changes.
+3. Copy in your changes to the InterMine code.
 
 4. Rebuild JARs locally.
 
-Run the Maven command `./install` to compile and create the JARs you need to run an InterMine instance.
+Run the Maven task `install` to compile and create the JARs you need to run an InterMine instance.
 
 ::
 
