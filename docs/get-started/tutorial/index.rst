@@ -4,7 +4,7 @@ Tutorial
 Following the steps on this page you will set up an example InterMine.  You will:
 
  * Load some real data sets for Malaria (*P. falciparum*)
- * Learn about post-processing after data is loaded
+ * Learn about how data integration works
  * Deploy a webapp to query the data
 
 Getting Started
@@ -13,7 +13,7 @@ Getting Started
 Software
 ~~~~~~~~~~~~~~
 
-We use `git <http://git-scm.com>`_ to manage and distribute source code and `Gradle <http://gradle.org>`_ as our build system. For this tutorial you will need the following software packages installed locally and running:
+We use `git <http://git-scm.com>`_ to manage and distribute source code and `gradle <http://gradle.org>`_ as our build system. For this tutorial you will need the following software packages installed locally and running:
 
 * PostgreSQL
 * Git
@@ -62,16 +62,19 @@ To get started, change into the directory you checked out the BiotestMine source
   ~/git $ cd biotestmine
   ~/git/biotestmine $ ls
 
-We will look at each of the sub-directories in much more detail later, they are:
+================== ==========================================================================================
+directory/file     purpose
+================== ==========================================================================================
+/dbmodel           contains information about the data model and related configuration files
+/webapp            basic configuration for the webapp
+/data              contains a tar file with data to load
+build.gradle       The `--stacktrace` option will display complete error messages if there is a problem.
+gradle.properties  Sets system variables. Determines which version of InterMine you use.
+settings.gradle    Sets gradle projects. Do not edit.
+project.xml        Configures which data parsers are run during your build.
+================== ==========================================================================================
 
-``dbmodel``
-  contains information about the data model and related configuration files
-``webapp`` 
-  basic configuration for the webapp
-``data``
-  contains a tar file with data to load
-
-In addition there are gradle files, used by the InterMine build system, which we won't need to edit (`build.gradle`, `gradle.properties`, and `settings.gradle`) and a `project.xml` file.
+There is also a gradle directory (`/gradle`) and executables (`gradlew, gradle.bat`).
 
 Project.xml
 ~~~~~~~~~~~~~~~~~~
@@ -81,7 +84,13 @@ The `project.xml` allows you to configure which data to load into your Mine. The
 <sources>
 ^^^^^^^^^^
 
-The `<source>` elements list and configure the data sources to be loaded, each one has a `type` that corresponds to the name of the bio-source artifact (jar) which includes parsers to retrieve data and information on how it will be integrated. The `name` can be anything and can be the same as `type`, using a more specific name allows you to define specific integration keys (more on this later).  
+The `<source>` elements list and configure the data sources to be loaded. A source can have a name and a type.
+
+`type` 
+  Corresponds to the name of the bio-source artifact (jar) which includes parsers to retrieve data and information on how it will be integrated. 
+
+`name` 
+  can be anything and can be the same as `type`, using a more specific name allows you to define specific integration keys.  
 
 `<source>` elements can have several properties depending on source type: `src.data.dir`, `src.data.file` and `src.data.includes` are all used to define locations of files that the source should load. Other properties are used as parameters to specific parsers.
 
@@ -89,20 +98,15 @@ The `<source>` elements list and configure the data sources to be loaded, each o
 <post-processing>
 ^^^^^^^^^^^^^^^^^^^^
 
-Specific operations can be performed on the Mine once data is loaded, these are listed here as `<post-process>` elements.  We will look at these in more detail later.
+Specific operations can be performed on the Mine once data is loaded, these are listed here as `<post-process>` elements. We will look at these in more detail later.
 
 
 Data to load
 ~~~~~~~~~~~~~~~
 
-The biotestmine checkout includes a tar file with data to load into BiotestMine. These are real, complete data sets for *P. falciparum* (but very old!). We will load genome annotation from PlasmoDB, protein data from UniProt and GO annotation also from PlasmoDB.
+The biotestmine git repository includes a tar file with data to load into BiotestMine. These are real, complete data sets for *P. falciparum* (but very old!). We will load genome annotation from PlasmoDB, protein data from UniProt and GO annotation also from PlasmoDB. See :doc:`/get-started/tutorial/test-data`for details on the data. 
 
-.. toctree::
-   :maxdepth: 2
-   
-   test-data 
-
-Copy this to some local directory (your home directory is fine for this workshop) and extract the archive:
+Copy this to a local directory (your home directory is fine for this workshop) and extract the archive:
 
 ::
 
@@ -189,7 +193,7 @@ Now we're ready to set up a database schema and load some data into our BioTestM
 Defining the model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-InterMine uses an object-oriented data model, classes in the model and relationships between them are defined in an XML file.  Depending on which data types you include you will need different classes and fields in the model, so the model is generated from a core model XML file and any number of `additions` files.  These additions files can define extra classes to be added to the model and define extra fields for additional classes.
+InterMine uses an object-oriented data model, classes in the model and relationships between them are defined in an XML file.  Depending on which data types you include you will need different classes and fields in the model, so the model is generated from a core model XML file and any number of `additions` files. These additions files can define extra classes and fields to be added to the model.
 
 * Elements of the model are represented by Java classes and references between them.
 * These Java classes map automatically to tables in the database schema.
@@ -344,7 +348,7 @@ Loading of data is done by running the `integrate` gradle task.
   ~/git/biotestmine $ ./gradlew integrate -Psource=uniprot-malaria --stacktrace
 
 ============= ==========================================================================================
-command       purpose
+              purpose
 ============= ==========================================================================================
 ./gradlew     Use the provided gradle wrapper so that we can be sure everyone is using the same version.
 integrate     Gradle task to run the specified data source 
