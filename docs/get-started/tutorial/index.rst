@@ -482,10 +482,8 @@ The files we are loading are from PlasmoDB and contain `gene`, `exon` and `mRNA`
 The GFF3 source
 ~~~~~~~~~~~~~~~~~
 
-InterMine includes a parser to load valid GFF3 files. The creation of features, sequence features (usually chromosomes), locations and standard attributes is taken care of automatically.  
+InterMine includes a parser to load valid GFF3 files. The creation of features, sequence features, locations and standard attributes is taken care of automatically.  
  
-Many elements can be configured by properties in `project.xml`, to deal with any specific attributes or perform custom operations on each feature you can  write a handler in Java which will get called when reading each line of GFF.
-
 Other `gff3` properties can be configured in the `project.xml` The properties set for `malaria-gff` are:
 
 gff3.seqClsName = Chromosome
@@ -503,7 +501,9 @@ gff3.seqDataSourceName = PlasmoDB
 gff3.dataSetTitle = PlasmoDB P. falciparum genome
   a DataSet object is created as evidence for the features, it is linked to a DataSource (PlasmoDB)
 
-In some cases specific code is required to deal with attributes in the gff file and any special cases.  A specific `source` can be created to contain the code to do this and any additions to the data model necessary.  For malaria gff we need a handler to switch which fields from the file are set as `primaryIdentifier` and `symbol`/`secondaryIdentifier` in the features created. This is to match the identifiers from UniProt, it is quite a common issue when integrating from multiple data sources.
+You can also configure GFF properties in the gff.config file. See :doc:`/database/data-sources/library/gff` for details.
+
+To deal with any specific attributes or perform custom operations on each feature you can write a handler in Java which will get called when reading each line of GFF. For malaria gff we need a handler to switch which fields from the file are set as `primaryIdentifier` and `symbol`/`secondaryIdentifier` in the features created. This is to match the identifiers from UniProt, it is quite a common issue when integrating from multiple data sources.
 
 From the example above, by default: `ID=gene.46311;description=hypothetical%20protein;Name=PFA0210c` would make `Gene.primaryIdentifier` be `gene.46311` and `Gene.symbol` be `PFA0210c`.  We need `PFA0210c` to be the `primaryIdentifier`.
 
@@ -518,7 +518,6 @@ Look at the `malaria-gff.properties` file - there are two properties of interest
   gff3.handlerClassName = org.intermine.bio.dataconversion.MalariaGFF3RecordHandler
 
 The property file has specified a Java class to process the GFF file, `MalariaGFF3RecordHandler <https://github.com/intermine/intermine/blob/master/bio/sources/example-sources/malaria-gff/src/main/java/org/intermine/bio/dataconversion/MalariaGFF3RecordHandler.java>`_. This code changes which fields the `ID` and `Name` attributes from the GFF file have been assigned to.
-
 
 Loading GFF3 data
 ~~~~~~~~~~~~~~~~~
@@ -693,7 +692,7 @@ Organisms and publications in InterMine are loaded by their taxon id and PubMed 
 Fetching organism details
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You will have noticed that in previous sources and in `project.xml` we have referred to organisms by their NCBI Taxonomy id. These are numerical ids assigned to each species. We use these for convenience in integrating data, the taxon id is a good unique identifier for organisms whereas names can come in many different formats: for example in fly data sources we see: ''Drosophila melanogaster'', ''D. melanogaster'', Dmel, DM, etc.
+You will have noticed that in previous sources and in `project.xml` we have referred to organisms by their NCBI Taxonomy id. These are numerical ids assigned to each species. We use these for convenience in integrating data, the taxon id is a good unique identifier for organisms whereas names can come in many different formats: for example in fly data sources we see: `Drosophila melanogaster`, `D. melanogaster`, Dmel, DM, etc.
 
 Looking at the `organism` table in the database you will see that the only column filled in is `taxonid`:
 
