@@ -21,7 +21,7 @@ We use `git <http://git-scm.com>`_ to manage and distribute source code and `gra
 * Solr
 * Perl (for the final build script)
 
-See :doc:`/system-requirements/index` for configuration details.
+See :doc:`/system-requirements/software/index` for configuration details.
 
 BioTestMine
 ~~~~~~~~~~~~~~
@@ -934,9 +934,15 @@ Run the following command to release your webapp:
 
 ::
 
-  # start tomcat
-  ~/git/biotestmine $ ./gradlew tomcatStartWar
+  # deploy the webapp (tomcat must be running)
+  ~/git/biotestmine $ ./gradlew cargoDeployRemote
 
+If you make changes, redeploy your webapp with this command:
+
+::
+
+  # REdeploy the webapp (tomcat must be running)
+  ~/git/biotestmine $ ./gradlew cargoReDeployRemote
 
 Using the webapp
 ~~~~~~~~~~~~~~~~~
