@@ -48,6 +48,8 @@ Run the Maven task `install` to compile and create the JARs you need to run an I
 
     ~/git/intermine $ (cd plugin && ./gradlew clean && ./gradlew install) && (cd intermine && ./gradlew clean && ./gradlew install) && (cd bio && ./gradlew clean && ./gradlew install) && (cd bio/sources && ./gradlew clean && ./gradlew install)  && (cd bio/postprocess/ && ./gradlew clean && ./gradlew install)
 
+This places the JARs in `~/.m2/repository`. You can now build a database and deploy a webapp, and your custom local JARs will be used.
+
 Why will Maven use my JARs instead of the published JARs?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

@@ -23,9 +23,7 @@ k
 M
     the number of objects annotated with item in the reference population
 
-.. note::
-
-    The relevant `Java source <http://commons.apache.org/math/apidocs/org/apache/commons/math/distribution/HypergeometricDistributionImpl.html#getDomainUpperBound%28double%29 HypergeometricDistributionImpl.java>`_.
+Apache library - `Hypergeometric Distribution <https://commons.apache.org/proper/commons-math/javadocs/api-2.2/org/apache/commons/math/distribution/HypergeometricDistributionImpl.html>`_
 
 Multiple Test Correction
 ------------------------
