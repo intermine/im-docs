@@ -13,7 +13,7 @@ InterMine can be rather memory-intensive, so you will probably need to set memor
 .. code-block:: bash
 
     # ~/.bashrc file
-	$ export ANT_OPTS="-server -Xmx8g -XX:+UseParallelGC -Xms2g -XX:SoftRefLRUPolicyMSPerMB=1 -XX:MaxHeapFreeRatio=99 -Dorg.gradle.daemon=false"
+	$ export GRADLE_OPTS="-server -Xmx8g -XX:+UseParallelGC -Xms2g -XX:SoftRefLRUPolicyMSPerMB=1 -XX:MaxHeapFreeRatio=99 -Dorg.gradle.daemon=false"
 
 Run `source` to use this value in the current session.
 
