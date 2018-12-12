@@ -132,4 +132,4 @@ Common issues:
 
 See :doc:`/support/troubleshooting-tips` for common error messages.
 
-.. index:: gradle, ant, Maven
+.. index:: gradle, ant, maven

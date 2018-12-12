@@ -65,4 +65,4 @@ Make sure you have your :doc:`/database/data-sources/versions/` set correctly. I
 If you use `2.1.+` there's a possiblity a newer version of InterMine is published. The plus sign instructs Maven to get the latest version of InterMine in *any* repository. In which case, Maven would use the newer JARs in JCenter instead of your local JARs.
 
 
-.. index:: git
+.. index:: git, maven, JARs
