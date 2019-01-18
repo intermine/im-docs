@@ -56,7 +56,7 @@ You'll need to configure our web framework (Struts) to properly load your JSP pa
 
     <definition name="api.tile" path="/api.jsp"/>
 
-Finally, add your JSP file to the `MINE_NAME/webapp/src/main/resources/webapp` directory and re-release your webapp.
+Finally, add your JSP file to the `MINE_NAME/webapp/src/main/webapp` directory and re-release your webapp.
 
 Keyword search box
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
