@@ -24,7 +24,7 @@ Each page has a name and a tab, for example:
 
 In addition to InterMine's file, each mine has its own internationalisation file: `MINE_NAME/webapp/src/main/resources/model.properties`. Properties set in this file overwrite the ones set in InterMine's ``InterMineWebApp.properties``. Below is an example of how to add tabs to your mine. Replace "api" with the name of your new tab.
 
-First, copy `headMenu.jsp` from InterMine to your local mine: `MINE_NAME/webapp/src/main/webapp`.Add your new tab.
+First, copy `headMenu.jsp` from InterMine to your local mine: `MINE_NAME/webapp/src/main/webapp`. Add your new tab.
 
 .. code-block:: guess
 
