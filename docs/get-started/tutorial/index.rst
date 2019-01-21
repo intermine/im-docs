@@ -114,11 +114,12 @@ Copy this to a local directory (your home directory is fine for this workshop) a
   $ cp git/biotestmine/data/malaria-data.tar.gz .
   $ tar -zxvf malaria-data.tar.gz
 
-In your `biotestmine` directory edit `project.xml` to point each source at the extracted data, just replace `/data` with `/home/username` (or on a mac `/Users/username`). Do use the absolute path.
+A dummy project XML file is available in the `/data/` directory. Copy it into your `biotestmine` directory, then edit `project.xml` to point each source at the extracted data, just replace `/data` with `/home/username` (or on a mac `/Users/username`). Do use the absolute path.
 
 ::
 
   $ cd ~/git/biotestmine
+  $ cp ~/git/biotestmine/data/project.xml .
   ~/git/biotestmine $ sed -i 's/\/data/\/home\/username/g' project.xml
 
 For example, the `uniprot-malaria` source:
