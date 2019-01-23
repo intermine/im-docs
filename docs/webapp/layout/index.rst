@@ -121,6 +121,6 @@ You need to change this property to the name of the theme you want to use (the d
 Developing your own theme
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With CSS knowledge and open source image software such as `Gimp <http://www.gimp.org>`_ or `Inkscape <http://www.inkscape.org>`_ you can develop your own theme. Each theme directory contains a ``theme.css`` file, which is broken down in annotated sections, and image files. The image files are required for displaying menus, headers and backgrounds and can be modified with image software to match your colour scheme. Create a new directory under ``webapp/src/main/webapp/model``, copy the contents of another theme directory into it and start editing.
+With CSS knowledge and open source image software such as `Gimp <http://www.gimp.org>`_ or `Inkscape <http://www.inkscape.org>`_ you can develop your own theme. Each theme directory contains a ``theme.css`` file, which is broken down in annotated sections, and image files. The image files are required for displaying menus, headers and backgrounds and can be modified with image software to match your colour scheme. Create a new directory under ``webapp/src/main/webapp/themes``, copy the contents of another theme directory into it and start editing.
 
 .. index:: themes, layout, look & feel, footer, header, favicon, tabs, logo
