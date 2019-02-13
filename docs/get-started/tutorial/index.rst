@@ -120,7 +120,7 @@ A dummy project XML file is available in the `/data/` directory. Copy it into yo
 
   $ cd ~/git/biotestmine
   $ cp ~/git/biotestmine/data/project.xml .
-  ~/git/biotestmine $ sed -i 's/\/data/\/home\/username/g' project.xml
+  ~/git/biotestmine $ sed -i 's/\DATA\_DIR/\/home\/username/g' project.xml
 
 For example, the `uniprot-malaria` source:
 
