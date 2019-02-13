@@ -171,3 +171,12 @@ List of Perl Modules to Install
  * Digest::MD5
 
 .. index:: Perl installation
+
+How to install all the Perl Modules to Run the Data Downloader Script
+---------------------------------------------
+
+In order to download all the Perl scripts required by the Data Downloader script, use the following cpan installation command:
+
+.. code-block:: bash
+
+  $ cpan install DateTime Module::Find Web::Scraper Ouch Number::Format PerlIO::gzip Perl6::Junction List::MoreUtils LWP Module::Find Moose MooseX::Role::WithOverloading MooseX::Types Text::CSV_XS URI XML::Parser::PerlSAX XML::DOM Text::Glob MooseX::FollowPBP MooseX::ABC MooseX::FileAttribute
