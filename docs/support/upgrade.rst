@@ -6,7 +6,7 @@ See `Release notes <https://github.com/intermine/intermine/releases>`_ for detai
 Upgrade Instructions
 ---------------------
 
-For non-disruptive releases, you can upgrade your mine but incrementing your version number in your mine's `gradle.properties` file:
+For non-disruptive releases, you can upgrade your mine by incrementing your version number in your mine's `gradle.properties` file:
 
  .. code-block:: guess
 
