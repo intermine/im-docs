@@ -9,7 +9,7 @@ genes, diseases
 How to download the data 
 ---------------------------
 
-N/A - source uses OMIM's web services
+Contact OMIM for your API key. Use our `script <https://github.com/intermine/intermine-scripts/blob/master/bio/humanmine/get_omim_pubmed.py>`_ to download the data. 
 
 
 How to load the data into your mine
