@@ -167,7 +167,7 @@ To update your local packages
 
     ./gradlew install
 
-* See :doc:`Local installation </system-requirements/software/git` for how to install InterMine locally. (You shouldn't do this normally, instead use the JARs available via Maven).
+* See :doc:`Local installation </system-requirements/software/git/>` for how to install InterMine locally. (You shouldn't do this normally, instead use the JARs available via Maven).
 * Always use `./gradlew` instead of `gradle`. This is the wrapper that comes with InterMine and ensure that everyone is using the same version.
 
 
