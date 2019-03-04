@@ -120,6 +120,11 @@ Currently set to **2.1+**
 
 You can overwrite this value and set these values in your mine's `gradle.properties` file.
 
+I want to make a change to InterMine. How do I install InterMine locally?
+--------------------------------------------------------------------------------------------
+
+See :doc:`Local installation </system-requirements/software/git/#local-installation>` for how to install InterMine locally.
+
 I got a different error! Help!
 ----------------------------------------------
 
