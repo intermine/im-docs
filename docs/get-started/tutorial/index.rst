@@ -156,7 +156,7 @@ There is a partially completed properties file for BioTestMine already. Copy it 
 ::
 
   $ cd
-  $ cp git/biotestmine/dbmodel/resources/biotestmine.properties .intermine/
+  $ cp git/biotestmine/data/biotestmine.properties .intermine/
 
 Update this properties file with your postgres server location, username and password information for the two databases you just created.  The rest of the information is needed for the webapp and will be updated later.
 
