@@ -41,7 +41,7 @@ can now generate such triggers if you invoke the ant generate-update-triggers in
   cd $MINE
   ./gradlew generateUpdateTriggers
 
-This will generate two SQL files in the build/model/ subdirectory
+This will generate two SQL files in the dbmodel/build/resources/main/ subdirectory
 
 .. code-block:: bash
 
