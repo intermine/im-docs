@@ -28,7 +28,7 @@ url              The url of the InterMine instance                              
 dataset          The list of the datasets stored in the InterMine instance containing name and url
 ===============  ==================================================================================================== ============================================================
 
-.. [1] When an InterMine instance is added to the registry, an unique and persistent namespace is assigned by the administrato. Some examples of namespaces: flymine, humanmine, flymine.beta. The identifier will be: https://registry.intermine.org/{namespace}. These identifiers are actionable, so if you put https://registry.intermine.org/{namespace} in the address bar of your browser, you will be redirected to URL set in the registry for the FlyMine. If the InterMine instance is not register, the url will be used instead.
+.. [1] When an InterMine instance is added to the registry, an unique and persistent namespace is assigned by the administrator. Some examples of namespaces: flymine, humanmine, flymine.beta. The identifier will be: https://registry.intermine.org/{namespace}. These identifiers are actionable, so if you put https://registry.intermine.org/{namespace} in the address bar of your browser, you will be redirected to URL set in the registry for the FlyMine. If the InterMine instance is not register, the url will be used instead.
 
 Report page markup for DataSet
 ------------------------------
