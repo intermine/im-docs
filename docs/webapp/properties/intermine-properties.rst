@@ -87,6 +87,18 @@ feedback.destination    test_user@mail_address                                  
 
 This is the normal mailer. There is a different configuration for SMTP.
 
+Web pages markup
+----------------
+
+We have applied structured data in JSON-LD format to InterMine web pages. They are disable by default, to enable them use the property markup.webpages.enable
+
+======================  =========================================================  ===================================================================
+Property name           Example                                                    Determines  
+======================  =========================================================  ===================================================================
+markup.webpages.enable  true                                                       enable JSON-LD 
+======================  =========================================================  ===================================================================
+
+
 Multiple versions of a mine
 ----------------------------
 
