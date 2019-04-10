@@ -37,6 +37,6 @@ Report page markup for DataSet
 property         description                                                                  example
 ================ ============================================================================ ===========================================
 name             The name of the dataset                                                      FlyAtlas
-url              The url of the dataset, if provided, or the permanent URL of the report page http://www.flyatlas.org/
-mainEntityOfPage The permanent URL of the report page                                         http://flymine.org/flymine/dataset:flyatlas
+identifier       The url of the dataset, if provided, or the permanent URL of the report page http://www.flyatlas.org/
+url              The permanent URL of the report page                                         http://flymine.org/flymine/dataset:flyatlas
 ================ ============================================================================ ===========================================
