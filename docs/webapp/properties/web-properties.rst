@@ -42,6 +42,9 @@ theme
 xrefLink
     Used to configure hyperlinks for CrossReferences.  See below
 
+markup.webpages.enable
+    Used to enable structured data in JSON-LD format in InterMine web pages. Valid values: true or false
+
 Branding
 -----------
 These parameters are returned by the branding API end point, and are used by external applications, e.g. the InterMine iOS app, the InterMine registry and the InterMine R client.
