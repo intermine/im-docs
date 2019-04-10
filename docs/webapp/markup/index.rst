@@ -3,7 +3,7 @@ Web pages markup
 
 We have applied structured data in JSON-LD format to InterMine web pages (using `Bioschemas.org  <https://bioschemas.org>`_ types and profiles), to improve findability so search engines can give more relevant results to users.
 
-The markup are disabled by default, to enable them set the property *markup.webpages.enable* to true in the mine specific properties file.
+The markup are disabled by default, to enable them set the property *markup.webpages.enable* to true in the web.properties file.
 
 We have applied the following markup:
 
