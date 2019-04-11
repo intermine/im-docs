@@ -11,8 +11,8 @@ For non-disruptive releases, you can upgrade your mine by incrementing your vers
  .. code-block:: guess
 
 	# example -- flymine's gradle.properties
-	systemProp.imVersion=3.1.1
-	systemProp.bioVersion=3.1.1
+	systemProp.imVersion=3.1.2
+	systemProp.bioVersion=3.1.2
 
 To get patch updates automatically, use the plus (+) notation:
 
@@ -23,6 +23,12 @@ To get patch updates automatically, use the plus (+) notation:
 	systemProp.bioVersion=3.1.+
 
 Read more about `versioning <https://intermine.readthedocs.io/en/latest/database/data-sources/versions/#how-do-i-specify-which-version-to-use-in-my-build>`_
+
+InterMine 3.1.2
+---------------------
+
+This is a non-disruptive release.
+
 
 InterMine 3.1.1
 ---------------------
