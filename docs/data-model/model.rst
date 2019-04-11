@@ -119,6 +119,8 @@ It's possible to decorate your InterMine data model with ontology terms.
 
 This isn't used anywhere (yet) but will be used in the future when we start generating RDF.
 
+See for :doc:`How to add ontology terms to your model </data-model/model-ontologies>` for details. 
+
 A short example
 -----------------------
 
@@ -127,8 +129,8 @@ A short example
   <?xml version="1.0"?>
   <model name="testing" package="org.intermine.model.bio">
 
-    <class name="Protein" is-interface="true">
-      <attribute name="name" type="java.lang.String"/>
+    <class name="Protein" is-interface="true" term="http://semanticscience.org/resource/SIO_010043">
+      <attribute name="name" type="java.lang.String" term="http://edamontology.org/data_2099"/>
       <attribute name="extraData" type="java.lang.String"/> 
       <collection name="features"  referenced-type="NewFeature" reverse-reference="protein"/>  
     </class>

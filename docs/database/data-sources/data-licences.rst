@@ -3,26 +3,19 @@ Data Licences
 
 You are using InterMine to integrate several data sets into a single database, for ease of querying for your end users. It's important that you make it very clear to your users how the data in your mine is licenced and how it can be re-used.
 
-DataSet.licence
-----------------
+New DataSet.licence field
+--------------------------------
 
 In InterMine 4.0, we've added `licence` to the "data set" model as a text field. This column is meant to be a **URL** to point to the standard data licence, e.g. https://creativecommons.org/licenses/by/4.0/
 
 .. code-block:: xml
 
-    <!-- InterMine 4.0.0 -->
-    <class name="DataSet" is-interface="true" term="http://semanticscience.org/resource/SIO_000089">
-        <attribute name="description" type="java.lang.String" term="http://semanticscience.org/resource/SIO_000136"/>
+    <!-- InterMine 4.0.0 data model -->
+    <class name="DataSet" is-interface="true" term="http://semanticscience.org/resource/SIO_000089">        
         <!-- licence is a new text field -->
         <attribute name="licence" type="java.lang.String" term="http://purl.org/dc/terms/license"/>
-        <attribute name="url" type="java.lang.String" term="http://edamontology.org/data_1052"/>
-        <attribute name="name" type="java.lang.String" term="http://edamontology.org/data_2099"/>
-        <attribute name="version" type="java.lang.String" term="http://semanticscience.org/resource/SIO_000653"/>
-        <reference name="dataSource" referenced-type="DataSource" reverse-reference="dataSets"/>
-        <reference name="publication" referenced-type="Publication"/>
-        <collection name="bioEntities" referenced-type="BioEntity" reverse-reference="dataSets"/>
+        ...
     </class>
-
 
 How is this information being used?
 ------------------------------------
@@ -37,7 +30,7 @@ The contents of `DataSet.licence` should a URL that points to a standard data li
 Why can't I put a URL to the fair use policy?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you put a URL to the data source's fair use policy for example, the URL might change. Also, sometimes the fair use policy is vague, contradictory or just hard to understand. 
+If you put a URL to the data source's fair use policy for example, the URL might change. Also, sometimes the fair use policy is vague, contradictory or just hard to understand. It's better to only use standard data licences.
 
 Why can't I put a short snippet about the fair use policy for these data?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -79,6 +72,8 @@ FASTA
       <property name="fasta.licence" value="https://creativecommons.org/licenses/by/4.0/"/>
       ...
     </source>
+
+NB: The prefix has to match the `type` of the data source.
 
 OBO
 
