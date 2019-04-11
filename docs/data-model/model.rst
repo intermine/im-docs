@@ -112,6 +112,12 @@ Many to many relationship
    e.g. Gene has a collection of Pathways and Pathway has a collection of Genes, fill in either Gene.pathways or Pathway.genes but not both.  
    If Pathway.genes contains e.g. 20,000 items and Gene.pathways typically 100 items then it is faster to populate Gene.pathways.
 
+Ontologies
+-----------------------
+
+It's possible to decorate your InterMine data model with ontology terms. 
+
+This isn't used anywhere (yet) but will be used in the future when we start generating RDF.
 
 A short example
 -----------------------
@@ -121,7 +127,7 @@ A short example
   <?xml version="1.0"?>
   <model name="testing" package="org.intermine.model.bio">
 
-    <class name="Protein>" is-interface="true">
+    <class name="Protein" is-interface="true">
       <attribute name="name" type="java.lang.String"/>
       <attribute name="extraData" type="java.lang.String"/> 
       <collection name="features"  referenced-type="NewFeature" reverse-reference="protein"/>  

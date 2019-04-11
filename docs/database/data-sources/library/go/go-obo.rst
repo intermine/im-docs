@@ -21,7 +21,7 @@ project XML example
 .. code-block:: xml
 
     <source name="go" type="go">
-      <property name="src.data.file" location="/data/go-annotation/go-basic.obo"/>
+      <property name="src.data.file" location="/data/go-annotation/go-basic.obo"/>            
     </source>
 
 `go-basic.obo` should load in a few minutes. `go.obo` is much more complex and takes a few hours and lots of memory.
@@ -29,5 +29,9 @@ project XML example
 Optional parameter: <property name="ontologyPrefix" value="FBbt"/>
 
 This parameter causes the data parser to only load ontology terms with that prefix. Some OBO files have cross references that include ontology terms from other ontologies. Unfortunately the file doesn't include which terms correspond to which ontologies so we have to set the prefix.
+
+Optional parameter: <property name="licence" value="https://creativecommons.org/licenses/by/4.0/"/>
+
+This parameter will update the DataSet.licence field with the value you specify.
 
 .. index:: GO, gene ontology, OBO

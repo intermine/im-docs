@@ -79,24 +79,27 @@ Here is an example GFF3 entry in the project XML file:
 	# NOTE: update the "type" if you are using your own custom GFF3 parser
 
     <source name="example-gff3" type="gff">
-      <property name="gff3.taxonId" value="7227"/>
+      <property name="gff3.taxonId" value="9606"/>
       <property name="gff3.seqClsName" value="Chromosome"/>
       <property name="src.data.dir" location="/DATA/*.gff3"/>
       <property name="gff3.dataSourceName" value="NCBI"/>
       <property name="gff3.dataSetTitle" value="Release GRCh38 of the Homo sapiens genome sequence"/>
+      <!-- add licence here -->
+      <property name="gff3.licence" value="https://creativecommons.org/licenses/by-sa/3.0/" />
     </source>
 
 Here are the descriptions of the properties available:
 
-======================  =============================  ===========================================================================================================
+======================  ================================================= ===========================================================================
 property                example                        definition
-======================  =============================  ===========================================================================================================
-gff3.seqClsName         Chromosome                     the ids in the first column represent Chromosome objects, e.g. MAL1
-gff3.taxonId            36329                          taxon id of malaria
-gff3.dataSourceName     PlasmoDB                       the data source for features and their identifiers, this is used for the DataSet (evidence) and synonyms.
-gff3.seqDataSourceName  PlasmoDB                       the source of the seqids (chromosomes) is sometimes different to the features described
-gff3.dataSetTitle       PlasmoDB P. falciparum genome  a DataSet object is created as evidence for the features, it is linked to a  DataSource (PlasmoDB)
-======================  =============================  ===========================================================================================================
+======================  ================================================= ===========================================================================
+gff3.seqClsName         Chromosome                                        the ids in the first column represent Chromosome objects, e.g. MAL1
+gff3.taxonId            36329                                             taxon id
+gff3.dataSourceName     PlasmoDB                                          the data source for features and their identifiers, this is used for the DataSet (evidence) and synonyms.
+gff3.seqDataSourceName  PlasmoDB                                          the source of the seqids (chromosomes) is sometimes different to the features described
+gff3.dataSetTitle       PlasmoDB P. falciparum genome                     a DataSet object is created as evidence for the features, it is linked to a  DataSource (PlasmoDB)
+gff3.licence            https://creativecommons.org/licenses/by-sa/3.0/   URL to a standard data licence
+======================  ================================================= ===========================================================================
 
 
 Writing a custom GFF parser

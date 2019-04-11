@@ -29,6 +29,22 @@ How is this information being used?
 
 These data can be displayed prominently on the report page and in query results. We'll also use the licences in the RDF generation.
 
+Why does it have to be a URL to a standard data licence?
+------------------------------------------------------------------------
+
+The contents of `DataSet.licence` should a URL that points to a standard data licence.
+
+Why can't I put a URL to the fair use policy?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you put a URL to the data source's fair use policy for example, the URL might change. Also, sometimes the fair use policy is vague, contradictory or just hard to understand. 
+
+Why can't I put a short snippet about the fair use policy for these data?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you summarise the fair use policy, there is a danger that you get it wrong, or the data policy changes.
+
+**Providing no information about the data licence is better than having bad information about the data licence.**
 
 How to add licence to an InterMine?
 ------------------------------------
@@ -48,31 +64,32 @@ To update the data licence, add the licence information to the project XML file.
 
     <!-- gff example -->
     <source name="my-gff" type="my-gff" version="4.0.0">
-      <property name="gff3.taxonId" value="7227"/>
-      <property name="gff3.seqClsName" value="MRNA"/>
-      <property name="src.data.dir" location="/data/flymine"/>
-      <property name="gff3.dataSetTitle" value="Long oligo data set"/>
       <!-- add licence here -->
       <property name="gff3.licence" value="https://creativecommons.org/licenses/by-sa/3.0/" />
+      ...
     </source>
 
-Another example:
+FASTA
 
 .. code-block:: xml
 
     <!-- FASTA example -->
-    <source name="my-fasta" type="fasta">
-      <property name="fasta.taxonId" value="7227"/>
-      <property name="fasta.dataSetTitle" value="Fasta data set for Drosophila melanogaster"/>
-      <property name="fasta.dataSourceName" value="MyDataSource"/>
+    <source name="my-fasta" type="fasta">      
       <!-- add licence here -->
       <property name="fasta.licence" value="https://creativecommons.org/licenses/by/4.0/"/>
-      <property name="fasta.className" value="org.intermine.model.bio.Gene"/>
-      <property name="fasta.classAttribute" value="primaryIdentifier"/>
-      <property name="fasta.includes" value="dmel-all-gene-*.fasta"/>
-      <property name="src.data.dir" location="/data/fasta"/>
+      ...
     </source>
 
+OBO
+
+.. code-block:: xml
+
+    <!-- OBO example -->
+    <source name="so" type="so">
+      <property name="src.data.file" location="so.obo"/>
+      <!-- add licence here -->
+      <property name="licence" value="https://creativecommons.org/licenses/by/4.0/"/>
+    </source>
 
 
 **All others**
@@ -107,7 +124,8 @@ This will update the data set licence field for you.
 None of my data sources have data licences
 ------------------------------------------------------
 
-
 We discovered that only a minority of data sets have a licence: of the 26 core data set types that  InterMine supports, only 9 have a data set licence, although 14 had some text about fair use.
+
+Please see our `blog posts <https://intermineorg.wordpress.com/2019/01/03/being-fair-data-licences-in-intermine/>`_ for more details.
 
 .. index:: data licences, licence

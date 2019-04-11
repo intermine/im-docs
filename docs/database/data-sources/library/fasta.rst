@@ -27,6 +27,8 @@ project XML example
       <property name="flybase-dmel-gene-fasta.classAttribute" value="primaryIdentifier"/>
       <property name="flybase-dmel-gene-fasta.includes" value="dmel-all-gene-*.fasta"/>
       <property name="src.data.dir" location="/DATA/flybase/fasta"/>
+      <!-- add licence here -->
+      <property name="flybase-dmel-gene-fasta.licence" value="https://creativecommons.org/licenses/by/4.0/"/>
     </source>
 
 
@@ -42,6 +44,7 @@ src.data.dir     location of the fasta data file                      these data
 includes         name of data file                                    this data file will be loaded into the database 
 sequenceType     class name                                           type of sequence to be loaded 
 loaderClassName  name of Java file that will process the fasta files  only use if you have created a custom fasta loader 
+licence          URL pointing to standard data licence for data       updates DataSet.licence with value
 ===============  ===================================================  =========================================================
 
 .. index:: FASTA, sequences

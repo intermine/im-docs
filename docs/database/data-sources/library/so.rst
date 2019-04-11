@@ -22,6 +22,7 @@ project XML example
 
     <source name="so" type="so">
       <property name=”src.data.file” location=”so.obo” />
+      <property name="licence" value="https://creativecommons.org/licenses/by/4.0/"/>
     </source>
 
 To add or remove SO terms from your model, update your `so_terms` file in `dbmodel/resources`
