@@ -37,6 +37,7 @@ Report page markup for DataSet
 property         description                                                                  example
 ================ ============================================================================ ===========================================
 name             The name of the dataset                                                      FlyAtlas
+description      The description of the dataset                                               Affymetrix microarray-based atlas
 identifier       The url of the dataset, if provided, or the permanent URL of the report page http://www.flyatlas.org/
 url              The permanent URL of the report page                                         http://flymine.org/flymine/dataset:flyatlas
 ================ ============================================================================ ===========================================
