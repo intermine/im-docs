@@ -43,7 +43,7 @@ xrefLink
     Used to configure hyperlinks for CrossReferences.  See below
 
 markup.webpages.enable
-    Used to enable structured data in JSON-LD format in InterMine web pages. Valid values: true or false
+    Used to enable structured data in JSON-LD format in InterMine web pages. Available options are: true or false
 
 Branding
 -----------
