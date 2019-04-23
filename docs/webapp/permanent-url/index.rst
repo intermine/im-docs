@@ -9,7 +9,7 @@ In FlyMine, for example, the URL of the report page for the gene zen, with prima
 
 They are used to share the report page with other users.
 
-.. image:: img/share.jpg
+.. image:: img/share.png
 
 The class_keys.properties file speficies the keys used to generate the permanent URLs.
 If not specified, the primaryidentifier key is used.
