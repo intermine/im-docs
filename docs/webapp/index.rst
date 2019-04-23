@@ -16,6 +16,7 @@ Guide to Customising your Web Application
     region-search/index
     properties/index
     data-categories/index
+    markup/index
     help/index
     linking-in/index
     third-party-tools/index
