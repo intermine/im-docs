@@ -19,6 +19,6 @@ Given the above configuration, in FlyMine, the URL of the report page for the pr
 
 See :doc:`/webapp/permanent-url/index` for details on permanent URLs.
 
-See FlyMine's class keys for an example.
+See `FlyMine's class keys <https://github.com/intermine/flymine/blob/master/dbmodel/resources/class_keys.properties>`_ for an example file.
 
 .. index:: class keys, list upload classes

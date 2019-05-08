@@ -7,7 +7,7 @@ They are based on class names combined with local IDs provided by the data resou
 
 In FlyMine, for example, the URL of the report page for the gene zen, with primary identifier P19107, will be http://flymine.org/gene:FBgn0004053.
 
-They are used to share the report page with other users.
+These URLs are used to share the report page with other users.
 
 .. image:: img/share.png
 
@@ -15,13 +15,11 @@ The :doc:`class_keys.properties </webapp/properties/class-keys/>` file specifies
 
 The format is:
 
-=============== ================
-key             value
-=============== ================
-<CLASSNAME>_URI <FIELDNAME>
-=============== ================
+.. code-block:: property
 
-The classes and fields are case sensitive.
+    <CLASSNAME>_URI <FIELDNAME>
+
+The classes and field names are case sensitive.
 
 For example:
 
@@ -33,6 +31,6 @@ Organism_URI    taxonId
 Publication_URI pubMedId
 =============== ================
 
-See :doc:`/webapp/properties/class-keys` for details.
+See :doc:`/webapp/properties/class-keys` for details about this file.
 
 .. index:: permanent URL
