@@ -15,9 +15,8 @@ The :doc:`class_keys.properties </webapp/properties/class-keys/>` file specifies
 
 The format is:
 
-.. code-block:: property
-
-    <CLASSNAME>_URI <FIELDNAME>
+| # class_keys.properties
+| <CLASSNAME>_URI <FIELDNAME>
 
 The classes and field names are case sensitive.
 
