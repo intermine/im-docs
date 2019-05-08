@@ -26,6 +26,7 @@ Guide to Customising your Web Application
     performance/index
     diagnostic/index
     javadoc/index
+    permanent-url/index
     iodocs
 
 Overwrite any JSP

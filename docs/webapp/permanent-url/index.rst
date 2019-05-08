@@ -11,8 +11,19 @@ They are used to share the report page with other users.
 
 .. image:: img/share.png
 
-The class_keys.properties file speficies the keys used to generate the permanent URLs.
-If not specified, the primaryidentifier key is used.
+The :doc:`class_keys.properties </webapp/properties/class-keys/>` file specifies the keys used to generate the permanent URLs. If not specified, the primaryidentifier key is used.
+
+The format is:
+
+=============== ================
+key             value
+=============== ================
+<CLASSNAME>_URI <FIELDNAME>
+=============== ================
+
+The classes and fields are case sensitive.
+
+For example:
 
 =============== ================
 key             value
@@ -22,5 +33,6 @@ Organism_URI    taxonId
 Publication_URI pubMedId
 =============== ================
 
+See :doc:`/webapp/properties/class-keys` for details.
 
 .. index:: permanent URL

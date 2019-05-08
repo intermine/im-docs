@@ -17,4 +17,8 @@ Publication_URI pubMedId
 
 Given the above configuration, in FlyMine, the URL of the report page for the protein ARRB_DROME, with UniProt accession P19107, will be http://flymine.org/protein:P19107.
 
+See :doc:`/webapp/permanent-url/index` for details on permanent URLs.
+
+See FlyMine's class keys for an example.
+
 .. index:: class keys, list upload classes
