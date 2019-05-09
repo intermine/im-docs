@@ -11,18 +11,25 @@ For non-disruptive releases, you can upgrade your mine by incrementing your vers
  .. code-block:: guess
 
 	# example -- flymine's gradle.properties
-	systemProp.imVersion=3.1.2
-	systemProp.bioVersion=3.1.2
+	systemProp.imVersion=4.0.0
+	systemProp.bioVersion=4.0.0
 
 To get patch updates automatically, use the plus (+) notation:
 
  .. code-block:: guess
 
 	# example -- flymine's gradle.properties
-	systemProp.imVersion=3.1.+
-	systemProp.bioVersion=3.1.+
+	systemProp.imVersion=4.0.+
+	systemProp.bioVersion=4.0.+
 
 Read more about `versioning <https://intermine.readthedocs.io/en/latest/database/data-sources/versions/#how-do-i-specify-which-version-to-use-in-my-build>`_
+
+InterMine 4.0.0
+---------------------
+
+This is a non-disruptive release. 
+
+See our `blog post <https://intermineorg.wordpress.com/2019/05/09/intermine-4-0-intermine-as-a-fair-framework/>`_ for details on how to use the new features to make your mine to be more FAIR.
 
 InterMine 3.1.2
 ---------------------
