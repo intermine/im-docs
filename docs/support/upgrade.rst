@@ -1,7 +1,7 @@
 Upgrading InterMine
 ======================
 
-See `Release notes <https://github.com/intermine/intermine/releases>`_ for details on each of the InterMine releases.
+See `our blog <https://intermineorg.wordpress.com/category/release-notes/>`_ for details on each of the InterMine releases. You can view the `release notes <https://github.com/intermine/intermine/releases>`_ and associated tickets on GitHub too.
 
 Upgrade Instructions
 ---------------------
