@@ -11,7 +11,20 @@ Set the corresponding entry in ‘global.web.properties’, for example
 
    head.cdn.location = https://cdn.intermine.org
 
+You can also override this property by setting it directly in your ``mine.properties`` file.
 
+
+.. note::
+
+	If you are moving your existing mine to https, please take care of updating also the following properties in the same ``mine.properties`` file:
+
+	- project.sitePrefix
+	- webapp.deploy.url
+	- webapp.baseurl
+
+	If you are using your own jbrowse server, this will now need to be served through https as well, and you will need to adjust also the property:
+
+	- jbrowse.install.url
 
 
 Tomcat requirements
