@@ -49,7 +49,7 @@ For information on the underlying API, and the supported libraries, please visit
 HTTP API
      Documentation on services available from mines: `<http://iodocs.apps.intermine.org>`_
 Java
-    `Download <https://github.com/intermine/intermine/raw/master/download/dist/java-intermine-webservice-client-2.0.zip>`_
+    `Download <https://github.com/intermine/intermine-ws-java/raw/master/download/dist/java-intermine-webservice-client-2.0.zip>`_
     | `API <http://intermine.org/intermine/>`_
     | Tutorial 
     | `Source <https://github.com/intermine/intermine/tree/master/intermine/webservice/client>`_
