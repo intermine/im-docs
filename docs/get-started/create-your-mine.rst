@@ -65,7 +65,7 @@ Just as in the demo, you will create your InterMine databases.
 
     # create the database for your mine data
     ~/git/tigermine $ createdb tigermine
-    ~/git/tigermine $ createdb tigermine-items
+    ~/git/tigermine $ createdb items-tigermine
     # create the database for user information
     ~/git/tigermine $ createdb userprofile-tigermine
 
@@ -132,15 +132,15 @@ Now run the build!
   # make executable
   ~/git/tigermine $ chmod +x project_build
 
-Run the `project_build` script from your `biotestmine` directory:
+Run the `project_build` script from your `mine` directory:
 
 ::
 
-    ~/git/tigermine $ ./project_build localhost /data/tigermine-build
+    ~/git/tigermine $ ./project_build -b localhost /data/tigermine-build
 
 See :doc:`/database/database-building/build-script` for more on the `project_build` script.
 
-Deploy your webapp. Make sure tomcat is running.
+Your build (depending on your sources) will take a few minutes to run. Once that is done, deploy your webapp. Make sure tomcat is running.
 
 ::
 
