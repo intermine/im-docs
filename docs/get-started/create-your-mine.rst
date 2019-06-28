@@ -127,6 +127,15 @@ Now run the build!
 
 ::
 
+  # download the script
+  ~/git/tigermine $ wget https://raw.githubusercontent.com/intermine/intermine-scripts/master/project_build
+  # make executable
+  ~/git/tigermine $ chmod +x project_build
+
+Run the `project_build` script from your `biotestmine` directory:
+
+::
+
     ~/git/tigermine $ ./project_build localhost /data/tigermine-build
 
 See :doc:`/database/database-building/build-script` for more on the `project_build` script.
@@ -135,8 +144,9 @@ Deploy your webapp. Make sure tomcat is running.
 
 ::
 
+    # deploy your webapp to tomcat
     ~/git/tigermine $ ./gradlew cargoDeployRemote 
-    # if you have already deployed once, you will want to 
+    # if you have already deployed once, you will want to run this command instead:
     ~/git/tigermine $ ./gradlew cargoRedeployRemote 
 
 See :doc:`/system-requirements/software/gradle/index` for more on Gradle.
