@@ -1,0 +1,161 @@
+Create Your InterMine!
+==============================
+
+This guide will show you how to create a new InterMine.
+
+You will need all the dependencies listed in :doc:`/system-requirements/software/index.rst`
+
+.. note::
+
+    These instructions assume you have taken the :doc:`/get-started/tutorial/index.rst`, a detailed guide to integrating data with InterMine.
+
+1. Run a script to create your InterMine
+----------------------------------------
+
+Download the script.
+
+::
+    ~/git/ $ git clone https://github.com/intermine/intermine-scripts.git
+
+Execute the script to generate your InterMine instance
+
+::
+    ~/git/ $ ~/git/scripts/make_mine TigerMine
+
+You will see a message like: "created /home/$USER/git/tigermine directory for tigermine"
+
+You now have an InterMine! The :doc:`/get-started/tutorial tutorial` goes into detail about the various files that comprise an InterMine.
+
+2. Add a mine properties file
+------------------------------
+
+Your InterMine uses a properties file for database usernames and passwords, let's create that file now.
+
+Make an intermine directory in your home directory.
+
+::
+
+    # change to be in your home directory
+    ~/git $ cd
+    # make an intermine directory
+    ~ $ mkdir .intermine
+
+Copy the properties file you created in the tutorial. 
+
+::
+
+    ~/.intermine $ wget https://github.com/intermine/biotestmine/blob/master/data/biotestmine.properties 
+
+Rename the file to match your Mine.
+
+::
+
+    ~/.intermine $ mv biotestmine.properties tigermine.properties
+
+Now update your new properties files with the values correct for your InterMine. 
+
+See :doc:`/webapp/properties/intermine-properties.rst` for details on this file and what each property means.
+
+3. Create databases
+--------------------------
+
+Just as in the demo, you will create your two InterMine databases.
+
+::
+
+    # create the database for your mine data
+    ~/git/tigermine $ createdb tigermine
+    # create the database for user information
+    ~/git/tigermine $ createdb tigermine-userprofile
+
+.. note::
+
+    These database names should match the ones you added to your mine.properties file in the previous step.
+
+These databases are empty. We'll populate the main database in the following steps, but let's put some default information in our user database now.
+
+::
+
+    # create the database for user information
+    ~/git/tigermine $ ./gradlew buildUserDB
+
+4. Update project file
+--------------------------
+
+The data loaded into your mine is controlled by the `project.xml` file located in the root of your mine directory.
+
+See :doc:`/database/database-building/project-xml/index.rst` for details on the project XML file. 
+
+InterMine has a few dozen libraries for popular data sources. See :doc:`/database/data-sources/library/index.rst` for the full list. Select one of the data sources and add it to your project XML file.
+
+For example, :doc:`/database/data-sources/library/ncbi-gene.rst` loads gene information from the NCBI. Download the data files listed, then add the given project XML entry to your own mine's project XML file, like so:
+
+::
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <project type="bio">
+    <property name="target.model" value="genomic" />
+    <property name="common.os.prefix" value="common" />
+    <property name="intermine.properties.file" value="tigermine.properties" />
+    <sources>
+        <source name="ncbi-gene" type="ncbi-gene">
+            <property name="src.data.dir" location="/DATA/ncbi" />
+            <property name="organisms" value="9606" />
+        </source>
+    </sources>
+    <post-processing/>
+    </project>
+
+For details on writing your own data source, see :doc:`/database/data-sources/custom/index.rst`
+
+You can also add postprocesses to your build, here are common ones: 
+
+::
+  
+  <post-processing>
+    <post-process name="do-sources" />
+    <post-process name="create-attribute-indexes" />
+    <post-process name="summarise-objectstore" />
+    <post-process name="create-autocomplete-index" />
+    <post-process name="create-search-index" />
+  </post-processing>
+  
+
+See :doc:`/database/database-building/post-processing/index.rst` for details on what postprocesses do.
+
+5. Set up your search index (optional)
+---------------------------------------
+
+Solr handles the keyword search in InterMine. See :doc:`/system-requirements/software/solr.rst` for details on how to set this up for your mine.
+
+If you skip this step, your mine will work fine but the keyword search will fail.
+
+6. Build + deploy your webapp
+------------------------------
+
+Now run the build!
+
+::
+    ~/git/tigermine $ ./project_build localhost /data/tigermine-build
+
+See :doc:`/database/database-building/build-script.rst` for more on the `project_build` script.
+
+Deploy your webapp. Make sure tomcat is running.
+
+::
+    ~/git/tigermine $ ./gradlew cargoDeployRemote 
+    # if you have already deployed once, you will want to 
+    ~/git/tigermine $ ./gradlew cargoRedeployRemote 
+
+See :doc:`/system-requirements/software/gradle/index.rst` for more on Gradle.
+
+Next steps
+----------------------------
+
+Congratulations! Next you will want to:
+
+* :doc:`/webapp/properties/index.rst customise your mine` 
+* :doc:`/database/data-sources/custom/index.rst add your own data sources` 
+* :doc:`/support/mailing-list.rst join the intermine mailing list`
+
+.. index:: Getting started, make_mine

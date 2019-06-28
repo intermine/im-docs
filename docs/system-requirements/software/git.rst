@@ -9,8 +9,13 @@ Git
 
 InterMine source code is available via `GitHub <https://github.com/intermine/intermine>`_.
 
-Local Installation
-----------------------
+Getting started
+--------------------------------------------
+
+See :doc:`/get-started/create-your-mine` for instructions on how to create a new InterMine.
+
+Local Installation (for advanced users)
+--------------------------------------------
 
 You should use the JARs available via `JCenter <https://jcenter.bintray.com/org/intermine/>`_. However, if you want to make custom changes to InterMine, you can install locally.
 

@@ -977,4 +977,4 @@ Contact us!
 
 Please `contact us <http://intermine.org/contact/>`_ if you run into problems. We have a discord server, twitter and a developer mailing list.
 
-.. index:: tutorial, logs, userprofile, malariamine, biotestmine, data integration, keys, primary keys, priority conflicts, make_mine, project XML, FASTA, GFF3, data integration, UniProt, publications, build-db, creating a database
+.. index:: tutorial, logs, userprofile, malariamine, biotestmine, data integration, keys, primary keys, priority conflicts, project XML, FASTA, GFF3, data integration, UniProt, publications, build-db, creating a database

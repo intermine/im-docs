@@ -26,6 +26,7 @@ These are commonly used sources that you may want to use to load data into your 
 .. toctree::
     :maxdepth: 1
 
+    ncbi-gene
     chado
     fasta
     gff
