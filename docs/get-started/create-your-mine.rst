@@ -16,7 +16,7 @@ Download the script.
 
     ~/git/ $ git clone https://github.com/intermine/intermine-scripts.git
 
-Execute the script to generate your InterMine instance
+Execute the script to generate your InterMine instance. Here we are using `TigerMine` but of course you would use your mine name here.
 
 ::
 

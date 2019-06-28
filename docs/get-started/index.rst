@@ -6,6 +6,7 @@ Get started
    
    tutorial/index
    tutorial/webapp
+   create-your-mine
    testmine
    intermine-tests
    amazon
