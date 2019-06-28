@@ -13,6 +13,8 @@ How to download the data files
 
 - ftp://ftp.ncbi.nlm.nih.gov/gene/DATA/GENE_INFO/All_Data.gene_info.gz
 
+Be sure to unzip the file.
+
 How to load the data into your mine
 --------------------------------------
   

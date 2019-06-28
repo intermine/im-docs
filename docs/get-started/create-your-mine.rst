@@ -59,7 +59,7 @@ See :doc:`/webapp/properties/intermine-properties` for details on this file and 
 3. Create databases
 --------------------------
 
-Just as in the demo, you will create your two InterMine databases.
+Just as in the demo, you will create your InterMine databases.
 
 ::
 
@@ -67,7 +67,7 @@ Just as in the demo, you will create your two InterMine databases.
     ~/git/tigermine $ createdb tigermine
     ~/git/tigermine $ createdb tigermine-items
     # create the database for user information
-    ~/git/tigermine $ createdb tigermine-userprofile
+    ~/git/tigermine $ createdb userprofile-tigermine
 
 .. note::
 
@@ -77,15 +77,13 @@ These databases are empty. We'll populate the main database in the following ste
 
 ::
 
-    # create the database for user information
+    # create the empty tables for the user database, plus add the superuser
     ~/git/tigermine $ ./gradlew buildUserDB
 
 4. Update project file
 --------------------------
 
-The data loaded into your mine is controlled by the `project.xml` file located in the root of your mine directory.
-
-See :doc:`/database/database-building/project-xml/index` for details on the project XML file. 
+The data loaded into your mine is controlled by the `project.xml` file located in the root of your mine directory. See :doc:`/database/database-building/project-xml` for details on the project XML file. 
 
 InterMine has a few dozen libraries for popular data sources. See :doc:`/database/data-sources/library/index` for the full list. Select one of the data sources and add it to your project XML file.
 
@@ -93,21 +91,12 @@ For example, :doc:`/database/data-sources/library/ncbi-gene` loads gene informat
 
 ::
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <project type="bio">
-    <property name="target.model" value="genomic" />
-    <property name="common.os.prefix" value="common" />
-    <property name="intermine.properties.file" value="tigermine.properties" />
-    <sources>
-        <source name="ncbi-gene" type="ncbi-gene">
-            <property name="src.data.dir" location="/DATA/ncbi" />
-            <property name="organisms" value="9606" />
-        </source>
-    </sources>
-    <post-processing/>
-    </project>
+    <source name="ncbi-gene" type="ncbi-gene">
+        <property name="src.data.dir" location="/DATA/ncbi" />
+        <property name="organisms" value="9606" />
+    </source>
 
-For details on writing your own data source, see :doc:`/database/data-sources/custom/index`
+See :doc:`/database/data-sources/custom/index` if you want to load your own data into your mine.
 
 You can also add postprocesses to your build, here are common ones: 
 
