@@ -52,7 +52,7 @@ Rename the file to match your Mine.
 
     ~/.intermine $ mv biotestmine.properties tigermine.properties
 
-Now update your new properties files with the values correct for your InterMine. 
+Now update your new properties files with the values correct for your InterMine. You'll want to update the details for your InterMine databases, you'll create those in the next step.
 
 See :doc:`/webapp/properties/intermine-properties` for details on this file and what each property means.
 
@@ -63,6 +63,8 @@ Just as in the demo, you will create your InterMine databases.
 
 ::
 
+    # move into your mine directory
+    ~ $ cd ~/git/tigermine
     # create the database for your mine data
     ~/git/tigermine $ createdb tigermine
     ~/git/tigermine $ createdb items-tigermine
@@ -83,22 +85,22 @@ These databases are empty. We'll populate the main database in the following ste
 4. Update project file
 --------------------------
 
-The data loaded into your mine is controlled by the `project.xml` file located in the root of your mine directory. See :doc:`/database/database-building/project-xml` for details on the project XML file. 
+The data loaded into your mine is controlled by the `project.xml` file located in the root of your mine directory. See :doc:`/database/database-building/project-xml` for an in depth description of this file. 
 
-InterMine has a few dozen libraries for popular data sources. See :doc:`/database/data-sources/library/index` for the full list. Select one of the data sources and add it to your project XML file.
+InterMine has a few dozen libraries for popular data sources you can use. See :doc:`/database/data-sources/library/index` for the full list. Select one of the data sources and add it to your project XML file. Don't forget to download the data too.
 
 For example, :doc:`/database/data-sources/library/ncbi-gene` loads gene information from the NCBI. Download the data files listed, then add the given project XML entry to your own mine's project XML file, like so:
 
 ::
 
     <source name="ncbi-gene" type="ncbi-gene">
-        <property name="src.data.dir" location="/DATA/ncbi" />
+        <property name="src.data.dir" location="/$DATA/ncbi" />
         <property name="organisms" value="9606" />
     </source>
 
 See :doc:`/database/data-sources/custom/index` if you want to load your own data into your mine.
 
-You can also add postprocesses to your build, here are common ones: 
+You can also add "postprocesses" to your build, these are tasks that run after the database build, tasks to build the search index for example. Here are common ones you might want to include: 
 
 ::
   
@@ -116,7 +118,7 @@ See :doc:`/database/database-building/post-processing/index` for details on what
 5. Set up your search index (optional)
 ---------------------------------------
 
-Solr handles the keyword search in InterMine. See :doc:`/system-requirements/software/solr` for details on how to set this up for your mine.
+Solr handles the keyword search in InterMine. See :doc:`/system-requirements/software/solr` for details on how to set Solr up for your mine.
 
 If you skip this step, your mine will work fine but the keyword search will fail.
 
