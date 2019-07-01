@@ -7,6 +7,10 @@ Following the steps on this page you will set up an example InterMine.  You will
  * Learn about how data integration works
  * Deploy a webapp to query the data
 
+.. note::
+
+  See :doc:`/get-started/quick-start` if you are impatient and just want to run an InterMine.
+
 Getting Started
 ----------------------
 

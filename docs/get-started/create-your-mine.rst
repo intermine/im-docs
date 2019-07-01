@@ -1,11 +1,13 @@
 Create Your InterMine!
 ==============================
 
-This guide will show you how to create a new InterMine. You will need all the dependencies listed in :doc:`/system-requirements/software/index`
+This guide will show you how to create a new InterMine. You will need all the dependencies listed in :doc:`/system-requirements/software/index`.
 
 .. note::
 
     These instructions assume you have taken the :doc:`/get-started/tutorial/index`, a detailed guide to integrating data with InterMine.
+
+See :doc:`/get-started/quick-start` to run our test InterMine - BioTestMine.
 
 1. Run a script to create your InterMine
 ----------------------------------------
@@ -156,8 +158,11 @@ See :doc:`/system-requirements/software/gradle/index` for more on Gradle.
 Next steps
 ----------------------------
 
-Congratulations! Next you will want to:
+Congratulations! You now have an InterMine! Visit it at localhost:8080/tigermine. (replace `tigermine` with the name your chose for your mine)
 
+Next you will want to:
+
+* `learn how to use the InterMine webapp <http://intermine.org/tutorials/>`_
 * :doc:`customise your mine </webapp/properties/index>` 
 * :doc:`add your own data sources </database/data-sources/custom/index>` 
 * :doc:`join the intermine mailing list </support/mailing-list>`
