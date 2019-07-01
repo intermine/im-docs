@@ -7,19 +7,6 @@ This guide will show you how to create a `BioTestMine` InterMine instance. You w
 
     Please see :doc:`/get-started/tutorial/index`, a detailed guide to integrating data with InterMine.
 
-
-    Replace PSQL_USER and PSQL_PWD with your postgres username and password.
-
-    (Optional) Initialise the two search repositories used by InterMine. Follow the instructions here:
-
-    https://intermine.readthedocs.io/en/latest/system-requirements/software/solr/
-
-If you don't do this, the keyword search won't work in your mine. 5. Run build script in this repository:
-
-./setup.sh
-
-
-
 1. Get the software
 ----------------------------------------
 
