@@ -57,7 +57,7 @@ Now run the build!
 
 ::
 
-  ~/git/tigermine $ ./setup.sh
+  ~/git/biotestmine $ ./setup.sh
 
 Your build (depending on your server) will take a few minutes to run.
 
