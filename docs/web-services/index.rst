@@ -49,7 +49,7 @@ For information on the underlying API, and the supported libraries, please visit
 HTTP API
      Documentation on services available from mines: `<http://iodocs.apps.intermine.org>`_
 Java
-    `Maven dependency <https://github.com/intermine/intermine-ws-java>`_
+    `Download <https://github.com/intermine/intermine-ws-java>`_
     | `API <http://intermine.org/intermine-ws-java/javadoc/>`_
     | `Tutorial <https://github.com/intermine/intermine-ws-java-docs/>`_
     | `Source <https://github.com/intermine/intermine-ws-java>`_
