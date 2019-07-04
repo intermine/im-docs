@@ -49,10 +49,10 @@ For information on the underlying API, and the supported libraries, please visit
 HTTP API
      Documentation on services available from mines: `<http://iodocs.apps.intermine.org>`_
 Java
-    `Download <https://github.com/intermine/intermine-ws-java/blob/master/download/dist/java-intermine-webservice-client-2.0.zip>`_
-    | `API <http://intermine.org/intermine/>`_
-    | Tutorial 
-    | `Source <https://github.com/intermine/intermine/tree/master/intermine/webservice/client>`_
+    `Maven dependency <https://github.com/intermine/intermine-ws-java>`_
+    | `API <http://intermine.org/intermine-ws-java/javadoc/>`_
+    | `Tutorial <https://github.com/intermine/intermine-ws-java-docs/>`_
+    | `Source <https://github.com/intermine/intermine-ws-java>`_
 Perl Client
     `Download | API <http://search.cpan.org/perldoc?Webservice%3A%3AInterMine>`_
     | `Tutorial <https://metacpan.org/pod/distribution/Webservice-InterMine/lib/Webservice/InterMine/Cookbook.pod>`_ 
