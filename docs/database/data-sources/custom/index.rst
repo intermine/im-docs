@@ -329,8 +329,22 @@ Within the `src/main/resources` directory is a file called `new-source_keys.prop
 
 See :doc:`/database/database-building/model-merging/`
 
+6. Build your JAR and put on the classpath
+----------------------------------------------
 
-6. Run a build and load your data!
+Now your code is ready, compile it, build a JAR and put on the classpath with this command:
+
+.. code-block:: bash
+
+  ./gradlew install
+
+See the "Version" section above for how to properly version your JAR.
+
+.. note::
+
+  This JAR is now on your classpath. If you make changes, you will want to run this command again.
+  
+7. Run a build and load your data!
 ----------------------------------------------
 
 Once you've updated the config files, and written your parser (if necessary), create the database as usual. The source should now be included when building the mine.
