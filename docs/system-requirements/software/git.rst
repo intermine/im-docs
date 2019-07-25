@@ -12,7 +12,7 @@ InterMine source code is available via `GitHub <https://github.com/intermine/int
 Getting started
 --------------------------------------------
 
-See :doc:`/get-started/create-your-mine` for instructions on how to create a new InterMine.
+See :doc:`/get-started/quick-start` or :doc:`/get-started/create-your-mine` for instructions on how to create a new InterMine.
 
 Local Installation (for advanced users)
 --------------------------------------------
