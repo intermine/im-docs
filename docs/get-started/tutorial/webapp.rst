@@ -74,7 +74,7 @@ If your changes are still not being reflected in your webapp, add the `clean` ta
 
 This removes all temporary directories so you are certain your new files are being used. 
 
-See :doc:`/system-requirements/software/gradle/` for a list of all available Gradle tasks.
+See :doc:`/system-requirements/software/gradle/index` for a list of all available Gradle tasks.
 
 Subtitle and Release version
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

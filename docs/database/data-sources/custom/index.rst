@@ -98,7 +98,7 @@ The `project.xml` configuration is as below:
       <property name="src.data.dir.includes" value="*.xml"/>
     </source>
 
-See :doc:`/database/data-sources/versions` for details on how to version your data parser.
+See :doc:`/database/data-sources/custom/dataparser-versions` for details on how to version your data parser.
 
 Additional Properties in Project XML
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

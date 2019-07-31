@@ -26,7 +26,7 @@ Specific operations can be performed on the Mine once data is loaded, these are 
 Versions
 ------------
 
-Each data source has its own version. See :doc:`/database/data-sources/versions` for details on how to version your own data sources and how to specify which versions to use.
+Each data source has its own version. See :doc:`/database/data-sources/custom/dataparser-versions` for details on how to version your own data sources and how to specify which versions to use.
 
 Data model
 ------------

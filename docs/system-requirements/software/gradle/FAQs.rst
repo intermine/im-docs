@@ -6,7 +6,7 @@ Gradle - FAQs
 
 `Gradle <https://gradle.org>`_ is InterMine's build tool. In InterMine 2.0 Gradle replaced ant.
 
-Please see :doc:`Upgrade instructions </support/upgrade>` for details on how to migrate your system to use Gradle and :doc:`Gradle Quick Start </system-requirements/software/gradle/index>` for common Gradle commands.
+Please see :doc:`Upgrade instructions </intermine/upgrade>` for details on how to migrate your system to use Gradle and :doc:`Gradle Quick Start </system-requirements/software/gradle/index>` for common Gradle commands.
 
 
 I got an error: "Caused by: java.security.InvalidKeyException: EC parameters error"

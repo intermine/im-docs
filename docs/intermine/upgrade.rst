@@ -22,7 +22,7 @@ To get patch updates automatically, use the plus (+) notation:
 	systemProp.imVersion=4.0.+
 	systemProp.bioVersion=4.0.+
 
-Read more: :doc:`</intermine/intermine-versions.rst>` and :doc:`</intermine/roadmap.rst>`
+Read more: :doc:`</intermine/intermine-versions>` and :doc:`</intermine/roadmap>`
 
 InterMine 4.0.0
 ---------------------
@@ -317,8 +317,6 @@ To pull changes in your local repository and merge them into your working files:
 
 	$ git pull upstream
 
-If you don't have a git repo yet, see :doc:`/git/index` for details.
-
 If you host a copy of the :doc:`CDN </webapp/performance/index>`, then you should also pull in changes from
 that repository.
 
@@ -454,7 +452,7 @@ Or this (See `#912 <https://github.com/intermine/intermine/issues/912>`_)
 
 	Unable to get sub-ObjectStore for Translating ObjectStore
 
-See :doc:`/get-started/hikaricp` for details.
+See :doc:`/system-requirements/software/postgres/hikari` for details.
 
 InterMine-model Refactor
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -50,7 +50,7 @@ explicitly:
 
   intermine.setOptions({icons: 'fontawesome'}, '.Style');
 
-To apply this setting in your current web-app, see :doc:`/webapp/properties/javascript-properties`.
+To apply this setting in your current web-app, see :doc:`/webapp/properties/javascript-options`.
 
 
 The initial state of Sub-Tables
