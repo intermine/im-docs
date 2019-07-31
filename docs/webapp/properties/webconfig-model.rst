@@ -28,7 +28,7 @@ openByDefault           if sectionOnRight="true", whether or not this section sh
 
 For example:
 
-.. code-block:: xml
+.. code-block:: guess
 
 	  <class className="org.flymine.model.genomic.Protein">
  	    <fields>

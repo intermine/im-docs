@@ -14,7 +14,7 @@ This source loads data from the UniProt website here: ftp://ftp.uniprot.org/pub/
 
 The UniProt source expects the data files to be in a special format:
 
-.. code-block:: properties
+.. code-block:: guess
 
 	TAXONID_uniprot_sprot.xml
 	TAXONID_uniprot_trembl.xml

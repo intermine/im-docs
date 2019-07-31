@@ -8,7 +8,7 @@ To put these on your classpath, add the correct dependencies, e.g.
 Maven
 ------
 
-.. code-block:: maven
+.. code-block:: guess
 
     <dependency>
         <groupId>org.intermine</groupId>
@@ -20,7 +20,7 @@ Maven
 Gradle
 -------
 
-.. code-block:: gradle
+.. code-block:: guess
 
     compile 'org.intermine:intermine-api:4.0.1'
 

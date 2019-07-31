@@ -145,7 +145,7 @@ Client Authentication
 
 You should also add a line to the pg_hba.conf file to allow logging in via password:
 
-.. code-block:: properties
+.. code-block:: guess
 
 	host    all         all         0.0.0.0/0             password
 
@@ -180,7 +180,7 @@ You should also add a line to the pg_hba.conf file to allow logging in via passw
 
 
 .. [#screenshot]
-.. code-block:: sql
+.. code-block:: guess
 
    postgres=# update pg_database set datallowconn = TRUE where datname = 'template0';
    UPDATE 1

@@ -35,7 +35,7 @@ Take a tour link
 
 The tour link is set in `headMenu.jsp` as:
 
-.. code-block:: properties
+.. code-block:: guess
 
 	<project.helpLocation>/tour/start
 

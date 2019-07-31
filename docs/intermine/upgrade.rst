@@ -97,7 +97,7 @@ To Upgrade
  
 1. Change your mine's `gradle.properties` file to `3.0.+`. If you have data sources, change the version they use too.
  
- .. code-block:: javascript
+ .. code-block:: properties
 
 	# example -- flymine's gradle.properties
 	systemProp.imVersion=3.0.+

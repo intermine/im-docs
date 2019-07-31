@@ -86,7 +86,7 @@ Using these labels in your webapp
 A new tag library is available to help with labelling. Add the following to the top
 of any jsp you write that you want to use labels in:
 
-.. code-block:: html
+.. code-block:: guess
 
   <%@ taglib uri="/WEB-INF/functions.tld" prefix="imf" %>
 

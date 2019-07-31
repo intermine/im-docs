@@ -18,7 +18,7 @@ Types of tests
 
 You can assert that a query returns true:
 
-.. code-block:: properties
+.. code-block:: guess
 
 	assert {
    		sql: select count(*) >= 400000 from goannotation
@@ -27,7 +27,7 @@ You can assert that a query returns true:
 
 Or doesn't have any results:
 
-.. code-block:: properties
+.. code-block:: guess
 
 	no-results {
    		sql: select * from datasource where url is null or name is null or description is null
@@ -36,7 +36,7 @@ Or doesn't have any results:
 
 Or has at least some results:
 
-.. code-block:: properties
+.. code-block:: guess
 
 	some-results {
    		sql: select * from organism where name = 'Anopheles gambiae'

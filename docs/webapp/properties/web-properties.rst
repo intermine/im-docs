@@ -109,7 +109,7 @@ You can add links to other websites by adding entries to the `web.properties` fi
 
 The format for this property is:
 
-.. code-block:: properties
+.. code-block:: guess
 
     # on the report page - a single identifier
     'attributelink' + unique_name + class + taxonId + attributeName + (url|imageName|text)
@@ -171,7 +171,7 @@ You can configure the URLs for querying CrossReference from external sources by 
 
 The format for this property is:
 
-.. code-block:: properties
+.. code-block:: guess
 
     # on the report page
     'xreflink' + dataSource_name + (url|imageName)
@@ -270,7 +270,7 @@ define the client-id and client-secret you registered your application with, eg:
 
 .. code-block:: properties
 
-     ~/.intermine/MINE.properties
+    # ~/.intermine/MINE.properties
     oauth2.GITHUB.client-id = $GH-CLIENT-ID
     oauth2.GITHUB.client-secret = $GH-CLIENT-SECRET
 

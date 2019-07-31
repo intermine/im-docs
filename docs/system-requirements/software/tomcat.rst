@@ -59,7 +59,7 @@ Server XML
 
 You also need to check in your `server.xml` file that the correct `UTF-8` encoding has been applied to all connectors in use (see  `CharacterEncoding <http://wiki.apache.org/tomcat/FAQ/CharacterEncoding>`_). Make sure that every connector element in use reads as follows:
 
-.. code-block:: xml
+.. code-block:: guess
 
    <Connector ... URIEncoding="UTF-8"/>
          ...
@@ -119,7 +119,7 @@ Out of Memory Errors
 
 To avoid `java.lang.OutOfMemory` errors, specify the JVM heap size in `$TOMCAT_HOME/bin/tomcat.sh`. You can specify the size as part of `TOMCAT_OPTS`:
 
-.. code-block:: properties
+.. code-block:: guess
 
    '-Xmx256m -Xms128m'
 

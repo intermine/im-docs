@@ -12,7 +12,7 @@ An InterMine datamine is built from sources. Each source can contribute to the d
 
 Other additions files (ie. not from sources) can be explicitly merged by setting the `extra.model.paths.start` and `extra.model.paths.end` properties in the `project.properties` of your `dbmodel` directory.  An example from FlyMine's `build.gradle` is:
 
-.. code-block:: properties
+.. code-block:: groovy
 
   mineDBModelConfig {
     modelName = "genomic"

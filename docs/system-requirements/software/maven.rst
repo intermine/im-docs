@@ -3,7 +3,7 @@ Maven
 
 InterMine uses `Maven <https://maven.apache.org/>`_ to manage local dependencies, including your mine-specific data sources.
 
-.. code-block:: base
+.. code-block:: bash
   
   # for Ubuntu
   sudo apt-get install maven

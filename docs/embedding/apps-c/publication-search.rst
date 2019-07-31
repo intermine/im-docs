@@ -363,7 +363,7 @@ Layout
 
 Let us take a look at the layout template then; in `/src/templates/layout.mustache`:
 
-.. code-block:: mustache
+.. code-block:: guess
 
     <div class="row collapse">
         <div class="small-2 columns">
@@ -439,7 +439,7 @@ Search template
 
 The search template just outputs the current value of the query:
 
-.. code-block:: mustache
+.. code-block:: guess
 
     <input type="text" placeholder="e.g. brca, gamma" value="{{ query.value }}" autofocus>
 
@@ -649,7 +649,7 @@ Alert template
 
 Each component needs a template. the alert one will look like this:
 
-.. code-block:: mustache
+.. code-block:: guess
 
     <div class="alert-box {{ type }}">
         {{{ text }}}.
@@ -682,7 +682,7 @@ Results table template
 
 As for the template that displays the results; in `/src/templates/table.mustache`:
 
-.. code-block:: mustache
+.. code-block:: guess
 
     {{ #if pubs.length }}
     <table>
@@ -729,7 +729,7 @@ Style
 
 We are going to wrap up by writing a stylesheet. For this we are going to use Stylus_; in `/src/styles/app.styl`:
 
-.. code-block:: stylus
+.. code-block:: guess
 
     @import 'nib'
 

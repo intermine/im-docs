@@ -71,7 +71,7 @@ This means that your version of Java is too old, you need at least Java 8 to run
 can't open datasource
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: java
+.. code-block:: guess
 
 	java.lang.RuntimeException: can't open datasource for {platform=PostgreSQL, datasource.dataSourceName=db.flatmodeunittest, ...
 

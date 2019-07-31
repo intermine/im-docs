@@ -158,7 +158,7 @@ Collection Table (Vertical Column Border)
 
 .. image:: img/column-border.png
 
-.. code-block:: html
+.. code-block:: guess
 
     <div class="collection-table column-border">
         <-- ... -->
@@ -182,7 +182,7 @@ Collection Table (Vertical Column Border by 2)
 
 .. image:: img/column-border-by-2.png
 
-.. code-block:: html
+.. code-block:: guess
 
     <div class="collection-table column-border-by-2">
         <-- ... -->
@@ -238,7 +238,7 @@ CSS                                           Description
 Collection Table (Persistent Table Headers)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: html
+.. code-block:: guess
 
     <div class="collection-table persistent">
         <-- ... -->
@@ -278,7 +278,7 @@ Collection of Collection Tables
 
 .. image:: img/collection-of-collections.png
 
-.. code-block:: html
+.. code-block:: guess
 
     <div class="collection-of-collections">
         <div class="header">
@@ -309,7 +309,7 @@ Table Togglers (Less, More, Expand, Collapse, Show in table)
 
 .. image:: img/togglers.png
 
-.. code-block:: html
+.. code-block:: guess
 
     <div class="collection-table">
         <-- ... -->
@@ -385,7 +385,7 @@ Table Warning
 
 .. image:: img/table-warning.png
 
-.. code-block:: html
+.. code-block:: guess
 
     <div class="collection-table warning">
         <-- ... -->

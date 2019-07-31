@@ -61,7 +61,7 @@ Point JBrowse at your InterMine
 
 Add your new mine-based dataset to your configuration file. For example to add *D. melanogaster* data from FlyMine_ as a JBrowse dataset, the following configuration in `jbrowse_conf.json` would suffice:
 
-.. code-block:: json
+.. code-block:: guess
    
   { 
     "datasets": {

@@ -110,7 +110,7 @@ In objectstore/test run ‘ant test-performance’  (requires unittest database,
 
 Build server with SATA drives:
 
-.. code-block:: properties
+::
 
 	test-performance:
 	[run-performance-test] Starting performance test...
@@ -129,7 +129,7 @@ Build server with SATA drives:
 
 Workstation with SSDs:
 
-.. code-block:: properties
+::
 
 		[run-performance-test] Starting performance test...
 	[run-performance-test] Stored 10000 employee objects, took: 8303ms
