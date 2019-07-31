@@ -112,7 +112,7 @@ The biotestmine git repository includes a tar file with data to load into Biotes
 
 We will load genome annotation from PlasmoDB, protein data from UniProt and GO annotation also from PlasmoDB. 
 
-See :doc:`/get-started/tutorial/test-data`for details on the data. 
+See :doc:`/get-started/tutorial/test-data` for details on the data. 
 
 Copy this to a local directory (your home directory is fine for this workshop) and extract the archive:
 

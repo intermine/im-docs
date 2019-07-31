@@ -1,3 +1,6 @@
+:orphan:
+
+
 How Do I Get a Summary of a Gene?
 ------------------------------------
 

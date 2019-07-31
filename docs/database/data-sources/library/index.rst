@@ -38,6 +38,7 @@ These are commonly used sources that you may want to use to load data into your 
     uberon
     data-sources
     data-sets
+    variation/vcf
 
 
 FlyMine Specific sources
