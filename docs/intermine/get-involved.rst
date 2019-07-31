@@ -1,4 +1,4 @@
-How to Get Involved
+Contribution Guide
 =====================================
 
 This document sets out the development processes for those contributing to the `InterMine code base <https://github.com/intermine/intermine>`_. It specifically refers to the main application code-base, but these practices should be employed in an ideal world on all code bases. 
@@ -74,4 +74,4 @@ Release Process
 
 Once all pull requests and tickets for a specific milestone are tested and complete, the release manager merges the `dev` branch onto the `master` branch tagging the merge with the milestone's label.  The release notes are available on the `Releases <http://github.com/intermine/intermine/releases>`_ page, and announcments are posted on twitter and the mailing lists and discussed in detail on the community calls.
 
-[intermine repo]: https://github.com/intermine/intermine
+.. index:: contribution guide, get involved

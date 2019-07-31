@@ -8,4 +8,5 @@ InterMine
    upgrade
    roadmap
    intermine-versions
+   get-involved
    
