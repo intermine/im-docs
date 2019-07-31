@@ -65,9 +65,8 @@ Set your InterMine version
 
 The InterMine version you use is determined by the system variables set in your mine's `gradle.properties` file.
 
-Make sure you have your :doc:`/database/data-sources/versions/` set correctly. If you want to use local JARs, it's best to specify the exact version, e.g. `2.1.1`, of your local JARs. Do this in your mine's `gradle.properties` file.
+Make sure you have your :doc:`/intermine/intermine-versions` set correctly. If you want to use local JARs, it's best to specify the exact version, e.g. `1.2.3`, of your local JARs. Do this in your mine's `gradle.properties` file.
 
-If you use `2.1.+` there's a possiblity a newer version of InterMine is published. The plus sign instructs Maven to get the latest version of InterMine in *any* repository. In which case, Maven would use the newer JARs in JCenter instead of your local JARs.
-
+If you use `4.0.+` there's a possiblity a newer version of InterMine is published. The plus sign instructs Maven to get the latest version of InterMine in *any* repository. In which case, Maven would use the newer JARs in JCenter instead of your local JARs.
 
 .. index:: git, maven, JARs
