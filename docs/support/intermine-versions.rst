@@ -1,6 +1,9 @@
 InterMine Versioning Policy
 ================================
 
+Version Numbering
+-------------------
+
 InterMine uses `semantic versioning <https://semver.org/>`_:
 
 ====== ====================================================
@@ -14,6 +17,9 @@ InterMine releases a new major version containing new features about once a year
 If the release team determines that a critical bug or security fix is too important to wait until the regularly scheduled minor release, it may make a release available outside of the minor release schedule.
 
 We always recommend that all users run the latest available minor release.
+
+Upgrading
+----------
 
 Major versions often change the data model or the InterMine API. These changes are often complex, so we do not maintain backward compatibility. A database rebuild is required. We also recommend reading the :doc:`upgrading </support/upgrade>` section of the major version you are planning to upgrade to.
 
