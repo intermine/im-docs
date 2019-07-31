@@ -1,5 +1,5 @@
-Get the InterMine Code
-============================
+InterMine
+==========
 
 .. toctree::
    :maxdepth: 2
