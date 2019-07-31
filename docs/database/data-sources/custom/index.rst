@@ -68,7 +68,7 @@ See :doc:`/database/database-building/project-xml/` for further reading about th
 Versions
 ~~~~~~~~~~~
 
-The "version" provided for each source has to match the version of the JAR you create. The version is set in your `bio/sources/build.gradle` file. If you do not provide a version in the project XML file, the default InterMine version will be used for the build -- which won't likely match your local version.
+The "version" provided for each source has to match the version of your data parser, e.g. you would want to set `version=1.2.3` for your source `bio-source-mysource-1.2.3.jar`. If you do not provide a version in the project XML file, the default InterMine version will be used.
 
 See :doc:`/database/data-sources/versions` for details.
 
