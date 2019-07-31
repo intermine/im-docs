@@ -14,6 +14,7 @@ Contents
 
     system-requirements/index
     get-started/index
+    intermine/index
     data-model/index
     database/index
     webapp/index

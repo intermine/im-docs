@@ -54,11 +54,6 @@ Privacy Policy
 
     privacy-policy
 
-Release Notes
-------------------
-
-See https://github.com/intermine/intermine/releases
-
 Get Involved
 ------------------
 
