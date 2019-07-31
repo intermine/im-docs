@@ -22,7 +22,7 @@ To get patch updates automatically, use the plus (+) notation:
 	systemProp.imVersion=4.0.+
 	systemProp.bioVersion=4.0.+
 
-Read more: :doc:`</support/intermine-versions.rst>`_ and :doc:`</support/roadmap.rst>`_
+Read more: :doc:`</intermine/intermine-versions.rst>`_ and :doc:`</intermine/roadmap.rst>`_
 
 InterMine 4.0.0
 ---------------------

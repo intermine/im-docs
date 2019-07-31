@@ -3,7 +3,7 @@ Get InterMine
 
 InterMine JARs are published on JCenter: https://bintray.com/intermineorg
 
-To put this on your classpath add the correct dependencies, e.g.
+To put these on your classpath, add the correct dependencies, e.g.
 
 Maven
 ------
@@ -23,5 +23,5 @@ Gradle
 .. code-block:: gradle
 
     compile 'org.intermine:intermine-api:4.0.1'
-    
+
 .. index:: Maven, InterMine JARs
