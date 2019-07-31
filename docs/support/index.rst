@@ -8,4 +8,5 @@ Support
    troubleshooting-tips
    /about/contact-us
    upgrade
+   intermine-versions
    
