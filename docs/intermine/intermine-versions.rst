@@ -21,7 +21,7 @@ We always recommend that all users run the latest available minor release.
 Upgrading
 ----------
 
-Major versions often change the data model or the InterMine API. These changes are often complex, so we do not maintain backward compatibility. A database rebuild is required. We also recommend reading the :doc:`upgrading </support/upgrade>` section of the major version you are planning to upgrade to.
+Major versions often change the data model or the InterMine API. These changes are often complex, so we do not maintain backward compatibility. A database rebuild is required. We also recommend reading the :doc:`upgrading </intermine/upgrade>` section of the major version you are planning to upgrade to.
 
 Upgrading to a minor release does not normally require a database rebuild; you can stop your webapp, update your InterMine version number, and redeploy your webapp. For some releases, manual changes may be required to complete the upgrade, so always read the release notes before upgrading.
 
