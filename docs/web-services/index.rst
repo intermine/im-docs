@@ -28,7 +28,7 @@ Look at some example code
     button). The generated code is meant to help get you started with the use of the
     client libraries.
 
-    There is also a :doc:`tutorial` for the Python API.
+    There is also a :doc:`/web-services/tutorial` for the Python API.
 
 Modify the code so it does what you want
     Working from the generated stub, you can edit the code to perform your intended task. You

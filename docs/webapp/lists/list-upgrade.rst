@@ -118,13 +118,20 @@ The list upgrade functionality uses a serialNumber that identifies the productio
 There are four cases:
 
 1. production serialNumber and userprofile serialNumber are both null ==> we don't need upgrade the list.
- * Scenario: I have released the webapp but I haven't re-build the production db.
+ 
+ Scenario: I have released the webapp but I haven't re-build the production db.
+
 2. production serialNumber is not null but userprofile serialNumber is null ==> we need upgrade the lists.
- * Scenario: I have run `build-db` in the production db and it's the first time that I release the webapp. On startup, the webapp sets `intermine_current` to false and the userprofile serialNumber value with the production serialNumber value.
+ 
+ Scenario: I have run `build-db` in the production db and it's the first time that I release the webapp. On startup, the webapp sets `intermine_current` to false and the userprofile serialNumber value with the production serialNumber value.
+
 3. production serialNumber = userprofile serialNumber ==> we don't need upgrade the lists.
- * Scenario: we have released the webapp but we haven't changed the production db.
+
+Scenario: we have released the webapp but we haven't changed the production db.
+
 4. production serialNumber != userprofile serialNumber ==> we need upgrade the lists.
- * Scenario: we have run `build-db` in the production and a new serialNumber has been generated.
+
+Scenario: we have run `build-db` in the production and a new serialNumber has been generated.
 
 The following diagram shows the possible states. With the green, we identify the states that don't need a list upgrade, with the red those need a list upgrade.
 

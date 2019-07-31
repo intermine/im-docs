@@ -1,11 +1,7 @@
 How to set up your InterMine environment on the Amazon Cloud
 ================================================================
 
-Where you should learn how to start your own MalariaMine web application
-on the Amazon Cloud.
-You could also use your InterMine Amazon instance to try building MalariaMine yourself (see http://intermine.readthedocs.org/en/latest/get-started/tutorial.html)
-or to build your own mine there.
-
+Where you should learn how to start your own MalariaMine web application on the Amazon Cloud. You could also use your InterMine Amazon instance to try building MalariaMine yourself or to build your own mine there.
 
 Pre-requisites
 ----------------------
@@ -15,10 +11,7 @@ You need an Amazon account: if you don't have one
 * click on ``Sign Up``
 * follow the instructions
 
-.. note::
- You will need to set up your key pair security mechanism (see for example step 7 below).
- Alternatively you will need your aws-access-key and your aws-secret-key
- to start your instance (not shown here).
+You will need to set up your key pair security mechanism (see for example step 7 below).  Alternatively you will need your aws-access-key and your aws-secret-key to start your instance (not shown here).
 
 
 Starting a new Instance
@@ -37,10 +30,8 @@ The image contains a ready deployed MalariaMine.
   you could set up also a few spare ones (20, 21, 8009).
 
   .. note::
-   You can do this also during step 7, but
-   **you cannot change the security group of an instance after starting it for the first time**
-   (unless you use a VPC instance, see http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html).
-  ..
+   You can do this also during step 7, but **you cannot change the security group of an instance after starting it for the first time**
+   (unless you use a VPC instance, see `User Guide <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html>`_).
 
 4. go to the IMAGES/AMI console
 5. set the location on the top header (beside your username) to *US East (N. Virginia)*

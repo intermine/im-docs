@@ -22,9 +22,11 @@ Suggestion for a large InterMine instance
 * 8 cores
 * 32 GB RAM
 * ~2TB usable storage (SAS disks are faster than SATA)
- * RAID 10 (4TB raw in RAID 10)
- * hardware RAID controller with a battery backed cache (gives faster write speeds)
- * it doesn't matter whether storage is in the same box or a separate disk array, if separate needs a Fibre Channel connection 
+
+    * RAID 10 (4TB raw in RAID 10)
+    * hardware RAID controller with a battery backed cache (gives faster write speeds)
+    * it doesn't matter whether storage is in the same box or a separate disk array, if separate needs a Fibre Channel connection 
+
 * Linux/Unix capable of running Java and PostgreSQL 
 
 .. note::

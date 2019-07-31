@@ -9,4 +9,5 @@ InterMine
    roadmap
    intermine-versions
    get-involved
+   https
    

@@ -100,17 +100,16 @@ One to one relationship
 
 One to many relationship
   a collection has a reverse-relationship that is a reference. In this case you should always fill in the reference and leave the collection empty (it will be ignored). 
-  ::
-   e.g. Gene has a collection Transcripts and Transcript references one Gene, fill in Transcript.gene only.
 
+  e.g. Gene has a collection Transcripts and Transcript references one Gene, fill in Transcript.gene only.
 
 Many to many relationship
   this is where a collection has a reverse-relationship that is a collection, or where a collection does not have a reverse-relationship. This type of collection can be altered from either side, and the changes will be observed in both sides.
   
   In practice if one side is very large and the other smaller it is faster to populate the smaller collection.
-  ::
-   e.g. Gene has a collection of Pathways and Pathway has a collection of Genes, fill in either Gene.pathways or Pathway.genes but not both.  
-   If Pathway.genes contains e.g. 20,000 items and Gene.pathways typically 100 items then it is faster to populate Gene.pathways.
+
+  e.g. Gene has a collection of Pathways and Pathway has a collection of Genes, fill in either Gene.pathways or Pathway.genes but not both.  
+  If Pathway.genes contains e.g. 20,000 items and Gene.pathways typically 100 items then it is faster to populate Gene.pathways.
 
 Ontologies
 -----------------------

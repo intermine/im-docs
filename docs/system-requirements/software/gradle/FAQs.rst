@@ -27,7 +27,7 @@ I set `GRADLE_OPTS` properly and I still am getting an "out of memory" error mes
 Append `-Dorg.gradle.daemon=false` to prevent the use of Gradle daemons.
 
 I got ANOTHER error: "java.lang.ClassCastException: org.apache.xerces.parsers.XIncludeAwareParserConfiguration cannot be cast to org.apache.xerces.xni.parser.XMLParserConfiguration "
---------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Update your `GRADLE_OPTS` to disable deamons. 
 

@@ -35,7 +35,7 @@ It is still possible to use a legacy method of configuring keys, where keys are 
 
 
 Global primary key configuration file [DEPRECATED]
----------------------------------------------
+---------------------------------------------------------
 
 .. warning::
 

@@ -179,7 +179,7 @@ See other mines' config files for more examples, eg:
 * `HumanMine's webconfig-model.xml <https://github.com/intermine/humanmine/blob/master/webapp/src/main/webapp/WEB-INF/webconfig-model.xml>`_
 
 Background population
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 In the enrichement widgets, you can change the reference population.
 The reference population is specific for widget, list and user.
 If you are logged you can save your preference selecting the checkbox 'Save your preference'.

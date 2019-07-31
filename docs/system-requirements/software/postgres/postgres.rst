@@ -23,7 +23,7 @@ Mac
 Some of the recommended setting below may not apply to older versions of PostgreSQL.
 
 Configuration file
-------------------
+-------------------
 Most of the configurations below are made updating the file `postgresql.conf`, usually located in `/etc/postgres/version-nr/main`.
 
 Required Configurations
@@ -71,10 +71,9 @@ you can check the expected screenshot here [#screenshot]_ .
 Database Server Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-
 Kernel Memory setting
->>>>>>>>>>>>>>>>>>>>>
+""""""""""""""""""""""""""""
+
 Please check your server kernel setting
 
 .. code-block:: bash
@@ -104,7 +103,7 @@ and sourcing it
 
 
 PostgreSQL parameters
->>>>>>>>>>>>>>>>>>>
+""""""""""""""""""""""""""""
 
 
 For better performance. Read http://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server for more information.
@@ -142,7 +141,7 @@ Note that most of the changes above require starting postgres.
 
 
 Client Authentication
->>>>>>>>>>>>>>>>>>>>>
+""""""""""""""""""""""""""""
 
 You should also add a line to the pg_hba.conf file to allow logging in via password:
 

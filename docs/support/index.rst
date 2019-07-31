@@ -7,6 +7,4 @@ Support
    mailing-list
    troubleshooting-tips
    /about/contact-us
-   upgrade
-   intermine-versions
    

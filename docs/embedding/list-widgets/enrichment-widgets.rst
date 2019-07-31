@@ -23,7 +23,7 @@ k
 M
     the number of objects annotated with item in the reference population
 
-Apache library - `Hypergeometric Distribution <https://commons.apache.org/proper/commons-math/javadocs/api-2.2/org/apache/commons/math/distribution/HypergeometricDistributionImpl.html>`_
+`Apache library - Hypergeometric Distribution <https://commons.apache.org/proper/commons-math/javadocs/api-2.2/org/apache/commons/math/distribution/HypergeometricDistributionImpl.html>`_
 
 Multiple Test Correction
 ------------------------

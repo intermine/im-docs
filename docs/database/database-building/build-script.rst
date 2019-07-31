@@ -1,7 +1,7 @@
 project_build script
 ========================
 
-To run a full build of InterMine, you must use the  `project_build` script.  This is a Perl program that reads a project.xml file and loads each source in turn.  This makes multiple calls to ant to avoid memory problems encountered when running many Java task sequentially from ant.  It also has the option of dumping the production database during the build and recovering from these dumps in case of problems.
+To run a full build of InterMine, you must use the  `project_build` script. This is a Perl program that reads a project.xml file and loads each source in turn. This makes multiple calls to Gradle to avoid memory problems encountered when running many Java task sequentially from Gradle. It also has the option of dumping the production database during the build and recovering from these dumps in case of problems.
 
 .. note::
 
@@ -52,7 +52,7 @@ The `project_build` script accepts the following flags:
   run build-db before starting build and drop any existing backup databases  (created when using the -t flag)
 
 -V
-  set the release number to pass to ant (as -Drelease=release_number) [1]_.
+  set the release number to pass to gradle (as -Prelease=release_number)
 
 Dump files take the name `dump_file_prefix`.final.  
 

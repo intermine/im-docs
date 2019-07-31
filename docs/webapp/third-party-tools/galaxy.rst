@@ -56,14 +56,6 @@ url.value        tool runner url                                   yes[3]_.
 welcomeMessage   displays on the homepage when coming from Galaxy  yes  
 ===============  ================================================  =========
 
-.. [1] when display is false  
-
-.. [2] default url is the main Galaxy server, but it can be replaced by any public/private server  
-
-.. [3] e.g. on main Galaxy server, the tool for flymine is `/tool_runner?tool_id=flymine`.  Customize this url to specific mines, learn how to create a tool from `Galaxy wiki <http://wiki.g2.bx.psu.edu/Admin/Tools/External%20Display%20Applications%20Tutorial?highlight=%28tool%29|%28runner%29>`_  
-
-
-
 .. code-block:: properties
 
 	# galaxy
