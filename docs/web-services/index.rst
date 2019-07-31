@@ -49,33 +49,33 @@ For information on the underlying API, and the supported libraries, please visit
 HTTP API
      Documentation on services available from mines: `<http://iodocs.apps.intermine.org>`_
 Java
-    `Download <https://github.com/intermine/intermine-ws-java>`_
-    | `API <http://intermine.org/intermine-ws-java/javadoc/>`_
-    | `Tutorial <https://github.com/intermine/intermine-ws-java-docs/>`_
-    | `Source <https://github.com/intermine/intermine-ws-java>`_
+    `Download <https://github.com/intermine/intermine-ws-java>`__
+    | `API <http://intermine.org/intermine-ws-java/javadoc/>`__
+    | `Tutorial <https://github.com/intermine/intermine-ws-java-docs/>`__
+    | `Source <https://github.com/intermine/intermine-ws-java>`__
 Perl Client
-    `Download | API <http://search.cpan.org/perldoc?Webservice%3A%3AInterMine>`_
-    | `Tutorial <https://metacpan.org/pod/distribution/Webservice-InterMine/lib/Webservice/InterMine/Cookbook.pod>`_ 
-    | `Source <https://github.com/intermine/intermine-ws-perl>`_
+    `Download | API <http://search.cpan.org/perldoc?Webservice%3A%3AInterMine>`__
+    | `Tutorial <https://metacpan.org/pod/distribution/Webservice-InterMine/lib/Webservice/InterMine/Cookbook.pod>`__ 
+    | `Source <https://github.com/intermine/intermine-ws-perl>`__
 Python Client
-    `Download <http://pypi.python.org/pypi/intermine>`_
-    | `API <http://intermine.org/intermine-ws-python>`_  
-    | `Tutorial <https://github.com/intermine/intermine-ws-python-docs/>`_ 
-    | `Source <https://github.com/intermine/intermine-ws-client.py>`_
+    `Download <http://pypi.python.org/pypi/intermine>`__
+    | `API <http://intermine.org/intermine-ws-python>`__  
+    | `Tutorial <https://github.com/intermine/intermine-ws-python-docs/>`__
+    | `Source <https://github.com/intermine/intermine-ws-client.py>`__
 Ruby Client
-    `Download | API <http://www.rubygems.org/gems/intermine>`_
+    `Download | API <http://www.rubygems.org/gems/intermine>`__
     | Tutorial 
-    | `Source <https://github.com/intermine/intermine-ws-ruby>`_
-JavaScript Client (for Browser and node.js)
-    `Download <https://npmjs.org/package/imjs>`_
-    | `API <http://alexkalderimis.github.io/imjs/>`_
+    | `Source <https://github.com/intermine/intermine-ws-ruby>`__
+JavaScript Client (for Bowser and node.js)
+    `Download <https://npmjs.org/package/imjs>`__
+    | `API <http://alexkalderimis.github.io/imjs/>`__
     | Tutorial
-    | `Source <https://github.com/intermine/imjs>`_
+    | `Source <https://github.com/intermine/imjs>`__
 R Client
-    `Download <http://bioconductor.org/packages/release/bioc/html/InterMineR.html>`_
-    | `Docs <http://bioconductor.org/packages/release/bioc/html/InterMineR.html>`_
-    | `Tutorial <http://bioconductor.org/packages/release/bioc/html/InterMineR.html>`_
-    | `Source <http://bioconductor.org/packages/release/bioc/html/InterMineR.html>`_
+    `Download <http://bioconductor.org/packages/release/bioc/html/InterMineR.html>`__
+    | `Docs <http://bioconductor.org/packages/release/bioc/html/InterMineR.html>`__
+    | `Tutorial <http://bioconductor.org/packages/release/bioc/html/InterMineR.html>`__
+    | `Source <http://bioconductor.org/packages/release/bioc/html/InterMineR.html>`__
 
 
 Authentication

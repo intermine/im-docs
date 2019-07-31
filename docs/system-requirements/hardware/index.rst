@@ -40,9 +40,9 @@ OS
 * Use something mainstream and reliable like Linux or BSD
 * Use the system that your friendly sysadmin is most familiar with.
 * Not favourites:
+
  * Tru64
  * :doc:`solaris`
-
 
 What we use
 --------------------

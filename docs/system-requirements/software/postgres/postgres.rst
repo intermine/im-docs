@@ -108,7 +108,7 @@ PostgreSQL parameters
 
 For better performance. Read http://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server for more information.
 
-.. htmlonly::
+
 ===============================   =============================
 Parameter                         Suggested value (build)
 ===============================   =============================

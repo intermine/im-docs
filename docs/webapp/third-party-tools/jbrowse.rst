@@ -77,7 +77,7 @@ Add your new mine-based dataset to your configuration file. For example to add *
 Once in place, you can visit your JBrowse `index.html` and see the data from FlyMine_.
 
 Configuring InterMine's JBrowse integration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 By default, all InterMine classes that inherit from the SequenceFeature model class will have tracks.
 

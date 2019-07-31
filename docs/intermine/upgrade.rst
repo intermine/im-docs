@@ -22,7 +22,7 @@ To get patch updates automatically, use the plus (+) notation:
 	systemProp.imVersion=4.0.+
 	systemProp.bioVersion=4.0.+
 
-Read more: :doc:`</intermine/intermine-versions.rst>`_ and :doc:`</intermine/roadmap.rst>`_
+Read more: :doc:`</intermine/intermine-versions.rst>` and :doc:`</intermine/roadmap.rst>`
 
 InterMine 4.0.0
 ---------------------
@@ -92,8 +92,8 @@ InterMine 3.0.0
 
 This release adds Solr to InterMine. To upgrade, you will need to rebuild your database and install Solr.
   
- To Upgrade
- ~~~~~~~~~~~
+To Upgrade
+~~~~~~~~~~~
  
 1. Change your mine's `gradle.properties` file to `3.0.+`. If you have data sources, change the version they use too.
  
@@ -307,11 +307,6 @@ We are making some non-backwards compatible changes to our API. These three end 
 Please update any code that references these end points.
 
 
-
----------------------------------
----------------------------------
----------------------------------
-
 Pre-InterMine 2.0 Upgrade Instructions
 ------------------------------------------------------------------
 
@@ -349,7 +344,6 @@ interaction viewer
 	The cytoscape tool uses the new model - will not work until you build a database with the new code
 
 Interactions
-^^^^^^^^^^^^^^
 
 +-------------------+-------------------------+-----------------------------+
 | class             | old                     | new                         |
@@ -370,7 +364,6 @@ Interactions
 +-------------------+-------------------------+-----------------------------+
 
 Protein Domains
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +-------------------+-------------------+----------------------+
 | class             | old               | new                  |

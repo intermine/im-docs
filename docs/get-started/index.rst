@@ -10,4 +10,3 @@ Get started
    create-your-mine
    testmine
    intermine-tests
-   amazon

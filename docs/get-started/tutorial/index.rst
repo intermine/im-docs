@@ -108,7 +108,11 @@ Specific operations can be performed on the Mine once data is loaded, these are 
 Data to load
 ~~~~~~~~~~~~~~~
 
-The biotestmine git repository includes a tar file with data to load into BiotestMine. These are real, complete data sets for *P. falciparum* (but very old!). We will load genome annotation from PlasmoDB, protein data from UniProt and GO annotation also from PlasmoDB. See :doc:`/get-started/tutorial/test-data`for details on the data. 
+The biotestmine git repository includes a tar file with data to load into BiotestMine. These are real, complete data sets for *P. falciparum* (but very old!). 
+
+We will load genome annotation from PlasmoDB, protein data from UniProt and GO annotation also from PlasmoDB. 
+
+See :doc:`/get-started/tutorial/test-data`for details on the data. 
 
 Copy this to a local directory (your home directory is fine for this workshop) and extract the archive:
 
@@ -245,7 +249,7 @@ Sequence Ontology
     extraModelsEnd = ""
   }
 
-The first file merged into the core model is the `so_additions.xml` file.  This XML file is generated in the `dbmodel/build` directory from terms listed in the `so_terms` file, as configured in the `dbmodel/build.gradle <https://github.com/intermine/biotestmine/blob/master/dbmodel/build.gradle#L31>`_ file.
+The first file merged into the core model is the `so_additions.xml` file.  This XML file is generated in the `dbmodel/build` directory from terms listed in the `so_terms` file, as configured in the `dbmodel/build.gradle <https://github.com/intermine/biotestmine/blob/master/dbmodel/build.gradle#L31>`__ file.
 
 ::
 

@@ -84,4 +84,4 @@ HumanMine Specific sources
 * orphanet
 * protein-atlas
 
-See `HumanMine <http://www.humanmine.org>`_ for more information about these datasets. Look at HumanMine's `project.xml <https://github.com/intermine/humanmine/blob/master/project.xml>`_ for examples of how to use these sources.
+See `HumanMine <http://www.humanmine.org>`_ for more information about these datasets. Look at `HumanMine's project.xml <https://github.com/intermine/humanmine/blob/master/project.xml>`_ for examples of how to use these sources.
