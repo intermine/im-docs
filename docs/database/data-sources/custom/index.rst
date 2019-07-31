@@ -70,7 +70,7 @@ Versions
 
 The "version" provided for each source has to match the version of your data parser, e.g. you would want to set `version=1.2.3` for your source `bio-source-mysource-1.2.3.jar`. If you do not provide a version in the project XML file, the default InterMine version will be used.
 
-See :doc:`/database/data-sources/versions` for details.
+See :doc:`/database/data-sources/dataparser-versions` for details.
 
 
 3. Write your parser
