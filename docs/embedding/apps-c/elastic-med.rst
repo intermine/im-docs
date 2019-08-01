@@ -572,7 +572,7 @@ Application search template
 
 This template will be rendered for the ``app-search`` component defined on the index page. In ``src/templates/search.mustache``:
 
-.. code-block:: javascript
+::
 
     <div class="row collapse">
         <div class="large-10 columns search">
