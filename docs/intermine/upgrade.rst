@@ -22,7 +22,7 @@ To get patch updates automatically, use the plus (+) notation:
 	systemProp.imVersion=4.0.+
 	systemProp.bioVersion=4.0.+
 
-Read more: :doc:`InterMine versions </intermine/intermine-versions>` and :doc:`InterMine Roadmap </intermine/roadmap>`
+Read more: :doc:`/intermine/intermine-versions` and :doc:`/intermine/roadmap`
 
 InterMine 4.0.0
 ---------------------
@@ -105,11 +105,11 @@ To Upgrade
 
 2. Install Solr
  
-  :doc:`Solr installation /system-requirements/software/solr`
+  :doc:`/system-requirements/software/solr`
  
 3. Configure Solr
 
-  :doc:`Solr configuration /webapp/keyword-search`
+  :doc:`/webapp/keyword-search`
  
 4. Rebuild your database. 
 

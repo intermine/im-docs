@@ -12,7 +12,7 @@ MINOR  functionality added in a backwards-compatible manner
 PATCH  backwards-compatible bug fixes
 ====== ====================================================
 
-InterMine releases a new major version containing new features about once a year. Each major version receives bug fixes and, if need be, security fixes that are released at least once every three months in what we call a "minor release." For more information on the minor release schedule, you can view the minor release `roadmap <https://github.com/intermine/intermine/projects/7>`_.
+InterMine releases a new major version containing new features about once a year. Each major version receives bug fixes and, if need be, security fixes that are released at least once every three months in what we call a "minor release." For more information on the minor release schedule, you can view the minor release :doc:`</intermine/roadmap>`.
 
 If the release team determines that a critical bug or security fix is too important to wait until the regularly scheduled minor release, it may make a release available outside of the minor release schedule.
 

@@ -12,10 +12,10 @@ The InterMine project aims to make at least one minor release every quarter. If 
 
 The current schedule for upcoming releases is:
 
-    Fall 2019 (4.1.0)
-    Winter 2019 (4.2.0)
-    Spring 2020
-    Summer 2020
+ * Fall 2019 (4.1.0)
+ * Winter 2019 (4.2.0)
+ * Spring 2020
+ * Summer 2020
 
 Next major release
 --------------------
