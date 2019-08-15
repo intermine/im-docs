@@ -24,7 +24,6 @@ More information:
 .. toctree::
     :maxdepth: 2
 
-    intermine
     contact-us
 
 

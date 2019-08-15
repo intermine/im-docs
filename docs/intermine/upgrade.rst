@@ -109,7 +109,7 @@ To Upgrade
  
 3. Configure Solr
 
-  :doc:`/webapp/keyword-search`
+  :doc:`/webapp/keyword-search/index`
  
 4. Rebuild your database. 
 
