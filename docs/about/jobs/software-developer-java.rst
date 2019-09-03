@@ -1,4 +1,4 @@
-Software Developer (Data Scientist)
+Research Software Engineer
 ================================
 
 .. figure::  cam_bridge.jpg
@@ -31,21 +31,17 @@ Desired Skills and Experience
 ------------------------------
 
 * Experience with version control. We use **git**.
-* Some awareness of modern **bioinformatics** best-practices.
-* Knowledge of some different biological file formats, e.g. **GFF3**, **OBO**
-* An interest in synthetic biology.
 * Enthusiasm for **open source** development, tools and methodology.
 * Ability to work as part of a diverse team of programmers and biologists.
+* Knowledge of Biology is not required, but an interest would be advantageous!
 
 Our Toolset
 ------------------------------
 
-* Python / Perl
 * Java
-* JavaScript/CoffeeScript
 * PostgreSQL
 * Tomcat
-* Ant
+* Gradle
 * Git
 
 About InterMine
@@ -63,8 +59,7 @@ interface that works 'out of the box' and can be easily customised for your
 specific needs, as well as a powerful, scriptable web-service API to allow
 programmatic access to your data.
 
-Take a look at our codebase at GitHub http://www.github.com/intermine and some
-of our recent tools: http://staircase.herokuapp.com.
+Take a look at our codebase at GitHub http://www.github.com/intermine.
 
 InterMine was founded in 2002 and is based at the University of Cambridge. We
 offer very competitive salaries and a generous benefits package (see
