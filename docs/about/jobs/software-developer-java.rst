@@ -15,7 +15,7 @@ built a system that can flexibly work from any description of a data-model to
 produce a clear and powerful data-mining interface. We need you to help develop
 and improve this sector leading product.
 
-This role will involve creating new features for the InterMine data warehouse platform as part of an exciting project. The successful applicant will be part of a UK consortium (http://www.synbiuk.org/) that is developing new methods for the emerging field of Synthetic Biology, and will be responsible for maintaining the current synthetic biology InterMine, adding new data, tools and features as required.
+This role will involve creating new features for the InterMine data warehouse platform, adding new data, tools and features as required.
 
 Required Skills and Experience
 ------------------------------
