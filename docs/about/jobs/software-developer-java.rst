@@ -59,7 +59,7 @@ interface that works 'out of the box' and can be easily customised for your
 specific needs, as well as a powerful, scriptable web-service API to allow
 programmatic access to your data.
 
-Take a look at our codebase at GitHub http://www.github.com/intermine.
+Take a look at our codebase at GitHub http://www.github.com/intermine and see our home page at intermine.org for more information.
 
 InterMine was founded in 2002 and is based at the University of Cambridge. We
 offer very competitive salaries and a generous benefits package (see
