@@ -4,16 +4,15 @@ Galaxy
 Enable Galaxy export 
 --------------------
 
-Add to `web.properties` file, replacing FlyMine with your Mine name:
+The following properties are set in the `global.web.properties`. You can override any of those in the `web.properties` file.
 
 .. code-block:: properties
 
-	# in web.properties
-	galaxy.display = true
-	galaxy.disabledMessage = Galaxy export is disabled.
+	# in global.web.properties
 	galaxy.baseurl.default = https://usegalaxy.org
-	galaxy.url.value = /tool_runner?tool_id=flymine
-	galaxy.welcomeMessage = <b>Welcome to FlyMine, GALAXY users</b><br/><br/>You can run queries by clicking on the 'Templates' tab at the top of this page.&nbsp;&nbsp;You can end the query results to Galaxy from the 'EXPORT' menu in the results page.
+	galaxy.url.value = /tool_runner?tool_id=intermine
+        galaxy.welcomeMessage = <b>Welcome to InterMine, GALAXY users!</b><br/><br/>You can run queries by clicking on the 'Templates' tab at the top of this page.&nbsp;&nbsp;You can send the query results to Galaxy from the 'EXPORT' menu in the results page.
+        galaxy.disabledMessage = Galaxy export is disabled.
 
 Update Struts config
 
@@ -44,7 +43,7 @@ Update Struts config
 Customization
 -------------
 
-Properties located in the ''web.properties''' file.
+Properties located in the ''global.web.properties''' file.
 
 ===============  ================================================  =========
 parameter        purpose                                           required? 
@@ -63,8 +62,8 @@ welcomeMessage   displays on the homepage when coming from Galaxy  yes
 	galaxy.display = true
 	galaxy.disabledMessage = Galaxy export is disabled.
 	galaxy.baseurl.default = https://usegalaxy.org
-	galaxy.url.value = /tool_runner?tool_id=flymine
-	galaxy.welcomeMessage = <b>Welcome to FlyMine, GALAXY users</b><br/><br/>You can run queries by \
+	galaxy.url.value = /tool_runner?tool_id=intermine
+	galaxy.welcomeMessage = <b>Welcome to InterMine, GALAXY users</b><br/><br/>You can run queries by \
 	clicking on the 'Templates' tab at the top of this page.&nbsp;&nbsp;You can send the query results \
 	to Galaxy from the 'EXPORT' menu in the results page.
 
