@@ -73,7 +73,10 @@ welcomeMessage   displays on the homepage when coming from Galaxy  yes
 Export data from InterMine to Galaxy 
 ------------------------------------
 1. starting from an InterMine instance, e.g. FlyMine, run a query, select the option **Export** -> **Send to Galaxy** and the data will be exported in the galaxy instance specified in the *Galaxy Location field*
-![alt some text](sendtogalaxy.png)
+
+.. figure::  img/sendtogalaxy.png
+   :align:   center
+
 2. starting from Galaxy, use the NEW intermine tool to be redirected to the InterMine registry, select the InterMine instance you want to use to export the data, run the query, select the option **Export** -> **Send to Galaxy** and the data will be exported in the Galaxy instance you started from.
 
 
