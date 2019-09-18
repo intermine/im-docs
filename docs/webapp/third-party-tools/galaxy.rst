@@ -83,14 +83,14 @@ Export data from InterMine to Galaxy
    :align:   center
 
 
-Export data from Galaxy to InterMine 
+Export identifiers from Galaxy to InterMine 
 ------------------------------------
 Use the new **InterMine interchange dataset** to generate an intermediate file (tsv formatted)
 
 .. figure::  img/sendtoim.png
    :align:   center
 
-and then click on *View InterMine at Registry* to be redirected to the InterMIne registry in order to chose the InterMine instace to export the data to.
+and then click on *View InterMine at Registry* to be redirected to the InterMine registry in order to chose the InterMine instance to export the identifiers to.
 
 .. figure::  img/sendtoim2.png
    :align:   center
