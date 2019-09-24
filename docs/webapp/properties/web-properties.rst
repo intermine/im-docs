@@ -228,8 +228,8 @@ a Google+ account and to visit `the Google developer's console <https://console.
 to create an application.
 
 For ELIXIR, you will need:
-1. an ELIXIR identity. Please register the ELIXIR ID [here](https://elixir-europe.org/register) , if you don't already have it
-2. register the new client [here](https://login.elixir-czech.org/oidc/manage/dev/dynreg), using the *Self-service client registration* page.
+1. an ELIXIR identity. Please register the ELIXIR ID `here <https://elixir-europe.org/register>`_ , if you don't already have it
+2. register the new client `here <https://login.elixir-czech.org/oidc/manage/dev/dynreg>`_, using the *Self-service client registration* page.
 
 For each application you will need to register the callback URI, which looks like:
 
