@@ -24,6 +24,22 @@ To get patch updates automatically, use the plus (+) notation:
 
 Read more: :doc:`/intermine/intermine-versions` and :doc:`/intermine/roadmap`
 
+InterMine 4.1.1
+---------------------
+
+This is a non-disruptive release.
+
+Galaxy integration has been improved; you should remove the galaxy related properties from the web.properties file to benefit of it.
+
+Integration with ELIXIR AAI has been included.
+
+Gradle wrapper updated to the 4.9 version.
+
+Some bug fixes.
+
+See our blog post for more details.
+
+
 InterMine 4.0.1
 ---------------------
 
