@@ -227,6 +227,10 @@ registration process for a number of popular providers. For example, for Google,
 a Google+ account and to visit `the Google developer's console <https://console.developers.google.com/>`_
 to create an application.
 
+For ELIXIR, you will need
+1. an ELIXIR account. Please register here https://elixir-europe.org/register
+2. to register the new client https://login.elixir-czech.org/oidc/manage/dev/dynreg pleases visit the *Self-service client registration* page 
+
 For each application you will need to register the callback URI, which looks like:
 
 .. code-block:: bash
@@ -253,7 +257,7 @@ names. The values are case insensitive, and will be processed as upper-case valu
     # You can list just a single provider:
     oauth2.providers = GOOGLE
     # or multiple providers, combining standard and custom providers:
-    oauth2.providers = GOOGLE,GITHUB,FACEBOOK,MICROSOFT,STRAVA,AIP
+    oauth2.providers = GOOGLE,ELIXIR,GITHUB,FACEBOOK,MICROSOFT,STRAVA,AIP
 
 Configuring OLTU Supported Providers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
