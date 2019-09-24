@@ -37,7 +37,7 @@ Gradle wrapper updated to the 4.9 version.
 
 Some bug fixes.
 
-See our blog post for more details.
+See our blog post for more details (https://intermineorg.wordpress.com/2019/09/24/intermine-4-1-0/)
 
 
 InterMine 4.0.1
