@@ -227,9 +227,9 @@ registration process for a number of popular providers. For example, for Google,
 a Google+ account and to visit `the Google developer's console <https://console.developers.google.com/>`_
 to create an application.
 
-For ELIXIR, you will need
-1. an ELIXIR account. Please register here https://elixir-europe.org/register
-2. to register the new client https://login.elixir-czech.org/oidc/manage/dev/dynreg pleases visit the *Self-service client registration* page 
+For ELIXIR, you will need:
+1. an ELIXIR identity. Please register the ELIXIR ID [here](https://elixir-europe.org/register) , if you don't already have it
+2. register the new client [here](https://login.elixir-czech.org/oidc/manage/dev/dynreg), using the *Self-service client registration* page.
 
 For each application you will need to register the callback URI, which looks like:
 
