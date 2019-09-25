@@ -21,7 +21,7 @@ Please see :doc:`/webapp/properties/web-properties` for details on these paramet
 Tool location
 ------------------------
 
-To specify a location for your JavaScript tools to be used in your BlueGenes instance, set this parameter in your `~/.intermine/$MINE.property` file.
+To specify a location for your JavaScript tools to be used in your BlueGenes instance, set this parameter in your `~/.intermine/$MINE.properties` file.
 
 ================================== ================================== ==================================
 purpose                            parameters                         example
