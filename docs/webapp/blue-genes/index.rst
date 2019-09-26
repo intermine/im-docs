@@ -1,10 +1,10 @@
-Guide to Customising Blue Genes
+Guide to Customising BlueGenes
 ================================================================
 
-Blue genes content
+Content
 ------------------------
 
-Certain features of the blue genes app are controlled by parameters set in the `web.properties` file. These properties are also used in the current webapp user interface.
+Certain features of the BlueGenes app are controlled by parameters set in the `web.properties` file. These properties are also used in the current webapp user interface.
 
 =======================================  ================================================  =======================================  
 purpose                                  parameters                                        example
@@ -18,16 +18,22 @@ default keyword search                   quickSearch.identifiers                
 
 Please see :doc:`/webapp/properties/web-properties` for details on these parameters.
 
-Tool location
+Environment
 ------------------------
 
-To specify a location for your JavaScript tools to be used in your BlueGenes instance, set this parameter in your `~/.intermine/$MINE.properties` file.
+BlueGenes uses the following parameters defined in the `~/.intermine/$MINE.properties` file.
 
-================================== ================================== ==================================
-purpose                            parameters                         example
-================================== ================================== ==================================
-location of JavaScript tools       bluegenes.toolLocation             `/intermine/tools/node_modules/`
-================================== ================================== ==================================
++----------------------------------------------------------------------+------------------------+-----------------------------------+
+| purpose                                                              | parameters             | example                           |
++======================================================================+========================+===================================+
+| location of JavaScript tools                                         | bluegenes.toolLocation | `/intermine/tools/node_modules/`  |
++----------------------------------------------------------------------+------------------------+-----------------------------------+
+| base URL for requests to the InterMine instance                      | webapp.baseurl         | `http://www.flymine.org`          |
++----------------------------------------------------------------------+------------------------+-----------------------------------+
+| path appended to the base URL                                        | webapp.path            | `flymine`                         |
++----------------------------------------------------------------------+------------------------+-----------------------------------+
+| name of your InterMine instance as it will be displayed in BlueGenes | project.title          | `BioTestMine`                     |
++----------------------------------------------------------------------+------------------------+-----------------------------------+
 
 Please see :doc:`/webapp/properties/intermine-properties` for details on this property file.
 
