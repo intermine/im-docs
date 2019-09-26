@@ -1,7 +1,7 @@
 intermine.org
 =============
 
-Documentation for the InterMine project.
+Documentation for the [InterMine][intermine] project.
 
 Documentation
 -------------
@@ -50,3 +50,4 @@ The source for the Sphinx documentation theme can be found in the
 [quickref]: http://docutils.sourceforge.net/docs/user/rst/quickref.html
 [sphinx]: http://sphinx-doc.org
 [theme]: https://github.com/intermine/design-materials/tree/master/websites/intermine.org/
+[intermine]: http://intermine.org
