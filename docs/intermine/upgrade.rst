@@ -51,7 +51,11 @@ InterMine 4.0.0
 
 DataSet.licence was added to the data model. To update to this new data model for this release, you'll want to rebuild your database and redeploy your webapp.
 
-See our `blog post <https://intermineorg.wordpress.com/2019/05/09/intermine-4-0-intermine-as-a-fair-framework/>`_ for details on how to use the new features to make your mine to be more FAIR.
+To enable the structured data added to the web pages in format of JSON-LD, you should set the property *markup.webpages.enable* to true in the web.properties file.
+
+To configure the new URLs used in the “share” button, you should specify the keys in the class_keys.properties file. 
+
+See our `blog post <https://intermineorg.wordpress.com/2019/05/09/intermine-4-0-intermine-as-a-fair-framework/>`_ for more details on how to configure and use the new features to make your mine to be more FAIR.
 
 
 InterMine 3.1.2
