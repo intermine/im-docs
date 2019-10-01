@@ -231,6 +231,7 @@ For ELIXIR, you will need:
 
 1. an ELIXIR identity. Please register the ELIXIR ID `here <https://elixir-europe.org/register>`_ , if you don't already have it
 2. register the new client `here <https://login.elixir-czech.org/oidc/manage/dev/dynreg>`_, using the *Self-service client registration* page.
+3. send an email to aai-contact@elixir-europe.org in order to receive a form that you have to completed with additional informations
 
 For each application you will need to register the callback URI, which looks like:
 
