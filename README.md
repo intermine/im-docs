@@ -18,15 +18,16 @@ Building locally
 ----------------
 
 You should build locally before you push, to make sure your changes are correct.
-You will need the Sphinx environment for this. **Make** and **Python** are
-required, and we recommend using **virtualenv** to manage dependencies:
+You will need the Sphinx environment for this. **Make** and **Python 2.7** are
+required, and we recommend using `Conda
+<https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html>`_ to manage dependencies:
 
 Setting up:
 
 ```bash
 cd docs
-virtualenv .
-source ./bin/activate
+conda create -n im-docs python=2.7
+conda activate im-docs
 pip install -r requirements.txt
 ```
 
