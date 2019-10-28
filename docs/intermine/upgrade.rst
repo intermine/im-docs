@@ -29,7 +29,7 @@ InterMine 4.1.1
 
 This is a non-disruptive release.
 
-It containing some bug fixes related to ncbi-gff bio source and few requests from ThaleMine.
+It contains some bug fixes related to ncbi-gff bio source and few improvements from ThaleMine.
 
 You can build your mine using Gradle wrapper 4.9. To update the version, run the following command in your InterMine instance directory:
 
