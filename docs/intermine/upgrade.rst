@@ -31,7 +31,7 @@ This is a non-disruptive release.
 
 It containing some bug fixes related to ncbi-gff bio source and few requests from ThaleMine.
 
-You can build your mine using Gradle wrapper 4.9. To update the version, run the following command in you InterMine instance directory:
+You can build your mine using Gradle wrapper 4.9. To update the version, run the following command in your InterMine instance directory:
 
 .. code-block:: guess
 
