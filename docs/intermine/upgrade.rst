@@ -27,6 +27,20 @@ Read more: :doc:`/intermine/intermine-versions` and :doc:`/intermine/roadmap`
 InterMine 4.1.1
 ---------------------
 
+This is a non-disruptive release containing some bug fixes related to ncbi-gff bio source and few requests from ThaleMine.
+
+You can build your mine using Gradle wrapper 4.9. To update the version, run the following command in you InterMine instance directory:
+
+.. code-block:: guess
+
+	cd flymine
+	./gradlew wrapper --gradle-version=4.9
+	
+See our blog post for more details.
+
+InterMine 4.1.0
+---------------------
+
 This is a non-disruptive release.
 
 Galaxy integration has been improved; you should remove the galaxy related properties from the web.properties file to benefit of it.
