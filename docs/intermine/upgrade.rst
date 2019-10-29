@@ -38,7 +38,7 @@ You can build your mine using Gradle wrapper 4.9. To update the version, run the
 	cd flymine
 	./gradlew wrapper --gradle-version=4.9
 	
-See our blog post for more details.
+See our blog post for more details (https://intermineorg.wordpress.com/2019/10/29/intermine-4-1-1-patch-release/).
 
 InterMine 4.1.0
 ---------------------
