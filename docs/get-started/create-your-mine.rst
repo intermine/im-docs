@@ -22,7 +22,7 @@ Execute the script to generate your InterMine instance. Here we are using `Tiger
 
 ::
 
-    ~/git/ $ ~/git/scripts/make_mine TigerMine
+    ~/git/ $ ~/git/intermine-scripts/make_mine TigerMine
 
 You will see a message like: `created /home/$USER/git/tigermine directory for tigermine`.
 
