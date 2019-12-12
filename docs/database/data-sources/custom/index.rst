@@ -165,7 +165,7 @@ To connect to the original database you need to add properties in xxxmine.proper
 
 This is tested for PostgreSQL and MySQL.
 
-Common properties:
+Common properties (to be added to your mine properties file):
 
 .. code-block:: xml
 
