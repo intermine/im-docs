@@ -22,6 +22,7 @@ We use `git <http://git-scm.com>`_ to manage and distribute source code and `gra
 * PostgreSQL
 * Git
 * Java
+* Tomcat
 * Solr
 * Perl (for the final build script)
 
@@ -953,6 +954,8 @@ You only need to build the userprofile database once.
 
 Deploying the webapp
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Before deploying the biotestmine webapp, you need to configure tomcat. See :doc:`/system-requirements/software/tomcat` for configuration details.
 
 Run the following command to release your webapp: 
 
