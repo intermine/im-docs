@@ -872,15 +872,15 @@ Execute the `create-search-index` and `create-autocomplete-index` postprocesses 
   ~/git/biotestmine $ ./gradlew postprocess -Pprocess=create-autocomplete-inde
 
 
-Building a Mine
-----------------------
+Building a Mine with a Perl script
+------------------------------------
 
 So far we have created databases, integrated data and run post-processing with individual gradle tasks. Alternatively InterMine has a Perl program called `project_build` that reads the `project.xml` definition and runs all of the steps in sequence. The script has the option of creating snapshots during the build at specified checkpoints.
 
 Build complete BioTestMine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Build BioTestMine now using the `project_build` script, we will need a completed BioTestMine for the webapp.
+To build BioTestMine using the `project_build` script, first download the script:
 
 ::
 
