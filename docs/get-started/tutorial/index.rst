@@ -790,6 +790,13 @@ This fills in some shortcut references in the data model to make querying easier
 
 The empty `geneid` column will be filled in representing the reference to gene.
 
+Execute the `create-references` postprocess by running this command:
+
+::
+
+  # execute create-references postprocess
+  ~/git/biotestmine $ ./gradlew postprocess -Pprocess=create-references
+
 `transfer-sequences` 
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -799,6 +806,13 @@ The sequence for chromosomes is loaded by `malaria-chromosome-fasta` but no sequ
 
   biotestmine# select * from exon where primaryidentifier = 'exon.32017';
 
+Execute the `transfer-sequences` postprocess by running this command:
+
+::
+
+  # execute transfer-sequences postprocess
+  ~/git/biotestmine $ ./gradlew postprocess -Pprocess=transfer-sequences
+  
 After running `transfer-sequences` the `sequenceid` column is filled in.
 
 `do-sources` 
@@ -809,7 +823,16 @@ Each source can also provide code to execute post-process steps if required. Thi
 `summarise-objectstore`, `create-search-index` & `create-autocomplete-index` 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-These generate summary data and search indexes used by the web application, see :doc:`/webapp/keyword-search/index` for details. You must have Solr installed and running for the indexes to be populated correctly. 
+These generate summary data and search indexes used by the web application, see :doc:`/webapp/keyword-search/index` for details. 
+
+Execute the `summarise-objectstore` postprocess by running this command:
+
+::
+
+  # execute transfer-sequences postprocess
+  ~/git/biotestmine $ ./gradlew postprocess -Pprocess=summarise-objectstore
+
+You must have Solr installed and running for the indexes to be populated correctly. 
 
 **Install SOLR** 
 
@@ -840,27 +863,19 @@ These are empty search indexes. These will be populated by the `create-search-in
 
 See :doc:`/system-requirements/software/solr` for details.
 
-Run post-processes
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-To run all the post-processing steps:
+Execute the `create-search-index` and `create-autocomplete-index` postprocesses by running this command:
 
 ::
 
-  ~/git/biotestmine $ ./gradlew postProcess
+  # execute create-search-index and create-autocomplete-index postprocesse
+  ~/git/biotestmine $ ./gradlew postprocess -Pprocess=create-search-index
+  ~/git/biotestmine $ ./gradlew postprocess -Pprocess=create-autocomplete-inde
 
-This will take a few minutes.  When complete you can re-run the queries above to see what has been added.
-
-Post-processing steps can also be run individually:
-
-::
-
-  ~/git/biotestmine $ ./gradlew postProcess -Pprocess=update-publications
 
 Building a Mine
 ----------------------
 
-So far we have created databases, integrated data and run post-processing with individual gradle tasks.  InterMine has a Perl program called `project_build` that reads the `project.xml` definition and runs all of the steps in sequence. The script has the option of creating snapshots during the build at specified checkpoints.
+So far we have created databases, integrated data and run post-processing with individual gradle tasks. Alternatively InterMine has a Perl program called `project_build` that reads the `project.xml` definition and runs all of the steps in sequence. The script has the option of creating snapshots during the build at specified checkpoints.
 
 Build complete BioTestMine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
