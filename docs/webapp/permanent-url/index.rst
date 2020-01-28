@@ -28,7 +28,8 @@ key             value
 Pathway_URI     identifier
 =============== ================
 
-No need to specify the keys for the classes defined in the core model (e.g. protein, organism, publication...)
+No need to specify the keys for the classes defined in the core model (e.g. protein, organism, publication...).
+
 See :doc:`/webapp/properties/class-keys` for details about this file.
 
 .. index:: permanent URL
