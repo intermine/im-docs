@@ -14,7 +14,7 @@ Pathway_URI     identifier
 =============== ================
 
 Given the above configuration, in FlyMine, the URL of the report page for the pentose phosphate pathway with identifier 00030, will be http://flymine.org/flymine/pathway:00030.
-No need to specicy the keys for the core model classes (e.g. protein, publication...). 
+No need to specify the keys for the core model classes (e.g. protein, publication...). 
 
 See :doc:`/webapp/permanent-url/index` for details on permanent URLs.
 
