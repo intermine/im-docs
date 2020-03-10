@@ -24,6 +24,13 @@ To get patch updates automatically, use the plus (+) notation:
 
 Read more: :doc:`/intermine/intermine-versions` and :doc:`/intermine/roadmap`
 
+InterMine 4.1.3
+---------------------
+
+This is a non-disruptive release.
+
+It contains a small batch of bug fixes.
+
 InterMine 4.1.2
 ---------------------
 
