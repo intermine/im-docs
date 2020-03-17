@@ -107,29 +107,30 @@ partial string matches, you must edit its configuration on the Solr server:
 1. ADD the following to /var/solr/data/[mine]-search/conf/managed-schema. (This example implements it for hits
 against Gene.primaryIdentifier and Gene.secondaryIdentifier.)
 
-```xml
-<fieldType name="text_ngram" class="solr.TextField" positionIncrementGap="100">
-   <analyzer type="index">
+.. code-block:: xml
+
+  <fieldType name="text_ngram" class="solr.TextField" positionIncrementGap="100">
+    <analyzer type="index">
       <tokenizer class="solr.WhitespaceTokenizerFactory"/>
       <filter class="solr.NGramFilterFactory" minGramSize="1" maxGramSize="50"/>
       <filter class="solr.LowerCaseFilterFactory"/>
-   </analyzer>
-   <analyzer type="query">
+    </analyzer>
+    <analyzer type="query">
       <tokenizer class="solr.WhitespaceTokenizerFactory"/>
       <filter class="solr.LowerCaseFilterFactory"/>
-   </analyzer>
-</fieldType>
-<field name="gene_primaryidentifier" type="text_ngram" indexed="true" stored="true"/>
-<field name="gene_secondaryidentifier" type="text_ngram" indexed="true" stored="true"/>
-```
+    </analyzer>
+  </fieldType>
+  <field name="gene_primaryidentifier" type="text_ngram" indexed="true" stored="true"/>
+  <field name="gene_secondaryidentifier" type="text_ngram" indexed="true" stored="true"/>
+
 
 2. REMOVE the gene_primaryidentifier and gene_secondaryidentifier field definitions from the earlier part of the file.
 They look like this:
 
-```xml
-<field name="gene_primaryidentifier" type="analyzed_string" multiValued="true" indexed="true" required="false" stored="false"/>
-<field name="gene_secondaryidentifier" type="analyzed_string" multiValued="true" indexed="true" required="false" stored="false"/>
-```
+.. code-block:: xml
+
+  <field name="gene_primaryidentifier" type="analyzed_string" multiValued="true" indexed="true" required="false" stored="false"/>
+  <field name="gene_secondaryidentifier" type="analyzed_string" multiValued="true" indexed="true" required="false" stored="false"/>
 
 3. RESTART Solr to load the new config, e.g. under System V:
 
