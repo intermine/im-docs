@@ -3,7 +3,7 @@ Java
 
 We recommend you use OpenJDK rather than Sun's JDK. There isn't much difference now between the two, as far as InterMine is concerned, but going forward it's probably safer.
 
-The version of Gradle we are using isn't compatible with Java 11, this issue is being addressed but for now please use Java 8.
+The version of Gradle we are using is compatible with Java 11.
 
 GRADLE_OPTS
 ---------------------
