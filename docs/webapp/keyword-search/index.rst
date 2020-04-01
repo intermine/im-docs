@@ -132,19 +132,18 @@ They look like this:
   <field name="gene_primaryidentifier" type="analyzed_string" multiValued="true" indexed="true" required="false" stored="false"/>
   <field name="gene_secondaryidentifier" type="analyzed_string" multiValued="true" indexed="true" required="false" stored="false"/>
   
-OR, simply UPDATE the existing records, replacing the parameters with `type="text_ngram" indexed="true" stored="true"`.
+OR, simply UPDATE the existing records, replacing the parameters with: type="text_ngram" indexed="true" stored="true".
 
 3. RESTART Solr to load the new config, e.g. under System V:
+::
 
-```
 $ systemctl restart solr
-```
 
 4. REBUILD the search index using the Solr-related postprocesses:
+::
 
-```
-./gradlew postprocess -Pprocess=create-search-index 
-```
+./gradlew postprocess -Pprocess=create-search-index
+
 
 Your keyword search will now return results on partial matches for the attributes that you configured in 
 Solr (Gene.primaryIdentifier and Gene.secondaryIdentifier in this example).
