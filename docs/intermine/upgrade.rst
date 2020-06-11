@@ -24,6 +24,13 @@ To get patch updates automatically, use the plus (+) notation:
 
 Read more: :doc:`/intermine/intermine-versions` and :doc:`/intermine/roadmap`
 
+InterMine 4.2.0
+---------------------
+
+This is a non-disruptive release.
+
+It mainly contains new webservices to improve BlueGenes support (v. 0.10.0), some fixes related to the type Date, bioschemas markup on the report page (Gene and protein)
+
 InterMine 4.1.3
 ---------------------
 
