@@ -234,7 +234,7 @@ CSS
 
 .. note::
 
-    Widgets are using `Twitter Bootstrap <http://twitter.github.com/bootstrap>`_ CSS framework.
+    Widgets are using `Twitter Bootstrap <https://getbootstrap.com/2.0.2/>`_ CSS framework.
 
 Embedding mine widgets on a custom page
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
