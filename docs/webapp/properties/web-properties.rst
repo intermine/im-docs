@@ -354,7 +354,7 @@ Guides to interpreting the response from the identity resource. These are all op
     oauth2.AIP.name-key = first_name,last_name
 
 .. _OAuth2: http://oauth.net/2/
-.. _Apache OLTU: http://oltu.apache.org/
+.. _Apache OLTU: https://attic.apache.org/projects/oltu.html
 
 Delegated Authentication with JWTs
 ------------------------------------
