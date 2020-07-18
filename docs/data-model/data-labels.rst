@@ -8,7 +8,7 @@ The current system for determining a label is as follows:
 #. If the class or field has a pre-set label, that is used
 #. Otherwise the class or field name is
 
-  1. Split from its camel case parts as specified in `Apache Commons StringUtils <http://commons.apache.org/lang/api-2.6/org/apache/commons/lang/StringUtils.html#splitByCharacterTypeCamelCase(java.lang.String)>`_ 
+  1. Split from its camel case parts as specified in `Apache Commons StringUtils <https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html#splitByCharacterTypeCamelCase-java.lang.String->`_ 
   2. Each part is given an initial upper-case
   3. The parts are then joined by spaces
  
