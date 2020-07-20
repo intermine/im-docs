@@ -8,7 +8,7 @@ We have written a script that runs queries against the templates publicly availa
 
 The script presents their results on standard out, with the option to have them emailed upon completion of the comparison. To have results emailed out, you should have set up and installed `sendmail` on the machine running the comparison.
 
-The script is located here: https://github.com/intermine/intermine-scripts/blob/master/compare_templates_for_releases.py
+The script is located here: https://github.com/intermine/intermine-scripts/blob/master/archive/compare_templates_for_releases
 
 Python Script
 ----------------
