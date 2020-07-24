@@ -870,7 +870,7 @@ Execute the `create-search-index` and `create-autocomplete-index` postprocesses 
 
   # execute create-search-index and create-autocomplete-index postprocesse
   ~/git/biotestmine $ ./gradlew postprocess -Pprocess=create-search-index
-  ~/git/biotestmine $ ./gradlew postprocess -Pprocess=create-autocomplete-inde
+  ~/git/biotestmine $ ./gradlew postprocess -Pprocess=create-autocomplete-index
 
 
 Building a Mine with a Perl script
