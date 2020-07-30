@@ -4,5 +4,5 @@ Pygments==2.0.1
 Sphinx==1.2.3
 argparse==1.2.1
 docutils==0.12
-wsgiref==0.1.2
+# wsgiref==0.1.2
 sphinx-copybutton==0.2.5
