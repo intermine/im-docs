@@ -4,7 +4,7 @@ Ensembl Compara
 Download data from BioMart
 ----------------------------
 
-#. [http://www.ensembl.org/biomart/martview/]
+#. http://www.ensembl.org/biomart/martview/
 #. select database for primary organism, eg. `Ensembl Genes`
 #. select dataset for primary organism, eg. `Drosophila melanogaster features (BDGP5.25)`
 #. select FILTERS
