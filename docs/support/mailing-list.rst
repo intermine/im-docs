@@ -11,6 +11,8 @@ Outreachy list
 
 InterMine also participates in Outreachy, which is similar to GSoC but with a focus on getting more underrepresented folks into tech. 
 
+InterMine Outreachy Chat(Discord): http://chat.intermine.org/
+
 If you want to get more information of Outreachy, visit https://lists.outreachy.org/cgi-bin/mailman/listinfo/announce 
 
 Developer list
