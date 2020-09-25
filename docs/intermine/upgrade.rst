@@ -24,7 +24,42 @@ To get patch updates automatically, use the plus (+) notation:
 
 Read more: :doc:`/intermine/intermine-versions` and :doc:`/intermine/roadmap`
 
+InterMine 4.2.0
+---------------------
+
+This is a non-disruptive release.
+
+It mainly contains new webservices to improve BlueGenes support (v. 0.10.0), some fixes related to the type Date, bioschemas markup on the report page (Gene and protein)
+
+InterMine 4.1.3
+---------------------
+
+This is a non-disruptive release.
+
+It contains a small batch of bug fixes.
+
+InterMine 4.1.2
+---------------------
+
+This is a non-disruptive release.
+
 InterMine 4.1.1
+---------------------
+
+This is a non-disruptive release.
+
+It contains some bug fixes related to ncbi-gff bio source and few improvements from ThaleMine.
+
+You can build your mine using Gradle wrapper 4.9. To update the version, run the following command in your InterMine instance directory:
+
+.. code-block:: guess
+
+	cd flymine
+	./gradlew wrapper --gradle-version 4.9
+	
+See our blog post for more details (https://intermineorg.wordpress.com/2019/10/29/intermine-4-1-1-patch-release/).
+
+InterMine 4.1.0
 ---------------------
 
 This is a non-disruptive release.

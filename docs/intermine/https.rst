@@ -36,10 +36,9 @@ You should add a configuration to your tomcat server.xml in the Engine section, 
   <Valve className="org.apache.catalina.valves.RemoteIpValve"
        protocolHeaderHttpsValue="https"
        remoteIpHeader="x-forwarded-for"
-       proxiesHeader="x-forwarded-by"
+       requestAttributesEnabled="true"
        internalProxies="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
        protocolHeader="x-forwarded-proto" />
-
 
 
 It is also good practice to limit access to tomcat port only to the host's loopback address (localhost):

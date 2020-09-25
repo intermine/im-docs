@@ -5,7 +5,7 @@ Installing PostgreSQL
   We recommend you install PostgreSQL 9.2 and above. We currently run our `continuous integration tests`_ on PostgreSQL 9.2. `The PostgreSQL downloads page`_ has packages for most systems that set up everything for you.
 
 Fedora/CentOS
-	http://wiki.openscg.com/index.php/PostgreSQL_RPM_Installation
+	https://computingforgeeks.com/how-to-install-postgresql-on-fedora/
 
 Debian/Ubuntu
 	`sudo apt-get install postgresql`
@@ -209,4 +209,4 @@ See also: :doc:`/system-requirements/software/postgres/hikari`
 .. _Postgres.app: http://postgresapp.com/
 .. _MacPorts: https://github.com/codeforamerica/ohana-api/wiki/Installing-PostgreSQL-with-MacPorts-on-OS-X
 .. _Manually: http://www.postgresql.org/download/macosx
-.. _Homebrew: http://www.moncefbelyamani.com/how-to-install-postgresql-on-a-mac-with-homebrew-and-lunchy/
+.. _Homebrew: https://gist.github.com/ibraheem4/ce5ccd3e4d7a65589ce84f2a3b7c23a3

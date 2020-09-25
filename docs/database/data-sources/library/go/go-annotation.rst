@@ -29,7 +29,7 @@ readcolumn [1]_   which column to use for identifier  identifier (default) or sy
 ================= =================================== ==========================================================
 
 
-.. [1] See http://www.geneontology.org/GO.format.gaf-2_0.shtml for column descriptioins
+.. [1] See http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/ for column descriptioins
 
 
 .. code-block:: properties

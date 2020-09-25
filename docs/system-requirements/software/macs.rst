@@ -47,7 +47,7 @@ For convenient startup from the Terminal command line you can put `eclipse` in y
 
 	$ sudo ln -s /Applications/eclipse/eclipse /usr/local/bin/eclipse 
 
-Apple has a guide to Eclipse at http://developer.apple.com/tools/eclipse.html.
+Apple has a guide to Eclipse at https://beginnersbook.com/2016/04/how-to-install-eclipse-on-mac-os-x/.
 
 Installing Postgres
 -----------------------

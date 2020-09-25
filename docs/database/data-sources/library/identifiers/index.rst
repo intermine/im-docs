@@ -12,7 +12,7 @@ How to download the data
 ---------------------------
 
 flybase-identifiers
-	http://flybase.org/static_pages/downloads/FB20XX_XX/synonyms/fb_synonym_fb_FB20XX_XX.tsv.gz - where FB20XX_XX = the current FlyBase release
+	http://flybase.org/downloads/archivedata - you can download different versions
 
 zfin-identifiers
 	http://zfin.org/downloads/ensembl_1_to_1.txt
