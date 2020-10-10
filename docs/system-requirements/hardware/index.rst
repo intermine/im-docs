@@ -19,8 +19,8 @@ The hardware used for a data loading has a **significant** impact on data loadin
 Suggestion for a large InterMine instance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* 8 cores
-* 32 GB RAM
+* ~8 cores
+* ~32 GB RAM
 * ~2TB usable storage (SAS disks are faster than SATA)
 
     * RAID 10 (4TB raw in RAID 10)
@@ -52,15 +52,15 @@ FlyMine has separate build and production build servers and separate build and p
 Build
 ~~~~~~
 
-This runs the Java data integration code to build the warehouse, reading from source files/DBs and loading into an intermediate postgres database then the final postgres database.  This is write intensive; the faster the disks the better, it only needs 4 cores but the more RAM the better.
+This runs the Java data integration code to build the warehouse, reading from source files/databases  and loading into an intermediate postgres database then the final postgres database. This is write-intensive and only needs 4 cores,but the faster the disk and the more RAM the better.
 
 Production
 ~~~~~~~~~~
-This runs the production postgres database.  More cores and more RAM means better handling of concurrent requests and more of the database in cache.  InterMine often fires a lot of queries at a time for a single user - i.e. when running templates for a report page.
+This runs the production postgres database.  More cores and more RAM means better handling of concurrent requests and more of the database in cache.  InterMine often sends a lot of queries at a time for a single user - i.e. when running templates for a report page.
 
 Web server
 ~~~~~~~~~~
-FlyMine has a separate machine to run Tomcat to serve the webapp, this is the machine that actually runs the live InterMine code.  For us this a 4 core machine with 8GB RAM.  The cores are more important than the speed, disk space not important, more RAM means better caching. 
+FlyMine has a separate machine to run Tomcat to serve the webapp, this is the machine that actually runs the live InterMine code.  For us this a 4 core machine with 8GB RAM.  The cores are more important than the speed and for better caching, more RAM is required. The disk is not important.
 
 modENCODE - identical machines
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

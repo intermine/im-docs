@@ -32,13 +32,13 @@ The `maxConnections` property is set in `default.intermine.production.properties
     db.production.platform=PostgreSQL
 
 
-You can override this propery in your mine's property file.
+You can override this property in your mine's property file.
 
 
 Tomcat
 -------
 
-You'll also need to update your Tomcat settings. Add `clearReferencesStopTimerThreads` to your $TOMCAT/conf/context.xml file, so it should look like so:
+You'll also need to update your Tomcat settings. Add `clearReferencesStopTimerThreads` to your $TOMCAT/conf/context.xml file, so it should look like:
 
 .. code-block:: xml
 
@@ -49,9 +49,9 @@ You'll also need to update your Tomcat settings. Add `clearReferencesStopTimerTh
 Other HikariCP configurations
 ------------------------------
 
-While HikariCP default settings are good, there could be situations where some changes could be useful. HikariCP provides a good number of parameters that can be set (see the configuration section at https://github.com/brettwooldridge/HikariCP).
+While HikariCP default settings are good, there could be situations where some changes could be useful. HikariCP provides a good number of parameters that can be set (see the configuration section at `HikariCP <https://github.com/brettwooldridge/HikariCP>`_).
 
-For example, sometime it can be useful, to avoid exceeding the number of connections set in the database, to set the minimumIdle number of connections. This could be the case in development and when deploying multiple webapps. For performance purposes is nevertheless suggested by Hikari people to have `minimumIdle = maximumPoolSize` (InterMine maxConnections). To set a minimumIdle parameter just add a line like the following to your mine's properties file:
+For example, sometimes it can be useful, to avoid exceeding the number of connections set in the database, to set the minimumIdle number of connections. This could be the case in development and when deploying multiple webapps. For performance purposes is nevertheless suggested by Hikari people to have `minimumIdle = maximumPoolSize` (InterMine maxConnections). To set a minimumIdle parameter just add a line like the following to your mine's properties file:
 
 .. code-block:: properties
 
@@ -60,8 +60,8 @@ For example, sometime it can be useful, to avoid exceeding the number of connect
 Further reading
 ----------------
 
-https://github.com/brettwooldridge/HikariCP/wiki/About-Pool-Sizing
+`About Pool Sizing <https://github.com/brettwooldridge/HikariCP/wiki/About-Pool-Sizing/>`_
 
-https://groups.google.com/forum/#!forum/hikari-cp
+`Hikari Discussion Forumn <https://groups.google.com/forum/#!forum/hikari-cp/>`_
 
 .. index:: Hikari, connection pool, database, JDBC
