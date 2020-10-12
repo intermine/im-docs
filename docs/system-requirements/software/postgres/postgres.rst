@@ -110,7 +110,7 @@ PostgreSQL parameters
 """"""""""""""""""""""""""""
 
 
-For better performance. Read `Turning your PostgreSQL Server <http://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server/>`_ for more information.
+For better performance. Read `Tuning your PostgreSQL Server <http://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server/>`_ for more information.
 
 
 ===============================   =============================
