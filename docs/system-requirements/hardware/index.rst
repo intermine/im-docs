@@ -36,13 +36,13 @@ Suggestion for a large InterMine instance
 OS
 ~~~
 
-* Any distribution of Linux/Unix should be fine as long as it runs Java and Postgres, Debian is our preference. 
+* Any distribution of Linux/Unix should be fine as long as it runs Java and Postgres, Debian is our preference. Please note that Windows is not currently supported.
 * Use something mainstream and reliable like Linux or BSD
 * Use the system that your friendly sysadmin is most familiar with.
 * Not favourites:
 
  * Tru64
- * :doc:`solaris`
+ * :docs:`solaris`
 
 What we use
 --------------------

@@ -6,7 +6,7 @@ Gradle - FAQs
 
 `Gradle <https://gradle.org>`_ is InterMine's build tool. In InterMine 2.0 Gradle replaced ant.
 
-Please see :doc:`Upgrade instructions </intermine/upgrade>` for details on how to migrate your system to use Gradle and :doc:`Gradle Quick Start </system-requirements/software/gradle/index>` for common Gradle commands.
+Please see :docs:`Upgrade instructions </intermine/upgrade>` for details on how to migrate your system to use Gradle and :docs:`Gradle Quick Start </system-requirements/software/gradle/index>` for common Gradle commands.
 
 
 I got an error: "Caused by: java.security.InvalidKeyException: EC parameters error"
@@ -126,7 +126,7 @@ You can overwrite this value and set these values in your mine's `gradle.propert
 I want to make a change to InterMine. How do I install InterMine locally?
 --------------------------------------------------------------------------------------------
 
-See :doc:`Local installation </system-requirements/software/git/>` for how to install InterMine locally.
+See :docs:`Local installation </system-requirements/software/git/>` for how to install InterMine locally.
 
 I got a different error! Help!
 ----------------------------------------------
@@ -138,6 +138,6 @@ Common issues:
 * Always use the wrapper provided. `./gradlew` and NOT `gradle`.
 * Using a `daemon`. Update your `GRADLE_OPTS` with the `no-daemon` flag.
 
-See :doc:`/support/troubleshooting-tips` for common error messages.
+See :docs:`/support/troubleshooting-tips` for common error messages.
 
 .. index:: gradle, ant, maven

@@ -92,7 +92,7 @@ What can't be done (yet)
 
 Please note that there are a number of database changes that the triggers CANNOT handle as of yet:
 
-1. Foreign key constraints are not enforced. If you delete a gene, there may still entries in the genesproteins table or a reference to
+1. Foreign key constraints are not enforced. If you delete a gene, there may be still entries in the genesproteins table or a reference to
    this from the geneid field in the mrna table. Foreign keys are enforced at the application layer. This means whoever is doing the update needs
    to keep things straight. (This is possible to implement.  It may be done in the future.)
 

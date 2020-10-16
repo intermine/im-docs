@@ -19,6 +19,6 @@ Important points:
 * One source can use multiple primary keys for a class if the objects of that class don't consistently have the same identifier type
 * `null` - if a source has no value for a field that is defined as a primary key then the key is not used and the data is loaded without being integrated.
 
-See :doc:`/database/database-building/primary-keys` for more information.
+See :docs:`/database/database-building/primary-keys` for more information.
 
 .. index:: data integration

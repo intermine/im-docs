@@ -9,7 +9,7 @@ elastic-med
 
     You can view the source files for this project in the `intermine/intermine-apps-c <https://github.com/intermine/intermine-apps-c/tree/master/elastic-med>`_ repo.
 
-This document will guide you through the process of writing a JavaScript client side app (running completely in a browser) using Bower_ and Grunt_ tools. The app will connect to an ElasticSearch_ (ES) instance to do *search*. ES wraps Apache Lucene and serves as a repository of indexed documents that one can search agains. If you prefer a short gist head over to :doc:`usage` instead.
+This document will guide you through the process of writing a JavaScript client side app (running completely in a browser) using Bower_ and Grunt_ tools. The app will connect to an ElasticSearch_ (ES) instance to do *search*. ES wraps Apache Lucene and serves as a repository of indexed documents that one can search agains. If you prefer a short gist head over to :docs:`usage` instead.
 
 The app will have the following functionality:
 

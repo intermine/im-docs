@@ -1,7 +1,7 @@
 Post processing
 ================================
 
-Some operations are performed on the integrated data before the webapp is released - post-processing. For example, setting sequences of SequenceFeatures, filling in additional references and collections or transferring orthologues from translations to genes. These are steps that run after the data loading is completed. They are used to set calculate/set fields that are difficult to do when data loading or that require multiple sources to be loaded. Some postprocessing steps are core to InterMine.bio and should always be run, others are contributed by particular sources.
+Some operations are performed on the integrated data before the webapp is released - post-processing. For example, setting sequences of SequenceFeatures, filling in additional references and collections or transferring orthologues from translations to genes. These are steps that run after the data loading is completed. They are used to set calculate/set fields that are difficult to do when data loading or that require multiple sources to be loaded. Some post processing steps are core to InterMine.bio and should always be run, others are contributed by particular sources.
 
 Post-processing steps are specified in the project XML file and run from the mine:
 
@@ -144,7 +144,7 @@ populate-child-features
 
 Populate the SequenceFeature.childFeatures() collection.
 
-*Should I use it?*  Yes, only if you use JBrowse and you want your JBrowse web-service endpoints available (see also :doc:`/webapp/third-party-tools/jbrowse` and :doc:`/web-services/index`).
+*Should I use it?*  Yes, only if you use JBrowse and you want your JBrowse web-service endpoints available (see also :docs:`/webapp/third-party-tools/jbrowse` and :docs:`/web-services/index`).
 
 summarise-objectstore
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

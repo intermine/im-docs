@@ -26,7 +26,7 @@ These data are meant to enable your users to easily trace the provenance of your
 Organism
 ----------
 
-Include the :doc:`/database/data-sources/library/organism` data source in your build. Many of the tools available in InterMine assume this source will be loaded and expect a populated organism table.
+Include the :docs:`/database/data-sources/library/organism` data source in your build. Many of the tools available in InterMine assume this source will be loaded and expect a populated organism table.
 
 Chromosome location 
 ----------------------------
@@ -78,6 +78,6 @@ The InterMine build system generates the data model by merging the following dat
 * SOURCE_additions files for each data source listed in your project XML file
 * `globalAdditionsFile` if specified 
 
-See :doc:`/database/database-building/model-merging/` for details.
+See :docs:`/database/database-building/model-merging/` for details.
 
 .. index:: data source, data set, data model overview, data model, organism, organism name, chromosome location, strand

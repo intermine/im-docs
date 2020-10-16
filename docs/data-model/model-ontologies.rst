@@ -52,6 +52,6 @@ An example additions.xml snippet with an ontology term
 
 For a more complete example, see `FlyMine <http://www.flymine.org/flymine/service/model>`_ which covers many data types.
 
-For a detailed description of the data model, see :doc:`/data-model/model`.
+For a detailed description of the data model, see :docs:`/data-model/model`.
 
 .. index:: model with ontology terms, data model with ontology terms

@@ -34,6 +34,6 @@ After installation, most programs require extra configuration to work with Inter
    intellij
    solr
 
-InterMine uses :doc:`Gradle </system-requirements/software/gradle/index>` to manage the build but do not install Gradle locally. Instead use the wrapper provided.
+InterMine uses :docs:`Gradle </system-requirements/software/gradle/index>` to manage the build but do not install Gradle locally. Instead use the wrapper provided.
    
 .. index:: software dependencies, git, Java, Perl, PostgreSQL, Mac, Apples, gradle, Tomcat, maven
