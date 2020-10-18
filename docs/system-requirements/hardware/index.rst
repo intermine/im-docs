@@ -71,3 +71,5 @@ When running an InterMine build with multiple data sources, database copies are 
 Related topics:
 
 [Solaris](https://intermine.readthedocs.io/en/latest/system-requirements/hardware/solaris/)
+
+.. index:: solaris
