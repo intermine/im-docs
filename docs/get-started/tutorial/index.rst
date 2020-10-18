@@ -9,7 +9,7 @@ Following the steps on this page you will set up an example InterMine.  You will
 
 .. note::
 
-  See :doc:`/get-started/quick-start` if you are impatient and just want to run an InterMine.
+  See :docs:`/get-started/quick-start` if you are impatient and just want to run an InterMine.
 
 Getting Started
 ----------------------
@@ -26,7 +26,7 @@ We use `git <http://git-scm.com>`_ to manage and distribute source code and `gra
 * Solr
 * Perl (for the final build script)
 
-See :doc:`/system-requirements/software/index` for configuration details.
+See :docs:`/system-requirements/software/index` for configuration details.
 
 BioTestMine
 ~~~~~~~~~~~~~~
@@ -113,7 +113,7 @@ The biotestmine git repository includes a tar file with data to load into Biotes
 
 We will load genome annotation from PlasmoDB, protein data from UniProt and GO annotation also from PlasmoDB. 
 
-See :doc:`/get-started/tutorial/test-data` for details on the data. 
+See :docs:`/get-started/tutorial/test-data` for details on the data. 
 
 Copy this to a local directory (your home directory is fine for this workshop) and extract the archive:
 
@@ -862,7 +862,7 @@ To create a Intermine collection for autocomplete process, run this command insi
 
 These are empty search indexes. These will be populated by the `create-search-index` & `create-autocomplete-index` postprocesses. 
 
-See :doc:`/system-requirements/software/solr` for details.
+See :docs:`/system-requirements/software/solr` for details.
 
 Execute the `create-search-index` and `create-autocomplete-index` postprocesses by running this command:
 
