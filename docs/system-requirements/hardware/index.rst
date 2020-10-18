@@ -1,13 +1,11 @@
-Hardware
-===================
+## Hardware
 
-Recommendations 
-----------------------
+### Recommendations 
+
 
 The requirements for running InterMine depend on the size of data warehouse you need to create. It is possible to build small InterMine databases on most Linux or Mac desktops but with more substantial databases a more powerful dedicated server is required. The recommendations below are the minimum for running substantial servers such as FlyMine or InterMines for the major model organism databases.
 
-Database servers 
-~~~~~~~~~~~~~~~~
+#### Database servers 
 
 The hardware used for a data loading has a **significant** impact on data loading performance. The main recommendations we have are:
 
@@ -16,8 +14,7 @@ The hardware used for a data loading has a **significant** impact on data loadin
 * It is more important to have fast individual CPUs than a lot of CPUs for a build server. InterMine does use multiple threads during data loading, but not asymmetrically - there is one thread which takes a lot of the CPU time. On the other hand, for a production server, having a few more CPUs is more important.
 * Have a decent IO subsystem. We currently use a fibrechannel attached RAID array of 16 15krpm discs for our build servers.
 
-Suggestion for a large InterMine instance
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+##### Suggestion for a large InterMine instance
 
 * 8 cores
 * 32 GB RAM
@@ -33,8 +30,7 @@ Suggestion for a large InterMine instance
 
     It's essential to have separate development and production machines.
 
-OS
-~~~
+#### OS
 
 * Any distribution of Linux/Unix should be fine as long as it runs Java and Postgres, Debian is our preference. 
 * Use something mainstream and reliable like Linux or BSD
@@ -42,32 +38,26 @@ OS
 * Not favourites:
 
  * Tru64
- * :doc:`solaris`
+ * [Solaris](https://intermine.readthedocs.io/en/latest/system-requirements/hardware/solaris/)
 
-What we use
---------------------
+### What we use
 
 FlyMine has separate build and production build servers and separate build and production build web servers. 
 
-Build
-~~~~~~
+#### Build
 
 This runs the Java data integration code to build the warehouse, reading from source files/DBs and loading into an intermediate postgres database then the final postgres database.  This is write intensive; the faster the disks the better, it only needs 4 cores but the more RAM the better.
 
-Production
-~~~~~~~~~~
+#### Production
 This runs the production postgres database.  More cores and more RAM means better handling of concurrent requests and more of the database in cache.  InterMine often fires a lot of queries at a time for a single user - i.e. when running templates for a report page.
 
-Web server
-~~~~~~~~~~
+#### Web server
 FlyMine has a separate machine to run Tomcat to serve the webapp, this is the machine that actually runs the live InterMine code.  For us this a 4 core machine with 8GB RAM.  The cores are more important than the speed, disk space not important, more RAM means better caching. 
 
-modENCODE - identical machines
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#### modENCODE - identical machines
 For modENCODE we actually have two identical servers that switch roles with each release.  With higher data volumes and more frequent releases this makes more sense as we avoid dumping and reloading. Unlike FlyMine, modMine's database and webapp live on the same server.
 
-Database sizes/ disk space
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+#### Database sizes/ disk space
 Disk space on the build and production machines obviously depends on volume of data. 
 
 Multiply the database size by at least 3 for a corresponding InterMine instance.  This takes into account the various redundant ways we store data and precomputed tables, all to boost query performance.
@@ -80,11 +70,4 @@ When running an InterMine build with multiple data sources, database copies are 
 
 Related topics:
 
-.. toctree::
-   :maxdepth: 2
-   
-   solaris
-   
-
-
-.. index:: Debian, hardware
+[Solaris](https://intermine.readthedocs.io/en/latest/system-requirements/hardware/solaris/)
