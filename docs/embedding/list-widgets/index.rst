@@ -15,8 +15,8 @@ There are three categories of widgets:
 
 table
     displays the counts from the list for the collection specified
-graph
-    displays a chart based on a dataset you specify
+graph/chart
+    displays a graph/chart based on a dataset you specify
 enrichment
     displays the p-values of objects that appear in your list
 
@@ -180,7 +180,7 @@ See other mines' config files for more examples, eg:
 
 Background population
 ~~~~~~~~~~~~~~~~~~~~~~
-In the enrichement widgets, you can change the reference population.
+In the enrichment widgets, you can change the reference population.
 The reference population is specific for widget, list and user.
 If you are logged you can save your preference selecting the checkbox 'Save your preference'.
 The background population selected should include all items contained in the list.
