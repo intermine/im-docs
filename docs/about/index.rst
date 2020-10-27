@@ -12,9 +12,9 @@ The publicly available InterMine instances include:
 * `YeastMine <http://yeastmine.yeastgenome.org>`_ - an integrated data warehouse of yeast genomic data, developed by SGD
 * `RatMine <http://ratmine.mcw.edu/ratmine>`_ - an integrated data warehouse of rat genomic data, developed by RGD
 * `MouseMine <http://www.mousemine.org>`_ - an integrated data warehouse of mouse genomic data, developed by MGI
-* `TargetMine <http://targetmine.nibio.go.jp>`_ - a data warehouse for candidate gene prioritisation and drug target discovery, developed at NIBIO, Japan
+* `TargetMine <https://targetmine.mizuguchilab.org/targetmine>`_ - a data warehouse for candidate gene prioritisation and drug target discovery, developed at NIBIO, Japan
 * `Zebrafishmine <http://www.Zebrafishmine.org>`_ - an integrated data warehouse of zebrafish genomic data, developed by ZFIN
-* `Thalemine <https://apps.araport.org/thalemine>`_ - a data warehouse for Arabidopsis thaliana Col-0 for the ARAPORT project
+* `Thalemine <https://bar.utoronto.ca/thalemine>`_ - a data warehouse for Arabidopsis thaliana Col-0 for the ARAPORT project
 * `PhytoMine <https://phytozome.jgi.doe.gov/phytomine>`_ - an integrated data warehouse of over 50 plant genomes from Phytozome.
 
 See the InterMine `registry <http://registry.intermine.org>`_ for the full list of InterMine instances.
