@@ -10,7 +10,6 @@ The following are libraries that compile to JavaScript which can be embedded on 
       
     list-widgets/index
     apps-c/index
-    /webapp/query-results/index
     api-loader
     imjs
     examples
