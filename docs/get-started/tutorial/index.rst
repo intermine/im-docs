@@ -17,16 +17,21 @@ Getting Started
 Software
 ~~~~~~~~~~~~~~
 
-We use `git <http://git-scm.com>`_ to manage and distribute source code and `gradle <http://gradle.org>`_ as our build system. For this tutorial you will need the following software packages installed locally and running:
+We use `git <http://git-scm.com>`_ to manage and distribute source code and `gradle <http://gradle.org>`_ as our build system. InterMine makes use of a variety of freely available software packages. For this tutorial you will need the following software packages installed locally and running:
 
-* PostgreSQL
-* Git
-* Java
-* Tomcat
-* Solr
-* Perl (for the final build script)
+==========  ========= ===================================
+Software    At least  Purpose
+==========  ========= ===================================
+Git         1.7       check out and update source code
+Java SDK    8         build and use InterMine
+Tomcat      8.5.x     website
+PostgreSQL  9.3.x     database
+Perl        5.8.8     run  the final build scripts
+SOLR        7.2.1     search engine
+==========  ========= ===================================
+Note
 
-See :doc:`/system-requirements/software/index` for configuration details.
+InterMine only supports installations onto Linux and Mac OS X systems. Windows systems of any kind are not supported. We run a mixture of Debian and Fedora servers in our data centre in Cambridge. See :doc:`/system-requirements/software/index` for configuration details. 
 
 BioTestMine
 ~~~~~~~~~~~~~~
