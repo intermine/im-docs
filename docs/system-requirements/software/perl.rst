@@ -74,7 +74,7 @@ To force the install for any reason, use the "-f" flag, so type:
 
   $ cpan -f Module::Name
 
-If you have not set the sudo option in the CPAN configuration,Add sudo before the CPAN command, like:
+If you have not set the sudo option in the CPAN configuration, Add sudo before the CPAN command, like:
 
 .. code-block:: bash
 
