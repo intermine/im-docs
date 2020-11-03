@@ -60,7 +60,7 @@ This runs the production postgres database.  More cores and more RAM means bette
 
 Web server
 ~~~~~~~~~~
-FlyMine has a separate machine to run Tomcat to serve the webapp, this is the machine that actually runs the live InterMine code.  For us this a 4 core machine with 8GB RAM.  The cores are more important than the speed and for better caching, more RAM is required. The disk is not important.
+FlyMine has a separate machine to run Tomcat to serve the webapp, this is the machine that actually runs the live InterMine code.  For us this a 4 core machine with 8GB RAM.  Disk space is not important because the cores are more important than the speed, and for better caching more RAM is required.
 
 modENCODE - identical machines
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
