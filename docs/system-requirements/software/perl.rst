@@ -17,7 +17,7 @@ CPAN
 ----------------------------
 
 CPAN stands for the Comprehensive Perl Archive Network - and is the software repository for
-Perl modules. (you can compare it to `python's pypi <http://pypi.python.org/pypi/>`_, Yum/Apt
+Perl modules (you can compare it to `python's pypi <http://pypi.python.org/pypi/>`_, Yum/Apt
 repositories in Linux, or Apple's App Store). If you have Perl  installed you have CPAN. 
 To check type `cpan` in a terminal.
 
