@@ -52,7 +52,7 @@ FlyMine has separate build and production build servers and separate build and p
 Build
 ~~~~~~
 
-This runs the Java data integration code to build the warehouse, reading from source files/databases  and loading into an intermediate postgres database then the final postgres database. This is write-intensive and only needs 4 cores,but the faster the disk and the more RAM the better.
+This runs the Java data integration code to build the warehouse, reading from source files/databases  and loading into an intermediate postgres database then the final postgres database. This is write-intensive and only needs 4 cores, but the faster the disk and the more RAM the better.
 
 Production
 ~~~~~~~~~~
