@@ -22,17 +22,16 @@ We use `git <http://git-scm.com>`_ to manage and distribute source code and `gra
 ==========  =========== ========================================================================================================================================================
 Software     At least    Purpose
 ==========  =========== ========================================================================================================================================================
-Git          1.7          It is our source control software. We use it to check out , update, manage, and distribute our source code. Note: InterMine is available via JCenter as executable JARs. We do not recommend downloading the InterMine source code.
-Java SDK     8            We use Gradle as our build system and the usage of Gradle requires an Java Software Development Kit(Java SDK) installation. We recommend you use OpenJDK as it's probably safer moving forward.
+Git          1.7          It is our source control software. We use it to check out, update, manage, and distribute our source code. Note: InterMine is available via JCenter as executable JARs. We do not recommend downloading the InterMine source code.
+Java SDK     8            We use Gradle as our build system and the usage of Gradle requires an Java Software Development Kit (Java SDK) installation. We recommend you use OpenJDK as it's probably safer moving forward.
 Perl         5.8.8        Many of the build processes are carried out by Perl programs. You will need Perl installed on your system to build or maintain an InterMine installation.
 PostgreSQL   9.3.x        It is a powerful, open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads. We use it for our database.
 Tomcat       8.5.x        It is an open source implementation of the Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies. We use it for our website.
 Solr         7.2.1        Solr makes it easy for programmers to develop sophisticated, high-performance search applications with advanced features. We use it for its keyword search in our search engines.
 ==========  =========== ========================================================================================================================================================
 
-Note
-
-InterMine only supports installations onto Linux and Mac OS X systems. Windows systems of any kind are not supported. We run a mixture of Debian and Fedora servers in our data centre in Cambridge. See :doc:`/system-requirements/software/index` for configuration details. 
+Note: InterMine only supports installations onto Linux and Mac OS X systems. Windows systems of any kind are not supported. We run a mixture of Debian and Fedora servers in our data centre in Cambridge.
+See :doc:`/system-requirements/software/index` for configuration details. 
 
 BioTestMine
 ~~~~~~~~~~~~~~
