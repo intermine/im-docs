@@ -19,16 +19,17 @@ Software
 
 We use `git <http://git-scm.com>`_ to manage and distribute source code and `gradle <http://gradle.org>`_ as our build system. InterMine makes use of a variety of freely available software packages. For this tutorial you will need the following software packages installed locally and running:
 
-==========  ========= ===================================
-Software    At least  Purpose
-==========  ========= ===================================
-Git         1.7       check out and update source code
-Java SDK    8         build and use InterMine
-Tomcat      8.5.x     website
-PostgreSQL  9.3.x     database
-Perl        5.8.8     run  the final build scripts
-SOLR        7.2.1     search engine
-==========  ========= ===================================
+==========  =========== ========================================================================================================================================================
+Software     At least    Purpose
+==========  =========== ========================================================================================================================================================
+Git          1.7          It is our source control software. We use it to check out , update, manage, and distribute our source code. Note: InterMine is available via JCenter as executable JARs. We do not recommend downloading the InterMine source code.
+Java SDK     8            We use Gradle as our build system and the usage of Gradle requires an Java Software Development Kit(Java SDK) installation. We recommend you use OpenJDK as it's probably safer moving forward.
+Perl         5.8.8        It is an open source implementation of the Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies. We use it for our website.
+PostgreSQL   9.3.x        It is a powerful, open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads. We use it four our database.
+Tomcat       8.5.x        It is an open source implementation of the Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies. We use it for our website.
+Solr         7.2.1        Solr makes it easy for programmers to develop sophisticated, high-performance search applications with advanced features. We use it for its keyword search in our search engines.
+==========  =========== ========================================================================================================================================================
+
 Note
 
 InterMine only supports installations onto Linux and Mac OS X systems. Windows systems of any kind are not supported. We run a mixture of Debian and Fedora servers in our data centre in Cambridge. See :doc:`/system-requirements/software/index` for configuration details. 
