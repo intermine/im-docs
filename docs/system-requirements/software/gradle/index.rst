@@ -130,8 +130,8 @@ Deploy blue genes
 
 * Gets the `mine name`, `URL` and tools location from the $mine.properties file.
 * Uses the webservices from the webapp specified in the $mine.properties file. For the time being, you have to have an InterMine webapp running to launch a bluegenes instance.
-* The app will be deployed at the specified URL, port 5000
-* It is suggested to launch the app in the background (append ` &` to the command) 
+* The app will be deployed at the specified `URL`, port 5000.
+* It is suggested to launch the app in the background (append `&` to the command). 
 * Please see :doc:`Blue genes </webapp/blue-genes/index>` for details on how to configure your bluegenes instance.
 
 Specify properties file
