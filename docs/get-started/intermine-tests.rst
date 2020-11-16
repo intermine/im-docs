@@ -4,7 +4,7 @@ InterMine Tests
 Continuous Integration
 -------------------------
 
-We run all our tests on every commit using the Continous Integration service
+We run all our tests on every commit using the Continuous Integration service
 `Travis <https://travis-ci.org/intermine/intermine>`_. You can do the same for your fork:
 
   * Log in to Travis-CI with your GitHub account.
@@ -20,7 +20,7 @@ After getting the source code for InterMine and ensuring you have all of the
 required prerequisites, the next step is to try the tests to confirm that
 everything runs well in your environment.
 
-We also recommend looking at the files that run our continous integration tests
+We also recommend looking at the files that run our continuous integration tests
 for examples of how this can be automated:
 
   * `config/travis/init.sh`
