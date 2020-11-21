@@ -64,7 +64,7 @@ InterMine 4.1.0
 
 This is a non-disruptive release.
 
-Galaxy integration has been improved; you should remove the galaxy related properties from the web.properties file to benefit of it.
+Galaxy integration has been improved; you should remove the galaxy related properties from the web.properties file to benefit from it.
 
 Integration with ELIXIR AAI has been included.
 
