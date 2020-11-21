@@ -25,6 +25,6 @@ Major versions often change the data model or the InterMine API. These changes a
 
 Upgrading to a minor release does not normally require a database rebuild; you can stop your webapp, update your InterMine version number, and redeploy your webapp. For some releases, manual changes may be required to complete the upgrade, so always read the release notes before upgrading.
 
-While upgrading will always contain some level of risk, InterMine minor releases fix only frequently-encountered bugs, security issues, and blocking problems to reduce the risk associated with upgrading. For minor releases, the **community considers not upgrading to be riskier than upgrading**. 
+While upgrading will always contain some level of risk, InterMine minor releases fix only frequently-encountered bugs, security issues and blocking problems to reduce the risk associated with upgrading. For minor releases, the **community considers not upgrading to be riskier than upgrading**. 
 
 .. index:: version, semantic versioning, JAR version
