@@ -1,7 +1,7 @@
 How to set up your InterMine environment on the Amazon Cloud
 ================================================================
 
-Where you should learn how to start your own MalariaMine web application on the Amazon Cloud. You could also use your InterMine Amazon instance to try building MalariaMine yourself or to build your own mine there.
+This is where you should learn how to start your own MalariaMine web application on the Amazon Cloud. You could also use your InterMine Amazon instance to try building MalariaMine yourself or to build your own mine there.
 
 Pre-requisites
 ----------------------
@@ -22,14 +22,14 @@ The image contains a ready deployed MalariaMine.
 
 1. sign in at http://aws.amazon.com
 2. go to the EC2 management console
-   AWS console https://console.aws.amazon.com/console/home --> EC2 console
-3. if you don't have one, set up a security group which allows access at least to port
+  AWS console --> https://console.aws.amazon.com/console/home --> EC2 console
+3. if you don't have one, set up a security group which allows access to at least port
 
   * 22 (SSH)
   * 80 (HTTP)
   * 8080 (TOMCAT)
 
-  you could set up also a few spare ones (20, 21, 8009).
+  you could also set up a few spare ones (20, 21, 8009).
 
 .. note::
 
@@ -94,7 +94,7 @@ In ``/webapp`` you'll find tomcat6. You can start the webapp using this command:
 
  $ ./start.sh
 
-Your BioTestMine web application will be then available on
+Your BioTestMine web application will then be available on
 
   http://the_instance_public_DNS:8080/malariamine
 

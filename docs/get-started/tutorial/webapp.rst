@@ -40,7 +40,7 @@ Header
 Logo
 ^^^^^
 
-First, let's update the logo of your site. The logo should be 45x43 and named `logo.png`, for example:
+First, let's update the logo of your site. The logo should be 45x43pixels and named `logo.png`, for example:
 
 .. figure:: ../../imgs/logo.png
    :align:   center
@@ -61,7 +61,7 @@ First, let's update the logo of your site. The logo should be 45x43 and named `l
 
    Updated logo
 
-You should see your new logo in the top left corner of your webapp. If you don't, try clearing your browser's cache.
+You should see your new logo at the top left corner of your webapp. If you don't, try clearing your browser's cache.
 
 clean
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -86,7 +86,7 @@ Next to the name of your mine in the header is the release version and subtitle 
 
    Title, release version and subtitle
 
-These values are set in :doc:`/webapp/properties/intermine-properties` file. This is the same properties file you updated in the previous tutorial. The subtitle and release versions are populated by the properties `project.subTitle` and `project.releaseVersion`, respectively. Update these properties to a different value and redeploy your webapp using the commands given above. Once you have successfully released your webapp, you should see your new subtitle.
+These values are set in :doc:`/webapp/properties/intermine-properties` file. This is the same properties file you updated in the previous tutorial. The subtitle and release versions are populated by the properties `project.subTitle` and `project.releaseVersion`, respectively. Update these properties to a different value and redeploy your webapp using the commands given below. Once you have successfully released your webapp, you should see your new subtitle.
 
 1. Open the properties file in your favourite text editor.
 
@@ -142,7 +142,7 @@ Ask us!
 	1. Log in as the superuser for your mine. (See :doc:`/webapp/admin/index` for details on how to do this.)
 	2. Change the last part of the URL in your browser to be `showProperties.do`, e.g. http://localhost:8080/biotestmine/showProperties.do
 
-	This lists of all properties that are used in your webapp. You can update the values for each property and instantly see how the webapp is changed, without worrying about breaking anything. (The changes only last for that session, to permanently change a value you'll need to update the appropriate config file.)
+	This lists all properties that are used in your webapp. You can update the values for each property and instantly see how the webapp is changed, without worrying about breaking anything. (The changes only last for that session, to permanently change a value you'll need to update the appropriate config file.)
 
 Keyword Search 
 ~~~~~~~~~~~~~~~~~~~~~
@@ -192,7 +192,7 @@ The :doc:`model.properties </webapp/properties/model-properties>` is the third c
 .. topic:: InterMine properties files
 
 	:doc:`~/.intermine/biotestmine.properties </webapp/properties/intermine-properties>`
-  		database and webapp names and locations. includes passwords and shouldn't be in source control.
+  		database and webapp names and locations, includes passwords and shouldn't be in source control.
 
 	:doc:`web.properties </webapp/properties/web-properties>`
   		webapp behaviour, e.g. link outs, tabs on home page
@@ -208,7 +208,7 @@ See :doc:`/webapp/layout/index` for more details on how to update the header, fo
 Home page
 ----------------------
 
-Most everything on the home page is customisable. You can edit the text and set which RSS news feed to use. If you want something very different, you can create and use your own home page.
+Almost everything on the home page is customisable. You can edit the text and set which RSS news feed to use. If you want something very different, you can create and use your own home page.
 
 Boxes
 ~~~~~~~

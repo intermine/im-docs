@@ -64,7 +64,7 @@ InterMine 4.1.0
 
 This is a non-disruptive release.
 
-Galaxy integration has been improved; you should remove the galaxy related properties from the web.properties file to benefit of it.
+Galaxy integration has been improved; you should remove the galaxy related properties from the web.properties file to benefit from it.
 
 Integration with ELIXIR AAI has been included.
 
@@ -286,7 +286,7 @@ Note the command is `./gradlew` instead of `gradle`. Use the provided Gradle wra
 
 You will have to `install` your sources every time you update the source code to update the JAR being used by the build.
 
-Previously the data model was merged from all data sources' additions XML file. This is no longer true. Since each source is in its own JAR now, the data model is self-contained. Therefore if you reference a class in your data parser, it must be present in the additions file. Alternatively, you can specify a single data model file that will be merged into each source:
+Previously, the data model was merged from all data sources' additions XML file. This is no longer true. Since each source is in its own JAR now, the data model is self-contained. Therefore if you reference a class in your data parser, it must be present in the additions file. Alternatively, you can specify a single data model file that will be merged into each source:
 
 .. code-block:: sh
 
@@ -340,7 +340,7 @@ Data Model
 
 See the `Model Changes <https://intermineorg.wordpress.com/2017/09/08/intermine-2-0-proposed-model-changes-iii/>`_ blog post for details.
 
-You have may to update your data sources and queries to match the new data model.
+You may have to update your data sources and queries to match the new data model.
 
 Dependencies
 --------------------------
@@ -453,7 +453,7 @@ We've added a new fancy connection pool, you should see a performance improvemen
 Postgres config file 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The number of database connections required will depend on your usage. 100 connections is the default and should be okay for production webapps. However each webapp reserves 20 connections so on your dev machines it may be wise to raise the maximum quite a bit.
+The number of database connections required will depend on your usage. 100 connections is the default and should be okay for production webapps. However, each webapp reserves 20 connections. So, on your dev machines it may be wise to raise the maximum quite a bit.
 
 .. topic:: postgresql.conf
 
@@ -520,7 +520,7 @@ See :doc:`/system-requirements/software/postgres/hikari` for details.
 InterMine-model Refactor
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The metadata package has moved from to `InterMine-model <https://github.com/intermine/intermine/tree/beta/intermine/model/main/src/org/intermine>`_. If you have custom data sources that use InterMine Utils, you may have to update your code to reflect the new location. Your IDE should be able to do this for you. 
+The metadata package has moved to `InterMine-model <https://github.com/intermine/intermine/tree/beta/intermine/model/main/src/org/intermine>`_. If you have custom data sources that use InterMine Utils, you may have to update your code to reflect the new location. Your IDE should be able to do this for you. 
 
 Tomcat
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -548,7 +548,7 @@ Upgrade to InterMine 1.3
   * DataSet now has a publication reference
   * AnnotationExtension has been moved from GOAnnotation to GOEvidence.
 
-Also, we have changed our GO parser a bit. Each line in a gene annotation file now corresponds with an Evidence object. In prior releases, each Evidence object was unique, e.g. only a single evidence code per gene / GO term pair.
+Also, we have changed our GO parser a bit. Each line in a gene annotation file now corresponds with an Evidence object. In prior releases, each Evidence object was unique e.g. only a single evidence code per gene / GO term pair.
 
 Upgrade to InterMine 1.2.1
 ---------------------------------

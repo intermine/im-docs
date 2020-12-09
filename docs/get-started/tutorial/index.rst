@@ -17,16 +17,21 @@ Getting Started
 Software
 ~~~~~~~~~~~~~~
 
-We use `git <http://git-scm.com>`_ to manage and distribute source code and `gradle <http://gradle.org>`_ as our build system. For this tutorial you will need the following software packages installed locally and running:
+We use `git <http://git-scm.com>`_ to manage and distribute source code and `gradle <http://gradle.org>`_ as our build system. InterMine makes use of a variety of freely available software packages. For this tutorial you will need the following software packages installed locally and running:
 
-* PostgreSQL
-* Git
-* Java
-* Tomcat
-* Solr
-* Perl (for the final build script)
+==========  =========== ========================================================================================================================================================
+Software     At least    Purpose
+==========  =========== ========================================================================================================================================================
+Git          1.7          It is our source control software. We use it to check out, update, manage, and distribute our source code. Note: InterMine is available via JCenter as executable JARs. We do not recommend downloading the InterMine source code.
+Java SDK     8            We use Gradle as our build system and the usage of Gradle requires an Java Software Development Kit (Java SDK) installation. We recommend you use OpenJDK as it's probably safer moving forward.
+PostgreSQL   9.3.x        It is a powerful, open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads. We use it for our database.
+Tomcat       8.5.x        It is an open source implementation of the Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies. We use it for deploying the web application.
+Solr         7.2.1        Solr makes it easy for programmers to develop sophisticated, high-performance search applications with advanced features. We use it for its keyword search in our search engines.
+Perl         5.8.8        Many of the build processes are carried out by Perl programs. For this tutorial you will not need it. You will need Perl installed on your system to build or maintain an InterMine installation.
+==========  =========== ========================================================================================================================================================
 
-See :doc:`/system-requirements/software/index` for configuration details.
+Note: InterMine only supports installations onto Linux and Mac OS X systems. Windows systems of any kind are not supported. We run a mixture of Debian and Fedora servers in our data centre in Cambridge.
+See :doc:`/system-requirements/software/index` for configuration details. 
 
 BioTestMine
 ~~~~~~~~~~~~~~
@@ -392,7 +397,7 @@ Object relational mapping
  
 InterMine works with objects, objects are loaded into the production system and queries return lists of objects.  These objects are persisted to a relational database. Internal InterMine code (the ObjectStore) handles the storage and retrieval of objects from the database automatically. By using an object model InterMine queries benefit from inheritance, for example the `Gene` and `Exon` classes are both subclasses of `SequenceFeature`.  When querying for SequenceFeatures (representing any genome feature) both Genes and Exons will be returned automatically.  
 
-We can see how see how inheritance is represented in the database:
+We can see how inheritance is represented in the database:
 
 * One table is created for each class in the data model.
 * Where one class inherits from another, entries are written to both tables.  For example:
@@ -433,7 +438,7 @@ We will load genome annotation data for *P. falciparum* from PlasmoDB
 Data integration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Note that genes from the gff3 file will have the same `primaryIdentifier` as those already loaded from UniProt.  These will  merge in the database such that there is only one copy of each gene with information from both data sources. We will load the genome data then look at how data integration in InterMine works.
+Note that genes from the GFF3 file will have the same `primaryIdentifier` as those already loaded from UniProt.  These will  merge in the database such that there is only one copy of each gene with information from both data sources. We will load the genome data then look at how data integration in InterMine works.
 
 First, look at the information currently loaded for gene `PFL1385c` from UniProt:
 
@@ -660,7 +665,7 @@ The keys used by each source are set in the source's `resources` directory.
 * `uniprot-malaria <https://github.com/intermine/intermine/blob/master/bio/sources/uniprot/src/main/resources/uniprot_keys.properties>`_
 * `malaria-gff <https://github.com/intermine/intermine/blob/master/bio/sources/example-sources/malaria-gff/src/main/resources/malaria-gff_keys.properties>`_
 
-The key on `Gene.primaryIdentifier` is defined in both sources, that means that the same final result would have been achieved regardless of the order in the two sources were loaded.  
+The key on `Gene.primaryIdentifier` is defined in both sources, that means that the same final result would have been achieved regardless of the order in which the two sources were loaded.  
 
 These `_keys.properties` files define keys in the format:
 
@@ -675,7 +680,7 @@ The `name_of_key` can be any string but you must use different names if defining
   Gene.key_primaryidentifier = primaryIdentifier
   Gene.key_secondaryidentifier = secondaryIdentifier
 
-It is better to use common names for identical keys between sources as this will help avoid duplicating database indexes. Each key should list one or more fields that can be a combination of `attributes` of the class specified or `references` to other classes, in this cases there should usually be a key defined for the referenced class as well.
+It is better to use common names for identical keys between sources as this will help avoid duplicating database indexes. Each key should list one or more fields that can be a combination of `attributes` of the class specified or `references` to other classes, in this case there should usually be a key defined for the referenced class as well.
 
 The `tracker` table 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -752,7 +757,7 @@ Now run the `update-publications` source to fill in the details:
 
   ~/git/biotestmine $ ./gradlew integrate -Psource=update-publications --stacktrace
 
-As there are often large numbers of publications they are retrieved in batches from the web service.
+As there are often large numbers of publications, they are retrieved in batches from the web service.
 
 Now details will have been added to the `publication` table:
 
@@ -760,7 +765,7 @@ Now details will have been added to the `publication` table:
 
   biotestmine#  select * from publication where title is not null limit 5;
 
-As this source depends on publication data previously loaded it should be one of the last sources run and should appear at the end of `<sources>` in `project.xml`.
+As this source depends on publication data previously loaded, it should be one of the last sources run and should appear at the end of `<sources>` in `project.xml`.
 
 Post Processing
 --------------------------------------------
@@ -860,11 +865,11 @@ To create a Intermine collection for autocomplete process, run this command insi
     # Initaliases the autocomplete index
     solr-7.2.1 $ ./bin/solr create -c biotestmine-autocomplete
 
-These are empty search indexes. These will be populated by the `create-search-index` & `create-autocomplete-index` postprocesses. 
+These are empty search indexes that will be populated by the `create-search-index` & `create-autocomplete-index` postprocesses. 
 
 See :doc:`/system-requirements/software/solr` for details.
 
-Execute the `create-search-index` and `create-autocomplete-index` postprocesses by running this command:
+Execute the `create-search-index` and `create-autocomplete-index` postprocesses by running these commands:
 
 ::
 
@@ -919,7 +924,7 @@ In the `~/.intermine` directory, update the webapp properties in your biotestmin
 UserProfile
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The userprofile database stores all user-related information such as username and password, tags, queries, lists and templates.
+The userprofile database stores all user-related information such as username and password, tags, queries, lists and templates. To build the userprofile database:
 
 1. Configure 
 
@@ -957,7 +962,7 @@ Deploying the webapp
 
 Before deploying the biotestmine webapp, you need to configure tomcat. See :doc:`/system-requirements/software/tomcat` for configuration details.
 
-Run the following command to release your webapp: 
+Run the following command to deploy your webapp: 
 
 ::
 

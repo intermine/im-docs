@@ -11,7 +11,7 @@ All data required to build an InterMine is included in `biotestmine/data/malaria
 	cd DATA_DIR
 	tar -zxvf malaria-data.tar.gz
 
-Edit the project.xml file so that all occurances of ''DATA_DIR'' point to the your local data directory location. 
+Edit the project.xml file so that all occurrences of ''DATA_DIR'' point to the your local data directory location. 
 
 Data sources
 -----------------
