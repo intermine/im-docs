@@ -24,7 +24,7 @@ Some of the recommended setting below may not apply to older versions of Postgre
 
 Configuration file
 -------------------
-Most of the configurations below are made updating the file `postgresql.conf`, usually located in `/etc/postgres/version-nr/main`.
+Most of the configurations below are made by updating the file `postgresql.conf`, usually located in `/etc/postgres/version-nr/main`.
 
 Required Configurations
 ---------------------------------------
@@ -94,11 +94,15 @@ Set
 
 by editing the file
 
+.. code-block:: bash
+
    /etc/sysctl.d/30-postgresql-shm.conf
 
 and sourcing it
 
-         sudo sysctl -p /etc/sysctl.d/30-postgresql-shm.conf
+.. code-block:: bash
+
+      sudo sysctl -p /etc/sysctl.d/30-postgresql-shm.conf
 
 
 
@@ -106,7 +110,7 @@ PostgreSQL parameters
 """"""""""""""""""""""""""""
 
 
-For better performance. Read http://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server for more information.
+For better performance. Read `Tuning your PostgreSQL Server <http://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server/>`_ for more information.
 
 
 ===============================   =============================

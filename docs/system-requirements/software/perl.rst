@@ -6,8 +6,8 @@ installed on your system to build or maintain an InterMine installation. Linux
 and MacOS systems will have a suitable Perl already installed. Perl is available for Windows,
 but is not actively supported by InterMine.
 
-You are encouraged to use http://perlbrew.pl to set up your Perl environment, and
-make use of the modern toolchain, such as https://metacpan.org/pod/cpanm.
+To set up your perl environment `perlbrew <http://perlbrew.pl/>`_ is a good guide, and
+make use of the modern toolchain, like `cpan <https://metacpan.org/pod/cpanm/>`_.
 
 At various times you will be requested to install various Perl modules. Here you can
 find instructions for how to do this using the native CPAN tool which comes with every
@@ -17,11 +17,11 @@ CPAN
 ----------------------------
 
 CPAN stands for the Comprehensive Perl Archive Network - and is the software repository for
-Perl modules. (you can compare it to http://pypi.python.org/pypi, Yum/Apt
-repositories in Linux, or even Apple's App Store). If you have Perl you have CPAN. (To check
-type `cpan` in a terminal).
+Perl modules (you can compare it to `python's pypi <http://pypi.python.org/pypi/>`_, Yum/Apt
+repositories in Linux, or Apple's App Store). If you have Perl  installed you have CPAN. 
+To check type `cpan` in a terminal.
 
-To install modules with CPAN you may first need to set up the installer: in a terminal run
+To install modules with CPAN you may first need to set up the installer, in a terminal run:
 
 .. code-block:: bash
 
@@ -48,7 +48,7 @@ To change a setting manually, type:
   $ o conf [SETTING NAME] "NEW VALUE"
 
 
-eg to make modules installed uninstall previous versions and use sudo to elevate permissions (very good ideas), type:
+example, to make installed modules uninstall previous versions and use sudo to elevate permissions (very good ideas), type:
 
 .. code-block:: bash
 
@@ -74,7 +74,11 @@ To force the install for any reason, use the "-f" flag, so type:
 
   $ cpan -f Module::Name
 
-Don't forget to use sudo in front of the CPAN command if you have not set the sudo option in the CPAN configuration
+If you have not set the sudo option in the CPAN configuration, Add sudo before the CPAN command, like:
+
+.. code-block:: bash
+
+  $ sudo cpan -f Module::Name
 
 DEB Packages
 -------------------
