@@ -1,8 +1,6 @@
 Gene Ontology
-================================
+=============
 
-
-.. toctree::
-
-    go-annotation
-    go-obo
+::: {.toctree}
+go-annotation go-obo
+:::

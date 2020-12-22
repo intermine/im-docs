@@ -1,143 +1,176 @@
-:orphan:
+orphan
 
+:   
 
 Gradle - FAQs
-================
+=============
 
-`Gradle <https://gradle.org>`_ is InterMine's build tool. In InterMine 2.0 Gradle replaced ant.
+[Gradle](https://gradle.org) is InterMine\'s build tool. In InterMine
+2.0 Gradle replaced ant.
 
-Please see :doc:`Upgrade instructions </intermine/upgrade>` for details on how to migrate your system to use Gradle and :doc:`Gradle Quick Start </system-requirements/software/gradle/index>` for common Gradle commands.
+Please see `Upgrade instructions </intermine/upgrade>`{.interpreted-text
+role="doc"} for details on how to migrate your system to use Gradle and
+`Gradle Quick Start </system-requirements/software/gradle/index>`{.interpreted-text
+role="doc"} for common Gradle commands.
 
+I got an error: \"Caused by: java.security.InvalidKeyException: EC parameters error\"
+-------------------------------------------------------------------------------------
 
-I got an error: "Caused by: java.security.InvalidKeyException: EC parameters error"
---------------------------------------------------------------------------------------------------------------------
+InterMine 2.0 only works with Java 8+. Please update your Java version
+and that will fix this error.
 
-InterMine 2.0 only works with Java 8+. Please update your Java version and that will fix this error.
+I got an error: \"Caused by: java.security.NoSuchProviderException: no such provider: SunEC\"
+---------------------------------------------------------------------------------------------
 
-I got an error: "Caused by: java.security.NoSuchProviderException: no such provider: SunEC"
---------------------------------------------------------------------------------------------------------------------
-
-InterMine 2.0 only works with Java 8+. Please update your Java version and that will fix this error.
+InterMine 2.0 only works with Java 8+. Please update your Java version
+and that will fix this error.
 
 I got an out of memory error! Help!
-----------------------------------------------
+-----------------------------------
 
-Gradle gets its properties differently from ant. Instead of `ANT_OPTS`, set `GRADLE_OPTS`. Use the same values but also append `-Dorg.gradle.daemon=false` to prevent the use of Gradle daemons.
+Gradle gets its properties differently from ant. Instead of
+[ANT_OPTS]{.title-ref}, set [GRADLE_OPTS]{.title-ref}. Use the same
+values but also append [-Dorg.gradle.daemon=false]{.title-ref} to
+prevent the use of Gradle daemons.
 
-I set `GRADLE_OPTS` properly and I still am getting an "out of memory" error message
---------------------------------------------------------------------------------------------
+I set [GRADLE_OPTS]{.title-ref} properly and I still am getting an \"out of memory\" error message
+--------------------------------------------------------------------------------------------------
 
-Append `-Dorg.gradle.daemon=false` to prevent the use of Gradle daemons.
+Append [-Dorg.gradle.daemon=false]{.title-ref} to prevent the use of
+Gradle daemons.
 
-I got ANOTHER error: "java.lang.ClassCastException: org.apache.xerces.parsers.XIncludeAwareParserConfiguration cannot be cast to org.apache.xerces.xni.parser.XMLParserConfiguration "
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Update your `GRADLE_OPTS` to disable deamons. 
-
-`export GRADLE_OPTS="-Dorg.gradle.daemon=false"`
-
-Error in log file when I deploy my webapp: "Caused by: java.io.IOException: Error writing request body to server"
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Try `./gradlew cargoRedeployRemote` instead of `./gradlew cargoDeployRemote`
-
-I tried to install my data source, but I got an exception saying it can't find a class. I know this class IS in my data model though!
+I got ANOTHER error: \"java.lang.ClassCastException: org.apache.xerces.parsers.XIncludeAwareParserConfiguration cannot be cast to org.apache.xerces.xni.parser.XMLParserConfiguration \"
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Update your source's additions file to include this class.
+Update your [GRADLE_OPTS]{.title-ref} to disable deamons.
 
-Previously, all additions files listed in your project XML were merged into a single genomic_model.xml that was placed on your classpath. Now, instead, only the core data model and your additions file are merged into genomic_model.xml and placed in the JAR of the data source. 
+[export GRADLE_OPTS=\"-Dorg.gradle.daemon=false\"]{.title-ref}
 
-Alternatively, you can set the `globalAdditionsFile` parameter to specify a single file that will be merged into each of your data sources. Look for this configuration in your mine's bio sources `build.gradle` file.
+Error in log file when I deploy my webapp: \"Caused by: java.io.IOException: Error writing request body to server\"
+-------------------------------------------------------------------------------------------------------------------
+
+Try [./gradlew cargoRedeployRemote]{.title-ref} instead of [./gradlew
+cargoDeployRemote]{.title-ref}
+
+I tried to install my data source, but I got an exception saying it can\'t find a class. I know this class IS in my data model though!
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Update your source\'s additions file to include this class.
+
+Previously, all additions files listed in your project XML were merged
+into a single genomic_model.xml that was placed on your classpath. Now,
+instead, only the core data model and your additions file are merged
+into genomic_model.xml and placed in the JAR of the data source.
+
+Alternatively, you can set the [globalAdditionsFile]{.title-ref}
+parameter to specify a single file that will be merged into each of your
+data sources. Look for this configuration in your mine\'s bio sources
+[build.gradle]{.title-ref} file.
 
 Where is InterMine code on my server?
---------------------------------------------------------------------------------------------
+-------------------------------------
 
 The InterMine JARs are here on your machine:
 
-.. code-block:: bash
+``` {.bash}
+# gradle - remote repos
+~/.gradle/caches/modules-2/files-2.1/org.intermine/
+# maven - local installs
+~/.m2
+```
 
-    # gradle - remote repos
-    ~/.gradle/caches/modules-2/files-2.1/org.intermine/
-    # maven - local installs
-    ~/.m2
-
-You normally will be pulling the JARs down from the remote repository, unless you have installed the JARs locally yourself.
+You normally will be pulling the JARs down from the remote repository,
+unless you have installed the JARs locally yourself.
 
 Which JAR am I using? I have JARs in both of those directories.
---------------------------------------------------------------------------------------------
+---------------------------------------------------------------
 
-Here is an excerpt from the mine's `build.gradle` file the determines which JAR is being used:
+Here is an excerpt from the mine\'s [build.gradle]{.title-ref} file the
+determines which JAR is being used:
 
-.. code-block:: guess
-
-    repositories {
-        mavenLocal()
-        jcenter()
-        maven {
-            url "https://oss.jfrog.org/artifactory/oss-snapshot-local"
-        }
+``` {.guess}
+repositories {
+    mavenLocal()
+    jcenter()
+    maven {
+        url "https://oss.jfrog.org/artifactory/oss-snapshot-local"
     }
+}
+```
 
-Gradle will go through each of these repositories and use the best version it finds.
+Gradle will go through each of these repositories and use the best
+version it finds.
 
-Maven Local
-~~~~~~~~~~~~~~~
+### Maven Local
 
-Gradle first looks in `mavenLocal()` which is your `~/.m2/repository` directory. These are JARs you have installed locally. 
+Gradle first looks in [mavenLocal()]{.title-ref} which is your
+[\~/.m2/repository]{.title-ref} directory. These are JARs you have
+installed locally.
 
-Remote Repositiories (JCenter and JFrog)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Remote Repositiories (JCenter and JFrog)
 
 Gradle then looks in the remote repositories (JCenter and Jfrog).
 
-`JCenter <https://jcenter.bintray.com/org/intermine/>`_ is where our InterMine JARs are stored remotely. 
+[JCenter](https://jcenter.bintray.com/org/intermine/) is where our
+InterMine JARs are stored remotely.
 
-`JFrog <https://oss.jfrog.org/artifactory>`_ is where our InterMine SNAPSHOT JARs are currently.
+[JFrog](https://oss.jfrog.org/artifactory) is where our InterMine
+SNAPSHOT JARs are currently.
 
-Gradle will use the JAR with the latest version. This is because we use the `2.0+` notation. 
+Gradle will use the JAR with the latest version. This is because we use
+the [2.0+]{.title-ref} notation.
 
 The versions for the JARs are set in each project:
 
-.. code-block:: guess
-
-     intermine/build.gradle
-     plugin/build.gradle
-     bio/build.gradle
-     bio/sources/build.gradle
-     bio/postprocess/build.gradle
+``` {.guess}
+intermine/build.gradle
+plugin/build.gradle
+bio/build.gradle
+bio/sources/build.gradle
+bio/postprocess/build.gradle
+```
 
 Currently this version is **2.1.1**
 
-Which dependency versions to use is set in the gradle.properties file for each project:
+Which dependency versions to use is set in the gradle.properties file
+for each project:
 
-.. code-block:: guess
-
-     intermine/gradle.properties
-     plugin/gradle.properties
-     bio/gradle.properties
-     bio/sources/gradle.properties
-     bio/postprocess/gradle.properties
+``` {.guess}
+intermine/gradle.properties
+plugin/gradle.properties
+bio/gradle.properties
+bio/sources/gradle.properties
+bio/postprocess/gradle.properties
+```
 
 Currently set to **2.1+**
 
-You can overwrite this value and set these values in your mine's `gradle.properties` file.
+You can overwrite this value and set these values in your mine\'s
+[gradle.properties]{.title-ref} file.
 
 I want to make a change to InterMine. How do I install InterMine locally?
---------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------
 
-See :doc:`Local installation </system-requirements/software/git/>` for how to install InterMine locally.
+See
+`Local installation </system-requirements/software/git/>`{.interpreted-text
+role="doc"} for how to install InterMine locally.
 
 I got a different error! Help!
-----------------------------------------------
+------------------------------
 
-Please send a detailed stacktrace to the dev mailing list, or pop onto our discord -- chat.intermine.org.
+Please send a detailed stacktrace to the dev mailing list, or pop onto
+our discord \-- chat.intermine.org.
 
 Common issues:
 
-* Always use the wrapper provided. `./gradlew` and NOT `gradle`.
-* Using a `daemon`. Update your `GRADLE_OPTS` with the `no-daemon` flag.
+-   Always use the wrapper provided. [./gradlew]{.title-ref} and NOT
+    [gradle]{.title-ref}.
+-   Using a [daemon]{.title-ref}. Update your [GRADLE_OPTS]{.title-ref}
+    with the [no-daemon]{.title-ref} flag.
 
-See :doc:`/support/troubleshooting-tips` for common error messages.
+See `/support/troubleshooting-tips`{.interpreted-text role="doc"} for
+common error messages.
 
-.. index:: gradle, ant, maven
+::: {.index}
+gradle, ant, maven
+:::

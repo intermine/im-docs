@@ -1,5 +1,5 @@
 Identifier Data Sources
-================================
+=======================
 
 You can load MODs ids into your mine using identifier data sources.
 
@@ -8,59 +8,65 @@ Types of data loaded
 
 genes
 
-How to download the data 
----------------------------
+How to download the data
+------------------------
 
 flybase-identifiers
-	http://flybase.org/downloads/archivedata - you can download different versions
+
+:   <http://flybase.org/downloads/archivedata> - you can download
+    different versions
 
 zfin-identifiers
-	http://zfin.org/downloads/ensembl_1_to_1.txt
+
+:   <http://zfin.org/downloads/ensembl_1_to_1.txt>
 
 sgd-identifiers
-	http://downloads.yeastgenome.org/curation/chromosomal_feature/SGD_features.tab
+
+:   <http://downloads.yeastgenome.org/curation/chromosomal_feature/SGD_features.tab>
 
 wormbase-identifiers
-	query wormbase biomart webservice
+
+:   query wormbase biomart webservice
 
 mgi-identifiers
-	ftp://ftp.informatics.jax.org/pub/reports/MGI_Coordinate.rpt
+
+:   <ftp://ftp.informatics.jax.org/pub/reports/MGI_Coordinate.rpt>
 
 rgd-identifiers
-	ftp://rgd.mcw.edu/pub/data_release/GENES_RAT.txt
 
-
+:   <ftp://rgd.mcw.edu/pub/data_release/GENES_RAT.txt>
 
 How to load the data into your mine
---------------------------------------
+-----------------------------------
 
 project XML example
- 
-.. code-block:: xml
 
-    <source name="flybase-identifiers" type="flybase-identifiers">
-      <property name="src.data.dir" location="/DATA/flybase-identifiers"/>
-    </source>   
-   
-    <source name="zfin-identifiers" type="zfin-identifiers">
-      <property name="src.data.dir" location="/DATA/zfin-identifiers"/>
-    </source> 
-   
-    <source name="sgd-identifiers" type="sgd-identifiers">
-      <property name="src.data.dir" location="/DATA/sgd-identifiers"/>
-    </source> 
+``` {.xml}
+<source name="flybase-identifiers" type="flybase-identifiers">
+  <property name="src.data.dir" location="/DATA/flybase-identifiers"/>
+</source>   
 
-    <source name="wormbase-identifiers" type="wormbase-identifiers">
-      <property name="src.data.dir" location="/DATA/worm-identifiers"/>
-    </source>
+<source name="zfin-identifiers" type="zfin-identifiers">
+  <property name="src.data.dir" location="/DATA/zfin-identifiers"/>
+</source> 
 
-   <source name="mgi-identifiers" type="mgi-identifiers">
-      <property name="src.data.dir" location="/DATA/mgi-identifiers"/>
-    </source>
-   
-   <source name="rgd-identifiers" type="rgd-identifiers">
-      <property name="src.data.dir" location="/DATA/rgd-identifiers"/>
-    </source>
+<source name="sgd-identifiers" type="sgd-identifiers">
+  <property name="src.data.dir" location="/DATA/sgd-identifiers"/>
+</source> 
 
+<source name="wormbase-identifiers" type="wormbase-identifiers">
+  <property name="src.data.dir" location="/DATA/worm-identifiers"/>
+</source>
 
-.. index:: identifiers, MGI, RGD, SGD, ZFIN, FlyBase
+<source name="mgi-identifiers" type="mgi-identifiers">
+  <property name="src.data.dir" location="/DATA/mgi-identifiers"/>
+</source>
+
+<source name="rgd-identifiers" type="rgd-identifiers">
+  <property name="src.data.dir" location="/DATA/rgd-identifiers"/>
+</source>
+```
+
+::: {.index}
+identifiers, MGI, RGD, SGD, ZFIN, FlyBase
+:::
