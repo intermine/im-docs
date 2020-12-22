@@ -1,20 +1,18 @@
 Lists
-================================
+=====
 
+`/webapp/properties/class-keys`{.interpreted-text role="doc"} specifies
+unique fields for classes in the data model for the webapp.
 
-:doc:`/webapp/properties/class-keys` specifies unique fields for classes in the data model for the webapp.  
+-   Fields specified in this file will be links in the results table in
+    the webapp.
+-   Only objects with key fields defined can be saved in lists.
 
-* Fields specified in this file will be links in the results table in the webapp.  
-* Only objects with key fields defined can be saved in lists.
+::: {.toctree maxdepth="4"}
+lists-page list-upload list-upgrade list-analysis/index
+/embedding/list-widgets/index
+:::
 
-
-.. toctree::
-    :maxdepth: 4
-
-    lists-page
-    list-upload
-    list-upgrade
-    list-analysis/index
-    /embedding/list-widgets/index
-
-.. index:: lists
+::: {.index}
+lists
+:::

@@ -1,11 +1,9 @@
 InterMine performance
-================================
+=====================
 
+::: {.toctree maxdepth="4
 
-.. toctree::
-   :maxdepth: 4
-      
-   data-loading
-   precomputing
-   configuration
-   
+data-loading
+precomputing
+configuration"}
+:::

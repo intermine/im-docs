@@ -1,9 +1,10 @@
 Proteins
-================================
+========
 
-.. toctree::
+::: {.toctree}
+uniprot interpro
+:::
 
-    uniprot
-    interpro
-
-.. index:: proteins
+::: {.index}
+proteins
+:::

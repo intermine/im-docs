@@ -1,21 +1,25 @@
 Database Building
-================================
+=================
 
-A 'build' of a mine is a complete data loading run starting from an empty database. It is recommended that you use the :doc:`/database/database-building/build-script`. The build script runs the data integration and any post-processing steps.
+A \'build\' of a mine is a complete data loading run starting from an
+empty database. It is recommended that you use the
+`/database/database-building/build-script`{.interpreted-text
+role="doc"}. The build script runs the data integration and any
+post-processing steps.
 
-Each mine has an integrate project that reads the project.xml file and builds the data warehouse. This steps through each `source` defined in the project.xml file and transates the specified data from a source format and loads it into the production database. Data integration is governed by primary keys, any conflicts are resolved by a priorities config file.
+Each mine has an integrate project that reads the project.xml file and
+builds the data warehouse. This steps through each [source]{.title-ref}
+defined in the project.xml file and transates the specified data from a
+source format and loads it into the production database. Data
+integration is governed by primary keys, any conflicts are resolved by a
+priorities config file.
 
-.. toctree::
-    :maxdepth: 4
-    
-    build-script
-    project-xml
-    data-integration
-    model-merging
-    primary-keys
-    priority-config
-    post-processing/index
-    post-build-updating-with-sql-triggers
-    debugging
+::: {.toctree maxdepth="4"}
+build-script project-xml data-integration model-merging primary-keys
+priority-config post-processing/index
+post-build-updating-with-sql-triggers debugging
+:::
 
-.. index:: database building
+::: {.index}
+database building
+:::
