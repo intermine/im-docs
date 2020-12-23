@@ -1,7 +1,6 @@
 PostgreSQL
-===========
+==========
 
-.. toctree::
-
-   postgres
-   hikari  
+::: {.toctree}
+postgres hikari
+:::

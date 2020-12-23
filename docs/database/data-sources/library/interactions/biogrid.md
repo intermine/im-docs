@@ -1,70 +1,77 @@
 BioGRID
-================================
+=======
 
 Loads interactions data from BioGRID
 
 Types of data loaded
 --------------------
 
-genes, proteins, interactions 
+genes, proteins, interactions
 
-How to download the data 
----------------------------
+How to download the data
+------------------------
 
-From the download section of the BioGRID website: http://thebiogrid.org
+From the download section of the BioGRID website:
+<http://thebiogrid.org>
 
-Download the file named: `BIOGRID-ORGANISM-[version].psi25.zip`. 
+Download the file named:
+[BIOGRID-ORGANISM-\[version\].psi25.zip]{.title-ref}.
 
 How to load the data into your mine
---------------------------------------
+-----------------------------------
 
-project XML example
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### project XML example
 
-.. code-block:: xml
+``` {.xml}
+<source name="biogrid" type="biogrid">
+  <property name="src.data.dir" location="/DATA/biogrid"/>
+  <property name="src.data.dir.includes" value="*psi25.xml"/>
+  <property name="biogrid.organisms" value="7227 6239 4932"/>
+</source>
+```
 
-    <source name="biogrid" type="biogrid">
-      <property name="src.data.dir" location="/DATA/biogrid"/>
-      <property name="src.data.dir.includes" value="*psi25.xml"/>
-      <property name="biogrid.organisms" value="7227 6239 4932"/>
-    </source>
+### biogrid_config.properties
 
-
-
-biogrid_config.properties
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Determines which gene identifiers are set. organisms - If none are configured, all interactions are stored.
-
+Determines which gene identifiers are set. organisms - If none are
+configured, all interactions are stored.
 
 This is what the gene looks like in biogrid
 
-.. code-block:: xml
+``` {.xml}
+<names>
+    <shortLabel>CG1111</shortLabel>
+</names>
+<xref>
+   <primaryRef db="FLYBASE" id="FBgn001" />
+```
 
-	<names>
-   		<shortLabel>CG1111</shortLabel>
-	</names>
-	<xref>
-       <primaryRef db="FLYBASE" id="FBgn001" />
+[shortLabel]{.title-ref}
 
-`shortLabel`
+To set your gene.identifier to be the shortLabel in the biogrid XML, use
+this config:
 
-To set your gene.identifier to be the shortLabel in the biogrid XML, use this config:
+``` {.properties}
+<TAXON_ID>.<GENE_IDENTIFIER_FIELD>=shortLabel
+```
 
-.. code-block:: properties
+[xref]{.title-ref}
 
-       <TAXON_ID>.<GENE_IDENTIFIER_FIELD>=shortLabel
+To set your gene.identifier field to be a value from an xref entry, use
+this syntax:
 
-`xref`
+``` {.properties}
+<TAXON_ID>.xref.<GENE_IDENTIFIER_FIELD> = <XREF_DB_VALUE>
+```
 
-To set your gene.identifier field to be a value from an xref entry, use this syntax:
+::: {.note}
+::: {.title}
+Note
+:::
 
-.. code-block:: properties
+xref \"db\" value is not case sensitive, case seems to vary from file to
+file.
+:::
 
-	<TAXON_ID>.xref.<GENE_IDENTIFIER_FIELD> = <XREF_DB_VALUE>
-
-.. note::
-
-	xref "db" value is not case sensitive, case seems to vary from file to file.
-
-.. index:: BioGRID
+::: {.index}
+BioGRID
+:::

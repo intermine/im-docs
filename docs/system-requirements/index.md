@@ -1,10 +1,10 @@
 System Requirements
-======================
+===================
 
-.. toctree::
-   :maxdepth: 2
-   
-   hardware/index
-   software/index
+::: {.toctree maxdepth="2"}
+hardware/index software/index
+:::
 
-.. index:: system requirements
+::: {.index}
+system requirements
+:::

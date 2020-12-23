@@ -1,10 +1,10 @@
 Publications
-================================
+============
 
+::: {.toctree}
+pubmed publications
+:::
 
-.. toctree::
-
-    pubmed
-    publications
-
-.. index:: literature, publications
+::: {.index}
+literature, publications
+:::

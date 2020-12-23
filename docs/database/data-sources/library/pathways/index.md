@@ -1,13 +1,12 @@
 Pathway data sources
-================================
-
+====================
 
 Content:
 
-.. toctree::
+::: {.toctree}
+kegg reactome
+:::
 
-	kegg
-	reactome
-
-
-.. index:: pathways
+::: {.index}
+pathways
+:::

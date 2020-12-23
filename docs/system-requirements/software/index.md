@@ -1,39 +1,41 @@
 Software
-===========
+========
 
-InterMine makes use of a variety of freely available software packages.  
+InterMine makes use of a variety of freely available software packages.
 
-==========  ========= ===================================
-Software    At least  Purpose
-==========  ========= ===================================
-Git         1.7       check out and update source code
-Java SDK    8         build and use InterMine
-Tomcat      8.5.x     website
-PostgreSQL  9.3.x     database
-Perl        5.8.8     run build scripts
-Maven       3.0.5     manage local dependencies
-SOLR        7.2.1     search engine
-==========  ========= ===================================
+  Software     At least   Purpose
+  ------------ ---------- ----------------------------------
+  Git          1.7        check out and update source code
+  Java SDK     8          build and use InterMine
+  Tomcat       8.5.x      website
+  PostgreSQL   9.3.x      database
+  Perl         5.8.8      run build scripts
+  Maven        3.0.5      manage local dependencies
+  SOLR         7.2.1      search engine
 
-.. note::
+::: {.note}
+::: {.title}
+Note
+:::
 
-	InterMine only supports installations onto Linux and Mac OS X systems. Windows systems of any kind are not supported.  We run a mixture of Debian and Fedora servers in our data centre in Cambridge.
+InterMine only supports installations onto Linux and Mac OS X systems.
+Windows systems of any kind are not supported. We run a mixture of
+Debian and Fedora servers in our data centre in Cambridge.
+:::
 
-After installation, most programs require extra configuration to work with InterMine:
+After installation, most programs require extra configuration to work
+with InterMine:
 
-.. toctree::
-   :maxdepth: 2
+::: {.toctree maxdepth="2"}
+git java perl postgres/index tomcat macs maven intellij solr
+:::
 
-   git
-   java
-   perl
-   postgres/index
-   tomcat
-   macs
-   maven
-   intellij
-   solr
+InterMine uses
+`Gradle </system-requirements/software/gradle/index>`{.interpreted-text
+role="doc"} to manage the build but do not install Gradle locally.
+Instead use the wrapper provided.
 
-InterMine uses :doc:`Gradle </system-requirements/software/gradle/index>` to manage the build but do not install Gradle locally. Instead use the wrapper provided.
-   
-.. index:: software dependencies, git, Java, Perl, PostgreSQL, Mac, Apples, gradle, Tomcat, maven
+::: {.index}
+software dependencies, git, Java, Perl, PostgreSQL, Mac, Apples, gradle,
+Tomcat, maven
+:::
