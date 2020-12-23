@@ -1,3 +1,0 @@
-language: python
-install: "pip install -r docs/requirements.txt"
-script: "cd docs && make html"
