@@ -1,13 +1,10 @@
-::: {.index}
-api
-:::
+# index
 
-InterMine API Description
-=========================
+::: {.index} api :::
 
-This section describes the public API definitions of parts of the
-InterMine system.
+## InterMine API Description
 
-::: {.toctree maxdepth="2"}
-pathquery
-:::
+This section describes the public API definitions of parts of the InterMine system.
+
+::: {.toctree maxdepth="2"} pathquery :::
+

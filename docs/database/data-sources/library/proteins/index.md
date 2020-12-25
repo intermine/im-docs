@@ -1,10 +1,6 @@
-Proteins
-========
+# Proteins
 
-::: {.toctree}
-uniprot interpro
-:::
+::: {.toctree} uniprot interpro :::
 
-::: {.index}
-proteins
-:::
+::: {.index} proteins :::
+

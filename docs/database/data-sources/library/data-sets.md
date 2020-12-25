@@ -1,22 +1,16 @@
-Data Sets
-=========
+# Data Sets
 
-Load an XML file with details of your data sets and associated
-information, e.g. description and URL
+Load an XML file with details of your data sets and associated information, e.g. description and URL
 
-Types of data loaded
---------------------
+## Types of data loaded
 
 Update data source and data set entries
 
-How to download the data
-------------------------
+## How to download the data
 
-Create your own datasets.xml file with your data in InterMine items XML
-format and put in your mine\'s [dbmodel/resources]{.title-ref} directory
-so that it\'s on your classpath.
+Create your own datasets.xml file with your data in InterMine items XML format and put in your mine\'s \[dbmodel/resources\]{.title-ref} directory so that it\'s on your classpath.
 
-``` {.xml}
+```text
 <?xml version="1.0"?>
 <items>
 <item id="09" class="" implements="DataSource">
@@ -34,17 +28,15 @@ so that it\'s on your classpath.
 </items>
 ```
 
-How to load the data into your mine
------------------------------------
+## How to load the data into your mine
 
 project XML example
 
-``` {.xml}
+```text
 <source name="flymine-static" type="flymine-static">
   <property name="src.data.file" location="/data/datasets.xml"/>
 </source>
 ```
 
-::: {.index}
-data sources, data sets, provenance
-:::
+::: {.index} data sources, data sets, provenance :::
+

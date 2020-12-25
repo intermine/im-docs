@@ -1,37 +1,20 @@
-Data and Widget Configuration
-=============================
+# Data and Widget Configuration
 
-The [webconfig-model.xml]{.title-ref} file configures aspects of how
-data appears on the InterMine webapp.
+The \[webconfig-model.xml\]{.title-ref} file configures aspects of how data appears on the InterMine webapp.
 
-This file allows for inheritance - a subclass will inherit from its
-parent class but only if that subclass has no configuration.
-Configuration settings for the parent class do not overwrite settings
-for the subclass.
+This file allows for inheritance - a subclass will inherit from its parent class but only if that subclass has no configuration. Configuration settings for the parent class do not overwrite settings for the subclass.
 
-Field Configuration
--------------------
+## Field Configuration
 
-You can configure which fields are displayed on report and result pages
-for each class in your model.
+You can configure which fields are displayed on report and result pages for each class in your model.
 
-  attribute name           purpose                                                                     required?   default
-  ------------------------ --------------------------------------------------------------------------- ----------- -------------------------
-  fieldExpr                field name                                                                  yes         \-
-  label                    human readable name                                                         no          generated automagically
-  showInInlineCollection   show field in inline collection (on report pages)                           no          true
-  showInSummary            add field to query when user clicks on \'Summary\' button in QueryBuilder   no          true
-  showInResults            show field in results table                                                 no          true
-  outerInSummary           configure outer-joins when user clicks on \'Summary\' in QueryBuilder       no          false
-  doNotTruncate            don\'t truncate display                                                     no          false
-  fieldExporter            specify class to export file field                                          no          \-
-  sectionOnRight           show on the right side of the page                                          no          false
-  sectionTitle             if sectionOnRight=\"true\", title for section on right                      no          \-
-  openByDefault            if sectionOnRight=\"true\", whether or not this section should be open      no          false
+attribute name purpose required? default
+
+fieldExpr field name yes - label human readable name no generated automagically showInInlineCollection show field in inline collection \(on report pages\) no true showInSummary add field to query when user clicks on \'Summary\' button in QueryBuilder no true showInResults show field in results table no true outerInSummary configure outer-joins when user clicks on \'Summary\' in QueryBuilder no false doNotTruncate don\'t truncate display no false fieldExporter specify class to export file field no - sectionOnRight show on the right side of the page no false sectionTitle if sectionOnRight=\"true\", title for section on right no - openByDefault if sectionOnRight=\"true\", whether or not this section should be open no false
 
 For example:
 
-``` {.guess}
+```text
 <class className="org.flymine.model.genomic.Protein">
   <fields>
     <fieldconfig fieldExpr="primaryIdentifier"/>
@@ -46,43 +29,33 @@ For example:
 </class>
 ```
 
-Displaying Data on Report pages
--------------------------------
+## Displaying Data on Report pages
 
-ReportDisplayers allow custom display of particular data types on report
-pages, typically to replace default tables with more appropriate
-presentation of data.
+ReportDisplayers allow custom display of particular data types on report pages, typically to replace default tables with more appropriate presentation of data.
 
-``` {.xml}
+```text
 <reportdisplayer javaClass="org.intermine.bio.web.displayer.CytoscapeNetworkDisplayer"
                  jspName="model/cytoscapeNetworkDisplayer.jsp"
                  replacesFields="interactions"
                  placement="Interactions"
 ```
 
-Export Configuration
---------------------
+## Export Configuration
 
-Users can export data from InterMine in comma or tab-delimited files.
-InterMine also allows for the addition of custom exporters. To add a
-custom exporter, create a Java class to format the data and add an entry
-to the web config file, for example:
+Users can export data from InterMine in comma or tab-delimited files. InterMine also allows for the addition of custom exporters. To add a custom exporter, create a Java class to format the data and add an entry to the web config file, for example:
 
-``` {.xml}
+```text
 <tableExportConfig id="sequenceExporter" actionPath="/exportAction?type=sequenceExporter"
                    className="org.intermine.bio.web.export.SequenceHttpExporter"/>
 <tableExportConfig id="gff3Exporter" actionPath="/exportAction?type=gff3Exporter"
                    className="org.intermine.bio.web.export.GFF3HttpExporter"/>
 ```
 
-Widget Configuration
---------------------
+## Widget Configuration
 
-At the bottom of the config file are the configuration entries for
-widgets. Please see \[wiki:Widgets\] for detailed information about how
-to configure widgets.
+At the bottom of the config file are the configuration entries for widgets. Please see \[wiki:Widgets\] for detailed information about how to configure widgets.
 
-``` {.xml}
+```text
 <enrichmentwidgetdisplayer id="publication_enrichment"
                            title="Publication Enrichment"
                            description="Publications enriched for genes in this list."
@@ -99,6 +72,5 @@ to configure widgets.
                            externalLink="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;dopt=Abstract&amp;list_uids="/>
 ```
 
-::: {.index}
-widgets, exporters, report displayers, webconfig-model.xml
-:::
+::: {.index} widgets, exporters, report displayers, webconfig-model.xml :::
+

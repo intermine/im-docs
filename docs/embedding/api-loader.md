@@ -1,56 +1,34 @@
-::: {.index}
-embedding, api loader, javascript loader
-:::
+# api-loader
 
-InterMine JavaScript API Loader
-===============================
+::: {.index} embedding, api loader, javascript loader :::
 
-::: {.seealso}
-[GitHub repo](https://github.com/intermine/intermine-api-loader) for
-source code.
-:::
+## InterMine JavaScript API Loader
 
-::: {.note}
-::: {.title}
-Note
-:::
+::: {.seealso} [GitHub repo](https://github.com/intermine/intermine-api-loader) for source code. :::
 
-If you are loading JavaScript libraries on a page you should use a
-loader (count of 1). Why not use ours?
-:::
+::: {.note} ::: {.title} Note :::
 
-Purpose
--------
+If you are loading JavaScript libraries on a page you should use a loader \(count of 1\). Why not use ours? :::
 
-To simplify loading of CSS and JS libraries. The API Loader
-automatically works out the order the libraries should be loaded based
-on dependencies between them. It also skips libraries that already exist
-on a page or that pass a specific check.
+### Purpose
 
-How to use
-----------
+To simplify loading of CSS and JS libraries. The API Loader automatically works out the order the libraries should be loaded based on dependencies between them. It also skips libraries that already exist on a page or that pass a specific check.
 
-::: {.note}
-::: {.title}
-Note
-:::
+### How to use
 
-If you are passing a string or an Array as the first parameter into the
-library these are \@deprecated but still working for backwards
-compatibility.
-:::
+::: {.note} ::: {.title} Note :::
 
-First you require the API Loader. You can for example use the following
-shorthand notation that always points to the latest version.
+If you are passing a string or an Array as the first parameter into the library these are \@deprecated but still working for backwards compatibility. :::
 
-``` {.html}
+First you require the API Loader. You can for example use the following shorthand notation that always points to the latest version.
+
+```text
 <script src="http://cdn.intermine.org/api"></script>
 ```
 
-Now you can use the loader by passing in an object that looks for
-example like so:
+Now you can use the loader by passing in an object that looks for example like so:
 
-``` {.javascript}
+```text
 intermine.load({
   'js': {
     'JSON': {
@@ -89,18 +67,32 @@ intermine.load({
 
 The object works like so:
 
-1.  You pass in either a `js` or a `css` object based on whether you are
-    requesting JavaScript or CSS libraries (or both).
-2.  The key inside the object, like `jQuery` then refers to your
-    library. If this key is on a `window` object (as is the case with
-    jQuery library), we won\'t load the library, it already exists.
-3.  If you do not like the previous check and want something more
-    robust, pass a sync function under the `test` key. Return `true` if
-    a library should NOT be loaded.
-4.  `path` represents the URL pointing to the library.
-5.  Use `depends` key passing an Array if a library depends on other
-    libraries in your list. In the example you can see that `Backbone`
-    depends on `jQuery` and `_` (underscore.js). The appropriate loading
-    order will be worked out from this.
-6.  Check the `err` var passed in the callback function (second
-    parameter).
+1. You pass in either a `js` or a `css` object based on whether you are
+
+   requesting JavaScript or CSS libraries \(or both\).
+
+2. The key inside the object, like `jQuery` then refers to your
+
+   library. If this key is on a `window` object \(as is the case with
+
+   jQuery library\), we won\'t load the library, it already exists.
+
+3. If you do not like the previous check and want something more
+
+   robust, pass a sync function under the `test` key. Return `true` if
+
+   a library should NOT be loaded.
+
+4. `path` represents the URL pointing to the library.
+5. Use `depends` key passing an Array if a library depends on other
+
+   libraries in your list. In the example you can see that `Backbone`
+
+   depends on `jQuery` and `_` \(underscore.js\). The appropriate loading
+
+   order will be worked out from this.
+
+6. Check the `err` var passed in the callback function \(second
+
+   parameter\).
+

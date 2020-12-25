@@ -1,42 +1,34 @@
-KEGG
-====
+# KEGG
 
 Link genes to KEGG pathways that they operate in.
 
-Types of data loaded
---------------------
+## Types of data loaded
 
 genes, pathways
 
-How to download the data
-------------------------
+## How to download the data
 
-<http://www.genome.jp/kegg>
+[http://www.genome.jp/kegg](http://www.genome.jp/kegg)
 
-How to load the data into your mine
------------------------------------
+## How to load the data into your mine
 
 ### project XML example
 
-``` {.xml}
+```text
 <source name="kegg-pathway" type="kegg-pathway">
   <property name="src.data.dir" location="/data/kegg"/>
   <property name="kegg.organisms" value="7227"/>
 </source>
 ```
 
-### kegg_config.properties
+### kegg\_config.properties
 
-Decides which gene identifier fields are populated, mapping from
-organism taxonId to abbreviation. Only taxonIds specified in project.xml
-file are downloaded, if no taxonIds are configured, all are loaded. For
-example:
+Decides which gene identifier fields are populated, mapping from organism taxonId to abbreviation. Only taxonIds specified in project.xml file are downloaded, if no taxonIds are configured, all are loaded. For example:
 
-``` {.properties}
+```text
 # bacteria
 eco.taxonId = 511145
 ```
 
-::: {.index}
-KEGG
-:::
+::: {.index} KEGG :::
+

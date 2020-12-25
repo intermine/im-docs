@@ -1,25 +1,20 @@
-Perl Items API
-==============
+# Perl Items API
 
-In the [intermine/perl]{.title-ref} directory we provide a Perl library
-for creating files in InterMine \"Item XML\" format. Files in this
-format can be loaded into an InterMine database by creating a
-\"source\".
+In the \[intermine/perl\]{.title-ref} directory we provide a Perl library for creating files in InterMine \"Item XML\" format. Files in this format can be loaded into an InterMine database by creating a \"source\".
 
-Usage
------
+## Usage
 
 Most code using these modules will follow this pattern:
 
 Make a model
 
-``` {.perl}
+```text
 my $model = InterMine::Model->new(file => $model_file);
 ```
 
 Make a new InterMine item XML document:
 
-``` {.perl}
+```text
 my $document = InterMine::Item::Document->new(
   model  => $model,
   output => $out_file,
@@ -28,19 +23,19 @@ my $document = InterMine::Item::Document->new(
 
 Make an item:
 
-``` {.perl}
+```text
 my $gene = $factory->make_item("Gene");
 ```
 
 Set some attributes
 
-``` {.perl}
+```text
 $gene->set(identifier => "CG10811");
 ```
 
 or references:
 
-``` {.perl}
+```text
 my $org = $factory->make_item("Organism");
 $org->set(taxonId => 7227);
 $gene->set(organism => $org);
@@ -48,14 +43,13 @@ $gene->set(organism => $org);
 
 or collections:
 
-``` {.perl}
+```text
 $gene->set(transcripts => [$transcript1, $transcript2]);
 ```
 
-It is also possible to combine creation and attribute setting in one
-command:
+It is also possible to combine creation and attribute setting in one command:
 
-``` {.perl}
+```text
 my $gene = $factory->make_item(
   'Gene',
   identifier  => 'CG10811',
@@ -64,15 +58,13 @@ my $gene = $factory->make_item(
 );
 ```
 
-Repeat 4 as necessary then call [\$document-\>write]{.title-ref} to
-write the items to the output.
+Repeat 4 as necessary then call \[$document-&gt;write\]{.title-ref} to write the items to the output.
 
-FlyMine example
----------------
+## FlyMine example
 
 Example using the FlyMine model:
 
-``` {.perl}
+```text
 use InterMine::Model;
 use InterMine::Item::Document;
 
@@ -108,7 +100,7 @@ $document->write();
 
 Output:
 
-``` {.xml}
+```text
 <items>
    <item id="0_4" class="" implements="Gene">
       <attribute name="identifier" value="CG10811" />
@@ -130,26 +122,22 @@ Output:
 </items>
 ```
 
-Example
--------
+## Example
 
-In the InterMine [scripts]{.title-ref} repository there is a longer
-example:
-[intermine_items_example.pl](https://github.com/intermine/intermine-scripts/blob/master/examples/intermine_items_example.pl)
+In the InterMine \[scripts\]{.title-ref} repository there is a longer example: [intermine\_items\_example.pl](https://github.com/intermine/intermine-scripts/blob/master/examples/intermine_items_example.pl)
 
 The script has three arguments:
 
-:   -   a string describing a [DataSet]{.title-ref}
-    -   a taxon id
-    -   the path to a genomic model file
+: - a string describing a \[DataSet\]{.title-ref}
+
+* a taxon id
+* the path to a genomic model file
 
 If you install XML::Writer, the script should run as:
 
 Example command line: .. code-block:: perl
 
-> ./intermine_items_example.pl \"FlyMine\" 5833
-> flymine/dbmodel/resources/main/genomic_model.xml
+> ./intermine\_items\_example.pl \"FlyMine\" 5833 flymine/dbmodel/resources/main/genomic\_model.xml
 
-::: {.index}
-Perl Items API
-:::
+::: {.index} Perl Items API :::
+

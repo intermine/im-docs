@@ -1,18 +1,16 @@
-::: {.index}
-report page, webapp tables
-:::
+# webapp-tables
 
-Webapp Tables CSS & HTML
-========================
+::: {.index} report page, webapp tables :::
 
-![image](img/intermine-theme-colors.png)
+## Webapp Tables CSS & HTML
 
-Inline List
------------
+![image](../../../.gitbook/assets/intermine-theme-colors.png)
 
-![image](img/inline-list.2.png)
+### Inline List
 
-``` {.html}
+![image](../../../.gitbook/assets/inline-list.2.png)
+
+```text
 <div class="inline-list">
 <h3>2 probeSets</h3>
 <ul>
@@ -22,45 +20,43 @@ Inline List
 </div>
 ```
 
-  CSS                               Description
-  --------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------
-  `div.inline-list`                 wrapping the list and title in div makes it more clear what elements belong together and allow you to set a custom ID on the whole thing
-  `div.inline-list h3` (optional)   header 3 (see below) styling
-  `div.inline-list ul`              list we be displayed inline, without margins between items and without list styles (circles, squares etc.)
+CSS Description
 
-### Inline List (Inactive, No Results)
+`div.inline-list` wrapping the list and title in div makes it more clear what elements belong together and allow you to set a custom ID on the whole thing `div.inline-list h3` \(optional\) header 3 \(see below\) styling `div.inline-list ul` list we be displayed inline, without margins between items and without list styles \(circles, squares etc.\)
 
-![image](img/inline-list-gray.png)
+#### Inline List \(Inactive, No Results\)
 
-``` {.html}
+![image](../../../.gitbook/assets/inline-list-gray.png)
+
+```text
 <div class="inline-list gray">
     <h3>0 probeSets</h3>
 </div>
 ```
 
-  CSS                      Description
-  ------------------------ -----------------------------------------------------------------------------
-  `div.inline-list.gray`   one can apply an \'inactive\' theme by attaching a class to the top element
+CSS Description
 
-### Inline List (Tagging, Right)
+`div.inline-list.gray` one can apply an \'inactive\' theme by attaching a class to the top element
 
-![image](img/inline-lists-right.png)
+#### Inline List \(Tagging, Right\)
 
-``` {.html}
+![image](../../../.gitbook/assets/inline-lists-right.png)
+
+```text
 <div class="inline-list">
     <h3><div class="right">Right positioned</div> 0 probeSets</h3>
 </div>
 ```
 
-  CSS                                      Description
-  ---------------------------------------- -----------------------------------------------------------------------------------------------------------------
-  `div.inline-list div.right` (optional)   will float element to the right and apply appropriate colors to links; needs to go first, before any other text
+CSS Description
 
-### \'Header\' Inline List
+`div.inline-list div.right` \(optional\) will float element to the right and apply appropriate colors to links; needs to go first, before any other text
 
-![image](img/inline-list.png)
+#### \'Header\' Inline List
 
-``` {.html}
+![image](../../../.gitbook/assets/inline-list.png)
+
+```text
 <div class="inline-list">
     <ul>
         <li><span class="name">synonyms</span>:</li>
@@ -71,16 +67,15 @@ Inline List
 </div>
 ```
 
-  CSS                                  Description
-  ------------------------------------ -----------------------------------------------------
-  `div.inline-list .name` (optional)   the main theme color will be applied to the element
+CSS Description
 
-Collection Table
-----------------
+`div.inline-list .name` \(optional\) the main theme color will be applied to the element
 
-![image](img/collection-table.png)
+### Collection Table
 
-``` {.html}
+![image](../../../.gitbook/assets/collection-table.png)
+
+```text
 <div class="collection-table">
     <h3>1 protein</h3>
     <table>
@@ -101,26 +96,19 @@ Collection Table
 </div>
 ```
 
-  CSS                                        Description
-  ------------------------------------------ ---------------------------------------------------------------------------------
-  `div.collection-table h3`                  table title will pickup theme colors much like Title (Level 3) below
-  `div.collection-table thead th,td`         table expects a thead element, that will apply the same background as the title
-  `div.collection-table.nowrap` (optional)   row columns do not wrap and are displayed inline
+CSS Description
 
-::: {.note}
-::: {.title}
-Note
-:::
+`div.collection-table h3` table title will pickup theme colors much like Title \(Level 3\) below `div.collection-table thead th,td` table expects a thead element, that will apply the same background as the title `div.collection-table.nowrap` \(optional\) row columns do not wrap and are displayed inline
 
-Modern browsers will apply alternating background and border on odd row
-columns, the rubbish (IE) will be fixed by running jQuery on page load.
-:::
+::: {.note} ::: {.title} Note :::
 
-### Collection Table (Type Column, Text Highlight)
+Modern browsers will apply alternating background and border on odd row columns, the rubbish \(IE\) will be fixed by running jQuery on page load. :::
 
-![image](img/collection-table-class.png)
+#### Collection Table \(Type Column, Text Highlight\)
 
-``` {.html}
+![image](../../../.gitbook/assets/collection-table-class.png)
+
+```text
 <div class="collection-table">
     <h3>1 protein</h3>
     <table>
@@ -141,16 +129,13 @@ columns, the rubbish (IE) will be fixed by running jQuery on page load.
 </div>
 ```
 
-  --------------------------------------- ------------------------------------------------------------------------
-  CSS                                     Description
-  `div.collection-table table td.class`   applying a \'class\' class will highlight the text in the given column
-  --------------------------------------- ------------------------------------------------------------------------
+CSS Description `div.collection-table table td.class` applying a \'class\' class will highlight the text in the given column
 
-### Collection Table (Vertical Column Border)
+#### Collection Table \(Vertical Column Border\)
 
-![image](img/column-border.png)
+![image](../../../.gitbook/assets/column-border.png)
 
-``` {.guess}
+```text
 <div class="collection-table column-border">
     <-- ... -->
     <table>
@@ -159,24 +144,19 @@ columns, the rubbish (IE) will be fixed by running jQuery on page load.
 </div>
 ```
 
-  CSS                                    Description
-  -------------------------------------- ------------------------------------------------------
-  `div.collection-table.column-border`   uses a pseudoclass to apply a border between columns
+CSS Description
 
-::: {.note}
-::: {.title}
-Note
-:::
+`div.collection-table.column-border` uses a pseudoclass to apply a border between columns
 
-Modern browsers will apply alternating background and border on odd row
-columns, the rubbish (IE) will be fixed by running jQuery on page load.
-:::
+::: {.note} ::: {.title} Note :::
 
-### Collection Table (Vertical Column Border by 2)
+Modern browsers will apply alternating background and border on odd row columns, the rubbish \(IE\) will be fixed by running jQuery on page load. :::
 
-![image](img/column-border-by-2.png)
+#### Collection Table \(Vertical Column Border by 2\)
 
-``` {.guess}
+![image](../../../.gitbook/assets/column-border-by-2.png)
+
+```text
 <div class="collection-table column-border-by-2">
     <-- ... -->
     <table>
@@ -185,64 +165,59 @@ columns, the rubbish (IE) will be fixed by running jQuery on page load.
 </div>
 ```
 
-  CSS                                         Description
-  ------------------------------------------- -----------------------------------------------------------------
-  `div.collection-table.column-border-by-2`   uses a pseudoclass to apply a border between every other column
+CSS Description
 
-::: {.note}
-::: {.title}
-Note
-:::
+`div.collection-table.column-border-by-2` uses a pseudoclass to apply a border between every other column
 
-Modern browsers will apply alternating background and border on odd row
-columns, the rubbish (IE) will be fixed by running jQuery on page load.
-:::
+::: {.note} ::: {.title} Note :::
 
-### Collection Table (Inactive, No Results)
+Modern browsers will apply alternating background and border on odd row columns, the rubbish \(IE\) will be fixed by running jQuery on page load. :::
 
-![image](img/collection-table-gray.png)
+#### Collection Table \(Inactive, No Results\)
 
-``` {.html}
+![image](../../../.gitbook/assets/collection-table-gray.png)
+
+```text
 <div class="collection-table gray">
     <h3>0 genes</h3>
 </div>
 ```
 
-  CSS                           Description
-  ----------------------------- -----------------------------------------------------------------------------
-  `div.collection-table.gray`   one can apply an \'inactive\' theme by attaching a class to the top element
+CSS Description
 
-### Collection Table (Tagging, Right)
+`div.collection-table.gray` one can apply an \'inactive\' theme by attaching a class to the top element
 
-![image](img/collections-right.png)
+#### Collection Table \(Tagging, Right\)
 
-``` {.html}
+![image](../../../.gitbook/assets/collections-right.png)
+
+```text
 <div class="collection-table">
     <h3><div class="right">Right positioned</div> 0 genes</h3>
 </div>
 ```
 
-  CSS                                           Description
-  --------------------------------------------- -----------------------------------------------------------------------------------------------------------------
-  `div.collection-table div.right` (optional)   will float element to the right and apply appropriate colors to links; needs to go first, before any other text
+CSS Description
 
-### Collection Table (Persistent Table Headers)
+`div.collection-table div.right` \(optional\) will float element to the right and apply appropriate colors to links; needs to go first, before any other text
 
-``` {.guess}
+#### Collection Table \(Persistent Table Headers\)
+
+```text
 <div class="collection-table persistent">
     <-- ... -->
 </div>
 ```
 
-  CSS                                 Description
-  ----------------------------------- ----------------------------------------------------------------
-  `div.collection-table.persistent`   will make table headers persist as you scroll within the table
+CSS Description
 
-### Basic Table (Generic)
+`div.collection-table.persistent` will make table headers persist as you scroll within the table
 
-![image](img/tiny-table.png)
+#### Basic Table \(Generic\)
 
-``` {.html}
+![image](../../../.gitbook/assets/tiny-table%20%281%29.png)
+
+```text
 <div class="basic-table">
     <h3>Some title</h3>
     <table>
@@ -251,18 +226,15 @@ columns, the rubbish (IE) will be fixed by running jQuery on page load.
 </div>
 ```
 
-  CSS                                      Description
-  ---------------------------------------- -----------------------------------------------------------------------------------------------------------------
-  `div.basic-table h3`                     will apply the heading 3 style (see below)
-  `div.basic-table div.right` (optional)   will float element to the right and apply appropriate colors to links; needs to go first, before any other text
-  `div.basic-table table`                  will make sure that the table is properly collapsed, has padding and does not have cellspacing
-  `div.basic-table.gray` (optional)        one can apply an \'inactive\' theme by attaching a class to the top element
+CSS Description
 
-### Collection of Collection Tables
+`div.basic-table h3` will apply the heading 3 style \(see below\) `div.basic-table div.right` \(optional\) will float element to the right and apply appropriate colors to links; needs to go first, before any other text `div.basic-table table` will make sure that the table is properly collapsed, has padding and does not have cellspacing `div.basic-table.gray` \(optional\) one can apply an \'inactive\' theme by attaching a class to the top element
 
-![image](img/collection-of-collections.png)
+#### Collection of Collection Tables
 
-``` {.guess}
+![image](../../../.gitbook/assets/collection-of-collections.png)
+
+```text
 <div class="collection-of-collections">
     <div class="header">
         <h3>Regulatory Regions</h3>
@@ -280,17 +252,15 @@ columns, the rubbish (IE) will be fixed by running jQuery on page load.
 </div>
 ```
 
-  CSS                                                              Description
-  ---------------------------------------------------------------- -----------------------------------------------------------------------------------------------------
-  `div.collection-of-collections`                                  a div wrapper for collections
-  `div.collection-of-collections div.header`                       will apply a background color that of collection table header
-  `div.collection-of-collections div.header a.active` (optional)   link elements are underlined by default and switched to bold if class \'active\' is applied to them
+CSS Description
 
-### Table Togglers (Less, More, Expand, Collapse, Show in table)
+`div.collection-of-collections` a div wrapper for collections `div.collection-of-collections div.header` will apply a background color that of collection table header `div.collection-of-collections div.header a.active` \(optional\) link elements are underlined by default and switched to bold if class \'active\' is applied to them
 
-![image](img/togglers.png)
+#### Table Togglers \(Less, More, Expand, Collapse, Show in table\)
 
-``` {.guess}
+![image](../../../.gitbook/assets/togglers.png)
+
+```text
 <div class="collection-table">
     <-- ... -->
     <div class="toggle">
@@ -303,32 +273,27 @@ columns, the rubbish (IE) will be fixed by running jQuery on page load.
 </div>
 ```
 
-  CSS                                              Description
-  ------------------------------------------------ --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  `div.collection-table div.toggle a.more`         will create apply an expand/more button
-  `div.collection-table div.toggle a.less`         will create apply a collapse/less button; bear in mind that if you want to show it to the right like on report pages, it needs to go before other toggles and be floated right
-  `div.collection-table div.toggle a` (optional)   a generic button without any upward/downward arrows
-  `div.collection-table div.show-in-table a`       the appropriate color will be applied to the link contained, no more, no less (in fact, show all)
+CSS Description
 
-Title (Level 3)
----------------
+`div.collection-table div.toggle a.more` will create apply an expand/more button `div.collection-table div.toggle a.less` will create apply a collapse/less button; bear in mind that if you want to show it to the right like on report pages, it needs to go before other toggles and be floated right `div.collection-table div.toggle a` \(optional\) a generic button without any upward/downward arrows `div.collection-table div.show-in-table a` the appropriate color will be applied to the link contained, no more, no less \(in fact, show all\)
 
-![image](img/h3.png)
+### Title \(Level 3\)
 
-``` {.html}
+![image](../../../.gitbook/assets/h3.png)
+
+```text
 <h3 class="goog">Link to other InterMines</h3>
 ```
 
-  CSS         Description
-  ----------- ------------------------------------------------------------------------------------------------
-  `h3.goog`   will pickup theme colors and apply Report Page/Google News -style colors, backgrounds, borders
+CSS Description
 
-Smallfont, Display one-per-line
--------------------------------
+`h3.goog` will pickup theme colors and apply Report Page/Google News -style colors, backgrounds, borders
 
-![image](img/tiny-table.png)
+### Smallfont, Display one-per-line
 
-``` {.html}
+![image](../../../.gitbook/assets/tiny-table.png)
+
+```text
 <table class="tiny-font">
     <tr><td class="one-line">
         <a>One</a>
@@ -337,33 +302,31 @@ Smallfont, Display one-per-line
 </table>
 ```
 
-  CSS              Description
-  ---------------- ----------------------------------------------------------------------------
-  `.one-line *`    applying class \'oneline\' will make *all descendants* appear one per line
-  `.tiny-font *`   will apply 11px font size to *all descendants*
+CSS Description
 
-Loading spinner (AJAX)
-----------------------
+`.one-line *` applying class \'oneline\' will make _all descendants_ appear one per line `.tiny-font *` will apply 11px font size to _all descendants_
 
-``` {.html}
+### Loading spinner \(AJAX\)
+
+```text
 <div class="loading-spinner"></div>
 ```
 
-  CSS                  Description
-  -------------------- ----------------------------------------------------------
-  `.loading-spinner`   will show an inline block positioned loading spinner gif
+CSS Description
 
-Table Warning
--------------
+`.loading-spinner` will show an inline block positioned loading spinner gif
 
-![image](img/table-warning.png)
+### Table Warning
 
-``` {.guess}
+![image](../../../.gitbook/assets/table-warning.png)
+
+```text
 <div class="collection-table warning">
     <-- ... -->
 </div>
 ```
 
-  CSS          Description
-  ------------ -------------------------------------------------------------------------
-  `.warning`   will show a warning icon and change the color of the div to pale yellow
+CSS Description
+
+`.warning` will show a warning icon and change the color of the div to pale yellow
+

@@ -1,28 +1,22 @@
-BioGRID
-=======
+# BioGRID
 
 Loads interactions data from BioGRID
 
-Types of data loaded
---------------------
+## Types of data loaded
 
 genes, proteins, interactions
 
-How to download the data
-------------------------
+## How to download the data
 
-From the download section of the BioGRID website:
-<http://thebiogrid.org>
+From the download section of the BioGRID website: [http://thebiogrid.org](http://thebiogrid.org)
 
-Download the file named:
-[BIOGRID-ORGANISM-\[version\].psi25.zip]{.title-ref}.
+Download the file named: \[BIOGRID-ORGANISM-\[version\].psi25.zip\]{.title-ref}.
 
-How to load the data into your mine
------------------------------------
+## How to load the data into your mine
 
 ### project XML example
 
-``` {.xml}
+```text
 <source name="biogrid" type="biogrid">
   <property name="src.data.dir" location="/DATA/biogrid"/>
   <property name="src.data.dir.includes" value="*psi25.xml"/>
@@ -30,14 +24,13 @@ How to load the data into your mine
 </source>
 ```
 
-### biogrid_config.properties
+### biogrid\_config.properties
 
-Determines which gene identifiers are set. organisms - If none are
-configured, all interactions are stored.
+Determines which gene identifiers are set. organisms - If none are configured, all interactions are stored.
 
 This is what the gene looks like in biogrid
 
-``` {.xml}
+```text
 <names>
     <shortLabel>CG1111</shortLabel>
 </names>
@@ -45,33 +38,25 @@ This is what the gene looks like in biogrid
    <primaryRef db="FLYBASE" id="FBgn001" />
 ```
 
-[shortLabel]{.title-ref}
+\[shortLabel\]{.title-ref}
 
-To set your gene.identifier to be the shortLabel in the biogrid XML, use
-this config:
+To set your gene.identifier to be the shortLabel in the biogrid XML, use this config:
 
-``` {.properties}
+```text
 <TAXON_ID>.<GENE_IDENTIFIER_FIELD>=shortLabel
 ```
 
-[xref]{.title-ref}
+\[xref\]{.title-ref}
 
-To set your gene.identifier field to be a value from an xref entry, use
-this syntax:
+To set your gene.identifier field to be a value from an xref entry, use this syntax:
 
-``` {.properties}
+```text
 <TAXON_ID>.xref.<GENE_IDENTIFIER_FIELD> = <XREF_DB_VALUE>
 ```
 
-::: {.note}
-::: {.title}
-Note
-:::
+::: {.note} ::: {.title} Note :::
 
-xref \"db\" value is not case sensitive, case seems to vary from file to
-file.
-:::
+xref \"db\" value is not case sensitive, case seems to vary from file to file. :::
 
-::: {.index}
-BioGRID
-:::
+::: {.index} BioGRID :::
+

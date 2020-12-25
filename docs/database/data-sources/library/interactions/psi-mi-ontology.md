@@ -1,27 +1,22 @@
-PSI-MI Ontology
-===============
+# PSI-MI Ontology
 
-Include this source when loading [psi]{.title-ref} data to fill in
-details of ontology terms used. Should be loaded if you are loading
-interaction data.
+Include this source when loading \[psi\]{.title-ref} data to fill in details of ontology terms used. Should be loaded if you are loading interaction data.
 
-Types of data loaded
---------------------
+## Types of data loaded
 
 ontology terms
 
-How to download the data
-------------------------
+## How to download the data
 
-<https://raw.githubusercontent.com/HUPO-PSI/psi-mi-CV/master/psi-mi.obo>
+[https://raw.githubusercontent.com/HUPO-PSI/psi-mi-CV/master/psi-mi.obo](https://raw.githubusercontent.com/HUPO-PSI/psi-mi-CV/master/psi-mi.obo)
 
-How to load the data into your mine
------------------------------------
+## How to load the data into your mine
 
 project XML example
 
-``` {.xml}
+```text
 <source name="psi-mi-ontology" type="psi-mi-ontology">
   <property name="src.data.file" location="/data/psi/psi-mi.obo"/>
 </source>
 ```
+

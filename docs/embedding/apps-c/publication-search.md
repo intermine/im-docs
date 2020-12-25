@@ -1,98 +1,93 @@
-publication-search
-==================
+# publication-search
 
-::: {.note}
-::: {.title}
-Note
-:::
+::: {.note} ::: {.title} Note :::
 
-You can view the source files for this project in the
-[intermine/intermine-apps-c](https://github.com/intermine/intermine-apps-c/tree/master/publication-search)
-repo.
-:::
+You can view the source files for this project in the [intermine/intermine-apps-c](https://github.com/intermine/intermine-apps-c/tree/master/publication-search) repo. :::
 
-This document will guide you through the process of writing a JavaScript
-client side app (running completely in a browser) using
-[Bower](http://bower.io/) and [Grunt](http://gruntjs.com/) tools. This
-app will connect to an [InterMine](http://intermine.org) instance to run
-a query. The objective will be to fetch a list of publications for each
-*bio entity* found that is *like* our query.
+This document will guide you through the process of writing a JavaScript client side app \(running completely in a browser\) using [Bower](http://bower.io/) and [Grunt](http://gruntjs.com/) tools. This app will connect to an [InterMine](http://intermine.org) instance to run a query. The objective will be to fetch a list of publications for each _bio entity_ found that is _like_ our query.
 
 The libraries we will be using:
 
-1.  [Bower](http://bower.io/) to fetch vendor dependencies such as
-    JavaScript, CSS or Fonts.
-2.  [canJS](http://canjs.com/) is a framework for client-side
-    development handling routing, events etc.
-3.  [CoffeeScript](http://coffeescript.org/) a language that compiles
-    down to JavaScript and makes writing an app easier.
-4.  [Foundation](http://foundation.zurb.com/) is a CSS framework of
-    reusable UI components.
-5.  [Grunt](http://gruntjs.com/) to build/transpile our source files.
-6.  [jQuery](http://jquery.com/) is a DOM manipulation library (and
-    more).
-7.  [Mustache](http://mustache.github.io/) is a multi-platform
-    templating language allowing us to embed dynamic objects in HTML.
-8.  [Node](http://en.wikipedia.org/wiki/Nodejs) JavaScript desktop
-    software platform.
-9.  [Stylus](http://learnboost.github.io/stylus/) allows us to be more
-    expressive and dynamic with CSS.
+1. [Bower](http://bower.io/) to fetch vendor dependencies such as
+
+   JavaScript, CSS or Fonts.
+
+2. [canJS](http://canjs.com/) is a framework for client-side
+
+   development handling routing, events etc.
+
+3. [CoffeeScript](http://coffeescript.org/) a language that compiles
+
+   down to JavaScript and makes writing an app easier.
+
+4. [Foundation](http://foundation.zurb.com/) is a CSS framework of
+
+   reusable UI components.
+
+5. [Grunt](http://gruntjs.com/) to build/transpile our source files.
+6. [jQuery](http://jquery.com/) is a DOM manipulation library \(and
+
+   more\).
+
+7. [Mustache](http://mustache.github.io/) is a multi-platform
+
+   templating language allowing us to embed dynamic objects in HTML.
+
+8. [Node](http://en.wikipedia.org/wiki/Nodejs) JavaScript desktop
+
+   software platform.
+
+9. [Stylus](http://learnboost.github.io/stylus/) allows us to be more
+
+   expressive and dynamic with CSS.
+
 10. [Lodash](http://lodash.com/) is a utility toolbelt making actions
+
     such as iterating over items easier.
+
 11. [imjs](https://github.com/alexkalderimis/imjs) used to query
+
     InterMines from browser or Node. Saves you having to write raw HTTP
+
     requests.
 
-Initialize Project
-------------------
+## Initialize Project
 
 The first step will be to setup our directory structure.
 
-[build/]{.title-ref}
+\[build/\]{.title-ref}
 
-:   Will be the directory where our final app package will live. We will
-    develop in languages like
-    [Stylus](http://learnboost.github.io/stylus/) or
-    [CoffeeScript](http://coffeescript.org/) and need a way to package
-    all these resources into one whole\... directory. This is where all
-    these files will live.
+: Will be the directory where our final app package will live. We will develop in languages like [Stylus](http://learnboost.github.io/stylus/) or [CoffeeScript](http://coffeescript.org/) and need a way to package all these resources into one whole... directory. This is where all these files will live.
 
-[bower_components/]{.title-ref}
+\[bower\_components/\]{.title-ref}
 
-:   This directory will be automatically created and will contain
-    libraries we have requested through the Bower system.
+: This directory will be automatically created and will contain libraries we have requested through the Bower system.
 
-[example/]{.title-ref}
+\[example/\]{.title-ref}
 
-:   Contains an example of our app in use.
+: Contains an example of our app in use.
 
-[src/]{.title-ref}
+\[src/\]{.title-ref}
 
-:   Source files that our code will consist of.
+: Source files that our code will consist of.
 
-[bower.json]{.title-ref}
+\[bower.json\]{.title-ref}
 
-:   Will contain a listing of libraries we want to download using
-    [Bower](http://bower.io/).
+: Will contain a listing of libraries we want to download using [Bower](http://bower.io/).
 
-[package.json]{.title-ref}
+\[package.json\]{.title-ref}
 
-:   Lists libraries we will need to compile and build our app with.
+: Lists libraries we will need to compile and build our app with.
 
 ### Node.js platform
 
-Since our application is targeting JavaScript in the browser, it is
-pretty useful if we use JavaScript on our computer (desktop) too. Enter
-[Node](http://en.wikipedia.org/wiki/Nodejs) which allows us to execute
-JavaScript on our computers instead of just our browsers.
+Since our application is targeting JavaScript in the browser, it is pretty useful if we use JavaScript on our computer \(desktop\) too. Enter [Node](http://en.wikipedia.org/wiki/Nodejs) which allows us to execute JavaScript on our computers instead of just our browsers.
 
-You can fetch [binaries](http://nodejs.org/download/) from the homepage
-or use your (hopefully Linux)
-[packman](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager).
+You can fetch [binaries](http://nodejs.org/download/) from the homepage or use your \(hopefully Linux\) [packman](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager).
 
 Once Node is installed, edit the `package.json` file like so:
 
-``` {.json}
+```text
 {
     "name": "publication-search",
     "version": "0.0.0",
@@ -110,26 +105,23 @@ Once Node is installed, edit the `package.json` file like so:
 }
 ```
 
-This file tells Node which libraries will be used to build our app.
-These are not client-side libraries, but server-side if you will.
+This file tells Node which libraries will be used to build our app. These are not client-side libraries, but server-side if you will.
 
-The top bit of the `devDependencies` lists a bunch of Grunt and Bower
-related libraries.
+The top bit of the `devDependencies` lists a bunch of Grunt and Bower related libraries.
 
 In order to install all of these, execute the following:
 
-``` {.bash}
+```text
 $ npm install -d
 ```
 
 ### Bower vendor dependencies
 
-Now we want to fetch libraries that our app, when running, will depend
-on.
+Now we want to fetch libraries that our app, when running, will depend on.
 
 Edit the `bower.json` file like so:
 
-``` {.json}
+```text
 {
     "name": "publication-search",
     "version": "0.0.0",
@@ -145,31 +137,23 @@ Edit the `bower.json` file like so:
 
 The file has a bunch of key-value pairs.
 
-[name]{.title-ref}
+\[name\]{.title-ref}
 
-:   Name of our application in the Bower ecosystem, required.
+: Name of our application in the Bower ecosystem, required.
 
-[version]{.title-ref}
+\[version\]{.title-ref}
 
-:   Version number in the Bower ecosystem, required.
+: Version number in the Bower ecosystem, required.
 
-[dependencies]{.title-ref}
+\[dependencies\]{.title-ref}
 
-:   Lists the actual libraries and their versions to fetch. You can
-    populate this list by executing `$ bower install jquery --save` for
-    example. That will download the latest version of the `jquery`
-    component into the `bower_components/` directory. You can
-    [search](http://sindresorhus.com/bower-components/) for available
-    components using `$ bower search jquery`. To actually trigger a
-    search, execute `$ bower install`. The different libraries will be
-    introduced as we code along.
+: Lists the actual libraries and their versions to fetch. You can populate this list by executing `$ bower install jquery --save` for example. That will download the latest version of the `jquery` component into the `bower_components/` directory. You can [search](http://sindresorhus.com/bower-components/) for available components using `$ bower search jquery`. To actually trigger a search, execute `$ bower install`. The different libraries will be introduced as we code along.
 
 ### Grunt building
 
-Grunt is used to munge files together and execute commands on them.
-Create a file called `Gruntfile.coffee`:
+Grunt is used to munge files together and execute commands on them. Create a file called `Gruntfile.coffee`:
 
-``` {.coffee-script}
+```text
 module.exports = (grunt) ->
     grunt.initConfig
         pkg: grunt.file.readJSON("package.json")
@@ -242,59 +226,45 @@ module.exports = (grunt) ->
     ])
 ```
 
-This file is written in [CoffeeScript](http://coffeescript.org/) and
-lists the tasks to run when we want to build our app. From the top:
+This file is written in [CoffeeScript](http://coffeescript.org/) and lists the tasks to run when we want to build our app. From the top:
 
-[apps_c]{.title-ref}
+\[apps\_c\]{.title-ref}
 
-:   This directive says that we want to take any
-    [CoffeeScript](http://coffeescript.org/) and
-    [Mustache](http://mustache.github.io/) files we find in `src/` and
-    combine them into one JavaScript package.
+: This directive says that we want to take any [CoffeeScript](http://coffeescript.org/) and [Mustache](http://mustache.github.io/) files we find in `src/` and combine them into one JavaScript package.
 
-[stylus]{.title-ref}
+\[stylus\]{.title-ref}
 
-:   Take a [Stylus](http://learnboost.github.io/stylus/) file and turn
-    it into CSS.
+: Take a [Stylus](http://learnboost.github.io/stylus/) file and turn it into CSS.
 
-[concat]{.title-ref}
+\[concat\]{.title-ref}
 
-:   Take our vendor files (installed using [Bower](http://bower.io/))
-    and, together with our app, make them into a bundle. If someone else
-    wants to use our app they need our app and its deps too, so this one
-    file will do it for them. Do the same to CSS too.
+: Take our vendor files \(installed using [Bower](http://bower.io/)\) and, together with our app, make them into a bundle. If someone else wants to use our app they need our app and its deps too, so this one file will do it for them. Do the same to CSS too.
 
-[uglify]{.title-ref}
+\[uglify\]{.title-ref}
 
-:   Minify our built JavaScript files. This makes them small, but
-    unreadable so not great for debugging.
+: Minify our built JavaScript files. This makes them small, but unreadable so not great for debugging.
 
-[cssmin]{.title-ref}
+\[cssmin\]{.title-ref}
 
-:   The same as [uglify]{.title-ref} but for CSS
+: The same as \[uglify\]{.title-ref} but for CSS
 
-Then we have two calls to `grunt.registerTask` which bundle a bunch of
-tasks together. For example running `$ grunt minify` will run the
-`uglify` and `cssmin` tasks.
+Then we have two calls to `grunt.registerTask` which bundle a bunch of tasks together. For example running `$ grunt minify` will run the `uglify` and `cssmin` tasks.
 
-While developing it is quite useful to watch the source files and re-run
-the build task:
+While developing it is quite useful to watch the source files and re-run the build task:
 
-``` {.bash}
+```text
 $ watch --color grunt
 ```
 
 This will run the default Grunt task every 2s.
 
-Source files
-------------
+## Source files
 
 ### Example page
 
-One needs an access point where our app will get loaded with particular
-configuration. This is where the `example/index.html` comes in:
+One needs an access point where our app will get loaded with particular configuration. This is where the `example/index.html` comes in:
 
-``` {.html}
+```text
 <!doctype html>
 <html>
 <head>
@@ -320,69 +290,51 @@ configuration. This is where the `example/index.html` comes in:
 </html>
 ```
 
-This file does not do anything else other then load our built CSS and JS
-files and starts our app once the page loads. In our example we are
-pointing to a `build` directory relative to the `example` directory. So
-let\'s make a symbolic link to the actual `build`:
+This file does not do anything else other then load our built CSS and JS files and starts our app once the page loads. In our example we are pointing to a `build` directory relative to the `example` directory. So let\'s make a symbolic link to the actual `build`:
 
-``` {.bash}
+```text
 $ ln -s ../build build/
 ```
 
-Such links get preserved when version controlling using
-[Git](http://git-scm.com/). We are linking to our bundled builds that
-contain vendor dependencies too.
+Such links get preserved when version controlling using [Git](http://git-scm.com/). We are linking to our bundled builds that contain vendor dependencies too.
 
-Then we are waiting for the page to load and call our (future) app with
-some config.
+Then we are waiting for the page to load and call our \(future\) app with some config.
 
-The name `ps` is being configured in the `Gruntfile.coffee` file in the
-`apps-c` task.
+The name `ps` is being configured in the `Gruntfile.coffee` file in the `apps-c` task.
 
 As for the config:
 
-[el]{.title-ref}
+\[el\]{.title-ref}
 
-:   Selector where our app should be displayed.
+: Selector where our app should be displayed.
 
-[mine]{.title-ref}
+\[mine\]{.title-ref}
 
-:   Points to an [InterMine](http://intermine.org).
+: Points to an [InterMine](http://intermine.org).
 
-The `require` call relates to
-[CommonJS](http://addyosmani.com/writing-modular-js/). It is one way of
-loading JavaScript modules. It avoids having to expose all of our
-functions and objects on the global (`window`) object and implements a
-way of relating between different files. For example, to load a module
-on the same *directory* level as me:
+The `require` call relates to [CommonJS](http://addyosmani.com/writing-modular-js/). It is one way of loading JavaScript modules. It avoids having to expose all of our functions and objects on the global \(`window`\) object and implements a way of relating between different files. For example, to load a module on the same _directory_ level as me:
 
-``` {.coffee-script}
+```text
 require './module'
 ```
 
 ### App index
 
-We have asked to load an app in our `example/index.html` page, now we
-are going to write the backing code.
+We have asked to load an app in our `example/index.html` page, now we are going to write the backing code.
 
-The `apps-c` task (in `Gruntfile.coffee`) contains the following two
-options:
+The `apps-c` task \(in `Gruntfile.coffee`\) contains the following two options:
 
-[name]{.title-ref}
+\[name\]{.title-ref}
 
-:   How do we call our app for
-    [CommonJS](http://addyosmani.com/writing-modular-js/) `require`
-    call.
+: How do we call our app for [CommonJS](http://addyosmani.com/writing-modular-js/) `require` call.
 
-[main]{.title-ref}
+\[main\]{.title-ref}
 
-:   Contains a path (an index) that will be called when we actually call
-    the `require` function.
+: Contains a path \(an index\) that will be called when we actually call the `require` function.
 
-We have specified that our app index lives in `src/app.coffee` so let\'s
-create this file:
+We have specified that our app index lives in `src/app.coffee` so let\'s create this file:
 
-``` {.coffee-script}
+```text
 render  = require './modules/render'
 query   = require './modules/query'
 imjs    = require './modules/imjs'
@@ -413,49 +365,27 @@ module.exports = (opts) ->
     query(q) if q = opts.symbol
 ```
 
-Each module (file) in our app needs to export some functionality. When
-we call `require` we will be getting this functionality.
+Each module \(file\) in our app needs to export some functionality. When we call `require` we will be getting this functionality.
 
 #### Observable
 
-We are going to be using [canJS](http://canjs.com/) which gives us
-objects that can be *observed*. What this means is that when their
-values change, others listening to these changes will be notified. When
-we want to [change](http://canjs.com/docs/can.Map.prototype.attr.html)
-their value we call `attr` function on them. One such example is where
-we setup the client. We are passing an object which is set on
-[imjs]{.title-ref} which is a
-[canMap](http://canjs.com/docs/can.Map.html). Or the line below where we
-set a symbol on a [query]{.title-ref} which is a
-[canCompute](http://canjs.com/docs/can.compute.html). The advantage here
-is that whenever we set a new symbol on [query]{.title-ref}, anyone else
-will be told it has changed and do something. This something means to
-trigger a search.
+We are going to be using [canJS](http://canjs.com/) which gives us objects that can be _observed_. What this means is that when their values change, others listening to these changes will be notified. When we want to [change](http://canjs.com/docs/can.Map.prototype.attr.html) their value we call `attr` function on them. One such example is where we setup the client. We are passing an object which is set on \[imjs\]{.title-ref} which is a [canMap](http://canjs.com/docs/can.Map.html). Or the line below where we set a symbol on a \[query\]{.title-ref} which is a [canCompute](http://canjs.com/docs/can.compute.html). The advantage here is that whenever we set a new symbol on \[query\]{.title-ref}, anyone else will be told it has changed and do something. This something means to trigger a search.
 
 #### Components
 
-But first we are requireing some components into the memory. These are
-[canComponent](http://canjs.com/docs/can.Component.html) instances. They
-wrap some user interface functionality (think widget) and are tied to a
-DOM tag. Whenever this tag appears on the page, a component gets
-automatically created with the appropriate template and data. For now,
-let\'s just say these need to be loaded before we inject our first
-template into the page. An example of a tag:
+But first we are requireing some components into the memory. These are [canComponent](http://canjs.com/docs/can.Component.html) instances. They wrap some user interface functionality \(think widget\) and are tied to a DOM tag. Whenever this tag appears on the page, a component gets automatically created with the appropriate template and data. For now, let\'s just say these need to be loaded before we inject our first template into the page. An example of a tag:
 
-``` {.html}
+```text
 <app-component></app-component>
 ```
 
-We inject the said template, layout, on the line below. Layout will
-represent the HTML that is true for our app/page. It will have custom
-tags in it that automatically get rendered as components (as above).
+We inject the said template, layout, on the line below. Layout will represent the HTML that is true for our app/page. It will have custom tags in it that automatically get rendered as components \(as above\).
 
 ### Layout
 
-Let us take a look at the layout template then; in
-\`/src/templates/layout.mustache\`:
+Let us take a look at the layout template then; in \`/src/templates/layout.mustache\`:
 
-``` {.guess}
+```text
 <div class="row collapse">
     <div class="small-2 columns">
         <span class="prefix">Search:</span>
@@ -480,24 +410,23 @@ Let us take a look at the layout template then; in
 
 Our app will consist of 3 components:
 
-[app-search]{.title-ref}
+\[app-search\]{.title-ref}
 
-:   A component that will represent our input search field.
+: A component that will represent our input search field.
 
-[app-alert]{.title-ref}
+\[app-alert\]{.title-ref}
 
-:   An alert message showing in what state the app is in.
+: An alert message showing in what state the app is in.
 
-[app-table]{.title-ref}
+\[app-table\]{.title-ref}
 
-:   A table with results of our search.
+: A table with results of our search.
 
 ### Search component
 
-The search component will bind the [query]{.title-ref} to our input
-field; in \`/src/components/search.coffee\`:
+The search component will bind the \[query\]{.title-ref} to our input field; in \`/src/components/search.coffee\`:
 
-``` {.coffee-script}
+```text
 query = require '../modules/query'
 
 # Search form.
@@ -515,57 +444,39 @@ module.exports = can.Component.extend
                 query do el.val
 ```
 
-To do so we need to require the [query]{.title-ref} module. It is the
-same module we have seen in our app index. And then we are off using the
-standard [canComponent](http://canjs.com/docs/can.Component.html)
-notation. There is:
+To do so we need to require the \[query\]{.title-ref} module. It is the same module we have seen in our app index. And then we are off using the standard [canComponent](http://canjs.com/docs/can.Component.html) notation. There is:
 
-[tag]{.title-ref}
+\[tag\]{.title-ref}
 
-:   Which is the custom DOM tag/element for this component. Again, if
-    this tag appears on the page, this component will spring to life.
+: Which is the custom DOM tag/element for this component. Again, if this tag appears on the page, this component will spring to life.
 
-[template]{.title-ref}
+\[template\]{.title-ref}
 
-:   This is the template that will get injected into the
-    [tag]{.title-ref}.
+: This is the template that will get injected into the \[tag\]{.title-ref}.
 
-[scope]{.title-ref}
+\[scope\]{.title-ref}
 
-:   Ah, the magic. You can either pass in an object of key-value pairs
-    that will be accessible within our [template]{.title-ref}. A more
-    interesting approach is to return a function that returns said
-    object. Doing so will make this component listen in on any changes
-    in the object. In our example we are (using slightly convoluted
-    notation) listening to changes to [query]{.title-ref}, which is a
-    [canCompute](http://canjs.com/docs/can.compute.html).
+: Ah, the magic. You can either pass in an object of key-value pairs that will be accessible within our \[template\]{.title-ref}. A more interesting approach is to return a function that returns said object. Doing so will make this component listen in on any changes in the object. In our example we are \(using slightly convoluted notation\) listening to changes to \[query\]{.title-ref}, which is a [canCompute](http://canjs.com/docs/can.compute.html).
 
-[events]{.title-ref}
+\[events\]{.title-ref}
 
-:   Makes this component listen to events in the template and then do
-    something. The syntax is: [\<selector\> \<event\>]{.title-ref}. In
-    our example, whenever the user has pressed (and raised their finger)
-    from a key on a keyboard, we call a function. This function checks
-    that the key was [Enter]{.title-ref} and updates the
-    [query]{.title-ref}.
+: Makes this component listen to events in the template and then do something. The syntax is: \[\ \\]{.title-ref}. In our example, whenever the user has pressed \(and raised their finger\) from a key on a keyboard, we call a function. This function checks that the key was \[Enter\]{.title-ref} and updates the \[query\]{.title-ref}.
 
 ### Search template
 
 The search template just outputs the current value of the query:
 
-``` {.guess}
+```text
 <input type="text" placeholder="e.g. brca, gamma" value="{{ query.value }}" autofocus>
 ```
 
-We are also giving this field the focus on the page so a user can just
-start typing.
+We are also giving this field the focus on the page so a user can just start typing.
 
 ### Query module
 
-We have been talking about this [query]{.title-ref} for a while, it is
-time to write its code; in \`/src/modules/query.coffee\`:
+We have been talking about this \[query\]{.title-ref} for a while, it is time to write its code; in \`/src/modules/query.coffee\`:
 
-``` {.coffee-script}
+```text
 pubs  = require './pubs'
 imjs  = require './imjs'
 state = require './state'
@@ -593,59 +504,48 @@ module.exports = query
 
 First we are requiring some other modules:
 
-[pubs]{.title-ref}
+\[pubs\]{.title-ref}
 
-:   Will represent our results collection/list.
+: Will represent our results collection/list.
 
-[imjs]{.title-ref}
+\[imjs\]{.title-ref}
 
-:   A module doing the actual search.
+: A module doing the actual search.
 
-[state]{.title-ref}
+\[state\]{.title-ref}
 
-:   Will be told what the state of the app is for alerts.
+: Will be told what the state of the app is for alerts.
 
-We initialize the query to be empty using [\'\']{.title-ref}. If a
-developer wants to pass an initial query, we have seen the relevant code
-in app index.
+We initialize the query to be empty using \[\'\'\]{.title-ref}. If a developer wants to pass an initial query, we have seen the relevant code in app index.
 
-Then we have a function that listens in on our changes. Whenever query
-changes, this function is triggered. We use it to first say that we are
-starting a search. Then we actually call the [imjs]{.title-ref} module
-to do the search. If all went fine, we inject the new results into the
-[pubs]{.title-ref} module.
+Then we have a function that listens in on our changes. Whenever query changes, this function is triggered. We use it to first say that we are starting a search. Then we actually call the \[imjs\]{.title-ref} module to do the search. If all went fine, we inject the new results into the \[pubs\]{.title-ref} module.
 
 There are two things that could go wrong:
 
-1.  The search might not be succesfull (mine down, malformed query etc.)
-2.  The results may arrive too late when the user asks for another set
-    of results before seeing the first set.
+1. The search might not be succesfull \(mine down, malformed query etc.\)
+2. The results may arrive too late when the user asks for another set
+
+   of results before seeing the first set.
 
 Both cases are handled.
 
 ### State module
 
-Is a [canMap](http://canjs.com/docs/can.Map.html) that keeps track of
-the app state; it lives in \`/src/modules/state.coffee\`:
+Is a [canMap](http://canjs.com/docs/can.Map.html) that keeps track of the app state; it lives in \`/src/modules/state.coffee\`:
 
-``` {.coffee-script}
+```text
 module.exports = new can.Map
     'type': 'info'
     'text': 'Search is ready'
 ```
 
-The map has two attributes, one for a type of state we are in [\[
-info\|success\|warning \]]{.title-ref} and the other for the actual
-message.
+The map has two attributes, one for a type of state we are in \[\[ info\|success\|warning \]\]{.title-ref} and the other for the actual message.
 
 ### IMJS module
 
-This module will do the actual search on the mine. It is called imjs
-since it is going to be using the
-[imjs](https://github.com/alexkalderimis/imjs) library behind the
-scenes. We will find it in \`/src/modules/imjs.coffee\`:
+This module will do the actual search on the mine. It is called imjs since it is going to be using the [imjs](https://github.com/alexkalderimis/imjs) library behind the scenes. We will find it in \`/src/modules/imjs.coffee\`:
 
-``` {.coffee-script}
+```text
 query =
     'select': [
         'Publication.title'
@@ -702,42 +602,21 @@ module.exports = new can.Map
                 cb null, _.map res, remap
 ```
 
-At the top we are defining the query that will be used to run the query.
-The format is that of an InterMine PathQuery. You can see
-[imjs](https://github.com/alexkalderimis/imjs) for syntax and more
-information. One can generate this syntax by visiting the mine in
-question, running a query in QueryBuilder and then choosing to export to
-JavaScript in the Results Table.
+At the top we are defining the query that will be used to run the query. The format is that of an InterMine PathQuery. You can see [imjs](https://github.com/alexkalderimis/imjs) for syntax and more information. One can generate this syntax by visiting the mine in question, running a query in QueryBuilder and then choosing to export to JavaScript in the Results Table.
 
-Our query will be looking for publications, fetching their bio entities
-(genes, alleles, proteins etc.) and authors. Authors is a separate
-collection mapped to a publication.
+Our query will be looking for publications, fetching their bio entities \(genes, alleles, proteins etc.\) and authors. Authors is a separate collection mapped to a publication.
 
-Then we are using the [canMap](http://canjs.com/docs/can.Map.html)
-syntax to define a [client]{.title-ref} attribute and a
-[search]{.title-ref} function. An object can have both attributes and
-functions defined.
+Then we are using the [canMap](http://canjs.com/docs/can.Map.html) syntax to define a \[client\]{.title-ref} attribute and a \[search\]{.title-ref} function. An object can have both attributes and functions defined.
 
-We took care of initializing the [client]{.title-ref} in app index. In
-that step, we were intiializing the
-[imjs](https://github.com/alexkalderimis/imjs) library to use a specific
-mine, MouseMine in our case.
+We took care of initializing the \[client\]{.title-ref} in app index. In that step, we were intiializing the [imjs](https://github.com/alexkalderimis/imjs) library to use a specific mine, MouseMine in our case.
 
-The search function takes two parameters, a symbol and a callback. The
-first is the search symbol coming from [query]{.title-ref} module, the
-second a function that will be called when we have errors or results.
-Hopefully the latter.
+The search function takes two parameters, a symbol and a callback. The first is the search symbol coming from \[query\]{.title-ref} module, the second a function that will be called when we have errors or results. Hopefully the latter.
 
-We are then using [imjs](https://github.com/alexkalderimis/imjs) syntax
-to extend our [query]{.title-ref} with a constraint on a bio entity
-symbol, matching our symbol and returning [tableRows]{.title-ref}.
+We are then using [imjs](https://github.com/alexkalderimis/imjs) syntax to extend our \[query\]{.title-ref} with a constraint on a bio entity symbol, matching our symbol and returning \[tableRows\]{.title-ref}.
 
-The [remap]{.title-ref} function is just formatting the results into a
-format that is useful to us. In our case we want to have the following
-data structure which is conducive to being traversed in a
-[Mustache](http://mustache.github.io/) template:
+The \[remap\]{.title-ref} function is just formatting the results into a format that is useful to us. In our case we want to have the following data structure which is conducive to being traversed in a [Mustache](http://mustache.github.io/) template:
 
-``` {.json}
+```text
 [
     {
         "title": "Distinct negative regulatory mechanisms involved in the repression of human embryonic epsilon- and fetal G gamma-globin genes in transgenic mice.",
@@ -757,41 +636,27 @@ data structure which is conducive to being traversed in a
 ]
 ```
 
-We are extracting the type of the bio entity matched and creating a
-nested [authors]{.title-ref} field.
+We are extracting the type of the bio entity matched and creating a nested \[authors\]{.title-ref} field.
 
-Once we have the new data we are calling back using the [cb]{.title-ref}
-function. It is customary to specify an error as the first argument into
-said function. Since all is well, we are passing a [null]{.title-ref}
-value.
+Once we have the new data we are calling back using the \[cb\]{.title-ref} function. It is customary to specify an error as the first argument into said function. Since all is well, we are passing a \[null\]{.title-ref} value.
 
 ### Publications list
 
-We still have one module to cover. This is the [pubs]{.title-ref} we
-have refered to elsewhere; in \`/src/modules/pubs.coffee\`:
+We still have one module to cover. This is the \[pubs\]{.title-ref} we have refered to elsewhere; in \`/src/modules/pubs.coffee\`:
 
-``` {.coffee-script}
+```text
 module.exports = new can.List []
 ```
 
-We are using the [canList](http://canjs.com/docs/can.List.html) object
-to store an observable array of values. To be honest, we don\'t need to
-use an observable object here, but you may want to if you are going to
-be changing values in the array rather than replacing the whole thing
-outright.
+We are using the [canList](http://canjs.com/docs/can.List.html) object to store an observable array of values. To be honest, we don\'t need to use an observable object here, but you may want to if you are going to be changing values in the array rather than replacing the whole thing outright.
 
 ### Alert component
 
-When doing our searches we have decided to keep track of the state of
-the application. Are we searching? Do we have errors? That sort of
-thing.
+When doing our searches we have decided to keep track of the state of the application. Are we searching? Do we have errors? That sort of thing.
 
-We already wrote a module, a
-[canMap](http://canjs.com/docs/can.Map.html), to represent the data
-structure. Now we just need to write the
-[canComponent](http://canjs.com/docs/can.Component.html) for it.
+We already wrote a module, a [canMap](http://canjs.com/docs/can.Map.html), to represent the data structure. Now we just need to write the [canComponent](http://canjs.com/docs/can.Component.html) for it.
 
-``` {.coffee-script}
+```text
 state = require '../modules/state'
 
 # An alert.
@@ -804,34 +669,25 @@ module.exports = can.Component.extend
     scope: -> state
 ```
 
-It does what it does. Which is to show up when [app-alert]{.title-ref}
-appears and then display a template and observe when [state]{.title-ref}
-changes.
+It does what it does. Which is to show up when \[app-alert\]{.title-ref} appears and then display a template and observe when \[state\]{.title-ref} changes.
 
 ### Alert template
 
 Each component needs a template. the alert one will look like this:
 
-``` {.guess}
+```text
 <div class="alert-box {{ type }}">
     {{{ text }}}.
 </div>
 ```
 
-What we are saying here is to display a
-[Foundation](http://foundation.zurb.com/) alert box with a custom type
-and a text. We use [{{{ }}}]{.title-ref} to display the text which
-allows us to use HTML in the [text]{.title-ref} string and have it
-unescaped.
+What we are saying here is to display a [Foundation](http://foundation.zurb.com/) alert box with a custom type and a text. We use \[}\]{.title-ref} to display the text which allows us to use HTML in the \[text\]{.title-ref} string and have it unescaped.
 
 ### Results table component
 
-Now that we are searching for and updating [pubs]{.title-ref} with new
-data, we have to observe them in a
-[canComponent](http://canjs.com/docs/can.Component.html) and render
-them. In \`/src/components/table.coffee\`:
+Now that we are searching for and updating \[pubs\]{.title-ref} with new data, we have to observe them in a [canComponent](http://canjs.com/docs/can.Component.html) and render them. In \`/src/components/table.coffee\`:
 
-``` {.coffee-script}
+```text
 pubs = require '../modules/pubs'
 
 # Table of publication results.
@@ -844,15 +700,13 @@ module.exports = can.Component.extend
     scope: -> { pubs }
 ```
 
-This will make an array of publications available to us in a template
-under the [pubs]{.title-ref} key.
+This will make an array of publications available to us in a template under the \[pubs\]{.title-ref} key.
 
 ### Results table template
 
-As for the template that displays the results; in
-\`/src/templates/table.mustache\`:
+As for the template that displays the results; in \`/src/templates/table.mustache\`:
 
-``` {.guess}
+```text
 {{ #if pubs.length }}
 <table>
     <thead>
@@ -890,19 +744,15 @@ As for the template that displays the results; in
 {{ /if }}
 ```
 
-Firstly we are checking if we actually have any results to speak of. If
-so we render a table \<tr/\> element for each publication.
+Firstly we are checking if we actually have any results to speak of. If so we render a table \&lt;tr/&gt; element for each publication.
 
-We can see that [{{ \#pubs }}]{.title-ref} and [{{ \#authors
-}}]{.title-ref} both reresent a for loop.
+We can see that \[\]{.title-ref} and \[\]{.title-ref} both reresent a for loop.
 
 ### Style
 
-We are going to wrap up by writing a stylesheet. For this we are going
-to use [Stylus](http://learnboost.github.io/stylus/); in
-\`/src/styles/app.styl\`:
+We are going to wrap up by writing a stylesheet. For this we are going to use [Stylus](http://learnboost.github.io/stylus/); in \`/src/styles/app.styl\`:
 
-``` {.guess}
+```text
 @import 'nib'
 
 body
@@ -929,46 +779,25 @@ table
             white-space: nowrap
 ```
 
-Stylus allows us to write nested rules, such as when we want to select a
-table cell, [\<td/\>]{.title-ref} in a [\<table/\>]{.title-ref}.
+Stylus allows us to write nested rules, such as when we want to select a table cell, \[\&lt;td/&gt;\]{.title-ref} in a \[\&lt;table/&gt;\]{.title-ref}.
 
-At the top we can see a reference to
-[nib](http://visionmedia.github.io/nib/). This will make any of our
-rules be generated with browser vendor prefixed, where appropriate and
-allows us to use shorthand notation for various oft repeated rules.
+At the top we can see a reference to [nib](http://visionmedia.github.io/nib/). This will make any of our rules be generated with browser vendor prefixed, where appropriate and allows us to use shorthand notation for various oft repeated rules.
 
-Fin
----
+## Fin
 
-This concludes our application. Running a static web server to view the
-[/example]{.title-ref} folder we are presented with a page that displays
-our app. Typing a symbol into the input box and pressing
-[Enter]{.title-ref} then launches a request against MouseMine and, if
-succesfull, shows us results.
+This concludes our application. Running a static web server to view the \[/example\]{.title-ref} folder we are presented with a page that displays our app. Typing a symbol into the input box and pressing \[Enter\]{.title-ref} then launches a request against MouseMine and, if succesfull, shows us results.
 
-Appendix
---------
+## Appendix
 
 ### pomme.js
 
-What we have not covered is the case when we want to embed our app
-besides other apps on a page. If that were the case, all our CSS rules
-would start conflicting with other rules on the page. Not to speak of
-canComponents that may pop up in all kinds of places if we are using the
-same tags across different apps.
+What we have not covered is the case when we want to embed our app besides other apps on a page. If that were the case, all our CSS rules would start conflicting with other rules on the page. Not to speak of canComponents that may pop up in all kinds of places if we are using the same tags across different apps.
 
-One way to deal with this issue is to make use of the
-[pommejs](https://github.com/radekstepan/pomme.js) library. What it does
-is create a sandbox (using an [\<iframe/\>]{.title-ref}) which is
-isolated from anything else on the page. One would load an app inside
-one such sandbox and not have to worry about library collusion.
+One way to deal with this issue is to make use of the [pommejs](https://github.com/radekstepan/pomme.js) library. What it does is create a sandbox \(using an \[\&lt;iframe/&gt;\]{.title-ref}\) which is isolated from anything else on the page. One would load an app inside one such sandbox and not have to worry about library collusion.
 
-For example, we would create a pure
-[pommejs](https://github.com/radekstepan/pomme.js) *build* in
-[Grunt](http://gruntjs.com/); in [Gruntfile.coffee]{.title-ref} add the
-following task:
+For example, we would create a pure [pommejs](https://github.com/radekstepan/pomme.js) _build_ in [Grunt](http://gruntjs.com/); in \[Gruntfile.coffee\]{.title-ref} add the following task:
 
-``` {.coffee-script}
+```text
 copy:
     pomme:
         src: [ 'bower_components/pomme.js/build/app.bundle.js' ]
@@ -981,25 +810,21 @@ grunt.loadNpmTasks('grunt-contrib-copy')
 
 This requires you to have the following task installed:
 
-``` {.bash}
+```text
 $ npm install grunt-contrib-copy
 ```
 
 In order to download the library itself using [Bower](http://bower.io/):
 
-``` {.bash}
+```text
 $ bower install pomme.js
 ```
 
-Now we are copying a bundled version of
-[pommejs](https://github.com/radekstepan/pomme.js) into our build
-directory.
+Now we are copying a bundled version of [pommejs](https://github.com/radekstepan/pomme.js) into our build directory.
 
-Do create this sandbox we are going to require
-[pommejs](https://github.com/radekstepan/pomme.js) instead; in
-\`/example/index.html\`:
+Do create this sandbox we are going to require [pommejs](https://github.com/radekstepan/pomme.js) instead; in \`/example/index.html\`:
 
-``` {.html}
+```text
 <!doctype html>
 <html>
 <head>
@@ -1026,12 +851,9 @@ Do create this sandbox we are going to require
 </html>
 ```
 
-In the section above we can see a placeholder for a template. In that
-place we need to return a string which will correspond to the html that
-needs to be executed within the sandbox. It should look something like
-this (but as a string!):
+In the section above we can see a placeholder for a template. In that place we need to return a string which will correspond to the html that needs to be executed within the sandbox. It should look something like this \(but as a string!\):
 
-``` {.html}
+```text
 <!doctype html>
 <html>
 <head>
@@ -1057,9 +879,7 @@ this (but as a string!):
 </html>
 ```
 
-So our example [index.html]{.title-ref} has moved into a string and is
-being executed inside an iframe.
+So our example \[index.html\]{.title-ref} has moved into a string and is being executed inside an iframe.
 
-Refer to the [pommejs](https://github.com/radekstepan/pomme.js)
-documentation if you\'d like to know how to open a two way communication
-channel between the parent page and the iframe window.
+Refer to the [pommejs](https://github.com/radekstepan/pomme.js) documentation if you\'d like to know how to open a two way communication channel between the parent page and the iframe window.
+

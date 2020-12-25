@@ -1,15 +1,12 @@
-InterMine JARs
-==============
+# InterMine JARs
 
-InterMine JARs are published on JCenter:
-<https://bintray.com/intermineorg>
+InterMine JARs are published on JCenter: [https://bintray.com/intermineorg](https://bintray.com/intermineorg)
 
 To put these on your classpath, add the correct dependencies, e.g.
 
-Maven
------
+## Maven
 
-``` {.guess}
+```text
 <dependency>
     <groupId>org.intermine</groupId>
     <artifactId>intermine-api</artifactId>
@@ -18,13 +15,11 @@ Maven
 </dependency>
 ```
 
-Gradle
-------
+## Gradle
 
-``` {.guess}
+```text
 compile 'org.intermine:intermine-api:4.0.1'
 ```
 
-::: {.index}
-Maven, InterMine JARs
-:::
+::: {.index} Maven, InterMine JARs :::
+

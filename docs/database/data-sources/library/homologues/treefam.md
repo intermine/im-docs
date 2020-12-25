@@ -1,20 +1,17 @@
-Treefam
-=======
+# Treefam
 
-Data
-----
+## Data
 
-<ftp://ftp.sanger.ac.uk/pub/treefam/release-7.0/MySQL>
+[ftp://ftp.sanger.ac.uk/pub/treefam/release-7.0/MySQL](ftp://ftp.sanger.ac.uk/pub/treefam/release-7.0/MySQL)
 
 Download two tables:
 
--   [genes.txt.table]{.title-ref}
--   [ortholog.txt.table]{.title-ref}
+* \[genes.txt.table\]{.title-ref}
+* \[ortholog.txt.table\]{.title-ref}
 
-Project XML
------------
+## Project XML
 
-``` {.xml}
+```text
 <source name="treefam" type="treefam">
   <property name="src.data.dir" location="/DATA/treefam"/>
   <property name="src.data.dir.includes" value="ortholog.txt.table"/>
@@ -24,12 +21,15 @@ Project XML
 </source>
 ```
 
--   \'\'\'treefam.organisms\'\'\' - all genes from the listed organisms
-    will be processed
--   \'\'\'treefam.homologues\'\'\' (optional) - genes will *only* be
-    loaded into the database if they are a homologue of an organism of
-    interest
+* \'\'\'treefam.organisms\'\'\' - all genes from the listed organisms
 
-::: {.index}
-TreeFam
-:::
+  will be processed
+
+* \'\'\'treefam.homologues\'\'\' \(optional\) - genes will _only_ be
+
+  loaded into the database if they are a homologue of an organism of
+
+  interest
+
+::: {.index} TreeFam :::
+

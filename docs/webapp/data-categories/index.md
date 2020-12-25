@@ -1,25 +1,21 @@
-Data Categories
-===============
+# Data Categories
 
-Data category pages include various aspects of a concept on a single
-page. Category pages include:
+Data category pages include various aspects of a concept on a single page. Category pages include:
 
--   logo
--   short description
--   external links
--   bulk download queries
--   template queries
--   direct links to QueryBuilder
+* logo
+* short description
+* external links
+* bulk download queries
+* template queries
+* direct links to QueryBuilder
 
-All of the above should relate to a single concept, eg. Genomics or
-Interactions.
+All of the above should relate to a single concept, eg. Genomics or Interactions.
 
-Data categories are defined in [aspects.xml]{.title-ref}.
+Data categories are defined in \[aspects.xml\]{.title-ref}.
 
-Aspects.xml
------------
+## Aspects.xml
 
-``` {.xml}
+```text
 <aspect name="Genomics">
   <subtitle>Genome annotation</subtitle>
   <icon-image>model/genomics.gif</icon-image>
@@ -35,39 +31,37 @@ Aspects.xml
 </aspect>
 ```
 
-Configuration
--------------
+## Configuration
 
--   logo
-    -   \<icon-image\>model/genomics.gif\</icon-image\> - appears on the
-        home and data category pages
-    -   \<large-image\>model/genomics.gif\</large-image\> - appears on
-        the individual data category page
--   short description
-    -   \<intro-text\>TEXT HERE\</intro-text\>
-    -   appears on the top of the data category page
--   external links
-    -   \<aspect-source name=\"FlyBase\"
-        url=\"<http://www.flybase.org%22/>\>
-    -   appear on the top right corner of the data category page
--   bulk download queries
-    -   appear on the top right corner of the data category page
--   template queries
-    -   appear on the data category page
--   direct links to QueryBuilder
-    -   links will appear at the bottom of the data categories page
+* logo
+  * \model/genomics.gif\&lt;/icon-image&gt; - appears on the
 
-To configure which template queries appear on a data category page, tag
-the template.
+    home and data category pages
 
-Data page/tab
--------------
+  * \model/genomics.gif\&lt;/large-image&gt; - appears on
 
-The data tab points to this JSP file
-[intermine/webapp/main/resources/webapp/dataCategories.jsp]{.title-ref}.
-You can overwrite this file and display your own customised file by
-putting a JSP in your [/webapp]{.title-ref} directory.
+    the individual data category page
+* short description
+  * \TEXT HERE\&lt;/intro-text&gt;
+  * appears on the top of the data category page
+* external links
+  * \&lt;aspect-source name=\"FlyBase\"
 
-::: {.index}
-data page, data tab, data categories, aspects, categories
-:::
+    url=\"[http://www.flybase.org%22/](http://www.flybase.org%22/)&gt;
+
+  * appear on the top right corner of the data category page
+* bulk download queries
+  * appear on the top right corner of the data category page
+* template queries
+  * appear on the data category page
+* direct links to QueryBuilder
+  * links will appear at the bottom of the data categories page
+
+To configure which template queries appear on a data category page, tag the template.
+
+## Data page/tab
+
+The data tab points to this JSP file \[intermine/webapp/main/resources/webapp/dataCategories.jsp\]{.title-ref}. You can overwrite this file and display your own customised file by putting a JSP in your \[/webapp\]{.title-ref} directory.
+
+::: {.index} data page, data tab, data categories, aspects, categories :::
+

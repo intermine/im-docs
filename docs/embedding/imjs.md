@@ -1,9 +1,6 @@
-InterMine JavaScript Library
-============================
+# InterMine JavaScript Library
 
-Please refer to [this repo](https://github.com/alexkalderimis/imjs) for
-more information.
+Please refer to [this repo](https://github.com/alexkalderimis/imjs) for more information.
 
-::: {.index}
-JavaScript
-:::
+::: {.index} JavaScript :::
+

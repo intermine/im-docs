@@ -1,153 +1,139 @@
-elastic-med
-===========
+# elastic-med
 
-::: {.note}
-::: {.title}
-Note
-:::
+::: {.note} ::: {.title} Note :::
 
-\@in-progress
-:::
+\@in-progress :::
 
-::: {.note}
-::: {.title}
-Note
-:::
+::: {.note} ::: {.title} Note :::
 
-You can view the source files for this project in the
-[intermine/intermine-apps-c](https://github.com/intermine/intermine-apps-c/tree/master/elastic-med)
-repo.
-:::
+You can view the source files for this project in the [intermine/intermine-apps-c](https://github.com/intermine/intermine-apps-c/tree/master/elastic-med) repo. :::
 
-This document will guide you through the process of writing a JavaScript
-client side app (running completely in a browser) using
-[Bower](http://bower.io/) and [Grunt](http://gruntjs.com/) tools. The
-app will connect to an [ElasticSearch](http://www.elasticsearch.org/)
-(ES) instance to do *search*. ES wraps Apache Lucene and serves as a
-repository of indexed documents that one can search agains. If you
-prefer a short gist head over to `usage`{.interpreted-text role="doc"}
-instead.
+This document will guide you through the process of writing a JavaScript client side app \(running completely in a browser\) using [Bower](http://bower.io/) and [Grunt](http://gruntjs.com/) tools. The app will connect to an [ElasticSearch](http://www.elasticsearch.org/) \(ES\) instance to do _search_. ES wraps Apache Lucene and serves as a repository of indexed documents that one can search agains. If you prefer a short gist head over to `usage`{.interpreted-text role="doc"} instead.
 
 The app will have the following functionality:
 
-1.  Work with *cancer* related publications from PubMed.
-2.  Ask user for an input text and get back a list of publications.
-3.  Click on any of the results to see a detailed view.
-4.  From the document detail search for publications *like* this one.
-5.  Autocomple and provide suggestions for user\'s input.
+1. Work with _cancer_ related publications from PubMed.
+2. Ask user for an input text and get back a list of publications.
+3. Click on any of the results to see a detailed view.
+4. From the document detail search for publications _like_ this one.
+5. Autocomple and provide suggestions for user\'s input.
 
 Among the important libraries we will be using:
 
-1.  [Bower](http://bower.io/) to fetch vendor dependencies such as
-    JavaScript, CSS or Fonts.
-2.  [canJS](http://canjs.com/) is a framework for client-side
-    development handling routing, events etc.
-3.  [CoffeeScript](http://coffeescript.org/) a language that compiles
-    down to JavaScript and makes writing an app easier.
-4.  [D3](http://d3js.org/) is used to manipulate documents based on
-    data.
-5.  [ElasticSearch](http://www.elasticsearch.org/) a search server with
-    a RESTful web service peddling JSON documents.
-6.  [Foundation](http://foundation.zurb.com/) is a CSS framework of
-    reusable UI components.
-7.  [Grunt](http://gruntjs.com/) to build/transpile our source files.
-8.  [jQuery](http://jquery.com/) is a DOM manipulation library (and
-    more).
-9.  [Moment](http://momentjs.com/) is a date library for parsing,
-    manipulating and formatting dates.
+1. [Bower](http://bower.io/) to fetch vendor dependencies such as
+
+   JavaScript, CSS or Fonts.
+
+2. [canJS](http://canjs.com/) is a framework for client-side
+
+   development handling routing, events etc.
+
+3. [CoffeeScript](http://coffeescript.org/) a language that compiles
+
+   down to JavaScript and makes writing an app easier.
+
+4. [D3](http://d3js.org/) is used to manipulate documents based on
+
+   data.
+
+5. [ElasticSearch](http://www.elasticsearch.org/) a search server with
+
+   a RESTful web service peddling JSON documents.
+
+6. [Foundation](http://foundation.zurb.com/) is a CSS framework of
+
+   reusable UI components.
+
+7. [Grunt](http://gruntjs.com/) to build/transpile our source files.
+8. [jQuery](http://jquery.com/) is a DOM manipulation library \(and
+
+   more\).
+
+9. [Moment](http://momentjs.com/) is a date library for parsing,
+
+   manipulating and formatting dates.
+
 10. [Mustache](http://mustache.github.io/) is a multi-platform
+
     templating language allowing us to embed dynamic objects in HTML.
+
 11. [Node](http://en.wikipedia.org/wiki/Nodejs) JavaScript desktop
+
     software platform.
+
 12. [Stylus](http://learnboost.github.io/stylus/) allows us to be more
+
     expressive and dynamic with CSS.
+
 13. [Underscore](http://underscorejs.org/) is a utility toolbelt making
+
     actions such as iterating over items easier.
 
-::: {.warning}
-::: {.title}
-Warning
-:::
+::: {.warning} ::: {.title} Warning :::
 
-Some of the code block examples on this page feature line numbers.
-Please view the page in a widescreen mode.
-:::
+Some of the code block examples on this page feature line numbers. Please view the page in a widescreen mode. :::
 
-Initialize Project
-------------------
+## Initialize Project
 
 The first step will be to setup our directory structure.
 
 build/
 
-:   Will be the directory where our final app package will live. We will
-    develop in languages like Stylus or CoffeeScript and need a way to
-    package all these resources into one whole\... directory. This is
-    where all these files will live.
+: Will be the directory where our final app package will live. We will develop in languages like Stylus or CoffeeScript and need a way to package all these resources into one whole... directory. This is where all these files will live.
 
-bower_components/
+bower\_components/
 
-:   This directory will be automatically created and will contain
-    libraries we have requested through the Bower system.
+: This directory will be automatically created and will contain libraries we have requested through the Bower system.
 
 data/
 
-:   Is a directory where we can keep data files that we will load to ES
-    later.
+: Is a directory where we can keep data files that we will load to ES later.
 
 example/
 
-:   Contains an example of our app in use.
+: Contains an example of our app in use.
 
 src/
 
-:   Source files that our code will consist of.
+: Source files that our code will consist of.
 
 bower.json
 
-:   Will contain a listing of libraries we want to download using Bower.
+: Will contain a listing of libraries we want to download using Bower.
 
 package.json
 
-:   Lists libraries we will need to compile and build our app.
+: Lists libraries we will need to compile and build our app.
 
 ### Node.js platform
 
-Since our application is targeting JavaScript in the browser, it is
-pretty useful if we use JavaScript on our computer (desktop) too. Enter
-[Node](http://en.wikipedia.org/wiki/Nodejs) which allows us to execute
-JavaScript on our computers instead of just our browsers.
+Since our application is targeting JavaScript in the browser, it is pretty useful if we use JavaScript on our computer \(desktop\) too. Enter [Node](http://en.wikipedia.org/wiki/Nodejs) which allows us to execute JavaScript on our computers instead of just our browsers.
 
-You can fetch [binaries](http://nodejs.org/download/) from the homepage
-or use your (hopefully Linux)
-[packman](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager).
+You can fetch [binaries](http://nodejs.org/download/) from the homepage or use your \(hopefully Linux\) [packman](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager).
 
 Once Node is installed, edit the `package.json` file like so:
 
-``` {.json linenos=""}
-{
-    "name": "elastic-med",
-    "version": "0.0.0",
-    "devDependencies": {
-        "bower": "~1.2.7",
-        "grunt": "~0.4.1",
+\`\`\` {.json linenos=""} { "name": "elastic-med", "version": "0.0.0", "devDependencies": { "bower": "~1.2.7", "grunt": "~0.4.1",
 
-        "grunt-apps-c": "0.1.10",
-        "grunt-contrib-concat": "~0.3.0",
-        "grunt-contrib-stylus": "~0.9.0",
-        "grunt-contrib-copy": "0.4.1",
+```text
+    "grunt-apps-c": "0.1.10",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-stylus": "~0.9.0",
+    "grunt-contrib-copy": "0.4.1",
 
-        "grunt-contrib-uglify": "~0.2.5",
-        "grunt-contrib-cssmin": "~0.6.2",
+    "grunt-contrib-uglify": "~0.2.5",
+    "grunt-contrib-cssmin": "~0.6.2",
 
-        "elasticsearch": "1.0.1",
-        "coffee-script": "1.6.3",
-        "async": "0.2.9",
-        "lodash": "2.4.1"
-    }
+    "elasticsearch": "1.0.1",
+    "coffee-script": "1.6.3",
+    "async": "0.2.9",
+    "lodash": "2.4.1"
 }
 ```
 
+}
+
+```text
 This file tells Node which libraries will be used to build our app.
 These are not client-side libraries, but server-side if you will.
 
@@ -163,12 +149,11 @@ $ npm install -d
 
 ### Bower vendor dependencies
 
-Now we want to fetch libraries that our app, when running, will depend
-on.
+Now we want to fetch libraries that our app, when running, will depend on.
 
 Edit the `bower.json` file like so:
 
-``` {.json}
+```text
 {
     "name": "elastic-med",
     "version": "0.0.0",
@@ -192,116 +177,107 @@ The file has a bunch of key-value pairs.
 
 name
 
-:   Name of our application in the Bower ecosystem, required.
+: Name of our application in the Bower ecosystem, required.
 
 version
 
-:   Version number in the Bower ecosystem, required.
+: Version number in the Bower ecosystem, required.
 
 dependencies
 
-:   Lists the actual libraries and their versions to fetch. You can
-    populate this list by executing `$ bower install jquery --save` for
-    example. That will download the latest version of the `jquery`
-    component into the `bower_components/` directory. You can
-    [search](http://sindresorhus.com/bower-components/) for available
-    components using `$ bower search jquery`. To actually trigger a
-    search, execute `$ bower install`. The different libraries will be
-    introduced as we code along.
+: Lists the actual libraries and their versions to fetch. You can populate this list by executing `$ bower install jquery --save` for example. That will download the latest version of the `jquery` component into the `bower_components/` directory. You can [search](http://sindresorhus.com/bower-components/) for available components using `$ bower search jquery`. To actually trigger a search, execute `$ bower install`. The different libraries will be introduced as we code along.
 
 ### Grunt building
 
-Grunt is used to munge files together and execute commands on them.
-Create a file called `Gruntfile.coffee`:
+Grunt is used to munge files together and execute commands on them. Create a file called `Gruntfile.coffee`:
 
-``` {.coffee-script linenos=""}
-module.exports = (grunt) ->
-    grunt.initConfig
-        pkg: grunt.file.readJSON("package.json")
+\`\`\` {.coffee-script linenos=""} module.exports = \(grunt\) -&gt; grunt.initConfig pkg: grunt.file.readJSON\("package.json"\)
 
-        apps_c:
-            commonjs:
-                src: [ 'src/**/*.{coffee,mustache}' ]
-                dest: 'build/js/em.js'
-                options:
-                    main: 'src/app.coffee'
-                    name: 'em'
+```text
+    apps_c:
+        commonjs:
+            src: [ 'src/**/*.{coffee,mustache}' ]
+            dest: 'build/js/em.js'
+            options:
+                main: 'src/app.coffee'
+                name: 'em'
 
-        stylus:
-            compile:
-                src: [ 'src/styles/app.styl' ]
-                dest: 'build/css/em.css'
+    stylus:
+        compile:
+            src: [ 'src/styles/app.styl' ]
+            dest: 'build/css/em.css'
 
-        concat:            
-            scripts:
-                src: [
-                    # Vendor dependencies.
-                    'bower_components/jquery/jquery.js'
-                    'bower_components/lodash/dist/lodash.js'
-                    'bower_components/canjs/can.jquery-2.js'
-                    'bower_components/canjs/can.map.setter.js'
-                    'bower_components/elasticsearch/index.js'
-                    'bower_components/moment/moment.js'
-                    'bower_components/colorbrewer/colorbrewer.js'
-                    'bower_components/d3/d3.js'
-                    'bower_components/simple-lru/index.js'
-                    # Our app.
-                    'build/js/em.js'
-                ]
-                dest: 'build/js/em.bundle.js'
-                options:
-                    separator: ';' # for minification purposes
+    concat:            
+        scripts:
+            src: [
+                # Vendor dependencies.
+                'bower_components/jquery/jquery.js'
+                'bower_components/lodash/dist/lodash.js'
+                'bower_components/canjs/can.jquery-2.js'
+                'bower_components/canjs/can.map.setter.js'
+                'bower_components/elasticsearch/index.js'
+                'bower_components/moment/moment.js'
+                'bower_components/colorbrewer/colorbrewer.js'
+                'bower_components/d3/d3.js'
+                'bower_components/simple-lru/index.js'
+                # Our app.
+                'build/js/em.js'
+            ]
+            dest: 'build/js/em.bundle.js'
+            options:
+                separator: ';' # for minification purposes
 
-            styles:
-                src: [
-                    'bower_components/foundation/css/normalize.css'
-                    'bower_components/foundation/css/foundation.css'
-                    'bower_components/hint.css/hint.css'
-                    'bower_components/font-awesome/css/font-awesome.css'
-                    'src/styles/fonts.css'
-                    'build/css/em.css'
-                ]
-                dest: 'build/css/em.bundle.css'
+        styles:
+            src: [
+                'bower_components/foundation/css/normalize.css'
+                'bower_components/foundation/css/foundation.css'
+                'bower_components/hint.css/hint.css'
+                'bower_components/font-awesome/css/font-awesome.css'
+                'src/styles/fonts.css'
+                'build/css/em.css'
+            ]
+            dest: 'build/css/em.bundle.css'
 
-        copy:
-            fonts:
-                src: [ 'bower_components/font-awesome/fonts/*' ]
-                dest: 'build/fonts/'
-                expand: yes
-                flatten: yes
+    copy:
+        fonts:
+            src: [ 'bower_components/font-awesome/fonts/*' ]
+            dest: 'build/fonts/'
+            expand: yes
+            flatten: yes
 
-        uglify:
-            scripts:
-                files:
-                    'build/js/em.min.js': 'build/js/em.js'
-                    'build/js/em.bundle.min.js': 'build/js/em.bundle.js'
+    uglify:
+        scripts:
+            files:
+                'build/js/em.min.js': 'build/js/em.js'
+                'build/js/em.bundle.min.js': 'build/js/em.bundle.js'
 
-        cssmin:
-            combine:
-                files:
-                    'build/css/em.bundle.min.css': 'build/css/em.bundle.css'
-                    'build/css/em.min.css': 'build/css/em.css'
+    cssmin:
+        combine:
+            files:
+                'build/css/em.bundle.min.css': 'build/css/em.bundle.css'
+                'build/css/em.min.css': 'build/css/em.css'
 
-    grunt.loadNpmTasks('grunt-apps-c')
-    grunt.loadNpmTasks('grunt-contrib-stylus')
-    grunt.loadNpmTasks('grunt-contrib-concat')
-    grunt.loadNpmTasks('grunt-contrib-copy')
-    grunt.loadNpmTasks('grunt-contrib-uglify')
-    grunt.loadNpmTasks('grunt-contrib-cssmin')
+grunt.loadNpmTasks('grunt-apps-c')
+grunt.loadNpmTasks('grunt-contrib-stylus')
+grunt.loadNpmTasks('grunt-contrib-concat')
+grunt.loadNpmTasks('grunt-contrib-copy')
+grunt.loadNpmTasks('grunt-contrib-uglify')
+grunt.loadNpmTasks('grunt-contrib-cssmin')
 
-    grunt.registerTask('default', [
-        'apps_c'
-        'stylus'
-        'concat'
-        'copy'
-    ])
+grunt.registerTask('default', [
+    'apps_c'
+    'stylus'
+    'concat'
+    'copy'
+])
 
-    grunt.registerTask('minify', [
-        'uglify'
-        'cssmin'
-    ])
+grunt.registerTask('minify', [
+    'uglify'
+    'cssmin'
+])
 ```
 
+```text
 This file is written in [CoffeeScript](http://coffeescript.org/) and
 lists the tasks to run when we want to build our app. From the top:
 
@@ -351,85 +327,56 @@ $ watch --color grunt
 
 This will run the default Grunt task every 2s.
 
-ElasticSearch
--------------
+## ElasticSearch
 
 ### Start ElasticSearch
 
-ES will hold our index of publications.
-[Fetch](http://www.elasticsearch.org/download/) it and then unpack it
-somewhere.
+ES will hold our index of publications. [Fetch](http://www.elasticsearch.org/download/) it and then unpack it somewhere.
 
 To start it:
 
-``` {.bash}
+```text
 $ ./bin/elasticsearch
 ```
 
-Check that it is up by visiting port `9200`. If you see a JSON message,
-it is up.
+Check that it is up by visiting port `9200`. If you see a JSON message, it is up.
 
 ### Load example publications
 
-To index some documents, use whichever
-[client](http://www.elasticsearch.org/guide/). I was using the
-JavaScript one and if you check the `data/` dir in `elastic-med` on
-[GitHub](https://github.com/) you will be able to see one way that
-documents can be indexed. In that example:
+To index some documents, use whichever [client](http://www.elasticsearch.org/guide/). I was using the JavaScript one and if you check the `data/` dir in `elastic-med` on [GitHub](https://github.com/) you will be able to see one way that documents can be indexed. In that example:
 
-``` {.bash}
+```text
 $ ./node_modules/.bin/coffee ./data/index.coffee
 ```
 
-That will index (after a few seconds) 1000 cancer publications found in
-`cancer.json`.
+That will index \(after a few seconds\) 1000 cancer publications found in `cancer.json`.
 
 The `convert.coffee` file was used to convert source XML to JSON.
 
-Check that documents got indexed by visiting the document URL in the
-browser:
+Check that documents got indexed by visiting the document URL in the browser:
 
-You should get back a JSON document back provided you are using index
-`publications`, type `publication` and you have a document under the id
-`438`.
+You should get back a JSON document back provided you are using index `publications`, type `publication` and you have a document under the id `438`.
 
-Source files
-------------
+## Source files
 
 ### Example page
 
-One needs an access point where our app will get loaded with particular
-configuration. This is where the `example/index.html` comes in:
+One needs an access point where our app will get loaded with particular configuration. This is where the `example/index.html` comes in:
 
-``` {.html linenos=""}
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>ElasticMed</title>
+\`\`\` {.html linenos=""} &lt;!doctype html&gt;
 
-    <link href="build/css/em.bundle.css" media="all" rel="stylesheet" type="text/css" />
-    <script src="build/js/em.bundle.js"></script>
-</head>
-<body>
-    <div id="app"></div>
-    <script>
-        // Once scripts have loaded.
-        $(function() {
-            // ...show the app.
-            require('em')({
-                'el': '#app',
-                'service': 'http://newvegas:9200',
-                'index':   'publications',
-                'type':    'publication',
-                'query':   'breast size exercise cancer'
-            });
-        });
-    </script>
-</body>
-</html>
+  ElasticMed
+
+```text
+<link href="build/css/em.bundle.css" media="all" rel="stylesheet" type="text/css" />
+<script src="build/js/em.bundle.js"></script>
 ```
 
+&lt;/head&gt;
+
+ // Once scripts have loaded. $\(function\(\) { // ...show the app. require\('em'\)\({ 'el': '\#app', 'service': 'http://newvegas:9200', 'index': 'publications', 'type': 'publication', 'query': 'breast size exercise cancer' }\); }\);  &lt;/html&gt;
+
+```text
 This file does not do anything else other then load our built CSS and JS
 files (*lines 7 and 9*) and starts our app. In our example we are
 pointing to a `build` directory relative to the `example` directory. So
@@ -439,87 +386,72 @@ let\'s make a symbolic link to the actual `build`:
 $ ln -s ../build build/
 ```
 
-Such links get preserved when version controlling using
-[Git](http://git-scm.com/). We are linking to our bundled builds that
-contain vendor dependencies too.
+Such links get preserved when version controlling using [Git](http://git-scm.com/). We are linking to our bundled builds that contain vendor dependencies too.
 
-Then we are waiting for the page to load and call our (future) app with
-some config.
+Then we are waiting for the page to load and call our \(future\) app with some config.
 
-The name `em` is being configured in the `Gruntfile.coffee` file in the
-`apps-c` task.
+The name `em` is being configured in the `Gruntfile.coffee` file in the `apps-c` task.
 
 As for the config:
 
 el
 
-:   Selector where our app should be displayed.
+: Selector where our app should be displayed.
 
 service
 
-:   Points to the [ES](http://www.elasticsearch.org/) endpoint. By
-    default it starts on port `9200`.
+: Points to the [ES](http://www.elasticsearch.org/) endpoint. By default it starts on port `9200`.
 
 index
 
-:   Refers to the [ES](http://www.elasticsearch.org/) index we are
-    using.
+: Refers to the [ES](http://www.elasticsearch.org/) index we are using.
 
 type
 
-:   Refers to the type of [ES](http://www.elasticsearch.org/) documents
-    we are storing in our index.
+: Refers to the type of [ES](http://www.elasticsearch.org/) documents we are storing in our index.
 
 query
 
-:   Is a default query we will want to show when our app loads.
+: Is a default query we will want to show when our app loads.
 
-The `require` call on *line 17* relates to
-[CommonJS](http://addyosmani.com/writing-modular-js/). It is one way of
-loading JavaScript modules. It avoids having to expose all of our
-functions and objects on the global (`window`) object and implements a
-way of relating between different files.
+The `require` call on _line 17_ relates to [CommonJS](http://addyosmani.com/writing-modular-js/). It is one way of loading JavaScript modules. It avoids having to expose all of our functions and objects on the global \(`window`\) object and implements a way of relating between different files.
 
 ### App index
 
-We have asked to load an app in our `example/index.html` page, now we
-are going to write the backing code.
+We have asked to load an app in our `example/index.html` page, now we are going to write the backing code.
 
-The `apps-c` task (in `Gruntfile.coffee`) contains the following two
-options:
+The `apps-c` task \(in `Gruntfile.coffee`\) contains the following two options:
 
 name
 
-:   How do we call our app for
-    [CommonJS](http://addyosmani.com/writing-modular-js/) `require`
-    call.
+: How do we call our app for [CommonJS](http://addyosmani.com/writing-modular-js/) `require` call.
 
 main
 
-:   Contains a path (an index) that will be called when we actually call
-    the `require` function.
+: Contains a path \(an index\) that will be called when we actually call the `require` function.
 
-We have specified that our app index lives in `src/app.coffee` so let\'s
-create this file:
+We have specified that our app index lives in `src/app.coffee` so let\'s create this file:
 
-``` {.coffee-script linenos=""}
-module.exports = (opts) ->
-    # Explode ejs options.
-    { service, index, type } = opts
+\`\`\` {.coffee-script linenos=""} module.exports = \(opts\) -&gt;
 
-    # Init the ejs client.
-    ejs.attr { index, type, 'client': new $.es.Client({ 'hosts': service }) }
+```text
+# Explode ejs options.
+{ service, index, type } = opts
 
-    # Start routing.
-    new Routing opts.el
-    do can.route.ready
+# Init the ejs client.
+ejs.attr { index, type, 'client': new $.es.Client({ 'hosts': service }) }
 
-    # Have we launched on the index?
-    if can.route.current('')
-        # Manually change the query to init the search.
-        query.attr 'current', opts.query or '' # '' is the default...
+# Start routing.
+new Routing opts.el
+do can.route.ready
+
+# Have we launched on the index?
+if can.route.current('')
+    # Manually change the query to init the search.
+    query.attr 'current', opts.query or '' # '' is the default...
 ```
 
+```text
 Each module (file) in our app needs to export some functionality. When
 we call `require` we will be getting this functionality.
 
@@ -622,159 +554,130 @@ Routing = can.Control
 
 init
 
-:   We are loading some components that we are using in this app into
-    the memory and then rendering our app layout. This layout will setup
-    the structure for our whole app.
+: We are loading some components that we are using in this app into the memory and then rendering our app layout. This layout will setup the structure for our whole app.
 
 route
 
-:   Is a function that will be called when we are on the index page of
-    the app. It renders the index page template.
+: Is a function that will be called when we are on the index page of the app. It renders the index page template.
 
 doc/:oid route
 
-:   Matches when we are looking at a detail of a document/publication.
-    So if someone manually types in the address `#!doc/438` or it
-    changes as a result of user interaction, this function gets called.
-    We are either retrieving the document from a results cache or we are
-    explicitely calling for a document from
-    [ElasticSearch](http://www.elasticsearch.org/). Consider that when
-    we search for documents, we get their content too so we do not need
-    to fetch them again when looking at their *detail*. In contrast,
-    someone could type in a random document address and we need to be
-    ready for that. In either case we are calling the `fin` function on
-    *line 19* to render the results.
+: Matches when we are looking at a detail of a document/publication. So if someone manually types in the address `#!doc/438` or it changes as a result of user interaction, this function gets called. We are either retrieving the document from a results cache or we are explicitely calling for a document from [ElasticSearch](http://www.elasticsearch.org/). Consider that when we search for documents, we get their content too so we do not need to fetch them again when looking at their _detail_. In contrast, someone could type in a random document address and we need to be ready for that. In either case we are calling the `fin` function on _line 19_ to render the results.
 
 render
 
-:   Serves as a helper we have created that injects a template into the
-    DOM and updates the page title.
+: Serves as a helper we have created that injects a template into the DOM and updates the page title.
 
 ### Pages templates
 
-When discussing the router we were talking about different page
-templates. Let us define them now.
+When discussing the router we were talking about different page templates. Let us define them now.
 
 In `src/templates/page/index.mustache`:
 
-    <p>ElasticSearch through a collection of cancer related publications from PubMed. Use <kbd>Tab</kbd> to autocomplete or <kbd>Enter</kbd> to search.</p>
-    <div class="page index">
-        <app-search></app-search>
-        <app-state></app-state>
-        <app-results></app-results>
-    </div>
+```text
+<p>ElasticSearch through a collection of cancer related publications from PubMed. Use <kbd>Tab</kbd> to autocomplete or <kbd>Enter</kbd> to search.</p>
+<div class="page index">
+    <app-search></app-search>
+    <app-state></app-state>
+    <app-results></app-results>
+</div>
+```
 
-This is the index template with three custom tags corresponding to
-different components:
+This is the index template with three custom tags corresponding to different components:
 
 app-search
 
-:   the search form
+: the search form
 
 app-state
 
-:   notification messages/titles
+: notification messages/titles
 
 app-results
 
-:   the results when our search is successful
+: the results when our search is successful
 
-Now for the template that gets rendered on a detail page, in
-`src/templates/page/detail.mustache`:
+Now for the template that gets rendered on a detail page, in `src/templates/page/detail.mustache`:
 
-    <div class="page detail">
-        <app-state></app-state>
-        {{ #oid }}
-        <div class="document detail">
-            <app-document link-to-detail="false" show-keywords="true"></app-document>
-        </div>
-        <app-more></app-more>
-        {{ /oid }}
-    <div>
+```text
+<div class="page detail">
+    <app-state></app-state>
+    {{ #oid }}
+    <div class="document detail">
+        <app-document link-to-detail="false" show-keywords="true"></app-document>
+    </div>
+    <app-more></app-more>
+    {{ /oid }}
+<div>
+```
 
-We see that `app-state` is present, it will tell us when a doc is not
-found. If it is (we have a document `oid`) we show the rest of the page.
+We see that `app-state` is present, it will tell us when a doc is not found. If it is \(we have a document `oid`\) we show the rest of the page.
 
 app-document
 
-:   Is the view of one document. We are passing extra parameters
-    (options) into the context saying we don\'t want to link to the
-    detail page (we are on detail page) but we want to show keywords
-    (which will not be shown on the index results set).
+: Is the view of one document. We are passing extra parameters \(options\) into the context saying we don\'t want to link to the detail page \(we are on detail page\) but we want to show keywords \(which will not be shown on the index results set\).
 
 app-more
 
-:   is a results set similar to `app-results` which corresponds to a
-    component that will automatically search for and display documents
-    that are similar like *this one*.
+: is a results set similar to `app-results` which corresponds to a component that will automatically search for and display documents that are similar like _this one_.
 
 ### Application search template
 
-This template will be rendered for the `app-search` component defined on
-the index page. In `src/templates/search.mustache`:
+This template will be rendered for the `app-search` component defined on the index page. In `src/templates/search.mustache`:
 
-    <div class="row collapse">
-        <div class="large-10 columns search">
-            <div class="faux"></div>
-            <input class="text" type="text" maxlength="100" placeholder="Query..." value="{{ query.current }}" autofocus>
-            {{ #if suggestions.list.length }}
-            <ul class="f-dropdown suggestions" style="left:{{ suggestions.px }}px">
-            {{ #suggestions.list }}
-                <li {{ #active }}class="active"{{ /active }}>
-                    <a>{{ text }}</a>
-                </li>
-            {{ /suggestions.list }}
-            </ul>
-            {{ /if }}
-        </div>
-        <div class="large-2 columns">
-            <a class="button secondary postfix">
-                <span class="fa fa-search"></span> Search
-            </a>
-        </div>
+```text
+<div class="row collapse">
+    <div class="large-10 columns search">
+        <div class="faux"></div>
+        <input class="text" type="text" maxlength="100" placeholder="Query..." value="{{ query.current }}" autofocus>
+        {{ #if suggestions.list.length }}
+        <ul class="f-dropdown suggestions" style="left:{{ suggestions.px }}px">
+        {{ #suggestions.list }}
+            <li {{ #active }}class="active"{{ /active }}>
+                <a>{{ text }}</a>
+            </li>
+        {{ /suggestions.list }}
+        </ul>
+        {{ /if }}
     </div>
-    {{ #if query.history.length }}
-    <div class="row collapse">
-        <h4>History</h4>
-        <ul class="breadcrumbs">
-        {{ #query.history }}
-            <li><a>{{ . }}</a></li>
-        {{ /query.history }}
+    <div class="large-2 columns">
+        <a class="button secondary postfix">
+            <span class="fa fa-search"></span> Search
+        </a>
     </div>
-    {{ /if }}
+</div>
+{{ #if query.history.length }}
+<div class="row collapse">
+    <h4>History</h4>
+    <ul class="breadcrumbs">
+    {{ #query.history }}
+        <li><a>{{ . }}</a></li>
+    {{ /query.history }}
+</div>
+{{ /if }}
+```
 
-We are splitting the DOM into two parts. These parts have a `row` class
-on them representing the grid of the
-[Foundation](http://foundation.zurb.com/) framework.
+We are splitting the DOM into two parts. These parts have a `row` class on them representing the grid of the [Foundation](http://foundation.zurb.com/) framework.
 
 div.search
 
-:   The first part is split into two `columns`, one for the input field
-    and the other for a button triggering search.
+: The first part is split into two `columns`, one for the input field and the other for a button triggering search.
 
 div.faux
 
-:   We will want to get caret position from the input field. To do that
-    we are going to get all of the text from the input field up to the
-    caret position and then copy it over to a div that has the same CSS
-    styling as us, but is invisible. Then we are going to get the width
-    of this element. `.faux` is this element.
+: We will want to get caret position from the input field. To do that we are going to get all of the text from the input field up to the caret position and then copy it over to a div that has the same CSS styling as us, but is invisible. Then we are going to get the width of this element. `.faux` is this element.
 
 input.text
 
-:   The place where input goes. We can see
-    [Mustache](http://mustache.github.io/) syntax here that outputs the
-    value of the current query.
+: The place where input goes. We can see [Mustache](http://mustache.github.io/) syntax here that outputs the value of the current query.
 
 ul.suggestions
 
-:   Show up when a list of suggestions has some items. Represents
-    suggestions for the current word, hence the need to get the caret
-    position. If some suggestions are \"active\" (we hover on them etc.)
-    then we toggle their CSS class.
+: Show up when a list of suggestions has some items. Represents suggestions for the current word, hence the need to get the caret position. If some suggestions are \"active\" \(we hover on them etc.\) then we toggle their CSS class.
 
 ul.breadcrumbs
 
-:   A query history. Only shows up when it has items in it.
+: A query history. Only shows up when it has items in it.
 
 ### Application search component
+

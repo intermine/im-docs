@@ -1,26 +1,24 @@
-Acceptance Tests
-================
+# Acceptance Tests
 
-How to run the tests
---------------------
+## How to run the tests
 
-1.  Add a file to [MINE_NAME/dbmodel/resources]{.title-ref}, eg.
-    [flymine_acceptance_test.conf]{.title-ref}
-2.  run acceptance tests here:
+1. Add a file to \[MINE\_NAME/dbmodel/resources\]{.title-ref}, eg.
 
-``` {.bash}
+   \[flymine\_acceptance\_test.conf\]{.title-ref}
+
+2. run acceptance tests here:
+
+```text
 ~/git/flymine $ ./gradlew runAcceptanceTests
 ```
 
-The results will be in
-[MINE_NAME/dbmodel/build/acceptance_test.html]{.title-ref}
+The results will be in \[MINE\_NAME/dbmodel/build/acceptance\_test.html\]{.title-ref}
 
-Types of tests
---------------
+## Types of tests
 
 You can assert that a query returns true:
 
-``` {.guess}
+```text
 assert {
     sql: select count(*) >= 400000 from goannotation
 }
@@ -28,7 +26,7 @@ assert {
 
 Or doesn\'t have any results:
 
-``` {.guess}
+```text
 no-results {
     sql: select * from datasource where url is null or name is null or description is null
     note: all fields of data source should be filled in
@@ -37,13 +35,12 @@ no-results {
 
 Or has at least some results:
 
-``` {.guess}
+```text
 some-results {
     sql: select * from organism where name = 'Anopheles gambiae'
     note: We should have an Anopheles gambiae  object but not an Anopheles gambiae PEST one
 }
 ```
 
-::: {.index}
-data integrity, acceptance tests
-:::
+::: {.index} data integrity, acceptance tests :::
+

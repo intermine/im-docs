@@ -1,6 +1,4 @@
-Data Integrity Checks
-=====================
+# Data Integrity Checks
 
-::: {.toctree maxdepth="4"}
-template-comparison acceptance-tests
-:::
+::: {.toctree maxdepth="4"} template-comparison acceptance-tests :::
+

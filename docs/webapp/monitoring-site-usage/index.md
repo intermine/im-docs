@@ -1,6 +1,4 @@
-Monitoring Site Usage
-=====================
+# Monitoring Site Usage
 
-::: {.toctree maxdepth="4"}
-google-analytics trackers search-engines
-:::
+::: {.toctree maxdepth="4"} google-analytics trackers search-engines :::
+

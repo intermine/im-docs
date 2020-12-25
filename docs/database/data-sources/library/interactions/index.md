@@ -1,10 +1,6 @@
-Interactions
-============
+# Interactions
 
-::: {.toctree maxdepth="2"}
-biogrid intact intact-complexes psi-mi-ontology
-:::
+::: {.toctree maxdepth="2"} biogrid intact intact-complexes psi-mi-ontology :::
 
-::: {.index}
-interactions, PSI
-:::
+::: {.index} interactions, PSI :::
+

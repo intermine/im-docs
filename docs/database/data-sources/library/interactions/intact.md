@@ -1,35 +1,29 @@
-IntAct
-======
+# IntAct
 
 Loads binary interactions data from IntAct
 
-Types of data loaded
---------------------
+## Types of data loaded
 
 genes, interactions
 
-How to download the data
-------------------------
+## How to download the data
 
-<ftp://ftp.ebi.ac.uk/pub/databases/IntAct/current/psi25/species/>
+[ftp://ftp.ebi.ac.uk/pub/databases/IntAct/current/psi25/species/](ftp://ftp.ebi.ac.uk/pub/databases/IntAct/current/psi25/species/)
 
-How to load the data into your mine
------------------------------------
+## How to load the data into your mine
 
 ### project XML example
 
-``` {.xml}
+```text
 <source name="psi-intact" type="psi" dump="true">
   <property name="src.data.dir" location="/data/intact"/>
   <property name="intact.organisms" value="7227"/>
 </source>
 ```
 
-### psi-intact_config.properties
+### psi-intact\_config.properties
 
-Determines which gene identifiers are set. organisms - If none are
-configured, all interactions are stored.
+Determines which gene identifiers are set. organisms - If none are configured, all interactions are stored.
 
-::: {.index}
-IntAct
-:::
+::: {.index} IntAct :::
+

@@ -1,10 +1,8 @@
-::: {.index}
-embedding, javascript embedding, widgets
-:::
+# examples
 
-Embedding examples
-==================
+::: {.index} embedding, javascript embedding, widgets :::
 
-Please refer to [this
-repo](https://github.com/intermine/intermine-embedding-examples) for
-various embedding examples using List Widgets, imjs and the like.
+## Embedding examples
+
+Please refer to [this repo](https://github.com/intermine/intermine-embedding-examples) for various embedding examples using List Widgets, imjs and the like.
+
