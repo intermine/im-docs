@@ -1,8 +1,8 @@
 # Gradle - Quick Start
 
-[Gradle](https://gradle.org) is InterMine\'s build tool. In InterMine 2.0 Gradle replaced ant.
+[Gradle](https://gradle.org) is InterMine's build tool. In InterMine 2.0 Gradle replaced ant.
 
-Please see `Upgrade instructions </intermine/upgrade>`{.interpreted-text role="doc"} for details on how to migrate your system to use Gradle and `Gradle FAQs </system-requirements/software/gradle/FAQs>`{.interpreted-text role="doc"} for commonly asked questions about Gradle.
+Please see [Upgrade instructions](../../../intermine/upgrade.md) for details on how to migrate your system to use Gradle and [Gradle FAQs](faqs.md) for commonly asked questions about Gradle.
 
 Below are common commands you will use when building InterMine database and deploying webapps. See [docs.gradle.org](https://docs.gradle.org/current/userguide/command_line_interface.html) for the full list.
 
@@ -16,33 +16,25 @@ Previously all third party JARs were kept in the InterMine code repository and t
 ~/git/flymine-bio-sources $ ./gradlew install
 ```
 
-* See the maven plugin docs on the \[install
-
-  task\]\([https://docs.gradle.org/current/userguide/maven\_plugin.html](https://docs.gradle.org/current/userguide/maven_plugin.html)\)
-
-  for details.
-
-* Example: [https://github.com/intermine/flymine-bio-sources](https://github.com/intermine/flymine-bio-sources) -
-
-  FlyMine-specific data sources.
-
+* See the maven plugin docs on the [install task](https://docs.gradle.org/current/userguide/maven_plugin.html) for details.
+* Example: [https://github.com/intermine/flymine-bio-sources](https://github.com/intermine/flymine-bio-sources) - FlyMine-specific data sources.
 * When installed locally, the JAR that is produced is available in the
 
-  maven repo located in \[~/.m2/repository\]{.title-ref}
+  maven repo located in `~/.m2/repository`
 
 * The JARs downloaded as dependencies are available in the Gradle
 
-  cache, \[~/.gradle/caches/modules-2/files-2.1/\]{.title-ref}.
+  cache, `~/.gradle/caches/modules-2/files-2.1/`.
 
-::: {.note} ::: {.title} Note :::
-
-The build is going to be looking at the resulting JAR created by this command. If you make any changes to your data sources, install again to update the JAR to make those changes visible to the build. :::
+{% hint style="info" %}
+The build is going to be looking at the resulting JAR created by this command. If you make any changes to your data sources, install again to update the JAR to make those changes visible to the build.
+{% endhint %}
 
 **To use common data sources in the InterMine library**
 
 * No action required. Use project XML file as normal.
 
-The migration script you used set up the dependency to the \[intermine-bio-sources\]{.title-ref} project already. This project includes \[uniprot\]{.title-ref} and other data sources, and are on the classpath. During the build, the code will look for the uniprot jar, e.g. \[bio-source-uniprot-2.0.jar\]{.title-ref} and find it on the classpath successfully. Maven will download it for you.
+The migration script you used set up the dependency to the `intermine-bio-sources` project already. This project includes `uniprot` and other data sources, and are on the classpath. During the build, the code will look for the uniprot jar, e.g. `bio-source-uniprot-2.0.jar` and find it on the classpath successfully. Maven will download it for you.
 
 ### Database
 
@@ -64,9 +56,9 @@ To run a single source
 ~/git/flymine $ ./gradlew integrate -Psource=uniprot  --stacktrace
 ```
 
-::: {.note} ::: {.title} Note :::
-
-You can try --info or --debug too :::
+{% hint style="info" %}
+You can try --info or --debug too
+{% endhint %}
 
 To run a single postprocess
 
@@ -80,13 +72,13 @@ To run a full build
 ~/git/flymine $ ./project_build -b localhost /tmp/flymine-dump
 ```
 
-We are using the same [project build](https://github.com/intermine/intermine-scripts/blob/master/project_build) script, but we\'ve moved it to the \[intermine-scripts\]{.title-ref} repository with our other scripts.
+We are using the same [project build](https://github.com/intermine/intermine-scripts/blob/master/project_build) script, but we've moved it to the `intermine-scripts` repository with our other scripts.
 
 ### Webapp
 
-There are several ways to deploy your InterMine webapp. You can use \[cargo\]{.title-ref} to deploy your webapp to a running Tomcat instance, or \[gretty\]{.title-ref} to use an embedded Tomcat instance. Run \[./gradlew tasks\]{.title-ref} to see all the available tasks.
+There are several ways to deploy your InterMine webapp. You can use `cargo` to deploy your webapp to a running Tomcat instance, or `gretty` to use an embedded Tomcat instance. Run `./gradlew tasks` to see all the available tasks.
 
-We use \[cargo\]{.title-ref} for our production instances and \[gretty\]{.title-ref} on our local dev machines.
+We use `cargo` for our production instances and `gretty` on our local dev machines.
 
 #### Deploy a webapp \(cargo\)
 
@@ -96,15 +88,20 @@ We use \[cargo\]{.title-ref} for our production instances and \[gretty\]{.title-
 ~/git/flymine $ ./gradlew cargoUndeployRemote
 ```
 
-Uses the config in the mine properties file, e.g. \[flymine.properties\]{.title-ref}, to deploy the webapp, see below.
+Uses the config in the mine properties file, e.g. `flymine.properties`, to deploy the webapp, see below.
 
-Property name Example Determines
+| Property name | Example | Determines |
+| :--- | :--- | :--- |
+| webapp.hostname | localhost | name of host. If not set, tries to use webapp.deploy.url |
+| webapp.path | flymine | location of path of webapp |
+| webapp.manager | TOMCAT\_USER | tomcat username, needed to deploy webapp |
+| webapp.password | TOMCAT\_PWD | tomcat password, needed to deploy webapp |
+| webapp.protocol | https | OPTIONAL, defaults to http |
+| webapp.port | 8081 | OPTIONAL, defaults to 8080 |
 
-webapp.hostname localhost name of host. If not set, tries to use \[webapp.deploy.url\]{.title-ref} webapp.path flymine location of path of webapp webapp.manager TOMCAT\_USER tomcat username, needed to deploy webapp webapp.password TOMCAT\_PWD tomcat password, needed to deploy webapp webapp.protocol https OPTIONAL, defaults to http webapp.port 8081 OPTIONAL, defaults to 8080
-
-::: {.warning} ::: {.title} Warning :::
-
+{% hint style="warning" %}
 Cargo uses hot deployment which over time fills up the PermGen memory of the JVM process running your container. Continuously deploying an artifact will inevitablity lead to a java.lang.OutOfMemoryError :::
+{% endhint %}
 
 #### Deploy a webapp \(gretty\)
 
