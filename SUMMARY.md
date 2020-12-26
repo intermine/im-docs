@@ -167,7 +167,7 @@
     * [tutorial](docs/get-started/tutorial/README.md)
       * [Tutorial - Configure your InterMine webapp!](docs/get-started/tutorial/webapp.md)
       * [Tutorial](docs/get-started/tutorial/index.md)
-      * [test-data](docs/get-started/tutorial/test-data.md)
+      * [Data files to integrate](docs/get-started/tutorial/test-data.md)
     * [Testmine](docs/get-started/testmine.md)
     * [Get started](docs/get-started/index.md)
     * [Create Your Own InterMine!](docs/get-started/create-your-mine.md)
