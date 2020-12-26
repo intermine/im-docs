@@ -202,7 +202,7 @@
       * [Perl](docs/system-requirements/software/perl.md)
       * [Git](docs/system-requirements/software/git.md)
       * [gradle](docs/system-requirements/software/gradle/README.md)
-        * [index](docs/system-requirements/software/gradle/index.md)
+        * [Gradle - Quick Start](docs/system-requirements/software/gradle/index.md)
         * [FAQs](docs/system-requirements/software/gradle/faqs.md)
       * [postgres](docs/system-requirements/software/postgres/README.md)
         * [Installing PostgreSQL](docs/system-requirements/software/postgres/postgres.md)
