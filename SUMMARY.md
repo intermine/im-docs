@@ -203,7 +203,7 @@
       * [Git](docs/system-requirements/software/git.md)
       * [gradle](docs/system-requirements/software/gradle/README.md)
         * [Gradle - Quick Start](docs/system-requirements/software/gradle/index.md)
-        * [FAQs](docs/system-requirements/software/gradle/faqs.md)
+        * [Gradle - FAQs](docs/system-requirements/software/gradle/faqs.md)
       * [postgres](docs/system-requirements/software/postgres/README.md)
         * [Installing PostgreSQL](docs/system-requirements/software/postgres/postgres.md)
         * [HikariCP and InterMine settings](docs/system-requirements/software/postgres/hikari.md)

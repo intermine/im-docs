@@ -1,10 +1,4 @@
-# FAQs
-
-orphan
-
-:
-
-## Gradle - FAQs
+# Gradle - FAQs
 
 [Gradle](https://gradle.org) is InterMine\'s build tool. In InterMine 2.0 Gradle replaced ant.
 
