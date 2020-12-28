@@ -8,7 +8,7 @@ To start a testmine, run the [setup](https://github.com/intermine/intermine/blob
 testmine $ ./setup.sh
 ```
 
-It uses your UNIX username if you haven\'t set the PSQL\_USER, PSQL\_PWD ENV variables. The script copies the [testmodel.properties](https://github.com/intermine/intermine/blob/master/testmine/dbmodel/resources/testmodel.properties) file into your home \[.intermine\]{.title-ref} directory.
+It uses your UNIX username if you haven't set the PSQL\_USER, PSQL\_PWD ENV variables. The script copies the [testmodel.properties](https://github.com/intermine/intermine/blob/master/testmine/dbmodel/resources/testmodel.properties) file into your home `.intermine` directory.
 
 There are different targets to load data:
 
@@ -18,12 +18,10 @@ There are different targets to load data:
 
   testmodel\_enormo\_data.xml
 
-The setup script runs \[loadsadata\]{.title-ref}.
+The setup script runs `loadsadata`.
 
 ```text
 # run to see which tasks are available for you
 testmine $ ./gradlew tasks
 ```
-
-::: {.index} test model, travis :::
 
