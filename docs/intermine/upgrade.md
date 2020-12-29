@@ -582,11 +582,14 @@ Updated to latest version of Sequence Ontology, 2.5
 
 #### Gene Ontology
 
-class old new
+| class | old | new |
+| :--- | :--- | :--- |
+| GOAnnotation | withText | evidence.withText |
+|  | with | evidence.with |
+|  | – | annotationExtension |
+| OntologyTerm | – | crossReferences \[1\] |
 
-GOAnnotation withText evidence.withText
-
-+ +------------+----------------------+ \| \| with \| evidence.with \| + +------------+----------------------+ \| \| -- \| annotationExtension \| +--------------+------------+----------------------+ \| OntologyTerm \| -- \| crossReferences \| +--------------+------------+----------------------+
+> \[1\] used for Uberon
 
 ### Identifiers
 
@@ -606,13 +609,11 @@ resolver.entrez.file=/DATA_DIR/ncbi/gene_info
 
 ### Configuration Updates
 
-Web services uses the \[webapp.baseurl\]{.title-ref} property to run queries, so be sure this is the valid URL for your mine. Otherwise you will get an \"Unable to construct query\" error on the query results page.
+Web services uses the `webapp.baseurl` property to run queries, so be sure this is the valid URL for your mine. Otherwise you will get an "Unable to construct query" error on the query results page.
 
 ```text
 # in ~/.intermine/MINE_NAME.properties
 # used by web services for running queries, needs to be valid
 webapp.baseurl=http://localhost:8080
 ```
-
-::: {.index} upgrades, updating InterMine, InterMine 2.0, releases, new releases :::
 
