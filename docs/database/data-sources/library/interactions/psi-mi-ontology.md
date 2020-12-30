@@ -14,7 +14,7 @@ ontology terms
 
 project XML example
 
-```text
+```markup
 <source name="psi-mi-ontology" type="psi-mi-ontology">
   <property name="src.data.file" location="/data/psi/psi-mi.obo"/>
 </source>
