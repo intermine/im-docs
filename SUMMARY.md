@@ -33,7 +33,7 @@
         * [proteins](docs/database/data-sources/library/proteins/README.md)
           * [Proteins](docs/database/data-sources/library/proteins/index.md)
           * [UniProt](docs/database/data-sources/library/proteins/uniprot.md)
-          * [interpro](docs/database/data-sources/library/proteins/interpro.md)
+          * [InterPro](docs/database/data-sources/library/proteins/interpro.md)
         * [publications](docs/database/data-sources/library/publications/README.md)
           * [Publications](docs/database/data-sources/library/publications/publications.md)
           * [Publications](docs/database/data-sources/library/publications/index.md)

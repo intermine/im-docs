@@ -19,11 +19,9 @@ To download a single taxon, you can use this URL:
 
 [http://www.uniprot.org/uniprot/?format=xml&query=taxonomy%3A9606+AND+reviewed%3Ayes&compress=yes](http://www.uniprot.org/uniprot/?format=xml&query=taxonomy%3A9606+AND+reviewed%3Ayes&compress=yes)
 
-| parameter | value |
-| :--- | :--- |
-| taxonomy | e.g. 9606 for human |
-| reviewed | yes for swiss prot, no for trembl |
-| compress | if yes, zipped |
+parameter value
+
+taxonomy e.g. 9606 for human reviewed yes for swiss prot, no for trembl compress if yes, zipped
 
 ## How to load the data into your mine
 
@@ -42,7 +40,7 @@ You can specify which gene fields are assigned when UniProt data is loaded. An e
 
 The format for the file is:
 
-`<TAXONID>.<IDENTIFIER_FIELD> = <VALUE>`
+\[\.\ = \\]{.title-ref}
 
 **An example**
 
@@ -50,7 +48,7 @@ A rat uniprot entry: [http://www.uniprot.org/uniprot/Q923K9.xml](http://www.unip
 
 The second line of that configuration would set the ID value as the gene.primaryIdentifier:
 
-```markup
+```text
 <dbReference type="RGD" id="619834" key="33">
     <property type="gene designation" value="Acf"/>
 </dbReference>
@@ -58,15 +56,15 @@ The second line of that configuration would set the ID value as the gene.primary
 
 The third line would set this ID value as gene.secondaryIdentifier:
 
-```markup
+```text
 <dbReference type="Ensembl" id="ENSRNOG00000033195" key="30">
     <property type="organism name" value="Rattus norvegicus"/>
 </dbReference>
 ```
 
-The last line would set the value between the &lt;name/&gt; tags as gene.symbol:
+The last line would set the value between the \&lt;name/&gt; tags as gene.symbol:
 
-```markup
+```text
 <gene>
     <name type="primary">A1cf</name>
     <name type="synonym">Acf</name>
@@ -98,7 +96,7 @@ To load ALL feature types, do not specify any feature types, remove that line fr
 
 ### Project.xml
 
-```markup
+```text
 <source name="uniprot" type="uniprot" >
   <property name="uniprot.organisms" value="7227 9606"/>
   <property name="src.data.dir" location="/data/uniprot"/>
@@ -110,19 +108,17 @@ To load ALL feature types, do not specify any feature types, remove that line fr
 </source>
 ```
 
-| property | description | default |
-| :--- | :--- | :--- |
-| creategenes | if TRUE, process genes | true |
-| creatego | if TRUE, process GO annotation | false |
-| allowduplicates | if TRUE, allow proteins with duplicate sequences to be processed | false |
-| loadfragments | if TRUE, load all proteins even if isFragment = true | false |
-| loadtrembl | if FALSE, not load trembl data for given organisms, load sprot data only | true |
+property description default
+
+creategenes if TRUE, process genes true creatego if TRUE, process GO annotation false allowduplicates if TRUE, allow proteins with duplicate sequences to be processed false loadfragments if TRUE, load all proteins even if isFragment = true false loadtrembl if FALSE, not load trembl data for given organisms, load sprot data only true
 
 ## FASTA
 
-This source loads FASTA data for isoforms. The UniProt entry is does not contain the sequences for isoforms. [ftp://ftp.uniprot.org/pub/databases/uniprot/current\_release/uniprot\_sprot\_varsplic.fasta.gz](ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/uniprot_sprot_varsplic.fasta.gz)
+This source loads FASTA data for isoforms. The UniProt entry is does not contain the sequences for isoforms.
 
-```markup
+[ftp://ftp.uniprot.org/pub/databases/uniprot/current\_release/uniprot\_sprot\_varsplic.fasta.gz](ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/uniprot_sprot_varsplic.fasta.gz)
+
+```text
 <source name="uniprot-fasta" type="fasta">
   <property name="fasta.taxonId" value="7227 9606"/>
   <property name="fasta.className" value="org.intermine.model.bio.Protein"/>
@@ -138,12 +134,16 @@ This source loads FASTA data for isoforms. The UniProt entry is does not contain
 
 ## UniProt keywords
 
-Loads the names for the UniProt keywords contained in the main UniProt converter. [ftp://ftp.uniprot.org/pub/databases/uniprot/current\_release/knowledgebase/complete/docs](ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/docs)
+Loads the names for the UniProt keywords contained in the main UniProt converter.
 
-```markup
+[ftp://ftp.uniprot.org/pub/databases/uniprot/current\_release/knowledgebase/complete/docs](ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/docs)
+
+```text
 <source name="uniprot-keywords" type="uniprot-keywords">
   <property name="src.data.dir" location="/data/uniprot/current"/>
   <property name="src.data.dir.includes" value="keywlist.xml"/>
 </source>
 ```
+
+::: {.index} UniProt, protein domains, GO, keywords, components, isoforms, FASTA, proteins, protein features :::
 
