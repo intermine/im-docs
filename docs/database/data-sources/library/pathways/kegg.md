@@ -14,7 +14,7 @@ genes, pathways
 
 ### project XML example
 
-```markup
+```text
 <source name="kegg-pathway" type="kegg-pathway">
   <property name="src.data.dir" location="/data/kegg"/>
   <property name="kegg.organisms" value="7227"/>
@@ -29,4 +29,6 @@ Decides which gene identifier fields are populated, mapping from organism taxonI
 # bacteria
 eco.taxonId = 511145
 ```
+
+::: {.index} KEGG :::
 

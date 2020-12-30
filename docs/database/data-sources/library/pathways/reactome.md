@@ -12,23 +12,21 @@ proteins, genes, pathways
 
 project XML example
 
-```text
+```markup
 <source name="reactome" type="reactome">
   <property name="src.data.dir" location="/data/reactome" />
   <property name="reactome.organisms" value="9606 10090" />
 </source>
 ```
 
-This source contains a task to copy the Pathways from the proteins to the related genes. To include this, add this to the \[post-processing\]{.title-ref} section of your project XML file:
+This source contains a task to copy the Pathways from the proteins to the related genes. To include this, add this to the `post-processing` section of your project XML file:
 
-```text
+```markup
 <post-processing>
   <post-process name="do-sources" />
   ...
 </post-processing>
 ```
 
-See `/database/database-building/post-processing/index`{.interpreted-text role="doc"} for more information on post-processing.
-
-::: {.index} Reactome, pathways, biopax, genes, proteins, UniProt :::
+See [Post processing](../../../database-building/post-processing/index.md) for more information on post-processing.
 
