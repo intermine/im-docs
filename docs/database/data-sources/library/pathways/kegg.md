@@ -25,7 +25,7 @@ genes, pathways
 
 Decides which gene identifier fields are populated, mapping from organism taxonId to abbreviation. Only taxonIds specified in project.xml file are downloaded, if no taxonIds are configured, all are loaded. For example:
 
-```markup
+```text
 # bacteria
 eco.taxonId = 511145
 ```
