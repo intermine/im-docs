@@ -14,7 +14,7 @@ genes, interactions, complexes, publications
 
 ### project XML example
 
-```text
+```markup
 <source name="psi-complexes" type="psi-complexes">
   <property name="src.data.dir" location="/DATA/psi/intact/complexes/current"/>
   <property name="complexes.source" value="sgd"/>
@@ -22,6 +22,4 @@ genes, interactions, complexes, publications
 ```
 
 There is also a corresponding displayer for these data.
-
-::: {.index} IntAct, complexes, interactions, EBI :::
 

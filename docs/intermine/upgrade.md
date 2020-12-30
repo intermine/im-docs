@@ -4,7 +4,7 @@ See [our blog](https://intermineorg.wordpress.com/category/release-notes/) for d
 
 ## Upgrade Instructions
 
-For non-disruptive releases, you can upgrade your mine by incrementing your version number in your mine\'s \[gradle.properties\]{.title-ref} file:
+For non-disruptive releases, you can upgrade your mine by incrementing your version number in your mine's `gradle.properties` file:
 
 > ```text
 > # example -- flymine's gradle.properties
@@ -20,7 +20,7 @@ To get patch updates automatically, use the plus \(+\) notation:
 > systemProp.bioVersion=4.0.+
 > ```
 
-Read more: `/intermine/intermine-versions`{.interpreted-text role="doc"} and `/intermine/roadmap`{.interpreted-text role="doc"}
+Read more: [InterMine Versioning Policy](intermine-versions.md) and [InterMine Development Roadmap](roadmap.md)\`\`
 
 ## InterMine 4.2.0
 
@@ -73,7 +73,7 @@ Restore Strains to core data model.
 
 ## InterMine 4.0.0
 
-DataSet.licence was added to the data model. To update to this new data model for this release, you\'ll want to rebuild your database and redeploy your webapp.
+DataSet.licence was added to the data model. To update to this new data model for this release, you'll want to rebuild your database and redeploy your webapp.
 
 To enable the structured data added to the web pages in format of JSON-LD, you should set the property _markup.webpages.enable_ to true in the web.properties file.
 
@@ -91,7 +91,7 @@ This is a non-disruptive release.
 
 ## InterMine 3.1.0
 
-The class \[Strain\]{.title-ref} was added to the core InterMine data model in this release.
+The class `Strain` was added to the core InterMine data model in this release.
 
 * You will need to rebuild your database with the new model to release
 
@@ -101,7 +101,7 @@ The class \[Strain\]{.title-ref} was added to the core InterMine data model in t
 
   core data classes now available.
 
-```text
+```markup
 <!-- core.xml -->
 <class name="Strain" extends="BioEntity" is-interface="true">
     <attribute name="annotationVersion" type="java.lang.String"/>
@@ -122,9 +122,7 @@ The class \[Strain\]{.title-ref} was added to the core InterMine data model in t
 
 To update to use the new InterMine release:
 
-* Change your mine\'s \[gradle.properties\]{.title-ref} file to
-
-  \[3.1.+\]{.title-ref}.
+* Change your mine's `gradle.properties` file to `3.1.+`.
 
 > ```text
 > # example -- flymine's gradle.properties
@@ -132,9 +130,7 @@ To update to use the new InterMine release:
 > systemProp.bioVersion=3.1.+
 > ```
 
-* Change your data sources\' \[gradle.properties\]{.title-ref} file to
-
-  \[3.1.+\]{.title-ref}.
+* Change your data sources' `gradle.properties` file to `3.1.+`.
 
 > ```text
 > # example -- flymine-bio-sources gradle.properties
@@ -148,27 +144,23 @@ This release adds Solr to InterMine. To upgrade, you will need to rebuild your d
 
 ### To Upgrade
 
-1. Change your mine\'s \[gradle.properties\]{.title-ref} file to
+1. Change your mine's `gradle.properties` file to `3.0.+`. If you have data sources, change the version they use too.
 
-   \[3.0.+\]{.title-ref}. If you have data sources, change the version
+   > ```text
+   > # example -- flymine's gradle.properties
+   > systemProp.imVersion=3.0.+
+   > systemProp.bioVersion=3.0.+
+   > ```
 
-   they use too.
+2. Install Solr
 
-> ```text
-> # example -- flymine's gradle.properties
-> systemProp.imVersion=3.0.+
-> systemProp.bioVersion=3.0.+
-> ```
+   > [Solr](../system-requirements/software/solr.md)
 
-1. Install Solr
+3. Configure Solr
 
-> `/system-requirements/software/solr`{.interpreted-text role="doc"}
+   > [Keyword Search](../webapp/keyword-search/index.md)
 
-1. Configure Solr
-
-> `/webapp/keyword-search/index`{.interpreted-text role="doc"}
-
-1. Rebuild your database.
+4. Rebuild your database.
 
 Specifically the postprocesses that build the search index.
 
@@ -178,15 +170,15 @@ You should then be able to deploy your webapp as normal, with the new and improv
 
 [InterMine 2.0](https://intermineorg.wordpress.com/2017/09/22/intermine-2-0-summer-update/) is a disruptive release and is not backwards compatible. This means that databases, webapps and code from previous releases will need to be updated to work with the new InterMine release. Below are detailed instructions on how to migrate your InterMine to the new build system.
 
-::: {.warning} ::: {.title} Warning :::
-
-If you have custom InterMine code, your changes will likely not work as expected after the upgrade. Please contact us and we can help you migrate your edits to the new system. :::
+{% hint style="warning" %}
+If you have custom InterMine code, your changes will likely not work as expected after the upgrade. Please contact us and we can help you migrate your edits to the new system.
+{% endhint %}
 
 Please contact us if you have any questions or concerns! We have a mailing list or you can contact us directly via email or our discord channel \(chat.intermine.org\). If you are having difficulties, we can also arrange a skype call to walk through any problems together. Please make sure your code is public, e.g. GitHub, so we can help test!
 
 ## Gradle
 
-InterMine now uses Gradle to manage dependencies and to build and run InterMine. Please see `Gradle Quick Start </system-requirements/software/gradle/index>`{.interpreted-text role="doc"} for useful Gradle commands and `Gradle FAQs </system-requirements/software/gradle/FAQs>`{.interpreted-text role="doc"} for help with common questions and errors.
+InterMine now uses Gradle to manage dependencies and to build and run InterMine. Please see [Gradle Quick Start](../system-requirements/software/gradle/index.md) for useful Gradle commands and [Gradle FAQs](../system-requirements/software/gradle/faqs.md) for help with common questions and errors.
 
 See the [Gradle](https://intermineorg.wordpress.com/2017/09/13/intermine-2-0-gradle/) blog post for details as to why we made this change.
 
@@ -194,7 +186,7 @@ See the [Gradle](https://intermineorg.wordpress.com/2017/09/13/intermine-2-0-gra
 
 You will need Maven installed. We use Maven to manage mine-specific InterMine dependencies, including your mine-specific data parsers.
 
-```text
+```bash
 # for Ubuntu
 sudo apt-get install maven
 ```
@@ -203,9 +195,9 @@ You do not need to install Gradle locally. Instead, use the Gradle wrapper provi
 
 ### Remove InterMine code
 
-Previously you had to download and compile InterMine. Now, instead, you'll be using the compiled InterMine JARs available via Maven. This means you should remove all InterMine code from your mine repositories. Your mine repositories should only contain your mine \(webapp and dbmodel\) and your mine\'s custom data sources.
+Previously you had to download and compile InterMine. Now, instead, you'll be using the compiled InterMine JARs available via Maven. This means you should remove all InterMine code from your mine repositories. Your mine repositories should only contain your mine \(webapp and dbmodel\) and your mine's custom data sources.
 
-If you have your mine and bio/sources in your InterMine checkout, instead of in their own repository, you\'ll have to separate them out.
+If you have your mine and bio/sources in your InterMine checkout, instead of in their own repository, you'll have to separate them out.
 
 What you want to end up with:
 
@@ -223,15 +215,13 @@ Options to separate out your mine repo:
 
    lose your history.
 
-```text
-# don't do this
-~/git $ cp intermine/flymine flymine; cd flymine
-~/git/flymine $ git init; git add *; git commit -am "initial commit"
-```
+   ```text
+   # don't do this
+   ~/git $ cp intermine/flymine flymine; cd flymine
+   ~/git/flymine $ git init; git add *; git commit -am "initial commit"
+   ```
 
-1. Instead, use \[git filter-branch\]{.title-ref} command. Follow the
-
-   [directions](https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/)
+2. Instead, use `git filter-branch` command. Follow the [directions](https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/)
 
    on how to move a directory to a new repository and keep your history
 
@@ -250,7 +240,7 @@ src/test/java
 src/test/resources
 ```
 
-You will have to run two migration scripts to move your current mine over to this new layout -- one script for your mine and one for your mine\'s data parsers. The migration scripts are located in the [intermine-scripts](https://github.com/intermine/intermine-scripts/blob/master/gradle-migration/data-sources/migrateBioSources.sh) repository.
+You will have to run two migration scripts to move your current mine over to this new layout -- one script for your mine and one for your mine's data parsers. The migration scripts are located in the [intermine-scripts](https://github.com/intermine/intermine-scripts/blob/master/gradle-migration/data-sources/migrateBioSources.sh) repository.
 
 ```text
 ~/git $ git clone https://github.com/intermine/intermine-scripts.git
@@ -258,7 +248,7 @@ You will have to run two migration scripts to move your current mine over to thi
 
 #### Migrate Mine webapp to New directory structure
 
-Run \"migrateMine\" script to move your mine over to the new directory system. You might want to create a new \[gradle\]{.title-ref} branch for testing.
+Run "migrateMine" script to move your mine over to the new directory system. You might want to create a new `gradle` branch for testing.
 
 ```text
 ~/git/intermine-scripts/gradle-migration/mine $ ./migrateMine.sh ~/git/flymine
@@ -266,7 +256,7 @@ Run \"migrateMine\" script to move your mine over to the new directory system. Y
 
 #### Migrate Data Sources to New directory structure
 
-Run the \"migrateBioSources\" script to move your sources over to the new directory system.
+Run the "migrateBioSources" script to move your sources over to the new directory system.
 
 ```text
 ~/git/intermine-scripts/gradle-migration/data-sources $ ./migrateBioSources.sh ~/git/flymine-bio-sources
@@ -279,13 +269,13 @@ Run this command to put your sources on the classpath and therefore available to
 ~/git/flymine-bio-sources $ ./gradlew install --stacktrace
 ```
 
-This task builds the JARs and places them on your classpath in \[~/.m2/repository\]{.title-ref}.
+This task builds the JARs and places them on your classpath in `~/.m2/repository`.
 
-Note the command is \[./gradlew\]{.title-ref} instead of \[gradle\]{.title-ref}. Use the provided Gradle wrapper instead of locally installed Gradle.
+Note the command is `./gradlew` instead of `gradle`. Use the provided Gradle wrapper instead of locally installed Gradle.
 
-You will have to \[install\]{.title-ref} your sources every time you update the source code to update the JAR being used by the build.
+You will have to `install` your sources every time you update the source code to update the JAR being used by the build.
 
-Previously, the data model was merged from all data sources\' additions XML file. This is no longer true. Since each source is in its own JAR now, the data model is self-contained. Therefore if you reference a class in your data parser, it must be present in the additions file. Alternatively, you can specify a single data model file that will be merged into each source:
+Previously, the data model was merged from all data sources' additions XML file. This is no longer true. Since each source is in its own JAR now, the data model is self-contained. Therefore if you reference a class in your data parser, it must be present in the additions file. Alternatively, you can specify a single data model file that will be merged into each source:
 
 ```text
 // [in build.gradle in root of your mine bio/sources directory, e.g. flymine-bio-sources]
@@ -300,81 +290,38 @@ Previously, the data model was merged from all data sources\' additions XML file
 
 ### Update config
 
-1. Remove \[\&lt;property name=\"source.location\"
-
-   location=\"../bio/sources/\"/&gt;\]{.title-ref} from your project XML
-
-   file
-
-2. Set \[GRADLE\_OPTS\]{.title-ref} instead of \[ANT\_OPTS\]{.title-ref}
+1. Remove `<property name="source.location" location="../bio/sources/"/>` from your project XML file
+2. Set `GRADLE_OPTS` instead of `ANT_OPTS`
    * Use the same parameters.
-   * Append \[-Dorg.gradle.daemon=false\]{.title-ref} to prevent
-
-     daemons from being used.
+   * Append `-Dorg.gradle.daemon=false` to prevent daemons from being used.
 3. Update project XML for some sources
-   * \[SO\]{.title-ref} source\'s location has been updated to be:
+   * `SO` source's location has been updated to be:
 
-     \[\&lt;property name=\"src.data.file\" location=\"so.obo\"
+     `<property name="src.data.file" location="so.obo"/>`
 
-     /&gt;\]{.title-ref}
+   * `Protein2ipr` source has a new attribute:
 
-   * \[Protein2ipr\]{.title-ref} source has a new attribute:
+     `<property name="osAlias" value="os.production"/>`
 
-     \[\&lt;property name=\"osAlias\"
+   * `intermine-items-xml-file` isn't a valid value for "type" anymore. Use the project name instead.
+   * `src.data.dir` can only have a `location` attribute. `src.data.dir`
 
-     value=\"os.production\"/&gt;\]{.title-ref}
+     cannot have a `value` attribute.
 
-   * \[intermine-items-xml-file\]{.title-ref} isn\'t a valid value for
+   * Change the location of the generated files for `entrez-organism` and
 
-     \"type\" anymore. Use the project name instead.
-
-   * \[src.data.dir\]{.title-ref} can only have a
-
-     \[location\]{.title-ref} attribute. \[src.data.dir\]{.title-ref}
-
-     cannot have a \[value\]{.title-ref} attribute.
-
-   * Change the location of the generated files for
-
-     \[entrez-organism\]{.title-ref} and
-
-     \[update-publications\]{.title-ref} data sources to be
-
-     \[organisms.xml\]{.title-ref} and \[publications.xml\]{.title-ref}
-
-     \(instead of in the \[build\]{.title-ref} directory\)
-4. InterPro data file needs to be updated. The file incorrectly
-
-   references \[interpro.dtd\]{.title-ref} when you should have the full
-
-   path instead.
-
+     `update-publications` data sources to be `organisms.xml` and `publications.xml`\(instead of in the `build` directory\)
+4. InterPro data file needs to be updated. The file incorrectly references `interpro.dtd` when you should have the full path instead.
    * Update interpro.xml
-   * \[\&lt;!DOCTYPE interprodb SYSTEM
-
-     \"ftp://ftp.ebi.ac.uk/pub/databases/interpro/interpro.dtd\"&gt;\]{.title-ref}
-
-   * I asked InterPro to fix but they said no. Maybe you could ask
-
-     too?
-
+   * `<!DOCTYPE interprodb SYSTEM "ftp://ftp.ebi.ac.uk/pub/databases/interpro/interpro.dtd">`
+   * I asked InterPro to fix but they said no. Maybe you could ask too?
    * See [https://github.com/intermine/intermine/issues/1914](https://github.com/intermine/intermine/issues/1914) for the
 
      discussion.
+5. Update each data source's additions file to be correct. Alternatively you can use the `extraAdditionsFile` \(see previous section\).
+6. `PostprocessUtil.java` moved to the `bio`package, so you maybe have to update your import to be `import org.intermine.bio.util.PostProcessUtil;`.
 
-5. Update each data source\'s additions file to be correct.
-
-   Alternatively you can use the \[extraAdditionsFile\]{.title-ref} \(see
-
-   previous section\).
-
-6. \[PostprocessUtil.java\]{.title-ref} moved to the \[bio\]{.title-ref}
-
-   package, so you maybe have to update your import to be \[import
-
-   org.intermine.bio.util.PostProcessUtil;\]{.title-ref}.
-
-Please see `Gradle Quick Start </system-requirements/software/gradle/index>`{.interpreted-text role="doc"} for details on Gradle and common Gradle commands and `Gradle FAQs </system-requirements/software/gradle/FAQs>`{.interpreted-text role="doc"} for help with common questions and errors.
+Please see [Gradle Quick Start](../system-requirements/software/gradle/index.md) for details on Gradle and common Gradle commands and [Gradle FAQs](../system-requirements/software/gradle/faqs.md) for help with common questions and errors.
 
 ## Data Model
 
@@ -383,7 +330,7 @@ Please see `Gradle Quick Start </system-requirements/software/gradle/index>`{.in
 * GO evidence codes now have a name and URL
 * OntologyAnnotation can now annotate any InterMine object, as long as
 
-  that class inherits \[Annotatable\]{.title-ref}
+  that class inherits `Annotatable`
 
 * Sequence Ontolgy has been updated to the latest version
 * Organism.taxonId is a String instead of an Integer.
@@ -402,11 +349,11 @@ Tomcat 8.5.x
 Postgres 9.3+
 ```
 
-You will get errors if you use older versions. e.g. If you use Java 7, you will get this error: \[Caused by: java.security.NoSuchProviderException: no such provider: SunEC\]{.title-ref}
+You will get errors if you use older versions. e.g. If you use Java 7, you will get this error: `Caused by: java.security.NoSuchProviderException: no such provider: SunEC`
 
 ## API changes
 
-We are making some non-backwards compatible changes to our API. These three end points have a parameter called \[xml\]{.title-ref} which holds the XML query. We are going to rename this parameter to be \[query\]{.title-ref} \(as we now accept JSON queries!\) to match the syntax of all the other end points.
+We are making some non-backwards compatible changes to our API. These three end points have a parameter called `xml` which holds the XML query. We are going to rename this parameter to be `query` \(as we now accept JSON queries!\) to match the syntax of all the other end points.
 
 ```text
 /query/upload
@@ -420,130 +367,130 @@ Please update any code that references these end points.
 
 To pull changes in your local repository and merge them into your working files:
 
-```text
+```bash
 $ git pull upstream
 ```
 
-If you host a copy of the `CDN </webapp/performance/index>`{.interpreted-text role="doc"}, then you should also pull in changes from that repository.
+If you host a copy of the [CDN](../webapp/performance/index.md), then you should also pull in changes from that repository.
 
 ## Upgrade to InterMine 1.6
 
 The core model of InterMine has changed in release 1.1 so you may encounter more errors than usual.
 
-update integration keys
+**update integration keys**
 
-:
+You may need to update your integration keys if they are using a class or field that’s been changed.
 
-```text
-You may need to update your integration keys if they are using a class or field
+**update custom converter**
 
-:   that\'s been changed.
-```
+If you are storing data using a class or field that’s been changed, you will have to change your code to use the new model. See below for the complete list of model changes.
 
-update custom converter
+**template queries**
 
-:
+You will have to update your templates to use the new model
 
-```text
-If you are storing data using a class or field that\'s been changed, you will have
+**interaction viewer**
 
-:   to change your code to use the new model. See below for the
-    complete list of model changes.
-```
-
-template queries
-
-: You will have to update your templates to use the new model
-
-interaction viewer
-
-: The cytoscape tool uses the new model - will not work until you build a database with the new code
+The cytoscape tool uses the new model - will not work until you build a database with the new code
 
 Interactions
 
-class old new
-
-Interaction gene1 participant1
-
-+ +-------------------------+-----------------------------+ \| \| gene2 \| participant2 \| + +-------------------------+-----------------------------+ \| \| relationshipType \(Term\) \| relationshipType \(String\) \| +-------------------+-------------------------+-----------------------------+ \| InteractionDetail \| allInteractors \(Gene\) \| allInteractors \(Interactor\) \| +-------------------+-------------------------+-----------------------------+ \| Interactor \| -- \| stoichiometry \| + +-------------------------+-----------------------------+ \| \| InteractionDetail.role1 \| role \| + +-------------------------+-----------------------------+ \| \| InteractionDetail.type \| type \| +-------------------+-------------------------+-----------------------------+
+| class | old | new |
+| :--- | :--- | :--- |
+| Interaction | gene1 | participant1 |
+|  | gene2 | participant2 |
+|  | relationshipType \(Term\) | relationshipType \(String\) |
+| InteractionDetail | allInteractors \(Gene\) | allInteractors \(Interactor\) |
+| Interactor | – | stoichiometry |
+|  | InteractionDetail.role1 | role |
+|  | InteractionDetail.type | type |
 
 Protein Domains
 
-class old new
-
-ProteinDomain proteins proteinDomainRegions
-
-Protein proteinDomains proteinDomainRegions
-
-## ProteinDomainRegion   --                 start
-
-+ +-------------------+----------------------+ \| \| -- \| end \| + +-------------------+----------------------+ \| \| -- \| identifier \| + +-------------------+----------------------+ \| \| -- \| database \| +-------------------+-------------------+----------------------+
+| class | old | new |
+| :--- | :--- | :--- |
+| ProteinDomain | proteins | proteinDomainRegions |
+| Protein | proteinDomains | proteinDomainRegions |
+| ProteinDomainRegion | – | start |
+|  | – | end |
+|  | – | identifier |
+|  | – | database |
 
 ## Upgrade to InterMine 1.4
 
-There are no model changes, but we\'ve added some new features that require an update.
+There are no model changes, but we've added some new features that require an update.
 
-We\'ve added a new fancy connection pool, you should see a performance improvement. However you do need to update some configuration files.
+We've added a new fancy connection pool, you should see a performance improvement. However you do need to update some configuration files.
 
 ### Postgres config file
 
 The number of database connections required will depend on your usage. 100 connections is the default and should be okay for production webapps. However, each webapp reserves 20 connections. So, on your dev machines it may be wise to raise the maximum quite a bit.
 
-::: {.topic} **postgresql.conf**
-
-max\_connections=250 :::
+{% tabs %}
+{% tab title="postgresql.conf" %}
+max\_connections=250
+{% endtab %}
+{% endtabs %}
 
 ### $MINE properties files
 
 in your $MINE directory:
 
-::: {.topic} **default.intermine.integrate.properties**
-
+{% tabs %}
+{% tab title="default.intermine.integrate.properties" %}
 set
 
-\[db.production.datasource.maxConnections=20\]{.title-ref}
+`db.production.datasource.maxConnections=20`
 
-\[db.common-tgt-items.datasource.maxConnections=5\]{.title-ref}
+`db.common-tgt-items.datasource.maxConnections=5`
 
 and for each database replace
 
-\[db.production.datasource.class=org.postgresql.ds.PGPoolingDataSource\]{.title-ref}
+`db.production.datasource.class=org.postgresql.ds.PGPoolingDataSource`
 
 \(or any other db pooling class\)
 
 with these 2 lines
 
-\[db.production.datasource.class=com.zaxxer.hikari.HikariDataSource db.production.datasource.dataSourceClassName=org.postgresql.ds.PGSimpleDataSource\]{.title-ref} :::
+`db.production.datasource.class=com.zaxxer.hikari.HikariDataSource db.production.datasource.dataSourceClassName=org.postgresql.ds.PGSimpleDataSource`
+{% endtab %}
+{% endtabs %}
 
-::: {.topic} **default.intermine.webapp.properties**
-
+{% tabs %}
+{% tab title="default.intermine.webapp.properties" %}
 set
 
-\[db.production.datasource.maxConnections=20\]{.title-ref}
+`db.production.datasource.maxConnections=20`
 
 and for each database replace
 
-\[db.production.datasource.class=org.postgresql.ds.PGPoolingDataSource\]{.title-ref}
+`db.production.datasource.class=org.postgresql.ds.PGPoolingDataSource`
 
 \(or any other db pooling class\)
 
 with these 2 lines
 
-\[db.production.datasource.class=com.zaxxer.hikari.HikariDataSource db.production.datasource.dataSourceClassName=org.postgresql.ds.PGSimpleDataSource\]{.title-ref} :::
+`db.production.datasource.class=com.zaxxer.hikari.HikariDataSource db.production.datasource.dataSourceClassName=org.postgresql.ds.PGSimpleDataSource`
+{% endtab %}
+{% endtabs %}
 
 Any other data source you use should be set to five connections, raised to ten if you encounter problems, e.g. the build failing with an error like so:
 
-::: {.topic} **Error message**
-
-Caused by: org.postgresql.util.PSQLException: FATAL: connection limit exceeded for non-superusers :::
+{% tabs %}
+{% tab title="Error message" %}
+Caused by: org.postgresql.util.PSQLException: FATAL: connection limit exceeded for non-superusers
+{% endtab %}
+{% endtabs %}
 
 Or this \(See [\#912](https://github.com/intermine/intermine/issues/912)\)
 
-::: {.topic} **Error message**
+{% tabs %}
+{% tab title="Error message" %}
+Unable to get sub-ObjectStore for Translating ObjectStore
+{% endtab %}
+{% endtabs %}
 
-Unable to get sub-ObjectStore for Translating ObjectStore :::
-
-See `/system-requirements/software/postgres/hikari`{.interpreted-text role="doc"} for details.
+See [HikariCP and InterMine settings](../system-requirements/software/postgres/hikari.md) for details.
 
 ### InterMine-model Refactor
 
@@ -551,9 +498,9 @@ The metadata package has moved to [InterMine-model](https://github.com/intermine
 
 ### Tomcat
 
-Add \[clearReferencesStopTimerThreads\]{.title-ref} to your $TOMCAT/conf/context.xml file, so it should look like so:
+Add `clearReferencesStopTimerThreads` to your $TOMCAT/conf/context.xml file, so it should look like so:
 
-```text
+```markup
 <Context sessionCookiePath="/" useHttpOnly="false" clearReferencesStopTimerThreads="true">
 ...
 </Context>
@@ -590,58 +537,59 @@ The core data model has not been changed, so you should be able to release a web
 
 The core model of InterMine has changed in release 1.1 so you may encounter more errors than usual.
 
-update integration keys
+**update integration keys**
 
-:
+You may need to update your integration keys if they are using a class or field that’s been changed.
 
-```text
-You may need to update your integration keys if they are using a class or field
+**update custom converter**
 
-:   that\'s been changed.
-```
+If you are storing data using a class or field that’s been changed, you will have to change your code to use the new model. See below for the complete list of model changes.
 
-update custom converter
+**template queries**
 
-:
+You will have to update your templates to use the new model
 
-```text
-If you are storing data using a class or field that\'s been changed, you will have
+**interaction viewer**
 
-:   to change your code to use the new model. See below for the
-    complete list of model changes.
-```
-
-template queries
-
-: You will have to update your templates to use the new model
-
-interaction viewer
-
-: Widget uses the new model - will not work until you build a database with the new code
+Widget uses the new model - will not work until you build a database with the new code
 
 ### Model Changes
 
 Updated to latest version of Sequence Ontology, 2.5
 
-old new
-
-Comment.text Comment.description Gene.ncbiGeneNumber -- -- Gene.description -- Gene.briefDescription
+| old | new |
+| :--- | :--- |
+| Comment.text | Comment.description |
+| Gene.ncbiGeneNumber | – |
+| – | Gene.description |
+| – | Gene.briefDescription |
 
 #### Interactions
 
-class old new
+| class | old | new |
+| :--- | :--- | :--- |
+| Interaction | gene | gene1 |
+|  | interactingGenes | gene2 |
+|  | type | details.type |
+|  | role | details.role1 |
+|  | – | details.role2 |
+|  | name | details.name |
+|  | shortName | – |
+| InteractionRegion | primaryIdentifier | – |
+|  | name | – |
 
-Interaction gene gene1
-
-+ +-------------------+----------------------+ \| \| interactingGenes \| gene2 \| + +-------------------+----------------------+ \| \| type \| details.type \| + +-------------------+----------------------+ \| \| role \| details.role1 \| + +-------------------+----------------------+ \| \| -- \| details.role2 \| + +-------------------+----------------------+ \| \| name \| details.name \| + +-------------------+----------------------+ \| \| shortName \| -- \| +-------------------+-------------------+----------------------+ \| InteractionRegion \| primaryIdentifier \| -- \| + +-------------------+----------------------+ \| \| name \| -- \| +-------------------+-------------------+----------------------+
+#### 
 
 #### Gene Ontology
 
-class old new
+| class | old | new |
+| :--- | :--- | :--- |
+| GOAnnotation | withText | evidence.withText |
+|  | with | evidence.with |
+|  | – | annotationExtension |
+| OntologyTerm | – | crossReferences \[1\] |
 
-GOAnnotation withText evidence.withText
-
-+ +------------+----------------------+ \| \| with \| evidence.with \| + +------------+----------------------+ \| \| -- \| annotationExtension \| +--------------+------------+----------------------+ \| OntologyTerm \| -- \| crossReferences \| +--------------+------------+----------------------+
+> \[1\] used for Uberon
 
 ### Identifiers
 
@@ -661,13 +609,11 @@ resolver.entrez.file=/DATA_DIR/ncbi/gene_info
 
 ### Configuration Updates
 
-Web services uses the \[webapp.baseurl\]{.title-ref} property to run queries, so be sure this is the valid URL for your mine. Otherwise you will get an \"Unable to construct query\" error on the query results page.
+Web services uses the `webapp.baseurl` property to run queries, so be sure this is the valid URL for your mine. Otherwise you will get an "Unable to construct query" error on the query results page.
 
 ```text
 # in ~/.intermine/MINE_NAME.properties
 # used by web services for running queries, needs to be valid
 webapp.baseurl=http://localhost:8080
 ```
-
-::: {.index} upgrades, updating InterMine, InterMine 2.0, releases, new releases :::
 

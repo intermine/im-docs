@@ -6,12 +6,12 @@
 
 Download two tables:
 
-* \[genes.txt.table\]{.title-ref}
-* \[ortholog.txt.table\]{.title-ref}
+* `genes.txt.table`
+* `ortholog.txt.table`
 
 ## Project XML
 
-```text
+```markup
 <source name="treefam" type="treefam">
   <property name="src.data.dir" location="/DATA/treefam"/>
   <property name="src.data.dir.includes" value="ortholog.txt.table"/>
@@ -21,15 +21,6 @@ Download two tables:
 </source>
 ```
 
-* \'\'\'treefam.organisms\'\'\' - all genes from the listed organisms
-
-  will be processed
-
-* \'\'\'treefam.homologues\'\'\' \(optional\) - genes will _only_ be
-
-  loaded into the database if they are a homologue of an organism of
-
-  interest
-
-::: {.index} TreeFam :::
+* '''treefam.organisms''' - all genes from the listed organisms will be processed
+* '''treefam.homologues''' \(optional\) - genes will _only_ be loaded into the database if they are a homologue of an organism of interest
 

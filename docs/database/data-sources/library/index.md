@@ -2,7 +2,7 @@
 
 This page lists the current sources available for use in InterMine. All the sources here are found as ready-to-use JARs in the central repository, [JCenter](https://jcenter.bintray.com/org/intermine/).
 
-You can also add your own sources to load custom file formats, see `/database/data-sources/custom/index`{.interpreted-text role="doc"} for more information. In addition, the `/get-started/tutorial/index`{.interpreted-text role="doc"} contains detailed steps on creating sources for a variety of different data formats.
+You can also add your own sources to load custom file formats, see [Writing your own data source](../custom/index.md) for more information. In addition, the [Tutorial](../../../get-started/tutorial/index.md) contains detailed steps on creating sources for a variety of different data formats.
 
 Most of the configuration done in the config files is optional, if no config entry exists the default behaviour is followed. There are exceptions to this rule, however.
 
@@ -16,7 +16,7 @@ These are commonly used sources that you may want to use to load data into your 
 
 ## FlyMine Specific sources
 
-These are sources that load Drosophila specific data sets into FlyMine, we don\'t expect you will re-use these unless you are creating a Drosophila warehouse. All of these sources are located in [https://github.com/intermine/flymine-bio-sources](https://github.com/intermine/flymine-bio-sources).
+These are sources that load Drosophila specific data sets into FlyMine, we don't expect you will re-use these unless you are creating a Drosophila warehouse. All of these sources are located in [https://github.com/intermine/flymine-bio-sources](https://github.com/intermine/flymine-bio-sources).
 
 * affy-probes
 * arbeitman-items-xml
@@ -37,7 +37,7 @@ These are sources that load Drosophila specific data sets into FlyMine, we don\'
 * redfly
 * rnai
 
-See [FlyMine](http://www.flymine.org) for more information about these datasets. Look at FlyMine\'s [project.xml](https://github.com/intermine/flymine/blob/master/project.xml) for examples of how to use these sources.
+See [FlyMine](http://www.flymine.org) for more information about these datasets. Look at FlyMine's [project.xml](https://github.com/intermine/flymine/blob/master/project.xml) for examples of how to use these sources.
 
 ## HumanMine Specific sources
 
@@ -56,5 +56,5 @@ See [FlyMine](http://www.flymine.org) for more information about these datasets.
 * orphanet
 * protein-atlas
 
-See [HumanMine](http://www.humanmine.org) for more information about these datasets. Look at [HumanMine\'s project.xml](https://github.com/intermine/humanmine/blob/master/project.xml) for examples of how to use these sources.
+See [HumanMine](http://www.humanmine.org) for more information about these datasets. Look at [HumanMine's project.xml](https://github.com/intermine/humanmine/blob/master/project.xml) for examples of how to use these sources.
 

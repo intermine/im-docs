@@ -22,21 +22,21 @@ You can easily adapt InterMine to include your own data by creating new addition
 
 ## Data source and Data set
 
-Most data types in the InterMine core model have a reference to a \"data set\" and a corresponding \"data source\".
+Most data types in the InterMine core model have a reference to a "data set" and a corresponding "data source".
 
-Data source
+**Data source**
 
-: The origin of the data. Usually an organisation, e.g. UniProt, InterPro
+The origin of the data. Usually an organisation, e.g. UniProt, InterPro
 
-Data set
+**Data set**
 
-: A set of results or data from a data source. e.g. InterPro GO Annotation data set
+A set of results or data from a data source. e.g. InterPro GO Annotation data set
 
 These data are meant to enable your users to easily trace the provenance of your data.
 
 ## Organism
 
-Include the `/database/data-sources/library/organism`{.interpreted-text role="doc"} data source in your build. Many of the tools available in InterMine assume this source will be loaded and expect a populated organism table.
+Include the [Organism](../database/data-sources/library/organism.md) data source in your build. Many of the tools available in InterMine assume this source will be loaded and expect a populated organism table.
 
 ## Chromosome location
 
@@ -44,7 +44,7 @@ InterMine uses the -1 / 1 convention for strands.
 
 ## Identifiers
 
-All sequence features must have a non-NULL, unique identifier set for their \[primaryIdentifier\]{.title-ref} field.
+All sequence features must have a non-NULL, unique identifier set for their `primaryIdentifier` field.
 
 ## Sequence Ontology term
 
@@ -52,7 +52,7 @@ All sequence features should have a reference to the appropriate [sequence ontol
 
 ## so\_terms
 
-Adding sequence ontology terms to the \[so\_terms\]{.title-ref} text file will add these classes to your data model.
+Adding sequence ontology terms to the `so_terms` text file will add these classes to your data model.
 
 * There is a mechanism for automatically generating a set of class
 
@@ -66,12 +66,9 @@ Adding sequence ontology terms to the \[so\_terms\]{.title-ref} text file will a
 
     many-to-many relationships in the model \(determined by the
 
-    configs at the bottom of \[so\_terms\]{.title-ref}\).
+    configs at the bottom of `so_terms`\).
 
-* Only the terms listed in \[so\_terms\]{.title-ref} become classes in
-
-  the model.
-
+* Only the terms listed in `so_terms` become classes in the model.
   * In particular, a descendant class D and an ancestor class A may
 
     be included while none of the intervening classes \(B and C\) are.
@@ -93,10 +90,7 @@ Adding sequence ontology terms to the \[so\_terms\]{.title-ref} text file will a
     reference to Gene, inherited from the intervening SO term
 
     gene\_member\_region, which is omitted from the model.
-
-* The model generated from \[so\_term\]{.title-ref} is augmented by the
-
-  contents of intermine/bio/model/core.xml and
+* The model generated from `so_term` is augmented by the contents of intermine/bio/model/core.xml and
 
   intermine/bio/model/genomic\_additions.xml \(e.g., core.xml is where
 
@@ -104,7 +98,7 @@ Adding sequence ontology terms to the \[so\_terms\]{.title-ref} text file will a
 
 * The generated model can be further augmented in the usual way by a
 
-  source\'s source\_additions.xml file and the global additions file.
+  source's source\_additions.xml file and the global additions file.
 
 ## Model Merging
 
@@ -117,9 +111,7 @@ The InterMine build system generates the data model by merging the following dat
 
   XML file
 
-* \[globalAdditionsFile\]{.title-ref} if specified
+* `globalAdditionsFile` if specified
 
-See `/database/database-building/model-merging/`{.interpreted-text role="doc"} for details.
-
-::: {.index} data source, data set, data model overview, data model, organism, organism name, chromosome location, strand :::
+See [Model Merging](../database/database-building/model-merging.md) for details.
 
