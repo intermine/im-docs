@@ -16,10 +16,12 @@ Be sure to unzip the file.
 
 project XML example
 
-```markup
+```text
 <source name="ncbi-gene" type="ncbi-gene">
   <property name="src.data.dir" location="/DATA_DIR/ncbi" />
   <property name="organisms" value="9606" />
 </source>
 ```
+
+::: {.index} NCBI, Entrez, gene :::
 
