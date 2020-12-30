@@ -15,11 +15,13 @@ genes, publications
 
 project XML example
 
-```markup
+```text
 <source name="pubmed-gene" type="pubmed-gene">
   <property name="src.data.dir" location="DATA_DIR/pubmed/" />
   <property name="pubmed.organisms" value="7227"/>
   <property name="src.data.dir.includes" value="gene2pubmed"/>
 </source>
 ```
+
+::: {.index} PubMed :::
 
