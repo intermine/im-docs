@@ -8,23 +8,23 @@ At various times you will be requested to install various Perl modules. Here you
 
 ## CPAN
 
-CPAN stands for the Comprehensive Perl Archive Network - and is the software repository for Perl modules \(you can compare it to [python's pypi](http://pypi.python.org/pypi/), Yum/Apt repositories in Linux, or Apple's App Store\). If you have Perl installed you have CPAN. To check type `cpan` in a terminal.
+CPAN stands for the Comprehensive Perl Archive Network - and is the software repository for Perl modules \(you can compare it to [python\'s pypi](http://pypi.python.org/pypi/), Yum/Apt repositories in Linux, or Apple\'s App Store\). If you have Perl installed you have CPAN. To check type \[cpan\]{.title-ref} in a terminal.
 
 To install modules with CPAN you may first need to set up the installer, in a terminal run:
 
-```bash
+```text
 $ cpan
 ```
 
 This will take you to a cpan shell, which will allow you to configure your properties. to review your current configuration type:
 
-```bash
+```text
 $ o conf
 ```
 
 When you first run cpan should run:
 
-```bash
+```text
 $ o conf init
 ```
 
@@ -32,13 +32,13 @@ This will guide you through the set-up procedure. You can run this later change 
 
 To change a setting manually, type:
 
-```bash
+```text
 $ o conf [SETTING NAME] "NEW VALUE"
 ```
 
 example, to make installed modules uninstall previous versions and use sudo to elevate permissions \(very good ideas\), type:
 
-```bash
+```text
 $ o conf mbuild_install_arg "--uninst 1"
 $ o conf mbuild_install_build_command "sudo ./Build"
 $ o conf make_install_make_command "sudo make"
@@ -46,25 +46,25 @@ $ o conf make_install_make_command "sudo make"
 
 If you change options, remember to save your changes with:
 
-```bash
+```text
 $ o conf commit
 ```
 
 To install modules, type:
 
-```bash
+```text
 $ cpan Module::Name Another::Module::Name
 ```
 
-To force the install for any reason, use the "-f" flag, so type:
+To force the install for any reason, use the \"-f\" flag, so type:
 
-```bash
+```text
 $ cpan -f Module::Name
 ```
 
 If you have not set the sudo option in the CPAN configuration, Add sudo before the CPAN command, like:
 
-```bash
+```text
 $ sudo cpan -f Module::Name
 ```
 
@@ -74,25 +74,25 @@ Many Perl libraries are packaged for different Linux distributions. Debian/Ubunt
 
 The procedure is the same as for any other package:
 
-```bash
+```text
 $ sudo apt-get install libxml-writer-perl # installs XML::Writer
 ```
 
-There is a predictable name to package mapping: "::" becomes "-", there will be a "lib" on the front, and a "-perl" on the end, so:
+There is a predictable name to package mapping: \"::\" becomes \"-\", there will be a \"lib\" on the front, and a \"-perl\" on the end, so:
 
-* "`XML::DOM`" becomes "`libxml-dom-perl`"
-* "`Moose`" becomes "`libmoose-perl`"
+* \"\[XML::DOM\]{.title-ref}\" becomes \"\[libxml-dom-perl\]{.title-ref}\"
+* \"\[Moose\]{.title-ref}\" becomes \"\[libmoose-perl\]{.title-ref}\"
 * and so on
 
 These are the modules you need to build a database:
 
-```bash
+```text
 $ sudo apt-get install libxml-writer-perl libxml-sax-base-perl libxml-perl libxml-filter-saxt-perl libtext-glob-perl
 ```
 
 To search for a package you can type:
 
-```bash
+```text
 $ apt-cache search package-name
 ```
 
@@ -100,13 +100,13 @@ $ apt-cache search package-name
 
 The InterMine Perl modules are available on CPAN, and you are encouraged to download them from there. However, you can install them manually too. First you will need to check-out the source code. \(It is recommended you update your version of Module::Build to at least version 0.36, as this will allow you to automate the dependency installation.\)
 
-From your check out \(or unzipped tar file\) go to the directory "`intermine/perl/`"
+From your check out \(or unzipped tar file\) go to the directory \"\[intermine/perl/\]{.title-ref}\"
 
-```bash
+```text
 $ cd git/intermine/perl
 ```
 
-Here there are three "distributions" of modules you may want to install:
+Here there are three \"distributions\" of modules you may want to install:
 
 * InterMine-Model
 * InterMine-Item \(depends on InterMine::Model\)
@@ -114,7 +114,7 @@ Here there are three "distributions" of modules you may want to install:
 
 The installation procedure for these is the same:
 
-```bash
+```text
 $ cd [DISTRIBUTION-DIRECTORY]
 $ perl Build.PL            # Checks your system
 $ sudo ./Build installdeps # If you have Module::Build >= 0.36
@@ -128,17 +128,28 @@ If you do not have Module::Build 0.36 or above, you can install the dependencies
 
 * For the InterMine modules:
 
-> * `List::MoreUtils` \(utility functions for handling lists\)
-> * `LWP` \(Handling network communication\)
-> * `Module::Find` \(Automatically locating modules by name\)
-> * `Moose` \(Object system\)
-> * `MooseX::Role::WithOverloading` \(Allows roles to overload operators\)
-> * `MooseX::Types` \(Type constraint system\)
-> * `Text::CSV_XS` \(Processing .csv and .tsv files\)
-> * `URI` \(Handling urls\)
-> * `XML::Parser::PerlSAX` \(Parsing XML\)
-> * `XML::DOM` \(XML processing and output\)
-> * `Text::Glob` \(used by the `project_build`script\)
+> * \[List::MoreUtils\]{.title-ref} \(utility functions for handling
+>
+>   lists\)
+>
+> * \[LWP\]{.title-ref} \(Handling network communication\)
+> * \[Module::Find\]{.title-ref} \(Automatically locating modules by
+>
+>   name\)
+>
+> * \[Moose\]{.title-ref} \(Object system\)
+> * \[MooseX::Role::WithOverloading\]{.title-ref} \(Allows roles to
+>
+>   overload operators\)
+>
+> * \[MooseX::Types\]{.title-ref} \(Type constraint system\)
+> * \[Text::CSV\_XS\]{.title-ref} \(Processing .csv and .tsv files\)
+> * \[URI\]{.title-ref} \(Handling urls\)
+> * \[XML::Parser::PerlSAX\]{.title-ref} \(Parsing XML\)
+> * \[XML::DOM\]{.title-ref} \(XML processing and output\)
+> * \[Text::Glob\]{.title-ref} \(used by the \[project\_build\]{.title-ref}
+>
+>   script\)
 
 * for the download scripts:
 
@@ -157,11 +168,13 @@ If you do not have Module::Build 0.36 or above, you can install the dependencies
 > * Log::Handler;
 > * Digest::MD5
 
+::: {.index} Perl installation :::
+
 ## How to install all the Perl Modules to Run the Data Downloader Script
 
 In order to download all the Perl scripts required by the Data Downloader script, use the following cpan installation command:
 
-```bash
+```text
 $ cpan install DateTime Module::Find Web::Scraper Ouch Number::Format PerlIO::gzip Perl6::Junction List::MoreUtils LWP Module::Find Moose MooseX::Role::WithOverloading MooseX::Types Text::CSV_XS URI XML::Parser::PerlSAX XML::DOM Text::Glob MooseX::FollowPBP MooseX::ABC MooseX::FileAttribute
 ```
 

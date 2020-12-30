@@ -1,6 +1,6 @@
 # Solr
 
-InterMine uses Solr for its keyword search. Now the first search is instant, you can inspect the search index directly \(via [http://localhost:8983/solr/](http://localhost:8983/solr/)\) and there's a facet web service \(via `/service/facet-list` and `/service/facets?q=gene`\). Certain bugs, e.g. searching for the gene "OR", are also now fixed.
+InterMine uses Solr for its keyword search. Now the first search is instant, you can inspect the search index directly \(via [http://localhost:8983/solr/](http://localhost:8983/solr/)\) and there\'s a facet web service \(via \[/service/facet-list\]{.title-ref} and \[/service/facets?q=gene\]{.title-ref}\). Certain bugs, e.g. searching for the gene \"OR\", are also now fixed.
 
 See below for how to install and configure Solr search for your InterMine
 
@@ -34,22 +34,22 @@ Otherwise the com.ctc.wstx.stax.WstxOutputFactory class is loaded. See [\#1889](
 
 ## Install SOLR
 
-Download [Solr binary package](http://archive.apache.org/dist/lucene/solr/7.2.1/) and extract it to any place you like. Inside `/solr-7.2.1` directory start the server with this command:
+Download [Solr binary package](http://archive.apache.org/dist/lucene/solr/7.2.1/) and extract it to any place you like. Inside \[/solr-7.2.1\]{.title-ref} directory start the server with this command:
 
-```bash
+```text
 # Starts the server instance on port 8983
 solr-7.2.1 $ ./bin/solr start
 ```
 
 ## Initialising Search Indexes
 
-{% hint style="info" %}
-Be sure your $GRADLE\_OPTS parameter is set correctly so you have enough memory and disk space for the search index.
-{% endhint %}
+::: {.note} ::: {.title} Note :::
+
+Be sure your $GRADLE\_OPTS parameter is set correctly so you have enough memory and disk space for the search index. :::
 
 To create a Intermine collection for search process, run this command inside the solr directory.
 
-```bash
+```text
 # Initialises the search index
 # replace "flymine-search" with whatever you configured above in the properties file
 solr-7.2.1 $ ./bin/solr create -c flymine-search
@@ -57,7 +57,7 @@ solr-7.2.1 $ ./bin/solr create -c flymine-search
 
 To create a Intermine collection for autocomplete process, run this command inside the solr directory.
 
-```bash
+```text
 # Initaliases the autocomplete index
 # replace "flymine-autocomplete" with whatever you configured above in the properties file
 solr-7.2.1 $ ./bin/solr create -c flymine-autocomplete
@@ -65,15 +65,17 @@ solr-7.2.1 $ ./bin/solr create -c flymine-autocomplete
 
 ## Create Search Indexes
 
-To populate your search index, you'll need to add postprocesses to your mine's project XML file: `create-search-index` and `create-autocomplete-index`.
+To populate your search index, you\'ll need to add postprocesses to your mine\'s project XML file: \[create-search-index\]{.title-ref} and \[create-autocomplete-index\]{.title-ref}.
 
-See [Project XML](../../database/database-building/project-xml.md) and [Post processing](../../database/database-building/post-processing/index.md) for details.
+See `/database/database-building/project-xml`{.interpreted-text role="doc"} and `/database/database-building/post-processing/index`{.interpreted-text role="doc"} for details.
 
 ## Configuring Search Results
 
-See [Keyword Search](../../webapp/keyword-search/index.md) for details on how to configure the search results.
+See `/webapp/keyword-search/index`{.interpreted-text role="doc"} for details on how to configure the search results.
 
 ## Production search
 
-You can easily copy your index from your dev to your production server. You can copy the entire `/solr` directory then do `./bin/solr start`. You can also [dump / restore the index](https://lucene.apache.org/solr/guide/6_6/making-and-restoring-backups.html). Be sure to copy the `managed-schema` file over as well the first time. Don't forget to restart Solr after making changes.
+You can easily copy your index from your dev to your production server. You can copy the entire \[/solr\]{.title-ref} directory then do \[./bin/solr start\]{.title-ref}. You can also [dump / restore the index](https://lucene.apache.org/solr/guide/6_6/making-and-restoring-backups.html). Be sure to copy the \[managed-schema\]{.title-ref} file over as well the first time. Don\'t forget to restart Solr after making changes.
+
+::: {.index} Solr, Lucene, search index, autocomplete :::
 
