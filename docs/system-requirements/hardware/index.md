@@ -32,17 +32,11 @@ The hardware used for a data loading has a **significant** impact on data loadin
 
 #### Recommended minimum harware requirements for a large InterMine instance
 
-| CPU | RAM | Storage |
-| :--- | :--- | :--- |
-| 8 cores | 32 GB RAM | ~2TB usable storage with RAID 10 \(4TB raw in RAID 10\) |
++-------------+--------------+---------------------------------------+ \| CPU \| RAM \| Storage \| +=============+==============+=======================================+ \| 8 cores \| 32 GB RAM \| ~2TB usable storage with RAID 10 \| \| \| \| \(4TB raw in RAID 10\) \| +-------------+--------------+---------------------------------------+ \| ========= \| ========== \| =============== \| \| \| \| ===================================== \| +-------------+--------------+---------------------------------------+ \| \* SAS disk \| s are faste \| r than SATA \| +-------------+--------------+---------------------------------------+ \| \* Hardware \| &gt; RAID contr \| oller with a battery backed cache \| \| \| \| \(gives faster write speeds\) \| +-------------+--------------+---------------------------------------+ \| \* It doesn \| \'t matter w \| hether storage is in the same box or \| \| \| \| a separate disk array. If it is \| \| \| \| separate a fibrechannel connection is \| \| \| \| required. \| +-------------+--------------+---------------------------------------+
 
-* SAS disks are faster than SATA
-* Hardware RAID controller with a battery backed cache \(gives faster write speeds\)
-* It doesn’t matter whether storage is in the same box or a separate disk array. If it is separate a fibrechannel connection is required.
+::: {.note} ::: {.title} Note :::
 
-{% hint style="info" %}
-It's essential to have separate development and production machines.
-{% endhint %}
+It\'s essential to have separate development and production machines. :::
 
 **Choosing an operating system**
 
@@ -57,7 +51,7 @@ It's essential to have separate development and production machines.
   Software Distribution \(BSD\)
 
 * Use the system that your friendly sysadmin is most familiar with.
-* Not favourites: Tru64 & [Solaris](solaris.md)
+* Not favourites: Tru64 & `solaris`{.interpreted-text role="doc"}
 
 ## What we use
 
@@ -77,7 +71,7 @@ FlyMine has a separate machine to run Tomcat to serve the webapp, this is the ma
 
 ### modENCODE - identical machines
 
-For modENCODE we actually have two identical servers that switch roles with each release. With higher data volumes and more frequent releases this makes more sense as in this way we can avoid dumping and reloading. Unlike FlyMine, modMine's database and webapp live on the same server.
+For modENCODE we actually have two identical servers that switch roles with each release. With higher data volumes and more frequent releases this makes more sense as in this way we can avoid dumping and reloading. Unlike FlyMine, modMine\'s database and webapp live on the same server.
 
 ### Database sizes/ disk space
 
@@ -103,11 +97,13 @@ Disk space on the build and production machines obviously depends on volume of d
 
   space available, at least four times the final database size.
 
-{% hint style="info" %}
-Precomputed tables are pre-joined tables that can be swapped in dynamically to reduce table joins in actual queries and improve performance. This means a lot of duplicated data is stored.
-{% endhint %}
+::: {.note} ::: {.title} Note :::
+
+Precomputed tables are pre-joined tables that can be swapped in dynamically to reduce table joins in actual queries and improve performance. This means a lot of duplicated data is stored. :::
 
 Related topics:
 
-[Solaris](solaris.md)
+::: {.toctree maxdepth="2"} solaris :::
+
+::: {.index} Debian, hardware :::
 

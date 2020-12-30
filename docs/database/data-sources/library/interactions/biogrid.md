@@ -10,13 +10,13 @@ genes, proteins, interactions
 
 From the download section of the BioGRID website: [http://thebiogrid.org](http://thebiogrid.org)
 
-Download the file named: `BIOGRID-ORGANISM-[version].psi25.zip`.
+Download the file named: \[BIOGRID-ORGANISM-\[version\].psi25.zip\]{.title-ref}.
 
 ## How to load the data into your mine
 
 ### project XML example
 
-```markup
+```text
 <source name="biogrid" type="biogrid">
   <property name="src.data.dir" location="/DATA/biogrid"/>
   <property name="src.data.dir.includes" value="*psi25.xml"/>
@@ -30,7 +30,7 @@ Determines which gene identifiers are set. organisms - If none are configured, a
 
 This is what the gene looks like in biogrid
 
-```markup
+```text
 <names>
     <shortLabel>CG1111</shortLabel>
 </names>
@@ -38,7 +38,7 @@ This is what the gene looks like in biogrid
    <primaryRef db="FLYBASE" id="FBgn001" />
 ```
 
-`shortLabel`
+\[shortLabel\]{.title-ref}
 
 To set your gene.identifier to be the shortLabel in the biogrid XML, use this config:
 
@@ -46,7 +46,7 @@ To set your gene.identifier to be the shortLabel in the biogrid XML, use this co
 <TAXON_ID>.<GENE_IDENTIFIER_FIELD>=shortLabel
 ```
 
-`xref`
+\[xref\]{.title-ref}
 
 To set your gene.identifier field to be a value from an xref entry, use this syntax:
 
@@ -54,7 +54,9 @@ To set your gene.identifier field to be a value from an xref entry, use this syn
 <TAXON_ID>.xref.<GENE_IDENTIFIER_FIELD> = <XREF_DB_VALUE>
 ```
 
-{% hint style="info" %}
-xref "db" value is not case sensitive, case seems to vary from file to file.
-{% endhint %}
+::: {.note} ::: {.title} Note :::
+
+xref \"db\" value is not case sensitive, case seems to vary from file to file. :::
+
+::: {.index} BioGRID :::
 

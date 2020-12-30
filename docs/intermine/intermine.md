@@ -21,3 +21,5 @@ To put these on your classpath, add the correct dependencies, e.g.
 compile 'org.intermine:intermine-api:4.0.1'
 ```
 
+::: {.index} Maven, InterMine JARs :::
+

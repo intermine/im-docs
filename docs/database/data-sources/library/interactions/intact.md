@@ -14,7 +14,7 @@ genes, interactions
 
 ### project XML example
 
-```markup
+```text
 <source name="psi-intact" type="psi" dump="true">
   <property name="src.data.dir" location="/data/intact"/>
   <property name="intact.organisms" value="7227"/>
@@ -24,4 +24,6 @@ genes, interactions
 ### psi-intact\_config.properties
 
 Determines which gene identifiers are set. organisms - If none are configured, all interactions are stored.
+
+::: {.index} IntAct :::
 

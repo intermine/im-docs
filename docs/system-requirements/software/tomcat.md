@@ -2,9 +2,9 @@
 
 ## Installation
 
-{% hint style="warning" %}
-Several people have had problems with Tomcat installations set up by Linux package managers, mainly due to permissions issues. We recommend installing according to the these instructions instead.
-{% endhint %}
+::: {.warning} ::: {.title} Warning :::
+
+Several people have had problems with Tomcat installations set up by Linux package managers, mainly due to permissions issues. We recommend installing according to the these instructions instead. :::
 
 The quickest way to get a working Tomcat:
 
@@ -14,7 +14,7 @@ The quickest way to get a working Tomcat:
 
 2. Unpack it:
 
-```bash
+```text
 $ tar -zxvf apache-tomcat-x.y.z.tar.gz
 ```
 
@@ -22,9 +22,9 @@ $ tar -zxvf apache-tomcat-x.y.z.tar.gz
 
 ### Users
 
-Set up a tomcat user with the 'manager' role by editing `conf/tomcat-users.xml`:
+Set up a tomcat user with the \'manager\' role by editing \`conf/tomcat-users.xml\`:
 
-```markup
+```text
 <tomcat-users>
    <role rolename="manager-gui"/>
    <role rolename="manager-script"/>
@@ -34,9 +34,9 @@ Set up a tomcat user with the 'manager' role by editing `conf/tomcat-users.xml`:
 
 You can check this works by accessing the manager interface at [http://localhost:8080/manager/html](http://localhost:8080/manager/html)
 
-If you used a package manager to get Tomcat, the manager may not be included. Here's the Debian command you need:
+If you used a package manager to get Tomcat, the manager may not be included. Here\'s the Debian command you need:
 
-```bash
+```text
 $ apt-get install tomcat7-admin
 ```
 
@@ -44,7 +44,7 @@ $ apt-get install tomcat7-admin
 
 Edit context.xml:
 
-```markup
+```text
 <Context sessionCookiePath="/" useHttpOnly="false" clearReferencesStopTimerThreads="true">
 ... 
 </Context>
@@ -52,7 +52,7 @@ Edit context.xml:
 
 ### Server XML
 
-You also need to check in your `server.xml` file that the correct `UTF-8` encoding has been applied to all connectors in use \(see [CharacterEncoding](http://wiki.apache.org/tomcat/FAQ/CharacterEncoding)\). Make sure that every connector element in use reads as follows:
+You also need to check in your \[server.xml\]{.title-ref} file that the correct \[UTF-8\]{.title-ref} encoding has been applied to all connectors in use \(see [CharacterEncoding](http://wiki.apache.org/tomcat/FAQ/CharacterEncoding)\). Make sure that every connector element in use reads as follows:
 
 ```text
 <Connector ... URIEncoding="UTF-8"/>
@@ -66,36 +66,36 @@ Without this, permalinks may break.
 
 Add this property in startup.sh:
 
-```bash
+```text
 JAVA_OPTS="$JAVA_OPTS -Dorg.apache.el.parser.SKIP_IDENTIFIER_CHECK=true"
 export JAVA_OPTS
 ```
 
-Tomcat 7.0 has improved the enforcement of Expression Language rules and by default doesn't allow the use of Java keywords. This flag makes Tomcat 7 more permissive.
+Tomcat 7.0 has improved the enforcement of Expression Language rules and by default doesn\'t allow the use of Java keywords. This flag makes Tomcat 7 more permissive.
 
 If tomcat is installed as service, add org.apache.el.parser.SKIP\_IDENTIFIER\_CHECK=true to /etc/tomcat7/catalina.properties instead of adding JAVA\_OPTS in startup.sh.
 
 ### Starting Tomcat
 
-If Tomcat isn't already running, start it with this command:
+If Tomcat isn\'t already running, start it with this command:
 
-```bash
+```text
 # from tomcat/bin
 $ ./startup.sh
 ```
 
-Visit the Tomcat manager at [http://localhost:8080/](http://localhost:8080/). The username and password required to access the manager are `webapp.manager` and `webapp.password` as specified in your Mine properties file.
+Visit the Tomcat manager at [http://localhost:8080/](http://localhost:8080/). The username and password required to access the manager are \[webapp.manager\]{.title-ref} and \[webapp.password\]{.title-ref} as specified in your Mine properties file.
 
 ### Stopping Tomcat
 
 To stop Tomcat, run this command:
 
-```bash
+```text
 # from tomcat/bin
 $ ./shutdown.sh
 ```
 
-You can't drop a database if Tomcat has an open connection to a Postgres database. You have to:
+You can\'t drop a database if Tomcat has an open connection to a Postgres database. You have to:
 
 1. undeploy your webapp
 2. restart tomcat
@@ -105,7 +105,7 @@ You can't drop a database if Tomcat has an open connection to a Postgres databas
 
 #### Out of Memory Errors
 
-To avoid `java.lang.OutOfMemory` errors, specify the JVM heap size in `$TOMCAT_HOME/bin/tomcat.sh`. You can specify the size as part of `TOMCAT_OPTS`:
+To avoid \[java.lang.OutOfMemory\]{.title-ref} errors, specify the JVM heap size in \[$TOMCAT\_HOME/bin/tomcat.sh\]{.title-ref}. You can specify the size as part of \`TOMCAT\_OPTS\`:
 
 ```text
 '-Xmx256m -Xms128m'
@@ -113,11 +113,11 @@ To avoid `java.lang.OutOfMemory` errors, specify the JVM heap size in `$TOMCAT_H
 
 #### Session Errors
 
-If you get a "Session Error" when you start up your webapp, you may need to update your Tomcat configuration to remove application path in front of sessions' cookies.
+If you get a \"Session Error\" when you start up your webapp, you may need to update your Tomcat configuration to remove application path in front of sessions\' cookies.
 
-You get this error because the home page makes several requests but your session is lost between transactions with a new session started with the first query. For instance, when you go to the beta.flymine.org home page your cookie path will initially be "/". To display the "most popular" template queries, a query is run on full URL using the path "/beta". The session with the "/" path is discarded and a new session cookie is created with the "/beta" path. \(You can view the values stored in your cookies via your web browser.\)
+You get this error because the home page makes several requests but your session is lost between transactions with a new session started with the first query. For instance, when you go to the beta.flymine.org home page your cookie path will initially be \"/\". To display the \"most popular\" template queries, a query is run on full URL using the path \"/beta\". The session with the \"/\" path is discarded and a new session cookie is created with the \"/beta\" path. \(You can view the values stored in your cookies via your web browser.\)
 
-Add these 2 attributes to `$TOMCAT/conf/context.xml`
+Add these 2 attributes to \[$TOMCAT/conf/context.xml\]{.title-ref}
 
 ```text
 sessionCookiePath="/"
@@ -125,4 +125,6 @@ useHttpOnly="false"
 ```
 
 [Tomcat 7.0 context documentation](http://tomcat.apache.org/tomcat-7.0-doc/config/context.html)
+
+::: {.index} Tomcat, JAVA\_OPTS, emptySessionPath, sessionCookiePath, session error, out of memory error :::
 

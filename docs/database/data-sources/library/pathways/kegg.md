@@ -14,7 +14,7 @@ genes, pathways
 
 ### project XML example
 
-```text
+```markup
 <source name="kegg-pathway" type="kegg-pathway">
   <property name="src.data.dir" location="/data/kegg"/>
   <property name="kegg.organisms" value="7227"/>
@@ -25,10 +25,8 @@ genes, pathways
 
 Decides which gene identifier fields are populated, mapping from organism taxonId to abbreviation. Only taxonIds specified in project.xml file are downloaded, if no taxonIds are configured, all are loaded. For example:
 
-```text
+```markup
 # bacteria
 eco.taxonId = 511145
 ```
-
-::: {.index} KEGG :::
 
