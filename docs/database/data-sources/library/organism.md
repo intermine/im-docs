@@ -8,15 +8,17 @@ update organism entries
 
 ## How to download the data
 
-N/A - source uses NCBI's web services
+N/A - source uses NCBI\'s web services
 
 ## How to load the data into your mine
 
 project XML example
 
-```markup
+```text
 <source name="entrez-organism" type="entrez-organism">
   <property name="src.data.file" location="build/organisms.xml"/>
 </source>
 ```
+
+::: {.index} NCBI, taxonomy ID, organisms, entrez-organism :::
 
