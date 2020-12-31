@@ -14,10 +14,12 @@ Update data source entries
 
 project XML example
 
-```markup
+```text
 <source name="update-data-sources" type="update-data-sources">
   <property name="src.data.file" location="datasources.xml"/>
   <property name="dataSourceFile" value="/data/uniprot/xrefs/dbxref.txt"/>
 </source>
 ```
+
+::: {.index} data sources, data sets :::
 
