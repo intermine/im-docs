@@ -12,9 +12,11 @@ ontology terms
 
 project XML example
 
-```markup
+```text
 <source name="uberon" type="uberon">
   <property name="src.data.file" location="/data/uberon/uberon.obo"/>
 </source>
 ```
+
+::: {.index} Uberon, anatomy ontology :::
 
