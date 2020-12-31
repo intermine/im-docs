@@ -55,7 +55,7 @@
           * [VCF files](docs/database/data-sources/library/variation/vcf.md)
       * [custom](docs/database/data-sources/custom/README.md)
         * [Writing your own data source](docs/database/data-sources/custom/index.md)
-        * [dataparser-versions](docs/database/data-sources/custom/dataparser-versions.md)
+        * [Data Source Versions](docs/database/data-sources/custom/dataparser-versions.md)
       * [apis](docs/database/data-sources/apis/README.md)
         * [InterMine Items XML](docs/database/data-sources/apis/index.md)
         * [Java Items API](docs/database/data-sources/apis/java-items-api.md)
