@@ -12,9 +12,11 @@ Contact OMIM for your API key. Use our [script](https://github.com/intermine/int
 
 project XML example
 
-```markup
+```text
 <source name="omim" type="omim">
   <property name="src.data.dir" location="/data/omim"/>
 </source>
 ```
+
+::: {.index} OMIM, disease data :::
 
