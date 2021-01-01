@@ -73,7 +73,7 @@
       * [Priority Configuration](docs/database/database-building/priority-config.md)
       * [post-processing](docs/database/database-building/post-processing/README.md)
         * [Post processing](docs/database/database-building/post-processing/index.md)
-        * [objectstore-summary-properties](docs/database/database-building/post-processing/objectstore-summary-properties.md)
+        * [ObjectStore Summary](docs/database/database-building/post-processing/objectstore-summary-properties.md)
       * [Post build updating with SQL triggers](docs/database/database-building/post-build-updating-with-sql-triggers.md)
       * [Debugging](docs/database/database-building/debugging.md)
     * [data-integrity-checks](docs/database/data-integrity-checks/README.md)
