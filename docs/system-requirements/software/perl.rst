@@ -18,28 +18,28 @@ CPAN
 
 CPAN stands for the Comprehensive Perl Archive Network - and is the software repository for
 Perl modules (you can compare it to `python's pypi <http://pypi.python.org/pypi/>`_, Yum/Apt
-repositories in Linux, or Apple's App Store). If you have Perl  installed you have CPAN. 
+repositories in Linux, or Apple's App Store). If you have Perl  installed, you have CPAN. 
 To check type `cpan` in a terminal.
 
-To install modules with CPAN you may first need to set up the installer, in a terminal run:
+To install modules with CPAN you may first need to set up the installer, in the terminal run:
 
 .. code-block:: bash
 
   $ cpan
 
-This will take you to a cpan shell, which will allow you to configure your properties. to review your current configuration type:
+This will take you to a cpan shell, which will allow you to configure your properties. To review your current configuration type:
 
 .. code-block:: bash
 
   $ o conf
 
-When you first run cpan should run:
+When you first run cpan, you should run:
 
 .. code-block:: bash
 
   $ o conf init
 
-This will guide you through the set-up procedure. You can run this later change the settings which are set automatically.
+This will guide you through the set-up procedure. You can run this later to change the settings which are set automatically.
 
 To change a setting manually, type:
 
@@ -48,7 +48,7 @@ To change a setting manually, type:
   $ o conf [SETTING NAME] "NEW VALUE"
 
 
-example, to make installed modules uninstall previous versions and use sudo to elevate permissions (very good ideas), type:
+For example, to make installed modules, uninstall previous versions and use sudo to elevate permissions (very good idea), type:
 
 .. code-block:: bash
 
@@ -68,7 +68,7 @@ To install modules, type:
 
   $ cpan Module::Name Another::Module::Name
 
-To force the install for any reason, use the "-f" flag, so type:
+To force the install for any reason, use the "-f" flag, type:
 
 .. code-block:: bash
 
@@ -91,13 +91,13 @@ The procedure is the same as for any other package:
 
   $ sudo apt-get install libxml-writer-perl # installs XML::Writer
 
-There is a predictable name to package mapping: "::" becomes "-", there will be a "lib" on the front, and a "-perl" on the end, so:
+There is a predictable name to package mapping: "::" becomes "-", there will be a "lib" in the front (as a prefix), and a "-perl" in the end (as a suffix), so:
 
 * "`XML::DOM`" becomes "`libxml-dom-perl`"
 * "`Moose`" becomes "`libmoose-perl`"
 * and so on
 
-These are the modules you need to build a database:
+These are the modules you need, to build a database:
 
 .. code-block:: bash
 
@@ -113,7 +113,7 @@ To search for a package you can type:
 Manually installing InterMine modules
 -------------------------------------------------
 
-The InterMine Perl modules are available on CPAN, and you are encouraged to download them from there. However, you can install them manually too. First you will need to check-out the source code. (It is recommended you update your version of Module::Build to at least version 0.36, as this will allow you to automate the dependency installation.)
+The InterMine Perl modules are available on CPAN, and you are encouraged to download them from there. However, you can install them manually too. First you will need to check-out the source code (it is recommended you update your version of Module::Build to at least version 0.36, as this will allow you to automate the dependency installation).
 
 From your check out (or unzipped tar file) go to the directory "`intermine/perl/`"
 
