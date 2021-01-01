@@ -6,27 +6,27 @@ InterMine can make use of precomputed tables \(analagous to materialised views\)
 
 ### Webapp
 
-As the superuser, when you create a new template or edit an existing one there is a 'precompute' link on the MyMine saved templates list. Clicking this will create a precomputed table for just this query. It can take some time to create the tables and requests aren't put in a queue so it is not a good idea to click many of these links at once. The 'precompute' link will change to 'precomputed' once there is a precomputed table created.
+As the superuser, when you create a new template or edit an existing one there is a \'precompute\' link on the MyMine saved templates list. Clicking this will create a precomputed table for just this query. It can take some time to create the tables and requests aren\'t put in a queue so it is not a good idea to click many of these links at once. The \'precompute\' link will change to \'precomputed\' once there is a precomputed table created.
 
 ### Command line
 
 Precomputing template queries makes sure that public templates will always run quickly. You can precompute all templates saved as the superuser in your userprofile database from the command line. This checks each template first to see if it is already precomputed.
 
-```bash
+```text
 ~/git/flymine $ ./gradlew precomputeTemplates
 ```
 
 ## Manual specification of queries
 
-You can specify any IQL query to precompute in the file `MINE_NAME/dbmodel/resources/genomic_precompute.properties`. These allow you to design queries you think are likely to be created commonly or be parts of larger queries. It is the place to put queries that will be used in list upload and widgets to ensure they run fast.
+You can specify any IQL query to precompute in the file \[MINE\_NAME/dbmodel/resources/genomic\_precompute.properties\]{.title-ref}. These allow you to design queries you think are likely to be created commonly or be parts of larger queries. It is the place to put queries that will be used in list upload and widgets to ensure they run fast.
 
-```bash
+```text
 ~/git/flymine $ ./gradlew precomputeQueries
 ```
 
 Here is an example query:
 
-```sql
+```text
 precompute.query.6 = 
  SELECT a1_.id AS a3_, a2_.name AS a4_ 
  FROM org.intermine.model.bio.Protein AS a1_, org.intermine.model.bio.Organism AS a2_ 
@@ -43,7 +43,7 @@ precompute.constructquery.20 = Protein organism Organism
 
 To drop all precomputed tables in a database:
 
-```bash
+```text
 ~/git/flymine $ ./gradlew dropPrecomputedTables
 ```
 
@@ -51,7 +51,7 @@ To drop all precomputed tables in a database:
 
 You can see the names and sizes of all precomputed tables by running this SQL query in psql:
 
-```sql
+```text
 SELECT relname,category,pg_size_pretty(pg_relation_size(oid)) 
 FROM pg_class, precompute_index 
 WHERE relname NOT LIKE 'pg_%' and relname = name 
@@ -60,7 +60,7 @@ ORDER BY pg_relation_size(oid) DESC;
 
 Note that this only lists the table sizes, there may be many indexes associated with each table which may also be large. To see the size of all tables and indexes in the database use:
 
-```sql
+```text
 SELECT relname,pg_size_pretty(pg_relation_size(oid)) 
 FROM pg_class 
 WHERE relname NOT LIKE 'pg_%' 
@@ -69,9 +69,12 @@ ORDER BY pg_relation_size(oid) DESC;
 
 ## Template Summaries
 
-After the templates are precomputed, they are "summarised". This means any dropdowns for the templates will be updated to only include valid values for that specific templates. How it's done:
+After the templates are precomputed, they are \"summarised\". This means any dropdowns for the templates will be updated to only include valid values for that specific templates. How it\'s done:
 
-* All editable constraints are dropped, non-editable constraints are kept
+* All editable constraints are dropped, non-editable constraints are
+
+  kept
+
 * Valid values \(summaries\) for dropdowns are recalculated
 
 For example, if you have a template with an option to select a chromosome, all chromosomes in the database will be displayed. However if you have a non-editable constraint setting the value of the organism to be human, only the human chromosomes will be displayed after summarisation.
@@ -83,8 +86,13 @@ For example, if you have a template with an option to select a chromosome, all c
 This is what we did for FlyMine:
 
 1. Common joins to be done, e.g. Gene to protein
-2. Widgets - see what queries the widgets are running, add those queries
-3. Problem areas being reported, certain queries being slower than expected, e.g. interaction queries
+2. Widgets - see what queries the widgets are running, add those
+
+   queries
+
+3. Problem areas being reported, certain queries being slower than
+
+   expected, e.g. interaction queries
 
 These three things, along with precomputing templates, seems to work best.
 
@@ -96,7 +104,7 @@ When the query is logged, it gives the execution time as well:
 
 &gt; bag tables: 0 ms, generate: 1 ms, optimise: 0 ms, ms, estimate: 9 ms, execute: 61 ms, convert results: 7 ms, extra queries: 0 ms, total: 78 ms, rows: 806
 
-This lets you compare query speeds. You can tell the query used a precomputed table by checking the logs for the prefix `precomp_`
+This lets you compare query speeds. You can tell the query used a precomputed table by checking the logs for the prefix \[precomp\_\]{.title-ref}
 
 ### Were all these queries \(in the flymine file\) created by hand?
 
@@ -104,8 +112,15 @@ No. We ran all of our analysis tools on the list analysis page, e.g GO enrichmen
 
 ### PostgreSQL is not using my precomputed table when running a query. Help!
 
-1. You must restart Tomcat after you have created all of the precomputed tables or else your new tables won't be used
-2. PostgreSQL uses EXPLAIN to decide which query is fastest. If using your table isn't going to be faster, it won't use it. PostgreSQL may be wrong, but that's how it decides which table to use. See
+1. You must restart Tomcat after you have created all of the
+
+   precomputed tables or else your new tables won\'t be used
+
+2. PostgreSQL uses EXPLAIN to decide which query is fastest. If using
+
+   your table isn\'t going to be faster, it won\'t use it. PostgreSQL
+
+   may be wrong, but that\'s how it decides which table to use. See
 
    [http://www.postgresql.org/docs/9.2/static/using-explain.html](http://www.postgresql.org/docs/9.2/static/using-explain.html) for
 
@@ -117,7 +132,9 @@ The LOG records three queries:
 
 1. the IQL \(InterMine Query Language\) query
 2. the generated SQL query
-3. the optimised query &lt;-- this is where you will see your precomputed tables used
+3. the optimised query \&lt;-- this is where you will see your
+
+   precomputed tables used
 
 ### IQL
 
@@ -139,15 +156,17 @@ optimised sql: SELECT DISTINCT P98.a1_id AS a7_id, P98.a3_id AS a2_id, P96.id AS
 
 bag tables: 0 ms, generate: 1 ms, optimise: 0 ms, ms, estimate: 14 ms, execute: 11 ms, convert results: 0 ms, extra queries: 27 ms, total: 53 ms, rows: 1
 
-Note the `FROM` clause now includes `precomp_45503`. You can query for this name in the database:
+Note the \[FROM\]{.title-ref} clause now includes \[precomp\_45503\]{.title-ref}. You can query for this name in the database:
 
-```sql
+```text
 select * from precompute_index where name ='precomp_45503';
 ```
 
 You can also run IQL queries directly in the console:
 
-```bash
+```text
 ~/git/flymine $ ./gradlew runIQLQuery -Pquery='some IQL'
 ```
+
+::: {.index} precomputes, query speed, database speed, optimisation :::
 
