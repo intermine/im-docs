@@ -174,7 +174,7 @@ You should also add a line to the pg_hba.conf file to allow logging in via passw
 
 
 .. [#note]
-   The InterMine system stores all text in the database in `UTF-8` format. If you set PostgreSQL to `LATIN-9`, then PostgreSQL will perform some incorrect conversions, and may even give an error. Setting the format to `UTF-8` results in PostgreSQL treating the text completely correctly, which is quite a complicated and slow operation in `UTF-8`.
+   The InterMine system stores all text in the database in `UTF-8` format. If you set PostgreSQL to `LATIN-9`, then PostgreSQL will perform some incorrect conversions, and may even give an error. Setting the format to `UTF-8` results in PostgreSQL treating the text correctly, which is quite complicated and slow.
 
    If you set PostgreSQL to `SQL_ASCII`, then that is a special character set in Postgres, which basically means "do no conversions". This is sufficient for almost all operations. All comparisons and index lookups will be done on a byte-by-byte basis, which is much faster than having to deal with Unicode's complications.
 
