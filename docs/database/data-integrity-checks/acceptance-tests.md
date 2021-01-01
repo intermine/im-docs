@@ -2,17 +2,17 @@
 
 ## How to run the tests
 
-1. Add a file to `MINE_NAME/dbmodel/resources`, eg.
+1. Add a file to \[MINE\_NAME/dbmodel/resources\]{.title-ref}, eg.
 
-   `flymine_acceptance_test.conf`
+   \[flymine\_acceptance\_test.conf\]{.title-ref}
 
 2. run acceptance tests here:
 
-```bash
+```text
 ~/git/flymine $ ./gradlew runAcceptanceTests
 ```
 
-The results will be in `MINE_NAME/dbmodel/build/acceptance_test.html`
+The results will be in \[MINE\_NAME/dbmodel/build/acceptance\_test.html\]{.title-ref}
 
 ## Types of tests
 
@@ -24,7 +24,7 @@ assert {
 }
 ```
 
-Or doesn't have any results:
+Or doesn\'t have any results:
 
 ```text
 no-results {
@@ -41,4 +41,6 @@ some-results {
     note: We should have an Anopheles gambiae  object but not an Anopheles gambiae PEST one
 }
 ```
+
+::: {.index} data integrity, acceptance tests :::
 
