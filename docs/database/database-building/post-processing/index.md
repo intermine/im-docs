@@ -4,37 +4,37 @@ Some operations are performed on the integrated data before the webapp is releas
 
 Post-processing steps are specified in the project XML file and run from the mine:
 
-```text
+```bash
 ~/git/flymine $ ./gradlew postprocess --stacktrace
 ```
 
 To run individual post-process steps use, for example:
 
-```text
+```bash
 ~/git/flymine $ ./gradlew postprocess -Pprocess=do-sources --stacktrace
 ```
 
-When running one postprocess step like this \(multiple steps separated by comma is not supported\), the \[-Pprocess\]{.title-ref} used must match an \[post-process\]{.title-ref} in the \[post-processing\]{.title-ref} section of the \[project.xml\]{.title-ref} file.
+When running one postprocess step like this \(multiple steps separated by comma is not supported\), the `-Pprocess` used must match an `post-process` in the `post-processing` section of the `project.xml` file.
 
-Post-processing is run automatically after integrating if using the \[project\_build\]{.title-ref} script.
+Post-processing is run automatically after integrating if using the `project_build` script.
 
-To add a post-process step to InterMine, you need to add the Java definition to the project and call the post-process from the \[PostProcessOperationsTask\]{.title-ref} class.
+To add a post-process step to InterMine, you need to add the Java definition to the project and call the post-process from the `PostProcessOperationsTask` class.
 
-::: {.note} ::: {.title} Note :::
-
-Be sure to put the postprocesses in the correct order. Each task is executed in the order listed on your project XML so be sure to put the webapp tasks last in the last, for example. Take a look at the FlyMine project XML file if you need help. :::
+{% hint style="info" %}
+Be sure to put the postprocesses in the correct order. Each task is executed in the order listed on your project XML so be sure to put the webapp tasks last in the last, for example. Take a look at the FlyMine project XML file if you need help.
+{% endhint %}
 
 ## Sequence Features
 
 ### create-chromosome-locations-and-lengths
 
-For genome features this will set the \[chromosome\]{.title-ref}, \[chromosomeLocation\]{.title-ref} and \[length\]{.title-ref} fields which are added to make querying more convenient. Some parts of the webapp specific to genome features expect \[chromosomeLocation\]{.title-ref} to be filled in.
+For genome features this will set the `chromosome`, `chromosomeLocation` and `length` fields which are added to make querying more convenient. Some parts of the webapp specific to genome features expect `chromosomeLocation` to be filled in.
 
 _Should I use it?_ Yes, if you have loaded genome annotation.
 
 ### transfer-sequences
 
-Where a Chromosome has a sequence this will find genome features located on it that don\'t have sequence set this will calculate and set the sequence for those features.
+Where a Chromosome has a sequence this will find genome features located on it that don't have sequence set this will calculate and set the sequence for those features.
 
 _Should I use it?_ Yes, if you have loaded genome annotation without sequence set for all features.
 
@@ -58,9 +58,9 @@ _Should I use it?_ If genome annotation you have loaded does not include introns
 
 ### make-spanning-locations
 
-Create a Location that spans the locations of some child objects. Creates a location for Transcript that is as big as all the exons in its exons collection and a location for gene that\'s as big as all the transcripts in its transcripts collection.
+Create a Location that spans the locations of some child objects. Creates a location for Transcript that is as big as all the exons in its exons collection and a location for gene that's as big as all the transcripts in its transcripts collection.
 
-_Should I use it?_ Only if you don\'t have locations for Genes or Transcripts loaded from another source.
+_Should I use it?_ Only if you don't have locations for Genes or Transcripts loaded from another source.
 
 ## Overlapping and Flanking Features
 
@@ -74,7 +74,7 @@ _Should I use it?_ Yes, if you have loaded genome annotation and think Intergeni
 
 Create a GIST index on the location table to help with overlap queries.
 
-_Should I use it?_ Yes, if you have genome annotation and would like to query overlaps. You must have bioseg installed unless you are using Postgres 9.2 or later. See `/data-model/overlaps`{.interpreted-text role="doc"} for details.
+_Should I use it?_ Yes, if you have genome annotation and would like to query overlaps. You must have bioseg installed unless you are using Postgres 9.2 or later. See [Querying over genomic ranges](../../../data-model/overlaps.md) for details.
 
 ### create-bioseg-location-index
 
@@ -84,9 +84,9 @@ _Should I use it?_ No. Use \[create-location-overlap-index\]{.title-ref} instead
 
 ### create-overlap-view
 
-Replace the \[sequencefeatureoverlappingfeatures\]{.title-ref} table with a view that uses a fast index to calculate the overlaps.
+Replace the `sequencefeatureoverlappingfeatures` table with a view that uses a fast index to calculate the overlaps.
 
-_Should I use it?_ Yes, if you have genome annotation and would like to query overlaps. You must have bioseg installed unless you are using Postgres 9.2 or later. See `/data-model/overlaps`{.interpreted-text role="doc"} for details.
+_Should I use it?_ Yes, if you have genome annotation and would like to query overlaps. You must have bioseg installed unless you are using Postgres 9.2 or later. See [Querying over genomic ranges](../../../data-model/overlaps.md) for details.
 
 ### create-gene-flanking-features
 
@@ -98,7 +98,7 @@ _Should I use it?_ Yes, if you have genome annotation and would like to query fl
 
 ### do-sources
 
-This searches through all sources included in project.xml and runs post-processing steps if any exist. Looks for the property \[postprocessor.class\]{.title-ref} in the \[project.properties\]{.title-ref} of each source, the class specified should be a subclass of \[org.intermine.postprocess.PostProcessor\]{.title-ref}.
+This searches through all sources included in project.xml and runs post-processing steps if any exist. Looks for the property `postprocessor.class` in the `project.properties` of each source, the class specified should be a subclass of `org.intermine.postprocess.PostProcessor`.
 
 _Should I use it?_ - Yes, if you are using standard InterMine sources, they may have post-processing steps.
 
@@ -120,19 +120,17 @@ _Should I use it?_ Yes, if you are releasing a webapp.
 
 Populate the SequenceFeature.childFeatures\(\) collection.
 
-_Should I use it?_ Yes, only if you use JBrowse and you want your JBrowse web-service endpoints available \(see also `/webapp/third-party-tools/jbrowse`{.interpreted-text role="doc"} and `/web-services/index`{.interpreted-text role="doc"}\).
+_Should I use it?_ Yes, only if you use JBrowse and you want your JBrowse web-service endpoints available \(see also [JBrowse](../../../webapp/third-party-tools/jbrowse.md) and [Web Services](../../../web-services/index.md)\).
 
 ### summarise-objectstore
 
-Counts of the number of objects of each class and for class fields that have a small number of value, a list of those values. See `/database/database-building/post-processing/objectstore-summary-properties`{.interpreted-text role="doc"} for more information.
+Counts of the number of objects of each class and for class fields that have a small number of value, a list of those values. See  [ObjectStore Summary](objectstore-summary-properties.md) for more information.
 
-_Should I use it?_ - Always. Run after \[create-attribute-indexes\]{.title-ref} to speed this step up.
+_Should I use it?_ - Always. Run after `create-attribute-indexes` to speed this step up.
 
 ### create-autocomplete-index
 
 Creates the indexes for the fields set to be autocompleted in the ObjectStoreSummaryProperties file.
 
 _Should I use it?_ Yes, if you have a webapp.
-
-::: {.index} create-chromosome-locations-and-lengths, transfer-sequences, create-references, create-intron-features, create-intergenic-region-features, create-overlap-view, create-bioseg-location-index, create-gene-flanking-features, do-sources, create-search-index, create-attribute-indexes, summarise-objectstore, create-autocomplete-index :::
 
