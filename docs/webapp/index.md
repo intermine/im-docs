@@ -7,10 +7,8 @@
 When the webapp is compiled, the order of projects is:
 
 1. intermine/webapp
-2. bio/webapp \&lt;-- overwrites files in intermine/webapp
-3. MINE\_NAME/webapp \&lt;-- overwrites files in intermine/webapp and
+2. bio/webapp &lt;-- overwrites files in intermine/webapp
+3. MINE\_NAME/webapp &lt;-- overwrites files in intermine/webapp and bio/webapp
 
-   bio/webapp
-
-You can overwrite any JSP in the intermine or bio/webapp projects by having a JSP of the same name in your mine\'s webapp directory. The danger of this is that you will have to upgrade these JSPs manually.
+You can overwrite any JSP in the intermine or bio/webapp projects by having a JSP of the same name in your mine's webapp directory. The danger of this is that you will have to upgrade these JSPs manually.
 
