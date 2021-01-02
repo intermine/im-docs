@@ -15,22 +15,22 @@ After getting the source code for InterMine and ensuring you have all of the req
 
 We also recommend looking at the files that run our continuous integration tests for examples of how this can be automated:
 
-> * \[config/travis/init.sh\]{.title-ref}
-> * \[config/travis/run.sh\]{.title-ref}
+> * `config/travis/init.sh`
+> * `config/travis/run.sh`
 
 ## Running the core tests
 
 ### Create databases
 
-Create blank databases required by the tests named: \[unittest\]{.title-ref}, \[truncunittest\]{.title-ref}, \[fulldatatest\]{.title-ref}, \[flatmodetest\]{.title-ref}, \[notxmltest\]{.title-ref}. See PostgresBasics and introduction to some Postgres commands.
+Create blank databases required by the tests named: `unittest`, `truncunittest`, `fulldatatest`, `flatmodetest`, `notxmltest`. See PostgresBasics and introduction to some Postgres commands.
 
-```text
+```bash
 $ for db in unittest truncunittest fulldatatest flatmodetest notxmltest; do createdb $db; done
 ```
 
 ### Update properties file
 
-You need to set up a properties file to provide database details to the test code. In your home directory create a file called \[intermine-test.properties\]{.title-ref} and update the server name, database names, and database username and password. You can use different database names as long as the actual database name used to create the database and the \[db.xxx.datasource.databaseName\]{.title-ref} value match.
+You need to set up a properties file to provide database details to the test code. In your home directory create a file called `intermine-test.properties` and update the server name, database names, and database username and password. You can use different database names as long as the actual database name used to create the database and the `db.xxx.datasource.databaseName` value match.
 
 ```text
 # super user
@@ -78,33 +78,33 @@ db.unittest.datasource.password=SECRET_PASSWORD
 
 ### Run the tests
 
-```text
+```bash
 # in intermine
 $ ./gradlew test
 ```
 
 ### View results
 
-The HTML test report will be created in the build directory, eg. \[intermine/objectstore/test/build/test/results/index.html\]{.title-ref}
+The HTML test report will be created in the build directory, eg. `intermine/objectstore/test/build/test/results/index.html`
 
 Pull requests are not accepted without passing tests, and we have Travis set up to run tests on every commit. We keep the tests at a 100% pass rate at all times.
 
 ## Running the bio tests
 
-InterMine includes a \[bio\]{.title-ref} project which contains specific code for biological data and parsers for many data formats. To run tests on this code you need to set up another properties file and create some more databases.
+InterMine includes a `bio` project which contains specific code for biological data and parsers for many data formats. To run tests on this code you need to set up another properties file and create some more databases.
 
 ### Create databases
 
-Create blank databases called \[bio-test\]{.title-ref} and \[bio-fulldata-test\]{.title-ref} \(as above you can use different names as long as they match the \[db.xxx.datasource.databaseName\]{.title-ref} values. For example:
+Create blank databases called `bio-test` and `bio-fulldata-test`\(as above you can use different names as long as they match the `db.xxx.datasource.databaseName` values. For example:
 
-```text
+```bash
 $ createdb bio-test
 $ createdb bio-fulldata-test
 ```
 
 ### Update properties file
 
-Set up a properties file to provide database details to the test code. In \[.intermine\]{.title-ref} create a file called \[intermine-bio-test.properties\]{.title-ref} and configure the server name, database names, and database username and password.
+Set up a properties file to provide database details to the test code. In `.intermine` create a file called `intermine-bio-test.properties` and configure the server name, database names, and database username and password.
 
 ```text
 os.default=os.production-client
@@ -131,17 +131,17 @@ db.bio-test.datasource.password=SECRET_PASSWORD
 
 ### Build the databases
 
-Build database tables automatically generated from the bio model by running the following in \`bio\`:
+Build database tables automatically generated from the bio model by running the following in `bio`:
 
-```text
+```bash
 $ ./gradlew builddb
 ```
 
 ### Run the tests
 
-Execute the tests, in \[bio\]{.title-ref} run:
+Execute the tests, in `bio` run:
 
-```text
+```bash
 $ ./gradlew test
 ```
 
@@ -149,12 +149,10 @@ $ ./gradlew test
 
 You can also run a test for an individual source by using this syntax:
 
-```text
+```bash
 # in bio
 $ ./gradlew bio-model:test
 ```
 
-The test results will be located at \[bio/model/test/build/test/results/index.html\]{.title-ref}. You can also run these as JUnit tests directly from Eclipse or Intellij.
-
-::: {.index} tests, unit tests :::
+The test results will be located at `bio/model/test/build/test/results/index.html`. You can also run these as JUnit tests directly from Eclipse or Intellij.
 

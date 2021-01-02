@@ -23,19 +23,17 @@ We ended up selecting terms that were in the following ontologies:
 * [EDAM](https://bioportal.bioontology.org/ontologies/EDAM)
 * [MeSH](https://bioportal.bioontology.org/ontologies/MESH)
 * [Dublin Core](https://bioportal.bioontology.org/ontologies/DC)
-* \[National Cancer Institute Thesaurus \(US
-
-  NIH\)\]\([https://bioportal.bioontology.org/ontologies/NCIT](https://bioportal.bioontology.org/ontologies/NCIT)\)
+* [National Cancer Institute Thesaurus \(US NIH\)](https://bioportal.bioontology.org/ontologies/NCIT)
 
 ## How do you add an ontology term to the data model?
 
-We\'ve already added the terms to the core InterMine data model, and data types in the sequence ontology are updated automatically. You\'ll need to add ontology terms only to classes and attributes that you have added to your mine.
+We've already added the terms to the core InterMine data model, and data types in the sequence ontology are updated automatically. You'll need to add ontology terms only to classes and attributes that you have added to your mine.
 
-Once you have selected the correct ontology term, use the attribute \[term\]{.title-ref} and add it to your data model. See the example below
+Once you have selected the correct ontology term, use the attribute `term` and add it to your data model. See the example below
 
 ## An example additions.xml snippet with an ontology term
 
-```text
+```markup
 <?xml version="1.0"?>
 <model name="testing" package="org.intermine.model.bio">
   <class name="Protein" is-interface="true" term="http://semanticscience.org/resource/SIO_010043">
@@ -46,7 +44,5 @@ Once you have selected the correct ontology term, use the attribute \[term\]{.ti
 
 For a more complete example, see [FlyMine](http://www.flymine.org/flymine/service/model) which covers many data types.
 
-For a detailed description of the data model, see `/data-model/model`{.interpreted-text role="doc"}.
-
-::: {.index} model with ontology terms, data model with ontology terms :::
+For a detailed description of the data model, see [Model Description](model.md).
 

@@ -8,12 +8,10 @@ Unzip the files and put them in the same directory.
 
 Project XML
 
-```text
+```markup
 <source name="orthodb" type="orthodb">
   <property name="src.data.dir" location="/DATA/orthodb"/>
   <property name="orthodb.organisms" value="7227 9606 10090 10116 7955 6239 4932"/>
 </source>
 ```
-
-::: {.index} OrthoDB :::
 

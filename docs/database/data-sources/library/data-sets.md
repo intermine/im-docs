@@ -8,9 +8,9 @@ Update data source and data set entries
 
 ## How to download the data
 
-Create your own datasets.xml file with your data in InterMine items XML format and put in your mine\'s \[dbmodel/resources\]{.title-ref} directory so that it\'s on your classpath.
+Create your own datasets.xml file with your data in InterMine items XML format and put in your mine's `dbmodel/resources` directory so that it's on your classpath.
 
-```text
+```markup
 <?xml version="1.0"?>
 <items>
 <item id="09" class="" implements="DataSource">
@@ -32,11 +32,9 @@ Create your own datasets.xml file with your data in InterMine items XML format a
 
 project XML example
 
-```text
+```markup
 <source name="flymine-static" type="flymine-static">
   <property name="src.data.file" location="/data/datasets.xml"/>
 </source>
 ```
-
-::: {.index} data sources, data sets, provenance :::
 

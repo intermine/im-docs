@@ -16,7 +16,7 @@ First you will need a VCF file, here is an example:
 
 ### Add vcf to the list of datasources to be integrated
 
-```text
+```markup
 <source name="my-data-source" type="vcf">
   <property name="src.data.dir" location="/data/variation/current" />
   <property name="vcf.includes" value="*.vcf" />
@@ -25,6 +25,4 @@ First you will need a VCF file, here is an example:
   <property name="vcf.vcfDataSourceName" value="Ensembl" />
 </source>
 ```
-
-::: {.index} SNPs, vcf, .vcf, variant file format, insertions, deletions, SNVs :::
 

@@ -1,12 +1,6 @@
-# objectstore-summary-properties
+# ObjectStore Summary
 
-orphan
-
-:
-
-## ObjectStore Summary
-
-There are several processes run after the data loading is completed, one of which the objectstore summarisation. This step counts the number of objects of particular classes, identifies any empty references/collections and collects values to be appear in dropdowns in the query builder and templates. The summarisation process also constructs the indexes needed for \"type-ahead\" autocompletion, this is configured by adding entries to the objectstoresummary.config.properties.
+There are several processes run after the data loading is completed, one of which the objectstore summarisation. This step counts the number of objects of particular classes, identifies any empty references/collections and collects values to be appear in dropdowns in the query builder and templates. The summarisation process also constructs the indexes needed for "type-ahead" autocompletion, this is configured by adding entries to the objectstoresummary.config.properties.
 
 ### Dropdowns
 
@@ -27,28 +21,26 @@ You can set up autocompletion by completing these steps:
 
 1. Add all fields you want to be autocompleted to this file, like so:
 
-```text
-# in MINE_NAME/dbmodel/resources/objectstoresummary.config.properties
-org.intermine.model.bio.Disease.autocomplete = description
-```
+   ```text
+   # in MINE_NAME/dbmodel/resources/objectstoresummary.config.properties
+   org.intermine.model.bio.Disease.autocomplete = description
+   ```
 
-1. Add the postprocess to your MINE\_NAME/project.xml file.
+2. Add the postprocess to your MINE\_NAME/project.xml file.
 
-```text
-<post-processing>    
-  <post-process name="create-autocomplete-index"/>
-</post-processing>
-```
+   ```markup
+   <post-processing>    
+     <post-process name="create-autocomplete-index"/>
+   </post-processing>
+   ```
 
-1. In the /postprocess directory, run this command:
+3. In the /postprocess directory, run this command:
 
-```text
-~/git/flymine $ ./gradlew postprocess -Pprocess=create-autocomplete-index --stacktrace
-```
+   ```bash
+   ~/git/flymine $ ./gradlew postprocess -Pprocess=create-autocomplete-index --stacktrace
+   ```
 
 This process will add all fields set in this properties file to the autocompletion index.
 
-Now, when you release your webapp, fields you\'ve configured will suggest similar terms as users are typing in the QueryBuilder or the template form.
-
-::: {.index} ObjectStore Summary, autocompletion, \"type ahead\" autocompletion, dropdowns :::
+Now, when you release your webapp, fields you've configured will suggest similar terms as users are typing in the QueryBuilder or the template form.
 

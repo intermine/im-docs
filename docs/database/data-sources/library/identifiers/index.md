@@ -8,35 +8,35 @@ genes
 
 ## How to download the data
 
-flybase-identifiers
+**flybase-identifiers**
 
-: [http://flybase.org/downloads/archivedata](http://flybase.org/downloads/archivedata) - you can download different versions
+[http://flybase.org/downloads/archivedata](http://flybase.org/downloads/archivedata) - you can download different versions
 
-zfin-identifiers
+**zfin-identifiers**
 
-: [http://zfin.org/downloads/ensembl\_1\_to\_1.txt](http://zfin.org/downloads/ensembl_1_to_1.txt)
+[http://zfin.org/downloads/ensembl\_1\_to\_1.txt](http://zfin.org/downloads/ensembl_1_to_1.txt)
 
-sgd-identifiers
+**sgd-identifiers**
 
-: [http://downloads.yeastgenome.org/curation/chromosomal\_feature/SGD\_features.tab](http://downloads.yeastgenome.org/curation/chromosomal_feature/SGD_features.tab)
+[http://downloads.yeastgenome.org/curation/chromosomal\_feature/SGD\_features.tab](http://downloads.yeastgenome.org/curation/chromosomal_feature/SGD_features.tab)
 
-wormbase-identifiers
+**wormbase-identifiers**
 
-: query wormbase biomart webservice
+query wormbase biomart webservice
 
-mgi-identifiers
+**mgi-identifiers**
 
-: [ftp://ftp.informatics.jax.org/pub/reports/MGI\_Coordinate.rpt](ftp://ftp.informatics.jax.org/pub/reports/MGI_Coordinate.rpt)
+[ftp://ftp.informatics.jax.org/pub/reports/MGI\_Coordinate.rpt](ftp://ftp.informatics.jax.org/pub/reports/MGI_Coordinate.rpt)
 
-rgd-identifiers
+**rgd-identifiers**
 
-: [ftp://rgd.mcw.edu/pub/data\_release/GENES\_RAT.txt](ftp://rgd.mcw.edu/pub/data_release/GENES_RAT.txt)
+[ftp://rgd.mcw.edu/pub/data\_release/GENES\_RAT.txt](ftp://rgd.mcw.edu/pub/data_release/GENES_RAT.txt)
 
 ## How to load the data into your mine
 
 project XML example
 
-```text
+```markup
 <source name="flybase-identifiers" type="flybase-identifiers">
   <property name="src.data.dir" location="/DATA/flybase-identifiers"/>
 </source>   
@@ -61,6 +61,4 @@ project XML example
   <property name="src.data.dir" location="/DATA/rgd-identifiers"/>
 </source>
 ```
-
-::: {.index} identifiers, MGI, RGD, SGD, ZFIN, FlyBase :::
 

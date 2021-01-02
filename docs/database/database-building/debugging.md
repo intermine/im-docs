@@ -12,11 +12,11 @@ java.lang.RuntimeException: Exception while dataloading - to allow multiple erro
 
 ### Problem
 
-This error means the code tried to store an object that was referenced by another object but could not find it. This means you\'ve set a reference to an object, but not stored that referenced object in the database.
+This error means the code tried to store an object that was referenced by another object but could not find it. This means you've set a reference to an object, but not stored that referenced object in the database.
 
-Here\'s an example:
+Here's an example:
 
-```text
+```java
 // set reference to organism object
 gene.setReference("organism", organism);
 // store gene object
@@ -38,9 +38,9 @@ Make sure your code is correct and refers only to objects that are going to be s
 
   validate the data before loading.
 
-To find out which object is not being stored, use the \[item identifier\]{.title-ref} listed in the error message -- in this case, \[6\_1083\]{.title-ref}. Look in the \[items\]{.title-ref} database to determine the values for this object.
+To find out which object is not being stored, use the `item identifier` listed in the error message -- in this case, `6_1083`. Look in the `items` database to determine the values for this object.
 
-```text
+```sql
 select * from item where identifier = '6_1083'
 ```
 
@@ -52,19 +52,17 @@ implementations | classname | identifier |   id
                 | Strain    | 6_1083     | 1380031
 ```
 
-We see this object is a Strain. We now know which type of data is not being stored. We can then look in the attribute table to get the identifier. Using the \[id\]{.title-ref} we can query the attribute table.
+We see this object is a Strain. We now know which type of data is not being stored. We can then look in the attribute table to get the identifier. Using the `id` we can query the attribute table.
 
-```text
+```sql
 select * from attribute where itemid = 1380031;
 ```
 
 This gives us any attributes stored for this object, in our example this gives us the primary identifier.
 
-```text
+```sql
 intermine_value |       name        | itemid
 -----------------+-------------------+---------
 LS2329          | primaryIdentifier | 1380031
 ```
-
-::: {.index} debugging, build failed, ID Map, ProxyReference :::
 

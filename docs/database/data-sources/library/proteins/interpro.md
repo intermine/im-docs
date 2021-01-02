@@ -1,6 +1,4 @@
-# interpro
-
-## InterPro
+# InterPro
 
 InterMine has two InterPro data sources. One that loads the protein domains, e.g. name and description and one that loads the relationship between the proteins and domains.
 
@@ -16,7 +14,7 @@ protein domains, e.g. name and description
 
 project XML example
 
-```text
+```markup
 <source name="interpro" type="interpro">
   <property name="src.data.dir" location="/data/interpro"/>
 </source>
@@ -38,7 +36,7 @@ protein domains, their relationship to the protein and protein domain region
 
 project XML example
 
-```text
+```markup
 <!-- has to be after UniProt because only loads protein domains for loaded proteins -->
 <source name="protein2ipr" type="protein2ipr">
     <property name="src.data.dir" location="/data/interpro"/>
@@ -47,6 +45,4 @@ project XML example
     <property name=”osAlias” value=”os.production”/>
 </source>
 ```
-
-::: {.index} InterPro, protein domains :::
 

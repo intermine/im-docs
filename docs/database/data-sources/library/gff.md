@@ -1,8 +1,8 @@
 # GFF3
 
-InterMine comes with a GFF parser which loads GFF3 data files into your mine - without writing any Perl or Java code. This isn\'t a source itself but genome annotation from gff files can be loaded easily by creating a new source of type gff. See redfly, malaria-gff and tiffin for examples.
+InterMine comes with a GFF parser which loads GFF3 data files into your mine - without writing any Perl or Java code. This isn't a source itself but genome annotation from gff files can be loaded easily by creating a new source of type gff. See redfly, malaria-gff and tiffin for examples.
 
-Configuration is added to the \[project.properties\]{.title-ref} file and an optional handler can be added to deal with data in the attributes section of the gff file.
+Configuration is added to the `project.properties` file and an optional handler can be added to deal with data in the attributes section of the gff file.
 
 ## Types of data loaded
 
@@ -27,15 +27,13 @@ MAL1    ApiDB   mRNA    183057  184457  .       +       .       ID=mRNA.46312;Pa
 If you follow the above steps with this data file, the following will happen:
 
 1. gene and mRNA objects created
-2. \"MAL1\" will be the identifier
+2. "MAL1" will be the identifier
 3. start = 183057, end = 184457
-4. gene will be located in -1 strand, mRNA will be located on the 1
-
-   strand.
+4. gene will be located in -1 strand, mRNA will be located on the 1 strand.
 
 ### Configuration File
 
-By default, columns such as \"type\", \"start\", \"end\", \"strand\" and \"ID\" field in \"attributes\" column are parsed automatically. To do more processing or access the attributes, you are able to configure in \[gff\_config.properties\]{.title-ref}. This file should live in your mine\'s \[dbmodel/resources\]{.title-ref} directory.
+By default, columns such as "type", "start", "end", "strand" and "ID" field in "attributes" column are parsed automatically. To do more processing or access the attributes, you are able to configure in `gff_config.properties`. This file should live in your mine's `dbmodel/resources` directory.
 
 ```text
 # gff_config.properties example for E. coil gff3 attributes
@@ -54,7 +52,7 @@ For more advanced processing, you will have to write your own GFF3 parser.
 
 The parent-child relationship between features can also be handled automatically if you set it up properly. Take MalariaGFF3RecordHandler for example:
 
-```text
+```java
 public MalariaGFF3RecordHandler(Model tgtModel) {
     super(tgtModel);
     // refsAndCollections controls references and collections that are set from the
@@ -68,7 +66,7 @@ public MalariaGFF3RecordHandler(Model tgtModel) {
 
 Here is an example GFF3 entry in the project XML file:
 
-```text
+```markup
 # add to project.xml file
 # NOTE: update the "type" if you are using your own custom GFF3 parser
 
@@ -85,9 +83,14 @@ Here is an example GFF3 entry in the project XML file:
 
 Here are the descriptions of the properties available:
 
-property example definition
-
-gff3.seqClsName Chromosome the ids in the first column represent Chromosome objects, e.g. MAL1 gff3.taxonId 36329 taxon id gff3.dataSourceName PlasmoDB the data source for features and their identifiers, this is used for the DataSet \(evidence\) and synonyms. gff3.seqDataSourceName PlasmoDB the source of the seqids \(chromosomes\) is sometimes different to the features described gff3.dataSetTitle PlasmoDB P. falciparum genome a DataSet object is created as evidence for the features, it is linked to a DataSource \(PlasmoDB\) gff3.licence [https://creativecommons.org/licenses/by-sa/3.0/](https://creativecommons.org/licenses/by-sa/3.0/) URL to a standard data licence
+| property | example definition |  |
+| :--- | :--- | :--- |
+| gff3.seqClsName | Chromosome | the ids in the first column represent Chromosome objects, e.g. MAL1 |
+| gff3.taxonId | 36329 | taxon id |
+| gff3.dataSourceName | PlasmoDB | the data source for features and their identifiers, this is used for the DataSet \(evidence\) and synonyms. |
+| gff3.seqDataSourceName | PlasmoDB | the source of the seqids \(chromosomes\) is sometimes different to the features described |
+| gff3.dataSetTitle | PlasmoDB P. falciparum genome | a DataSet object is created as evidence for the features, it is linked to a DataSource \(PlasmoDB\) |
+| gff3.licence | [https://creativecommons.org/licenses/by-sa/3.0/](https://creativecommons.org/licenses/by-sa/3.0/) | URL to a standard data licence |
 
 #### Writing a custom GFF parser
 
@@ -97,20 +100,20 @@ You can extend the generic parser by writing your own Java code to process the G
 
 Create your custom source by running the create source script:
 
-```text
+```bash
 $ ./bio/scripts/make_source mouse-cdna gff
 created /home/USER_NAME/git/bio/sources/mouse-cdna directory for mouse-cdna
 ```
 
-The script has created a new source for you in the \[bio/sources\]{.title-ref} directory.
+The script has created a new source for you in the `bio/sources` directory.
 
 ### Java code
 
-The Java file you now want to edit is here: \[bio/sources/SOURCE\_NAME/main/src/org/intermine/bio/dataconversion\]{.title-ref}
+The Java file you now want to edit is here: `bio/sources/SOURCE_NAME/main/src/org/intermine/bio/dataconversion`
 
-The \[process\(\)\]{.title-ref} method is called for every line of GFF3 file\(s\) being read. Features and their locations are already created but not stored so you can make changes here. Attributes are from the last column of the file are available in a map with the attribute name as the key. For example:
+The `process()` method is called for every line of GFF3 file\(s\) being read. Features and their locations are already created but not stored so you can make changes here. Attributes are from the last column of the file are available in a map with the attribute name as the key. For example:
 
-```text
+```java
 Item feature = getFeature();
 String symbol = record.getAttributes().get("symbol");
 feature.setAttribute("symbol", symbol);
@@ -118,7 +121,7 @@ feature.setAttribute("symbol", symbol);
 
 Any new Items created can be stored by calling addItem\(\). For example:
 
-```text
+```java
 String geneIdentifier = record.getAttributes().get("gene");
 gene = createItem("Gene");
 gene.setAttribute("primaryIdentifier", geneIdentifier);
@@ -129,13 +132,11 @@ You should make sure that new Items you create are unique, i.e. by storing in a 
 
 It may be helpful to look at current GFF3 parsers:
 
-1. \[LongOligoGFF3RecordHandler.java\]{.title-ref}
-2. \[MirandaGFF3RecordHandler.java\]{.title-ref}
-3. \[RedFlyGFF3RecordHandler.java\]{.title-ref}
-4. \[FlyRegGFF3RecordHandler.java\]{.title-ref}
-5. \[DrosDelGFF3RecordHandler.java\]{.title-ref}
+1. `LongOligoGFF3RecordHandler.java`
+2. `MirandaGFF3RecordHandler.java`
+3. `RedFlyGFF3RecordHandler.java`
+4. `FlyRegGFF3RecordHandler.java`
+5. `DrosDelGFF3RecordHandler.java`
 
-See `/get-started/tutorial/index`{.interpreted-text role="doc"} for more information on how to run a GFF source.
-
-::: {.index} GFF3, sequence features :::
+See [Tutorial](../../../get-started/tutorial/index.md) for more information on how to run a GFF source.
 

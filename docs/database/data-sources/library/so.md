@@ -1,6 +1,6 @@
 # Sequence Ontology \(SO\)
 
-This source loads no data but adds a class in the data model for every term in the sequence ontology in your data model. SO terms represent biological features such as gene, exon, 3\' UTR. You should include this source if you are loading genome annotation.
+This source loads no data but adds a class in the data model for every term in the sequence ontology in your data model. SO terms represent biological features such as gene, exon, 3' UTR. You should include this source if you are loading genome annotation.
 
 ## Types of data loaded
 
@@ -14,14 +14,12 @@ Included in InterMine source code
 
 project XML example
 
-```text
+```markup
 <source name="so" type="so">
   <property name=”src.data.file” location=”so.obo” />
   <property name="licence" value="https://creativecommons.org/licenses/by/4.0/"/>
 </source>
 ```
 
-To add or remove SO terms from your model, update your \[so\_terms\]{.title-ref} file in \[dbmodel/resources\]{.title-ref}
-
-::: {.index} SO, sequence ontology :::
+To add or remove SO terms from your model, update your `so_terms` file in `dbmodel/resources`
 

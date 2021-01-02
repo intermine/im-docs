@@ -16,41 +16,33 @@ To solve this problem, each homologue source uses the NCBI identifier resolver. 
 
    [ftp://ftp.ncbi.nih.gov/gene/DATA/gene\_info.gz](ftp://ftp.ncbi.nih.gov/gene/DATA/gene_info.gz)
 
-2. Unzip the file to \[/DATA\_DIR/ncbi/gene\_info\]{.title-ref}
+2. Unzip the file to `/DATA_DIR/ncbi/gene_info`
 
-::: {.warning} ::: {.title} Warning :::
+{% hint style="warning" %}
+Make sure permissions on the file are correct so the build process can read this file.
+{% endhint %}
 
-Make sure permissions on the file are correct so the build process can read this file. :::
+      3. Download the identifier file for humans -[http://www.flymine.org/download/idresolver/humangene](http://www.flymine.org/download/idresolver/humangene) to another directory, eg. /DATA\_DIR/human/identifiers
 
-1. Download the identifier file for humans -
+      4. Create a sub directory `/DATA_DIR/idresolver/` as file root path and add symbolic links to the two files.
 
-   [http://www.flymine.org/download/idresolver/humangene](http://www.flymine.org/download/idresolver/humangene) to another
-
-   directory, eg. /DATA\_DIR/human/identifiers
-
-2. Create a sub directory \[/DATA\_DIR/idresolver/\]{.title-ref} as file
-
-   root path and add symbolic links to the two files.
-
-```text
+```bash
 $ cd /DATA_DIR/idresolver/
 $ ln -s /DATA_DIR/ncbi/gene_info entrez 
 $ ln -s /DATA_DIR/human/identifiers humangene
 ```
 
-1. Add the root path to the file in
-
-   \[~/.intermine/MINE.properties\]{.title-ref}
+      5. Add the root path to the file in `~/.intermine/MINE.properties`
 
 ```text
 resolver.file.rootpath=/DATA_DIR/idresolver/
 ```
 
-See `/database/data-sources/id-resolvers`{.interpreted-text role="doc"} for details on how ID resolvers work in InterMine.
+See [ID Resolvers](../../id-resolvers.md) for details on how ID resolvers work in InterMine.
 
-::: {.warning} ::: {.title} Warning :::
-
-The entrez identifiers file appears to only have the sequence identifier for worm instead of the WBgene identifier :::
+{% hint style="warning" %}
+The entrez identifiers file appears to only have the sequence identifier for worm instead of the WBgene identifier
+{% endhint %}
 
 Alternately you can load identifier sources.
 
@@ -63,6 +55,4 @@ We use WormMart but are happy to hear of a better source for worm identifiers.
 Here are the project XML entries used by FlyMine:
 
 [FlyMine Project XML](https://github.com/intermine/flymine/blob/master/project.xml)
-
-::: {.index} homologues, orthologues, paralogues, id resolver :::
 
