@@ -96,7 +96,7 @@
       * [Report Page](docs/webapp/report-page/report-page.md)
       * [Report Displayers](docs/webapp/report-page/report-displayers.md)
       * [Report Displayers Examples](docs/webapp/report-page/report-displayers-examples.md)
-      * [webapp-tables](docs/webapp/report-page/webapp-tables.md)
+      * [Webapp Tables CSS & HTML](docs/webapp/report-page/webapp-tables.md)
     * [lists](docs/webapp/lists/README.md)
       * [List upgrade](docs/webapp/lists/list-upgrade.md)
       * [Lists page](docs/webapp/lists/lists-page.md)

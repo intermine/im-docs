@@ -1,8 +1,4 @@
-# webapp-tables
-
-::: {.index} report page, webapp tables :::
-
-## Webapp Tables CSS & HTML
+# Webapp Tables CSS & HTML
 
 ![image](../../../.gitbook/assets/intermine-theme-colors.png)
 
@@ -10,7 +6,7 @@
 
 ![image](../../../.gitbook/assets/inline-list.2.png)
 
-```text
+```markup
 <div class="inline-list">
 <h3>2 probeSets</h3>
 <ul>
@@ -20,43 +16,45 @@
 </div>
 ```
 
-CSS Description
-
-`div.inline-list` wrapping the list and title in div makes it more clear what elements belong together and allow you to set a custom ID on the whole thing `div.inline-list h3` \(optional\) header 3 \(see below\) styling `div.inline-list ul` list we be displayed inline, without margins between items and without list styles \(circles, squares etc.\)
+| CSS | Description |
+| :--- | :--- |
+| `div.inline-list` | wrapping the list and title in div makes it more clear what elements belong together and allow you to set a custom ID on the whole thing |
+| `div.inline-list h3` \(optional\) | header 3 \(see below\) styling |
+| `div.inline-list ul` | list we be displayed inline, without margins between items and without list styles \(circles, squares etc.\) |
 
 #### Inline List \(Inactive, No Results\)
 
 ![image](../../../.gitbook/assets/inline-list-gray.png)
 
-```text
+```markup
 <div class="inline-list gray">
     <h3>0 probeSets</h3>
 </div>
 ```
 
-CSS Description
-
-`div.inline-list.gray` one can apply an \'inactive\' theme by attaching a class to the top element
+| CSS | Description |
+| :--- | :--- |
+| `div.inline-list.gray` | one can apply an ‘inactive’ theme by attaching a class to the top element |
 
 #### Inline List \(Tagging, Right\)
 
 ![image](../../../.gitbook/assets/inline-lists-right.png)
 
-```text
+```markup
 <div class="inline-list">
     <h3><div class="right">Right positioned</div> 0 probeSets</h3>
 </div>
 ```
 
-CSS Description
+| CSS | Description |
+| :--- | :--- |
+| `div.inline-list div.right` \(optional\) | will float element to the right and apply appropriate colors to links; needs to go first, before any other text |
 
-`div.inline-list div.right` \(optional\) will float element to the right and apply appropriate colors to links; needs to go first, before any other text
-
-#### \'Header\' Inline List
+#### 'Header' Inline List
 
 ![image](../../../.gitbook/assets/inline-list.png)
 
-```text
+```markup
 <div class="inline-list">
     <ul>
         <li><span class="name">synonyms</span>:</li>
@@ -67,15 +65,15 @@ CSS Description
 </div>
 ```
 
-CSS Description
-
-`div.inline-list .name` \(optional\) the main theme color will be applied to the element
+| CSS | Description |
+| :--- | :--- |
+| `div.inline-list .name` \(optional\) | the main theme color will be applied to the element |
 
 ### Collection Table
 
 ![image](../../../.gitbook/assets/collection-table.png)
 
-```text
+```markup
 <div class="collection-table">
     <h3>1 protein</h3>
     <table>
@@ -96,19 +94,21 @@ CSS Description
 </div>
 ```
 
-CSS Description
+| CSS | Description |
+| :--- | :--- |
+| `div.collection-table h3` | table title will pickup theme colors much like Title \(Level 3\) below |
+| `div.collection-table thead th,td` | table expects a thead element, that will apply the same background as the title |
+| `div.collection-table.nowrap` \(optional\) | row columns do not wrap and are displayed inline |
 
-`div.collection-table h3` table title will pickup theme colors much like Title \(Level 3\) below `div.collection-table thead th,td` table expects a thead element, that will apply the same background as the title `div.collection-table.nowrap` \(optional\) row columns do not wrap and are displayed inline
-
-::: {.note} ::: {.title} Note :::
-
-Modern browsers will apply alternating background and border on odd row columns, the rubbish \(IE\) will be fixed by running jQuery on page load. :::
+{% hint style="info" %}
+Modern browsers will apply alternating background and border on odd row columns, the rubbish \(IE\) will be fixed by running jQuery on page load.
+{% endhint %}
 
 #### Collection Table \(Type Column, Text Highlight\)
 
 ![image](../../../.gitbook/assets/collection-table-class.png)
 
-```text
+```markup
 <div class="collection-table">
     <h3>1 protein</h3>
     <table>
@@ -129,7 +129,9 @@ Modern browsers will apply alternating background and border on odd row columns,
 </div>
 ```
 
-CSS Description `div.collection-table table td.class` applying a \'class\' class will highlight the text in the given column
+| CSS | Description |
+| :--- | :--- |
+| `div.collection-table table td.class` | applying a ‘class’ class will highlight the text in the given column |
 
 #### Collection Table \(Vertical Column Border\)
 
@@ -144,13 +146,13 @@ CSS Description `div.collection-table table td.class` applying a \'class\' class
 </div>
 ```
 
-CSS Description
+| CSS | Description |
+| :--- | :--- |
+| `div.collection-table.column-border` | uses a pseudoclass to apply a border between columns |
 
-`div.collection-table.column-border` uses a pseudoclass to apply a border between columns
-
-::: {.note} ::: {.title} Note :::
-
-Modern browsers will apply alternating background and border on odd row columns, the rubbish \(IE\) will be fixed by running jQuery on page load. :::
+{% hint style="info" %}
+Modern browsers will apply alternating background and border on odd row columns, the rubbish \(IE\) will be fixed by running jQuery on page load.
+{% endhint %}
 
 #### Collection Table \(Vertical Column Border by 2\)
 
@@ -165,41 +167,41 @@ Modern browsers will apply alternating background and border on odd row columns,
 </div>
 ```
 
-CSS Description
+| CSS | Description |
+| :--- | :--- |
+| `div.collection-table.column-border-by-2` | uses a pseudoclass to apply a border between every other column |
 
-`div.collection-table.column-border-by-2` uses a pseudoclass to apply a border between every other column
-
-::: {.note} ::: {.title} Note :::
-
-Modern browsers will apply alternating background and border on odd row columns, the rubbish \(IE\) will be fixed by running jQuery on page load. :::
+{% hint style="info" %}
+Modern browsers will apply alternating background and border on odd row columns, the rubbish \(IE\) will be fixed by running jQuery on page load.
+{% endhint %}
 
 #### Collection Table \(Inactive, No Results\)
 
 ![image](../../../.gitbook/assets/collection-table-gray.png)
 
-```text
+```markup
 <div class="collection-table gray">
     <h3>0 genes</h3>
 </div>
 ```
 
-CSS Description
-
-`div.collection-table.gray` one can apply an \'inactive\' theme by attaching a class to the top element
+| CSS | Description |
+| :--- | :--- |
+| `div.collection-table.gray` | one can apply an ‘inactive’ theme by attaching a class to the top element |
 
 #### Collection Table \(Tagging, Right\)
 
 ![image](../../../.gitbook/assets/collections-right.png)
 
-```text
+```markup
 <div class="collection-table">
     <h3><div class="right">Right positioned</div> 0 genes</h3>
 </div>
 ```
 
-CSS Description
-
-`div.collection-table div.right` \(optional\) will float element to the right and apply appropriate colors to links; needs to go first, before any other text
+| CSS | Description |
+| :--- | :--- |
+| `div.collection-table div.right` \(optional\) | will float element to the right and apply appropriate colors to links; needs to go first, before any other text |
 
 #### Collection Table \(Persistent Table Headers\)
 
@@ -209,15 +211,15 @@ CSS Description
 </div>
 ```
 
-CSS Description
-
-`div.collection-table.persistent` will make table headers persist as you scroll within the table
+| CSS | Description |
+| :--- | :--- |
+| `div.collection-table.persistent` | will make table headers persist as you scroll within the table |
 
 #### Basic Table \(Generic\)
 
 ![image](../../../.gitbook/assets/tiny-table%20%281%29.png)
 
-```text
+```markup
 <div class="basic-table">
     <h3>Some title</h3>
     <table>
@@ -226,9 +228,12 @@ CSS Description
 </div>
 ```
 
-CSS Description
-
-`div.basic-table h3` will apply the heading 3 style \(see below\) `div.basic-table div.right` \(optional\) will float element to the right and apply appropriate colors to links; needs to go first, before any other text `div.basic-table table` will make sure that the table is properly collapsed, has padding and does not have cellspacing `div.basic-table.gray` \(optional\) one can apply an \'inactive\' theme by attaching a class to the top element
+| CSS | Description |
+| :--- | :--- |
+| `div.basic-table h3` | will apply the heading 3 style \(see below\) |
+| `div.basic-table div.right` \(optional\) | will float element to the right and apply appropriate colors to links; needs to go first, before any other text |
+| `div.basic-table table` | will make sure that the table is properly collapsed, has padding and does not have cellspacing |
+| `div.basic-table.gray` \(optional\) | one can apply an ‘inactive’ theme by attaching a class to the top element |
 
 #### Collection of Collection Tables
 
@@ -252,9 +257,11 @@ CSS Description
 </div>
 ```
 
-CSS Description
-
-`div.collection-of-collections` a div wrapper for collections `div.collection-of-collections div.header` will apply a background color that of collection table header `div.collection-of-collections div.header a.active` \(optional\) link elements are underlined by default and switched to bold if class \'active\' is applied to them
+| CSS | Description |
+| :--- | :--- |
+| `div.collection-of-collections` | a div wrapper for collections |
+| `div.collection-of-collections div.header` | will apply a background color that of collection table header |
+| `div.collection-of-collections div.header a.active` \(optional\) | link elements are underlined by default and switched to bold if class ‘active’ is applied to them |
 
 #### Table Togglers \(Less, More, Expand, Collapse, Show in table\)
 
@@ -273,27 +280,30 @@ CSS Description
 </div>
 ```
 
-CSS Description
-
-`div.collection-table div.toggle a.more` will create apply an expand/more button `div.collection-table div.toggle a.less` will create apply a collapse/less button; bear in mind that if you want to show it to the right like on report pages, it needs to go before other toggles and be floated right `div.collection-table div.toggle a` \(optional\) a generic button without any upward/downward arrows `div.collection-table div.show-in-table a` the appropriate color will be applied to the link contained, no more, no less \(in fact, show all\)
+| CSS | Description |
+| :--- | :--- |
+| `div.collection-table div.toggle a.more` | will create apply an expand/more button |
+| `div.collection-table div.toggle a.less` | will create apply a collapse/less button; bear in mind that if you want to show it to the right like on report pages, it needs to go before other toggles and be floated right |
+| `div.collection-table div.toggle a` \(optional\) | a generic button without any upward/downward arrows |
+| `div.collection-table div.show-in-table a` | the appropriate color will be applied to the link contained, no more, no less \(in fact, show all\) |
 
 ### Title \(Level 3\)
 
 ![image](../../../.gitbook/assets/h3.png)
 
-```text
+```markup
 <h3 class="goog">Link to other InterMines</h3>
 ```
 
-CSS Description
-
-`h3.goog` will pickup theme colors and apply Report Page/Google News -style colors, backgrounds, borders
+| CSS | Description |
+| :--- | :--- |
+| `h3.goog` | will pickup theme colors and apply Report Page/Google News -style colors, backgrounds, borders |
 
 ### Smallfont, Display one-per-line
 
 ![image](../../../.gitbook/assets/tiny-table.png)
 
-```text
+```markup
 <table class="tiny-font">
     <tr><td class="one-line">
         <a>One</a>
@@ -302,19 +312,20 @@ CSS Description
 </table>
 ```
 
-CSS Description
-
-`.one-line *` applying class \'oneline\' will make _all descendants_ appear one per line `.tiny-font *` will apply 11px font size to _all descendants_
+| CSS | Description |
+| :--- | :--- |
+| `.one-line *` | applying class ‘oneline’ will make _all descendants_ appear one per line |
+| `.tiny-font *` | will apply 11px font size to _all descendants_ |
 
 ### Loading spinner \(AJAX\)
 
-```text
+```markup
 <div class="loading-spinner"></div>
 ```
 
-CSS Description
-
-`.loading-spinner` will show an inline block positioned loading spinner gif
+| CSS | Description |
+| :--- | :--- |
+| `.loading-spinner` | will show an inline block positioned loading spinner gif |
 
 ### Table Warning
 
@@ -326,7 +337,7 @@ CSS Description
 </div>
 ```
 
-CSS Description
-
-`.warning` will show a warning icon and change the color of the div to pale yellow
+| CSS | Description |
+| :--- | :--- |
+| `.warning` | will show a warning icon and change the color of the div to pale yellow |
 
