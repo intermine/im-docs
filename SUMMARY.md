@@ -93,7 +93,7 @@
       * [Home page](docs/webapp/homepage/index.md)
     * [report-page](docs/webapp/report-page/README.md)
       * [Report page](docs/webapp/report-page/index.md)
-      * [report-page](docs/webapp/report-page/report-page.md)
+      * [Report Page](docs/webapp/report-page/report-page.md)
       * [report-displayers](docs/webapp/report-page/report-displayers.md)
       * [report-displayers-examples](docs/webapp/report-page/report-displayers-examples.md)
       * [webapp-tables](docs/webapp/report-page/webapp-tables.md)
