@@ -2,11 +2,11 @@
 
 InterMine has a sophisticated list import system for genes. The page aims to describe how it works.
 
-Users can paste identifiers into the list upload form; e.g. for data types \"gene\" it can be an identifier, symbol or name. Which key is used is determined by the class\_keys file. The list upload form runs a series of queries to try to match the identifier to an object in the database.
+Users can paste identifiers into the list upload form; e.g. for data types "gene" it can be an identifier, symbol or name. Which key is used is determined by the class\_keys file. The list upload form runs a series of queries to try to match the identifier to an object in the database.
 
 This is also how the LOOKUP constraint works.
 
-The list upload form runs the three queries listed below until it finds a match for the user\'s identifiers. It\'s now possible to run all three queries every time regardless of if a match was returned. You may want to configure your mine to do this if your database contains lots of identifiers that are assigned to different objects, this option would allow your users to see more options - not just the first.
+The list upload form runs the three queries listed below until it finds a match for the user's identifiers. It's now possible to run all three queries every time regardless of if a match was returned. You may want to configure your mine to do this if your database contains lots of identifiers that are assigned to different objects, this option would allow your users to see more options - not just the first.
 
 ## Queries
 
@@ -14,7 +14,7 @@ The list upload form runs the three queries listed below until it finds a match 
 
 First, we query for the value in key fields. For example:
 
-```text
+```sql
 select * from gene 
 where name = 'adh' OR 
       symbol = 'adh' or 
@@ -24,28 +24,28 @@ where name = 'adh' OR
 
 If this query returned results, that object is added to our list and we are done.
 
-If this query didn\'t return any results, we move on to the next step.
+If this query didn't return any results, we move on to the next step.
 
-::: {.note} ::: {.title} Note :::
+{% hint style="info" %}
+You can set a parameter in bag-queries.xml, matchOnFirst=\"false\", to always run all queries.
+{% endhint %}
 
-You can set a parameter in bag-queries.xml, matchOnFirst=\"false\", to always run all queries. :::
+### "Bag Queries"
 
-### \"Bag Queries\"
-
-Next we run queries listed in \[bag-queries.xml\]{.title-ref}
+Next we run queries listed in `bag-queries.xml`
 
 1. looks for cross references
 2. looks for synonyms
 
-Matches returned from this query are not added to the list \(if \[matchesAreIssues=true\]{.title-ref}\), they are displayed under the \"synonyms matched\" heading. Users can optionally add them to their list.
+Matches returned from this query are not added to the list \(if `matchesAreIssues=true`\), they are displayed under the "synonyms matched" heading. Users can optionally add them to their list.
 
-If this query didn\'t return any results, we move on to the next step.
+If this query didn't return any results, we move on to the next step.
 
 ### Converters
 
-Next we run appropriate converter template, which are templates tagged with \[im:converter\]{.title-ref}. Here is an example converter template:
+Next we run appropriate converter template, which are templates tagged with `im:converter`. Here is an example converter template:
 
-```text
+```markup
 <template name="Gene_To_Protein_Type_Converter" title="Gene to protein type converter" comment="">
     <query name="Gene_To_Protein_Type_Converter" model="genomic" view="Gene.id Gene.proteins.id" longDescription="" sortOrder="Gene.id asc">
         <constraint path="Gene.id" editable="true" description="Gene.id" op="=" value="0"/>
@@ -53,29 +53,27 @@ Next we run appropriate converter template, which are templates tagged with \[im
 </template>
 ```
 
-Matches returned from this query are not added to the list, they are displayed under the \"converted type\" heading. Users can optionally add them to their list.
+Matches returned from this query are not added to the list, they are displayed under the "converted type" heading. Users can optionally add them to their list.
 
 ## Configuration
 
-types \(classes\)
+**types \(classes\)**
 
-: Add a class to \[dbmodel/resources/class\_keys.properties\]{.title-ref} file to get it to show up on the list upload form. To _bold_ a class, tag it with \[im:preferredBagType\]{.title-ref}.
+Add a class to `dbmodel/resources/class_keys.properties` file to get it to show up on the list upload form. To _bold_ a class, tag it with `im:preferredBagType`.
 
-organisms
+**organisms**
 
-: All organisms in your database will be displayed here. You can set the default in WebProperties.
+All organisms in your database will be displayed here. You can set the default in WebProperties.
 
-example list
+**example list**
 
-: The example list is set in \"bag.example.identifiers\" property in WebProperties.
+The example list is set in "bag.example.identifiers" property in WebProperties.
 
-valid delimiters
+**valid delimiters**
 
-: The default valid delimiters are comma, space, tab or new line. You can change this value by setting the \"list.upload.delimiters\" property in WebProperties.
+The default valid delimiters are comma, space, tab or new line. You can change this value by setting the "list.upload.delimiters" property in WebProperties.
 
-matchOnFirst
+**matchOnFirst**
 
-: Set this value in the bag-queries.xml file. Default value is TRUE. If false, all queries will always be run.
-
-::: {.index} list upload, bagqueryrunner, bag-queries, LOOKUP, converter templates :::
+Set this value in the bag-queries.xml file. Default value is TRUE. If false, all queries will always be run.
 
