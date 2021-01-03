@@ -1,10 +1,12 @@
 # Home page
 
-::: {.note} ::: {.title} Note :::
+{% hint style="info" %}
+This text describes how to customize the homepage of your mine.
+{% endhint %}
 
-This text describes how to customize the homepage of your mine. :::
-
-::: {.seealso} `/webapp/layout/index`{.interpreted-text role="doc"} for whole app look & feel. :::
+{% hint style="info" %}
+See also [General Layout](../layout/index.md) for whole app look & feel
+{% endhint %}
 
 If you have just installed a new mine, your homepage probably looks something like the following:
 
@@ -29,9 +31,9 @@ or <strong>keywords</strong> for genes, proteins, pathways, ontology terms, auth
 <em>eve</em>, HIPPO_DROME, glycolysis, <em>hb</em> allele).
 ```
 
-::: {.note} ::: {.title} Note :::
-
-You will find that only the description field accepts HTML. :::
+{% hint style="info" %}
+You will find that only the description field accepts HTML.
+{% endhint %}
 
 ### Second box
 
@@ -59,15 +61,15 @@ begin.thirdBox.linkTitle = Take a tour
 
 By providing the .link parameter a button will be shown at the bottom of the box with a custom link of choice.
 
-You can serve up a custom text in the third \"information\" box to the user, based on whether they have visited the homepage before or not. We do this through a cookie that will, for a year, indicate for your computer, that the homepage has been visited.
+You can serve up a custom text in the third "information" box to the user, based on whether they have visited the homepage before or not. We do this through a cookie that will, for a year, indicate for your computer, that the homepage has been visited.
 
-In order to change the values of the third box based on whether the user has visited the page or not, prepend the text \"visited\" before an uppercased key. For example, if one wanted to say \"Welcome Back\" instead of \"First Time Here?\" as the title of the box, we would add the following key=value pair:
+In order to change the values of the third box based on whether the user has visited the page or not, prepend the text "visited" before an uppercased key. For example, if one wanted to say "Welcome Back" instead of "First Time Here?" as the title of the box, we would add the following key=value pair:
 
 ```text
 begin.thirdBox.visitedTitle = Welcome Back
 ```
 
-The fields that you do NOT set in this way, will simply show the text configured in the normal way. So even though someone has visited the homepage before, unless I add a \"visited\" property, the text stays the same as before.
+The fields that you do NOT set in this way, will simply show the text configured in the normal way. So even though someone has visited the homepage before, unless I add a "visited" property, the text stays the same as before.
 
 ## Popular Templates Customization
 
@@ -82,11 +84,11 @@ Example:
 begin.tabs.1.id = Genomics
 ```
 
-What this configuration does is it creates a tab on the homepage with \(up to\) 10 most popular templates from a \[Genomics\]{.title-ref} category. For a template to appear in this section, tag it with the Genomics aspect: \[im:aspect:Genomics\]{.title-ref}.
+What this configuration does is it creates a tab on the homepage with \(up to\) 10 most popular templates from a `Genomics` category. For a template to appear in this section, tag it with the Genomics aspect: `im:aspect:Genomics`.
 
-::: {.note} ::: {.title} Note :::
-
-The tag you apply to the template \(e.g. \[im:aspect:Genomics\]{.title-ref}\) must match the value of the \[id\]{.title-ref} attribute \(e.g. \[begin.tabs.1.id = Genomics\]{.title-ref}\). :::
+{% hint style="info" %}
+The tag you apply to the template \(e.g. `im:aspect:Genomics`\) must match the value of the `id` attribute \(e.g. `begin.tabs.1.id = Genomics`\).
+{% endhint %}
 
 The number in the config key specifies the order in which we want to show them. So if we have two categories, Genomics and Proteins, and they should appear in this order, we would write this:
 
@@ -141,6 +143,4 @@ Two latest entries will be shown in the box. If you want to provide a link under
 ```text
 links.blog = http://<your_blog>
 ```
-
-::: {.index} home page, RSS, featured lists, popular templates :::
 
