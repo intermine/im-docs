@@ -1,18 +1,14 @@
-# report-displayers-examples
-
-::: {.index} report page, report displayers, displayer examples :::
-
-## Report Displayers Examples
+# Report Displayers Examples
 
 Report displayers you can use in your own Mine and some examples created for specific data types in modMine, FlyMine and metabolicMine.
 
-The following displayers can all be used for data loaded by standard InterMine parsers. To see how to configure them check out FlyMine\'s `webconfig-model.xml`.
+The following displayers can all be used for data loaded by standard InterMine parsers. To see how to configure them check out FlyMine's `webconfig-model.xml`.
 
 ### SequenceFeature summary
 
 Applicable for any SequenceFeature - shows length, sequence export, chromosome location, cyto location and SO term \(where present\).
 
-```text
+```markup
 <reportdisplayer javaClass="org.intermine.bio.web.displayer.SequenceFeatureDisplayer"
     jspName="model/sequenceFeatureDisplayer.jsp"
     replacesFields="chromosome,chromosomeLocation,sequence,length,sequenceOntologyTerm,locations,cytoLocation"
@@ -20,13 +16,13 @@ Applicable for any SequenceFeature - shows length, sequence export, chromosome l
     types="SequenceFeature"/>
 ```
 
-![A Sequence feature displayer in metabolicMine.](../../../.gitbook/assets/sequence_feature_displayer.png){.align-center}
+![A Sequence feature displayer in metabolicMine.](../../../.gitbook/assets/sequence_feature_displayer.png)
 
 ### Protein sequence
 
 Applicable for Protein - shows length, sequence export.
 
-```text
+```markup
 <reportdisplayer javaClass="org.intermine.bio.web.displayer.ProteinSequenceDisplayer"
     jspName="model/proteinSequenceDisplayer.jsp"
     replacesFields="sequence"
@@ -34,13 +30,13 @@ Applicable for Protein - shows length, sequence export.
     types="Protein"/>
 ```
 
-![A Protein sequence displayer in FlyMine.](../../../.gitbook/assets/protein_sequence_displayer.png){.align-center}
+![A Protein sequence displayer in FlyMine.](../../../.gitbook/assets/protein_sequence_displayer.png)
 
 ### GBrowse
 
 Show an inline image from a configured GBrowse instance.
 
-```text
+```markup
 <reportdisplayer javaClass="org.intermine.bio.web.displayer.GBrowseDisplayer"
     jspName="model/gbrowseDisplayer.jsp"
     replacesFields=""
@@ -55,13 +51,13 @@ gbrowse.prefix=http://www.flymine.org/cgi-bin/gbrowse
 gbrowse_image.prefix=http://www.flymine.org/cgi-bin/gbrowse_img
 ```
 
-![A Genome browser view in FlyMine.](../../../.gitbook/assets/gbrowse_displayer.png){.align-center}
+![A Genome browser view in FlyMine.](../../../.gitbook/assets/gbrowse_displayer.png)
 
 ### Homologues
 
 Shows a table of organism and homologous genes of homologues per organism.
 
-```text
+```markup
 <reportdisplayer javaClass="org.intermine.bio.web.displayer.HomologueDisplayer"
     jspName="model/homologueDisplayer.jsp"
     replacesFields="homologues"
@@ -70,7 +66,7 @@ Shows a table of organism and homologous genes of homologues per organism.
     types="Gene"/>
 ```
 
-![A Homologues displayer in FlyMine.](../../../.gitbook/assets/homologues_displayer.png){.align-center}
+![A Homologues displayer in FlyMine.](../../../.gitbook/assets/homologues_displayer.png)
 
 Note that FlyMine includes a specific displayer to show the twelve Drosophila species as a phylogenetic tree.
 
@@ -78,7 +74,7 @@ Note that FlyMine includes a specific displayer to show the twelve Drosophila sp
 
 Displays transcripts, exons, introns, UTRs and CDSs if present in the model and for the particular organism. Can be added to report pages for any of these feature types and will find the parent gene and show all transcripts, highlighting the feature of the actual report page.
 
-```text
+```markup
 <reportdisplayer javaClass="org.intermine.bio.web.displayer.GeneStructureDisplayer"
     jspName="model/geneStructureDisplayer.jsp"
     replacesFields="transcripts,exons,CDSs,introns,UTRs,fivePrimeUTR,threePrimeUTR"
@@ -86,13 +82,13 @@ Displays transcripts, exons, introns, UTRs and CDSs if present in the model and 
     types="Gene,Transcript,Exon,Intron,UTR,CDS"/>
 ```
 
-![A Gene structure displayer in FlyMine.](../../../.gitbook/assets/gene_structure_displayer.png){.align-center}
+![A Gene structure displayer in FlyMine.](../../../.gitbook/assets/gene_structure_displayer.png)
 
 ### Gene Ontology
 
 Simple display of GO terms and evidence codes for a gene, grouped by branch in the ontology. Groups by the three main ontologies \(function, process and component\) so you may need to run the GO source.
 
-```text
+```markup
 <reportdisplayer javaClass="org.intermine.bio.web.displayer.GeneOntologyDisplayer"
     jspName="model/geneOntologyDisplayer.jsp"
     replacesFields="goAnnotation,ontologyAnnotations"
@@ -100,13 +96,13 @@ Simple display of GO terms and evidence codes for a gene, grouped by branch in t
     types="Gene"/>
 ```
 
-![A Gene ontology displayer in modMine.](../../../.gitbook/assets/go_displayer.png){.align-center}
+![A Gene ontology displayer in modMine.](../../../.gitbook/assets/go_displayer.png)
 
 ### UniProt comments
 
 A clear view of curated curated comments from UniProt \(SwissProt\) applied to a protein, or for a gene will show comments from all proteins of the gene.
 
-```text
+```markup
 <reportdisplayer javaClass="org.intermine.bio.web.displayer.UniProtCommentsDisplayer"
     jspName="model/uniProtCommentsDisplayer.jsp"
     replacesFields=""
@@ -114,13 +110,13 @@ A clear view of curated curated comments from UniProt \(SwissProt\) applied to a
     types="Gene,Protein"/>
 ```
 
-![A Uniprot curated comments displayer in metabolicMine.](../../../.gitbook/assets/uniprot_comments_displayer.png){.align-center}
+![A Uniprot curated comments displayer in metabolicMine.](../../../.gitbook/assets/uniprot_comments_displayer.png)
 
 ### Interaction network
 
 Uses the [Cytoscape Web plugin](http://cytoscapeweb.cytoscape.org/) to display physical and genetics interactions. The interaction displayer links to report pages, allows creation of a gene list of the whole network and can show tabular interaction data. Read NetworkDisplayer for details.
 
-```text
+```markup
 <reportdisplayer javaClass="org.intermine.bio.web.displayer.CytoscapeNetworkDisplayer"
     jspName="model/cytoscapeNetworkDisplayer.jsp"
     replacesFields="interactions"
@@ -128,13 +124,13 @@ Uses the [Cytoscape Web plugin](http://cytoscapeweb.cytoscape.org/) to display p
     types="Gene,Protein"/>
 ```
 
-![An Interactions displayer in FlyMine.](../../../.gitbook/assets/interactions_displayer.png){.align-center}
+![An Interactions displayer in FlyMine.](../../../.gitbook/assets/interactions_displayer.png)
 
 ### Overlapping features
 
-A summary view of features that overlap the chromosome location of the reported feature, if the gene structure displayer is also used it will exclude any features that are part of the same gene model - i.e. it won\'t report that a gene overlaps it\'s own exons.
+A summary view of features that overlap the chromosome location of the reported feature, if the gene structure displayer is also used it will exclude any features that are part of the same gene model - i.e. it won't report that a gene overlaps it's own exons.
 
-```text
+```markup
 <reportdisplayer javaClass="org.intermine.bio.web.displayer.OverlappingFeaturesDisplayer"
     jspName="model/overlappingFeaturesDisplayer.jsp"
     replacesFields="overlappingFeatures"
@@ -142,13 +138,13 @@ A summary view of features that overlap the chromosome location of the reported 
     types="SequenceFeature"/>
 ```
 
-![An Overlapping features displayer in modMine.](../../../.gitbook/assets/overlapping_features_displayer.png){.align-center}
+![An Overlapping features displayer in modMine.](../../../.gitbook/assets/overlapping_features_displayer.png)
 
 ### Complexes - Protein interactions
 
 Viewer displaying complex interactions. Data must be loaded from IntAct. Original Source: [http://interactionviewer.org/](http://interactionviewer.org/).
 
-```text
+```markup
 <reportdisplayer javaClass="org.intermine.bio.web.displayer.ComplexDisplayer"
                  jspName="model/complexDisplayer.jsp"
                  replacesFields=""
@@ -156,17 +152,17 @@ Viewer displaying complex interactions. Data must be loaded from IntAct. Origina
                  types="Complex"/>
 ```
 
-![A Complex interaction displayer in HumanMine.](../../../.gitbook/assets/complex-viewer.png){.align-center}
+![A Complex interaction displayer in HumanMine.](../../../.gitbook/assets/complex-viewer.png)
 
 ### Specific Displayers
 
 There are some displayers created for specific data sets in FlyMine, metabolicMine or modMine that may not be re-usable in other Mines but could be adapted or provide inspiration.
 
-![JBrowse genome browser in metabolicMine.](../../../.gitbook/assets/jBrowse_displayer.png){.align-center}
+![JBrowse genome browser in metabolicMine.](../../../.gitbook/assets/jBrowse_displayer.png)
 
-![FlyAtlas gene experssion data in FlyMine, this uses the Google Data Vizualization API JavaScript library to render an interactive graph in the browser.](../../../.gitbook/assets/FlyAtlas_expression_displayer.png){.align-center}
+![FlyAtlas gene experssion data in FlyMine, this uses the Google Data Vizualization API JavaScript library to render an interactive graph in the browser.](../../../.gitbook/assets/FlyAtlas_expression_displayer.png)
 
-![A phylogenetic tree of Drosophila species displayed using the \[jsPhyloSVG\]\(http://www.jsphylosvg.com/\) JavaScript library in FlyMine.](../../../.gitbook/assets/drosophila_homology_displayer.png){.align-center}
+![A phylogenetic tree of Drosophila species displayed using the \[jsPhyloSVG\]\(http://www.jsphylosvg.com/\) JavaScript library in FlyMine.](../../../.gitbook/assets/drosophila_homology_displayer.png)
 
-![Heatmap of fly gene expression in modMine, this makes use of \[canvasXpress\]\(http://www.canvasxpress.org/\) JavaScript library.](../../../.gitbook/assets/modMine-heatmap.png){.align-center}
+![Heatmap of fly gene expression in modMine, this makes use of \[canvasXpress\]\(http://www.canvasxpress.org/\) JavaScript library.](../../../.gitbook/assets/modMine-heatmap.png)
 
