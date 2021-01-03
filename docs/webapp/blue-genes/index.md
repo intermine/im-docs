@@ -27,5 +27,5 @@ BlueGenes uses the following parameters defined in the `~/.intermine/$MINE.prope
 
 ## will be displayed in BlueGenes
 
-Please see[Database and Web application](../properties/intermine-properties.md) for details on this property file.
+Please see [Database and Web application](../properties/intermine-properties.md) for details on this property file.
 
