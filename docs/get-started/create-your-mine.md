@@ -1,0 +1,160 @@
+# Create Your Own InterMine!
+
+This guide will show you how to create a new InterMine. You will need all the dependencies listed in [Software](../system-requirements/software/index.md).
+
+{% hint style="info" %}
+These instructions assume you have taken the [Tutorial](tutorial/index.md), a detailed guide to integrating data with InterMine.
+{% endhint %}
+
+See [Quick Start](quick-start.md) to run our test InterMine - BioTestMine.
+
+### 1. Run a script to create your InterMine
+
+Download the script.
+
+```text
+~/git/ $ git clone https://github.com/intermine/intermine-scripts.git
+```
+
+Execute the script to generate your InterMine instance. Here we are using `TigerMine` but of course you would use your mine name here.
+
+```text
+~/git/ $ ~/git/intermine-scripts/make_mine TigerMine
+```
+
+You will see a message like: `created /home/$USER/git/tigermine directory for tigermine`.
+
+You now have an InterMine! The [tutorial](tutorial/index.md) goes into detail about the various files that comprise an InterMine.
+
+### 2. Add a mine properties file
+
+Your InterMine uses a properties file for database usernames and passwords, let's create that file now.
+
+Make an intermine directory in your home directory.
+
+```text
+# change to be in your home directory
+~/git $ cd
+# make an intermine directory
+~ $ mkdir .intermine
+```
+
+Copy the properties file you created in the tutorial.
+
+```text
+~/.intermine $ wget https://github.com/intermine/biotestmine/blob/master/data/biotestmine.properties 
+```
+
+Rename the file to match your Mine.
+
+```text
+~/.intermine $ mv biotestmine.properties tigermine.properties
+```
+
+Now update your new properties files with the values correct for your InterMine. You'll want to update the details for your InterMine databases, you'll create those in the next step.
+
+See [Database and Web application](../webapp/properties/intermine-properties.md) for details on this file and what each property means.
+
+### 3. Create databases
+
+Just as in the demo, you will create your InterMine databases.
+
+```text
+# move into your mine directory
+~ $ cd ~/git/tigermine
+# create the database for your mine data
+~/git/tigermine $ createdb tigermine
+~/git/tigermine $ createdb items-tigermine
+# create the database for user information
+~/git/tigermine $ createdb userprofile-tigermine
+```
+
+{% hint style="info" %}
+These database names should match the ones you added to your mine.properties file in the previous step.
+{% endhint %}
+
+These databases are empty. We'll populate the main database in the following steps, but let's put some default information in our user database now.
+
+```text
+# create the empty tables for the user database, plus add the superuser
+~/git/tigermine $ ./gradlew buildUserDB
+```
+
+### 4. Update project file
+
+The data loaded into your mine is controlled by the `project.xml` file located in the root of your mine directory. See [Project XML](../database/database-building/project-xml.md) for an in depth description of this file.
+
+InterMine has a few dozen libraries for popular data sources you can use. See [Data Source Library](../database/data-sources/library/index.md) for the full list. Select one of the data sources and add it to your project XML file. Don't forget to download the data too.
+
+For example, [NCBI - Entrez gene](../database/data-sources/library/ncbi-gene.md) loads gene information from the NCBI. Download the data files listed, then add the given project XML entry to your own mine's project XML file, like so:
+
+```markup
+<source name="ncbi-gene" type="ncbi-gene">
+    <property name="src.data.dir" location="/$DATA/ncbi" />
+    <property name="organisms" value="9606" />
+</source>
+```
+
+See [Writing your own data source](../database/data-sources/custom/index.md) if you want to load your own data into your mine.
+
+You can also add "postprocesses" to your build, these are tasks that run after the database build, tasks to build the search index for example. Here are common ones you might want to include:
+
+```text
+<post-processing>
+  <post-process name="do-sources" />
+  <post-process name="create-attribute-indexes" />
+  <post-process name="summarise-objectstore" />
+  <post-process name="create-autocomplete-index" />
+  <post-process name="create-search-index" />
+</post-processing>
+```
+
+See [Post processing](../database/database-building/post-processing/index.md) for details on what postprocesses do.
+
+### 5. Set up your search index \(optional\)
+
+Solr handles the keyword search in InterMine. See [Solr](../system-requirements/software/solr.md) for details on how to set Solr up for your mine.
+
+If you skip this step, your mine will work fine but the keyword search will fail.
+
+### 6. Build + deploy your webapp
+
+Now run the build!
+
+```text
+# download the script
+~/git/tigermine $ wget https://raw.githubusercontent.com/intermine/intermine-scripts/master/project_build
+# make executable
+~/git/tigermine $ chmod +x project_build
+```
+
+Run the `project_build` script from your `mine` directory:
+
+```text
+~/git/tigermine $ ./project_build -b localhost /data/tigermine-build
+```
+
+See [project\_build script](../database/database-building/build-script.md) for more on the `project_build` script.
+
+Your build \(depending on your sources\) will take a few minutes to run. Once that is done, deploy your webapp. Make sure tomcat is running.
+
+```text
+# deploy your webapp to tomcat
+~/git/tigermine $ ./gradlew cargoDeployRemote 
+# if you have already deployed once, you will want to run this command instead:
+~/git/tigermine $ ./gradlew cargoRedeployRemote 
+```
+
+See [Gradle - Quick Start](../system-requirements/software/gradle/index.md) for more on Gradle.
+
+## Next steps
+
+Congratulations! You now have an InterMine! Visit it at localhost:8080/tigermine. \(replace `tigermine` with the name your chose for your mine\)
+
+Next you will want to:
+
+* [learn how to use the InterMine webapp](http://intermine.org/tutorials/)
+* [customise your mine](../webapp/properties/index.md)
+* [add your own data sources](../database/data-sources/custom/index.md)
+* [join the intermine mailing list](../support/mailing-list.md)
+

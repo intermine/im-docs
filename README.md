@@ -1,25 +1,14 @@
-intermine.org
-=============
+# intermine.org
 
-Documentation for the [InterMine][intermine] project.
+Documentation for the [InterMine](http://intermine.org) project.
 
-Documentation
--------------
+## Documentation
 
-The HTML documentation is generated from [RST][rest] source, using a Python
-static site generator called [Sphinx][sphinx]. RST stands for
-**reStructuredText** (see [reference][quickref]).  When you push to the [GitHub
-repo][repo] for these docs, this triggers a new build of the [documentation
-site][docssite], where the changes will be visible within a few minutes.
-This process is managed by [ReadTheDocs][rtd], an online service for
-maintaining documentation.
+The HTML documentation is generated from [RST](http://sphinx-doc.org/rest.html) source, using a Python static site generator called [Sphinx](http://sphinx-doc.org). RST stands for **reStructuredText** \(see [reference](http://docutils.sourceforge.net/docs/user/rst/quickref.html)\). When you push to the [GitHub repo](https://github.com/intermine/intermine.org) for these docs, this triggers a new build of the [documentation site](https://intermine.readthedocs.org), where the changes will be visible within a few minutes. This process is managed by [ReadTheDocs](https://readthedocs.org/), an online service for maintaining documentation.
 
-Building locally
-----------------
+## Building locally
 
-You should build locally before you push, to make sure your changes are correct.
-You will need the Sphinx environment for this. **Make** and **Python 2.7** are
-required, and we recommend using [Conda][conda] to manage dependencies:
+You should build locally before you push, to make sure your changes are correct. You will need the Sphinx environment for this. **Make** and **Python 2.7** are required, and we recommend using \[Conda\]\[conda\] to manage dependencies:
 
 Setting up:
 
@@ -38,18 +27,9 @@ Building the docs:
 make html
 ```
 
-Theming
--------
-The source for the Sphinx documentation theme can be found in the
-[intermine/design-materials][theme] repo.
+## Theming
 
-[1]: https://github.com/intermine/design-materials/tree/master/websites/intermine.org/
-[repo]: https://github.com/intermine/intermine.org
-[rest]: http://sphinx-doc.org/rest.html
-[rtd]: https://readthedocs.org/
-[docssite]: https://intermine.readthedocs.org
-[quickref]: http://docutils.sourceforge.net/docs/user/rst/quickref.html
-[sphinx]: http://sphinx-doc.org
-[theme]: https://github.com/intermine/design-materials/tree/master/websites/intermine.org/
-[intermine]: http://intermine.org
-[conda]: https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
+The source for the Sphinx documentation theme can be found in the [intermine/design-materials](https://github.com/intermine/design-materials/tree/master/websites/intermine.org/) repo.
+
+\[conda\]: [https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
+
