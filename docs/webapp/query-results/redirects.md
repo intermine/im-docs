@@ -1,10 +1,4 @@
-# redirects
-
-orphan
-
-:
-
-## Link redirects
+# Link redirects
 
 You can add a property to WebProperties to have links in results forward the user to a URL instead of the InterMine report page.
 
@@ -20,25 +14,25 @@ webapp.linkRedirect=org.intermine.bio.web.BioLinkRedirectManager
 externallink.[uniqueID].[class].[taxonId].[field].url = [full URL]
 ```
 
-uniqueId
+**uniqueId**
 
-: any string, should be different for each entry, internal use only
+any string, should be different for each entry, internal use only
 
-class
+**class**
 
-: class of Object to redirect, eg. Gene or Protein
+class of Object to redirect, eg. Gene or Protein
 
-taxonId
+**taxonId**
 
-: taxon ID or \* if config should apply to all
+taxon ID or \* if config should apply to all
 
-field
+**field**
 
-: which identifier field to pass to the URL, eg. if field is primaryIdentifier, the value of primary identifier will be used as the attribute value
+which identifier field to pass to the URL, eg. if field is primaryIdentifier, the value of primary identifier will be used as the attribute value
 
-full URL
+**full URL**
 
-: full http address, eg. [http://www.google.co.uk/\#q=monkey](http://www.google.co.uk/#q=monkey)
+full http address, eg. [http://www.google.co.uk/\#q=monkey](http://www.google.co.uk/#q=monkey)
 
 All columns in the results for the configured class will be links to the external URL.
 
@@ -64,9 +58,11 @@ RATMINE = intermine.org/rgd
 
 METABOLICMINE = \(Please update\)
 
-So an externallink to RATMINE will look like this: .. code-block:: properties
+So an externallink to RATMINE will look like this:
 
-> externallink.flybaseResults.Gene.10116.primaryIdentifier.url=[http://www.intermine.org/rgd/portal.do?externalids\](http://www.intermine.org/rgd/portal.do?externalids\)&lt;\&gt;&class=Gene&origin=Ratmine
+```text
+externallink.flybaseResults.Gene.10116.primaryIdentifier.url=http://www.intermine.org/rgd/portal.do?externalids<<attributeValue>>&class=Gene&origin=Ratmine
+```
 
 In results pages, all probesets will link to Google instead of the Mine report page:
 
@@ -75,6 +71,4 @@ externallink.foo.ProbeSet.*.primaryIdentifier.url=http://www.google.com?q=<<attr
 ```
 
 Next to the value in the column will be a small icon indicating an external link
-
-::: {.index} redirects, link redirects :::
 
