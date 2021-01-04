@@ -190,7 +190,7 @@
     * [index](docs/embedding/index.md)
   * [web-services](docs/web-services/README.md)
     * [Web Services](docs/web-services/index.md)
-    * [tutorial](docs/web-services/tutorial.md)
+    * [Tutorial](docs/web-services/tutorial.md)
     * [how-tos](docs/web-services/how-tos/README.md)
       * [get-gene-summary](docs/web-services/how-tos/get-gene-summary.md)
       * [get-lists](docs/web-services/how-tos/get-lists.md)
