@@ -2,35 +2,35 @@
 
 ## Select a Data Type to Begin a Query
 
-types in bold
+**types in bold**
 
-: Tag types with \[im:preferredBagType\]{.title-ref} tag. Use the model browser to tag classes, eg. [http://www.flymine.org/query/tree.do](http://www.flymine.org/query/tree.do)
+Tag types with `im:preferredBagType` tag. Use the model browser to tag classes, eg. [http://www.flymine.org/query/tree.do](http://www.flymine.org/query/tree.do)
 
-intro text
+**intro text**
 
-: Most text in InterMine can be set in model.properties, see `/webapp/properties/model-properties`{.interpreted-text role="doc"}.
+Most text in InterMine can be set in model.properties, see [Text and messages](../properties/model-properties.md).
 
-help text
+**help text**
 
-: Set in \[classDecriptions.properties\]{.title-ref} file
+Set in `classDecriptions.properties` file
 
 ## query builder
 
-SUMMARY
+**SUMMARY**
 
-: Which columns appear when you click on SUMMARY button are set in WebConfigModel.
+Which columns appear when you click on SUMMARY button are set in WebConfigModel.
 
-autocomplete
+**autocomplete**
 
-: Add fields to the `/database/database-building/post-processing/objectstore-summary-properties`{.interpreted-text role="doc"} file to have their form fields autocomplete.
+Add fields to the [ObjectStore Summary](../../database/database-building/post-processing/objectstore-summary-properties.md) file to have their form fields autocomplete.
 
 ## Hiding fields
 
-In your `webconfig-model.xml`, set a property `showInQB` for a `<fieldconfig />` to `true` to hide a field from a Class.
+In your `webconfig-model.xml`, set a property `showInQB` for a`<fieldconfig />` to `true` to hide a field from a Class.
 
 An example of hiding an attribute field:
 
-```text
+```markup
 <class className="org.intermine.model.testmodel.Manager">
     <fields>
         <fieldconfig fieldExpr="age" showInQB="false"/>
@@ -40,13 +40,11 @@ An example of hiding an attribute field:
 
 An example of hiding a Reference or a Collection field:
 
-```text
+```markup
 <class className="org.intermine.model.testmodel.Manager">
     <fields>
         <fieldconfig fieldExpr="address" showInQB="false"/>
     </fields>
 </class>
 ```
-
-::: {.index} querybuilder, summary, autocomplete, hide :::
 
