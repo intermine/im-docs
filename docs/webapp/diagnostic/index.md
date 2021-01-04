@@ -10,27 +10,27 @@ Also, if in a deadlock, Tomcat may not shutdown successfully. Be sure to check t
 
 ## Verify MINE.properties file
 
-The \[base-url\]{.title-ref} property must valid or else queries will not run properly.
+The `base-url` property must valid or else queries will not run properly.
 
-This file must live in the \[.intermine\]{.title-ref} directory.
+This file must live in the `.intermine` directory.
 
 ## Verify Tomcat config
 
-Please make sure you have configured Tomcat correctly. See `/system-requirements/software/tomcat`{.interpreted-text role="doc"}
+Please make sure you have configured Tomcat correctly. See [Tomcat](../../system-requirements/software/tomcat.md)
 
 ## Force recompile
 
-Run this command in your \[webapp\]{.title-ref} directory:
+Run this command in your `webapp` directory:
 
-```text
+```bash
 $ ./gradlew clean
 ```
 
-Verify \[/build\]{.title-ref} is gone from your \[webapp\]{.title-ref} directory.
+Verify `/build` is gone from your `webapp` directory.
 
 ## Re-release webapp
 
-```text
+```bash
 $ ./gradlew cargoReDeployRemote
 ```
 
