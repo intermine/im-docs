@@ -162,7 +162,7 @@
     * [permanent-url](docs/webapp/permanent-url/README.md)
       * [Permanent URLs](docs/webapp/permanent-url/index.md)
     * [Customising the default queries in your io-docs application](docs/webapp/iodocs.md)
-    * [new-page](docs/webapp/new-page.md)
+    * [New page](docs/webapp/new-page.md)
   * [get-started](docs/get-started/README.md)
     * [Get started](docs/get-started/index.md)
     * [tutorial](docs/get-started/tutorial/README.md)
