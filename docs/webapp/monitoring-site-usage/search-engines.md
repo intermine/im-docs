@@ -4,11 +4,11 @@ This document discusses the relationship between your InterMine-based website an
 
 If you launch your website, eventually your site will be found and indexed by Google or other search engines.
 
-Being listed on the search engines is beneficial as it will drive traffic to your site. However being listed can result in unintended consequences, like exposing \"hidden\" parts of your site. InterMine provides an easy way to control which parts of the website are indexed by the search engines.
+Being listed on the search engines is beneficial as it will drive traffic to your site. However being listed can result in unintended consequences, like exposing "hidden" parts of your site. InterMine provides an easy way to control which parts of the website are indexed by the search engines.
 
 ## Search Engine Optimisation
 
-To use each of the search engines\' webmaster tools, you need to include a \[CODE\]{.title-ref} in a meta tag on your website. You can do this by updating your properties file like so, replacing \[CODE\]{.title-ref} with the value that Google/Microsoft/Yahoo provide:
+To use each of the search engines' webmaster tools, you need to include a `CODE` in a meta tag on your website. You can do this by updating your properties file like so, replacing `CODE` with the value that Google/Microsoft/Yahoo provide:
 
 ```text
 # MINE.properties
@@ -23,9 +23,11 @@ searchengines.google=CODE
 searchengines.msn=CODE
 ```
 
-::: {.seealso} `google-analytics`{.interpreted-text role="doc"} :::
+{% hint style="info" %}
+See also [Google Analytics](google-analytics.md)
+{% endhint %}
 
-## \'\'\'robots.txt\'\'\'
+## '''robots.txt'''
 
 The easiest way to control what the search engines index is to use a file called robots.txt. Robots use this file to determine which parts of the site they can visit. This file should be located in the root of your site, ie. www.flymine.org/robots.txt
 
@@ -74,6 +76,4 @@ mymine.noFollow = true
 ## Sitemaps
 
 Search engines often have difficulty indexing dynamic websites. The easiest solution for this is provide a sitemap that indicates which pages should be indexed.
-
-::: {.index} SEO, Google, Yahoo, robots.txt, user-agent, search engines :::
 
