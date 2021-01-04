@@ -1,13 +1,4 @@
-# authentication
-
-::: {\#ws-authentication}
-
-orphan
-
-:  
-:::
-
-## Authentication
+# Authentication
 
 Authentication with InterMine Web services is chiefly used to identify a user and access their lists and templates.
 
