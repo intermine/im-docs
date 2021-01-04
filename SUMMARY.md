@@ -192,7 +192,7 @@
     * [Web Services](docs/web-services/index.md)
     * [Tutorial](docs/web-services/tutorial.md)
     * [how-tos](docs/web-services/how-tos/README.md)
-      * [get-gene-summary](docs/web-services/how-tos/get-gene-summary.md)
+      * [How Do I Get a Summary of a Gene?](docs/web-services/how-tos/get-gene-summary.md)
       * [get-lists](docs/web-services/how-tos/get-lists.md)
     * [authentication](docs/web-services/authentication.md)
   * [system-requirements](docs/system-requirements/README.md)
