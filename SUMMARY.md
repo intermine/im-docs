@@ -108,7 +108,7 @@
       * [Template Queries](docs/webapp/template-queries/index.md)
     * [query-results](docs/webapp/query-results/README.md)
       * [Query Results](docs/webapp/query-results/index.md)
-      * [export](docs/webapp/query-results/export.md)
+      * [Export](docs/webapp/query-results/export.md)
       * [redirects](docs/webapp/query-results/redirects.md)
     * [query-builder](docs/webapp/query-builder/README.md)
       * [QueryBuilder](docs/webapp/query-builder/index.md)

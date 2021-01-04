@@ -1,10 +1,4 @@
-# export
-
-orphan
-
-:
-
-## Export
+# Export
 
 Default exporters in bio project
 
@@ -26,26 +20,26 @@ You can add additional export options to your InterMine by creating a custom exp
 
 1. Write Java classes to handle the data
 
-   > see \[BEDHttpExporter.java\]{.title-ref} and \[BEDExporter.java\]{.title-ref}
+   > see `BEDHttpExporter.java` and `BEDExporter.java`
 
 2. Add the class to your webconfig-model.xml file:
 
-```text
-<tableExportConfig id="bed" className="org.intermine.bio.web.export.BEDHttpExporter"/>
-```
+   ```markup
+   <tableExportConfig id="bed" className="org.intermine.bio.web.export.BEDHttpExporter"/>
+   ```
 
-1. update Struts config
+3. update Struts config
 
-```text
-# struts-config-model.xml
-<action path="/bedExportAction" name="bedExportForm" type="org.intermine.web.struts.TableExportAction" parameter="method"/>
+   ```markup
+   # struts-config-model.xml
+   <action path="/bedExportAction" name="bedExportForm" type="org.intermine.web.struts.TableExportAction" parameter="method"/>
 
-# tiles-defs-model.xml
-<definition name="bedExportOptions.tile" path="/model/bedExportOptions.jsp" controllerUrl="/initSequenceFeatureExportOptions.do" />
+   # tiles-defs-model.xml
+   <definition name="bedExportOptions.tile" path="/model/bedExportOptions.jsp" controllerUrl="/initSequenceFeatureExportOptions.do" />
 
-# struts-config-model-form.xml
-<form-bean name="bedExportForm" type="org.intermine.bio.web.struts.BEDExportForm"/>
-```
+   # struts-config-model-form.xml
+   <form-bean name="bedExportForm" type="org.intermine.bio.web.struts.BEDExportForm"/>
+   ```
 
 ### Customisation
 
@@ -63,6 +57,4 @@ exporter.sequence.description=Export in FASTA format
 exporter.gff3.description=Export in GFF3 format
 exporter.bed.description=Export in BED format
 ```
-
-::: {.index} export :::
 
