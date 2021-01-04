@@ -4,27 +4,18 @@ This tool takes gene interaction data from Intermine and visualises it using [cy
 
 ## Configuration
 
-1. add the following entry to your \'\'\'webconfig-model.xml\'\'\'
+1. add the following entry to your '''webconfig-model.xml''' file:
 
-   file:
+   ```markup
+   <reportdisplayer javaClass="org.intermine.bio.web.displayer.CytoscapeNetworkDisplayer"
+               jspName="model/cytoscapeNetworkDisplayer.jsp"
+               replacesFields="interactions"
+               placement="Interactions"
+               types="Gene,Protein"/>
+   ```
 
-```text
-<reportdisplayer javaClass="org.intermine.bio.web.displayer.CytoscapeNetworkDisplayer"
-            jspName="model/cytoscapeNetworkDisplayer.jsp"
-            replacesFields="interactions"
-            placement="Interactions"
-            types="Gene,Protein"/>
-```
-
-1. If you host your own \[Intermine
-
-   CDN\]\([https://github.com/intermine/CDN](https://github.com/intermine/CDN)\), make sure to pull the most
-
-   recent update, as the interaction displayer script is loaded via
-
-   CDN, under \[js/intermine/gene-interaction-displayer\]{.title-ref}.
-
-2. re-release your webapp and you should see the interaction displayer
+2. If you host your own [Intermine CDN](https://github.com/intermine/CDN), make sure to pull the most recent update, as the interaction displayer script is loaded via CDN, under `js/intermine/gene-interaction-displayer`.
+3. re-release your webapp and you should see the interaction displayer
 
    on gene report pages.
 
@@ -45,17 +36,15 @@ This tool accesses the list of gene interactions for the target gene by calling 
 
 A short list of Java files found on the Intermine side:
 
-CytoscapeNetworkDisplayer.java
+**CytoscapeNetworkDisplayer.java**
 
-: the report displayer class, get a set of genes interacting with the report gene, in your case, the genes/proteins on the same pathway as the report gene/protein
+the report displayer class, get a set of genes interacting with the report gene, in your case, the genes/proteins on the same pathway as the report gene/protein
 
-CytoscapeNetworkDisplayer.jsp
+**CytoscapeNetworkDisplayer.jsp**
 
-: the web page to display the network
+the web page to display the network
 
-CytoscapeNetworkService.java
+**CytoscapeNetworkService.java**
 
-: service class
-
-::: {.index} Cytoscape, SIF, XGMML, PNG, SVG, interactions, network viewer, interactions widget :::
+service class
 
