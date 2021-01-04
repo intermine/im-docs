@@ -1,26 +1,20 @@
-# get-lists
-
-orphan
-
-:
-
-## How Do I Get A Listing of My Lists?
+# How Do I Get A Listing of My Lists?
 
 You simply need to make a GET request to the /lists resource:
 
-```text
+```bash
 curl -H 'Accept: application/tsv' http://beta.flymine.org/beta/service/lists
 ```
 
 The above request will show only public lists. To see yours as well, provide an authentication token:
 
-```text
+```bash
 curl -H 'Accept: application/tsv' http://beta.flymine.org/beta/service/lists?token=$TOKEN
 ```
 
 To do something similar in Perl:
 
-```text
+```perl
 use 5.12.0;
 use Webservice::InterMine 1.0301;
 
@@ -32,7 +26,7 @@ say for $flymine->lists;
 
 Or Python:
 
-```text
+```python
 from intermine.webservice import Service
 TOKEN = None # supply a token to see your own lists.
 
@@ -44,7 +38,7 @@ for l in flymine.get_all_lists():
 
 Or Ruby:
 
-```text
+```ruby
 require 'intermine/service'
 TOKEN = nil # supply a token to see your own lists.
 
@@ -56,7 +50,7 @@ end
 
 Or javascript:
 
-```text
+```javascript
 var util      = require('util');
 var intermine = require('imjs');
 
