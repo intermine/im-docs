@@ -8,21 +8,21 @@
 
 q-and-a enrichment-widgets"} :::
 
-There are several list widgets \(widgets from now on\) available on the InterMine list analysis page, and they are configured in `/webapp/properties/webconfig-model`{.interpreted-text role="doc"}.
+There are several list widgets \(widgets from now on\) available on the InterMine list analysis page, and they are configured in [Data and Widget Configuration](../../webapp/properties/webconfig-model.md).
 
 There are three categories of widgets:
 
-table
+**table**
 
-: displays the counts from the list for the collection specified
+displays the counts from the list for the collection specified
 
-graph/chart
+**graph/chart**
 
-: displays a graph/chart based on a dataset you specify
+displays a graph/chart based on a dataset you specify
 
-enrichment
+**enrichment**
 
-: displays the p-values of objects that appear in your list
+displays the p-values of objects that appear in your list
 
 To add a widget to your mine:
 
@@ -32,9 +32,9 @@ To add a widget to your mine:
 
 Below are the details on how to configure each widget type.
 
-::: {.note} ::: {.title} Note :::
-
-Please read the documentation carefully and check your config file for typos. Most attributes are case sensitive. When the webapp is released, the config is validated and any errors displayed in the home page. :::
+{% hint style="info" %}
+Please read the documentation carefully and check your config file for typos. Most attributes are case sensitive. When the webapp is released, the config is validated and any errors displayed in the home page.
+{% endhint %}
 
 ### Configuration
 
@@ -42,13 +42,16 @@ Please read the documentation carefully and check your config file for typos. Mo
 
 Table widgets display objects and the counts of related objects in your list.
 
-![](../../../.gitbook/assets/table.png){.align-center}
+![](../../../.gitbook/assets/table.png)
 
 An example table widget of Orthologues in FlyMine.
 
-attribute purpose example
-
-`id` unique id used by javascript only. Spaces not allowed. `unique_id` `pathStrings` which collection to use in the widget `Gene.homologues[type=orthologue].homologue.organism` `exportField` which field from the objects in your list to export `primaryIdentifier` `typeClass` types of lists that should display this widget. Use the simple class name `Gene`
+| attribute | purpose | example |
+| :--- | :--- | :--- |
+| `id` | unique id used by javascript only. Spaces not allowed. | `unique_id` |
+| `pathStrings` | which collection to use in the widget | `Gene.homologues[type=orthologue].homologue.organism` |
+| `exportField` | which field from the objects in your list to export | `primaryIdentifier` |
+| `typeClass` | types of lists that should display this widget. Use the simple class name | `Gene` |
 
 The following are optional attributes:
 
@@ -60,23 +63,52 @@ attribute purpose example
 
 Graph widgets display datasets in graphical format.
 
-![An example chart widget of BDGP Expression Patterns in FlyMine.](../../../.gitbook/assets/chart.png){.align-center}
+![An example chart widget of BDGP Expression Patterns in FlyMine.](../../../.gitbook/assets/chart.png)
 
-+--------------+--------------------------+--------------------------+ \| attribute \| purpose \| example \| +==============+==========================+==========================+ \| id \| unique id used by \| &gt; `unique_id` \| \| \| javascript only. Spaces \| \| \| \| not allowed. \| \| +--------------+--------------------------+--------------------------+ \| graphType \| which type of chart to \| &gt; \| \| \| render \| `ColumnChart`,`BarChart` \| \| \| \| &gt; or `PieChart` \| +--------------+--------------------------+--------------------------+ \| startClass \| it\'s the root class for \| &gt; `Gene` \| \| \| all the paths specified \| \| \| \| in the \| \| \| \| configuration. \| \| +--------------+--------------------------+--------------------------+ \| typeClass \| type of lists that \| &gt; `Gene` \| \| \| should display this \| \| \| \| widget. Use the simple \| \| \| \| class name. \| \| +--------------+--------------------------+--------------------------+ \| categoryPath \| Must be attribute. We \| &gt; `mRNAExpre | | | can specify the subclass | ssionResults.stageRange` \| \| \| using the syntax \| \| \| \| `path[subclass type]` \| \| +--------------+--------------------------+--------------------------+ \| seriesPath \| the series path. This \| &gt; `mRNAExpr | | | has to be an attribute. | essionResults.expressed` \| \| \| We can specify the \| \| \| \| subclass using the \| \| \| \| syntax \| \| \| \| `path[subclass type]` \| \| +--------------+--------------------------+--------------------------+ \| seriesValues \| the values of different \| &gt; `true,false` or \| \| \| series. Case sensitive. \| &gt; `Up,Down` \| \| \| You can specify boolean \| \| \| \| values \| \| +--------------+--------------------------+--------------------------+ \| seriesLabels \| the labels displayed on \| &gt; `| | | the graphs to | Expressed,Not Expressed` \| \| \| distinguish inside a \| &gt; or `Up,Down` \| \| \| category the different \| \| \| \| series \| \| +--------------+--------------------------+--------------------------+ \| views \| attributes paths \| &gt; `name,organism.name` \| \| \| displayed when the user \| \| \| \| clicks an area on the \| \| \| \| graph \| \| +--------------+--------------------------+--------------------------+
 
-::: {.warning} ::: {.title} Warning :::
 
-You can specify **only one** class in `typeClass`. If you need another type, you have to define a new widget. :::
+| attribute | purpose | example |
+| :--- | :--- | :--- |
+| id | unique id used by javascript only. Spaces not allowed. | `unique_id` |
+| graphType | which type of chart to render | `ColumnChart`,\`\`BarChart\`\` or `PieChart` |
+| startClass | it’s the root class for all the paths specified in the configuration \[1\]. | `Gene` |
+| typeClass | type of lists that should display this widget. Use the simple class name. | `Gene` |
+| categoryPath | Must be attribute. We can specify the subclass using the syntax `path[subclass type]` | `mRNAExpressionResults.stageRange` |
+| seriesPath | the series path. This has to be an attribute. We can specify the subclass using the syntax `path[subclass type]` | `mRNAExpressionResults.expressed` |
+| seriesValues | the values of different series. Case sensitive. You can specify boolean values | `true,false` or `Up,Down` |
+| seriesLabels | the labels displayed on the graphs to distinguish inside a category the different series | `Expressed,Not Expressed` or `Up,Down` |
+| views | attributes paths displayed when the user clicks an area on the graph | `name,organism.name` |
+
+> \[1\] All the paths set, will be built starting from that. Specify only the simple name \(e.g. `Gene`\). You can choose to set the bag type class or the root class associated to the category path.
+
+{% hint style="warning" %}
+You can specify **only one** class in `typeClass`. If you need another type, you have to define a new widget.
+{% endhint %}
 
 The following are optional attributes:
 
-attribute purpose example
+| attribute | purpose | example |
+| :--- | :--- | :--- |
+| `title` | appears at the top of the widget | `BDGP expression patterns` |
+| `description` | description of the widget | `Expression patterns` |
+| `domainLabel` | Label displayed on x-axis in the ColumnChart \(on y-axis in the BarChart\) | `Stage` |
+| `rangeLabel` | Label displayed on y-axis in the ColumnChart \(on x-axis in the a BarChart\) | `Gene count` |
+| `filterLabel` | label for filter form field | `Organism` |
+| `filters` | the values for the filter, set in the dropdown \[2\]. | `All,KEGG pathways,Reactome data` |
+| `listPath` | the path used to build the bag constraint \[3\]. | `FlyAtlasResult.material` |
+| `constraints` | separated by comma, case sensitive, must be attributes, operator can be = or != \[4\] | `organism.name=[Organism]` \[5\] |
 
-`title` appears at the top of the widget `BDGP expression patterns` `description` description of the widget `Expression patterns` `domainLabel` Label displayed on x-axis in the ColumnChart \(on y-axis in the BarChart\) `Stage` `rangeLabel` Label displayed on y-axis in the ColumnChart \(on x-axis in the a BarChart\) `Gene count` `filterLabel` label for filter form field `Organism` `filters` the values for the filter, set in the dropdown. `All,KEGG pathways,Reactome data` `listPath` the path used to build the bag constraint. `FlyAtlasResult.material` `constraints` separated by comma, case sensitive, must be attributes, operator can be \[=\]{.title-ref} or \[!=\]{.title-ref} `organism.name=[Organism]`
+> \[2\] We can use static values or a grammar to specify the values contained in the list. The default value in general is the first value set in the ‘filters’ attribute or the first value returned by the query. With static values, you can add ‘All’ meaning no filter applied.
+>
+> \[3\] Optional if the startClass contains the bag type class.
+>
+> \[4\] For the values we can use static values or the selected filter value using the syntax: path constraint = \[filter identifier\].
+>
+> \[5\] organism’s name matching with the value selected in the filter with filterLabel ‘Organism’
 
-::: {.note} ::: {.title} Note :::
-
-The graphs use [Google Visualitation API](https://developers.google.com/chart/interactive/docs/reference). :::
+{% hint style="info" %}
+The graphs use [Google Visualitation API](https://developers.google.com/chart/interactive/docs/reference).
+{% endhint %}
 
 #### Enrichment widgets
 
