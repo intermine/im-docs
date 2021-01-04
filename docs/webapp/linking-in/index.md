@@ -10,7 +10,7 @@ Links to results of specified template. URL generated on template form in webapp
 
 [http://www.flymine.org/query/loadTemplate.do?name=Chromosome\_Gene&constraint1=Gene.chromosome.primaryIdentifier&op1=eq&value1=2L&constraint2=Gene.organism.name&op2=eq&value2=Drosophila+melanogaster&method=results](http://www.flymine.org/query/loadTemplate.do?name=Chromosome_Gene&constraint1=Gene.chromosome.primaryIdentifier&op1=eq&value1=2L&constraint2=Gene.organism.name&op2=eq&value2=Drosophila+melanogaster&method=results)
 
-Make sure to include \[&method=results\]{.title-ref} at the end of the query string.
+Make sure to include `&method=results` at the end of the query string.
 
 ### Query XML
 
@@ -22,7 +22,7 @@ Links to results of query. Can run any query built by QueryBuilder; QueryBuilder
 
 ### Template results
 
-Links to list analysis page comprised of results of template query. \"path\" attribute determines which column used to create list. URL available on template form in webapp.
+Links to list analysis page comprised of results of template query. "path" attribute determines which column used to create list. URL available on template form in webapp.
 
 [http://www.flymine.org/query/loadTemplate.do?name=Pathway\_Genes&constraint1=Pathway.name&op1=eq&value1=Pentose+phosphate+pathway&constraint2=Pathway.genes.organism.name&op2=eq&value2=Drosophila+melanogaster&constraint3=Pathway.dataSets.name&op3=eq&value3=KEGG+pathways+data+set&method=list&path=Pathway.genes](http://www.flymine.org/query/loadTemplate.do?name=Pathway_Genes&constraint1=Pathway.name&op1=eq&value1=Pentose+phosphate+pathway&constraint2=Pathway.genes.organism.name&op2=eq&value2=Drosophila+melanogaster&constraint3=Pathway.dataSets.name&op3=eq&value3=KEGG+pathways+data+set&method=list&path=Pathway.genes)
 
@@ -44,13 +44,13 @@ Links directly to report page. URL available on report page in webapp.
 
 [http://www.humanmine.org/humanmine/portal.do?externalids=pparg&class=Gene&origin=readthedocs](http://www.humanmine.org/humanmine/portal.do?externalids=pparg&class=Gene&origin=readthedocs)
 
-Optionally, add \[extraVlue\]{.title-ref} parameter with the organism name, e.g.:
+Optionally, add `extraVlue` parameter with the organism name, e.g.:
 
 [http://www.humanmine.org/humanmine/portal.do?externalids=pparg&class=Gene&extraValue=H.+sapiens](http://www.humanmine.org/humanmine/portal.do?externalids=pparg&class=Gene&extraValue=H.+sapiens)
 
 ## Link into Mine with Orthologues
 
-The example URL contains \'\'D. melanogaster\'\' genes. The results will contain the corresponding \'\'C. elegans\'\' genes, if any. This will only work if you have orthologue data loaded into your Mine. Will forward to report page OR list analysis page.
+The example URL contains ''D. melanogaster'' genes. The results will contain the corresponding ''C. elegans'' genes, if any. This will only work if you have orthologue data loaded into your Mine. Will forward to report page OR list analysis page.
 
 [http://www.flymine.org/query/portal.do?externalids=CG2262,CG3069,CG2859,CG5041,FBgn0036513&class=Gene&orthologue=C.%20elegans](http://www.flymine.org/query/portal.do?externalids=CG2262,CG3069,CG2859,CG5041,FBgn0036513&class=Gene&orthologue=C.%20elegans)
 
@@ -63,6 +63,4 @@ When linking to a report page or a list analysis page you can convert the data t
 ## More examples
 
 See FlyMine for more examples: [https://intermineorg.wordpress.com/flymine/link-to-flymine/](https://intermineorg.wordpress.com/flymine/link-to-flymine/)
-
-::: {.index} mine links, links :::
 
