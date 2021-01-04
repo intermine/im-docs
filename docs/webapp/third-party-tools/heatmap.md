@@ -2,7 +2,7 @@
 
 InterMine makes use of canvasXpress [heatmap](http://www.canvasxpress.org/heatmap.html) to visualize gene expression data.
 
-[CanvasXpress](http://www.canvasxpress.org/) is a javascript library based on the \[\\]{.title-ref} tag implemented in HTML5. It is written by Isaac Neuhausi.
+[CanvasXpress](http://www.canvasxpress.org/) is a javascript library based on the `<canvas>` tag implemented in HTML5. It is written by Isaac Neuhausi.
 
 Hierarchical and k-Means clustering algorithms and zoom in/out functionality have been implemented within the heatmap.
 
@@ -14,11 +14,11 @@ The raw data is parsed and converted to InterMine objects. In a Struts controlle
 
 ### Expression data source
 
-[FlyExpressionScoreConverter](https://github.com/intermine/intermine/blob/master/bio/sources/modmine/fly-expression-score/main/src/org/intermine/bio/dataconversion/FlyExpressionScoreConverter.java) is a specific data converter for modENCODE fly expression data. The class is located at \[bio/sources/modmine/fly-expression-score\]{.title-ref}. Any other similar expression data conversion tasks can take the data source as a reference.
+[FlyExpressionScoreConverter](https://github.com/intermine/intermine/blob/master/bio/sources/modmine/fly-expression-score/main/src/org/intermine/bio/dataconversion/FlyExpressionScoreConverter.java) is a specific data converter for modENCODE fly expression data. The class is located at `bio/sources/modmine/fly-expression-score`. Any other similar expression data conversion tasks can take the data source as a reference.
 
-Exprssion data type is an extension of InterMine core model. It is addressed in \[modmine/dbmodel/resources/modencode-metadata\_additions.xml\]{.title-ref}
+Exprssion data type is an extension of InterMine core model. It is addressed in `modmine/dbmodel/resources/modencode-metadata_additions.xml`
 
-```text
+```markup
 # modmine/dbmodel/resources/modencode-metadata_additions.xml
 <class name="GeneExpressionScore" is-interface="true">
 <attribute name="score" type="java.lang.Double" />
@@ -36,11 +36,11 @@ A better practice would be to add the model extension to a source specific addit
 
 The controller class [HeatMapController](https://github.com/modENCODE-DCC/modmine/blob/master/modmine/webapp/src/org/modmine/web/HeatMapController.java) is a component of [Struts MVC framework](https://struts.apache.org/). It holds the logic to process user requests, and seletcs a proper wabpage to user.
 
-In HeatMapController, a query is run to fetch expression scores from database \(ref method \[queryExpressionScore\]{.title-ref}\), then the results are parsed to JSON string \(ref method \[getJSONString\]{.title-ref}\) and set in the request \(ref method \[findExpression\]{.title-ref}\).
+In HeatMapController, a query is run to fetch expression scores from database \(ref method `queryExpressionScore`\), then the results are parsed to JSON string \(ref method `getJSONString`\) and set in the request \(ref method `findExpression`\).
 
 Struts config:
 
-```text
+```markup
 # modmine/webapp/resources/struts-config-model.xml 
 <action path="/initHeatMap"
 type="org.modmine.web.HeatMapController" />
