@@ -1,8 +1,8 @@
-# index
+# Embedding InterMine components
 
 ::: {.index} embedding, javascript embedding, widgets :::
 
-## Embedding InterMine components
+## 
 
 The following are libraries that compile to JavaScript which can be embedded on _any_ webpage.
 
