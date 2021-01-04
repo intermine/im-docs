@@ -2,9 +2,9 @@
 
 ## Configuration
 
-\[struts-config-model.xml\]{.title-ref}
+`struts-config-model.xml`
 
-```text
+```markup
 <action path="/initGenomicRegionSearchOptions" type="org.intermine.bio.web.struts.GenomicRegionSearchOptionsController"/>
 <action path="/genomicRegionSearch" forward="genomicRegionSearchOptions.page"/>
 <action path="/genomicRegionSearchResults" forward="genomicRegionSearchResults.page"/>
@@ -15,9 +15,9 @@
 <action path="/genomicRegionSearchAjax" type="org.intermine.bio.web.struts.GenomicRegionSearchAjaxAction"/>
 ```
 
-\[tiles-defs-model.xml\]{.title-ref}
+`tiles-defs-model.xml`
 
-```text
+```markup
 <definition name="genomicRegionSearchOptions.page" extends="layout.template">
   <put name="body" value="genomicRegionSearchOptions.tile" />
   <put name="pageName" value="genomicRegionSearch" />
@@ -29,9 +29,9 @@
 </definition>
 ```
 
-\[struts-config-form-model.xml\]{.title-ref}
+`struts-config-form-model.xml`
 
-```text
+```markup
 <form-bean name="genomicRegionSearchForm" type="org.intermine.bio.web.struts.GenomicRegionSearchForm">
   <form-property name="organism" type="java.lang.String"/>
   <form-property name="featureTypes" type="java.lang.String[]"/>
@@ -43,7 +43,7 @@
 </form-bean>
 ```
 
-\[model.properties\]{.title-ref}
+`model.properties`
 
 ```text
 genomicRegionSearch.title = Overlap features search from a new list of Genomic Regions
@@ -69,7 +69,7 @@ menu.genomicRegionSearchOptions = Genomic Region Search
 menu.genomicRegionSearchResults = Genomic Region Search Results
 ```
 
-\[web.properties\]{.title-ref}
+`web.properties`
 
 ```text
 genomicRegionSearch.display = true
@@ -104,21 +104,17 @@ genomicRegionSearch.initBatchSize = 10000
 ```
 
 * Update defaultOrganisms property as needed
-* to disable genomic region search, set \[genomicRegionSearch.display =
+* to disable genomic region search, set `genomicRegionSearch.display =`
 
-  false\]{.title-ref}
+  `false`
 
-* also add \[genomicRegionSearch\]{.title-ref} to
-
-  \[layout.fixed\]{.title-ref}, e.g.
+* also add `genomicRegionSearch` to `layout.fixed`, e.g.
 
 ```text
 layout.fixed = begin,template,templates,bag,customQuery,query,error,api,genomicRegionSearch
 ```
 
-* add to \'\'\'genomic\_precompute.properties\'\'\', note: do not
-
-  duplicate the query number
+* add to '''genomic\_precompute.properties''', note: do not duplicate the query number
 
 ```text
 precompute.query.30 = SELECT a3_.shortName AS a1_, a4_.class AS a2_ FROM org.intermine.model.bio.Organism AS a3_, org.intermine.model.bio.SequenceFeature AS a4_ WHERE a4_.organism CONTAINS a3_
@@ -128,13 +124,13 @@ precompute.query.31 = SELECT a4_.class AS a1_, a5_.name AS a2_, a5_.description 
 
 ## Region Search V2
 
-Search page
+**Search page**
 
-: This page can be kept as it is, but the query can be constructed and sent to the server side by webservice. The Structs elements can be removed.
+This page can be kept as it is, but the query can be constructed and sent to the server side by webservice. The Structs elements can be removed.
 
-GenomicRegionSearchService
+**GenomicRegionSearchService**
 
-: This class has the methods to:
+This class has the methods to:
 
 > * generate data \(JSON\) for search page
 > * parse search form and valid input
@@ -147,21 +143,21 @@ Update IQL query to pathquery
 
 > Currently, region query is constructed by lQL \(Intermine Query Language\) due to lack of implementation on range constraint in pathquery at the time we developed it. Update IQL to pathqueries and send by webserive, the output will be a list of results tables or a single results table grouped by region.
 
-See \[GenomicRegionSearchUtil.java\#L270-497\]{.title-ref}
+See `GenomicRegionSearchUtil.java#L270-497`
 
 Query fields:
 
 > In the IQL
 >
-> > See \[GenomicRegionSearchUtil.java\#L318-323\]{.title-ref}
+> > See `GenomicRegionSearchUtil.java#L318-323`
 >
 > In ResultRow
 >
-> > See \[GenomicRegionSearchQueryRunner.java\#L186-212\]{.title-ref}
+> > See `GenomicRegionSearchQueryRunner.java#L186-212`
 >
 > In Results table
 >
-> > See \[GenomicRegionSearchService.java\#L1106-1112\]{.title-ref}
+> > See `GenomicRegionSearchService.java#L1106-1112`
 
 Polling
 
@@ -171,32 +167,28 @@ See GenomicRegionSearchQueryRunner.java\#L129-223
 
 Results table and download links. Replaced by InterMine results table.
 
-::: {.index} region search, genomic region search :::
-
 ## Adding the strand specific search option
 
-Since InterMine 1.7, there is an additional feature on the Region Search page to restrict searches to a specific strand. The user activiates this by ticking a checkbox. For example, Chr1:12345-23456 indicates a region on the + strand; Chr1:23456-12345 indicates a region on the - strand. One situation in which this is useful is when you have a series of BLAST-generated regions on which you\'d like to search for upstream gene flanking regions. In this case, there is no point in matching with gene flanking regions on the opposite strand.
+Since InterMine 1.7, there is an additional feature on the Region Search page to restrict searches to a specific strand. The user activiates this by ticking a checkbox. For example, Chr1:12345-23456 indicates a region on the + strand; Chr1:23456-12345 indicates a region on the - strand. One situation in which this is useful is when you have a series of BLAST-generated regions on which you'd like to search for upstream gene flanking regions. In this case, there is no point in matching with gene flanking regions on the opposite strand.
 
-However, adding this feature to the Region Search page requires a new entry in an InterMine installation\'s \[struts-config-form-model.xml\]{.title-ref} file. A new InterMine installation will have this entry but existing updated InterMine installations will not. Therefore, to add this feature for an existing InterMine installation, the steps are to
+However, adding this feature to the Region Search page requires a new entry in an InterMine installation's `struts-config-form-model.xml` file. A new InterMine installation will have this entry but existing updated InterMine installations will not. Therefore, to add this feature for an existing InterMine installation, the steps are to
 
 1. Add a strandSpecific form property to the installations Region
 
    Search form in $MINE/webapp/resources/struts-config-form-model.xml
 
-```text
-<form-bean name="genomicRegionSearchForm" type="org.intermine.bio.web.struts.GenomicRegionSearchForm">
-    ...
-    <form-property name="strandSpecific" type="java.lang.Boolean"/>
-</form-bean>
-```
+   ```markup
+   <form-bean name="genomicRegionSearchForm" type="org.intermine.bio.web.struts.GenomicRegionSearchForm">
+       ...
+       <form-property name="strandSpecific" type="java.lang.Boolean"/>
+   </form-bean>
+   ```
 
-1. Activate this by setting the following property in
+2. Activate this by setting the following property in `web.properties`
 
-   \[web.properties\]{.title-ref}
-
-```text
-genomicRegionSearch.enableStrandSpecificSearch = true
-```
+   ```text
+   genomicRegionSearch.enableStrandSpecificSearch = true
+   ```
 
 If this feature is not present or the checkbox is unchecked, then the default behaviour remains to search both strands.
 
