@@ -2,46 +2,39 @@
 
 InterMine uses Solr for its keyword search index.
 
-By default the index will include the text fields of all objects in the database. Each object in the database becomes a document in the index with text attributes attached. You can configure classes to ignore, such as locations and scores that don\'t provide text information. You can also add related information to an object, for example you can configure that the synonyms, pathways and GO terms should be included in the Gene\'s entry.
+By default the index will include the text fields of all objects in the database. Each object in the database becomes a document in the index with text attributes attached. You can configure classes to ignore, such as locations and scores that don't provide text information. You can also add related information to an object, for example you can configure that the synonyms, pathways and GO terms should be included in the Gene's entry.
 
-fields in the results
+**fields in the results**
 
-: determined by WebConfigModel
+determined by WebConfigModel
 
-type
+**type**
 
-: class of object
+class of object
 
-score
+**score**
 
-: determined by the Lucene search, from 0 to 1
+determined by the Lucene search, from 0 to 1
 
-lists
+**lists**
 
-: Users can make lists from search results but only if all results are of the same type.
+Users can make lists from search results but only if all results are of the same type.
 
 To inspect the index directly: [http://localhost:8983/solr/](http://localhost:8983/solr/)
 
 ## Config file
 
-The config file is located at \[MINE\_NAME/dbmodel/resources/keyword\_search.properties\]{.title-ref}
+The config file is located at `MINE_NAME/dbmodel/resources/keyword_search.properties`
 
 * index.temp.directory
 
   > * directory for search index
 
-* index.references.\
+* index.references.&lt;CLASS\_NAME&gt;
 
   > * eg. index.references.Gene
-  > * index these objects\' references in addition to the normal
-  >
-  >   indexing
-  >
-  > * eg. if Gene.pathways is indexed so that when users search for
-  >
-  >   pathways, the associated genes are also returned as search
-  >
-  >   results
+  > * index these objects' references in addition to the normal indexing
+  > * eg. if Gene.pathways is indexed so that when users search for pathways, the associated genes are also returned as search results
 
 * index.ignore
 
@@ -50,20 +43,15 @@ The config file is located at \[MINE\_NAME/dbmodel/resources/keyword\_search.pro
 * index.ignore.fields
 
   > * do not index these fields
-  > * eg \[index.ignore.fields = SNP.type SNP.alleles\]{.title-ref}
+  > * eg `index.ignore.fields = SNP.type SNP.alleles`
 
 * facets
 
   > * Will appear as filters on the left panel in the search results
-  > * choose \[single\]{.title-ref} for references,
-  >
-  >   \[multi\]{.title-ref} for collections
-  >
-  > * Note: you must index any references used as facets. \(see:
-  >
-  >   above at \'\'\'index.references\'\'\'\).
+  > * choose `single` for references, `multi` for collections
+  > * Note: you must index any references used as facets. \(see: above at '''index.references'''\).
 
-* index.boost.\
+* index.boost.&lt;CLASS\_NAME&gt;
 
   > * weight this class heavier than other objects
 
@@ -74,15 +62,7 @@ The config file is located at \[MINE\_NAME/dbmodel/resources/keyword\_search.pro
 * index.optimize
 
   > * boolean, defaults to false.
-  > * If set to \[true\]{.title-ref}, reorganises the index so chunks
-  >
-  >   are placed together in storage which might improve the search
-  >
-  >   time. \(Similar to defragmentation of a hard disk.\) Requires an
-  >
-  >   empty space in the storage as large as the index, and takes
-  >
-  >   additional time.
+  > * If set to `true`, reorganises the index so chunks are placed together in storage which might improve the search time. \(Similar to defragmentation of a hard disk.\) Requires an empty space in the storage as large as the index, and takes additional time.
 
 ## Search Results
 
@@ -102,7 +82,7 @@ The fields displayed in the keyword search results are determined by the WebConf
 
 You can rebuild the search index by running this command in in your mine:
 
-```text
+```bash
 ~/git/flymine $ ./gradlew postprocess -Pprocess=create-search-index
 ```
 
@@ -112,17 +92,15 @@ To inspect the index directly: [http://localhost:8983/solr/](http://localhost:89
 
 ## Solr
 
-See `/system-requirements/software/solr`{.interpreted-text role="doc"} for details on how to install Solr.
-
-::: {.index} keyword search, quick search, search, Solr, Lucene :::
+See [Solr](../../system-requirements/software/solr.md) for details on how to install Solr.
 
 ## Solr Partial String Match Configuration
 
-In its default configuration, Solr will not match partial search terms. For example a gene named _REVOLUTA_ will be returned in the search results for search term \"REVOLUTA\" but not for search term \"REV.\" In order to have Solr return partial string matches, you must edit its configuration on the Solr server:
+In its default configuration, Solr will not match partial search terms. For example a gene named _REVOLUTA_ will be returned in the search results for search term "REVOLUTA" but not for search term "REV." In order to have Solr return partial string matches, you must edit its configuration on the Solr server:
 
 1. ADD the following to /var/solr/data/\[mine\]-search/conf/managed-schema. \(This example implements it for hits against Gene.primaryIdentifier and Gene.secondaryIdentifier.\)
 
-```text
+```markup
 <fieldType name="text_ngram" class="solr.TextField" positionIncrementGap="100">
   <analyzer type="index">
     <tokenizer class="solr.WhitespaceTokenizerFactory"/>
@@ -140,7 +118,7 @@ In its default configuration, Solr will not match partial search terms. For exam
 
 2. REMOVE the gene\_primaryidentifier and gene\_secondaryidentifier field definitions from the earlier part of the file. They look like this:
 
-```text
+```markup
 <field name="gene_primaryidentifier" type="analyzed_string" multiValued="true" indexed="true" required="false" stored="false"/>
 <field name="gene_secondaryidentifier" type="analyzed_string" multiValued="true" indexed="true" required="false" stored="false"/>
 ```
