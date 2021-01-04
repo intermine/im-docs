@@ -10,23 +10,23 @@ These URLs are used to share the report page with other users.
 
 ![image](../../../.gitbook/assets/share.png)
 
-The `class_keys.properties </webapp/properties/class-keys/>`{.interpreted-text role="doc"} file specifies the keys used to generate the permanent URLs. If not specified, the primaryidentifier key is used.
+The [class\_keys.properties](../properties/class-keys.md) file specifies the keys used to generate the permanent URLs. If not specified, the primaryidentifier key is used.
 
 The format is:
 
-\| \# class\_keys.properties \| \\_URI \
+\# class\_keys.properties 
+
+&lt;CLASSNAME&gt;\_URI&lt;FIELDNAME&gt;
 
 The classes and field names are case sensitive.
 
 For example:
 
-key value
-
-Pathway\_URI identifier
+| key | value |
+| :--- | :--- |
+| Pathway\_URI | identifier |
 
 No need to specify the keys for the classes defined in the core model \(e.g. protein, organism, publication...\).
 
-See `/webapp/properties/class-keys`{.interpreted-text role="doc"} for details about this file.
-
-::: {.index} permanent URL :::
+See [Class keys](../properties/class-keys.md) for details about this file.
 
