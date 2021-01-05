@@ -181,7 +181,7 @@
       * [List enrichment widgets statistics](docs/embedding/list-widgets/enrichment-widgets.md)
     * [apps-c](docs/embedding/apps-c/README.md)
       * [Apps/C Grunt Build](docs/embedding/apps-c/index.md)
-      * [usage](docs/embedding/apps-c/usage.md)
+      * [Apps/C Usage](docs/embedding/apps-c/usage.md)
       * [publication-search](docs/embedding/apps-c/publication-search.md)
       * [elastic-med](docs/embedding/apps-c/elastic-med.md)
     * [api-loader](docs/embedding/api-loader.md)
