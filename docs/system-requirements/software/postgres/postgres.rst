@@ -66,7 +66,7 @@ Procedures to change character encoding to `SQL_ASCII` in PostgreSQL 9.x:
 	exit
 
 
-you can check the expected screenshot here [#screenshot]_ .
+You can check the expected screenshot here [#screenshot]_ .
 
 Database Server Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -74,7 +74,7 @@ Database Server Configuration
 Kernel Memory setting
 """"""""""""""""""""""""""""
 
-Please check your server kernel setting
+Please check your server kernel setting to prevent kernel from becoming unstable during runtime (which would require a reboot). For that use `sysctl` command to set kernel parameters.
 
 .. code-block:: bash
 
