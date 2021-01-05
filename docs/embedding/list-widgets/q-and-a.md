@@ -1,8 +1,4 @@
-# q-and-a
-
-::: {.index} embedding, javascript embedding, widgets, list widgets, list analysis page widgets :::
-
-## List Widgets Questions & Answers
+# List Widgets Questions & Answers
 
 ### Source files
 
@@ -30,7 +26,7 @@ Source files for the [List widgets client](https://github.com/intermine/intermin
 
 First require the JavaScript libraries needed to run the example. You probably have your own version of a Twitter Bootstrap compatible CSS style included on the page already.
 
-```text
+```markup
 <!-- dependencies -->
 <script src="http://cdn.intermine.org/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
 <script src="http://cdn.intermine.org/js/underscore.js/1.3.3/underscore-min.js"></script>
@@ -44,15 +40,15 @@ First require the JavaScript libraries needed to run the example. You probably h
 
 The next step is defining a couple of variables.
 
-```text
+```javascript
 var root = 'http://www.flymine.org/query';
 var tokn = 'U1p3r9Jb95r2Efrbu1P1CdfvKeF'; // API token
 var name = 'temp-list-from-js-query'; // temporary list name
 ```
 
-Now we connect with the mine through `/embedding/imjs`{.interpreted-text role="doc"}.
+Now we connect with the mine through [InterMine JavaScript Library](../imjs.md).
 
-```text
+```javascript
 // Service connection.
 var flymine = new intermine.Service({
     'root':  root,
@@ -62,7 +58,7 @@ var flymine = new intermine.Service({
 
 Then we define the query whose results will be converted into a list later on.
 
-```text
+```javascript
 // The query herself.
 var query = {
     'select': [ 'symbol', 'primaryIdentifier' ],
@@ -78,7 +74,7 @@ var query = {
 
 Now we call the mine converting the results of the query into a list.
 
-```text
+```javascript
 flymine.query(query)
        .then(function madeQuery (q) {
          // q is an instance of intermine.Query.
@@ -90,25 +86,25 @@ flymine.query(query)
          console.error("Something went wrong");});
 ```
 
-Now, in the function \[savedList\]{.title-ref}, we can instantiate the List Widgets client and display the result.
+Now, in the function `savedList`, we can instantiate the List Widgets client and display the result.
 
-```text
+```javascript
 var widgets = new intermine.widgets(root + '/service/', tokn);
 // A new Chart List Widget for a particular list in the target #widget.
 widgets.chart('flyfish', name, '#widget');
 ```
 
-The only problem with this approach is that if we make this sort of call multiple times, we will fail on the second and subsequent ocassions as we will get a WebService exception telling us that the \'temporary\' list name is taken. _Thus inspect the code of the example to see how to make a call to the service to delete/reuse the list if it exists_.
+The only problem with this approach is that if we make this sort of call multiple times, we will fail on the second and subsequent ocassions as we will get a WebService exception telling us that the 'temporary' list name is taken. _Thus inspect the code of the example to see how to make a call to the service to delete/reuse the list if it exists_.
 
 ### Defining custom actions on widget events
 
-In a mine context, List Widgets are configured automatically to e.g. display a `/webapp/query-results/index`{.interpreted-text role="doc"} when clicking on \"Create a List\".
+In a mine context, List Widgets are configured automatically to e.g. display a [Query Results](../../webapp/query-results/index.md) when clicking on "Create a List".
 
 Outside of a mine context, one needs to pass in what happens when one interacts with the Widgets. You can also decide whether to show/hide either/and/or title or description of the widget \(for everything else use CSS\).
 
 Clicking on an individual match \(Gene, Protein etc.\) in popover window:
 
-```text
+```javascript
 var options = {
     matchCb: function(id, type) {
         window.open(mineURL + "/portal.do?class=" + type + "&externalids=" + id);
@@ -119,7 +115,7 @@ Widgets.enrichment('pathway_enrichment', 'myList', '#widget', options);
 
 Clicking on View results button in a popover window:
 
-```text
+```javascript
 var options = {
     resultsCb: function(pq) {
         // ...
@@ -130,7 +126,7 @@ Widgets.enrichment('pathway_enrichment', 'myList', '#widget', options);
 
 Clicking on Create list button in a popover window:
 
-```text
+```javascript
 var options = {
     listCb: function(pq) {
         // ...
@@ -141,7 +137,7 @@ Widgets.enrichment('pathway_enrichment', 'myList', '#widget', options);
 
 I want to hide the title or description of a widget.
 
-```text
+```javascript
 var options = {
     "title": false,
     "description": false
@@ -151,9 +147,9 @@ Widgets.enrichment('pathway_enrichment', 'myList', '#widget', options);
 
 ### Showing a Results Table
 
-The example below assumes that you have resolved all `/webapp/query-results/index`{.interpreted-text role="doc"} dependencies and have a PathQuery in JSON/JavaScript format that you want to display in a `#container`:
+The example below assumes that you have resolved all [Query Results](../../webapp/query-results/index.md) dependencies and have a PathQuery in JSON/JavaScript format that you want to display in a `#container`:
 
-```text
+```javascript
 // Define a query as above
 var pq = {from: "Gene", select: ["symbol", "organism.name"], where: {Gene: {in: "my-list"}}};
 // use an instance of a Service or perhaps you already have one.

@@ -177,7 +177,7 @@
     * [Embedding InterMine components](docs/embedding/index.md)
     * [list-widgets](docs/embedding/list-widgets/README.md)
       * [index](docs/embedding/list-widgets/index.md)
-      * [q-and-a](docs/embedding/list-widgets/q-and-a.md)
+      * [List Widgets Questions & Answers](docs/embedding/list-widgets/q-and-a.md)
       * [List enrichment widgets statistics](docs/embedding/list-widgets/enrichment-widgets.md)
     * [apps-c](docs/embedding/apps-c/README.md)
       * [publication-search](docs/embedding/apps-c/publication-search.md)
