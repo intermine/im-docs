@@ -187,7 +187,7 @@
     * [InterMine JavaScript API Loader](docs/embedding/api-loader.md)
     * [InterMine JavaScript Library](docs/embedding/imjs.md)
     * [Report Widgets](docs/embedding/report-widgets.md)
-    * [examples](docs/embedding/examples.md)
+    * [Embedding examples](docs/embedding/examples.md)
   * [web-services](docs/web-services/README.md)
     * [Web Services](docs/web-services/index.md)
     * [Tutorial](docs/web-services/tutorial.md)
