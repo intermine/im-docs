@@ -221,7 +221,7 @@
     * [About Us](docs/about/index.md)
     * [Contact us](docs/about/contact-us.md)
     * [InterMine Features](docs/about/intermine.md)
-    * [services](docs/about/services.md)
+    * [InterMine Services](docs/about/services.md)
     * [jobs](docs/about/jobs/README.md)
       * [Software Developer \(Closure / JavaScript\)](docs/about/jobs/software-developer-javascript.md)
       * [Vacancies](docs/about/jobs/index.md)
