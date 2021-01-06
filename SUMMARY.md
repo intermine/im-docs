@@ -184,7 +184,7 @@
       * [Apps/C Usage](docs/embedding/apps-c/usage.md)
       * [publication-search](docs/embedding/apps-c/publication-search.md)
       * [elastic-med](docs/embedding/apps-c/elastic-med.md)
-    * [api-loader](docs/embedding/api-loader.md)
+    * [InterMine JavaScript API Loader](docs/embedding/api-loader.md)
     * [InterMine JavaScript Library](docs/embedding/imjs.md)
     * [Report Widgets](docs/embedding/report-widgets.md)
     * [examples](docs/embedding/examples.md)

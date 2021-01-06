@@ -24,7 +24,7 @@ module.exports = (grunt) ->
 
 You can now include the `build/app.js` file and, depending on your surrounding environment, you will be able to load it using RequireJS/AMD, CommonJS or straight from `window` under the `MyApp` key.
 
-## Config
+### Config
 
 The `options.main` property specifies which file will be considered the "main" one for your package. Somehow, the external world needs to know what to get when they call `require(package_name)`. If you do not specify this property the following actions are taken:
 
@@ -36,11 +36,11 @@ The `options.main` property specifies which file will be considered the "main" o
 
 The `options.name` overrides the name of the package in `package.json`. It specified the name of the exported package as in: `require(name)`. One can pass in an array of names, as alternatives, as well.
 
-### Eco Templates
+#### Eco Templates
 
 Are precompiled so when you require them, you need to only pass a `context` to them to get a string back.
 
-## CommonJS/1.1 Modules
+### CommonJS/1.1 Modules
 
 The following template wraps your modules:
 
