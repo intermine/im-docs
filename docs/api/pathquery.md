@@ -8,12 +8,25 @@ The core concept of _Path-Queries_ is naturally enough the _Path_, examples of w
 
 * `Gene`: A plain root
 * `Gene.symbol`: A root and an attribute
-* `Gene.chromosomeLocation`: A reference to a complex attribute \(a reference\)
-* `Gene.organism.name`: A chain from a root to an attribute through one or more references.
-* `Gene.pathways.identifier`: A path may potentially match multiple values - there may be several pathway identifiers that match this path for any given gene.
-* `Protein.gene.homologues.homologue.alleles.alleleClass`: Paths may be of arbitrary length.
+* `Gene.chromosomeLocation`: A reference to a complex attribute \(a
 
-In the XML serialization of path-queries, all paths must be completely qualified. In the JSON format a prefix can be specified with the `from` or `root` property.
+  reference\)
+
+* `Gene.organism.name`: A chain from a root to an attribute through
+
+  one or more references.
+
+* `Gene.pathways.identifier`: A path may potentially match multiple
+
+  values - there may be several pathway identifiers that match this
+
+  path for any given gene.
+
+* `Protein.gene.homologues.homologue.alleles.alleleClass`: Paths may
+
+  be of arbitrary length.
+
+In the XML serialization of path-queries, all paths must be completely qualified. In the JSON format a prefix can be specified with the \[from\]{.title-ref} or \[root\]{.title-ref} property.
 
 ## Queries
 
@@ -25,35 +38,73 @@ To define what is retrieved from the data-store, a view is defined. This is simp
 
 eg:
 
-```markup
+```text
 <query model="genomic" view="Organism.name Organism.taxonId"/>
 ```
 
-```javascript
+```text
 {from: "Organism", select: ["name", "taxonId"]}
 ```
 
 ### Joins: Handling null values
 
-In any chain of references in a long path such as `Gene.sequence.residues` or `Gene.proteins.proteinDomains.name`, may be null. There are two behaviours supported for dealing with null references \(ie. where a gene does not have any sequence attached, or it has not proteins, or those proteins have no protein domains\).
+In any chain of references in a long path such as \[Gene.sequence.residues\]{.title-ref} or \[Gene.proteins.proteinDomains.name\]{.title-ref}, may be null. There are two behaviours supported for dealing with null references \(ie. where a gene does not have any sequence attached, or it has not proteins, or those proteins have no protein domains\).
 
-* `INNER JOIN`: The default behaviour, this prevents the entire path from matching, so that if the query contains `Gene.symbol` and `Gene.proteins.name` and a gene in the data store has no proteins then that gene will not match at all, no data will be returned for the symbol of that gene - ie. it is a required feature of this query that all genes in the result set have at least one protein \(this is a kind of implicit existential constraint\).
-* `OUTER JOIN`: Optional optional behaviour; this allows references in paths to be empty while permitting higher parts of the path to continue to match. So for example if the query contains `Gene.symbol` and `Gene.proteins.name` and a gene in the data store has no proteins then no protein data for that gene will be returned, but the gene will still match the query, and the symbol for that gene will be included in the retrieved results \(this makes the proteins optional\).
+* \`INNER JOIN\`: The default behaviour, this prevents the entire path
+
+  from matching, so that if the query contains
+
+  \[Gene.symbol\]{.title-ref} and \[Gene.proteins.name\]{.title-ref} and a
+
+  gene in the data store has no proteins then that gene will not match
+
+  at all, no data will be returned for the symbol of that gene - ie.
+
+  it is a required feature of this query that all genes in the result
+
+  set have at least one protein \(this is a kind of implicit
+
+  existential constraint\).
+
+* \`OUTER JOIN\`: Optional optional behaviour; this allows references
+
+  in paths to be empty while permitting higher parts of the path to
+
+  continue to match. So for example if the query contains
+
+  \[Gene.symbol\]{.title-ref} and \[Gene.proteins.name\]{.title-ref} and a
+
+  gene in the data store has no proteins then no protein data for that
+
+  gene will be returned, but the gene will still match the query, and
+
+  the symbol for that gene will be included in the retrieved results
+
+  \(this makes the proteins optional\).
 
 There are some consequences of using outer joins:
 
-* Due to the optional nature of the outerjoined data, it is not permitted to sort on attributes in an outerjoined section
-* Constraints \(see below\) cannot be combined in an `or` relationship across join boundaries. So one cannot ask for all genes which are either of a certain length or which have a certain pathway if there is an outer join on pathways.
+* Due to the optional nature of the outerjoined data, it is not
+
+  permitted to sort on attributes in an outerjoined section
+
+* Constraints \(see below\) cannot be combined in an \[or\]{.title-ref}
+
+  relationship across join boundaries. So one cannot ask for all genes
+
+  which are either of a certain length or which have a certain pathway
+
+  if there is an outer join on pathways.
 
 eg:
 
-```markup
+```text
 <query model="genomic" view="Gene.symbol Gene.pathways.identifier">
   <join path="Gene.pathways" style="OUTER"/>
 </query>
 ```
 
-```javascript
+```text
 {from: "Gene", select: ["symbol", "pathways.identifier"], joins: ["pathways"]}
 ```
 
@@ -65,7 +116,7 @@ By default all values of a given type match a query unless they are excluded by 
 
 The following are examples of constraints on attributes in the data store:
 
-```markup
+```text
 <constraint path="Gene.symbol" op="=" value="eve"/>
 <constraint path="Gene.length" op="&gt;" value="12345"/>
 <constraint path="Gene.homologues.homologue.organism.taxonId" op="!=" value="7227"/>
@@ -74,7 +125,7 @@ The following are examples of constraints on attributes in the data store:
 
 The json format allows a couple of different mechanisms for describing constraints:
 
-```javascript
+```text
 {
   select: ["Gene.symbol"],
   where: {
@@ -88,7 +139,7 @@ The json format allows a couple of different mechanisms for describing constrain
 
 or:
 
-```javascript
+```text
 {
   select: ["Gene.symbol"],
   where: [
@@ -102,7 +153,7 @@ or:
 
 or
 
-```javascript
+```text
 {
   select: ["Gene.symbol"],
   where: [
@@ -118,7 +169,7 @@ or
 
 One can specifiy that a path resolve to a value matching one \(or none\) of a set of values:
 
-```markup
+```text
 <constraint path="Gene.symbol" op="ONE OF">
   <value>eve</value>
   <value>bib</value>
@@ -126,7 +177,7 @@ One can specifiy that a path resolve to a value matching one \(or none\) of a se
 </constraint>
 ```
 
-```javascript
+```text
 {
   select: ["Gene.proteins.name"],
   where: {
@@ -137,7 +188,7 @@ One can specifiy that a path resolve to a value matching one \(or none\) of a se
 
 A special sub-type of this kind of constraint is the range constraint:
 
-```markup
+```text
 <constraint path="Gene.chromosomeLocation" op="OVERLAPS">
   <value>X:12345..45678</value>
   <value>2L:12345..45678</value>
@@ -145,7 +196,7 @@ A special sub-type of this kind of constraint is the range constraint:
 </constraint>
 ```
 
-```javascript
+```text
 {
   select: ["Gene.symbol"],
   where: {
@@ -156,13 +207,13 @@ A special sub-type of this kind of constraint is the range constraint:
 
 #### Lookup Constraints
 
-Lookup constraints allow convenient constraints over multiple attributes of a value, or querying when you don't know the particular attribute you wish to constrain:
+Lookup constraints allow convenient constraints over multiple attributes of a value, or querying when you don\'t know the particular attribute you wish to constrain:
 
-```markup
+```text
 <constaint path="Gene" op="LOOKUP" value="eve"/>
 ```
 
-```javascript
+```text
 {
   select: ["Gene.symbol"],
   where: [[ "Gene", "LOOKUP", "eve"]]
@@ -171,11 +222,11 @@ Lookup constraints allow convenient constraints over multiple attributes of a va
 
 An extra disambiguating value can be supplied. Its meaning depends on context, so for example would limit genes to a particular organism:
 
-```markup
+```text
 <constaint path="Gene" op="LOOKUP" value="eve" extraValue="D. melanogaster"/>
 ```
 
-```javascript
+```text
 {
   select: ["Gene.symbol"],
   where: [[ "Gene", "LOOKUP", "eve", "D. melanogaster"]]
@@ -186,34 +237,34 @@ An extra disambiguating value can be supplied. Its meaning depends on context, s
 
 Nodes in the query graph can be constrained by membership in a stored list. This type of constraint is similar to multi-value constraints, in that we are looking at membership in a set, and also similar to lookup constraints in that we treat entities as subjects of the constraints, rather than values of any of the attributes of the entities. A simple example is selecting all the proteins for genes in a given list:
 
-```markup
+```text
 <constraint path="Protein.genes" op="IN" value="a given list"/>
 <!-- Or to exclude those records -->
 <constraint path="Protein.genes" op="NOT IN" value="a given list"/>
 ```
 
-```javascript
+```text
 {
   select: ["Protein.*"],
   where: [["genes", "IN", "a given list"]]
 }
 ```
 
-The only relationships that may be asserted are "IN" and "NOT IN".
+The only relationships that may be asserted are \"IN\" and \"NOT IN\".
 
 #### Loop Constraints
 
-Queries can require that two nodes in the query graph refer \(or do not refer\) to the same entity. This kind of constraint is termed a "Loop" constraint. An example of this is would be to request all the genes in the pathways a given gene is in, so long as they are \(or are not\) one of the orthologues of the gene in question.
+Queries can require that two nodes in the query graph refer \(or do not refer\) to the same entity. This kind of constraint is termed a \"Loop\" constraint. An example of this is would be to request all the genes in the pathways a given gene is in, so long as they are \(or are not\) one of the orthologues of the gene in question.
 
-A loop constraint is composed of two paths, and either `=` or `!=`.
+A loop constraint is composed of two paths, and either \[=\]{.title-ref} or \[!=\]{.title-ref}.
 
-```markup
+```text
 <constraint path="Gene.homologues.homologue" op="=" value="Gene.pathways.genes"/>
 <!-- or -->
 <constraint path="Gene.homologues.homologue" op="!=" value="Gene.pathways.genes"/>
 ```
 
-```javascript
+```text
 {
   select: ["Gene.homologues.homologue.*", "Gene.pathways.genes.*"],
   where: [
@@ -223,17 +274,17 @@ A loop constraint is composed of two paths, and either `=` or `!=`.
 }
 ```
 
-Loop constraints must link paths that are not separated by `outer joins`.
+Loop constraints must link paths that are not separated by \[outer joins\]{.title-ref}.
 
 #### Type Constraints
 
 Type constraints, in addition to limiting the returned results, have the side-effect of type-casting the references in their paths to the given type, enabling other paths to reference otherwise unrefereable fields.
 
-```markup
+```text
 <constraint path="Gene.overlappingFeatures" type="ChromosomeStructureVariation"/>
 ```
 
-```javascript
+```text
 {
   from: "Gene",
   select: ["symbol", "overlappingFeatures.element1.primaryIdentifier"],
@@ -243,17 +294,17 @@ Type constraints, in addition to limiting the returned results, have the side-ef
 }
 ```
 
-Type constraints may not participate in the constraint logic, and as such never have a `code` associated with them.
+Type constraints may not participate in the constraint logic, and as such never have a \[code\]{.title-ref} associated with them.
 
 ## Sort Order
 
 The order of the results can be determined through the sort order:
 
-```markup
+```text
 <query model="genomic" view="Gene.symbol" sortOrder="Gene.length DESC Gene.name ASC"/>
 ```
 
-```javascript
+```text
 {select: ["Gene.symbol"], sortOrder: [["length", "DESC"], ["name", "ASC"]]}
 ```
 
