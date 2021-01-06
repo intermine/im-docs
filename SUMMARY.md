@@ -249,8 +249,8 @@
     * [How to set up your InterMine webapp to use https](docs/intermine/https.md)
     * [How to set up your InterMine environment on the Amazon Cloud](docs/intermine/amazon.md)
   * [api](docs/api/README.md)
+    * [InterMine API Description](docs/api/index.md)
     * [The PathQuery API](docs/api/pathquery.md)
-    * [index](docs/api/index.md)
   * [help](docs/help/README.md)
     * [InterMine Video Tutorial Collection](docs/help/index.md)
 
