@@ -1,34 +1,40 @@
 # InterMine Video Tutorial Collection
 
-Welcome to InterMine's online video tutorial collection. Here you can find out how to work with InterMine databases. You'll also find a PDF version of each tutorial so that you can work through the examples off-line.
+Welcome to InterMine\'s online video tutorial collection. Here you can find out how to work with InterMine databases. You\'ll also find a PDF version of each tutorial so that you can work through the examples off-line.
 
 ## Getting Started
 
-If you're new to InterMine it's probably best to see the 'FlyMine Lightning Overview' tutorial first.
+If you\'re new to InterMine it\'s probably best to see the \'FlyMine Lightning Overview\' tutorial first.
 
-**Getting Started with InterMine**
+::: {.cssclass} video :::
 
-A quick introduction to InterMine's web interface using the FlyMine database.
+* **Getting Started with InterMine**
 
-![overview](http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/FirstFrame.jpg)
+  A quick introduction to InterMine\'s web interface using the FlyMine database.
+
+  [![overview](http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/FirstFrame.jpg)](http://www.screencast.com/t/MI7fhHJFV)
 
 ## Lists and Template Searches
 
-Lists: InterMine's List creation tool helps you upload a List of identifiers - most commonly Genes, Proteins or SNPs. See how to upload a list of Gene.
+Lists: InterMine\'s List creation tool helps you upload a List of identifiers - most commonly Genes, Proteins or SNPs. See how to upload a list of Gene.
 
 Templates: To help with data analysis, InterMine includes a library of Template searches - predefined searches designed to perform a particular task. Each one has a description and a form to fill in.
 
-**List Upload**
+::: {.cssclass} video :::
 
-This tutorial shows you how to upload a List of Gene identifiers.
+* **List Upload**
 
-![Lists](http://content.screencast.com/users/InterMine/folders/InterMine/media/2589ee8a-4e88-4179-a30e-42cad94df30c/FirstFrame.jpg)
+  This tutorial shows you how to upload a List of Gene identifiers.
 
-**Using Template Searches**
+  [![Lists](http://content.screencast.com/users/InterMine/folders/InterMine/media/2589ee8a-4e88-4179-a30e-42cad94df30c/FirstFrame.jpg)](http://www.screencast.com/t/vqFJaghZPdmY)
 
-This tutorials shows you to analyse data with InterMine's predefined Template searches.
+* **Using Template Searches**
 
-![Templates](http://content.screencast.com/users/InterMine/folders/InterMine/media/277fe169-8008-4990-8330-f422c65d31d9/FirstFrame.jpg)
+  This tutorials shows you to analyse data with InterMine\'s predefined Template searches.
+
+  [![Templates](http://content.screencast.com/users/InterMine/folders/InterMine/media/277fe169-8008-4990-8330-f422c65d31d9/FirstFrame.jpg)](http://www.screencast.com/t/qjuoxo0QhWW)
 
 See [http://intermine.org/tutorials/](http://intermine.org/tutorials/) for a list of all available videos.
+
+::: {.index} help, tutorials, videos :::
 
