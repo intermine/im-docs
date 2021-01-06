@@ -23,7 +23,7 @@ Change into the apache-tomcat-6.0.x, the following directories are of interest:
 * `webapps` - the directory web applications are deployed to
 * `conf` - configuration files
 
-Before starting you need to set up a mananger user so you can deploy web applications and we recommend you allocate more RAM to tomcat - [wiki:Prerequisites#Tomcat see here]
+Before starting you need to set up a manager user so you can deploy web applications and we recommend you allocate more RAM to tomcat - [wiki:Prerequisites#Tomcat see here]
 
 Start up tomcat by running:
 
@@ -37,7 +37,7 @@ To check tomcat is running try to access `localhost:8080` in a web browser, you 
 Installing Eclipse
 ----------------------------
 
-Eclipse is a free, open-source Java editing environment, configuration to open the various code modules in InterMine as Eclipse projects is included in the checkout.  You can download the Mac OS X version of Eclipse from http://www.eclipse.org/downloads, either the standard or EE edition will work fine.  Just unzip the download and it will work immediately.
+Eclipse is a free, open-source Java editing environment. It is a configuration to open the various code modules in InterMine as Eclipse projects.  You can download the Mac OS X version of Eclipse from http://www.eclipse.org/downloads, either the standard or EE edition will work fine.  Just unzip the download and it will work immediately.
 
 See our guide to setting up InterMine in Eclipse: EclipseSetup.
 
