@@ -1,4 +1,10 @@
-# InterMine Services
+# services
+
+orphan
+
+:
+
+## InterMine Services
 
 We offer consulting services to those who want a custom InterMine installation.
 
@@ -8,9 +14,11 @@ We will help you design your data schema.
 
 ### Support Contract
 
-We'll be available for technical support guidance.
+We\'ll be available for technical support guidance.
 
 ### Full Implementation
 
-Please [Contact us](contact-us.md) to find out more!
+Please `/about/contact-us`{.interpreted-text role="doc"} to find out more!
+
+::: {.index} InterMine :::
 
