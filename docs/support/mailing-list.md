@@ -14,3 +14,5 @@ Archives of old messages are available here:
 
 [Message archive](https://lists.intermine.org/pipermail/dev/)
 
+::: {.index} email, help, developers, mailing list :::
+
