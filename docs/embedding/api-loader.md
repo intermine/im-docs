@@ -1,12 +1,14 @@
-# InterMine JavaScript API Loader
+# api-loader
 
-{% hint style="info" %}
-See also [GitHub repo](https://github.com/intermine/intermine-api-loader) for source code.
-{% endhint %}
+::: {.index} embedding, api loader, javascript loader :::
 
-{% hint style="info" %}
-If you are loading JavaScript libraries on a page you should use a loader \(count of 1\). Why not use ours?
-{% endhint %}
+## InterMine JavaScript API Loader
+
+::: {.seealso} [GitHub repo](https://github.com/intermine/intermine-api-loader) for source code. :::
+
+::: {.note} ::: {.title} Note :::
+
+If you are loading JavaScript libraries on a page you should use a loader \(count of 1\). Why not use ours? :::
 
 ### Purpose
 
@@ -14,19 +16,19 @@ To simplify loading of CSS and JS libraries. The API Loader automatically works 
 
 ### How to use
 
-{% hint style="info" %}
-If you are passing a string or an Array as the first parameter into the library these are @deprecated but still working for backwards compatibility.
-{% endhint %}
+::: {.note} ::: {.title} Note :::
+
+If you are passing a string or an Array as the first parameter into the library these are \@deprecated but still working for backwards compatibility. :::
 
 First you require the API Loader. You can for example use the following shorthand notation that always points to the latest version.
 
-```markup
+```text
 <script src="http://cdn.intermine.org/api"></script>
 ```
 
 Now you can use the loader by passing in an object that looks for example like so:
 
-```javascript
+```text
 intermine.load({
   'js': {
     'JSON': {
@@ -65,10 +67,32 @@ intermine.load({
 
 The object works like so:
 
-1. You pass in either a `js` or a `css` object based on whether you are requesting JavaScript or CSS libraries \(or both\).
-2. The key inside the object, like `jQuery` then refers to your library. If this key is on a `window` object \(as is the case with jQuery library\), we won't load the library, it already exists.
-3. If you do not like the previous check and want something more robust, pass a sync function under the `test` key. Return `true` if a library should NOT be loaded.
+1. You pass in either a `js` or a `css` object based on whether you are
+
+   requesting JavaScript or CSS libraries \(or both\).
+
+2. The key inside the object, like `jQuery` then refers to your
+
+   library. If this key is on a `window` object \(as is the case with
+
+   jQuery library\), we won\'t load the library, it already exists.
+
+3. If you do not like the previous check and want something more
+
+   robust, pass a sync function under the `test` key. Return `true` if
+
+   a library should NOT be loaded.
+
 4. `path` represents the URL pointing to the library.
-5. Use `depends` key passing an Array if a library depends on other libraries in your list. In the example you can see that `Backbone` depends on `jQuery` and `_` \(underscore.js\). The appropriate loading order will be worked out from this.
-6. Check the `err` var passed in the callback function \(second parameter\).
+5. Use `depends` key passing an Array if a library depends on other
+
+   libraries in your list. In the example you can see that `Backbone`
+
+   depends on `jQuery` and `_` \(underscore.js\). The appropriate loading
+
+   order will be worked out from this.
+
+6. Check the `err` var passed in the callback function \(second
+
+   parameter\).
 
