@@ -1,6 +1,6 @@
 # Homologue Data Sources
 
-InterMine comes with several data converters for homologue data, e.g. TreeFam, PANTHER, OrthoDB, Homlogene, etc. Follow the instructions below to include these datasets in your InterMine.
+InterMine comes with several data converter for homologue data, e.g. TreeFam, PANTHER, OrthoDB, Homlogene, etc. Follow the instructions below to include these datasets in your InterMine.
 
 ::: {.toctree} treefam homologene orthodb panther compara :::
 
