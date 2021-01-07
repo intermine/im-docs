@@ -19,7 +19,7 @@ project XML example
 </source>
 ```
 
-This source contains a task to copy the pathways from the proteins to the related genes. To include this, add this to the `post-processing` section of your project XML file:
+This source contains a task to copy the Pathways from the proteins to the related genes. To include this, add this to the `post-processing` section of your project XML file:
 
 ```markup
 <post-processing>
