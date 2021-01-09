@@ -39,7 +39,7 @@ The name of your source, e.g. uniprot-fasta or biogrid. The script expects a low
 
 **SOURCE\_TYPE**
 
-The type of your source. One of six options, see below.
+The type of your source. It can be one of six options, see below.
 
 Which source type do I need? It depends! If you want to use Java and have a custom data file, use `custom-file`. If you want to use the Perl API, then select `intermine-items-xml-file`.
 
@@ -94,7 +94,7 @@ See [Data Source Versions](dataparser-versions.md) for details on how to version
 
 #### Additional Properties in Project XML
 
-Any properties you define in a source entry in your mine's project.xml will be available in that source's converter or post-processing class, providing that there is a setter with an appropriate name.
+Any properties you define in a source entry in your mine's project.xml will be available in that source's converter or post-processing class, provided that there is a setter with an appropriate name.
 
 This applies to any class that inherits from:
 
@@ -147,7 +147,7 @@ This source works as above but writes the XML to an intermediate items database 
 
 ### db
 
-This source reads directly from a relational database, it will generate a skeleton `DBConverter` in `<source-name>/src/main/java/org/intermine/bio/dataconversion`. You will use the Java API to store data to the InterMine database.
+This source reads directly from a relational database. It will generate a skeleton `DBConverter` in `<source-name>/src/main/java/org/intermine/bio/dataconversion`. You will use the Java API to store data to the InterMine database.
 
 To connect to the original database you need to add properties in xxxmine.properties with the prefix `db.sourcename`.
 
@@ -230,9 +230,9 @@ You don't need to write any code to parse the OBO file, the ontology terms are c
 
 ## 4. Update the Additions file
 
-Update the file in the `src/main/resources` directory called `new-source_additions.xml`. This file details any extensions needed to the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. The file is in the same format as a complete Model description.
+Update the file in the `src/main/resources` directory called `new-source_additions.xml`. This file details any extensions needed by the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. The file is in the same format as a complete Model description.
 
-To add to an existing class the contents should be similar to the example code below. The class name is a class already in the model, the attribute name is the name of the new field to be added and the type describes the type of data to be stored. In the example the `Protein` class will be extended to include a new attribute called `extraData` which will hold data as a string.
+To add to an existing class the contents should be similar to the example code below. The class name is a class already in the model, the attribute name is the name of the new field to be added and the type describes the type of data to be stored. In the example, the `Protein` class will be extended to include a new attribute called `extraData` which will hold data as a string.
 
 ```markup
 <?xml version="1.0"?>
@@ -243,7 +243,7 @@ To add to an existing class the contents should be similar to the example code b
 </classes>
 ```
 
-To create a new class the `new-source_additions.xml` file should include contents similar to the example below:
+To create a new class, the `new-source_additions.xml` file should include contents similar to the example below:
 
 ```markup
 <?xml version="1.0"?>
@@ -265,7 +265,7 @@ To cross reference this with another class, similar XML should be used as the ex
 </class>
 ```
 
-In the example above the we create a link from NewFeature to the Protein class via the reference named protein. To complete the link a reverse reference may be added to Protein to point back at the NewFeature, this is optional - the reference could be one-way. Here we define a collection called features, this means that for every NewFeature that references a Protein, that protein will include it in its features collection. Note that as this is a collection a Protein can link to multiple NewFeatures but NewFeature.protein is a reference so each can only link to one Protein.
+In the example above, we create a link from NewFeature to the Protein class via the reference named protein. To complete the link, a reverse reference may be added to Protein to point back at the NewFeature, this is optional - the reference could be one-way. Here we define a collection called features, this means that for every NewFeature that references a Protein, that protein will include it in its features collection. Note that as this is a collection a Protein can link to multiple NewFeatures but NewFeature.protein is a reference so each can only link to one Protein.
 
 The reverse entry needs to be added to Protein \(still in the same file\):
 
@@ -292,7 +292,7 @@ The final additions XML should look like:
 </classes>
 ```
 
-If all the data you wish to load is already modelled in InterMine then you don't need an additions file. See [Model Description](../../../data-model/model.md) for details.
+If all the data you wish to load is already modelled in InterMine, then you don't need an additions file. See [Model Description](../../../data-model/model.md) for details.
 
 ### Global Additions File
 

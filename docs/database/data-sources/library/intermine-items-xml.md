@@ -8,7 +8,7 @@ Use this source to load [InterMine Items XML ](../apis/index.md)conforming to th
 
 **intermine-items-large-xml-file**
 
-Use this source to load [InterMine Items XML](../apis/index.md) conforming to the data model into the production database. This uses an intermediate database to allow it to cope with very large files that would otherwise cause memory problems.
+Use this source to load [InterMine Items XML](../apis/index.md) conforming to the data model into the production database, this uses an intermediate database to allow it to cope with very large files that would otherwise cause memory problems.
 
 ## Types of data loaded
 
