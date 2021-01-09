@@ -8,7 +8,7 @@ The converter for this source is the `ChadoDBConverter` class. This class contro
 
 ## Chado tables
 
-The `chado-db` source is able to integrate objects from a Chado database. Currently only tables from the `Chado sequence module` and `Chado stock modules` are read.
+The `chado-db` source is able to integrate objects from a Chado database. Currently, only tables from the `Chado sequence module` and `Chado stock modules` are read.
 
 These tables are queried from the chado database:
 
@@ -109,7 +109,7 @@ The `chado-db` source is implemented by the `ChadoDBConverter` class which runs 
   ...
 ```
 
-`ChadoDBConverter`.process\(\) will create an object for each `ChadoProcessor` in turn, then call `ChadoProcessor.process()`.
+`ChadoDBConverter.process()` will create an object for each `ChadoProcessor` in turn, then call `ChadoProcessor.process()`.
 
 ### Chado sequence module table processing
 
@@ -117,7 +117,7 @@ The `chado-db` source is implemented by the `ChadoDBConverter` class which runs 
 
 Each table processing method calls a result set method, eg. `processFeatureTable()` calls `getFeatureTableResultSet()` and then processes each row. The returned `ResultSet` may not always include all rows from the Chado table. For example the `getFeatures()` method returns a sub-set of the possible feature types and that list is used to when querying the feature table.
 
-Generally each row is made into an appropriate object, eg. in `processFeatureTable()`, `feature` table rows correspond to `BioEntity` objects. Some rows of some tables are ignored \(ie. not turned into objects\) based on configuration.
+Generally each row is made into an appropriate object, eg. in `processFeatureTable()`, `feature` table rows correspond to `BioEntity` objects. Some rows of some tables are ignored \(i.e. not turned into objects\) based on configuration.
 
 #### Reading the feature table
 
@@ -212,7 +212,7 @@ Handled by `ChadoSequenceProcessor.processFeatureCVTermTable()`
 
 See [Database Building](../../database-building/index.md) for more information on running builds.
 
-This will load the data using the default chado loader. If you want to load more data you will have to write a custom chado converter. FlyMine uses a FlyBase chado "processor" to parse interactions, etc. See [FlyBaseProcessor.java](https://github.com/intermine/intermine/blob/master/bio/sources/chado-db/src/main/java/org/intermine/bio/dataconversion/FlyBaseProcessor.java) for an example.
+This will load the data using the default chado loader. If you want to load more data, you will have to write a custom chado converter. FlyMine uses a FlyBase chado "processor" to parse interactions, etc. See [FlyBaseProcessor.java](https://github.com/intermine/intermine/blob/master/bio/sources/chado-db/src/main/java/org/intermine/bio/dataconversion/FlyBaseProcessor.java) for an example.
 
 ## Tripal
 
