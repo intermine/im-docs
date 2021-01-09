@@ -1,6 +1,6 @@
 # Post processing
 
-Some operations are performed on the integrated data before the webapp is released - post-processing. For example, setting sequences of SequenceFeatures, filling in additional references and collections or transferring orthologues from translations to genes. These are steps that run after the data loading is completed. They are used to set calculate/set fields that are difficult to do when data loading or that require multiple sources to be loaded. Some postprocessing steps are core to InterMine.bio and should always be run, others are contributed by particular sources.
+Some operations are performed on the integrated data before the webapp is released - post-processing. For example, setting sequences of SequenceFeatures, filling in additional references and collections or transferring orthologues from translations to genes. These are steps that run after the data loading is completed. They are used to calculate/set fields that are difficult to do when data loading or that require multiple sources to be loaded. Some postprocessing steps are core to InterMine.bio and should always be run, others are contributed by particular sources.
 
 Post-processing steps are specified in the project XML file and run from the mine:
 
@@ -14,27 +14,27 @@ To run individual post-process steps use, for example:
 ~/git/flymine $ ./gradlew postprocess -Pprocess=do-sources --stacktrace
 ```
 
-When running one postprocess step like this \(multiple steps separated by comma is not supported\), the `-Pprocess` used must match an `post-process` in the `post-processing` section of the `project.xml` file.
+When running one postprocess step like this \(multiple steps separated by comma is not supported\), the `-Pprocess` used must match a `post-process` in the `post-processing` section of the `project.xml` file.
 
 Post-processing is run automatically after integrating if using the `project_build` script.
 
 To add a post-process step to InterMine, you need to add the Java definition to the project and call the post-process from the `PostProcessOperationsTask` class.
 
 {% hint style="info" %}
-Be sure to put the postprocesses in the correct order. Each task is executed in the order listed on your project XML so be sure to put the webapp tasks last in the last, for example. Take a look at the FlyMine project XML file if you need help.
+Be sure to put the postprocesses in the correct order. Each task is executed in the order listed on your project XML so be sure to put the webapp tasks last, for example. Take a look at the FlyMine project XML file if you need help.
 {% endhint %}
 
 ## Sequence Features
 
 ### create-chromosome-locations-and-lengths
 
-For genome features this will set the `chromosome`, `chromosomeLocation` and `length` fields which are added to make querying more convenient. Some parts of the webapp specific to genome features expect `chromosomeLocation` to be filled in.
+For genome features, this will set the `chromosome`, `chromosomeLocation` and `length` fields which are added to make querying more convenient. Some parts of the webapp specific to genome features expect `chromosomeLocation` to be filled in.
 
 _Should I use it?_ Yes, if you have loaded genome annotation.
 
 ### transfer-sequences
 
-Where a Chromosome has a sequence this will find genome features located on it that don't have sequence set this will calculate and set the sequence for those features.
+Where a Chromosome has a sequence this will find genome features located on it that don't have sequence set and will calculate and set the sequence for those features.
 
 _Should I use it?_ Yes, if you have loaded genome annotation without sequence set for all features.
 
@@ -46,13 +46,13 @@ _Should I use it?_ Yes, for the moment if you are using standard InterMine sourc
 
 ### create-utr-references
 
-Create shortcut references/collections to make querying more obvious. Read the UTRs collection of MRNA then set the fivePrimeUTR and threePrimeUTR fields with the corresponding UTRs.
+Create shortcut references/collections to make querying more obvious. Read the UTRs collection of MRNA and then set the fivePrimeUTR and threePrimeUTR fields with the corresponding UTRs.
 
 _Should I use it?_ Yes, if you think it sounds useful.
 
 ### create-intron-features
 
-If you have loaded genome annotation that include exons but does not specify introns this will create Intron objects and name them appropriately.
+If you have loaded genome annotation that include exons but does not specify introns, this will create Intron objects and name them appropriately.
 
 _Should I use it?_ If genome annotation you have loaded does not include introns.
 
@@ -80,7 +80,7 @@ _Should I use it?_ Yes, if you have genome annotation and would like to query ov
 
 Deprecated.
 
-_Should I use it?_ No. Use \[create-location-overlap-index\]{.title-ref} instead.
+_Should I use it?_ No. Use `create-location-overlap-index` instead.
 
 ### create-overlap-view
 
