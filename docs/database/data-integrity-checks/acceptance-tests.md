@@ -6,7 +6,7 @@
 
    `flymine_acceptance_test.conf`
 
-2. run acceptance tests here:
+2. Run acceptance tests here:
 
 ```bash
 ~/git/flymine $ ./gradlew runAcceptanceTests
