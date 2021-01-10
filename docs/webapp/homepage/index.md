@@ -18,7 +18,7 @@ Open this file in your editor of choice and follow the text below.
 
 ## Boxes Customization
 
-The three prominent boxes on the homepage will contain a search functionality a list upload functionality and an info box. You can customise the text these contain and the box title.
+The three prominent boxes on the homepage will contain a search functionality, a list upload functionality and an info box. You can customise the text these contain and the box title.
 
 ### Search box
 
@@ -73,7 +73,7 @@ The fields that you do NOT set in this way, will simply show the text configured
 
 ## Popular Templates Customization
 
-To show the ten most popular template queries per category on your homepage:
+To show the ten most popular template queries per category on your homepage like so:
 
 ![image](../../../.gitbook/assets/popular_templates.jpg)
 
