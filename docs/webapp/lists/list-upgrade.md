@@ -50,29 +50,29 @@ To make queries fast, the list contents are stored in the production database as
 
 * Upgrade lists only when users log in - so we won't waste time upgrading dormant user accounts and old lists.
 * Superuser lists are upgraded when the webapp is first deployed.
-* The webapp knows when the lists need to be upgraded. For this purpose a `serialNumber` identifying the production database is generated when we build a new production db and stored in the userprofile database when we release the webapp. If the two serialNumberbs don't match, the system should upgrade the lists.
+* The webapp knows when the lists need to be upgraded. For this purpose a `serialNumber`, identifying the production database, is generated when we build a new production db and stored in the userprofile database when we release the webapp. If the two serialNumberbs don't match, the system should upgrade the lists.
 
 ## Upgrading to a new release
 
 * When a new production db is built, all the lists have to be upgraded. Their state is set to NOT\_CURRENT.
 * When a user logs in, a thread will begin upgrading their saved lists to the new release - finding and writing the corresponding object ids to the production database. If there are no issues \(all identifiers are resolved automatically\) the state of the list is set to CURRENT.
-* The user can verify the state of their saved bags in MyMine-&gt;Lists page.
+* The user can verify the state of theirs saved bags in MyMine-&gt;Lists page.
 * If there are any issues, the state of the list is set to TO\_UPGRADE. These lists are shown in MyMine-&gt;List page in a separate table. The user can click on the Upgrade List link and browse in the bagUploadConfirm page where all conflicts will be displayed.
 * Once the user has resolved any issues, the list can be saved clicking the button 'Upgrade a list of ...' and used for queries, etc. The state is set to CURRENT.
-* If a user never logs in to a particular release, the list will not be upgraded, but can still be upgraded as normal if they log in to a later release.
+* If a user never logs in to a particular release, the list will not be upgraded, but can still be upgraded as normal if the log in to a later release.
 
 ## Lists not current
 
 If a list is not current:
 
-* the user can't use it in the query/template to add list constraints
+* the user can't use it in the query/template to add list contraints
 * the list is not displayed in the List-&gt;View page
 * the list is displayed in MyMine-&gt;Lists page, but the column `Current` is set `Not Current`. Selecting the link, the user can resolve any issue.
-* the list is not displayed in the Lists section on the report pages
+* the list is not dispayed in the Lists section on the report pages
 
 ## bagvalues table
 
-The list upgrade system, needs a bagvalues table in the userprofile database, with savedbagid and value columns. This table should be generated manually, running the `load-bagvalues-table` ant task in the webapp directory. The `load-bagvalues-table` task, should create the table and load the contents of the list using the former production db, that is the same db used to create the saved lists. Every time you re-create the userprofile database, you have to re-generate the 'bagvalues' table. In theory, you should never re-create the userprofile db, so you should run the `load-bagvalues-table` task only once.
+The list upgrade system, needs a bagvalues table in the userprofile database, with savedbagid and value columns. This table should be generated manually, running the `load-bagvalues-table` ant task in the webapp directory. The `load-bagvalues-table` task, should create the table and load the contents of the list using the former production db, that is the same db used to create the saved lists. Every time, you re-create the userprofile database, you have to re-generate the 'bagvalues' table. In theory, you should never re-create the userprofile db, so you should run the `load-bagvalues-table` task only once.
 
 ## Userprofile database
 
@@ -82,36 +82,44 @@ The `bagvalues` table is updated when the user is logged in and:
 
 * creates a new list from the result page or starting from some identifiers
 * creates a new list from union, copy, intersection, subtraction operations
-* adds or deletes some rows to/from the list
+* add or delete some rows to/from the list
 * deletes a list
 
-When a user logs in, any lists he has created in his session become saved bags in the userprofile database, and the `bagvalues` table should be updated as well. The contents of `bagvalues` are only needed when upgrading to a new release. The thread upgrading the lists, uses the contents of bagvalues as input and, if the list upgrades with no issues:
+When a user logs in, any lists he has created in his session become saved bags in the userprofile database, and the `bagvalues` table should be updated as well. The contents of `bagvalues` is only needed when upgrading to a new release. The thread upgrading the lists, uses the contents of bagvalues as input and, if the list upgrades with no issues:
 
-* writes values to osbag\_int table
-* sets in the savedbag table the intermine-current to true
-* updates osbid.
+* write values to osbag\_int table
+* set in the savedbag table the intermine-current to true
+* update osbid.
 
 The `intermine-current` in the table `savedbag` marks whether the bag has been upgraded. The column is generated when you create the userprofile database or when `load-bagvalues-table` has been executed.
 
 ## Serial Number Overview
 
-The list upgrade functionality uses a serialNumber that identifies the production database. The serialNumber is re-generated each time we build a new production db. On startup of the webapp, the webapp compares the production serialNumber with its own serialNumber \(before stored using the production serialNumber\). If the two serialNumbers match, the lists will not be upgraded; if they don't, the lists are set as 'not current' and will be upgraded only when the user logs in.
+The list upgrade functionality uses a serialNumber that identifies the production database. The serialNumber is re-generated each time we build a new production db. On startup of the webapp, the webapp compares the production serialNumber with its own serialNumber \(before stored using the production serialNumber\). If the two serialNumbers match, the lists will not be updgraded; if don't, the lists are set as 'not current' and will be upgraded only when the user logs in.
 
 There are four cases:
 
-1. production serialNumber and userprofile serialNumber are both null ==&gt; we don't need to upgrade the list.
+1. production serialNumber and userprofile serialNumber are both null
 
-   > Scenario: I have released the webapp but I haven't rebuilt the production db.
+   ==&gt; we don't need upgrade the list.
 
-2. production serialNumber is not null but userprofile serialNumber is null ==&gt; we need to upgrade the lists.
+   > Scenario: I have released the webapp but I haven't re-build the production db.
+
+2. production serialNumber is not null but userprofile serialNumber is
+
+   null ==&gt; we need upgrade the lists.
 
    > Scenario: I have run `build-db` in the production db and it's the first time that I release the webapp. On startup, the webapp sets `intermine_current` to false and the userprofile serialNumber value with the production serialNumber value.
 
-3. production serialNumber = userprofile serialNumber ==&gt; we don't need to upgrade the lists.
+3. production serialNumber = userprofile serialNumber ==&gt; we don't
+
+   need upgrade the lists.
 
    > Scenario: we have released the webapp but we haven't changed the production db.
 
-4. production serialNumber != userprofile serialNumber ==&gt; we need to upgrade the lists.
+4. production serialNumber != userprofile serialNumber ==&gt; we need
+
+   upgrade the lists.
 
    > Scenario: we have run `build-db` in the production and a new serialNumber has been generated.
 
