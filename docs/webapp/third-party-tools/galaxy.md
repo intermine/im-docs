@@ -62,17 +62,17 @@ clicking on the 'Templates' tab at the top of this page.&nbsp;&nbsp;You can send
 to Galaxy from the 'EXPORT' menu in the results page.
 ```
 
-## Export data from InterMine to Galaxy
+## Export Data from InterMine to Galaxy
 
 1. Starting from an InterMine instance, e.g. FlyMine, run a query, select the option **Export** -&gt; **Send to Galaxy** and the data will be exported in the galaxy instance specified in the _Galaxy Location_ field
 
    ![](../../../.gitbook/assets/sendtogalaxy.png)
 
-2. starting from Galaxy, use the NEW intermine tool to be redirected to the InterMine registry, select the InterMine instance you want to use to export the data, run the query, select the option **Export** -&gt; **Send to Galaxy** and the data will be exported in the Galaxy instance you started from.
+2. Starting from Galaxy, use the NEW intermine tool to be redirected to the InterMine registry, select the InterMine instance you want to use to export the data, run the query, select the option **Export** -&gt; **Send to Galaxy** and the data will be exported in the Galaxy instance you started from.
 
 ![](../../../.gitbook/assets/sendtogalaxy2.png)
 
-## Export identifiers from Galaxy to InterMine 
+## Export Identifiers from Galaxy to InterMine 
 
 Use the new **InterMine interchange dataset** to generate an intermediate file \(tsv formatted\)
 
