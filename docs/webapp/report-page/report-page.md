@@ -26,7 +26,7 @@ a vertical bar \(\|\) separated list of keys for which we would like to see valu
 
 **`numberOfMainTitlesToShow`** \(optional\)
 
-this property is useful if we want to only show a maximum of one value in the title. As per our example, the system will first try to resolve the "symbol" of the BioEntity, if it is known, we will show just that. However, if a symbol is not provided, then we try to resolve the primaryIdentifier. The system thus follows left-to-right rule when deciding what and how many fields to show. Main titles will always be bold.
+this property is useful if we want to only show a maximum of one value in the title. As per our example the system will first try to resolve the "symbol" of the BioEntity, if it is known, we will show just that. However, if a symbol is not provided, then we try to resolve the primaryIdentifier. The system thus follows left-to-right rule when deciding what and how many fields to show. Main titles will always be bold.
 
 **`subTitles`**
 
@@ -65,7 +65,7 @@ this is where we specify the target of the link. The item in the curly brackets 
 
 **`image`** \(optional\)
 
-defines a name of the image from "model/images" \(e.g.: `webapp/src/main/webapp/model/images`\) to resolve.
+defines a name of the image from \"model/images\" \(e.g.: `webapp/src/main/webapp/model/images`\) to resolve.
 
 **`text`** \(optional\)
 
@@ -77,9 +77,9 @@ The order the fields appear in your webconfig-model is the order in which they w
 
 ### References & Collections
 
-Each object has a number of fields configured in the model, like `length` or `proteins` for Gene. The former is a reference to a single value or an object while the latter is a list of values/objects. These then appear on the report page as References and Collections.
+Each object has a number of fields configured in the model, like `length` or `proteins` for Gene. The first is a reference to a single value or an object, the latter is a list of values/objects. These then appear on the report page as References and Collections.
 
-To configure which category on the page these are to show, follow [Website Admin](../admin/index.md).
+To configure in which category on the page these are to show, follow [Website Admin](../admin/index.md).
 
 Additionally, one can decide to either show the old style "inline tables" or use the new Results Tables JS library when displaying these. To enable the latter, edit your `web.properties` as follows:
 
@@ -93,7 +93,7 @@ This will display any inline collections in table widgets. Inline collections ap
 web.collections.expandonload=false
 ```
 
-If `use.localstorage` is `true`, and [localStorage](http://diveintohtml5.info/storage.html) is available, then a particular collection's expanded or collapsed state will be remembered and not overridden by the default state property.
+If `use.localstorage` is `true`, and [localStorage](http://diveintohtml5.info/storage.html) is available, then a particular collection's expanded or collapsed state will be remembered and not overriden by the default state property.
 
 ```text
 use.localstorage = true
@@ -105,7 +105,7 @@ Inline lists are lists of values in one column of a report page table, displayed
 
 ![image](../../../.gitbook/assets/Screenshot.jpg)
 
-Perhaps we would like to only display the names of data sets available. In that case, we would add the following to the Gene class \(`<class className="org.intermine.model.bio.Gene">`\) in the `webconfig-model.xml` file:
+Perhaps we would like to only display the names of data sets available. Then, we would add the following to the Gene class \(`<class className="org.intermine.model.bio.Gene">`\) in the `webconfig-model.xml` file:
 
 ```markup
 <inlinelist>
@@ -125,7 +125,7 @@ refers to the reference or collection and a key \(separated by a dot\) that refe
 
 **`showInHeader`** \(optional\)
 
-a Boolean attribute that, if set to true, will make the list appear in the header section of the page.
+a boolean attribute that, if set to true, will make the list appear in the header section of the page.
 
 **`lineLength`** \(optional\)
 
@@ -133,7 +133,7 @@ defines the number of characters we would like to show in the list, any content 
 
 **`showLinksToObjects`** \(optional\)
 
-by specifying this Boolean attribute we can create links from the list to the individual objects the list refers to.
+by specifying this boolean attribute we can create links from the list to the individual objects the list refers to.
 
 If we have not set an inline list to appear in the header section of the page, the list will, by default appear in the category "Other" on the report page. If we login to the system we can then \(through the report page tagging interface that is revealed to us\) tag the list to appear in a specific section.
 
@@ -145,7 +145,7 @@ See [Report Displayers](report-displayers.md) for details on how to create displ
 
 Tag template with the `im:report` tag. See [Website Admin](../admin/index.md).
 
-The template needs to have only one where clause involving the class of the object. You also need to specify an aspect within the report page where the template will appear \(e.g. `im:aspect:Genomics`\)
+The template needs to have only one where clause involving the class of the object. You also need to specify an aspect whithin the report page where the template will appear \(e.g. `im:aspect:Genomics`\)
 
 Templates appear collapsed by default. To make all templates appear expanded when a report page is loaded, add or edit the following property in your `web.properties`:
 
@@ -153,7 +153,7 @@ Templates appear collapsed by default. To make all templates appear expanded whe
 web.templates.expandonload=true
 ```
 
-As with collections \(see above\), if `use.localstorage` is enabled and available, then a particular template's expanded or collapsed state will be remembered and not overridden by the default state property.
+As with collections \(see above\), if `use.localstorage` is enabled and available, then a particular template's expanded or collapsed state will be remembered and not overriden by the default state property.
 
 {% hint style="warning" %}
 The underlying query that populates a template is executed as the template is expanded. Setting `web.templates.expandonload` to `true` can cause a significant increase in a report page's load time, particularly if there are more than a handful of templates.
@@ -161,7 +161,7 @@ The underlying query that populates a template is executed as the template is ex
 
 ### External Links
 
-See [Features](../properties/web-properties.md#external-links) 
+See the External Link section of [Features](../properties/web-properties.md)
 
 ### Data
 
