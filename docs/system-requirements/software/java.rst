@@ -1,7 +1,7 @@
 Java
 ===========
 
-We recommend you use OpenJDK rather than Sun's JDK. There isn't much difference now between the two, as far as InterMine is concerned, but going forward it's probably safer.
+We recommend you use OpenJDK rather than Sun's JDK. There isn't much difference between the two as far as InterMine is concerned, but it's probably safer in the longer run.
 
 The version of Gradle we are using is compatible with Java 11.
 
@@ -17,8 +17,8 @@ InterMine can be rather memory-intensive, so you will probably need to set memor
 
 Run `source` to use this value in the current session.
 
-You should change the `-Xmx` and `-Xms` values if you have very little or very much RAM in your computer.
+You should change the `-Xmx` and `-Xms` values if you have very little or a lot of RAM in your computer.
 
-Building a database requires much more memory than running a webapp only.
+Building a database requires much more memory as compared to running only a webapp.
 
 .. index:: Java, OutOfMemoryError, ANT_OPTS, GRADLE_OPTS
