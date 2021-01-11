@@ -93,7 +93,7 @@ help.page.tree=tree
 help.page.aspect=dataCategory
 ```
 
-Your mine's web.properties file is merged with this web.properties file, so entries you add to web.properties will overwrite the values listed above.
+Your mine's web.properties file is merged with this web.properties file, so the entries you add to web.properties will overwrite the values listed above.
 
 ## Data definitions
 
