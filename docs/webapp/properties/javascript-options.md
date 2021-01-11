@@ -1,8 +1,8 @@
 # Setting Javascript Options
 
-Many of the javascript tools included in InterMine pages can be customized at run-time with specific options. To do this the recommended practice is to include a custom set of option configurations in a javascript file that is included in your InterMine instance, or other embedding page. Do do this withing the context of the InterMine web-application, we recommend following the following steps:
+Many of the JavaScript tools included in InterMine pages can be customized at runtime with specific options. To do this, the recommended practice is to include a custom set of option configurations in a JavaScript file that is included in your InterMine instance, or other embedding page. To do this within the context of the InterMine web-application, we recommend following the following steps:
 
-* Create a new javascript file, named something like `model-includes.js`, and place it in the `MINE_NAME/webapp/src/main/resources` directory.
+* Create a new JavaScript file, named something like `model-includes.js`, and place it in the `MINE_NAME/webapp/src/main/resources` directory.
 * Add your options to the file \(see below\).
 * Configure your mine to load this file on every page \(see below\).
 
@@ -24,7 +24,7 @@ If for instance you wanted to configure the result-tables so that their cell-pre
 
 ## Configuring your mine to load your custom file
 
-In one of your properties files \(ideal your model web properties file\), add a property beginning with `head.js.all.` that names this file. If your file is `my-mine-options.js`, then this line might look like:
+In one of your properties files \(ideally your model web properties file\), add a property beginning with `head.js.all.` that names this file. If your file is `my-mine-options.js`, then this line might look like:
 
 ```text
 head.js.all.MY_JS_OPTIONS = my-mine-options.js
