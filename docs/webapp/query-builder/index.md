@@ -26,7 +26,7 @@ Add fields to the [ObjectStore Summary](../../database/database-building/post-pr
 
 ## Hiding fields
 
-In your `webconfig-model.xml`, set a property `showInQB` for a `fieldconfig />` to `true` to hide a field from a Class.
+In your `webconfig-model.xml`, set a property `showInQB` for a`<fieldconfig />` to `true` to hide a field from a Class.
 
 An example of hiding an attribute field:
 
