@@ -4,7 +4,7 @@ This tool takes gene interaction data from Intermine and visualises it using [cy
 
 ## Configuration
 
-1. add the following entry to your '''webconfig-model.xml''' file:
+1. Add the following entry to your '''webconfig-model.xml''' file:
 
    ```markup
    <reportdisplayer javaClass="org.intermine.bio.web.displayer.CytoscapeNetworkDisplayer"
@@ -15,7 +15,7 @@ This tool takes gene interaction data from Intermine and visualises it using [cy
    ```
 
 2. If you host your own [Intermine CDN](https://github.com/intermine/CDN), make sure to pull the most recent update, as the interaction displayer script is loaded via CDN, under `js/intermine/gene-interaction-displayer`.
-3. re-release your webapp and you should see the interaction displayer
+3. Re-release your webapp and you should see the interaction displayer
 
    on gene report pages.
 
@@ -38,13 +38,13 @@ A short list of Java files found on the Intermine side:
 
 **CytoscapeNetworkDisplayer.java**
 
-the report displayer class, get a set of genes interacting with the report gene, in your case, the genes/proteins on the same pathway as the report gene/protein
+The report displayer class, gets a set of genes interacting with the report gene, in your case, the genes/proteins on the same pathway as the report gene/protein
 
 **CytoscapeNetworkDisplayer.jsp**
 
-the web page to display the network
+The web page to display the network
 
 **CytoscapeNetworkService.java**
 
-service class
+Service class
 
