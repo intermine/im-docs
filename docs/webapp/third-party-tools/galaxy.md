@@ -44,10 +44,10 @@ Properties located in the ''global.web.properties''' file.
 
 | parameter | purpose | required? |
 | :--- | :--- | :--- |
-| display | enable Galaxy export | yes\[1\]\_. |
+| display | enable Galaxy export | yes\[1\]. |
 | disabledMessage | displayed when Galaxy export is disabled | yes |
-| baseurl.default | base url of Galaxy server | yes\[2\]\_. |
-| url.value | tool runner url | yes\[3\]\_. |
+| baseurl.default | base URL of Galaxy server | yes\[2\]. |
+| url.value | tool runner URL | yes\[3\]. |
 | welcomeMessage | displays on the homepage when coming from Galaxy | yes |
 
 ```text
@@ -64,7 +64,7 @@ to Galaxy from the 'EXPORT' menu in the results page.
 
 ## Export data from InterMine to Galaxy
 
-1. starting from an InterMine instance, e.g. FlyMine, run a query, select the option **Export** -&gt; **Send to Galaxy** and the data will be exported in the galaxy instance specified in the \*Galaxy Location\* field
+1. Starting from an InterMine instance, e.g. FlyMine, run a query, select the option **Export** -&gt; **Send to Galaxy** and the data will be exported in the galaxy instance specified in the _Galaxy Location_ field
 
    ![](../../../.gitbook/assets/sendtogalaxy.png)
 
