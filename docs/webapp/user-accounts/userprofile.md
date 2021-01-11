@@ -1,10 +1,10 @@
 # Userprofile
 
-The user profile is an InterMine ObjectStore which stores profile information such as username and password, tags, queries, lists and templates.
+The user profile is an InterMine ObjectStore which stores Profile information such as username and password, tags, queries, lists and templates.
 
 ## Creating a new UserProfile database
 
-First, you must create the empty database in Postgres.
+First you must create the empty database in Postgres.
 
 ```bash
 # create the new empty database
@@ -22,7 +22,7 @@ These commands are needed in the webapp to initialise a userprofile database:
 
 If you already have a userprofile database and want to keep the data it contains, you can do this:
 
-1. Verify that the `serialNumber` in the new production db and in the userprofile are different. Only in this case, the upgrading list process updates the lists when the user logs in.
+1. Verify that the `serialNumber` in the new production db and in the userprofile are different. Only in this case, the upgrading list process updates the lists when the user logs in
 
    ```bash
    # run in production and userprofile database.  when releasing a new product
@@ -30,10 +30,10 @@ If you already have a userprofile database and want to keep the data it contains
    ```
 
 2. Release the webapp pointing to the new production db.
-3. In the `savedbag` table, the field `intermine_state` should be set to `false`.
-4. When the user logs in, the upgrading list process will update the list \(using `bagvalues` table\).
-5. If there are no conflicts, the flag will be set to `true` and the user will not have to take any action
-6. If there are issues \(eg. if a gene has merged with another\) the flag will be set to `false`, and the user will have to manually upgrade their list.
+3. In the `savedbag` table the field `intermine_state` should be set to `false`.
+4. When the user logs in, the upgrading list process will update the list \(using `bagvalues` table\)
+5. if there are no conflicts the flag will be set to `true` and the user will not have to take any action
+6. if there are issues \(eg. if a gene has merged with another\) the flag will be set to `false`, and the user will have to manually upgrade their list.
 
 ## Templates and tags
 
