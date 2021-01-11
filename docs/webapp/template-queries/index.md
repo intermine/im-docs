@@ -1,6 +1,6 @@
 # Template Queries
 
-There are several processes run after the data loading is completed, one of which is the objectstore summarisation. This step counts the number of objects of particular classes, identifies any empty references/collections and collects values to appear in dropdowns in the query builder and templates. The summarisation process also constructs the indexes needed for "type-ahead" autocompletion, this is configured by adding entries to the [ObjectStore Summary](../../database/database-building/post-processing/objectstore-summary-properties.md) file.
+There are several processes run after the data loading is completed, one of which the objectstore summarisation. This step counts the number of objects of particular classes, identifies any empty references/collections and collects values to be appear in dropdowns in the query builder and templates. The summarisation process also constructs the indexes needed for "type-ahead" autocompletion, this is configured by adding entries to the [ObjectStore Summary](../../database/database-building/post-processing/objectstore-summary-properties.md) file.
 
 ## Dropdowns
 
@@ -24,7 +24,7 @@ To populate the organism dropdown, include the [Organisms](../../database/data-s
 
 ## Auto-completion
 
-Fields in template queries and the QueryBuilder can have type-ahead autocompletion to assist in selecting valid terms. As you start to type, possible matches are fetched from the database; the text you have typed can match anywhere within the terms and multiple words fetched. This is particularly useful for ontology terms or protein domain names.
+Fields in template queries and the QueryBuilder can have type-ahead autocompletion to assist in selecting valid terms. As you start to type, possible matches are fetched from the database; the text you have typed can match anywhere within the terms and multiple words can be matched. This is particularly useful for ontology terms or protein domain names.
 
 You can set up autocompletion by completing these steps:
 
@@ -37,7 +37,7 @@ You can set up autocompletion by completing these steps:
    </post-processing>
    ```
 
-2. Run this command:
+2. Then run this command:
 
    ```bash
    # run postprocess
@@ -52,15 +52,15 @@ Now, when you release your webapp, fields you've configured will suggest similar
 
 To make a template constraint optional:
 
-1. Edit the template in the query builder
-2. Click on the padlock next to the constraint
-3. Select optional:
+1. edit the template in the query builder
+2. click on the padlock next to the constraint
+3. select optional:
 
 Required - the user must supply a value
 
 Optional: ON - optional and ON by default
 
-Optional: OFF - optional and OFF by default
+Optional: OFF - optional and OFF by defaul
 
 ## Templates page
 
