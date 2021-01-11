@@ -1,6 +1,6 @@
 # List upload
 
-InterMine has a sophisticated list import system for genes. This page aims to describe how it works.
+InterMine has a sophisticated list import system for genes. The page aims to describe how it works.
 
 Users can paste identifiers into the list upload form; e.g. for data types "gene" it can be an identifier, symbol or name. Which key is used is determined by the class\_keys file. The list upload form runs a series of queries to try to match the identifier to an object in the database.
 
@@ -27,7 +27,7 @@ If this query returned results, that object is added to our list and we are done
 If this query didn't return any results, we move on to the next step.
 
 {% hint style="info" %}
-You can set a parameter in bag-queries.xml, matchOnFirst="false", to always run all queries.
+You can set a parameter in bag-queries.xml, matchOnFirst=\"false\", to always run all queries.
 {% endhint %}
 
 ### "Bag Queries"
@@ -43,7 +43,7 @@ If this query didn't return any results, we move on to the next step.
 
 ### Converters
 
-Next we run appropriate converter templates, which are templates tagged with `im:converter`. Here is an example converter template:
+Next we run appropriate converter template, which are templates tagged with `im:converter`. Here is an example converter template:
 
 ```markup
 <template name="Gene_To_Protein_Type_Converter" title="Gene to protein type converter" comment="">
