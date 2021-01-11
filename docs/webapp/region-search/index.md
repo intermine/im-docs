@@ -114,7 +114,7 @@ genomicRegionSearch.initBatchSize = 10000
 layout.fixed = begin,template,templates,bag,customQuery,query,error,api,genomicRegionSearch
 ```
 
-* add to '''genomic\_precompute.properties''', note: do not duplicate the query number
+* add to '''genomic\_precompute.properties''', **note: do not duplicate the query number**
 
 ```text
 precompute.query.30 = SELECT a3_.shortName AS a1_, a4_.class AS a2_ FROM org.intermine.model.bio.Organism AS a3_, org.intermine.model.bio.SequenceFeature AS a4_ WHERE a4_.organism CONTAINS a3_
@@ -161,7 +161,7 @@ Query fields:
 
 Polling
 
-> We create a synchronizedMap to hold all the query results and put it in an http request. On the results page, there is a checker \(javascript\) checking the size of the map, so a progress bar will be updating. The results table will be generated once 10 results return, the pager will be updated dynamically. he whole part will be replaced by InterMine results table.
+> We created a synchronizedMap to hold all the query results and put it in an http request. On the results page, there is a checker \(javascript\) checking the size of the map, so a progress bar will be updating. The results table will be generated once 10 results return, the pager will be updated dynamically. The whole part will be replaced by InterMine results table.
 
 See GenomicRegionSearchQueryRunner.java\#L129-223
 
@@ -169,13 +169,11 @@ Results table and download links. Replaced by InterMine results table.
 
 ## Adding the strand specific search option
 
-Since InterMine 1.7, there is an additional feature on the Region Search page to restrict searches to a specific strand. The user activiates this by ticking a checkbox. For example, Chr1:12345-23456 indicates a region on the + strand; Chr1:23456-12345 indicates a region on the - strand. One situation in which this is useful is when you have a series of BLAST-generated regions on which you'd like to search for upstream gene flanking regions. In this case, there is no point in matching with gene flanking regions on the opposite strand.
+Since InterMine 1.7, there is an additional feature on the Region Search page to restrict searches to a specific strand. The user activates this by ticking a checkbox. For example, Chr1:12345-23456 indicates a region on the + strand; Chr1:23456-12345 indicates a region on the - strand. One situation in which this is useful is when you have a series of BLAST-generated regions on which you'd like to search for upstream gene flanking regions. In this case, there is no point in matching with gene flanking regions on the opposite strand.
 
 However, adding this feature to the Region Search page requires a new entry in an InterMine installation's `struts-config-form-model.xml` file. A new InterMine installation will have this entry but existing updated InterMine installations will not. Therefore, to add this feature for an existing InterMine installation, the steps are to
 
-1. Add a strandSpecific form property to the installations Region
-
-   Search form in $MINE/webapp/resources/struts-config-form-model.xml
+1. Add a strandSpecific form property to the installations Region Search form in $MINE/webapp/resources/struts-config-form-model.xml
 
    ```markup
    <form-bean name="genomicRegionSearchForm" type="org.intermine.bio.web.struts.GenomicRegionSearchForm">
@@ -190,5 +188,5 @@ However, adding this feature to the Region Search page requires a new entry in a
    genomicRegionSearch.enableStrandSpecificSearch = true
    ```
 
-If this feature is not present or the checkbox is unchecked, then the default behaviour remains to search both strands.
+If this feature is not present or the checkbox is unchecked, then the default behaviour remains, i.e. to search both strands.
 
