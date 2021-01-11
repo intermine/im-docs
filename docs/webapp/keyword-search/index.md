@@ -2,7 +2,7 @@
 
 InterMine uses Solr for its keyword search index.
 
-By default the index will include the text fields of all objects in the database. Each object in the database becomes a document in the index with text attributes attached. You can configure classes to ignore, such as locations and scores that don't provide text information. You can also add related information to an object, for example, you can configure that the synonyms, pathways and GO terms should be included in the Gene's entry.
+By default the index will include the text fields of all objects in the database. Each object in the database becomes a document in the index with text attributes attached. You can configure classes to ignore, such as locations and scores that don't provide text information. You can also add related information to an object, for example you can configure that the synonyms, pathways and GO terms should be included in the Gene's entry.
 
 **fields in the results**
 
@@ -49,7 +49,7 @@ The config file is located at `MINE_NAME/dbmodel/resources/keyword_search.proper
 
   > * Will appear as filters on the left panel in the search results
   > * choose `single` for references, `multi` for collections
-  > * Note: you must index any references used as facets. \(see above at '''index.references'''\).
+  > * Note: you must index any references used as facets. \(see: above at '''index.references'''\).
 
 * index.boost.&lt;CLASS\_NAME&gt;
 
@@ -61,8 +61,8 @@ The config file is located at `MINE_NAME/dbmodel/resources/keyword_search.proper
 
 * index.optimize
 
-  > * Boolean, defaults to false.
-  > * If set to `true`, reorganises the index so chunks are placed together in storage, which might improve the search time. \(Similar to defragmentation of a hard disk\). Requires an empty space in the storage as large as the index, and takes additional time.
+  > * boolean, defaults to false.
+  > * If set to `true`, reorganises the index so chunks are placed together in storage which might improve the search time. \(Similar to defragmentation of a hard disk.\) Requires an empty space in the storage as large as the index, and takes additional time.
 
 ## Search Results
 
@@ -80,13 +80,13 @@ The fields displayed in the keyword search results are determined by the WebConf
 
 ## Search Index
 
-You can rebuild the search index by running this command in your mine:
+You can rebuild the search index by running this command in in your mine:
 
 ```bash
 ~/git/flymine $ ./gradlew postprocess -Pprocess=create-search-index
 ```
 
-You would need to re-release your webapp.
+You need to re-release your webapp.
 
 To inspect the index directly: [http://localhost:8983/solr/](http://localhost:8983/solr/)
 
@@ -96,7 +96,7 @@ See [Solr](../../system-requirements/software/solr.md) for details on how to ins
 
 ## Solr Partial String Match Configuration
 
-In its default configuration, Solr will not match partial search terms. For example a gene named _REVOLUTA_ will be returned in the search results for search term "REVOLUTA" but not for search term "REV." In order to have Solr return partial string matches, you must edit its configuration on the Solr server. To do this:
+In its default configuration, Solr will not match partial search terms. For example a gene named _REVOLUTA_ will be returned in the search results for search term "REVOLUTA" but not for search term "REV." In order to have Solr return partial string matches, you must edit its configuration on the Solr server:
 
 1. ADD the following to /var/solr/data/\[mine\]-search/conf/managed-schema. \(This example implements it for hits against Gene.primaryIdentifier and Gene.secondaryIdentifier.\)
 
@@ -123,7 +123,7 @@ In its default configuration, Solr will not match partial search terms. For exam
 <field name="gene_secondaryidentifier" type="analyzed_string" multiValued="true" indexed="true" required="false" stored="false"/>
 ```
 
-OR, simply UPDATE the existing records, replacing the parameters with: type="text\_ngram" indexed="true" stored="true".
+OR, simply UPDATE the existing records, replacing the parameters with: type=\"text\_ngram\" indexed=\"true\" stored=\"true\".
 
 3. RESTART Solr to load the new config, e.g. under System V: :
 
@@ -131,7 +131,7 @@ OR, simply UPDATE the existing records, replacing the parameters with: type="tex
 $ systemctl restart solr
 ```
 
-4. REBUILD the search index using the Solr-related postprocesses:
+4. REBUILD the search index using the Solr-related postprocesses: :
 
 ```text
 ./gradlew postprocess -Pprocess=create-search-index
