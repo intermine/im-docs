@@ -4,15 +4,15 @@ The `web.properties` file configures several attributes for the InterMine web ap
 
 **attributeLink**
 
-Used to configure hyperlinks, generally to external dbs. See [External Links](web-properties.md#external-links) below
+Used to configure hyperlinks, generally to external dbs. See "External Links" section below
 
 **bag.example.identifiers**
 
-Text present in the list upload form. See [List upload examples](web-properties.md#list-upload-examples) below
+Text present in the list upload form. See "List upload examples" section below
 
 **externallink**
 
-Redirects links in query results. See [Link redirects ](../query-results/redirects.md)
+Redirect links in query results. See [Link redirects ](../query-results/redirects.md)
 
 **galaxy**
 
@@ -24,23 +24,23 @@ See [Region Search](../region-search/index.md)
 
 **header.links**
 
-Links at upper right corner
+links at upper right corner
 
 **meta.keywords**
 
-Will populate meta tag for keywords
+will populate meta tag for keywords
 
 **meta.description**
 
-Will populate meta tag for description. Google uses this in their search results, I think
+will populate meta tag for description. Google uses this in their search results, I think
 
 **project.citation**
 
-Populates the "Cite" text in the footer.
+populates the "Cite" text in the footer.
 
 **portal.welcome**
 
-The message to show when a user arrives at the webapp via the portal action \(eg. &lt;something&gt;/portal.do\)
+the message to show when a user arrives at the webapp via the portal action \(eg. &lt;something&gt;/portal.do\)
 
 **quickSearch.identifiers**
 
@@ -48,7 +48,7 @@ Text displayed in search box
 
 **theme**
 
-Colour scheme for the webapp. Available options are blue, bright\_blue, gold, green, grey, brown, ecoli\_blue, metabolic, modmine, ratmine and purple
+Colour scheme for the webapp. Available options are: blue, bright\_blue, gold, green, grey, brown, ecoli\_blue, metabolic, modmine, ratmine and purple
 
 **xrefLink**
 
@@ -56,7 +56,7 @@ Used to configure hyperlinks for CrossReferences. See below
 
 **markup.webpages.enable**
 
-Used to enable structured data in JSON-LD format in InterMine web pages. Available options are true or false
+Used to enable structured data in JSON-LD format in InterMine web pages. Available options are: true or false
 
 ## Branding
 
@@ -125,39 +125,39 @@ The format for this property is:
 
 **unique\_name**
 
-Used to distinguish between multiple configurations for the same attribute/organism/class combination
+used to distinguish between multiple configurations for the same attribute/organism/class combination
 
 **class**
 
-Class of object to link, eg. Protein
+class of object to link, eg. Protein
 
 **taxonId**
 
-Either a proper id or '\*' when no assumption is made regarding the organism
+either a proper id or '\*' when no assumptions is made regarding the organism
 
 **attributeName**
 
-Which identifier field to pass to the URL, e.g. if attributeName is primaryIdentifier, the value of primary identifier field will be used as the attribute value
+which identifier field to pass to the URL, e.g. if attributeName is primaryIdentifier, the value of primary identifier field will be used as the attribute value
 
 **list**
 
-Indicates the link will have a list of identifiers
+indicates the link will have a list of identifiers
 
 **url**
 
-URL to link to
+url to link to
 
 **imageName**
 
-Name of logo \(optional\), must be in /model directory
+name of logo \(optional\), must be in /model directory
 
 **text**
 
-Text that will appear next to the logo
+text that will appear next to the logo
 
-The value of the attribute \(for the current object\) is substituted anywhere the string "&lt;&lt;attributeValue&gt;&gt;" occurs in the text or the URL
+The value of the attribute \(for the current object\) is substituted anywhere the string "&lt;&lt;attributeValue&gt;&gt;" occurs in the text or the url
 
-For example:
+example:
 
 ```text
 attributelink.flybase.Gene.7227.primaryIdentifier.url=http://www.flybase.org/.bin/fbidq.html?<<attributeValue>>
@@ -175,7 +175,7 @@ attributelink.flymine.Gene.*.primaryIdentifier.list.imageName=flymine_logo_link.
 attributelink.flymine.Gene.*.primaryIdentifier.list.usePost=true
 ```
 
-Only if a taxonId is specified, the code will check if the link to the external db is relevant.
+Only if a taxonId is specified the code will check if the link to the external db is relevant.
 
 ## Settings for the xrefLink property
 
@@ -190,24 +190,24 @@ The format for this property is:
 
 **dataSource\_name**
 
-The name of the external database
+the name of the external database
 
 **url**
 
-URL to link to
+url to link to
 
 **imageName**
 
-Name of logo \(optional\), must be in /model directory
+name of logo \(optional\), must be in /model directory
 
-For example:
+example:
 
 ```text
 xreflink.PFAM.url=http://pfam.sanger.ac.uk/family?
 xreflink.PIRSF.url=http://pir.georgetown.edu/cgi-bin/ipcSF?id=
 ```
 
-Cross references represent identifiers used in external databases, eg. FlyBase, UniProt. An object in InterMine which has CrossReference will have an identifier and data source for that cross reference. In order to find the cross reference in that data source, a URL is required to link to, and the full path should look like url+identifier, e.g. ''[http://pfam.sanger.ac.uk/family?PF00001](http://pfam.sanger.ac.uk/family?PF00001)''. In web.properties, the first part of the full path could be configured as in "url", and identifier will be added programmatically to the rear of it. The dataSource\_name should be consistent with the source name of the CrossReferences in the InterMine database.
+Cross references represent identifiers used in external databases, eg. FlyBase, UniProt. An object in InterMine which has CrossReference will have a identifier and data source for that cross reference. In order to find the cross reference in that data source, a url is required to link to and the full path should look like url+identifier, e.g. ''[http://pfam.sanger.ac.uk/family?PF00001](http://pfam.sanger.ac.uk/family?PF00001)''. In web.properties, the first part of the full path could be configured as in "url", and identifier will be added programmatically to the rear of it. The dataSource\_name should be consistent with the source name of the CrossReferences in the InterMine database.
 
 ## OpenAuth2 Settings \(aka. OpenID Connect\)
 
@@ -232,7 +232,7 @@ For ELIXIR, you will need:
    have it
 
 2. register the new client [here](https://login.elixir-czech.org/oidc/manage/dev/dynreg), using the _Self-service client registration_ page.
-3. send an email to [aai-contact@elixir-europe.org](mailto:aai-contact@elixir-europe.org) in order to receive a form that you have to complete with additional information
+3. send an email to [aai-contact@elixir-europe.org](mailto:aai-contact@elixir-europe.org) in order to receive a form that you have to completed with additional informations
 
 For each application you will need to register the callback URI, which looks like:
 
@@ -242,11 +242,11 @@ ${webapp.baseurl}/${webapp.path}/oauth2callback.do?provider=${PROVIDER}
 
 Where `webapp.baseurl` and `webapp.path` are the corresponding values from your configuration, and `PROVIDER` is the name of the provider in all uppercase letters \(as configured below\). Google requires the `provider` parameter as part of the URI, but other providers do not - you should check with each of them.
 
-You will probably be asked to register a JavaScript domain. This is not used by us, but you can enter the `webapp.baseurl`.
+You will probably be asked to register a javascript domain. This is not used by us, but you can enter the `webapp.baseurl`.
 
 ### Enabling Supported Providers
 
-You will need to inform the InterMine system of the names of the providers which have been configured to work with your application. This should be a comma separated list of provider names. The values are case insensitive, and will be processed as upper-case values. E.g.:
+You will need to inform the InterMine system of the names of the providers which have been configured to work with your application. This should be a comma separated list of provider names. The values are case insensitive, and will be processed as upper-case values. E.G.:
 
 ```text
 # in  ~/.intermine/MINE.properties
@@ -261,7 +261,7 @@ oauth2.providers = GOOGLE,ELIXIR,GITHUB,FACEBOOK,MICROSOFT,STRAVA,AIP
 To configure an OLTU supported provider \(such as Github or Facebook\), you simply need to define the client-id and client-secret you registered your application with, eg:
 
 {% hint style="warning" %}
-All secrets, including these ones \(especially the client-secret\) MUST not be committed to version control or made publicly accessible. DO NOT add them to your web.properties file, but instead, add them to your mine.properties file \(eg. ~/.intermine/MINE.properties\).
+All secrets, including these ones \(especially the client-secret\) MUST not be committed to version control or made publicly accessible. DO NOT add them to your web.properties file, but instead add them to your mine.properties file \(eg. ~/.intermine/MINE.properties\).
 {% endhint %}
 
 ```text
@@ -272,7 +272,7 @@ oauth2.GITHUB.client-secret = $GH-CLIENT-SECRET
 
 ### Configuring a Custom Provider
 
-To configure a custom provider, some other properties need to be provided. Taking AIP's araport system as an example, this can be configured thusly:
+To configure a custom provider some other properties need to be provided. Taking AIP's araport system as an example, this can be configured thusly:
 
 ```text
 # All OAuth2 clients need this configution. Do not commit to version control!
@@ -305,7 +305,7 @@ Information about the way the token endpoint responds. If the token endpoint res
 oauth2.AIP.responsetype = JSON
 ```
 
-Information about the way the identity resource operates. If the resource expects the bearer token to be in the query parameters, provide the value "query", and if the bearer token is expected to be in the `Authorization` header, pass the value "header".
+Information about the way the identity resource operates. If the resource expects the bearer token to be in the query parameters provide the value \"query\", and if the bearer token is expected to be in the `Authorization` header, pass the value "header".
 
 ```text
 oauth2.AIP.resource-auth-mechanism = header
@@ -363,13 +363,13 @@ This is done by listing them as follows:
 | :--- | :--- |
 
 
-You can provide multiple keys and they will all be stored in the applications key-store under the given alias. Every key must have an alias, even if there is only one. If there is a problem with the key \(it cannot be decoded, it is not valid, etc\) it will be skipped by default, unless the following property is set to `true` \(in which case it will throw an error and prevent your web-application from starting\):
+You can provide multiple keys and they will be all stored in the applications key-store under the given alias. Every key must have an alias, even if there is only one. If there is a problem with the key \(it cannot be decoded, it is not valid, etc\) it will by default be skipped, unless the following property is set to `true` \(in which case it will throw an error and prevent your web-application from starting\):
 
 | `keystore.strictpublickeydecoding` | `true` or `false` |
 | :--- | :--- |
 
 
-The value `BASE64_ENCODED_PUBLIC_KEY` is the base64 encoding of the bytes of public key. Below is a sample program to illustrate how to do this in Java and python respectively:
+The value `BASE64_ENCODED_PUBLIC_KEY` is the base64 encoding of the bytes of public key. Below is a sample program to illustrate how to do this in Java and python:
 
 ```java
 import java.security.KeyPairGenerator;
@@ -415,13 +415,13 @@ Since this feature relies on public key cryptography, you need to tell the Inter
 | :--- | :--- |
 
 
-This property defaults to the most secure option, `NAMED_ALIAS`, where only keys associated with the issuer of the token will be used to verify it. This means you will need to link the two. Each token must identify its issuer \(with the `iss` claim\), you can map from that value to a key available to InterMine by providing the alias it is available as in the keystore. If you plan on accepting your own tokens, then you can provide the alias of your private key.
+This property defaults to the most secure option, `NAMED_ALIAS`, where only keys associated with the issuer of the token with be used to verify it. This means you will need to link the two. Each token must identify its issuer \(with the `iss` claim\), you can map from that value to a key available to InterMine by providing the alias it is available as in the keystore. If you plan on accepting your own tokens, then you can provide the alias of your private key.
 
 | `security.keystore.alias.$iss` | The alias for the key certificate used to sign the JWT. |
 | :--- | :--- |
 
 
-If you use the `WHITELIST` strategy, then you must provide the list of aliases that can be used to verify JWTs. All of them will be tried until one verifies successfully.
+If you use the `WHITELIST` strategy, the you must provide the list of aliases that can be used to verify JWTs. All of them will be tried until one verifies successfully.
 
 | `jwt.alias.whitelist` | The comma separated list of aliases to use. |
 | :--- | :--- |
@@ -433,7 +433,7 @@ Multiple issuers can be supported by providing a key for each alias.
 
 ### Managing non-standard claims
 
-InterMine reads to claims about the end user from the JWT - who it identifies, and their email address. The email claim is non-standard, and needs to be configured. The subject claim can be overridden if the JWT tokens you are receiving have their subject identified in a different claim. To do so provide the following properties \(in the following table, `$iss` is the value of the `iss` claim of the token\):
+InterMine reads to claims about the end user from the JWT - who it identifies, and their email address. The email claim is non-standard, and needs to be configured. The subject claim can be overriden if the JWT tokens you are receiving have their subject identified in a different claim. To do so provide the following properties \(in the following table, `$iss` is the value of the `iss` claim of the token\):
 
 |  |  |
 | :--- | :--- |
@@ -466,7 +466,7 @@ If correctly set up, you should get a message printed to the console telling you
 
 ### Setting up the Key-Store
 
-You will need a Java Key Store to use public-key cryptography for security. To get started, you can use the following command to generate a `keystore.jks` file with a new public/private key-pair:
+You will need a Java Key Store to use public-key cryptography for security. To get started you can use the following command to generate a `keystore.jks` file with a new public/private key-pair:
 
 ```text
 keytool -genkey -alias ALIAS_A -keyalg RSA -keystore keystore.jks -keysize 2048
@@ -478,7 +478,7 @@ The following command will allow you to add a certificate to your key-store:
 keytool -import -trustcacerts -alias ALIAS_B -file B.crt -keystore keystore.jks
 ```
 
-This set-up would allow you to start accepting JWT tokens signed by the owner of `B.crt`, which could be configured by making sure they are associated in your property files. So if the owner of `B.crt` identified themselves with the `iss` \(issuer\) claim [`http://b.com`](http://b.com), then you could link the certificate to the claim with the following property:
+This set-up would allow you to start accepting JWT tokens signed by the owner of `B.crt`, which could be configured by making sure they are associated in your property files. So if the owner of `B.crt` identified themselves with the `iss` \(issuer\) claim [`http://b.com`](http://b.com]{.title-ref}), then you could link the certificate to the claim with the following property:
 
 ```text
 security.keystore.alias.http://b.com = ALIAS_B
@@ -492,8 +492,8 @@ security.keystore.alias.http://b.com = ALIAS_B
 
 * `bio/webapp/resources/webapp/WEB-INF/bio.web.properties` -
 
-  used by all bio-mines. Properties set here will be available to all mines that use the bio layer. So, not the test model. Can overwrite properties in the global.web.properties file.
+  used by all bio-mines. Properties set here will be available to all mines that use the bio layer. so not the test model model. Can overwrite properties in the global.web.properties file.
 
 * `flymine/webapp/resources/web.properties` - used by a mine. Properties set here will be available to only that specific mine. Can create mine-specific properties or overwrite properties in the above two files.
-* `$HOME/.intermine/flymine.properties` - used by a mine. Properties set here will be available only to that specific mine, and will override all other properties. Put sensitive values here that should not be committed to version control.
+* `$HOME/.intermine/flymine.properties` - used by a mine. Properties set here will be available only to that specific mine, and will override all other properties. Put sensitive values here that should not be commited to version control.
 
