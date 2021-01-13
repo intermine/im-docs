@@ -8,29 +8,29 @@
 You can view the source files for this project in the [intermine/intermine-apps-c](https://github.com/intermine/intermine-apps-c/tree/master/elastic-med) repo.
 {% endhint %}
 
-This document will guide you through the process of writing a JavaScript client side app \(running completely in a browser\) using [Bower](http://bower.io/) and [Grunt](http://gruntjs.com/) tools. The app will connect to an [ElasticSearch](http://www.elasticsearch.org/) \(ES\) instance to do _search_. ES wraps Apache Lucene and serves as a repository of indexed documents that one can search agains. If you prefer a short gist head over to [Apps/C Usage](usage.md) instead.
+This document will guide you through the process of writing a JavaScript client side app \(running completely in a browser\) using [Bower](http://bower.io/) and [Grunt](http://gruntjs.com/) tools. The app will connect to an [ElasticSearch](http://www.elasticsearch.org/) \(ES\) instance to do _search_. ES wraps Apache Lucene and serves as a repository of indexed documents that one can search against. If you prefer a short gist head over to [Apps/C Usage](usage.md) instead.
 
-The app will have the following functionality:
+The app will have the following functionalities:
 
 1. Work with _cancer_ related publications from PubMed.
 2. Ask user for an input text and get back a list of publications.
 3. Click on any of the results to see a detailed view.
-4. From the document detail search for publications _like_ this one.
-5. Autocomple and provide suggestions for user's input.
+4. Detailed search for publications _like_ this one from the document.
+5. Autocomplete and provide suggestions for user's input.
 
 Among the important libraries we will be using:
 
 1. [Bower](http://bower.io/) to fetch vendor dependencies such as JavaScript, CSS or Fonts.
 2. [canJS](http://canjs.com/) is a framework for client-side development handling routing, events etc.
-3. [CoffeeScript](http://coffeescript.org/) a language that compiles down to JavaScript and makes writing an app easier.
+3. [CoffeeScript](http://coffeescript.org/) is a language that compiles down to JavaScript and makes writing an app easier.
 4. [D3](http://d3js.org/) is used to manipulate documents based on data.
-5. [ElasticSearch](http://www.elasticsearch.org/) a search server with a RESTful web service peddling JSON documents.
+5. [ElasticSearch](http://www.elasticsearch.org/) is a search server with a RESTful web service peddling JSON documents.
 6. [Foundation](http://foundation.zurb.com/) is a CSS framework of reusable UI components.
 7. [Grunt](http://gruntjs.com/) to build/transpile our source files.
 8. [jQuery](http://jquery.com/) is a DOM manipulation library \(and more\).
 9. [Moment](http://momentjs.com/) is a date library for parsing, manipulating and formatting dates.
 10. [Mustache](http://mustache.github.io/) is a multi-platform templating language allowing us to embed dynamic objects in HTML.
-11. [Node](http://en.wikipedia.org/wiki/Nodejs) JavaScript desktop software platform.
+11. [Node](http://en.wikipedia.org/wiki/Nodejs) is a JavaScript desktop software platform.
 12. [Stylus](http://learnboost.github.io/stylus/) allows us to be more expressive and dynamic with CSS.
 13. [Underscore](http://underscorejs.org/) is a utility toolbelt making actions such as iterating over items easier.
 
@@ -44,7 +44,7 @@ The first step will be to setup our directory structure.
 
 **build/**
 
-Will be the directory where our final app package will live. We will develop in languages like Stylus or CoffeeScript and need a way to package all these resources into one whole... directory. This is where all these files will live.
+Will be the directory where our final app package will live. We will develop in languages like Stylus or CoffeeScript and need a way to package all these resources into one whole directory. This is where all these files will live.
 
 **bower\_components/**
 
@@ -72,7 +72,7 @@ Lists libraries we will need to compile and build our app.
 
 ### Node.js platform
 
-Since our application is targeting JavaScript in the browser, it is pretty useful if we use JavaScript on our computer \(desktop\) too. Enter [Node](http://en.wikipedia.org/wiki/Nodejs) which allows us to execute JavaScript on our computers instead of just our browsers.
+Since our application is targeting JavaScript in the browser, it is pretty useful if we use JavaScript on our computer \(desktop\) too. Enter [Node](http://en.wikipedia.org/wiki/Nodejs), which allows us to execute JavaScript on our computers instead of just on our browsers.
 
 You can fetch [binaries](http://nodejs.org/download/) from the homepage or use your \(hopefully Linux\) [packman](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager).
 
@@ -104,7 +104,7 @@ Once Node is installed, edit the `package.json` file like so:
 
 This file tells Node which libraries will be used to build our app. These are not client-side libraries, but server-side if you will.
 
-The top bit of the `devDependencies` lists a bunch of Grunt and Bower related libraries, the bottom one \(line 17 onward\) some libraries used to load ES with data.
+The top bit of the `devDependencies` lists a bunch of Grunt and Bower related libraries while the bottom one \(line 17 onward\) lists some libraries used to load ES with data.
 
 In order to install all of these, execute the following:
 
@@ -150,7 +150,7 @@ Version number in the Bower ecosystem, required.
 
 **dependencies**
 
-Lists the actual libraries and their versions to fetch. You can populate this list by executing `$ bower install jquery --save` for example. That will download the latest version of the `jquery` component into the `bower_components/` directory. You can [search](http://sindresorhus.com/bower-components/) for available components using `$ bower search jquery`. To actually trigger a search, execute `$ bower install`. The different libraries will be introduced as we code along.
+Lists the actual libraries and their versions to fetch. You can populate this list by executing `$ bower install jquery --save` for example. This will download the latest version of the `jquery` component into the `bower_components/` directory. You can [search](http://sindresorhus.com/bower-components/) for available components using `$ bower search jquery`. To actually trigger a search, execute `$ bower install`. The different libraries will be introduced as we code along.
 
 ### Grunt building
 
@@ -256,7 +256,7 @@ Take a [Stylus](http://learnboost.github.io/stylus/) file and turn it into CSS.
 
 **concat**
 
-Take our vendor files \(installed using [Bower](http://bower.io/)\) and, together with our app, make them into a bundle. If someone else wants to use our app they need our app and its deps too, so this one file will do it for them. Do the same to CSS too.
+Take our vendor files \(installed using [Bower](http://bower.io/)\) and, together with our app, make them into a bundle. If someone else wants to use our app, they need our app and its deps too, so this one file will do it for them. Do the same to CSS too.
 
 **copy**
 
@@ -264,15 +264,15 @@ A task that copies fonts from [FontAwesome](http://fontawesome.io/) into our bui
 
 **uglify**
 
-Minify our built JavaScript files. This makes them small, but unreadable so not great for debugging.
+Minify our built JavaScript files. This makes them small but unreadable, so, not great for debugging.
 
 **cssmin**
 
-The same as `uglify` but for CSS
+The same as `uglify`, but for CSS
 
-_Lines 76 and 83_ have two calls to `grunt.registerTask` which bundle a bunch of tasks together. For example running `$ grunt minify` will run the `uglify` and `cssmin` tasks.
+_Lines 76 and 83_ have two calls to `grunt.registerTask` which bundle a bunch of tasks together. For example, running `$ grunt minify` will run the `uglify` and `cssmin` tasks.
 
-While developing it is quite useful to watch the source files and re-run the build task:
+While developing, it is quite useful to watch the source files and re-run the build task:
 
 ```bash
 $ watch --color grunt
@@ -284,7 +284,7 @@ This will run the default Grunt task every 2s.
 
 ### Start ElasticSearch
 
-ES will hold our index of publications. [Fetch](http://www.elasticsearch.org/download/) it and then unpack it somewhere.
+ES will hold our index of publications, [fetch](http://www.elasticsearch.org/download/) it and then unpack it somewhere.
 
 To start it:
 
@@ -296,7 +296,7 @@ Check that it is up by visiting port `9200`. If you see a JSON message, it is up
 
 ### Load example publications
 
-To index some documents, use whichever [client](http://www.elasticsearch.org/guide/). I was using the JavaScript one and if you check the `data/` dir in `elastic-med` on [GitHub](https://github.com/) you will be able to see one way that documents can be indexed. In that example:
+To index some documents, you can use any [client](http://www.elasticsearch.org/guide/). I was using the JavaScript one and if you check the `data/` dir in `elastic-med` on [GitHub](https://github.com/), you will be able to see one way that documents can be indexed. In that example:
 
 ```bash
 $ ./node_modules/.bin/coffee ./data/index.coffee
@@ -306,9 +306,9 @@ That will index \(after a few seconds\) 1000 cancer publications found in `cance
 
 The `convert.coffee` file was used to convert source XML to JSON.
 
-Check that documents got indexed by visiting the document URL in the browser:
+Check that documents got indexed by visiting the document URL in the browser.
 
-You should get back a JSON document back provided you are using index `publications`, type `publication` and you have a document under the id `438`.
+You should get back a JSON document, provided you are using index `publications`, type `publication` and you have a document under the id `438`.
 
 ## Source files
 
@@ -345,7 +345,7 @@ One needs an access point where our app will get loaded with particular configur
 </html>
 ```
 
- This file does not do anything else other then load our built CSS and JS files \(_lines 7 and 9_\) and starts our app. In our example we are pointing to a `build` directory relative to the `example` directory. So let’s make a symbolic link to the actual `build`:
+ This file does not do anything else other then load our built CSS and JS files \(_lines 7 and 9_\) and starts our app. In our example, we are pointing to a `build` directory relative to the `example` directory. So let’s make a symbolic link to the actual `build`:
 
 ```bash
 $ ln -s ../build build/
@@ -389,13 +389,13 @@ The `apps-c` task \(in `Gruntfile.coffee`\) contains the following two options:
 
 **name**
 
-How do we call our app for [CommonJS](http://addyosmani.com/writing-modular-js/) `require` call.
+How do we call our app for [CommonJS](http://addyosmani.com/writing-modular-js/) `require` call?
 
 **main**
 
 Contains a path \(an index\) that will be called when we actually call the `require` function.
 
-We have specified that our app index lives in `src/app.coffee` so let's create this file:
+We have specified that our app index lives in `src/app.coffee`, so let's create this file:
 
 ```coffeescript
 module.exports = (opts) ->
@@ -417,7 +417,7 @@ module.exports = (opts) ->
 
 Each module \(file\) in our app needs to export some functionality. When we call `require` we will be getting this functionality.
 
-We are going to be using [canJS](http://canjs.com/) which consists of objects that can be _observed_. What this means is that when their values change, others listening to this changes will be notified. When we want to [change](http://canjs.com/docs/can.Map.prototype.attr.html) their value we call `attr` function on them. One such example is on _line 7_ where we change the value of `index`, `type` and `client` as passed in by the user from `example/index.html`.
+We are going to be using [canJS](http://canjs.com/) which consists of objects that can be _observed_. What this means is that when their values change, others listening to this changes will be notified. When we want to [change](http://canjs.com/docs/can.Map.prototype.attr.html) their value, we call `attr` function on them. One such example is on _line 7_ where we change the value of `index`, `type` and `client` as passed in by the user from `example/index.html`.
 
 **$.es.Client**
 
@@ -425,13 +425,13 @@ Refers to [ElasticSearch](http://www.elasticsearch.org/) client in JavaScript wh
 
 **Routing\(\)**
 
-Is a call to a future [canControl](http://canjs.com/guides/Controls.html) component which will setup our routing. We need a way of change between an index page that does search and a detail page that shows a detail…
+Is a call to a future [canControl](http://canjs.com/guides/Controls.html) component which will setup our routing. We need a way to change between an index page that does search and a detail page that shows a detail.
 
 **can.route.ready**
 
 Actually tells [canJS](http://canjs.com/) to start listening to changes in the browser address.
 
-On _line 14_ we see an example of checking whether we are looking at the index page when the app loads. If so we are changing a `current` attribute on a \(futute\) [canMap](http://canjs.com/docs/can.Map.html) component which will correspond to the query, meaning user query input. Our `example/index.html` page contains an example query to use in this case.
+On _line 14_, we see an example of checking whether we are looking at the index page when the app loads. If so, we are changing a `current` attribute on a \(future\) [canMap](http://canjs.com/docs/can.Map.html) component which will correspond to the query, meaning user query input. Our `example/index.html` page contains an example query to use in this case.
 
 ### Router
 
@@ -502,7 +502,7 @@ Is a function that will be called when we are on the index page of the app. It r
 
 **doc/:oid route**
 
-Matches when we are looking at a detail of a document/publication. So if someone manually types in the address `#!doc/438` or it changes as a result of user interaction, this function gets called. We are either retrieving the document from a results cache or we are explicitely calling for a document from [ElasticSearch](http://www.elasticsearch.org/). Consider that when we search for documents, we get their content too so we do not need to fetch them again when looking at their _detail_. In contrast, someone could type in a random document address and we need to be ready for that. In either case we are calling the `fin` function on _line 19_ to render the results.
+Matches when we are looking at a detail of a document/publication. So, if someone manually types in the address `#!doc/438` or it changes as a result of user interaction, this function gets called. We are either retrieving the document from a results cache or we are explicitly calling for a document from [ElasticSearch](http://www.elasticsearch.org/). Consider that when we search for documents, we get their content too so we do not need to fetch them again when looking at their _detail_. In contrast, someone could type in a random document address and we need to be ready for that. In either case we are calling the `fin` function on _line 19_ to render the results.
 
 **render**
 
@@ -510,9 +510,7 @@ Serves as a helper we have created that injects a template into the DOM and upda
 
 ### Pages templates
 
-When discussing the router we were talking about different page templates. Let us define them now.
-
-In `src/templates/page/index.mustache`:
+When discussing the router, we talked about different page templates. Let us define them now. In `src/templates/page/index.mustache`:
 
 ```text
 <p>ElasticSearch through a collection of cancer related publications from PubMed. Use <kbd>Tab</kbd> to autocomplete or <kbd>Enter</kbd> to search.</p>
@@ -559,7 +557,7 @@ Is the view of one document. We are passing extra parameters \(options\) into th
 
 **app-more**
 
-is a results set similar to `app-results` which corresponds to a component that will automatically search for and display documents that are similar like _this one_.
+Is a results set similar to `app-results` which corresponds to a component that will automatically search for and display documents that are similar like _this one_.
 
 ### Application search template
 
@@ -605,7 +603,7 @@ The first part is split into two `columns`, one for the input field and the othe
 
 **div.faux**
 
-We will want to get caret position from the input field. To do that we are going to get all of the text from the input field up to the caret position and then copy it over to a div that has the same CSS styling as us, but is invisible. Then we are going to get the width of this element. `.faux` is this element.
+We will want to get caret position from the input field. To do that, we are going to get all of the text from the input field up to the caret position and then copy it over to a div that has the same CSS styling as us, but is invisible. Then we are going to get the width of `.faux`.
 
 **input.text**
 
@@ -613,7 +611,7 @@ The place where input goes. We can see [Mustache](http://mustache.github.io/) sy
 
 **ul.suggestions**
 
-Show up when a list of suggestions has some items. Represents suggestions for the current word, hence the need to get the caret position. If some suggestions are "active" \(we hover on them etc.\) then we toggle their CSS class.
+Shows up when a list of suggestions has some items. Represents suggestions for the current word, hence the need to get the caret position. If some suggestions are "active" \(we hover on them etc.\) then we toggle their CSS class.
 
 **ul.breadcrumbs**
 
