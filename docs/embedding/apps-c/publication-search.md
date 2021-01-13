@@ -26,7 +26,7 @@ The first step will be to setup our directory structure.
 
 **`build/`**
 
-Will be the directory where our final app package will live. We will develop in languages like [Stylus](http://learnboost.github.io/stylus/) or [CoffeeScript](http://coffeescript.org/) and need a way to package all these resources into one whole... directory. This is where all these files will live.
+Will be the directory where our final app package will live. We will develop in languages like [Stylus](http://learnboost.github.io/stylus/) or [CoffeeScript](http://coffeescript.org/) and need a way to package all these resources into one whole directory. This is where all these files will live.
 
 **`bower_components/`**
 
@@ -116,7 +116,7 @@ Version number in the Bower ecosystem, required.
 
 **`dependencies`**
 
-Lists the actual libraries and their versions to fetch. You can populate this list by executing `$ bower install jquery --save` for example. That will download the latest version of the `jquery` component into the `bower_components/` directory. You can [search](http://sindresorhus.com/bower-components/) for available components using `$ bower search jquery`. To actually trigger a search, execute `$ bower install`. The different libraries will be introduced as we code along.
+Lists the actual libraries and their versions to fetch. You can populate this list by executing `$ bower install jquery --save` for example. This will download the latest version of the `jquery` component into the `bower_components/` directory. You can [search](http://sindresorhus.com/bower-components/) for available components using `$ bower search jquery`. To actually trigger a search, execute `$ bower install`. The different libraries will be introduced as we code along.
 
 ### Grunt building
 
@@ -211,15 +211,15 @@ Take our vendor files \(installed using [Bower](http://bower.io/)\) and, togethe
 
 **`uglify`**
 
-Minify our built JavaScript files. This makes them small, but unreadable so not great for debugging.
+Minify our built JavaScript files. This makes them small, but unreadable, so not great for debugging.
 
 **`cssmin`**
 
 The same as `uglify` but for CSS
 
-Then we have two calls to `grunt.registerTask` which bundle a bunch of tasks together. For example running `$ grunt minify` will run the `uglify` and `cssmin` tasks.
+Then we have two calls to `grunt.registerTask` which bundle a bunch of tasks together. For example, running `$ grunt minify` will run the `uglify` and `cssmin` tasks.
 
-While developing it is quite useful to watch the source files and re-run the build task:
+While developing, it is quite useful to watch the source files and re-run the build task like so:
 
 ```bash
 $ watch --color grunt
@@ -259,7 +259,7 @@ One needs an access point where our app will get loaded with particular configur
 </html>
 ```
 
-This file does not do anything else other then load our built CSS and JS files and starts our app once the page loads. In our example we are pointing to a `build` directory relative to the `example` directory. So let's make a symbolic link to the actual `build`:
+This file does not do anything else other then load our built CSS and JS files and starts our app once the page loads. In our example, we are pointing to a `build` directory relative to the `example` directory. So let's make a symbolic link to the actual `build`:
 
 ```bash
 $ ln -s ../build build/
@@ -295,13 +295,13 @@ The `apps-c` task \(in `Gruntfile.coffee`\) contains the following two options:
 
 **`name`**
 
-How do we call our app for [CommonJS](http://addyosmani.com/writing-modular-js/) `require` call.
+How do we call our app for [CommonJS](http://addyosmani.com/writing-modular-js/) `require` call?
 
 **`main`**
 
 Contains a path \(an index\) that will be called when we actually call the `require` function.
 
-We have specified that our app index lives in `src/app.coffee` so let's create this file:
+We have specified that our app index lives in `src/app.coffee`, so let's create this file:
 
 ```coffeescript
 render  = require './modules/render'
@@ -334,15 +334,15 @@ module.exports = (opts) ->
     query(q) if q = opts.symbol
 ```
 
-Each module \(file\) in our app needs to export some functionality. When we call `require` we will be getting this functionality.
+Each module \(file\) in our app needs to export some functionality. When we call `require`, we will be getting this functionality.
 
 #### Observable
 
-We are going to be using [canJS](http://canjs.com/) which gives us objects that can be _observed_. What this means is that when their values change, others listening to these changes will be notified. When we want to [change](http://canjs.com/docs/can.Map.prototype.attr.html) their value we call `attr` function on them. One such example is where we setup the client. We are passing an object which is set on `imjs` which is a [canMap](http://canjs.com/docs/can.Map.html). Or the line below where we set a symbol on a `query` which is a [canCompute](http://canjs.com/docs/can.compute.html). The advantage here is that whenever we set a new symbol on `query`, anyone else will be told it has changed and do something. This something means to trigger a search.
+We are going to be using [canJS](http://canjs.com/) which gives us objects that can be _observed_. What this means is that when their values change, others listening to these changes will be notified. When we want to [change](http://canjs.com/docs/can.Map.prototype.attr.html) their value we call `attr` function on them. One such example is where we setup the client. We are passing an object which is set on `imjs`,a [canMap](http://canjs.com/docs/can.Map.html). Or the line below where we set a symbol on a `query` which is a [canCompute](http://canjs.com/docs/can.compute.html). The advantage here is that whenever we set a new symbol on `query`, anyone else will be told it has changed and do something. This something means to trigger a search.
 
 #### Components
 
-But first we are requireing some components into the memory. These are [canComponent](http://canjs.com/docs/can.Component.html) instances. They wrap some user interface functionality \(think widget\) and are tied to a DOM tag. Whenever this tag appears on the page, a component gets automatically created with the appropriate template and data. For now, let's just say these need to be loaded before we inject our first template into the page. An example of a tag:
+But first, we are require some components in the memory. These are [canComponent](http://canjs.com/docs/can.Component.html) instances. They wrap some user interface functionality \(think widget\) and are tied to a DOM tag. Whenever this tag appears on the page, a component gets automatically created with the appropriate template and data. For now, let's just say these need to be loaded before we inject our first template into the page. An example of a tag:
 
 ```markup
 <app-component></app-component>
@@ -385,7 +385,7 @@ A component that will represent our input search field.
 
 **`app-alert`**
 
-An alert message showing in what state the app is in.
+An alert message showing what state the app is in.
 
 **`app-table`**
 
@@ -393,7 +393,7 @@ A table with results of our search.
 
 ### Search component
 
-The search component will bind the \[query\]{.title-ref} to our input field; in `/src/components/search.coffee`:
+The search component will bind the `query` to our input field; in `/src/components/search.coffee`:
 
 ```coffeescript
 query = require '../modules/query'
@@ -413,7 +413,7 @@ module.exports = can.Component.extend
                 query do el.val
 ```
 
-To do so we need to require the `query` module. It is the same module we have seen in our app index. And then we are off using the standard [canComponent](http://canjs.com/docs/can.Component.html) notation. There is:
+To do so, we require the `query` module. It is the same module we have seen in our app index. And then, we are off using the standard [canComponent](http://canjs.com/docs/can.Component.html) notation. There is:
 
 **`tag`**
 
@@ -425,11 +425,11 @@ This is the template that will get injected into the `tag`.
 
 **`scope`**
 
-Ah, the magic. You can either pass in an object of key-value pairs that will be accessible within our `template`. A more interesting approach is to return a function that returns said object. Doing so will make this component listen in on any changes in the object. In our example we are \(using slightly convoluted notation\) listening to changes to `query`, which is a [canCompute](http://canjs.com/docs/can.compute.html).
+Ah, the magic. You can either pass in an object of key-value pairs that will be accessible within our `template`. A more interesting approach is to return a function that returns said object. Doing so will make this component listen in on any changes in the object. In our example, we are \(using slightly convoluted notation\) listening to changes to `query`, which is a [canCompute](http://canjs.com/docs/can.compute.html).
 
 **`events`**
 
-Makes this component listen to events in the template and then do something. The syntax is: `<event>`. In our example, whenever the user has pressed \(and raised their finger\) from a key on a keyboard, we call a function. This function checks that the key was `Enter` and updates the `query`.
+Makes this component listen to events in the template and then do something. The syntax is `<event>`. In our example, whenever the user has pressed \(and raised their finger\) from a key on a keyboard, we call a function. This function checks that the key was `Enter` and updates the `query`.
 
 ### Search template
 
@@ -471,7 +471,7 @@ query.bind 'change', (ev, q) ->
 module.exports = query
 ```
 
-First we are requiring some other modules:
+First we require some other modules:
 
 **`pubs`**
 
@@ -483,7 +483,7 @@ A module doing the actual search.
 
 **`state`**
 
-Will be told what the state of the app is for alerts.
+Will be told what the state of the app is (for alerts).
 
 We initialize the query to be empty using `''`. If a developer wants to pass an initial query, we have seen the relevant code in app index.
 
@@ -491,10 +491,8 @@ Then we have a function that listens in on our changes. Whenever query changes, 
 
 There are two things that could go wrong:
 
-1. The search might not be succesfull \(mine down, malformed query etc.\)
-2. The results may arrive too late when the user asks for another set
-
-   of results before seeing the first set.
+1. The search might not be successfull \(mine down, malformed query etc.\)
+2. The results may arrive too late, such as when the user sees the first set of results after asking for another set of results.
 
 Both cases are handled.
 
@@ -571,19 +569,19 @@ module.exports = new can.Map
                 cb null, _.map res, remap
 ```
 
-At the top we are defining the query that will be used to run the query. The format is that of an InterMine PathQuery. You can see [imjs](https://github.com/alexkalderimis/imjs) for syntax and more information. One can generate this syntax by visiting the mine in question, running a query in QueryBuilder and then choosing to export to JavaScript in the Results Table.
+At the top, we are defining the query that will be used to run the query. The format is that of an InterMine PathQuery. You can see [imjs](https://github.com/alexkalderimis/imjs) for syntax and more information. One can generate this syntax by visiting the mine in question, running a query in QueryBuilder and then choosing to export to JavaScript in the Results Table.
 
 Our query will be looking for publications, fetching their bio entities \(genes, alleles, proteins etc.\) and authors. Authors is a separate collection mapped to a publication.
 
 Then we are using the [canMap](http://canjs.com/docs/can.Map.html) syntax to define a `client` attribute and a `search` function. An object can have both attributes and functions defined.
 
-We took care of initializing the `client` in app index. In that step, we were intiializing the [imjs](https://github.com/alexkalderimis/imjs) library to use a specific mine, MouseMine in our case.
+We took care of initializing the `client` in app index. In that step, we were intializing the [imjs](https://github.com/alexkalderimis/imjs) library to use a specific mine, MouseMine in our case.
 
-The search function takes two parameters, a symbol and a callback. The first is the search symbol coming from `query` module, the second a function that will be called when we have errors or results. Hopefully the latter.
+The search function takes two parameters, a symbol and a callback. The first is the search symbol coming from `query` module, the second, a function that will be called when we have errors or results. Hopefully the latter.
 
-We are then using [imjs](https://github.com/alexkalderimis/imjs) syntax to extend our \[query\]{.title-ref} with a constraint on a bio entity symbol, matching our symbol and returning `tableRows`.
+We are then using [imjs](https://github.com/alexkalderimis/imjs) syntax to extend our `query` with a constraint on a bio entity symbol, matching our symbol and returning `tableRows`.
 
-The `remap` function is just formatting the results into a format that is useful to us. In our case we want to have the following data structure which is conducive to being traversed in a [Mustache](http://mustache.github.io/) template:
+The `remap` function is just formatting the results into a format that is useful to us. In our case, we want to have the following data structure which is conducive to being traversed in a [Mustache](http://mustache.github.io/) template:
 
 ```javascript
 [
@@ -607,17 +605,17 @@ The `remap` function is just formatting the results into a format that is useful
 
 We are extracting the type of the bio entity matched and creating a nested `authors` field.
 
-Once we have the new data we are calling back using the `cb` function. It is customary to specify an error as the first argument into said function. Since all is well, we are passing a `null` value.
+Once we have the new data we are calling back using the `cb` function, it is customary to specify an error as the first argument into said function. Since all is well, we are passing a `null` value.
 
 ### Publications list
 
-We still have one module to cover. This is the \[pubs\]{.title-ref} we have refered to elsewhere; in `/src/modules/pubs.coffee`:
+We still have one module to cover. This is the `pubs` we have referred to elsewhere; in `/src/modules/pubs.coffee`:
 
 ```coffeescript
 module.exports = new can.List []
 ```
 
-We are using the [canList](http://canjs.com/docs/can.List.html) object to store an observable array of values. To be honest, we don't need to use an observable object here, but you may want to if you are going to be changing values in the array rather than replacing the whole thing outright.
+We are using the [canList](http://canjs.com/docs/can.List.html) object to store an observable array of values. To be honest, we don't need to use an observable object here, but you may want to, if you are going to be changing values in the array rather than replacing the whole thing outright.
 
 ### Alert component
 
@@ -638,11 +636,11 @@ module.exports = can.Component.extend
     scope: -> state
 ```
 
-It does what it does. Which is to show up when `app-alert` appears and then display a template and observe when `state` changes.
+What it does is that it shows up when `app-alert` appears and then displays a template and observes when `state` changes.
 
 ### Alert template
 
-Each component needs a template. the alert one will look like this:
+Each component needs a template. The alert one will look like this:
 
 ```text
 <div class="alert-box {{ type }}">
@@ -654,7 +652,7 @@ What we are saying here is to display a [Foundation](http://foundation.zurb.com/
 
 ### Results table component
 
-Now that we are searching for and updating \[pubs\]{.title-ref} with new data, we have to observe them in a [canComponent](http://canjs.com/docs/can.Component.html) and render them. In `/src/components/table.coffee`:
+Now that we are searching for and updating `pubs` with new data, we have to observe them in a [canComponent](http://canjs.com/docs/can.Component.html) and render them. It lives in `/src/components/table.coffee`:
 
 ```coffeescript
 pubs = require '../modules/pubs'
@@ -713,13 +711,13 @@ As for the template that displays the results; in `/src/templates/table.mustache
 {{ /if }}
 ```
 
-Firstly we are checking if we actually have any results to speak of. If so we render a table &lt;tr/&gt; element for each publication.
+Firstly, we are checking if we actually have any results to speak of. If so, we render a table &lt;tr/&gt; element for each publication.
 
-We can see that `{{  #pubs  }}` and `{{  #authors  }}` both reresent a for loop.
+We can see that `{{  #pubs  }}` and `{{  #authors  }}` both represent a for loop.
 
 ### Style
 
-We are going to wrap up by writing a stylesheet. For this we are going to use [Stylus](http://learnboost.github.io/stylus/); in `/src/styles/app.styl`:
+We are going to wrap up by writing a stylesheet. For this, we are going to use [Stylus](http://learnboost.github.io/stylus/); in `/src/styles/app.styl`:
 
 ```text
 @import 'nib'
@@ -750,21 +748,21 @@ table
 
 Stylus allows us to write nested rules, such as when we want to select a table cell, `<td/>` in a `<table/>`.
 
-At the top we can see a reference to [nib](http://visionmedia.github.io/nib/). This will make any of our rules be generated with browser vendor prefixed, where appropriate and allows us to use shorthand notation for various oft repeated rules.
+At the top, we can see a reference to [nib](http://visionmedia.github.io/nib/). This will make any of our rules to be generated with browser vendor prefixed, where appropriate and allows us to use shorthand notation for various oft repeated rules.
 
 ## Fin
 
-This concludes our application. Running a static web server to view the `/example` folder we are presented with a page that displays our app. Typing a symbol into the input box and pressing `Enter` then launches a request against MouseMine and, if succesfull, shows us results.
+This concludes our application. Running a static web server to view the `/example` folder, we are presented with a page that displays our app. Typing a symbol into the input box and pressing `Enter` launches a request against MouseMine and if successfull, shows us results.
 
 ## Appendix
 
 ### pomme.js
 
-What we have not covered is the case when we want to embed our app besides other apps on a page. If that were the case, all our CSS rules would start conflicting with other rules on the page. Not to speak of canComponents that may pop up in all kinds of places if we are using the same tags across different apps.
+What we have not covered is the case when we want to embed our app beside other apps on a page. If that were the case, all our CSS rules would start conflicting with other rules on the page. Not to speak of canComponents that may pop up in all kinds of places if we are using the same tags across different apps.
 
 One way to deal with this issue is to make use of the [pommejs](https://github.com/radekstepan/pomme.js) library. What it does is create a sandbox \(using an `<iframe/>`\) which is isolated from anything else on the page. One would load an app inside one such sandbox and not have to worry about library collusion.
 
-For example, we would create a pure [pommejs](https://github.com/radekstepan/pomme.js) _build_ in [Grunt](http://gruntjs.com/); in `Gruntfile.coffee` add the following task:
+For example, we would create a pure [pommejs](https://github.com/radekstepan/pomme.js) _build_ in [Grunt](http://gruntjs.com/). In `Gruntfile.coffee`, add the following task:
 
 ```coffeescript
 copy:
@@ -789,9 +787,9 @@ In order to download the library itself using [Bower](http://bower.io/):
 $ bower install pomme.js
 ```
 
-Now we are copying a bundled version of [pommejs](https://github.com/radekstepan/pomme.js) into our build directory.
+Now, we are copying a bundled version of [pommejs](https://github.com/radekstepan/pomme.js) into our build directory.
 
-Do create this sandbox we are going to require [pommejs](https://github.com/radekstepan/pomme.js) instead; in `/example/index.html`:
+To create this sandbox, we are going to require [pommejs](https://github.com/radekstepan/pomme.js) instead; in `/example/index.html`:
 
 ```markup
 <!doctype html>
@@ -820,7 +818,7 @@ Do create this sandbox we are going to require [pommejs](https://github.com/rade
 </html>
 ```
 
-In the section above we can see a placeholder for a template. In that place we need to return a string which will correspond to the html that needs to be executed within the sandbox. It should look something like this \(but as a string!\):
+In the section above, we can see a placeholder for a template. In that place we need to return a string which will correspond to the html that needs to be executed within the sandbox. It should look something like this \(but as a string!\):
 
 ```markup
 <!doctype html>
