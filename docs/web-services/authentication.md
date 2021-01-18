@@ -47,7 +47,7 @@ Experiment with anonymous tokens in I/O docs: [http://iodocs.apps.intermine.org/
 
 ### Authentication for existing user accounts \(permanent tokens\)
 
-Via the JSP UI, log into "MyMine" \(top left corner tab\) and click on "account details". Your token / API key is shown at the bottom. If none exists you can choose to generate a new API key.
+Via the JSP UI, log into "MyMine" \(top left corner tab\) and click on "account details". Your token / API key is shown at the bottom. If none exists, you can choose to generate a new API key.
 
 #### Note regarding generating API keys:
 
