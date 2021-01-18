@@ -10,7 +10,7 @@ In general, customisation of InterMine is accomplished by updating the appropria
 You should have completed the previous tutorial and have successfully deployed the webapp.
 {% endhint %}
 
-This tutorial is intended to give a general idea of what you can customise in InterMine and how to do it. We\'re going to go through each section of the webapp and give step by step instructions on how to configure different parts of the page. This is a detailed tutorial and should take you a few hours to complete -- however it is not meant to be comprehensive. Where topics aren't covered, there are links provided for more information. If you have a question that you don't see answered, try searching the documentation or taking a look at the index. Intermine has an active developer's [Mailing list](../../support/mailing-list.md) as well.
+This tutorial is intended to give a general idea of what you can customise in InterMine and how to do it. We're going to go through each section of the webapp and give step by step instructions on how to configure different parts of the page. This is a detailed tutorial and should take you a few hours to complete - however it is not meant to be comprehensive. Where topics aren't covered, there are links provided for more information. If you have a question that you don't see answered, try searching the documentation or taking a look at the index. Intermine has an active developer's [Mailing list](../../support/mailing-list.md) as well.
 
 {% tabs %}
 {% tab title="Tomcat" %}
@@ -34,7 +34,7 @@ Let's start configuring our mine by updating these common sections of our web ap
 
 First, let's update the logo of your site. The logo should be 45x43pixels and named `logo.png`, for example:
 
-![FlyMine\&apos;s logo](../../../.gitbook/assets/logo.png)
+![FlyMine's logo](../../../.gitbook/assets/logo.png)
 
 1. Copy your image into this directory:
 
@@ -42,11 +42,11 @@ First, let's update the logo of your site. The logo should be 45x43pixels and na
 
 2. Deploy your webapp with this command:
 
-```text
-$ ./gradlew cargoRedeployRemote
-```
+    ```text
+    $ ./gradlew cargoRedeployRemote
+    ```
 
-1. Refresh your browser
+3. Refresh your browser
 
 ![Updated logo](../../../.gitbook/assets/new-logo.png)
 
@@ -70,7 +70,7 @@ Next to the name of your mine in the header is the release version and subtitle 
 
 ![Title, release version and subtitle](../../../.gitbook/assets/subtitle.png)
 
-These values are set in [Database and Web application](../../webapp/properties/intermine-properties.md) file. This is the same properties file you updated in the previous tutorial. The subtitle and release versions are populated by the properties `project.subTitle` and `project.releaseVersion`, respectively. Update these properties to a different value and redeploy your webapp using the commands given below. Once you have successfully released your webapp, you should see your new subtitle.
+These values are set in a properties file. See [Database and Web application](../../webapp/properties/intermine-properties.md) for more details. This is the same properties file you updated in the previous tutorial. The subtitle and release versions are populated by the properties `project.subTitle` and `project.releaseVersion`, respectively. Update the values of these properties and redeploy your webapp using the commands given below. Once you have successfully released your webapp, you should see your new subtitle.
 
 1. Open the properties file in your favourite text editor.
 
@@ -99,11 +99,11 @@ These values are set in [Database and Web application](../../webapp/properties/i
 
    [http://localhost:8080/biotestmine](http://localhost:8080/biotestmine)
 
-![Updated release version and subtitle](../../../.gitbook/assets/new-subtitle.png)
+   ![Updated release version and subtitle](../../../.gitbook/assets/new-subtitle.png)
 
 That's it! Well done! The majority of mine configuration will be accomplished this way - update a property in a text file and redeploy the webapp.
 
-See [Database and Web application](../../webapp/properties/intermine-properties.md) for the full list of properties this file controls.
+See [Database and Web application](../../webapp/properties/intermine-properties.md) for the full list of properties this properties file controls.
 
 #### How do I know which property to change?
 
@@ -115,7 +115,7 @@ A detailed listing of everything you can configure in the InterMine webapp. It's
 
 **Google**
 
-The search for this site is quite good although you can still use Google, e.g. here's [a Google search for help with logos](http://google.com/?q=logo+site%3Aintermine.readthedocs.org).
+The search for this site is quite good, although you can still use Google, e.g. here's [a Google search for help with logos](http://google.com/?q=logo+site%3Aintermine.readthedocs.org).
 
 **Table of Contents / Index**
 
@@ -127,18 +127,18 @@ A quick email to the dev [Mailing list](../../support/mailing-list.md) usually p
 
 {% tabs %}
 {% tab title="Show all properties" %}
-You can also see and edit the values of every property set for your mine.
+You can also see and edit the values of every property set for your mine. To do this:
 
 1. Log in as the superuser for your mine. \(See [Website Admin](../../webapp/admin/index.md) for details on how to do this.\)
 2. Change the last part of the URL in your browser to be `showProperties.do`, e.g. [http://localhost:8080/biotestmine/showProperties.do](http://localhost:8080/biotestmine/showProperties.do)
 
-This lists all properties that are used in your webapp. You can update the values for each property and instantly see how the webapp is changed, without worrying about breaking anything. \(The changes only last for that session, to permanently change a value you'll need to update the appropriate config file.\)
+This lists all properties that are used in your webapp. You can update the values for each property and instantly see how the webapp is changed, without worrying about breaking anything. \(The changes only last for that session. To permanently change a value, you'll need to update the appropriate config file.\)
 {% endtab %}
 {% endtabs %}
 
 ### Keyword Search
 
-InterMine's keyword search uses a Lucene-based index created at build-time. Every field in the database is indexed unless you configure a table or column to be skipped. You can also configure facets / categories to help your users mine the search results. See [Keyword Search](../../webapp/keyword-search/index.md) for details on how to configure the keyword search.
+InterMine's keyword search uses a Lucene-based index created at build-time. Every field in the database is indexed, unless you configure a table or column to be skipped. You can also configure facets / categories to help your users mine the search results. See [Keyword Search](../../webapp/keyword-search/index.md) for details on how to configure the keyword search.
 
 {% tabs %}
 {% tab title="The first search" %}
@@ -175,7 +175,7 @@ funding = InterMine is funded by the <a href="http://www.wellcome.ac.uk/" target
 
 Here is the bit of code in footer.jsp that renders that message: [https://github.com/intermine/intermine/blob/dev/intermine/webapp/main/resources/webapp/footer.jsp\#L31](https://github.com/intermine/intermine/blob/dev/intermine/webapp/main/resources/webapp/footer.jsp#L31)
 
-The [model.properties](../../webapp/properties/model-properties.md) is the third configuration file you've edited today, there are four main files that control most of the behaviour in your InterMine webapp.
+The [model.properties](../../webapp/properties/model-properties.md) file is the third configuration file you've edited today. There are four main files that control most of the behaviour in your InterMine webapp.
 
 {% tabs %}
 {% tab title="InterMine properties files" %}
@@ -205,7 +205,7 @@ Almost everything on the home page is customisable. You can edit the text and se
 
 ### Boxes
 
-You can customise the text in the three boxes that appear on the top of the home page. Let\'s edit the example given in the middle box marked `Analyse`.
+You can customise the text in the three boxes that appear at the top of the home page. Let's edit the example given in the middle box marked `Analyse`.
 
 ![Three boxes at the top of the home page](../../../.gitbook/assets/homepage-boxes.png)
 
