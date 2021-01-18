@@ -34,7 +34,7 @@ Otherwise the com.ctc.wstx.stax.WstxOutputFactory class is loaded. See [\#1889](
 
 ## Install SOLR
 
-Download [Solr binary package](http://archive.apache.org/dist/lucene/solr/7.2.1/) and extract it to any place you like. Inside `/solr-7.2.1` directory start the server with this command:
+Download [Solr binary package](http://archive.apache.org/dist/lucene/solr/7.2.1/) and extract it to any place you like. Inside `/solr-7.2.1` directory, start the server with this command:
 
 ```bash
 # Starts the server instance on port 8983
@@ -44,7 +44,7 @@ solr-7.2.1 $ ./bin/solr start
 ## Initialising Search Indexes
 
 {% hint style="info" %}
-Be sure your $GRADLE\_OPTS parameter is set correctly so you have enough memory and disk space for the search index.
+Be sure your $GRADLE\_OPTS parameter is set correctly, so you have enough memory and disk space for the search index.
 {% endhint %}
 
 To create a Intermine collection for search process, run this command inside the solr directory.
@@ -65,7 +65,7 @@ solr-7.2.1 $ ./bin/solr create -c flymine-autocomplete
 
 ## Create Search Indexes
 
-To populate your search index, you'll need to add postprocesses to your mine's project XML file: `create-search-index` and `create-autocomplete-index`.
+To populate your search index, you'll need to add these postprocesses to your mine's project XML file: `create-search-index` and `create-autocomplete-index`.
 
 See [Project XML](../../database/database-building/project-xml.md) and [Post processing](../../database/database-building/post-processing/index.md) for details.
 
