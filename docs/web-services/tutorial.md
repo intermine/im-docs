@@ -1,6 +1,6 @@
 # Tutorial
 
-The InterMine API is made more accessible through the publication of a number of client libraries in different languages. For the purposes of this tutorial we will use the Python client library for the illustration of examples, but any of the client libraries \(in Perl, Java, Ruby and JavaScript\) provides similar functionality. Similarly we will use FlyMine \(www.flymine.org\) as an example of an InterMine web-service, but the techniques discussed here are applicable for any of available implementations.
+The InterMine API is made more accessible through the publication of a number of client libraries in different languages. For the purpose of this tutorial, we will use the Python client library for the illustration of examples, but any of the client libraries \(in Perl, Java, Ruby and JavaScript\) provides similar functionality. Similarly, we will use FlyMine \(www.flymine.org\) as an example of an InterMine web-service, but the techniques discussed here are applicable to any of the available implementations.
 
 ### Logging In / Authenticating
 
@@ -18,7 +18,7 @@ flymine = Service('www.flymine.org/query', token = 'abcd')
 
 If the URL for the mine is incorrect, or the token is, an error will be thrown.
 
-While it is also possible use your username and password to authenticate with the webservice. This is strongly discouraged, due to the security implications of transmitting your password, not to mention storing it on disk in order to use it in code.
+While it is also possible to use your username and password to authenticate with the webservice, this is strongly discouraged. This is due to the security implications of transmitting your password, not to mention storing it on disk, in order to use it in code.
 
 ### Managing your Personal Data: Lists
 
@@ -42,13 +42,13 @@ for item in mylist.calculate_enrichment('pathway_enrichment'):
   print item.identifier, item.description, item.p_value
 ```
 
-Creating a list from a file with identifiers in it is as straight-forward as naming that file:
+Creating a list from a file with identifiers in it is as straight-forward as naming that file. This is done like so:
 
 ```python
 new_list = flymine.create_list("some/file/with.ids", "Gene")
 ```
 
-If the identifiers are already in memory, in anything iterable, then that can be used instead. In the following case a string will be built up by reading the results of a database query.
+If the identifiers are already in memory, in anything iterable, then that can be used instead. In the following case, a string will be built up by reading the results of a database query.
 
 ```python
 idents = db.query('SELECT identifier FROM GENE WHERE ...')
@@ -67,13 +67,13 @@ for gene in in_both:
 
 ### Running a simple workflow:
 
-We should have enough pieces now to put together a simple workflow, that demonstrates the kinds of operations we want to put together and how they may be combined.
+We should have enough pieces now to put together a simple workflow that demonstrates the kinds of operations we want to put together and how they may be combined.
 
 Try and develop a script which will:
 
-* Read all the files in a directory
+* Read all the files in a directory.
 * Create a list for each one from their contents, named after the file.
-* Find the pathways for which the genes in each list are enriched above a certaint threshold.
+* Find the pathways for which the genes in each list are enriched above a certain threshold.
 * Create a list of those pathways.
 
 ### Regions
