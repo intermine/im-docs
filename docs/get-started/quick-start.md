@@ -14,7 +14,7 @@ Clone the repository
 ~/git/ $ git clone https://github.com/intermine/biotestmine.git
 ```
 
-You now have an InterMine! The [tutorial](tutorial/index.md) goes into detail about the various files that comprise an InterMine.
+You now have an InterMine! This [tutorial](tutorial/index.md) goes into detail about the various files that comprise an InterMine.
 
 ### 2. Add a mine properties file
 
