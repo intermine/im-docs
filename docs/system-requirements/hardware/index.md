@@ -1,6 +1,6 @@
 # Hardware
 
-The requirements for running InterMine depend on the size of data warehouse you need to create. It is possible to build small InterMine databases on most Linux or Mac OS X systems but for more substantial databases a powerful dedicated server is required. The recommended minimum harware requirements for running substantial servers such as FlyMine or InterMines for major model organism databases are given below.
+The requirements for running InterMine depends on the size of data warehouse you need to create. It is possible to build small InterMine databases on most Linux or Mac OS X systems but for more substantial databases, a powerful dedicated server is required. The recommended minimum hardware requirements for running substantial servers such as FlyMine or InterMines for major model organism databases are given below.
 
 ## Recommendations
 
@@ -30,7 +30,7 @@ The hardware used for a data loading has a **significant** impact on data loadin
 
   RAID array of 16 15krpm discs for our build servers.
 
-#### Recommended minimum harware requirements for a large InterMine instance
+#### Recommended minimum hardware requirements for a large InterMine instance
 
 | CPU | RAM | Storage |
 | :--- | :--- | :--- |
@@ -38,7 +38,7 @@ The hardware used for a data loading has a **significant** impact on data loadin
 
 * SAS disks are faster than SATA
 * Hardware RAID controller with a battery backed cache \(gives faster write speeds\)
-* It doesn’t matter whether storage is in the same box or a separate disk array. If it is separate a fibrechannel connection is required.
+* It doesn’t matter whether storage is in the same box or a separate disk array. If it is separate, a fibrechannel connection is required.
 
 {% hint style="info" %}
 It's essential to have separate development and production machines.
@@ -61,23 +61,23 @@ It's essential to have separate development and production machines.
 
 ## What we use
 
-FlyMine has separate build and production build servers and separate build and production build web servers.
+FlyMine has separate build and production build servers as well as separate build and production build web servers.
 
 ### Build
 
-This runs the Java data integration code to build the warehouse, reading from source files/databases and loading into an intermediate postgres database then the final postgres database. This is write-intensive and only needs 4 cores, but the faster the disk and the more RAM the better.
+This runs the Java data integration code to build the warehouse, reading from source files/databases and loading into an intermediate postgres database then the final postgres database. This is write-intensive and only needs 4 cores, but the faster the disk and the more the RAM, the better.
 
 ### Production
 
-This runs the production postgres database. More cores and more RAM means better handling of concurrent requests and more of the database in cache. InterMine often sends a lot of queries at a time for a single user - i.e. when running templates for a report page.
+This runs the production postgres database. More cores and more RAM means better handling of concurrent requests and more of the database in cache. InterMine often sends a lot of queries at a time for a single user i.e. when running templates for a report page.
 
 ### Web server
 
-FlyMine has a separate machine to run Tomcat to serve the webapp, this is the machine that actually runs the live InterMine code. For us this a 4 core machine with 8GB RAM. Disk space is not important because the cores are more important than the speed, and for better caching more RAM is required.
+FlyMine has a separate machine to run Tomcat to serve the webapp. This is the machine that actually runs the live InterMine code. For us, this a 4 core machine with 8GB RAM. Disk space is not important because the cores are more important than the speed, and for better caching more RAM is required.
 
 ### modENCODE - identical machines
 
-For modENCODE we actually have two identical servers that switch roles with each release. With higher data volumes and more frequent releases this makes more sense as in this way we can avoid dumping and reloading. Unlike FlyMine, modMine's database and webapp live on the same server.
+For modENCODE, we actually have two identical servers that switch roles with each release. With higher data volumes and more frequent releases, this makes more sense as in this way, we can avoid dumping and reloading. Unlike FlyMine, modMine's database and webapp live on the same server.
 
 ### Database sizes/ disk space
 
@@ -91,15 +91,15 @@ Disk space on the build and production machines obviously depends on volume of d
 
   performance.
 
-* As a rough guide the current FlyBase database with all 12 genomes is
+* As a rough guide, the current FlyBase database with all 12 genomes is
 
-  33GB, an InterMine with this and a couple of extra data sources is
+  33GB. An InterMine with this and a couple of extra data sources is
 
   100GB. A full FlyMine release is typically around 500GB.
 
 * When running an InterMine build with multiple data sources, database
 
-  copies are made periodically for backups so there needs to be extra
+  copies are made periodically for backups, so there needs to be extra
 
   space available, at least four times the final database size.
 
