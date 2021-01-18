@@ -2,13 +2,13 @@
 
 Many of the build processes are carried out by Perl programs. You will need Perl installed on your system to build or maintain an InterMine installation. Linux and MacOS systems will have a suitable Perl already installed. Perl is available for Windows, but is not actively supported by InterMine.
 
-To set up your perl environment [perlbrew](http://perlbrew.pl/) is a good guide, and make use of the modern toolchain, like [cpan](https://metacpan.org/pod/cpanm/).
+To set up your Perl environment, [perlbrew](http://perlbrew.pl/) is a good guide, and make use of the modern toolchain, like [cpan](https://metacpan.org/pod/cpanm/).
 
-At various times you will be requested to install various Perl modules. Here you can find instructions for how to do this using the native CPAN tool which comes with every Perl distribution on Linux and OSX, using Debian/Ubuntu package managers, as well as manual installs:
+At various times, you will be requested to install various Perl modules. Here, you can find instructions for how to do this using the native CPAN tool which comes with every Perl distribution on Linux and OSX, using Debian/Ubuntu package managers, as well as manual installs:
 
 ## CPAN
 
-CPAN stands for the Comprehensive Perl Archive Network - and is the software repository for Perl modules \(you can compare it to [python's pypi](http://pypi.python.org/pypi/), Yum/Apt repositories in Linux, or Apple's App Store\). If you have Perl installed you have CPAN. To check type `cpan` in a terminal.
+CPAN stands for the Comprehensive Perl Archive Network and it is the software repository for Perl modules \(you can compare it to [python's pypi](http://pypi.python.org/pypi/), Yum/Apt repositories in Linux, or Apple's App Store\). If you have Perl installed, you have CPAN. To check, type `cpan` in a terminal.
 
 To install modules with CPAN you may first need to set up the installer, in a terminal run:
 
@@ -16,19 +16,19 @@ To install modules with CPAN you may first need to set up the installer, in a te
 $ cpan
 ```
 
-This will take you to a cpan shell, which will allow you to configure your properties. to review your current configuration type:
+This will take you to a CPAN shell, which will allow you to configure your properties. To review your current configuration, type:
 
 ```bash
 $ o conf
 ```
 
-When you first run cpan should run:
+When you first run CPAN should run:
 
 ```bash
 $ o conf init
 ```
 
-This will guide you through the set-up procedure. You can run this later change the settings which are set automatically.
+This will guide you through the set-up procedure. You can run this later to change the settings which are set automatically.
 
 To change a setting manually, type:
 
@@ -36,7 +36,7 @@ To change a setting manually, type:
 $ o conf [SETTING NAME] "NEW VALUE"
 ```
 
-example, to make installed modules uninstall previous versions and use sudo to elevate permissions \(very good ideas\), type:
+For example, to make installed modules uninstall previous versions and use sudo to elevate permissions \(very good ideas\), type:
 
 ```bash
 $ o conf mbuild_install_arg "--uninst 1"
@@ -72,7 +72,7 @@ $ sudo cpan -f Module::Name
 
 Many Perl libraries are packaged for different Linux distributions. Debian/Ubuntu has a great number of these, and in many cases this is a good alternative to the CPAN install.
 
-The procedure is the same as for any other package:
+The procedure to install is the same as for any other package:
 
 ```bash
 $ sudo apt-get install libxml-writer-perl # installs XML::Writer
@@ -90,7 +90,7 @@ These are the modules you need to build a database:
 $ sudo apt-get install libxml-writer-perl libxml-sax-base-perl libxml-perl libxml-filter-saxt-perl libtext-glob-perl
 ```
 
-To search for a package you can type:
+To search for a package, you can type:
 
 ```bash
 $ apt-cache search package-name
@@ -106,7 +106,7 @@ From your check out \(or unzipped tar file\) go to the directory "`intermine/per
 $ cd git/intermine/perl
 ```
 
-Here there are three "distributions" of modules you may want to install:
+Here, there are three "distributions" of modules you may want to install:
 
 * InterMine-Model
 * InterMine-Item \(depends on InterMine::Model\)
@@ -135,12 +135,12 @@ If you do not have Module::Build 0.36 or above, you can install the dependencies
 > * `MooseX::Role::WithOverloading` \(Allows roles to overload operators\)
 > * `MooseX::Types` \(Type constraint system\)
 > * `Text::CSV_XS` \(Processing .csv and .tsv files\)
-> * `URI` \(Handling urls\)
+> * `URI` \(Handling URLs\)
 > * `XML::Parser::PerlSAX` \(Parsing XML\)
 > * `XML::DOM` \(XML processing and output\)
-> * `Text::Glob` \(used by the `project_build`script\)
+> * `Text::Glob` \(used by the `project_build` script\)
 
-* for the download scripts:
+* For the download scripts:
 
 > * Log::Handler
 > * DateTime
@@ -151,7 +151,7 @@ If you do not have Module::Build 0.36 or above, you can install the dependencies
 > * PerlIO::gzip
 > * Perl6::Junction
 
-* for generating InterMine Items XML:
+* For generating InterMine Items XML:
 
 > * Getopt::Std
 > * Log::Handler;
