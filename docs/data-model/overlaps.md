@@ -2,11 +2,11 @@
 
 InterMine includes functionality for querying features with overlapping genome coordinates. We have an index that is created on the `Location` table. This is used by a 'virtual' `SequenceFeature.overlappingFeatures` collection that is a `view` in the postgres database using the native [Postgres index](https://www.postgresql.org/docs/9.5/static/rangetypes.html) to find other features that overlap it.
 
-In modMine \(the InterMine for the modENCODE project\) we also create `GeneFlankingRegion` features to represent specific distances upstream and downstream of genes to query for genes that are nearby other features.
+In modMine \(the InterMine for the modENCODE project\), we also create `GeneFlankingRegion` features to represent specific distances upstream and downstream of genes to query for genes that are nearby other features.
 
 ## Create the index
 
-You need to create the index on the location table in your production database by adding the `create-location-range-index` post-process step to your `project.xml` file:
+You need to create the index on the location table in your production database by adding the `create-location-range-index` post-process step to your `project.xml` file like so:
 
 ```markup
 <post-process name="create-location-range-index"/>
