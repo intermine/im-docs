@@ -18,7 +18,7 @@ If you choose to create an account to save your data, we save your username and 
 
 ## What we do with the information we gather
 
-We require this information to understand your needs and provide you with a better service, and in particular for the following reasons:
+We require this information to understand your needs and provide you with a better service, and in particular, for the following reasons:
 
 * Tracking **usage statistics**.
 * Identifying **operational problems**.
