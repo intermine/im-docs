@@ -10,7 +10,7 @@ InterMine uses [semantic versioning](https://semver.org/):
 | MINOR | functionality added in a backwards-compatible manner |
 | PATCH | backwards-compatible bug fixes |
 
-InterMine releases a new major version containing new features about once a year. Each major version receives bug fixes and, if need be, security fixes that are released at least once every three months in what we call a "minor release." For more information on the minor release schedule, you can view the minor release [roadmap](roadmap.md).
+InterMine releases a new major version containing new features about once a year. Each major version receives bug fixes and, if need be, security fixes. These security fixes are released at least once every three months in what we call a "minor release". For more information on the minor release schedule, you can view the minor release [roadmap](roadmap.md).
 
 If the release team determines that a critical bug or security fix is too important to wait until the regularly scheduled minor release, it may make a release available outside of the minor release schedule.
 
