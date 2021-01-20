@@ -54,7 +54,7 @@ Benefits include:
 * 37.5 hour work week
 * university pension
 * child care and bike to work salary sacrifice schemes.
-* access to ​ university sports facilities
+* access to ​the University's sports facilities
 * family friendly benefits​ like maternity, paternity and parental leave, flexible working and career break schemes.
 
 To apply, please see [http://www.jobs.cam.ac.uk/job/16360/](http://www.jobs.cam.ac.uk/job/16360/).
