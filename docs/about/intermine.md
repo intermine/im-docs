@@ -4,7 +4,7 @@ InterMine is a powerful open source data warehouse system, created specifically 
 
 ## Sophisticated data integration facilities
 
-While a core biological model based on the Sequence Ontology is provided, the data model is flexible and extensible -- new data types can be added easily by editing an XML file. A range of data parsers is provided to facilitate the data loading, and a number of consistency checks after the database build ensure that the data has been integrated correctly. Sophisticated identifier resolution ensures that all data identifiers are correctly updated to their most current form.
+While a core biological model based on the Sequence Ontology is provided, the data model is flexible and extensible - new data types can be added easily by editing an XML file. A range of data parsers is provided to facilitate the data loading, and a number of consistency checks after the database build ensure that the data has been integrated correctly. Sophisticated identifier resolution ensures that all data identifiers are correctly updated to their most current form.
 
 ## Fast, flexible querying
 
@@ -12,11 +12,11 @@ The sophisticated query optimisation means that users can construct and perform 
 
 ## User-friendly web interface and analysis tools
 
-The web application is included with the InterMine package, and is an accessible starting point for first time users. It contains a number of features focused around list analysis \(a common need in biology\) including graphical data displayers and tools that automatically calculate a set of enrichment statistics. It also includes report pages, interactive results tables, saved template queries, a regions search tool and a query builder. This setup makes it possible to browse and explore data without any programming knowledge. Users can save their data and queries in a private workspace.
+The web application is included with the InterMine package, and is an accessible starting point for first time users. It contains a number of features focused around list analysis \(a common need in biology\), including graphical data displayers and tools that automatically calculate a set of enrichment statistics. It also includes report pages, interactive results tables, saved template queries, a regions search tool and a query builder. This setup makes it possible to browse and explore data without any programming knowledge. Users can save their data and queries in a private workspace.
 
 ## Extensive set of APIs and web tools
 
-InterMine can be accessed programmatically, and we provide client libraries for five commonly used programming languages \(Python, Perl, Ruby, Java, JavaScript\). This enables bioinformatician users to access InterMine functionality without using the web application and to query data from a number of different InterMine instances using a single script, or as part of an automated workflow. It also enables the easy embedding of InterMine analysis tools into external websites, as well as the development of external applications that access InterMine data.
+InterMine can be accessed programmatically, and we provide client libraries for five commonly used programming languages \(Python, Perl, Ruby, Java, JavaScript\). This enables bioinformatician users to access InterMine functionalities without using the web application and to query data from a number of different InterMine instances using a single script, or as part of an automated workflow. It also enables the easy embedding of InterMine analysis tools into external websites, as well as the development of external applications that access InterMine data.
 
 ## Highly developed and extensible system
 
