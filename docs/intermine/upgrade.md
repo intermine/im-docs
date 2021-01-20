@@ -26,7 +26,7 @@ Read more: [InterMine Versioning Policy](intermine-versions.md) and [InterMine D
 
 This is a non-disruptive release.
 
-It mainly contains new webservices to improve BlueGenes support \(v. 0.10.0\), some fixes related to the type Date, bioschemas markup on the report page \(Gene and protein\)
+It mainly contains new webservices to improve BlueGenes support \(v. 0.10.0\), some fixes related to the type Date, and bioschemas markup on the report page \(Gene and protein\)
 
 ## InterMine 4.1.3
 
@@ -79,7 +79,7 @@ To enable the structured data added to the web pages in format of JSON-LD, you s
 
 To configure the new URLs used in the "share" button, you should specify the keys in the class\_keys.properties file.
 
-See our [blog post](https://intermineorg.wordpress.com/2019/05/09/intermine-4-0-intermine-as-a-fair-framework/) for more details on how to configure and use the new features to make your mine to be more FAIR.
+See our [blog post](https://intermineorg.wordpress.com/2019/05/09/intermine-4-0-intermine-as-a-fair-framework/) for more details on how to configure and use the new features to make your mine more FAIR.
 
 ## InterMine 3.1.2
 
@@ -162,7 +162,7 @@ This release adds Solr to InterMine. To upgrade, you will need to rebuild your d
 
 4. Rebuild your database.
 
-Specifically the postprocesses that build the search index.
+   Specifically the postprocesses that build the search index.
 
 You should then be able to deploy your webapp as normal, with the new and improved search.
 
@@ -195,7 +195,7 @@ You do not need to install Gradle locally. Instead, use the Gradle wrapper provi
 
 ### Remove InterMine code
 
-Previously you had to download and compile InterMine. Now, instead, you'll be using the compiled InterMine JARs available via Maven. This means you should remove all InterMine code from your mine repositories. Your mine repositories should only contain your mine \(webapp and dbmodel\) and your mine's custom data sources.
+Previously, you had to download and compile InterMine. Now, instead, you'll be using the compiled InterMine JARs available via Maven. This means you should remove all InterMine code from your mine repositories. Your mine repositories should only contain your mine \(webapp and dbmodel\) and your mine's custom data sources.
 
 If you have your mine and bio/sources in your InterMine checkout, instead of in their own repository, you'll have to separate them out.
 
@@ -211,7 +211,7 @@ What you want to end up with:
 
 Options to separate out your mine repo:
 
-1. You can copy over your directories directly. Don\'t do this! You\'ll
+1. You can copy over your directories directly. However, don't do this! You'll
 
    lose your history.
 
@@ -231,7 +231,7 @@ Options to separate out your mine repo:
 
 ### New directory structure
 
-InterMine has switched to use the standard [Maven directory structure](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html).
+InterMine now uses the standard [Maven directory structure](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html).
 
 ```text
 src/main/java
@@ -246,7 +246,7 @@ You will have to run two migration scripts to move your current mine over to thi
 ~/git $ git clone https://github.com/intermine/intermine-scripts.git
 ```
 
-#### Migrate Mine webapp to New directory structure
+#### Migrate mine webapp to new directory structure
 
 Run "migrateMine" script to move your mine over to the new directory system. You might want to create a new `gradle` branch for testing.
 
@@ -254,7 +254,7 @@ Run "migrateMine" script to move your mine over to the new directory system. You
 ~/git/intermine-scripts/gradle-migration/mine $ ./migrateMine.sh ~/git/flymine
 ```
 
-#### Migrate Data Sources to New directory structure
+#### Migrate data sources to new directory structure
 
 Run the "migrateBioSources" script to move your sources over to the new directory system.
 
@@ -262,7 +262,7 @@ Run the "migrateBioSources" script to move your sources over to the new director
 ~/git/intermine-scripts/gradle-migration/data-sources $ ./migrateBioSources.sh ~/git/flymine-bio-sources
 ```
 
-Run this command to put your sources on the classpath and therefore available to the database build:
+Run this command to put your sources on the classpath and therefore, available to the database build:
 
 ```text
 # not part of the upgradle process. You will install every time you make a change
@@ -273,7 +273,7 @@ This task builds the JARs and places them on your classpath in `~/.m2/repository
 
 Note the command is `./gradlew` instead of `gradle`. Use the provided Gradle wrapper instead of locally installed Gradle.
 
-You will have to `install` your sources every time you update the source code to update the JAR being used by the build.
+You will have to `install` your sources every time you update the source code in order to update the JAR being used by the build.
 
 Previously, the data model was merged from all data sources' additions XML file. This is no longer true. Since each source is in its own JAR now, the data model is self-contained. Therefore if you reference a class in your data parser, it must be present in the additions file. Alternatively, you can specify a single data model file that will be merged into each source:
 
@@ -290,11 +290,11 @@ Previously, the data model was merged from all data sources' additions XML file.
 
 ### Update config
 
-1. Remove `<property name="source.location" location="../bio/sources/"/>` from your project XML file
+1. Remove `<property name="source.location" location="../bio/sources/"/>` from your project XML file.
 2. Set `GRADLE_OPTS` instead of `ANT_OPTS`
    * Use the same parameters.
    * Append `-Dorg.gradle.daemon=false` to prevent daemons from being used.
-3. Update project XML for some sources
+3. Update project XML for some sources:
    * `SO` source's location has been updated to be:
 
      `<property name="src.data.file" location="so.obo"/>`
@@ -325,14 +325,14 @@ Please see [Gradle Quick Start](../system-requirements/software/gradle/index.md)
 
 ## Data Model
 
-* Syntenic Regions have been added to the data model
-* Protein.molecularWeight is now a Float instead of an Integer
-* GO evidence codes now have a name and URL
+* Syntenic Regions have been added to the data model.
+* Protein.molecularWeight is now a Float instead of an Integer.
+* GO evidence codes now have a name and URL.
 * OntologyAnnotation can now annotate any InterMine object, as long as
 
-  that class inherits `Annotatable`
+  that class inherits `Annotatable`.
 
-* Sequence Ontolgy has been updated to the latest version
+* Sequence Ontolgy has been updated to the latest version.
 * Organism.taxonId is a String instead of an Integer.
 
 See the [Model Changes](https://intermineorg.wordpress.com/2017/09/08/intermine-2-0-proposed-model-changes-iii/) blog post for details.
@@ -341,7 +341,7 @@ You may have to update your data sources and queries to match the new data model
 
 ## Dependencies
 
-Software dependency requirements have been updated to the latest versions. This is so we can get rid of legacy code and make use of new features.
+Software dependency requirements have been updated to the latest versions. This is so that we can get rid of legacy code and make use of new features.
 
 ```text
 Java SDK 8
@@ -365,7 +365,7 @@ Please update any code that references these end points.
 
 ## Pre-InterMine 2.0 Upgrade Instructions
 
-To pull changes in your local repository and merge them into your working files:
+To pull changes in your local repository and merge them into your working files, use this command:
 
 ```bash
 $ git pull upstream
@@ -375,7 +375,7 @@ If you host a copy of the [CDN](../webapp/performance/index.md), then you should
 
 ## Upgrade to InterMine 1.6
 
-The core model of InterMine has changed in release 1.1 so you may encounter more errors than usual.
+The core model of InterMine has changed in release 1.1, so you may encounter more errors than usual.
 
 **update integration keys**
 
@@ -383,15 +383,15 @@ You may need to update your integration keys if they are using a class or field 
 
 **update custom converter**
 
-If you are storing data using a class or field that’s been changed, you will have to change your code to use the new model. See below for the complete list of model changes.
+If you are storing data using a class or field that’s been changed, you will have to change your code to use the new model. See the complete list of model changes below.
 
 **template queries**
 
-You will have to update your templates to use the new model
+You will have to update your templates to use the new model.
 
 **interaction viewer**
 
-The cytoscape tool uses the new model - will not work until you build a database with the new code
+The cytoscape tool uses the new model. It will not work until you build a database with the new code
 
 Interactions
 
@@ -420,11 +420,11 @@ Protein Domains
 
 There are no model changes, but we've added some new features that require an update.
 
-We've added a new fancy connection pool, you should see a performance improvement. However you do need to update some configuration files.
+We've added a fancy new connection pool for performance improvement. However, you do need to update some configuration files.
 
 ### Postgres config file
 
-The number of database connections required will depend on your usage. 100 connections is the default and should be okay for production webapps. However, each webapp reserves 20 connections. So, on your dev machines it may be wise to raise the maximum quite a bit.
+The number of database connections required will depend on your usage. 100 connections is the default and should be okay for production webapps. However, each webapp reserves 20 connections. So, on your dev machines, it may be wise to raise the maximum quite a bit.
 
 {% tabs %}
 {% tab title="postgresql.conf" %}
@@ -444,7 +444,7 @@ set
 
 `db.common-tgt-items.datasource.maxConnections=5`
 
-and for each database replace
+and for each database, replace
 
 `db.production.datasource.class=org.postgresql.ds.PGPoolingDataSource`
 
@@ -462,7 +462,7 @@ set
 
 `db.production.datasource.maxConnections=20`
 
-and for each database replace
+and for each database, replace
 
 `db.production.datasource.class=org.postgresql.ds.PGPoolingDataSource`
 
@@ -474,7 +474,7 @@ with these 2 lines
 {% endtab %}
 {% endtabs %}
 
-Any other data source you use should be set to five connections, raised to ten if you encounter problems, e.g. the build failing with an error like so:
+Any other data source you use should be set to five connections and increased to ten if you encounter problems, e.g. the build failing with an error like so:
 
 {% tabs %}
 {% tab title="Error message" %}
@@ -512,9 +512,9 @@ This code will work with any webapp and database created with InterMine 1.3+.
 
 ## Upgrade to InterMine 1.3
 
-* Remove all duplicate entries from web.xml
-* Model changes:
-  * DataSet now has a publication reference
+* Removed all duplicate entries from web.xml.
+* Model changes include the following:
+  * DataSet now has a publication reference.
   * AnnotationExtension has been moved from GOAnnotation to
 
     GOEvidence.
@@ -535,7 +535,7 @@ The core data model has not been changed, so you should be able to release a web
 
 ## Upgrade to InterMine 1.1
 
-The core model of InterMine has changed in release 1.1 so you may encounter more errors than usual.
+The core model of InterMine has changed in release 1.1, so you may encounter more errors than usual.
 
 **update integration keys**
 
@@ -543,15 +543,15 @@ You may need to update your integration keys if they are using a class or field 
 
 **update custom converter**
 
-If you are storing data using a class or field that’s been changed, you will have to change your code to use the new model. See below for the complete list of model changes.
+If you are storing data using a class or field that’s been changed, you will have to change your code to use the new model. See the complete list of model changes below.
 
 **template queries**
 
-You will have to update your templates to use the new model
+You will have to update your templates to use the new model.
 
 **interaction viewer**
 
-Widget uses the new model - will not work until you build a database with the new code
+Widget uses the new model - will not work until you build a database with the new code.
 
 ### Model Changes
 
@@ -593,23 +593,23 @@ Updated to latest version of Sequence Ontology, 2.5
 
 ### Identifiers
 
-We have several \[wiki:Homologue new homologue data converters\] available in this InterMine release. However, some of these new data sources use Ensembl IDs. If you want to load the model organism database identifier instead \(important for interoperation with other InterMines\), you should use the Entrez Gene ID resolver:
+We have several \[wiki:Homologue new homologue data converters\] available in this InterMine release. However, some of these new data sources use Ensembl IDs. If you want to load the model organism database identifier instead \(important for interoperation with other InterMines\), you should use the Entrez Gene ID resolver. To do this:
 
 1. Download the identifier file -
 
    [ftp://ftp.ncbi.nih.gov/gene/DATA/gene\_info.gz](ftp://ftp.ncbi.nih.gov/gene/DATA/gene_info.gz)
 
 2. Unzip the file
-3. Add the path to properties file:
+3. Add the path to properties file like so:
 
-```text
-# in ~/.intermine/MINE_NAME.properties
-resolver.entrez.file=/DATA_DIR/ncbi/gene_info
-```
+   ```text
+   # in ~/.intermine/MINE_NAME.properties
+   resolver.entrez.file=/DATA_DIR/ncbi/gene_info
+   ```
 
 ### Configuration Updates
 
-Web services uses the `webapp.baseurl` property to run queries, so be sure this is the valid URL for your mine. Otherwise you will get an "Unable to construct query" error on the query results page.
+Web services use the `webapp.baseurl` property to run queries, so be sure this is the valid URL for your mine. Otherwise, you will get an "Unable to construct query" error on the query results page.
 
 ```text
 # in ~/.intermine/MINE_NAME.properties
