@@ -4,28 +4,28 @@ This is where you should learn how to start your own MalariaMine web application
 
 ## Pre-requisites
 
-You need an Amazon account: if you don't have one
+You need an Amazon account. If you don't have one:
 
-* go to [http://aws.amazon.com](http://aws.amazon.com)
-* click on `Sign Up`
-* follow the instructions
+* Go to [http://aws.amazon.com](http://aws.amazon.com).
+* Click on `Sign Up`.
+* Follow the instructions on the page.
 
-You will need to set up your key pair security mechanism \(see for example step 7 below\). Alternatively you will need your aws-access-key and your aws-secret-key to start your instance \(not shown here\).
+You will need to set up your key pair security mechanism \(see step 7 below for an example\). Alternatively, you will need your aws-access-key and your aws-secret-key to start your instance \(not shown here\).
 
 ## Starting a new Instance
 
 InterMine is publicly available on Amazon Cloud as an Image \(AMI\), with an AMI ID **ami-b1c7a9d8**.
 
-The image contains a ready deployed MalariaMine.
+The image contains a ready deployed MalariaMine. To start a new instance:
 
-1. sign in at [http://aws.amazon.com](http://aws.amazon.com)
-2. go to the EC2 management console
+1. Sign in at [http://aws.amazon.com](http://aws.amazon.com).
+2. Go to the EC2 management console by following these steps:
 
-   AWS console --&gt; [https://console.aws.amazon.com/console/home](https://console.aws.amazon.com/console/home) --&gt; EC2 console
+   AWS console --&gt; [https://console.aws.amazon.com/console/home](https://console.aws.amazon.com/console/home) --&gt; EC2 console.
 
-3. if you don't have one, set up a security group which allows access
+3. Set up a security group \(if you don't have one\) which allows access
 
-   to at least port
+   to at least ports:
 
    > * 22 \(SSH\)
    > * 80 \(HTTP\)
@@ -33,18 +33,18 @@ The image contains a ready deployed MalariaMine.
 
    you could also set up a few spare ones \(20, 21, 8009\).
 
-   {% hint style="info" %}  
+   {% hint style="info" %} 
    You can do this also during step 7, but **you cannot change the security group of an instance after starting it for the first time** \(unless you use a VPC instance, see [User Guide](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)\).  
    {% endhint %}
 
-4. go to the IMAGES/AMI console
-5. set the location on the top header \(beside your username\) to _US_
+4. Go to the IMAGES/AMI console.
+5. Set the location on the top header \(beside your username\) to _US_
 
-   _East \(N. Virginia\)_
+   _East \(N. Virginia\)_.
 
-6. set the filter to _Public Images_ and search for **InterMine**
-7. select _BasicIntermine_ AMI \(AMI ID = ami-b1c7a9d8\)
-8. launch \(and configure\) instance
+6. Set the filter to _Public Images_ and search for **InterMine**.
+7. Select _BasicIntermine_ AMI \(AMI ID = ami-b1c7a9d8\).
+8. Launch \(and configure\) instance
 
    > * you can use all default options for the instance characteristics
    >
@@ -54,11 +54,11 @@ The image contains a ready deployed MalariaMine.
    >
    >   that you already own.
 
-9. go to the Instance console
-10. select your new instance
-11. when public DNS appears \(after checks, a couple of minutes\), you can
+9. Go to the Instance console.
+10. Select your new instance.
+11. When public DNS appears \(after checks, a couple of minutes\), you can
 
-    open a terminal with
+    open a terminal with:
 
     ```bash
     $ ssh -i your_pem_file ubuntu@the_instance_public_DNS
@@ -66,25 +66,25 @@ The image contains a ready deployed MalariaMine.
 
 ## Starting an existing Instance
 
-If you are using an existing Instance, you need to
+If you are using an existing Instance, you need to:
 
-1. sign in at [http://aws.amazon.com](http://aws.amazon.com)
-2. go to the EC2 console \(see step 2 above\)
-3. go to the Instance console
-4. select your instance
-5. start your instance \(Actions --&gt; Start\)
+1. Sign in at [http://aws.amazon.com](http://aws.amazon.com).
+2. Go to the EC2 console \(see step 2 above\).
+3. Go to the Instance console.
+4. Select your instance.
+5. Start your instance \(Actions --&gt; Start\).
 
-## Working with Your Instance
+## Working with your Instance
 
-Open a terminal in Your Instance
+Open a terminal in your Instance
 
 ```bash
 $ ssh -i your_pem_file ubuntu@the_instance_public_DNS
 ```
 
-you will land in `/home/ubuntu`
+you will land in `/home/ubuntu`.
 
-here you can find these relevant directories:
+Here, you can find these relevant directories:
 
 `git/intermine` the InterMine code base
 
@@ -104,7 +104,7 @@ Your BioTestMine web application will then be available on
 
 > [http://the\_instance\_public\_DNS:8080/malariamine](http://the_instance_public_DNS:8080/malariamine)
 
-To stop the web application:
+To stop the web application, use this command:
 
 ```bash
 $ ./stop.sh
@@ -112,7 +112,7 @@ $ ./stop.sh
 
 ### Redeploying MalariaMine
 
-In `/home/ubuntu/git/intermine/malariamine/webapp`
+In `/home/ubuntu/git/intermine/malariamine/webapp`, use this command:
 
 ```bash
 $ ant -v default remove-webapp release-webapp
@@ -120,13 +120,13 @@ $ ant -v default remove-webapp release-webapp
 
 ### \(Re\)building MalariaMine
 
-see [http://intermine.readthedocs.org/en/latest/get-started/tutorial/](http://intermine.readthedocs.org/en/latest/get-started/tutorial/)
+See [http://intermine.readthedocs.org/en/latest/get-started/tutorial/](http://intermine.readthedocs.org/en/latest/get-started/tutorial/)
 
-In `/home/ubuntu/git/intermine/malariamine`
+In `/home/ubuntu/git/intermine/malariamine`, use this command:
 
 ```bash
 $ ../bio/scripts/project_build -b -v localhost ~/malariamine-dump
 ```
 
-You can also follow all the steps in the build as illustrated in [Tutorial](../get-started/tutorial/index.md)\`\`
+You can also follow all the steps in the build as illustrated in [Tutorial](../get-started/tutorial/index.md).
 
