@@ -8,11 +8,11 @@ See also [GitHub repo](https://github.com/intermine/intermine-api-loader) for so
 If you are loading JavaScript libraries on a page, you should use a loader \(count of 1\). Why not use ours?
 {% endhint %}
 
-## Purpose
+### Purpose
 
 To simplify loading of CSS and JS libraries. The API Loader automatically works out the order the libraries should be loaded based on dependencies between them. It also skips libraries that already exist on a page or that pass a specific check.
 
-## How to use
+### How to use
 
 {% hint style="info" %}
 If you are passing a string or an array as the first parameter into the library, these are @deprecated but still working for backwards compatibility.
@@ -71,4 +71,3 @@ The object works like so:
 4. `path` represents the URL pointing to the library.
 5. Use `depends` key, passing an array if a library depends on other libraries in your list. In the example, you can see that `Backbone` depends on `jQuery` and `_` \(underscore.js\). The appropriate loading order will be worked out from this.
 6. Check the `err` variable passed in the callback function \(second parameter\).
-

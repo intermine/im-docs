@@ -1,6 +1,6 @@
 # Query performance \(precomputed tables\)
 
-InterMine can make use of precomputed tables \(analagous to materialised views\) for faster execution of queries. These can represent any SQL query \(or InterMine query\) and can automatically be substituted into incoming queries by our own cost-based query optimiser. For example, a precompute that joins three tables could be used in a larger query that includes that join thus reducing the total number of tables joined in the query. Template queries can be precomputed completely so that for any value entered in an editable constraint, the query will be executed from a single database table.
+InterMine can make use of precomputed tables \(analagous to materialised views\) for faster execution of queries. These can represent any SQL query \(or InterMine query\) and can automatically be substituted into incoming queries by our own cost-based query optimiser. For example, a precompute that joins three tables could be used in a larger query that includes that join thus reducing the total number of tables joined in the query. Template queries can be precomputed completely so that for any any value entered in an editable constraint the query will be executed from a single database table.
 
 ## Template queries
 
@@ -69,7 +69,7 @@ ORDER BY pg_relation_size(oid) DESC;
 
 ## Template Summaries
 
-After the templates are precomputed, they are "summarised". This means any dropdowns for the templates will be updated to only include valid values for that specific templates. Here's how it's done:
+After the templates are precomputed, they are "summarised". This means any dropdowns for the templates will be updated to only include valid values for that specific templates. How it's done:
 
 * All editable constraints are dropped, non-editable constraints are kept
 * Valid values \(summaries\) for dropdowns are recalculated
@@ -86,7 +86,7 @@ This is what we did for FlyMine:
 2. Widgets - see what queries the widgets are running, add those queries
 3. Problem areas being reported, certain queries being slower than expected, e.g. interaction queries
 
-These three things, along with precomputing templates, seem to work best.
+These three things, along with precomputing templates, seems to work best.
 
 Ideally we would have some sort of query profiling and would be able to tell where precomputing helps.
 

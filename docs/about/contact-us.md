@@ -25,4 +25,3 @@ To contact the InterMine Team:
 **in person \(please contact us first, so we know to expect you\)**
 
 [https://map.cam.ac.uk/Department+of+Genetics](https://map.cam.ac.uk/Department+of+Genetics)
-

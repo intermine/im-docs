@@ -1,6 +1,6 @@
 # GO OBO
 
-Loads the Gene Ontology term ids, names and definitions, and the relationships between terms. Should be loaded if the go-annotation source is used.
+Load the Gene Ontology term ids, names and definitions, and the relationships between terms. Should be loaded if the go-annotation source is used.
 
 ## Types of data loaded
 

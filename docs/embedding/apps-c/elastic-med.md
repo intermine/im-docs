@@ -345,7 +345,7 @@ One needs an access point where our app will get loaded with particular configur
 </html>
 ```
 
-This file does not do anything else other then load our built CSS and JS files \(_lines 7 and 9_\) and starts our app. In our example, we are pointing to a `build` directory relative to the `example` directory. So let’s make a symbolic link to the actual `build`:
+ This file does not do anything else other then load our built CSS and JS files \(_lines 7 and 9_\) and starts our app. In our example, we are pointing to a `build` directory relative to the `example` directory. So let’s make a symbolic link to the actual `build`:
 
 ```bash
 $ ln -s ../build build/
@@ -435,7 +435,7 @@ On _line 14_, we see an example of checking whether we are looking at the index 
 
 ### Router
 
-Now we need to write the actual router component. It will be a type of [canControl](http://canjs.com/guides/Controls.html) and lives in the `src/app.coffee` file too. Since we do not want/need to export this functionality, it will be placed above the current `module.exports` call:
+ Now we need to write the actual router component. It will be a type of [canControl](http://canjs.com/guides/Controls.html) and lives in the `src/app.coffee` file too. Since we do not want/need to export this functionality, it will be placed above the current `module.exports` call:
 
 ```coffeescript
 # Router switching between pages.
@@ -618,4 +618,3 @@ Shows up when a list of suggestions has some items. Represents suggestions for t
 A query history. Only shows up when it has items in it.
 
 ### Application search component
-

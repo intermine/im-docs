@@ -13,4 +13,3 @@ Please join the InterMine developers mailing list `dev [at] lists [dot] intermin
 Archives of old messages are available here:
 
 [Message archive](https://lists.intermine.org/pipermail/dev/)
-

@@ -44,7 +44,7 @@ dataSummary.title = Data sources loaded into FlyMine
 dataSummary.tab = dataCategories
 ```
 
-To create a new tab, follow the instructions on [General Layout](layout/index.md).
+To create a new tab, follow the instructions on `/webapp/layout/index`{.interpreted-text role="doc"}
 
 ### Java controller
 

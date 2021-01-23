@@ -8,7 +8,9 @@ Several people have had problems with Tomcat installations set up by Linux packa
 
 The quickest way to get a working Tomcat:
 
-1. Download the latest stable binary distribution \(i.e. `tar.gz` \) from the Apache Tomcat site.
+1. Download the latest stable binary distribution \(i.e. `tar.gz` \)
+   from the Apache Tomcat site.
+
 2. Unpack it like so:
 
 ```bash

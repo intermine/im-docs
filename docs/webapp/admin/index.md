@@ -12,14 +12,14 @@ All logged in users can create template queries, but the SuperUser can make them
 
 ### Template queries and lists
 
-The SuperUser can change where templates and lists appear by adding tags via the templates and lists pages in the MyMine section of the webapp. Only the administrator can apply/view/edit tags starting at `im:` . The tag data is stored in the user-profile database.
+The SuperUser can change where templates and lists appear by adding tags via the templates and lists pages in the MyMine section of the webapp. Only the administrator can apply/view/edit tags starting at `im:` The tag data is stored in the user-profile database.
 
 | tag | purpose |
 | :--- | :--- |
 | [im:public](im:public) \[1\] | make list/template viewable by all users |
 | [im:frontpage](im:frontpage) | put list on home page |
 | [im:converter](im:converter) | template used in generating links in the ‘Convert’ section on the list analysis page |
-| [im:aspect:CategoryName](im:aspect:CategoryName) | template appears underneath specified category. For instance, template with [im:aspect:Genomics](im:aspect:Genomics) tag will be displayed in Genomics category on the report page and on the home page |
+| [im:aspect:CategoryName](im:aspect:CategoryName) | template appears underneath specified category. For instance template with [im:aspect:Genomics](im:aspect:Genomics) tag will be displayed in Genomics category on the report page and on the home page |
 | [im:report](im:report) | allows template to be displayed on report or list analysis page |
 | [im:order:n](im:order:n) | specify the order lists should go in \(on homepage only currently\). If two lists have the same Integer “n” value, natural ordering on the list name will be applied as a decisive criterion |
 
@@ -32,7 +32,7 @@ The SuperUser can change how fields are displayed by adding tags via the report 
 | tag | purpose |
 | :--- | :--- |
 | [im:hidden](im:hidden) | hides the field/collection |
-| [im:summary](im:summary) | adds collection to ‘Summary’ section of report page |
+| [im:summary](im:summary) | add collection to ‘Summary’ section of report page |
 | [im:aspect:CategoryName](im:aspect:CategoryName) | collection appears underneath category |
 
 ### Classes
@@ -49,11 +49,11 @@ The SuperUser can change how classes are displayed by adding tags via the model 
 If a template is tagged with `im:converter`, it is:
 
 1. Used by the list analysis page, in the "Convert" section.
-2. Used by the list upload page to convert between types.
+2. Used by the list upload page to converter between types.
 
-> * E.g., the user pastes in a protein identifier, but chooses "Gene" from the type dropdown menu. A converter template can be used to look up the `Gene` corresponding to the given `Protein`.
+> * Eg, the user pastes in a protein identifier, but chooses "Gene" from the type drop down menu. A converter template can be used to look up the `Gene` corresponding to the given `Protein`.
 
-To work as a converter, the template must follow the following pattern:
+To work as a converter the template must follow the following pattern:
 
 * the top-level class in the query must be the class we wish to convert _from_ \(eg. `Gene`\)
 * there must be exactly one editable constraint - the `id` field of the top level class \(eg. `Gene.id`\)

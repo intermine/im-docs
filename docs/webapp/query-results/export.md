@@ -6,7 +6,7 @@ Default exporters in bio project
 * GFF3
 * FASTA
 * BED
-* Galaxy - exports data in tab or BED format to Galaxy server
+* Galaxy - export data in tab or BED format to Galaxy server
 
 Appears on these pages:
 
@@ -28,7 +28,7 @@ You can add additional export options to your InterMine by creating a custom exp
    <tableExportConfig id="bed" className="org.intermine.bio.web.export.BEDHttpExporter"/>
    ```
 
-3. Update Struts config
+3. update Struts config
 
    ```markup
    # struts-config-model.xml
@@ -43,7 +43,7 @@ You can add additional export options to your InterMine by creating a custom exp
 
 ### Customisation
 
-By default, SequenceFeature and Protein can be exported in FASTA format
+By default, SequenceFeature and Protein can be exported as FASTA format
 
 ```text
 fasta.export.classes = SequenceFeature,Protein

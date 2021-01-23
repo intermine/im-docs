@@ -6,7 +6,7 @@
 InterMine is available via JCenter as executable JARs. We do not recommend downloading the InterMine source code.
 {% endhint %}
 
-InterMine source code is available via [GitHub](https://github.com/intermine/intermine).
+ InterMine source code is available via [GitHub](https://github.com/intermine/intermine).
 
 ## Getting started
 

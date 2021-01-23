@@ -134,7 +134,7 @@ You should also add a line to the pg\_hba.conf file to allow logging in via pass
 host    all         all         0.0.0.0/0             password
 ```
 
-> \[1\]
+> \[1\] 
 >
 > The InterMine system stores all text in the database in `UTF-8` format. If you set PostgreSQL to `LATIN-9`, then PostgreSQL will perform some incorrect conversions, and may even give an error. Setting the format to `UTF-8` results in PostgreSQL treating the text completely correctly, which is quite a complicated and slow operation in `UTF-8`.
 >
@@ -143,8 +143,10 @@ host    all         all         0.0.0.0/0             password
 > Please try to treat InterMine as a black box. The fact that it uses PostgreSQL to store its data should be a detail that should be hidden as much as possible. The InterMine system is written in Java, and therefore handles all text in Unicode.
 >
 > The template1 database is the database used as a template when you run the `createdb` command. Update the encoding for template1 to be SQL\_ASCII, then every database you create from now on will have the correct encoding.
->
+
 > \[2\]
+>
+>
 >
 > ```text
 > postgres=# update pg_database set datallowconn = TRUE where datname = 'template0';

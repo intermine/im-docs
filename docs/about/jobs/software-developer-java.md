@@ -47,4 +47,3 @@ InterMine was founded in 2002 and is based at the University of Cambridge. We of
 ## How to Apply
 
 Apply via the University's website here: [http://www.jobs.cam.ac.uk/job/6352/](http://www.jobs.cam.ac.uk/job/6352/).
-
