@@ -2,7 +2,7 @@
 
 ## Types of data loaded
 
-features and their sequences. Will create a feature for each entry in a fasta file and set the sequence, the class of the feature to create is set for the whole file.
+Features and their sequences. Will create a feature for each entry in a fasta file and set the sequence, the class of the feature to create is set for the whole file.
 
 ## How to download the data
 

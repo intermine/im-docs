@@ -8,7 +8,7 @@ In FlyMine, for example, the URL of the report page for the gene zen, with prima
 
 These URLs are used to share the report page with other users.
 
-![image](../../../.gitbook/assets/share.png)
+![](../../../.gitbook/assets/share.png)
 
 The [class\_keys.properties](../properties/class-keys.md) file specifies the keys used to generate the permanent URLs. If not specified, the primaryidentifier key is used.
 

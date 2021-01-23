@@ -8,100 +8,19 @@ This file allows for inheritance - a subclass will inherit from its parent class
 
 You can configure which fields are displayed on report and result pages for each class in your model.
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">attribute name</th>
-      <th style="text-align:left">purpose</th>
-      <th style="text-align:left">required?</th>
-      <th style="text-align:left">default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">fieldExpr</td>
-      <td style="text-align:left">field name</td>
-      <td style="text-align:left">yes</td>
-      <td style="text-align:left">
-        <ul>
-          <li></li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">label</td>
-      <td style="text-align:left">human readable name</td>
-      <td style="text-align:left">no</td>
-      <td style="text-align:left">generated automagically</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">showInInlineCollection</td>
-      <td style="text-align:left">show field in inline collection (on report pages)</td>
-      <td style="text-align:left">no</td>
-      <td style="text-align:left">true</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">showInSummary</td>
-      <td style="text-align:left">add field to query when user clicks on &#x2018;Summary&#x2019; button
-        in QueryBuilder</td>
-      <td style="text-align:left">no</td>
-      <td style="text-align:left">true</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">showInResults</td>
-      <td style="text-align:left">show field in results table</td>
-      <td style="text-align:left">no</td>
-      <td style="text-align:left">true</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">outerInSummary</td>
-      <td style="text-align:left">configure outer-joins when user clicks on &#x2018;Summary&#x2019; in QueryBuilder</td>
-      <td
-      style="text-align:left">no</td>
-        <td style="text-align:left">false</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">doNotTruncate</td>
-      <td style="text-align:left">don&#x2019;t truncate display</td>
-      <td style="text-align:left">no</td>
-      <td style="text-align:left">false</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">fieldExporter</td>
-      <td style="text-align:left">specify class to export file field</td>
-      <td style="text-align:left">no</td>
-      <td style="text-align:left">
-        <ul>
-          <li></li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">sectionOnRight</td>
-      <td style="text-align:left">show on the right side of the page</td>
-      <td style="text-align:left">no</td>
-      <td style="text-align:left">false</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">sectionTitle</td>
-      <td style="text-align:left">if sectionOnRight=&#x201D;true&#x201D;, title for section on right</td>
-      <td
-      style="text-align:left">no</td>
-        <td style="text-align:left">
-          <ul>
-            <li></li>
-          </ul>
-        </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">openByDefault</td>
-      <td style="text-align:left">if sectionOnRight=&#x201D;true&#x201D;, whether or not this section should
-        be open</td>
-      <td style="text-align:left">no</td>
-      <td style="text-align:left">false</td>
-    </tr>
-  </tbody>
-</table>
+| attribute name | purpose | required? | default |
+| :--- | :--- | :--- | :--- |
+| fieldExpr | field name | yes | - |
+| label | human readable name | no | generated automatically |
+| showInInlineCollection | show field in inline collection \(on report pages\) | no | true |
+| showInSummary | add field to query when user clicks on ‘Summary’ button in QueryBuilder | no | true |
+| showInResults | show field in results table | no | true |
+| outerInSummary | configure outer-joins when user clicks on ‘Summary’ in QueryBuilder | no | false |
+| doNotTruncate | don’t truncate display | no | false |
+| fieldExporter | specify class to export file field | no | - |
+| sectionOnRight | show on the right side of the page | no | false |
+| sectionTitle | if sectionOnRight=”true”, title for section on right | no | - |
+| openByDefault | if sectionOnRight=”true”, whether or not this section should be open | no | false |
 
 For example:
 

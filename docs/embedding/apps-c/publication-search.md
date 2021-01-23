@@ -483,7 +483,7 @@ A module doing the actual search.
 
 **`state`**
 
-Will be told what the state of the app is (for alerts).
+Will be told what the state of the app is \(for alerts\).
 
 We initialize the query to be empty using `''`. If a developer wants to pass an initial query, we have seen the relevant code in app index.
 
@@ -713,7 +713,7 @@ As for the template that displays the results; in `/src/templates/table.mustache
 
 Firstly, we are checking if we actually have any results to speak of. If so, we render a table &lt;tr/&gt; element for each publication.
 
-We can see that `{{  #pubs  }}` and `{{  #authors  }}` both represent a for loop.
+We can see that `{{ #pubs }}` and `{{ #authors }}` both represent a for loop.
 
 ### Style
 

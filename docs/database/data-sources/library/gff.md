@@ -14,9 +14,9 @@ N/A - will parse any file in GFF3 format
 
 ## How to load the data into your mine
 
-1. place valid GFF3 files into a directory
-2. add entry to project XML file
-3. run build
+1. Place valid GFF3 files into a directory
+2. Add entry to project XML file
+3. Run build
 
 ```text
 # example GFF3 file
@@ -111,7 +111,7 @@ The script has created a new source for you in the `bio/sources` directory.
 
 The Java file you now want to edit is here: `bio/sources/SOURCE_NAME/main/src/org/intermine/bio/dataconversion`
 
-The `process()` method is called for every line of GFF3 file\(s\) being read. Features and their locations are already created but not stored so you can make changes here. Attributes are from the last column of the file are available in a map with the attribute name as the key. For example:
+The `process()` method is called for every line of GFF3 file\(s\) being read. Features and their locations are already created but not stored so you can make changes here. Attributes from the last column of the file are available in a map with the attribute name as the key. For example:
 
 ```java
 Item feature = getFeature();
