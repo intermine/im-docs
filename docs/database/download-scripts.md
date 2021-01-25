@@ -88,9 +88,13 @@ A source is a class in the 'DataDownloader::Source' package that implements the 
 
 And accepts the following arguments in its constructor:
 
-* `data_dir => "dirname"` the name of a directory to put data in, preferably in a sub-directory.\* `logger => Log::Handler` A logger to use to log error and debug messages. Exceptions may be thrown by a source at any time. They will be caught and logged. It is the source's responsibility to clean up after itself however.
+* `data_dir => "dirname"` the name of a directory to put data in, preferably in a sub-directory.\* `logger => Log::Handler` A logger to use to log error and debug
 
-A template for creating a source is available in the form of an abstract class all sources are expected to inherit from. This class, `DataDownloader::Source::ABC` makes it simple to add straightforward source downloaders, and provides helpers to make it convenient to add complex ones.
+  messages.Exceptions may be thrown by a source at any time. They will
+
+  be caught and logged. It is the source's responsibility to clean up after itself however.
+
+A template for creating a source is available in the form of an abstract class all Sources are expected to inherit from. This class, `DataDownloader::Source::ABC` makes it simple to add straightforward source downloaders, and provides helpers to make it convenient to add complex ones.
 
 A minimal source can be seen in the form of `bio/scripts/DataDownloader/lib/DataDownloader/Source/FlyAnatomyOntology.pm`:
 
@@ -117,13 +121,13 @@ use constant {
 This source fully inherits the behaviour of the 'DataDownloader::Source::ABC' abstract class, and only adds configuration. In this case, it defines a set of constants that describe this source:
 
 * 'TITLE': The human readable name of the source shown in log messages.
-* 'DESCRIPTION': A longer description of the data that appears in a version file.
+* 'DESCRIPTION': A Longer description of the data that appears in a version file.
 * 'SOURCE\_LINK': A link to the origin of the material that appears in the version file.
 * 'SOURCE\_DIR': The sub-directory under the 'data\_dir' of the constructor where the new files should be placed.
 
 And some constants that define the data to fetch:
 
-* 'SOURCES': Any data source defined by this constant will automatically be added to the queue of files to download.
+* 'SOURCES': Any data sources defined by this constant will automatically be added to the queue of files to download.
 
 Each source is a hash-reference with the following keys:
 

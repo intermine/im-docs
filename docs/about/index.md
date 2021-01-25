@@ -52,4 +52,3 @@ All InterMine code is freely available under the open source [LGPL](http://www.g
 ## Privacy Policy
 
 ::: {.toctree maxdepth="2"} privacy-policy :::
-

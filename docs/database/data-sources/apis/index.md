@@ -27,7 +27,7 @@ InterMine items XML is a generic format that encodes data the matches InterMine 
 
 Here, the root element is always &lt;items&gt;.
 
-Within &lt;items&gt; each object has id within a separate &lt;item&gt; element.
+Within &lt;items&gt; each object has is within a separate &lt;item&gt; element.
 
 Each &lt;item&gt; has an id with the format &lt;NAMESPACE\_SUBID&gt;. For simple cases, the namespace can always be '0'. These IDs are used to signify connections between items within the item XML file - once the data is loaded into InterMine its own serial IDs are used instead and these Item XML ids disappear.
 
@@ -41,7 +41,7 @@ Example scripts used to generate InterMine Items XML can be found at [intermine\
 
 ## Datatypes
 
-The data formats required for attributes in InterMine Items XML for the most part are fairly obvious and match internal Java types \(e.g. strings are UTF-8, doubles are 64-bit IEEE 754 floating point\).
+The data formats required for attributes in InterMine Items XML for the most part they are fairly obvious and match internal Java types \(e.g. strings are UTF-8, doubles are 64-bit IEEE 754 floating point\).
 
 One exception is the format required for Dates. InterMine allows this to be expressed in 3 different ways.
 

@@ -153,4 +153,3 @@ The search should be very quick, but depending on the machine it's on, the initi
 If the search is just failing instantly, check your log files \($TOMCAT/logs\). When the index is unpacked from the database, it writes to disk. There may be permissions or space issues.
 
 See [Gradle - FAQs](../system-requirements/software/gradle/faqs.md) for more error messages.
-

@@ -38,7 +38,8 @@ The following properties determine the settings for the user profile database. T
 | Property name | Example | Determines |
 | :--- | :--- | :--- |
 | os.production.verboseQueryLog | true | if true, all queries are logged. Defaults to false |
-| webapp.deploy.url | [http://localhost:8080](http://localhost:8080/) | location of tomcat server |
+| webapp.deploy.url | [http://localhost:8080](http://localhost:8080/) | location of |
+| tomcat server |  |  |
 | webapp.hostname | localhost | name of host |
 | webapp.path | biotestmine | location of path of webapp |
 | webapp.manager | TOMCAT\_USER | tomcat username, needed to deploy webapp |
@@ -54,7 +55,7 @@ The following properties determine the settings for the user profile database. T
 | project.helpLocation | [http://www.flymine.org/help](http://www.flymine.org/help) | various URLs use this as the prefix |
 
 {% hint style="info" %}
-`webapp.baseurl` and `webapp.path` must be correct or else your queries will not run.
+`webapp.baseurl` and \[webapp.path\]{.title-ref} must be correct or else your queries will not run
 {% endhint %}
 
 ## Email
@@ -65,9 +66,9 @@ Emails are sent to users when they create an account, forget their password, or 
 | :--- | :--- | :--- |
 | mail.host | localhost | mail host to use |
 | mail.from | [account@my\_mail\_host](mailto:account%40my_mail_host) | “from” email address |
-| mail.subject | Welcome to biotestmine | “subject” for email sent when account is created |
-| mail.text | You have successfully created an account on BioTestMine | “body” for email sent when account is created |
-| feedback.destination | [test\_user@mail\_address](mailto:test_user%40mail_address) | recipient of feedback form located at the bottom of every page |
+| mail.subject | Welcome to biotestmine | “subject” for email send when account created |
+| mail.text | You have successfully created an account on BioTestMine | “body” for email send when account created |
+| feedback.destination | [test\_user@mail\_address](mailto:test_user%40mail_address) | recipient of feedback form located on bottom of every page |
 
 This is the normal mailer. There is a different configuration for SMTP.
 
@@ -75,21 +76,19 @@ This is the normal mailer. There is a different configuration for SMTP.
 
 It's possible to use several properties files by adding a suffix. Here's an example scenario:
 
-1. Add a suffix to the name of your property file:
+1. add a suffix to the name of your property file:
 
    > * `biotestmine.properties.dev` - points to the development database and a webapp
 
-2. Use `-Dorg.gradle.project.release=dev`
+2. use `-Dorg.gradle.project.release=dev`
 
-   \# `dev` is the suffix on the properties filename
+\# `dev` is the suffix on the properties filename
 
-   ```bash
-   # build the database specified in dev properties file
-   ./gradlew builddb -Dorg.gradle.project.release=dev
+```bash
+# build the database specified in dev properties file
+./gradlew builddb -Dorg.gradle.project.release=dev
 
-   # deploy the webapp specified in dev properties file
-   ./gradlew cargoReDeployRemote -Dorg.gradle.project.release=dev
-   ```
-
-
+# deploy the webapp specified in dev properties file
+./gradlew cargoReDeployRemote -Dorg.gradle.project.release=dev
+```
 

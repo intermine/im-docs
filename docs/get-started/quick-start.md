@@ -3,7 +3,7 @@
 This guide will show you how to create a `BioTestMine` InterMine instance. You will need all the dependencies listed in [Software](../system-requirements/software/index.md)
 
 {% hint style="info" %}
-Please see [Tutorial](tutorial/index.md), a detailed guide to integrating data with InterMine.
+Please see [Tutorial](tutorial/index.md), a detailed guide to integrating data with InterMine. 
 {% endhint %}
 
 ### 1. Get the software

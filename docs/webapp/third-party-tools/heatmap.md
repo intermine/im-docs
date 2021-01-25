@@ -1,8 +1,8 @@
 # Heatmap
 
-InterMine makes use of canvasXpress [heatmap](http://www.canvasxpress.org/api/heatmap_graphs.html) to visualize gene expression data.
+InterMine makes use of canvasXpress [heatmap](http://www.canvasxpress.org/heatmap.html) to visualize gene expression data.
 
-[CanvasXpress](http://www.canvasxpress.org/) is a JavaScript library based on the `<canvas>` tag implemented in HTML5. It is written by Isaac Neuhausi.
+[CanvasXpress](http://www.canvasxpress.org/) is a javascript library based on the `<canvas>` tag implemented in HTML5. It is written by Isaac Neuhausi.
 
 Hierarchical and k-Means clustering algorithms and zoom in/out functionality have been implemented within the heatmap.
 
@@ -34,7 +34,7 @@ A better practice would be to add the model extension to a source specific addit
 
 ### Controller
 
-The controller class [HeatMapController](https://github.com/modENCODE-DCC/modmine/blob/master/modmine/webapp/src/org/modmine/web/HeatMapController.java) is a component of [Struts MVC framework](https://struts.apache.org/). It holds the logic to process user requests, and selects a proper webpage for the user.
+The controller class [HeatMapController](https://github.com/modENCODE-DCC/modmine/blob/master/modmine/webapp/src/org/modmine/web/HeatMapController.java) is a component of [Struts MVC framework](https://struts.apache.org/). It holds the logic to process user requests, and seletcs a proper wabpage to user.
 
 In HeatMapController, a query is run to fetch expression scores from database \(ref method `queryExpressionScore`\), then the results are parsed to JSON string \(ref method `getJSONString`\) and set in the request \(ref method `findExpression`\).
 
@@ -66,5 +66,5 @@ type="org.modmine.web.HeatMapController" />
 
 A modern way of creating widget like heatmap would be using InterMine webservices framework to query and generate JSON strings and embed heatmap on any web page. To [learn more...](http://github.com/intermine/intermine-embedding-examples)
 
-An alternative library would be [D3.js](http://d3js.org/), an example of heatmap can be found [here](http://www.larsko.org/v/mpte/). In [ThaleMine](https://apps.araport.org/thalemine/begin.do) there is a D3 implementation \(see any gene list report page, [for example](https://apps.araport.org/thalemine/bagDetails.do?scope=all&bagName=Demo+1+-+Sucrose+Transporters+List), [code](https://github.com/intermine/CDN/blob/master/js/intermine/expression/1.0.3/expression.js). However canvasXpress is particularly designed to display genomics data, D3 is for a broader use.
+An alternative library would be [D3.js](http://d3js.org/), an example of heatmap can be found [here](http://www.larsko.org/v/mpte/). In [ThaleMine](https://apps.araport.org/thalemine/begin.do) there is a D3 implementation \(see any gene list report page, [for example](https://apps.araport.org/thalemine/bagDetails.do?scope=all&bagName=Demo+1+-+Sucrose+Transporters+List), [code](https://github.com/intermine/CDN/blob/master/js/intermine/expression/1.0.3/expression.js). However canvasXpress is particular designed to display genomics data, D3 is for a broader use.
 

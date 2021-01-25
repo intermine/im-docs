@@ -23,7 +23,7 @@ Gene.key_secondaryidentifier = secondaryIdentifier
 
 Use common names for identical keys between sources as this will help avoid duplicating database indexes. Postgres uses the key names to create indexes.
 
-Each key should list one or more fields that can be a combination of `attributes` of the class specified or `references` to other classes - in which case there should be a key defined for the referenced class as well.
+Each key should list one or more fields that can be a combination of `attributes` of the class specified or \[references\]{.title-ref} to other classes - in which case there should be a key defined for the referenced class as well.
 
 {% hint style="warning" %}
 The build system will use any valid key it finds - so be careful! e.g. if you have keys for BioEntity and SequenceFeature and Gene in your keys file, any of the three keys may be used to merge a Gene into the database.
@@ -71,7 +71,7 @@ The properties file for each data source lists primary key names from the the ce
 Gene = key_identifier_org, key_symbol_org
 ```
 
-This line means that the class "Gene" and all its subclasses have two primary keys available for this data source, called "key\_identifier\_org" and "key\_symbol\_org", which should be defined properly in the global configuration.
+This line means that the class "Gene" and all its subclasses have a two primary keys available for this data source, called "key\_identifier\_org" and "key\_symbol\_org", which should be defined properly in the global configuration.
 
 {% hint style="warning" %}
 This is an older method of defining keys in a central configuration file. Use the method described in the first section instead.

@@ -578,6 +578,8 @@ Updated to latest version of Sequence Ontology, 2.5
 | InteractionRegion | primaryIdentifier | – |
 |  | name | – |
 
+#### 
+
 #### Gene Ontology
 
 | class | old | new |

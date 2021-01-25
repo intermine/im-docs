@@ -133,7 +133,7 @@ For example, the`uniprot-malaria` source:
 All file locations must be absolute not relative paths.
 {% endhint %}
 
-The `project.xml` file is now ready to use.
+ The `project.xml` file is now ready to use.
 
 ### Properties file
 
@@ -355,7 +355,7 @@ Loading of data is done by running the `integrate` gradle task.
 ~/git/biotestmine $ ./gradlew integrate -Psource=uniprot-malaria --stacktrace
 ```
 
-|  | purpose |
+|   | purpose |
 | :--- | :--- |
 | ./gradlew | Use the provided gradle wrapper so that we can be sure everyone is using the same version. |
 | integrate | Gradle task to run the specified data source |
@@ -380,7 +380,7 @@ This will take a couple of minutes to complete, the command runs the following s
 
 4. The UniProt data parser reads the original XML and creates `Items`.
 
-   which are metadata representations of the objects that will be loaded into the biotestmine database. These items are stored in an intermediate `items` database \(more about `Items` later\).
+    which are metadata representations of the objects that will be loaded into the biotestmine database. These items are stored in an intermediate `items` database \(more about `Items` later\).
 
 5. Reads from the `items` database, converts items to objects and loads them into the biotestmine database.
 
@@ -951,7 +951,7 @@ The userprofile database stores all user-related information such as username an
 You only need to build the userprofile database once.
 
 {% hint style="warning" %}
-The buildDB and buildUserDB commands rebuild the database and thus will delete any data.
+The buildDB and buildUserDB commands rebuild the database and thus will delete any data. 
 {% endhint %}
 
 ### Deploying the webapp
@@ -978,7 +978,7 @@ Navigate to [http://localhost:8080/biotestmine](http://localhost:8080/biotestmin
 
 {% tabs %}
 {% tab title="Next" %}
-Now that you have a database and a working webapp, you'll want to know how to add your own logo, pick a colour scheme, modify how data is displayed etc. Our _\*\*_[webapp tutorial](webapp.md) is a detailed guide on how to customise all parts of the InterMine web application.
+Now that you have a database and a working webapp, you'll want to know how to add your own logo, pick a colour scheme, modify how data is displayed etc. Our ****[webapp tutorial](webapp.md) is a detailed guide on how to customise all parts of the InterMine web application.
 {% endtab %}
 {% endtabs %}
 

@@ -21,7 +21,7 @@ These data can be displayed prominently on the report page and in query results.
 
 ## Why does it have to be a URL to a standard data licence?
 
-The contents of `DataSet.licence` should be a URL that points to a standard data licence.
+The contents of `DataSet.licence` should a URL that points to a standard data licence.
 
 ### Why can't I put a URL to the fair use policy?
 
@@ -82,7 +82,7 @@ OBO
 
 We've updated all InterMine core data sources with the correct data licence. This requires no action from you. Use the library as normal, and the data parser will populate the `DataSet.licence` field.
 
-However, not every core data source has a data licence. About 1/3 of the InterMine data sets have libraries that have data licences. The rest only have text about fair use. We hope that as data licences become more popular and visible, this number will rise.
+However, not every core data source has a data licence. About 1/3 of the data sets InterMine has libraries for have data licences. The rest only have text about fair use. We hope that as data licences become more popular and visible, this number will rise.
 
 ### Your data sources
 

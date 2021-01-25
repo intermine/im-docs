@@ -34,7 +34,7 @@ Let's start configuring our mine by updating these common sections of our web ap
 
 First, let's update the logo of your site. The logo should be 45x43pixels and named `logo.png`, for example:
 
-![FlyMine&apos;s logo](../../../.gitbook/assets/logo.png)
+![FlyMine's logo](../../../.gitbook/assets/logo.png)
 
 1. Copy your image into this directory:
 
@@ -42,9 +42,9 @@ First, let's update the logo of your site. The logo should be 45x43pixels and na
 
 2. Deploy your webapp with this command:
 
-   ```text
+    ```text
     $ ./gradlew cargoRedeployRemote
-   ```
+    ```
 
 3. Refresh your browser
 
