@@ -258,3 +258,4 @@ The order of the results can be determined through the sort order like so:
 ```javascript
 {select: ["Gene.symbol"], sortOrder: [["length", "DESC"], ["name", "ASC"]]}
 ```
+

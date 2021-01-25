@@ -37,11 +37,8 @@ Most InterMines are oriented around a certain organism or range of organisms, wi
 As a member of a small team, you'll have the chance to learn and extend your skills significantly. Opportunities include:
 
 * interacting with a ​worldwide community of open-source contributors​.
-
 * mentoring students through programs such as ​Google Summer of Code​.
-
 * user testing your applications, both in person and via video conferencing.
-
 * presenting papers, posters, and talks at technical and academic conferences.
 
 ### Working For the University of Cambridge

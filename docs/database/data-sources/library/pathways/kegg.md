@@ -1,6 +1,6 @@
 # KEGG
 
-Link genes to KEGG pathways that they operate in.
+Links genes to KEGG pathways that they operate in.
 
 ## Types of data loaded
 

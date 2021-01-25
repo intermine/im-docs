@@ -2,7 +2,7 @@
 
 The InterMine API is made more accessible through the publication of a number of client libraries in different languages. For the purpose of this tutorial, we will use the Python client library for the illustration of examples, but any of the client libraries \(in Perl, Java, Ruby and JavaScript\) provides similar functionality. Similarly, we will use FlyMine \(www.flymine.org\) as an example of an InterMine web-service, but the techniques discussed here are applicable to any of the available implementations.
 
-### Logging In / Authenticating
+## Logging In / Authenticating
 
 In the web-application interface we 'log in' to gain access to our personal data. When using the web-service API we speak of authentication as the process whereby your requests are mapped to a particular user account.
 
@@ -20,7 +20,7 @@ If the URL for the mine is incorrect, or the token is, an error will be thrown.
 
 While it is also possible to use your username and password to authenticate with the webservice, this is strongly discouraged. This is due to the security implications of transmitting your password, not to mention storing it on disk, in order to use it in code.
 
-### Managing your Personal Data: Lists
+## Managing your Personal Data: Lists
 
 One of the main reasons to use the webservices is to read and manipulate the data important to you, and lists are the main way to manage this.
 
@@ -65,7 +65,7 @@ for gene in in_both:
    do_something_with(gene)
 ```
 
-### Running a simple workflow:
+## Running a simple workflow:
 
 We should have enough pieces now to put together a simple workflow that demonstrates the kinds of operations we want to put together and how they may be combined.
 
@@ -76,7 +76,7 @@ Try and develop a script which will:
 * Find the pathways for which the genes in each list are enriched above a certain threshold.
 * Create a list of those pathways.
 
-### Regions
+## Regions
 
 One can query for features in a region as follows:
 
@@ -99,7 +99,7 @@ The items can be saved in a list and then used in any other query.
 flymine.create_list(q, name = "List from Regions")
 ```
 
-### Queries
+## Queries
 
 The interface for creating queries borrows syntax and terminology from other DB query libraries.
 

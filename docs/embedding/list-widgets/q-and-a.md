@@ -94,7 +94,7 @@ var widgets = new intermine.widgets(root + '/service/', tokn);
 widgets.chart('flyfish', name, '#widget');
 ```
 
-The only problem with this approach is that if we make this sort of call multiple times, we will fail on the second and subsequent ocassions as we will get a WebService exception telling us that the 'temporary' list name is taken. _Thus inspect the code of the example to see how to make a call to the service to delete/reuse the list if it exists_.
+The only problem with this approach is that if we make this sort of call multiple times, we will fail on the second and subsequent occasions as we will get a WebService exception telling us that the 'temporary' list name is taken. _Thus, inspect the code of the example to see how to make a call to the service to delete/reuse the list if it exists_.
 
 ### Defining custom actions on widget events
 
@@ -135,7 +135,7 @@ var options = {
 Widgets.enrichment('pathway_enrichment', 'myList', '#widget', options);
 ```
 
-I want to hide the title or description of a widget.
+I want to hide the title or description of a widget:
 
 ```javascript
 var options = {

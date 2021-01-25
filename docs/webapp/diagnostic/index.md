@@ -1,6 +1,6 @@
 # Diagnostic
 
-Occasionally something may go wrong with your webapp - your webapp may fail to load in your browser, not reflect your most recent changes and so on. In our experience, following the steps listed here should fix ~99% of any problems you encounter.
+Occasionally, something may go wrong with your webapp - your webapp may fail to load in your browser, not reflect your most recent changes and so on. In our experience, following the steps listed here should fix ~99% of any problems you encounter.
 
 ## Restart Tomcat
 
@@ -10,7 +10,7 @@ Also, if in a deadlock, Tomcat may not shutdown successfully. Be sure to check t
 
 ## Verify MINE.properties file
 
-The `base-url` property must valid or else queries will not run properly.
+The `base-url` property must be valid or else, queries will not run properly.
 
 This file must live in the `.intermine` directory.
 

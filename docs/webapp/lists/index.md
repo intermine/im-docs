@@ -1,6 +1,6 @@
 # Lists
 
-[Class keys](../properties/class-keys.md) specifies unique fields for classes in the data model for the webapp.
+[Class keys](../properties/class-keys.md) specify unique fields for classes in the data model for the webapp.
 
 * Fields specified in this file will be links in the results table in the webapp.
 * Only objects with key fields defined can be saved in lists.

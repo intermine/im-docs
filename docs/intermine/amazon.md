@@ -33,9 +33,7 @@ The image contains a ready deployed MalariaMine. To start a new instance:
 
    you could also set up a few spare ones \(20, 21, 8009\).
 
-   {% hint style="info" %} 
-   You can do this also during step 7, but **you cannot change the security group of an instance after starting it for the first time** \(unless you use a VPC instance, see [User Guide](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)\).  
-   {% endhint %}
+   You can do this also during step 7, but **you cannot change the security group of an instance after starting it for the first time** \(unless you use a VPC instance, see [User Guide](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)\).
 
 4. Go to the IMAGES/AMI console.
 5. Set the location on the top header \(beside your username\) to _US_

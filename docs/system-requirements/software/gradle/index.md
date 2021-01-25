@@ -6,7 +6,7 @@ Please see [Upgrade instructions](../../../intermine/upgrade.md) for details on 
 
 Below are common commands you will use when building InterMine databases and deploying webapps. See [docs.gradle.org](https://docs.gradle.org/current/userguide/command_line_interface.html) for the full list.
 
-### Data sources
+## Data sources
 
 Previously, all third party JARs were kept in the InterMine code repository and the build compiled all InterMine dependencies. Now, Gradle, via the Maven plugin, manages and downloads all JARs and only your local project is compiled.
 
@@ -36,7 +36,7 @@ The build is going to be looking at the resulting JAR created by this command. I
 
 The migration script you used already set up the dependency to the `intermine-bio-sources` project. This project includes `uniprot` and other data sources, and are on the classpath. During the build, the code will look for the uniprot jar, e.g. `bio-source-uniprot-2.0.jar` and find it on the classpath successfully. Maven will download it for you.
 
-### Database
+## Database
 
 Delete and recreate all database tables
 
@@ -74,13 +74,13 @@ To run a full build
 
 We are using the same [project build](https://github.com/intermine/intermine-scripts/blob/master/project_build) script, but we've moved it to the `intermine-scripts` repository with our other scripts.
 
-### Webapp
+## Webapp
 
 There are several ways to deploy your InterMine webapp. You can use `cargo` to deploy your webapp to a running Tomcat instance, or `gretty` to use an embedded Tomcat instance. Run `./gradlew tasks` to see all the available tasks.
 
 We use `cargo` for our production instances and `gretty` on our local dev machines.
 
-#### Deploy a webapp \(cargo\)
+### Deploy a webapp \(cargo\)
 
 ```text
 ~/git/flymine $ ./gradlew cargoDeployRemote
@@ -103,7 +103,7 @@ Uses the config in the mine properties file, e.g. `flymine.properties`, to deplo
 Cargo uses hot deployment which over time, fills up the PermGen memory of the JVM process running your container. Continuously deploying an artifact will inevitably lead to a java.lang.OutOfMemoryError
 {% endhint %}
 
-#### Deploy a webapp \(gretty\)
+### Deploy a webapp \(gretty\)
 
 ```text
 ~/git/flymine $ ./gradlew tomcatStartWar
@@ -113,7 +113,7 @@ Cargo uses hot deployment which over time, fills up the PermGen memory of the JV
 * Embedded tomcat, uses port 8080.
 * Logs are in $HOME/logs, for more details: [http://akhikhl.github.io/gretty-doc/Logging.html](http://akhikhl.github.io/gretty-doc/Logging.html)
 
-#### Deploy blue genes
+### Deploy blue genes
 
 ```text
 ~/git/flymine $ ./gradlew blueGenesStart
@@ -125,7 +125,7 @@ Cargo uses hot deployment which over time, fills up the PermGen memory of the JV
 * It is suggested to launch the app in the background \(append `&` to the command\).
 * Please see [Blue genes](../../../webapp/blue-genes/index.md) for details on how to configure your bluegenes instance.
 
-### Specify properties file
+## Specify properties file
 
 To use a specific properties file, set the file suffix with the `-Dorg.gradle.project.release` parameter like so:
 
@@ -135,7 +135,7 @@ To use a specific properties file, set the file suffix with the `-Dorg.gradle.pr
 
 That command will build the database set in the `flymine.properties.dev` file.
 
-### Gradle
+## Gradle
 
 To see a list of command-line options, run:
 
@@ -167,13 +167,13 @@ To update your local packages, run:
 
 * Always use `./gradlew` instead of `gradle`. This is the wrapper that comes with InterMine and ensures that everyone is using the same version.
 
-#### Daemons
+### Daemons
 
 The updated Gradle version comes with `daemons` enabled by default. These are helper processes that exist in the background. This can speed up builds for example, but sometimes, under heavy development, can cause problems when InterMine does not properly dereference assets. We are working on fixing this! In the meantime, you should append `-Dorg.gradle.daemon=false` to your `GRADLE_OPTS` variable.
 
 * See: [Daemon docs](https://docs.gradle.org/current/userguide/gradle_daemon.html)
 
-### Further Reading
+## Further Reading
 
 * [Gradle docs](https://docs.gradle.org/current/userguide/command_line_interface.html)
 * [InterMine blog post](https://intermineorg.wordpress.com/2017/09/13/intermine-2-0-gradle/)

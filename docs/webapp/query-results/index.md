@@ -12,11 +12,11 @@ Query results can be configured in a number of ways, including:
 
 ## links
 
-> Only unique fields \(class keys\) are links in results pages. Add to [Class keys](../properties/class-keys.md) to make the fields links on results pages. Instead of linking to an intermine report page, you can set the links to redirect to external page. See [Link redirects](redirects.md)
+> Only unique fields \(class keys\) are links in results pages. Add to [Class keys](../properties/class-keys.md) to make the fields links on results pages. Instead of linking to an intermine report page, you can set the links to redirect to an external page. See [Link redirects](redirects.md)
 
 ## weird brackets
 
-> You may see the following in query results: `GO:0007480 [GOTerm]`. This happens when a column is a parent type but the individual result is a subclass. The subclass will by in brackets.
+> You may see the following in query results: `GO:0007480 [GOTerm]`. This happens when a column is a parent type but the individual result is a subclass. The subclass will be in brackets.
 
 ## The initial Page Size
 
@@ -33,7 +33,7 @@ $('#my-table').imWidget({
 
 ## Icons
 
-Two different icon style are supported, bootstrap `glyphicons` and `fontawesome`. These differ in the underlying technology they use, one using images \(glyphicons\) and the other SVG fonts \(fontawesome\). By using fonts fontawesome icons generally look a bit nicer, but they are not compatible with IE8. For this reason `glyphicons` are the default, and `fontawesome` must be selected explicitly:
+Two different icon styles are supported, bootstrap `glyphicons` and `fontawesome`. These differ in the underlying technology they use, one using images \(glyphicons\) and the other SVG fonts \(fontawesome\). By using fonts, fontawesome icons generally look a bit nicer, but they are not compatible with IE8. For this reason `glyphicons` are the default, and `fontawesome` must be selected explicitly:
 
 ```javascript
 intermine.setOptions({icons: 'fontawesome'}, '.Style');
@@ -43,9 +43,9 @@ To apply this setting in your current web-app, see [Setting Javascript Options](
 
 ## The initial state of Sub-Tables
 
-Outer-Joined collections are rendered in subtables within a single cell. By default these are not immediately rendered, and just the number of rows are indicated. This means that even sections with very large sub-tables are rendered efficiently - in the worst case the sub-tables may contain thousands of rows, and so a table with even 10 main rows might present 10,000 sub-rows or more, which can significantly impact browser performance \(an example of this would be a table that contained publications with an outer-joined selection of genes; genome publications can list every gene in an organism, and this scenario easily leads to very large sub-tables\).
+Outer-Joined collections are rendered in sub-tables within a single cell. By default these are not immediately rendered, and just the number of rows are indicated. This means that even sections with very large sub-tables are rendered efficiently - in the worst case the sub-tables may contain thousands of rows, and so a table with even 10 main rows might present 10,000 sub-rows or more, which can significantly impact browser performance \(an example of this would be a table that contained publications with an outer-joined selection of genes; genome publications can list every gene in an organism, and this scenario easily leads to very large sub-tables\).
 
-However, if you don't like the default behaviour and would prefer for the sub-tables to be open when the main table is rendered onto the page, this is simply altered, through the following configuration snippet:
+However, if you don't like the default behaviour and would prefer for the sub-tables to be open when the main table is rendered onto the page, this is simply altered through the following configuration snippet:
 
 ```javascript
 intermine.setOptions({SubtableInitialState: 'open'})
@@ -69,16 +69,16 @@ $('#my-table').imWidget({
 
 ## Cell Formatters
 
-The cells in each table can be configured to display their information in custom manners. To do this a javascript function must be registered to handle certain types of cell, and configured to respond to certain paths.
+The cells in each table can be configured to display their information in custom manners. To do this, a JavaScript function must be registered to handle certain types of cell, and configured to respond to certain paths.
 
-Formatters are not enabled by default, as they may be unexpected, and in could cause unneccessary requests to the server. Fortunately they are easily enabled. There are four formatter included \(but not enabled\) by default:
+Formatters are not enabled by default, as they may be unexpected, and could cause unnecessary requests to the server. Fortunately they are easily enabled. There are four formatters included \(but not enabled\) by default:
 
 > * Location - formats a chromosome location as eg: "2L:123..456"
 > * Sequence - formats a DNA or Protein sequence in FASTA lines.
 > * Publication - formats a publication in a citable format with title, first author and year.
 > * Organism - formats an organism's name in italics, using the short-name format.
 
-To enable these formatters register the formatted path \(see below\), eg:
+To enable these formatters, register the formatted path \(see below\), eg:
 
 ```javascript
 intermine.scope('intermine.results.formatsets.genomic', {
@@ -87,7 +87,7 @@ intermine.scope('intermine.results.formatsets.genomic', {
 });
 ```
 
-To enable all the default formatters, you can use the following snippet:
+To enable all the default formatters, you can use the following code snippet:
 
 ```javascript
 var keyPath, formatsets = intermine.results.formatsets.genomic;
@@ -96,7 +96,7 @@ for (keyPath in formatsets) {
 }
 ```
 
-Such customisation javascript should be placed in a custom model-includes.js file.
+Such customisation JavaScript should be placed in a custom model-includes.js file.
 
 ### The Formatting Function
 
@@ -125,7 +125,7 @@ Formatter.merge :: (Backbone.Model, Backbone.Model) -> () - A function to merge 
   from different objects into a single model.
 ```
 
-A typical pattern would be to check to see whether the object currently has all the information required to render it, and if not then make a request to retrieve the missing information. Any changes to the model will cause the cell to be re-rendered, thus a request that gets missing information and sets it onto the model will cause the function to be called again with the complete information.
+A typical pattern would be to check to see whether the object currently has all the information required to render it, and if not, then make a request to retrieve the missing information. Any changes to the model will cause the cell to be re-rendered, thus a request that gets missing information and sets it onto the model will cause the function to be called again with the complete information.
 
 For examples of implementations of this interface please see:
 
@@ -136,13 +136,11 @@ For examples of implementations of this interface please see:
 
 To register a function to respond to specific types of data, it must be referenced under the `intermine.results.formatters` namespace by the name of the class that it handles. For example this can be done with the `intermine.scope` function:
 
-eg:
-
 ```javascript
 intermine.scope('intermine.results.formatters', {Exon: myExonFormatter});
 ```
 
-A separate entry must be made under the 'intermine.results.formatsets.{modelname}' namespace to register which paths trigger cell formatting. For example to register a formatter for the 'Exon' class which only formats the 'symbol' field:
+A separate entry must be made under the 'intermine.results.formatsets.{modelname}' namespace to register which paths trigger cell formatting. For example, to register a formatter for the 'Exon' class which only formats the 'symbol' field:
 
 ```javascript
 intermine.scope('intermine.results.formatsets.genomic', {'Exon.symbol': true});
@@ -154,7 +152,7 @@ In a similar way, we can disable any currently configured formatter by setting t
 intermine.scope('intermine.results.formatsets.genomic', {'Exon.symbol': false});
 ```
 
-individual formatters can be configured to respond to different fields of an object. So you could have one formatter for `Gene.length` and another for `Gene.symbol`, if you are unable to achieve what you need with css alone. To do this, the value in the formatset should be the formatter itself, rather than a boolean value, eg:
+Individual formatters can be configured to respond to different fields of an object. So you could have one formatter for `Gene.length` and another for `Gene.symbol`, if you are unable to achieve what you need with CSS alone. To do this, the value in the formatset should be the formatter itself, rather than a Boolean value, eg:
 
 ```javascript
 intermine.scope('intermine.results.formatsets.genomic', {

@@ -13,7 +13,7 @@ GET http://www.flymine.org/query/service/lists?token=DFGg5dge5gnmja04Peh6faA3hd
 
 Not all endpoints require authentication - use [I/O docs](http://iodocs.apps.intermine.org/) to identify which endpoints do require authentication.
 
-### Anonymous authentication
+## Anonymous authentication
 
 Anonymous 24-hour tokens are available via the `/session` method, and are useful for working with short-term disposable lists. If users want to preserve their lists or view existing lists associated with an account, they should be encouraged to use a permanent token \(see docs below\).
 
@@ -31,7 +31,7 @@ Should result in a response like this:
 }
 ```
 
-#### Expired token gotcha:
+### Expired token gotcha:
 
 Make sure not to pass any old or invalid tokens as arguments when requesting the new token.
 
@@ -41,15 +41,15 @@ This request will not return a token, and will return a 401 instead:
 GET http://www.flymine.org/query/service/user/session?token=someOldExpiredToken
 ```
 
-#### I/O Docs demo:
+### I/O Docs demo:
 
 Experiment with anonymous tokens in I/O docs: [http://iodocs.apps.intermine.org/flymine/docs\#/ws-session/GET/session](http://iodocs.apps.intermine.org/flymine/docs#/ws-session/GET/session)
 
-### Authentication for existing user accounts \(permanent tokens\)
+## Authentication for existing user accounts \(permanent tokens\)
 
 Via the JSP UI, log into "MyMine" \(top left corner tab\) and click on "account details". Your token / API key is shown at the bottom. If none exists, you can choose to generate a new API key.
 
-#### Note regarding generating API keys:
+### Note regarding generating API keys:
 
 If you already have a key, don't click the "Generate a new API key" button unless you wish to invalidate your old key! Only one key is active at any given time.
 
