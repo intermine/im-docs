@@ -100,7 +100,7 @@ Simple display of GO terms and evidence codes for a gene, grouped by branch in t
 
 ### UniProt comments
 
-A clear view of curated curated comments from UniProt \(SwissProt\) applied to a protein, or for a gene will show comments from all proteins of the gene.
+A clear view of curated comments from UniProt \(SwissProt\) applied to a protein, or for a gene will show comments from all proteins of the gene.
 
 ```markup
 <reportdisplayer javaClass="org.intermine.bio.web.displayer.UniProtCommentsDisplayer"
