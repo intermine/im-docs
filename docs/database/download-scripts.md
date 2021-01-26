@@ -18,7 +18,7 @@ Source Plugins
 
 **config**
 
-configuration files
+Configuration files
 
 **bin**
 
@@ -121,7 +121,7 @@ use constant {
 This source fully inherits the behaviour of the 'DataDownloader::Source::ABC' abstract class, and only adds configuration. In this case, it defines a set of constants that describe this source:
 
 * 'TITLE': The human readable name of the source shown in log messages.
-* 'DESCRIPTION': A Longer description of the data that appears in a version file.
+* 'DESCRIPTION': A longer description of the data that appears in a version file.
 * 'SOURCE\_LINK': A link to the origin of the material that appears in the version file.
 * 'SOURCE\_DIR': The sub-directory under the 'data\_dir' of the constructor where the new files should be placed.
 
