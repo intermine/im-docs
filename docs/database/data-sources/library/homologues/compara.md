@@ -10,26 +10,26 @@
 
 4. select FILTERS
 
-> 1. click on "FILTERS" on the left panel in BioMart \(this will populate the main panel with filter options\)
-> 2. select `MULTI SPECIES COMPARISONS`
-> 3. check the checkbox next to `Homolog filters`
-> 4. select the organism of interest in the dropdown
->
-> > 1. eg. `Orthologous Caenorhabditis elegans Genes`
-> > 2. make sure that next to the dropdown, `Only` is checked
+   > 1. click on "FILTERS" on the left panel in BioMart \(this will populate the main panel with filter options\)
+   > 2. select `MULTI SPECIES COMPARISONS`
+   > 3. check the checkbox next to `Homolog filters`
+   > 4. select the organism of interest in the dropdown
+   >
+   > > 1. eg. `Orthologous Caenorhabditis elegans Genes`
+   > > 2. make sure that next to the dropdown, `Only` is checked
 
-1. select ATTRIBUTES
+5. select ATTRIBUTES
 
-> 1. check the `Homologs` radio button at the top of the center panel
-> 2. uncheck the `Ensembl Transcript ID` option, `Ensembl Gene ID` is now the only output
-> 3. click on `ORTHOLOGS (Max select 6 orthologs):` to open that section of the form
-> 4. select on the Gene ID for the organism of interest, eg. Drosophila Ensembl Gene ID
+   > 1. check the `Homologs` radio button at the top of the center panel
+   > 2. uncheck the `Ensembl Transcript ID` option, `Ensembl Gene ID` is now the only output
+   > 3. click on `ORTHOLOGS (Max select 6 orthologs):` to open that section of the form
+   > 4. select the Gene ID for the organism of interest, eg. Drosophila Ensembl Gene ID
 
-1. Run query
+6. Run query
 
-> 1. select the `[Results]` button at the top of the page
-> 2. create `TSV` file, check box next to `Unique results only`
-> 3. when prompted, save file as `TAXONID1_TAXONID2`
+   > 1. select the `[Results]` button at the top of the page
+   > 2. create `TSV` file, check box next to `Unique results only`
+   > 3. when prompted, save file as `TAXONID1_TAXONID2`
 
 ## Add entry to project XML file
 
@@ -68,4 +68,3 @@ When you have created your query, you can export the Perl script or XML so you c
   </Dataset>
 </Query>
 ```
-
