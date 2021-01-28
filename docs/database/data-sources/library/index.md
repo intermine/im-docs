@@ -4,7 +4,7 @@ This page lists the current sources available for use in InterMine. All the sour
 
 You can also add your own sources to load custom file formats, see [Writing your own data source](../custom/index.md) for more information. In addition, the [Tutorial](../../../get-started/tutorial/index.md) contains detailed steps on creating sources for a variety of different data formats.
 
-Most of the configuration done in the config files is optional, if no config entry exists the default behaviour is followed. There are exceptions to this rule, however.
+Most of the configuration done in the config files is optional, if no config entry exists the default behaviour is followed. However, there are exceptions to this rule.
 
 ## Core InterMine sources
 
@@ -56,5 +56,4 @@ See [FlyMine](http://www.flymine.org) for more information about these datasets.
 * orphanet
 * protein-atlas
 
-See [HumanMine](http://www.humanmine.org) for more information about these datasets. Look at [HumanMine's project.xml](https://github.com/intermine/humanmine/blob/master/project.xml) for examples of how to use these sources.
-
+See [HumanMine](http://www.humanmine.org) for more information about these datasets. Look at [HumanMine's project.xml](https://github.com/intermine/humanmine/blob/master/project.xml) for examples on how to use these sources.
