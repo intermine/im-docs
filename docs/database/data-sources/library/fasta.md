@@ -2,7 +2,7 @@
 
 ## Types of data loaded
 
-features and their sequences. Will create a feature for each entry in a fasta file and set the sequence, the class of the feature to create is set for the whole file.
+Features and their sequences. Will create a feature for each entry in a fasta file and set the sequence, the class of the feature to create is set for the whole file.
 
 ## How to download the data
 
@@ -10,7 +10,7 @@ N/A - will parse any file in FASTA format
 
 ## How to load the data into your mine
 
-project XML example
+Project XML example
 
 ```markup
 <source name="flybase-dmel-gene-fasta" type="flybase-dmel-gene-fasta">
@@ -38,4 +38,3 @@ project XML example
 | sequenceType | class name | type of sequence to be loaded |
 | loaderClassName | name of Java file that will process the fasta files | only use if you have created a custom fasta loader |
 | licence | URL pointing to standard data licence for data | updates DataSet.licence with value |
-
