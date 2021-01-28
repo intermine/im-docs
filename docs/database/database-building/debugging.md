@@ -30,13 +30,8 @@ Gene now refers to an object that does not exist in the database. To fix, make s
 
 Make sure your code is correct and refers only to objects that are going to be stored in the database.
 
-* Unit tests for this data source should be updated to check for these
-
-  cases.
-
-* If you are loading XML created by another script, be sure to
-
-  validate the data before loading.
+* Unit tests for this data source should be updated to check for these cases.
+* If you are loading XML created by another script, be sure to validate the data before loading.
 
 To find out which object is not being stored, use the `item identifier` listed in the error message -- in this case, `6_1083`. Look in the `items` database to determine the values for this object.
 
@@ -44,7 +39,7 @@ To find out which object is not being stored, use the `item identifier` listed i
 select * from item where identifier = '6_1083'
 ```
 
-This gives s the class and item id:
+This gives the class and item id:
 
 ```text
 implementations | classname | identifier |   id
@@ -65,4 +60,3 @@ intermine_value |       name        | itemid
 -----------------+-------------------+---------
 LS2329          | primaryIdentifier | 1380031
 ```
-
