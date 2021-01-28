@@ -34,7 +34,7 @@ _Should I use it?_ Yes, if you have loaded genome annotation.
 
 ### transfer-sequences
 
-Where a Chromosome has a sequence this will find genome features located on it that don't have sequence set and will calculate and set the sequence for those features.
+Where a Chromosome has a sequence, this will find genome features located on it that don't have sequence set and will calculate and set the sequence for those features.
 
 _Should I use it?_ Yes, if you have loaded genome annotation without sequence set for all features.
 
