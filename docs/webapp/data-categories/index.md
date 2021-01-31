@@ -38,14 +38,14 @@ Data categories are defined in `aspects.xml`.
   * &lt;large-image&gt;model/genomics.gif&lt;/large-image&gt; - appears on the individual data category page
 * short description
   * &lt;intro-text&gt;TEXT HERE&lt;/intro-text&gt;
-  * appears on the top of the data category page
+  * appears at the top of the data category page
 * external links
   * &lt;aspect-source name="FlyBase" url="[http://www.flybase.org%22/](http://www.flybase.org%22/)&gt;&gt;
-  * appear on the top right corner of the data category page
+  * appears at the top right corner of the data category page
 * bulk download queries
-  * appear on the top right corner of the data category page
+  * appears at the top right corner of the data category page
 * template queries
-  * appear on the data category page
+  * appears on the data category page
 * direct links to QueryBuilder
   * links will appear at the bottom of the data categories page
 
@@ -54,4 +54,3 @@ To configure which template queries appear on a data category page, tag the temp
 ## Data page/tab
 
 The data tab points to this JSP file `intermine/webapp/main/resources/webapp/dataCategories.jsp`. You can overwrite this file and display your own customised file by putting a JSP in your `/webapp` directory.
-
