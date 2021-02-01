@@ -34,7 +34,7 @@ WormBaseChadoIdResolverFactory  wormbase chado db, for ''C.elegans'' only      m
 ZfinIdentifiersResolverFactory  zebrafish ids                                  http://zfin.org/downloads/identifiersForIntermine.txt
 MgiIdentifiersResolverFactory   mouse ids                                      ftp://ftp.informatics.jax.org/pub/reports/MRK_List2.rpt 
 RgdIdentifiersResolverFactory   rat ids                                        ftp://rgd.mcw.edu/pub/data_release/GENES_RAT.txt 
-HgncIdResolverFactory           HGNC human gene ids                            http://www.genenames.org/cgi-bin/hgnc_downloads.cgi 
+HgncIdResolverFactory           HGNC human gene ids                            Uses the biomart service at http://www.genenames.org 
 EnsemblIdResolverFactory        Ensembl id                                     customised
 HumanIdResolverFactory          human ids                                      customised
 ==============================  =============================================  ============================================================================================
