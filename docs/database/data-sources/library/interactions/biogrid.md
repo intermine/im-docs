@@ -14,7 +14,7 @@ Download the file named: `BIOGRID-ORGANISM-[version].psi25.zip`.
 
 ## How to load the data into your mine
 
-### project XML example
+### Project XML example
 
 ```markup
 <source name="biogrid" type="biogrid">

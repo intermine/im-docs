@@ -1,4 +1,4 @@
-# Search engines
+# Search Engines
 
 This document discusses the relationship between your InterMine-based website and search engines.
 
@@ -8,7 +8,7 @@ Being listed on the search engines is beneficial as it will drive traffic to you
 
 ## Search Engine Optimisation
 
-To use each of the search engines' webmaster tools, you need to include a `CODE` in a meta tag on your website. You can do this by updating your properties file like so, replacing `CODE` with the value that Google/Microsoft/Yahoo provide:
+To use each of the search engines' webmaster tools, you need to include a `CODE` in a meta tag on your website. You can do this by updating your properties file like so, replacing `CODE` with the value that Google/Microsoft/Yahoo provides:
 
 ```text
 # MINE.properties
@@ -55,7 +55,7 @@ Disallow: /release-8.2/
 Disallow: /release-8.1/
 ```
 
-This file bans all search engine robots except for Google, Yahoo, and MSN. In addition this file forbids the robots to index files in the release-8.1 and release-8.2 directories.
+This file bans all search engine robots except for Google, Yahoo, and MSN. In addition, this file forbids the robots to index files in the release-8.1 and release-8.2 directories.
 
 Read more about this document on the [http://www.robotstxt.org](http://www.robotstxt.org) website.
 
@@ -63,7 +63,7 @@ Read more about this document on the [http://www.robotstxt.org](http://www.robot
 
 You can restrict access to directories via the robots.txt file, but you can also configure your site to allow or forbid access to specific web pages.
 
-To prevent the search engine robots from following links on that page, set the noFollow attribute in the InterMineWebApp.properties file:
+To prevent the search engine robots from following links on that page, set the noFollow attribute in the InterMineWebApp.properties file like so:
 
 ```text
 # MYMINE
@@ -76,4 +76,3 @@ mymine.noFollow = true
 ## Sitemaps
 
 Search engines often have difficulty indexing dynamic websites. The easiest solution for this is provide a sitemap that indicates which pages should be indexed.
-

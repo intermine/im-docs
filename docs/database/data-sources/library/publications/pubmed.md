@@ -1,6 +1,6 @@
 # PubMed
 
-Data from pubmed. entire file is downloaded, only taxon IDs set in project.xml will be loaded. if nothing configured, processes all entries.
+Data from pubmed. Entire file is downloaded, only taxon IDs set in project.xml will be loaded. If nothing is configured, processes all entries.
 
 ## Types of data loaded
 
@@ -22,4 +22,3 @@ project XML example
   <property name="src.data.dir.includes" value="gene2pubmed"/>
 </source>
 ```
-

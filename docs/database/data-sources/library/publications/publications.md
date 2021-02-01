@@ -4,7 +4,7 @@ All publications are referred to by PubMed id by other sources. This source shou
 
 ## Types of data loaded
 
-None, the publciation records already in the database are updated.
+None, the publication records already in the database are updated.
 
 ## How to download the data
 

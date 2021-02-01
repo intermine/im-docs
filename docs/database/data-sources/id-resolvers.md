@@ -182,9 +182,9 @@ if (resCount  = 1) {
 
 ## Writing a New ID resolver
 
-An IdResolver factory will create an IdResolver which will read and parse data from a file or database containing identifier information, to save them to a Java map which will be writen to a cached file.
+An IdResolver factory will create an IdResolver which will read and parse data from a file or database containing identifier information, to save them to a Java map which will be written to a cached file.
 
-The new factory class need to inherit super class IdResolverFactory:
+The new factory class needs to inherit super class IdResolverFactory:
 
 ```java
 public class HumanIdResolverFactory extends IdResolverFactory
@@ -265,5 +265,4 @@ public static IdResolver getHumanIdResolver(boolean failOnError) {
 
 ## Future Plans
 
-* generalized resolver factory which will read a configuration file to be aware identifier information by column. e.g. type=tab, column.0=mainId, etc.
-
+* generalized resolver factory which will read a configuration file to be aware of identifier information by column. e.g. type=tab, column.0=mainId, etc.

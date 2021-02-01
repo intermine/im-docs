@@ -58,7 +58,7 @@ my $gene = $factory->make_item(
 );
 ```
 
-Repeat 4 as necessary then call `$document->write` to write the items to the output.
+Repeat step 4 as necessary then call `$document->write` to write the items to the output.
 
 ## FlyMine example
 
@@ -134,7 +134,8 @@ The script has three arguments:
 
 If you install XML::Writer, the script should run as:
 
-Example command line: .. code-block:: perl
+Example command line:
 
-> ./intermine\_items\_example.pl \"FlyMine\" 5833 flymine/dbmodel/resources/main/genomic\_model.xml
-
+```perl
+./intermine_items_example.pl \"FlyMine\" 5833 flymine/dbmodel/resources/main/genomic_model.xml
+```

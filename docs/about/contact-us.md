@@ -2,29 +2,26 @@
 
 To contact the InterMine Team:
 
-email
+**email**
 
-: `info [at] intermine [dot] org`
+`info [at] intermine [dot] org`
 
-twitter
+**twitter**
 
-: [https://twitter.com/intermineorg](https://twitter.com/intermineorg)
+[https://twitter.com/intermineorg](https://twitter.com/intermineorg)
 
-blog
+**blog**
 
-: [https://intermineorg.wordpress.com/](https://intermineorg.wordpress.com/)
+[https://intermineorg.wordpress.com/](https://intermineorg.wordpress.com/)
 
-chat
+**chat**
 
-: [http://chat.intermine.org](http://chat.intermine.org) \(Our public support channel on discord\)
+[http://chat.intermine.org](http://chat.intermine.org) \(Our public support channel on discord\)
 
-post
+**post**
 
-: \| InterMine \| Department of Genetics \| Downing St \| CAMBRIDGE CB2 3EH \| United Kingdom
+\| InterMine \| Department of Genetics \| Downing St \| CAMBRIDGE CB2 3EH \| United Kingdom
 
-in person \(please contact us first so we know to expect you\)
+**in person \(please contact us first, so we know to expect you\)**
 
-: [https://map.cam.ac.uk/Department+of+Genetics](https://map.cam.ac.uk/Department+of+Genetics)
-
-::: {.index} Cambridge, contact, email, phone, fax, twitter, blog, chat :::
-
+[https://map.cam.ac.uk/Department+of+Genetics](https://map.cam.ac.uk/Department+of+Genetics)

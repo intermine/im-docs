@@ -2,15 +2,12 @@
 
 InterMine provides programmatic access to its features via web services. This allows users to automate:
 
-* Data retrieval \(custom queries, templated queries, keyword
-
-  searches\).
-
+* Data retrieval \(custom queries, templated queries, keyword searches\)
 * List creation/analysis/management
 * User profile management
 * Data-model introspection
 
-For a full listing of web service capabilities on various mines please see the [HTTP API documentation](http://iodocs.apps.intermine.org).
+For a full listing of web service capabilities on various mines, please see the [HTTP API documentation](http://iodocs.apps.intermine.org).
 
 ## Getting Started
 
@@ -20,7 +17,7 @@ If you are reading this page, we make the assumption you know how to write and r
 
 **Look at some example code**
 
-We assume you are already familiar with the InterMine web interface, as provided by sites such as [FlyMine](http://www.flymine.org). Each result table in the web interface includes a mechanism for generating code using one of the client libraries which generates the same results as those seen in the table \(click on the **code** button\). The generated code is meant to help get you started with the use of the client libraries.
+We also assume you are already familiar with the InterMine web interface, as provided by sites such as [FlyMine](http://www.flymine.org). Each result table in the web interface includes a mechanism for generating code using one of the client libraries which generates the same results as those seen in the table \(click on the **code** button\). The generated code is meant to help get you started with the use of the client libraries.
 
 There is also a [Tutorial](tutorial.md) for the Python API
 
@@ -64,5 +61,5 @@ Documentation on services available from mines: [http://iodocs.apps.intermine.or
 
 ## Authentication
 
-Authenticated web services are accessed via tokens: either 24-hour anonymous tokens or permanent user API key tokens. See [Authentication](authentication.md)
+Authenticated web services are accessed via tokens: either 24-hour anonymous tokens or permanent user API key tokens. See [Authentication](authentication.md) for more details.
 

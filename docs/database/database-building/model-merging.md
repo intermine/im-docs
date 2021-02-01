@@ -8,7 +8,7 @@ A model can be described using a model file. The model can be either read from o
 
 An InterMine datamine is built from sources. Each source can contribute to the data model and also provides data. When a mine is built with the `./gradlew builddb` command, the model is created from small "additions" file contributed by each source. Specifically, the model is created by reading the `project.xml` file and merging the model fragment from each addition file for each source.
 
-Other additions files \(ie. not from sources\) can be explicitly merged by setting the `extra.model.paths.start` and `extra.model.paths.end` properties in the `project.properties` of your `dbmodel` directory. An example from FlyMine's `build.gradle` is:
+Other additions files \(i.e. not from sources\) can be explicitly merged by setting the `extra.model.paths.start` and `extra.model.paths.end` properties in the `project.properties` of your `dbmodel` directory. An example from FlyMine's `build.gradle` is:
 
 ```groovy
 mineDBModelConfig {
@@ -73,7 +73,7 @@ The resulting class has all attributes of the `Protein` from `core.xml` and from
 
 ## Global Additions File
 
-Previously the data model was merged from all data sources' additions XML file \(plus the SO terms, core and genomic additons\). This is no longer true. Since each source is in its own JAR now, the data model is self-contained for each data source. Therefore if you reference a class in your data parser, it must be present in the additions file.
+Previously the data model was merged from all data sources' additions XML file \(plus the SO terms, core and genomic additions\). This is no longer true. Since each source is in its own JAR now, the data model is self-contained for each data source. Therefore, if you reference a class in your data parser, it must be present in the additions file.
 
 Alternatively, you can specify a single data model file that will be merged into each source:
 

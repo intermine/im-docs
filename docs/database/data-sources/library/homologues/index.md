@@ -1,6 +1,6 @@
 # Homologue Data Sources
 
-InterMine comes with several data converter for homologue data, e.g. TreeFam, PANTHER, OrthoDB, Homlogene, etc. Follow the instructions below to include these datasets in your InterMine.
+InterMine comes with several data converters for homologue data, e.g. TreeFam, PANTHER, OrthoDB, Homlogene, etc. Follow the instructions below to include these datasets in your InterMine.
 
 ::: {.toctree} treefam homologene orthodb panther compara :::
 
@@ -55,4 +55,3 @@ We use WormMart but are happy to hear of a better source for worm identifiers.
 Here are the project XML entries used by FlyMine:
 
 [FlyMine Project XML](https://github.com/intermine/flymine/blob/master/project.xml)
-

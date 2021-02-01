@@ -5,9 +5,9 @@ Data integration works by using keys for each class of object to define equivale
 * `primaryIdentifier` is used as a key for `Gene`
 * `taxonId` is used as a key for `Organism`
 
-For each `Gene` object loaded, a query is performed in the database to find any existing \[Gene\]{.title-ref} objects with the same `primaryIdentifier`. If any are found, fields from both objects are merged and the resulting object stored.
+For each `Gene` object loaded, a query is performed in the database to find any existing `Gene` objects with the same `primaryIdentifier`. If any are found, fields from both objects are merged and the resulting object stored.
 
-Many performance optimisation steps are applied to this process. We don't actually run a query for each object loaded, requests are batched and queries can be avoided completely if the system can work out no integration will be needed.
+Many performance optimisation steps are applied to this process. We don't actually run a query for each object loaded, requests are batched and queries can be avoided completely. If the system can work out, no integration will be needed.
 
 We may also load data from some other source that provides information about genes but doesn't use the identifier scheme we have chosen for `primaryIdentifier`. Instead it only knows about the `symbol`, in that case we would want that source to use the `symbol` to define equivalence for `Gene`.
 

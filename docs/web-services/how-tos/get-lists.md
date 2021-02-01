@@ -48,7 +48,7 @@ flymine.lists.each do |list|
 end
 ```
 
-Or javascript:
+Or JavaScript:
 
 ```javascript
 var util      = require('util');

@@ -2,7 +2,7 @@
 
 'Items' are a data format for the InterMine system, each Item represents a Java data object that will be stored. They are a convenient way to deal with data that is portable to other languages and has a simple XML format.
 
-This API is currently available only within a `DataConverter` running internally within an InterMine source \(i.e. it can't yet be used entirely separately from InterMine\)
+This API is currently available only within a `DataConverter` running internally within an InterMine source \(i.e. it can't yet be used entirely separate from InterMine\)
 
 ## Usage in a Converter
 
@@ -98,4 +98,3 @@ To read an XML file into a List of items use `FullParser`:
 ```java
 List items = FullRenderer.parse(new FileInputStream(file));
 ```
-

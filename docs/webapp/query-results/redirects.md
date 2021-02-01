@@ -44,7 +44,7 @@ In results pages, all dmel genes will link to FlyBase with Gene.primaryIdentifie
 externallink.flybaseResults.Gene.7227.primaryIdentifier.url=http://www.flybase.org/.bin/fbidq.html?<<attributeValue>>
 ```
 
-One could also use a common URL with a common hostname and different subdirectory names. Intermine then figures out what URL to build with the given subdirectory name and redirects your query to that mine Report page using the Identifier you provide as an external identifier. common subdirectory names include:
+One could also use a common URL with a common hostname and different subdirectory names. Intermine then figures out what URL to build with the given subdirectory name and redirects your query to that mine Report page using the Identifier you provide as an external identifier. Common subdirectory names include:
 
 MOUSEMINE = intermine.org/mgi
 
@@ -71,4 +71,3 @@ externallink.foo.ProbeSet.*.primaryIdentifier.url=http://www.google.com?q=<<attr
 ```
 
 Next to the value in the column will be a small icon indicating an external link
-

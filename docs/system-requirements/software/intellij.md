@@ -2,14 +2,14 @@
 
 It's recommended that if you are working with InterMine's Java code, you use an IDE. Our favourite IDE at InterMine towers is Intellij.
 
-Intellij has a Gradle plugin so it automatically handles Gradle projects correctly. Here are detailed instructions that are quite clear:
+Intellij has a Gradle plugin, so, it automatically handles Gradle projects correctly. Here are detailed instructions on how to use Intellij:
 
 [https://www.jetbrains.com/help/idea/gradle.html](https://www.jetbrains.com/help/idea/gradle.html)
 
-Depending on your Intellij version you should:
+Depending on your Intellij version, you should:
 
-> 1. New &gt;
-> 2. Project from existing source &gt;
+> 1. Select New &gt;
+> 2. Select Project from existing source &gt;
 > 3. Then select the `build.gradle` file from your `bio/sources` directory.
 
 {% hint style="warning" %}

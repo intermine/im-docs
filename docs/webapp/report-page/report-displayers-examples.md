@@ -6,7 +6,7 @@ The following displayers can all be used for data loaded by standard InterMine p
 
 ### SequenceFeature summary
 
-Applicable for any SequenceFeature - shows length, sequence export, chromosome location, cyto location and SO term \(where present\).
+Applicable for any SequenceFeature. It shows length, sequence export, chromosome location, cyto location and SO term \(where present\).
 
 ```markup
 <reportdisplayer javaClass="org.intermine.bio.web.displayer.SequenceFeatureDisplayer"
@@ -20,7 +20,7 @@ Applicable for any SequenceFeature - shows length, sequence export, chromosome l
 
 ### Protein sequence
 
-Applicable for Protein - shows length, sequence export.
+Applicable for Protein. It shows length, sequence export.
 
 ```markup
 <reportdisplayer javaClass="org.intermine.bio.web.displayer.ProteinSequenceDisplayer"
@@ -34,7 +34,7 @@ Applicable for Protein - shows length, sequence export.
 
 ### GBrowse
 
-Show an inline image from a configured GBrowse instance.
+Shows an inline image from a configured GBrowse instance.
 
 ```markup
 <reportdisplayer javaClass="org.intermine.bio.web.displayer.GBrowseDisplayer"
@@ -72,7 +72,7 @@ Note that FlyMine includes a specific displayer to show the twelve Drosophila sp
 
 ### Gene structure
 
-Displays transcripts, exons, introns, UTRs and CDSs if present in the model and for the particular organism. Can be added to report pages for any of these feature types and will find the parent gene and show all transcripts, highlighting the feature of the actual report page.
+Displays transcripts, exons, introns, UTRs and CDSs if present in the model and for the particular organism. It can be added to report pages for any of these feature types and will find the parent gene and show all transcripts, highlighting the feature of the actual report page.
 
 ```markup
 <reportdisplayer javaClass="org.intermine.bio.web.displayer.GeneStructureDisplayer"
@@ -86,7 +86,7 @@ Displays transcripts, exons, introns, UTRs and CDSs if present in the model and 
 
 ### Gene Ontology
 
-Simple display of GO terms and evidence codes for a gene, grouped by branch in the ontology. Groups by the three main ontologies \(function, process and component\) so you may need to run the GO source.
+Simple display of GO terms and evidence codes for a gene, grouped by branch in the ontology. It groups by the three main ontologies \(function, process and component\), so you may need to run the GO source.
 
 ```markup
 <reportdisplayer javaClass="org.intermine.bio.web.displayer.GeneOntologyDisplayer"
@@ -100,7 +100,7 @@ Simple display of GO terms and evidence codes for a gene, grouped by branch in t
 
 ### UniProt comments
 
-A clear view of curated curated comments from UniProt \(SwissProt\) applied to a protein, or for a gene will show comments from all proteins of the gene.
+A clear view of curated comments from UniProt \(SwissProt\) applied to a protein, or for a gene will show comments from all proteins of the gene.
 
 ```markup
 <reportdisplayer javaClass="org.intermine.bio.web.displayer.UniProtCommentsDisplayer"
@@ -128,7 +128,7 @@ Uses the [Cytoscape Web plugin](http://cytoscapeweb.cytoscape.org/) to display p
 
 ### Overlapping features
 
-A summary view of features that overlap the chromosome location of the reported feature, if the gene structure displayer is also used it will exclude any features that are part of the same gene model - i.e. it won't report that a gene overlaps it's own exons.
+A summary view of features that overlap the chromosome location of the reported feature. If the gene structure displayer is also used, it will exclude any features that are part of the same gene model i.e. it won't report that a gene overlaps it's own exons.
 
 ```markup
 <reportdisplayer javaClass="org.intermine.bio.web.displayer.OverlappingFeaturesDisplayer"
@@ -165,4 +165,3 @@ There are some displayers created for specific data sets in FlyMine, metabolicMi
 ![A phylogenetic tree of Drosophila species displayed using the \[jsPhyloSVG\]\(http://www.jsphylosvg.com/\) JavaScript library in FlyMine.](../../../.gitbook/assets/drosophila_homology_displayer.png)
 
 ![Heatmap of fly gene expression in modMine, this makes use of \[canvasXpress\]\(http://www.canvasxpress.org/\) JavaScript library.](../../../.gitbook/assets/modMine-heatmap.png)
-

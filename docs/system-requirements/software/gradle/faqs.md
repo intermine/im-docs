@@ -1,6 +1,6 @@
 # Gradle - FAQs
 
-[Gradle](https://gradle.org) is InterMine's build tool. In InterMine 2.0 Gradle replaced ant.
+[Gradle](https://gradle.org) is InterMine's build tool. In InterMine 2.0, Gradle replaced ant.
 
 Please see [Upgrade instructions](../../../intermine/upgrade.md) for details on how to migrate your system to use Gradle and [Gradle Quick Start](index.md) for common Gradle commands.
 
@@ -14,7 +14,7 @@ InterMine 2.0 only works with Java 8+. Please update your Java version and that 
 
 ### I got an out of memory error! Help!
 
-Gradle gets its properties differently from ant. Instead of `ANT_OPTS`, set `GRADLE_OPTS`. Use the same values but also append`-Dorg.gradle.daemon=false` to prevent the use of Gradle daemons.
+Gradle gets its properties differently from ant. Instead of `ANT_OPTS`, set `GRADLE_OPTS`. Use the same values, but also, append`-Dorg.gradle.daemon=false` to prevent the use of Gradle daemons.
 
 ### I set `GRADLE_OPTS` properly and I still am getting an "out of memory" error message
 
@@ -49,7 +49,7 @@ The InterMine JARs are here on your machine:
 ~/.m2
 ```
 
-You normally will be pulling the JARs down from the remote repository, unless you have installed the JARs locally yourself.
+You normally will be pulling the JARs from the remote repository, unless you have installed the JARs locally yourself.
 
 ### Which JAR am I using? I have JARs in both of those directories.
 
@@ -69,7 +69,7 @@ Gradle will go through each of these repositories and use the best version it fi
 
 #### Maven Local
 
-Gradle first looks in `mavenLocal()` which is your `~/.m2/repository` directory. These are JARs you have installed locally.
+Gradle first looks in `mavenLocal()`, which is your `~/.m2/repository` directory. These are JARs you have installed locally.
 
 #### Remote Repositiories \(JCenter and JFrog\)
 
@@ -113,12 +113,12 @@ See [Local installation](../git.md) for how to install InterMine locally.
 
 ### I got a different error! Help!
 
-Please send a detailed stacktrace to the dev mailing list, or pop onto our discord -- chat.intermine.org.
+Please send a detailed stacktrace to the dev mailing list, or pop onto our [discord](chat.intermine.org).
 
 Common issues:
 
 * Always use the wrapper provided. `./gradlew` and NOT `gradle`.
-* Using a `daemon`. Update your `GRADLE_OPTS`with the `no-daemon` flag.
+* Using a `daemon`. Update your `GRADLE_OPTS` with the `no-daemon` flag.
 
 See [Troubleshooting tips](../../../support/troubleshooting-tips.md) for common error messages.
 

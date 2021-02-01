@@ -12,31 +12,31 @@ P =   -----------------------------
          N choose n
 ```
 
-n
+**n**
 
-: the number of objects in your list
+the number of objects in your list
 
-N
+**N**
 
-: the number of objects in the reference population
+the number of objects in the reference population
 
-k
+**k**
 
-: the number of objects annotated with this item in your list
+the number of objects annotated with this item in your list
 
-M
+**M**
 
-: the number of objects annotated with item in the reference population
+the number of objects annotated with item in the reference population
 
 [Apache library - Hypergeometric Distribution](https://commons.apache.org/proper/commons-math/javadocs/api-2.2/org/apache/commons/math/distribution/HypergeometricDistributionImpl.html)
 
 ## Multiple Test Correction
 
-When multiple tests \(statistical inferences\)are run in parallel, the probability of false positive \(Type I\) errors increases. To address this issue, many multiple test corrections have been developed to take into account the number of tests being carried out and to correct the p-values accordingly. Enrichment widgets have three different multiple test corrections: Bonferroni, Holm-Bonferroni, and Benjamini Hochberg.
+When multiple tests \(statistical inferences\) are run in parallel, the probability of false positive \(Type I\) errors increases. To address this issue, many multiple test corrections have been developed to take into account the number of tests being carried out and to correct the p-values accordingly. Enrichment widgets have three different multiple test corrections: Bonferroni, Holm-Bonferroni, and Benjamini Hochberg.
 
-In enrichment widgets the number of \"tests run\" is the number of terms associated with objects in the \"reference list\". Please Note, in earlier versions of InterMine \(0.95 and below\) the number of \"tests run\" was the number of terms associated with objects in the \"query list\". This change has made the multiple test correction more rigorous, and will reduce the occurrence of spuriously low p-values.
+In enrichment widgets the number of "tests run" is the number of terms associated with objects in the "reference list". Please Note, in earlier versions of InterMine \(0.95 and below\) the number of "tests run" was the number of terms associated with objects in the "query list". This change has made the multiple test correction more rigorous, and will reduce the occurrence of spuriously low p-values.
 
-Each enrichment widget has four test correction options:
+Each enrichment widget has four test correction options, which are:
 
 ### None
 
@@ -44,7 +44,7 @@ No test correction performed, these are the raw results. These p-values will be 
 
 ### Bonferroni
 
-Bonferroni is the simplest and most conservative method of multiple test correction. The number of tests run \(the number of terms associated with objects in the reference list\) is multiplied by the un-corrected p-value of each term to give the corrected p-value.
+Bonferroni is the simplest and most conservative method of multiple test correction. The number of tests run \(the number of terms associated with objects in the reference list\) is multiplied by the uncorrected p-value of each term to give the corrected p-value.
 
 ### Holm-Bonferroni
 
@@ -61,13 +61,11 @@ Adjusted p-value = p-value x (number of tests/rank)
 ```
 
 1. The p-values of each gene are ranked from the smallest to largest.
-2. The p-value is multiplied by the total number of tests divided by
-
-   its rank.
+2. The p-value is multiplied by the total number of tests divided by its rank.
 
 ### Gene length correction
 
-The probability of a given set of genes being hit in a ChIP experiment is amongst other things proportional to their length -- very long genes are much more likely to be randomly hit than very short genes are. This is an issue for some widgets -- for example, if a given GO term \(such as gene expression regulation\) is associated with very long genes in general, these will be much more likely to be hit in a ChIP experiment than the ones belonging to a GO term with very short genes on average. The p-values should be scaled accordingly to take this into account. There are a number of different implementations of corrections, we have choosen the simplest one. The algorithm was developed by Taher and Ovcharenko \(2009\) for correcting GO enrichment. Corrected probability of observing a given GO term is equal to the original GO probability times the correction coefficient CCGO defined for each GO term.
+The probability of a given set of genes being hit in a ChIP experiment is amongst other things proportional to their length -- very long genes are much more likely to be randomly hit than very short genes are. This is an issue for some widgets -- for example, if a given GO term \(such as gene expression regulation\) is associated with very long genes in general, these will be much more likely to be hit in a ChIP experiment than the ones belonging to a GO term with very short genes on average. The p-values should be scaled accordingly to take this into account. There are a number of different implementations of corrections, we have chosen the simplest one. The algorithm was developed by Taher and Ovcharenko \(2009\) for correcting GO enrichment. Corrected probability of observing a given GO term is equal to the original GO probability times the correction coefficient CCGO defined for each GO term.
 
 ```text
 Adjusted P = P x CCGO
@@ -81,25 +79,25 @@ CCGO = ----------------
 NGO/NWG
 ```
 
-LGO
+**LGO**
 
-: Average gene length of genes associated with a GO term
+Average length of genes associated with a GO term
 
-LWG
+**LWG**
 
-: Average length of the genes in the whole genome
+Average length of the genes in the whole genome
 
-NGO
+**NGO**
 
-: Number of genes in the genome associated with this GO term
+Number of genes in the genome associated with this GO term
 
-NWG
+**NWG**
 
-: Total number of genes in the whole genome.
+Total number of genes in the whole genome.
 
-::: {.note} ::: {.title} Note :::
-
-The relevant [InterMine source](https://github.com/intermine/intermine/blob/dev/intermine/webapp/src/main/java/org/intermine/web/logic/widget/ErrorCorrection.java). :::
+{% hint style="info" %}
+The relevant [InterMine source](https://github.com/intermine/intermine/blob/dev/intermine/webapp/src/main/java/org/intermine/web/logic/widget/ErrorCorrection.java).
+{% endhint %}
 
 ### Reference population
 
@@ -115,13 +113,10 @@ The reference population is by default the collection of **all the genes with an
 
 \| **Augmentation Procedures for Control of the Generalized Family-Wise Error Rate and Tail Probabilities for the Proportion of False Positives** \| van der Laan, Mark J.; Dudoit, Sandrine; and Pollard, Katherine S. \| [Statistical Applications in Genetics and Molecular Biology](http://www.bepress.com/sagmb/vol3/iss1/art15): Vol. 3 : Iss. 1, Article 15, 2004.
 
-\| **What\'s wrong with Bonferroni adjustments** \| Perneger, TV. \| [BMJ Publishing Group](http://www.bmj.com/content/316/7139/1236). 1998;316:1236.
+\| **What's wrong with Bonferroni adjustments** \| Perneger, TV. \| [BMJ Publishing Group](http://www.bmj.com/content/316/7139/1236). 1998;316:1236.
 
-\| **Variable locus length in the human genome leads to ascertainment bias in functional inference for non-coding elements** \| Taher, L. and Ovcharenko, I. \(2009\), \[Bioinformatics \[http://bioinformatics.oxfordjournals.org/content/25/5/578\](http://bioinformatics.oxfordjournals.org/content/25/5/578\)\]{.title-ref} Vol. : Iss. 5: 578--584.
+\| **Variable locus length in the human genome leads to ascertainment bias in functional inference for non-coding elements** \| Taher, L. and Ovcharenko, I. \(2009\), `Bioinformatics <`[`http://bioinformatics.oxfordjournals.org/content/25/5/578>`](http://bioinformatics.oxfordjournals.org/content/25/5/578\) Vol. : Iss. 5: 578--584.
 
-::: {.note} ::: {.title} Note :::
-
-You can read more about **Hypergeometric Distribution** at [Simple Interactive Statistical Analysis](http://www.quantitativeskills.com/sisa/distributions/hypghlp.htm) or [Wolfram MathWorld](http://mathworld.wolfram.com/HypergeometricDistribution.html). **Bonferroni Correction** is discussed in this [Wolfram MathWorld](http://mathworld.wolfram.com/BonferroniCorrection.html) article. :::
-
-::: {.index} widgets, Bonferroni, Holm-Bonferroni, Benjamini Hochberg, Hypergeometric Distribution, Multiple Test Correction, enrichment widgets :::
-
+{% hint style="info" %}
+You can read more about **Hypergeometric Distribution** at [Simple Interactive Statistical Analysis](http://www.quantitativeskills.com/sisa/distributions/hypghlp.htm) or [Wolfram MathWorld](http://mathworld.wolfram.com/HypergeometricDistribution.html). **Bonferroni Correction** is discussed in this [Wolfram MathWorld](http://mathworld.wolfram.com/BonferroniCorrection.html) article.
+{% endhint %}

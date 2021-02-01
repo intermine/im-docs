@@ -45,7 +45,7 @@ You'll also need to update your Tomcat settings. Add `clearReferencesStopTimerTh
 
 While HikariCP default settings are good, there could be situations where some changes could be useful. HikariCP provides a good number of parameters that can be set \(see the configuration section at [HikariCP](https://github.com/brettwooldridge/HikariCP)\).
 
-For example, sometimes it can be useful, to avoid exceeding the number of connections set in the database, to set the minimumIdle number of connections. This could be the case in development and when deploying multiple webapps. For performance purposes is nevertheless suggested by Hikari people to have `minimumIdle = maximumPoolSize` \(InterMine maxConnections\). To set a minimumIdle parameter just add a line like the following to your mine's properties file:
+For example, sometimes it can be useful to set the minimumIdle number of connections in order to avoid exceeding the number of connections set in the database. This could be the case in development and when deploying multiple webapps. For performance purposes, it is suggested by Hikari people to have `minimumIdle = maximumPoolSize` \(InterMine maxConnections\). To set a minimumIdle parameter, just add a line like the following to your mine's properties file:
 
 ```text
 db.production.datasource.minimumIdle=10
@@ -55,5 +55,5 @@ db.production.datasource.minimumIdle=10
 
 [About Pool Sizing](https://github.com/brettwooldridge/HikariCP/wiki/About-Pool-Sizing/)
 
-[Hikari Discussion Forumn](https://groups.google.com/forum/#!forum/hikari-cp/)
+[Hikari Discussion Forum](https://groups.google.com/forum/#!forum/hikari-cp/)
 

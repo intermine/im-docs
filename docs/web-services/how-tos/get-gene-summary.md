@@ -2,7 +2,7 @@
 
 You need to make a request to the `query/results` resource:
 
-You can make either a GET or a POST request - it may be better to make POST requests if your query gets large. The query format must be provided as an XML document in the InterMine [PathQuery XML format](http://www.flymine.org/query/service/schema/query.xsd), and to write meaningful queries you will need to know a bit about the data model. For these reasons we recommend you consider using the client libraries below. But if you do want to make the request using a tool such as `curl`, it would look like this:
+You can make either a GET or a POST request - it may be better to make POST requests if your query gets large. The query format must be provided as an XML document in the InterMine [PathQuery XML format](http://www.flymine.org/query/service/schema/query.xsd), and to write meaningful queries you will need to know a bit about the data model. For these reasons, we recommend you consider using the client libraries below. But if you do want to make the request using a tool such as `curl`, it would look like this:
 
 ```bash
 QUERY='<query model="genomic" 
@@ -13,7 +13,7 @@ QUERY='<query model="genomic"
 curl --data-urlencode query="$QUERY" http://www.flymine.org/query/service/query/results
 ```
 
-This can be done much more concisely using the other tools, such as the Perl client libaries. Notice that here the library uses introspection of the data model to provide the appropriate fields.:
+This can be done much more concisely using the other tools, such as the Perl client libraries. Notice that, here, the library uses introspection of the data model to provide the appropriate fields.
 
 ```perl
 use 5.12.0;
@@ -26,7 +26,7 @@ say $eve->{name};
 say $eve;
 ```
 
-Similar faclities are available in the Python client:
+Similar facilities are available in the Python client:
 
 ```python
 from intermine.webservice import Service

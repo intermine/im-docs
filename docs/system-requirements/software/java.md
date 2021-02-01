@@ -1,6 +1,6 @@
 # Java
 
-We recommend you use OpenJDK rather than Sun's JDK. There isn't much difference now between the two, as far as InterMine is concerned, but going forward it's probably safer.
+We recommend you use OpenJDK rather than Sun's JDK. There isn't much difference between the two now as far as InterMine is concerned, but going forward it's probably safer.
 
 The version of Gradle we are using is compatible with Java 11.
 

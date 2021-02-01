@@ -1,6 +1,6 @@
 # PSI-MI Ontology
 
-Include this source when loading \[psi\]{.title-ref} data to fill in details of ontology terms used. Should be loaded if you are loading interaction data.
+Include this source when loading `psi` data to fill in details of ontology terms used. Should be loaded if you are loading interaction data.
 
 ## Types of data loaded
 
@@ -19,4 +19,3 @@ project XML example
   <property name="src.data.file" location="/data/psi/psi-mi.obo"/>
 </source>
 ```
-

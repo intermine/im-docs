@@ -14,7 +14,7 @@ Be sure to unzip the file.
 
 ## How to load the data into your mine
 
-project XML example
+Project XML example
 
 ```markup
 <source name="ncbi-gene" type="ncbi-gene">

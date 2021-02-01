@@ -1,12 +1,12 @@
 # Decorating your model with ontologies
 
-It is possible to add ontolgy terms to the data types in your data model.
+It is possible to add ontology terms to the data types in your data model.
 
 ## Why would you do this? Where is this used?
 
 Adding an ontology term to a class will facilitate cross InterMine querying.
 
-It can also enable cross-database analysis. Is the "gene" data type in MouseMine the same one as in the EBI?
+It can also enable cross-database analysis. Is the "gene" data type in MouseMine the same as the one in the EBI?
 
 We will use these ontologies in the future when we generate RDF.
 
@@ -29,7 +29,7 @@ We ended up selecting terms that were in the following ontologies:
 
 We've already added the terms to the core InterMine data model, and data types in the sequence ontology are updated automatically. You'll need to add ontology terms only to classes and attributes that you have added to your mine.
 
-Once you have selected the correct ontology term, use the attribute `term` and add it to your data model. See the example below
+Once you have selected the correct ontology term, use the attribute `term` and add it to your data model. See the example below.
 
 ## An example additions.xml snippet with an ontology term
 

@@ -1,7 +1,7 @@
 # Installing PostgreSQL
 
 {% hint style="warning" %}
-We recommend you install PostgreSQL 9.2 and above. We currently run our [continuous integration tests](https://travis-ci.org/intermine/intermine) on PostgreSQL 9.2. [The PostgreSQL downloads page](http://www.postgresql.org/download) has packages for most systems that set up everything for you.
+We recommend you install PostgreSQL 9.2 and above. We currently run our [continuous integration tests](https://travis-ci.org/intermine/intermine) on PostgreSQL 9.2. [The PostgreSQL downloads page](http://www.postgresql.org/download) has packages \(for most systems\) that set up everything for you.
 {% endhint %}
 
 **Fedora/CentOS**
@@ -23,7 +23,7 @@ There are several good options:
 >
 > We have had good experiences with Postgres.app and Macports.
 
-Some of the recommended setting below may not apply to older versions of PostgreSQL.
+Some of the recommended settings below may not apply to older versions of PostgreSQL.
 
 ## Configuration file
 
@@ -39,7 +39,7 @@ Most of the configurations below are made by updating the file `postgresql.conf`
 
 ## Recommended Configurations
 
-The system works reasonably well with the default configuration. For better performance we recommend to make the changes below.
+The system works reasonably well with the default configuration. For better performance, we recommend to make the changes below.
 
 ### Character Set Encoding
 
@@ -142,7 +142,7 @@ host    all         all         0.0.0.0/0             password
 >
 > Please try to treat InterMine as a black box. The fact that it uses PostgreSQL to store its data should be a detail that should be hidden as much as possible. The InterMine system is written in Java, and therefore handles all text in Unicode.
 >
-> The template1 database is the database used as a template when you run the `createdb` command. Update the encoding for template1 to be SQL\_ASCII then every database you create from now on will have the correct encoding.
+> The template1 database is the database used as a template when you run the `createdb` command. Update the encoding for template1 to be SQL\_ASCII, then every database you create from now on will have the correct encoding.
 
 > \[2\]
 >

@@ -1,14 +1,14 @@
 # Gradle - Quick Start
 
-[Gradle](https://gradle.org) is InterMine's build tool. In InterMine 2.0 Gradle replaced ant.
+[Gradle](https://gradle.org) is InterMine's build tool. In InterMine 2.0, Gradle replaced ant.
 
 Please see [Upgrade instructions](../../../intermine/upgrade.md) for details on how to migrate your system to use Gradle and [Gradle FAQs](faqs.md) for commonly asked questions about Gradle.
 
-Below are common commands you will use when building InterMine database and deploying webapps. See [docs.gradle.org](https://docs.gradle.org/current/userguide/command_line_interface.html) for the full list.
+Below are common commands you will use when building InterMine databases and deploying webapps. See [docs.gradle.org](https://docs.gradle.org/current/userguide/command_line_interface.html) for the full list.
 
 ### Data sources
 
-Previously all third party JARs were kept in the InterMine code repository and the build compiled all InterMine dependencies. Now, Gradle, via the Maven plugin, manage and download all JARs and only your local project is compiled.
+Previously, all third party JARs were kept in the InterMine code repository and the build compiled all InterMine dependencies. Now, Gradle, via the Maven plugin, manages and downloads all JARs and only your local project is compiled.
 
 **To use local data sources**
 
@@ -34,7 +34,7 @@ The build is going to be looking at the resulting JAR created by this command. I
 
 * No action required. Use project XML file as normal.
 
-The migration script you used set up the dependency to the `intermine-bio-sources` project already. This project includes `uniprot` and other data sources, and are on the classpath. During the build, the code will look for the uniprot jar, e.g. `bio-source-uniprot-2.0.jar` and find it on the classpath successfully. Maven will download it for you.
+The migration script you used already set up the dependency to the `intermine-bio-sources` project. This project includes `uniprot` and other data sources, and are on the classpath. During the build, the code will look for the uniprot jar, e.g. `bio-source-uniprot-2.0.jar` and find it on the classpath successfully. Maven will download it for you.
 
 ### Database
 
@@ -100,7 +100,7 @@ Uses the config in the mine properties file, e.g. `flymine.properties`, to deplo
 | webapp.port | 8081 | OPTIONAL, defaults to 8080 |
 
 {% hint style="warning" %}
-Cargo uses hot deployment which over time fills up the PermGen memory of the JVM process running your container. Continuously deploying an artifact will inevitablity lead to a java.lang.OutOfMemoryError
+Cargo uses hot deployment which over time, fills up the PermGen memory of the JVM process running your container. Continuously deploying an artifact will inevitably lead to a java.lang.OutOfMemoryError
 {% endhint %}
 
 #### Deploy a webapp \(gretty\)
@@ -137,25 +137,25 @@ That command will build the database set in the `flymine.properties.dev` file.
 
 ### Gradle
 
-To see a list of command-line options, run
+To see a list of command-line options, run:
 
 ```text
 ./gradlew --help
 ```
 
-To see what tasks are available
+To see what tasks are available, run:
 
 ```text
 ./gradlew tasks
 ```
 
-To get rid of compiled files
+To get rid of compiled files, run:
 
 ```text
 ./gradlew clean
 ```
 
-To update your local packages
+To update your local packages, run:
 
 ```text
 ./gradlew install
@@ -165,11 +165,11 @@ To update your local packages
 
   this normally, instead use the JARs available via Maven\).
 
-* Always use `./gradlew` instead of `gradle`. This is the wrapper that comes with InterMine and ensure that everyone is using the same version.
+* Always use `./gradlew` instead of `gradle`. This is the wrapper that comes with InterMine and ensures that everyone is using the same version.
 
 #### Daemons
 
-The updated Gradle version comes with `daemons` enabled by default. These are helper processes that exist in the background. This can speed up builds for example but sometimes, under heavy development, can cause problems when InterMine does not properly dereference assets. We are working on fixing this! In the meantime, you should append `-Dorg.gradle.daemon=false` to your `GRADLE_OPTS` variable.
+The updated Gradle version comes with `daemons` enabled by default. These are helper processes that exist in the background. This can speed up builds for example, but sometimes, under heavy development, can cause problems when InterMine does not properly dereference assets. We are working on fixing this! In the meantime, you should append `-Dorg.gradle.daemon=false` to your `GRADLE_OPTS` variable.
 
 * See: [Daemon docs](https://docs.gradle.org/current/userguide/gradle_daemon.html)
 

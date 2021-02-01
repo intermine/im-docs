@@ -13,7 +13,7 @@ The script is located here: [https://github.com/intermine/intermine-release-scri
 
 ### Dependencies
 
-This script will run on `cPython` 2.5-2.7, `pypy` and `jython`. It requires the installation of the intermine client module, which can be installed from [http://pypi.python.org](http://pypi.python.org) PyPi with the following command:
+This script will run on `cPython` 2.5-2.7, `pypy` and `jython`. It requires the installation of the intermine client module, which can be installed from [PyPi](http://pypi.python.org) with the following command:
 
 ```bash
 $ sudo easy_install intermine
@@ -39,7 +39,7 @@ Optionally set a ''from'' address:
 $ python compare_templates_for_releases.py www.flymine.org/flymine you@your.host.org noreply@blackhole.net
 ```
 
-Comparing against two mines is as above, except you simply need to add a second service location:
+Comparing against two mines is same as above, except you simply need to add a second service location:
 
 ```bash
 python compare_templates_for_releases.py www.flymine.org/flymine beta.flymine.org/beta you@your.host.org
@@ -80,5 +80,4 @@ AlleleClass_Allele                                release-beta:    2132, release
 
 1. '''In Both: Diff &gt;= 10%''' - templates run in both mines and result counts returned were very different.
 2. '''Only in''' - template was found in one mine and not the other.
-3. '''In Both: Diff &lt; 10%''' - template run in both mines and results returned were different. It\'s probably safe to assume these are okay.
-
+3. '''In Both: Diff &lt; 10%''' - template run in both mines and results returned were different. It's probably safe to assume these are okay.

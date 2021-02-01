@@ -1,6 +1,6 @@
 # Data Model Overview
 
-InterMine uses an object-oriented data model, classes in the model and relationships between them are defined in an XML file. Depending on which data types you include you will need different classes and fields in the model, so the model is generated from a core model XML file and any number of additions files. These additions files can define extra classes to be added to the model and define extra fields for additional classes.
+InterMine uses an object-oriented data model. Classes in the model and relationships between them are defined in an XML file. Depending on which data types you include, you will need different classes and fields in the model, so the model is generated from a core model XML file and any number of additions files. These additions files can define extra classes to be added to the model and define extra fields for additional classes.
 
 * Elements of the model are represented by Java classes and references
 
@@ -30,7 +30,7 @@ The origin of the data. Usually an organisation, e.g. UniProt, InterPro
 
 **Data set**
 
-A set of results or data from a data source. e.g. InterPro GO Annotation data set
+A set of results or data from a data source. e.g. InterPro GO Annotation data set.
 
 These data are meant to enable your users to easily trace the provenance of your data.
 
@@ -111,7 +111,7 @@ The InterMine build system generates the data model by merging the following dat
 
   XML file
 
-* `globalAdditionsFile` if specified
+* `globalAdditionsFile` \(if specified\)
 
 See [Model Merging](../database/database-building/model-merging.md) for details.
 
