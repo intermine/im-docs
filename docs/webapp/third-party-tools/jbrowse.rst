@@ -37,7 +37,7 @@ in the index.html file of your JBrowse installation.
 Add JBrowse to InterMine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Add JBrowse to your report pages by adding this entry to your `webconfig-model.xml </webapp/properties/webconfig-model/index>`_ file:
+Add JBrowse to your report pages by adding this entry to the `webconfig-model.xml` file of your mine (see FlyMine `example <https://github.com/intermine/flymine/blob/master/webapp/src/main/webapp/WEB-INF/webconfig-model.xml>`_):
 
 .. code-block:: xml
 
