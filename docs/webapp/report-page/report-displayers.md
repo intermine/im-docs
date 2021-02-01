@@ -4,7 +4,9 @@
 [Report Displayers Examples](report-displayers-examples.md)
 {% endhint %}
 
-Report displayers allow custom display of particular data types on report pages \(only\), typically to replace default tables with more appropriate presentation of data. Widgets:
+Report displayers allow custom display of particular data types on report pages \(only\), typically to replace default tables with more appropriate presentation of data. 
+
+Widgets:
 
 1. Use a simple framework to add a JSP for display and optionally Java code to run queries, hold caches, etc.
 2. Are assigned to the **summary** section at the top of the page or a particular **data category**
@@ -29,7 +31,7 @@ Configuration is placed in a `<reportdisplayers>` section of `webconfig-model.xm
 
 **`javaClass`**
 
-an optional Java class to run before display, typically this performs database queries or creates data structures used by the JSP. The class should extend `ReportDisplayer` and implement a `display()` method.
+an optional Java class to run before display, typically, this performs database queries or creates data structures used by the JSP. The class should extend `ReportDisplayer` and implement a `display()` method.
 
 **`jspName`**
 
@@ -57,13 +59,13 @@ this is a JSON string used to pass arbitrary parameters to particular displayers
 
 ### Useful displayers
 
-There are several displayers for common data types that may be useful in many Mines. To enable these just copy the configuration from FlyMine's [webconfig-model.xml](https://github.com/intermine/flymine/blob/master/webapp/src/main/webapp/WEB-INF/webconfig-model.xml).
+There are several displayers for common data types that may be useful in many Mines. To enable these, just copy the configuration from FlyMine's [webconfig-model.xml](https://github.com/intermine/flymine/blob/master/webapp/src/main/webapp/WEB-INF/webconfig-model.xml).
 
 For examples of the common displayers and configuration details please see [Report Displayers Examples](report-displayers-examples.md).
 
 ### Creating a new Displayer
 
-If you've loaded some new data into your Mine or have some great ideas about presenting data from the common data loaders you can create a new displayer. Here are brief instructions, take a look at the many examples for more details.
+If you've loaded some new data into your Mine or have some great ideas about presenting data from the common data loaders, you can create a new displayer. Here are brief instructions, take a look at the many examples for more details.
 
 1. Create a Java class \[1\] in your mine, e.g. [/displayers](https://github.com/intermine/flymine/tree/master/webapp/src/main/java/flymine/web/displayer) that inherits from `org.intermine.web.displayer.ReportDisplayer`.
 2. Implement
@@ -81,11 +83,10 @@ If you've loaded some new data into your Mine or have some great ideas about pre
 
 #### Troubleshooting
 
-As we use AJAX to load the displayers to speed up the initial load of a Report page, JavaScript calls to when a document is ready are executed immediately as the page has finished loading already. Specifically when using GoogleCharts API, one needs to amend the initial loading code with a callback like for example so:
+As we use AJAX to load the displayers to speed up the initial load of a Report page, JavaScript calls to when a document is ready are executed immediately the page has finished loading already. Specifically when using GoogleCharts API, one needs to amend the initial loading code with a callback like so:
 
 ```javascript
 google.load("visualization", "1", {"packages": ["corechart"], "callback": drawFlyAtlasChart});
 ```
 
 > \[1\] ReportDisplayer makes available a variable called `im` which is the `InterMineAPI` which provides access to config and query execution classes.
-
