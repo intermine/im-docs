@@ -10,7 +10,7 @@ Hierarchical and k-Means clustering algorithms and zoom in/out functionality hav
 An example in modMine
 ----------------------------------
 
-.. note:: The last release of modMine is from 2014, the site is now maintained by the `ENCODE group <https://www.encodeproject.org/>`_ at Stanford University and the legacy software is available on github `GitHub <https://github.com/modENCODE-DCC/modmine/>`_. 
+.. note:: The last release of modMine is from 2014, the site is now maintained by the `ENCODE group <https://www.encodeproject.org/>`_ at Stanford University and the legacy software is available on `GitHub <https://github.com/modENCODE-DCC/modmine/>`_. 
 
 An example application of the tool is in `modMine <http://intermine.modencode.org/>`_. It visualizes fly expression data (`example <http://intermine.modencode.org/query/bagDetails.do?scope=global&bagName=example>`_) generated from `modENCODE project <http://www.modencode.org/>`_.
 
