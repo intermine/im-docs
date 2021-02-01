@@ -758,7 +758,7 @@ We are going to wrap up by writing a stylesheet. For this we are going to use St
 
 Stylus allows us to write nested rules, such as when we want to select a table cell, `<td/>` in a `<table/>`.
 
-At the top we can see a reference to nib_. This will make any of our rules be generated with browser vendor prefixed, where appropriate and allows us to use shorthand notation for various oft repeated rules.
+At the top we can see a reference to `nib <https://stylus.github.io/nib/>`_. This will make any of our rules be generated with browser vendor prefixed, where appropriate and allows us to use shorthand notation for various oft repeated rules.
 
 Fin
 ---
