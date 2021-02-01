@@ -1,10 +1,10 @@
 # Webapp Tables CSS & HTML
 
-![image](../../../.gitbook/assets/intermine-theme-colors.png)
+![](../../../.gitbook/assets/intermine-theme-colors.png)
 
 ### Inline List
 
-![image](../../../.gitbook/assets/inline-list.2.png)
+![](../../../.gitbook/assets/inline-list.2.png)
 
 ```markup
 <div class="inline-list">
@@ -20,11 +20,11 @@
 | :--- | :--- |
 | `div.inline-list` | wrapping the list and title in div makes it more clear what elements belong together and allow you to set a custom ID on the whole thing |
 | `div.inline-list h3` \(optional\) | header 3 \(see below\) styling |
-| `div.inline-list ul` | list we be displayed inline, without margins between items and without list styles \(circles, squares etc.\) |
+| `div.inline-list ul` | list will be displayed inline, without margins between items and without list styles \(circles, squares etc.\) |
 
 #### Inline List \(Inactive, No Results\)
 
-![image](../../../.gitbook/assets/inline-list-gray.png)
+![](../../../.gitbook/assets/inline-list-gray.png)
 
 ```markup
 <div class="inline-list gray">
@@ -38,7 +38,7 @@
 
 #### Inline List \(Tagging, Right\)
 
-![image](../../../.gitbook/assets/inline-lists-right.png)
+![](../../../.gitbook/assets/inline-lists-right.png)
 
 ```markup
 <div class="inline-list">
@@ -52,7 +52,7 @@
 
 #### 'Header' Inline List
 
-![image](../../../.gitbook/assets/inline-list.png)
+![](../../../.gitbook/assets/inline-list.png)
 
 ```markup
 <div class="inline-list">
@@ -71,7 +71,7 @@
 
 ### Collection Table
 
-![image](../../../.gitbook/assets/collection-table.png)
+![](../../../.gitbook/assets/collection-table.png)
 
 ```markup
 <div class="collection-table">
@@ -106,7 +106,7 @@ Modern browsers will apply alternating background and border on odd row columns,
 
 #### Collection Table \(Type Column, Text Highlight\)
 
-![image](../../../.gitbook/assets/collection-table-class.png)
+![](../../../.gitbook/assets/collection-table-class.png)
 
 ```markup
 <div class="collection-table">
@@ -135,7 +135,7 @@ Modern browsers will apply alternating background and border on odd row columns,
 
 #### Collection Table \(Vertical Column Border\)
 
-![image](../../../.gitbook/assets/column-border.png)
+![](../../../.gitbook/assets/column-border.png)
 
 ```text
 <div class="collection-table column-border">
@@ -156,7 +156,7 @@ Modern browsers will apply alternating background and border on odd row columns,
 
 #### Collection Table \(Vertical Column Border by 2\)
 
-![image](../../../.gitbook/assets/column-border-by-2.png)
+![](../../../.gitbook/assets/column-border-by-2.png)
 
 ```text
 <div class="collection-table column-border-by-2">
@@ -177,7 +177,7 @@ Modern browsers will apply alternating background and border on odd row columns,
 
 #### Collection Table \(Inactive, No Results\)
 
-![image](../../../.gitbook/assets/collection-table-gray.png)
+![](../../../.gitbook/assets/collection-table-gray.png)
 
 ```markup
 <div class="collection-table gray">
@@ -191,7 +191,7 @@ Modern browsers will apply alternating background and border on odd row columns,
 
 #### Collection Table \(Tagging, Right\)
 
-![image](../../../.gitbook/assets/collections-right.png)
+![](../../../.gitbook/assets/collections-right.png)
 
 ```markup
 <div class="collection-table">
@@ -217,7 +217,7 @@ Modern browsers will apply alternating background and border on odd row columns,
 
 #### Basic Table \(Generic\)
 
-![image](../../../.gitbook/assets/tiny-table%20%281%29.png)
+![](../../../.gitbook/assets/tiny-table%20%281%29.png)
 
 ```markup
 <div class="basic-table">
@@ -237,7 +237,7 @@ Modern browsers will apply alternating background and border on odd row columns,
 
 #### Collection of Collection Tables
 
-![image](../../../.gitbook/assets/collection-of-collections.png)
+![](../../../.gitbook/assets/collection-of-collections.png)
 
 ```text
 <div class="collection-of-collections">
@@ -265,7 +265,7 @@ Modern browsers will apply alternating background and border on odd row columns,
 
 #### Table Togglers \(Less, More, Expand, Collapse, Show in table\)
 
-![image](../../../.gitbook/assets/togglers.png)
+![](../../../.gitbook/assets/togglers.png)
 
 ```text
 <div class="collection-table">
@@ -289,7 +289,7 @@ Modern browsers will apply alternating background and border on odd row columns,
 
 ### Title \(Level 3\)
 
-![image](../../../.gitbook/assets/h3.png)
+![](../../../.gitbook/assets/h3.png)
 
 ```markup
 <h3 class="goog">Link to other InterMines</h3>
@@ -301,7 +301,7 @@ Modern browsers will apply alternating background and border on odd row columns,
 
 ### Smallfont, Display one-per-line
 
-![image](../../../.gitbook/assets/tiny-table.png)
+![](../../../.gitbook/assets/tiny-table.png)
 
 ```markup
 <table class="tiny-font">
@@ -329,7 +329,7 @@ Modern browsers will apply alternating background and border on odd row columns,
 
 ### Table Warning
 
-![image](../../../.gitbook/assets/table-warning.png)
+![](../../../.gitbook/assets/table-warning.png)
 
 ```text
 <div class="collection-table warning">
@@ -340,4 +340,3 @@ Modern browsers will apply alternating background and border on odd row columns,
 | CSS | Description |
 | :--- | :--- |
 | `.warning` | will show a warning icon and change the color of the div to pale yellow |
-
