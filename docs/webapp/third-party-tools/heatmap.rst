@@ -1,7 +1,7 @@
 Heatmap
 ================================
 
-InterMine makes use of canvasXpress `heatmap <http://www.canvasxpress.org/heatmap.html>`_ to visualize gene expression data.
+InterMine makes use of canvasXpress `heatmap <http://www.canvasxpress.org/examples/heatmap-1.html>`_ to visualize gene expression data.
 
 `CanvasXpress <http://www.canvasxpress.org/>`_ is a javascript library based on the `<canvas>` tag implemented in HTML5. It is written by Isaac Neuhausi.
 
@@ -10,16 +10,18 @@ Hierarchical and k-Means clustering algorithms and zoom in/out functionality hav
 An example in modMine
 ----------------------------------
 
-A specific heatmap application can be referred in `modMine <http://intermine.modencode.org/>`_. It visualizes fly expression data (`example <http://intermine.modencode.org/query/bagDetails.do?scope=global&bagName=example>`_) generated from `modENCODE project <http://www.modencode.org/>`_.
+.. note:: The last release of modMine is from 2014, the site is now maintained by the `ENCODE group <https://www.encodeproject.org/>`_ at Stanford University and the legacy software is available on github `GitHub <https://github.com/modENCODE-DCC/modmine/>`_. 
+
+An example application of the tool is in `modMine <http://intermine.modencode.org/>`_. It visualizes fly expression data (`example <http://intermine.modencode.org/query/bagDetails.do?scope=global&bagName=example>`_) generated from `modENCODE project <http://www.modencode.org/>`_.
 
 The raw data is parsed and converted to InterMine objects. In a Struts controller, the expression data will be fetched by running a InterMine path query and parsed to JSON string. The JSON string will be sent to a JSP page by a http request to feed into heatmap.  
 
-Expression data source
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Expression data source: an data loader example
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-`FlyExpressionScoreConverter <https://github.com/intermine/intermine/blob/master/bio/sources/modmine/fly-expression-score/main/src/org/intermine/bio/dataconversion/FlyExpressionScoreConverter.java>`_ is a specific data converter for modENCODE fly expression data. The class is located at `bio/sources/modmine/fly-expression-score`. Any other similar expression data conversion tasks can take the data source as a reference. 
+`FlyExpressionScoreConverter <https://github.com/modENCODE-DCC/modmine/blob/dev/bio/sources/modmine/fly-expression-score/main/src/org/intermine/bio/dataconversion/FlyExpressionScoreConverter.java>`_ is a specific data converter for modENCODE fly expression data.  
 
-Exprssion data type is an extension of InterMine core model. It is addressed in `modmine/dbmodel/resources/modencode-metadata_additions.xml`
+Expression data type is an extension of InterMine core model. This example can be found `here <https://github.com/modENCODE-DCC/modmine/blob/dev/modmine/dbmodel/resources/modencode-metadata_additions.xml/>`_ and in the block below:
 
 .. code-block:: xml
 
@@ -33,11 +35,11 @@ Exprssion data type is an extension of InterMine core model. It is addressed in 
             <reference name="organism" referenced-type="Organism" />
         </class>
 
-A better practice would be to add the model extension to a source specific additions.xml under a source directory.
+Please note that it is now recommended to add the model extension to a source specific additions.xml under a source directory, rather than to a general "additions" file.
 
 Controller
 ~~~~~~~~~~~~~~~~~~~
-The controller class `HeatMapController <https://github.com/modENCODE-DCC/modmine/blob/master/modmine/webapp/src/org/modmine/web/HeatMapController.java>`_ is a component of `Struts MVC framework <https://struts.apache.org/>`_. It holds the logic to process user requests, and seletcs a proper wabpage to user.
+The controller class `HeatMapController <https://github.com/modENCODE-DCC/modmine/blob/master/modmine/webapp/src/org/modmine/web/HeatMapController.java>`_ is a component of `Struts MVC framework <https://struts.apache.org/>`_. It holds the logic to process user requests.
 
 In HeatMapController, a query is run to fetch expression scores from database (ref method `queryExpressionScore`), then the results are parsed to JSON string (ref method `getJSONString`) and set in the request (ref method `findExpression`).
 
@@ -64,11 +66,14 @@ Struts config:
 Web page
 ~~~~~~~~~~~~~~~~~~~
 
-`heatMap.jsp <https://github.com/modENCODE-DCC/modmine/blob/master/modmine/webapp/resources/webapp/model/heatMap.jsp>`_ displays heatmap. canvasXpress object takes expression JSON string and other parameters in to create a heatmap (in modMine, we have two separate heatmaps for cell line and developmental stage respectively). jQuery was used to adjust page layout.
+In modMine we have two separate heatmaps, one for cell line and one for developmental stage. 
 
-Further development
-----------------------------------
+`heatMap.jsp <https://github.com/modENCODE-DCC/modmine/blob/master/modmine/webapp/resources/webapp/model/heatMap.jsp>`_ displays the heatmaps. canvasXpress object takes the expression JSON string and other parameters to create the heatmaps. jQuery is used to adjust page layout.
 
-A modern way of creating widget like heatmap would be using InterMine webservices framework to query and generate JSON strings and embed heatmap on any web page. To `learn more... <http://github.com/intermine/intermine-embedding-examples>`_
+Alternatives
+------------
 
-An alternative library would be `D3.js <http://d3js.org/>`_, an example of heatmap can be found `here <http://www.larsko.org/v/mpte/>`_. In `ThaleMine <https://apps.araport.org/thalemine/begin.do>`_ there is a D3 implementation (see any gene list report page, `for example <https://apps.araport.org/thalemine/bagDetails.do?scope=all&bagName=Demo+1+-+Sucrose+Transporters+List>`_, `code <https://github.com/intermine/CDN/blob/master/js/intermine/expression/1.0.3/expression.js>`_. However canvasXpress is particular designed to display genomics data, D3 is for a broader use. 
+A more up to date way of creating widget like heatmaps takes advantage of the InterMine webservices framework to query and generate JSON strings and embed the heatmap on any web page. Please check some examples of the tecnique  `here <http://github.com/intermine/intermine-embedding-examples>`_
+
+An alternative, and more general, library is `D3.js <http://d3js.org/>`_, an example of heatmap can be found `here <https://observablehq.com/@mbostock/electric-usage-2019>`_. `ThaleMine <https://bar.utoronto.ca/thalemine>`_ used to display a couple of such D3 implementations, and the code is still available `here <https://github.com/intermine/CDN/blob/master/js/intermine/expression/1.0.3/expression.js>`_.
+
