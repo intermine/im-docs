@@ -752,7 +752,7 @@ At the top, we can see a reference to [nib](https://stylus.github.io/nib/). This
 
 ## Fin
 
-This concludes our application. Running a static web server to view the `/example` folder, we are presented with a page that displays our app. Typing a symbol into the input box and pressing `Enter` launches a request against MouseMine and if successfull, shows us results.
+This concludes our application. Running a static web server to view the `/example` folder, we are presented with a page that displays our app. Typing a symbol into the input box and pressing `Enter` launches a request against MouseMine and if successful, shows us results.
 
 ## Appendix
 
