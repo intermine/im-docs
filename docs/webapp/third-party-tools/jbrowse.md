@@ -28,7 +28,7 @@ in the index.html file of your JBrowse installation.
 
 ## Add JBrowse to InterMine
 
-Add JBrowse to your report pages by adding this entry to your [webconfig-model.xml](https://github.com/SanniM3/im-docs/tree/2068d45bad51f136059fbb7b7a5a5cbb3a970a83/webapp/properties/webconfig-model/index/README.md) file:
+Add JBrowse to your report pages by adding this entry to the `webconfig-model.xml` file of your mine (see FlyMine [example](https://github.com/intermine/flymine/blob/master/webapp/src/main/webapp/WEB-INF/webconfig-model.xml)):
 
 ```markup
 <reportdisplayer javaClass="org.intermine.bio.web.displayer.JBrowseDisplayer"
