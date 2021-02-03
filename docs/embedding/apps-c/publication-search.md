@@ -748,11 +748,11 @@ table
 
 Stylus allows us to write nested rules, such as when we want to select a table cell, `<td/>` in a `<table/>`.
 
-At the top, we can see a reference to [nib](http://visionmedia.github.io/nib/). This will make any of our rules to be generated with browser vendor prefixed, where appropriate and allows us to use shorthand notation for various oft repeated rules.
+At the top, we can see a reference to [nib](https://stylus.github.io/nib/). This will make any of our rules to be generated with browser vendor prefixed, where appropriate and allows us to use shorthand notation for various oft repeated rules.
 
 ## Fin
 
-This concludes our application. Running a static web server to view the `/example` folder, we are presented with a page that displays our app. Typing a symbol into the input box and pressing `Enter` launches a request against MouseMine and if successfull, shows us results.
+This concludes our application. Running a static web server to view the `/example` folder, we are presented with a page that displays our app. Typing a symbol into the input box and pressing `Enter` launches a request against MouseMine and if successful, shows us results.
 
 ## Appendix
 
