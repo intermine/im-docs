@@ -62,6 +62,7 @@ Some of the fields in the data package are standard fields followed by frictionl
 | name [inner level] | the name of the resource, depends on the mineName | flymine-query-data-resource |
 | path | exports the top 10 rows of results of query | example **[below](#3-sample-data-package)** |
 | format | format of the query results file | csv/tsv/json/xml |
+| timestamp | date and time when the results were downloaded | 2021-02-16 20:26:46 |
 | schema | describes fields of query results and primary/candidate keys | example **[below](#3-sample-data-package)** |
 | fields | an array of objects describing all the fields in query results | example **[below](#3-sample-data-package)** |
 | name [in fields] | name of the field/column header | firstAuthor |
@@ -85,6 +86,7 @@ Some of the fields in the data package are standard fields followed by frictionl
     "name" : "intermine-query-data-resource",
     "path" : "http://localhost:8080/biotestmine/service/query/results?query=%3Cquery+name%3D%22%22+model%3D%22genomic%22+view%3D%22Protein.primaryIdentifier+Protein.primaryAccession+Protein.organism.name+Protein.publications.firstAuthor+Protein.publications.title+Protein.publications.year+Protein.publications.journal+Protein.publications.volume+Protein.publications.pages+Protein.publications.pubMedId%22+longDescription%3D%22%22+sortOrder%3D%22Protein.primaryIdentifier+asc%22%3E%3Cconstraint+path%3D%22Protein.organism.name%22+op%3D%22%3D%22+value%3D%22Plasmodium+falciparum+3D7%22%2F%3E%3C%2Fquery%3E&format=tab",
     "format" : "tsv",
+    "timestamp" : "2021-02-16 20:26:46",
     "schema" : {
       "fields" : [ {
         "name" : "primaryIdentifier",
