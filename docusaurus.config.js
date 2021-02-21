@@ -8,6 +8,9 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'facebook', // Usually your GitHub org/user name.
   projectName: 'docusaurus', // Usually your repo name.
+  plugins: [  
+    '@aldridged/docusaurus-plugin-lunr'
+  ]
   themeConfig: {
     navbar: {
       title: 'My Site',
