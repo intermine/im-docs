@@ -12,9 +12,45 @@ Most of the configuration done in the config files is optional, if no config ent
 
 These are commonly used sources that you may want to use to load data into your own InterMine instance.
 
-::: {.toctree maxdepth="2"} go/index homologues/index interactions/index pathways/index proteins/index publications/index :::
-
-::: {.toctree maxdepth="1"} ncbi-gene chado fasta gff identifiers/index intermine-items-xml omim organism so uberon data-sources data-sets variation/vcf :::
+* [Gene Ontology](go/index.md)
+	* [GO Annotation](go/go-annotation.md)
+	* [GO OBO](go/go-obo.md)
+* [Homologue Data Sources](homologues/index.md)
+	* [Treefam](homologues/treefam.md)
+	* [Homologene](homologues/homologene.md)
+	* [OrthoDB](homologues/orthodb.md)
+	* [Panther](homologues/panther.md)
+	* [Ensembl Compara](homologues/compara.md)
+	* [Identifiers](homologues/index.md#identifiers)
+	* [How to use an ID resolver](homologues/index.md#how-to-use-an-id-resolver)
+* [Interactions](interactions/index.md)
+	* [BioGRID](interactions/biogrid.md)
+	* [IntAct](interactions/intact.md)
+	* [IntAct - complexes](interactions/intact-complexes.md)
+	* [PSI-MI Ontology](interactions/psi-mi-ontology)
+* [Pathway data sources](pathways/index.md)
+	* [KEGG](pathways/kegg.md)
+	* [Reactome](pathways/reactome.md)
+* [Proteins](proteins/index.md)
+	* [UniProt](proteins/uniprot.md)
+	* [InterPro](proteins/interpro.md)
+	* [InterPro to protein](proteins/interpro.md#interpro-to-protein)
+* [Publications](publications/index.md)
+	* [PubMed](publications/pubmed.md)
+	* [Publications](publications/publications.md)
+* [NCBI - Entrez gene](ncbi-gene.md)
+* [Chado](chado.md)
+* [FASTA](fasta.md)
+* [GFF3](gff.md)
+* [Identifier Data Sources](identifiers/index.md)
+* [InterMine Items XML](intermine-items-xml.md)
+* [OMIM](omim.md)
+* [Organisms](organism.md)
+* [Sequence Ontology (SO)](so.md)
+* [Uberon](uberon.md)
+* [Data Sources](data-sources.md)
+* [Data Sets](data-sets.md)
+* [VCF files](variation/vcf.md)
 
 ## FlyMine Specific sources
 
