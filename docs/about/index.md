@@ -20,8 +20,7 @@ The publicly available InterMine instances include:
 See the InterMine [registry](http://registry.intermine.org) for the full list of InterMine instances.
 
 More information:
-
-::: {.toctree maxdepth="2"} contact-us :::
+* [Contact us](contact-us.md)
 
 ## How to cite us
 
@@ -52,5 +51,10 @@ See the InterMine [zotero](https://www.zotero.org/groups/2117194/intermine/) gro
 All InterMine code is freely available under the open source [LGPL](http://www.gnu.org/licenses/lgpl.html) license.
 
 ## Privacy Policy
-
-::: {.toctree maxdepth="2"} privacy-policy :::
+* [Privacy policy](privacy-policy.md)
+	* [What we collect](privacy-policy.md#what-we-collect)
+	* [What we do with the information we gather](privacy-policy.md#what-we-do-with-the-information-we-gather)
+	* [Security](privacy-policy.md#security)
+	* [How we use cookies](privacy-policy.md#how-we-use-cookies)
+	* [Links to other websites](privacy-policy.md#links-to-other-websites)
+	* [Controlling your personal information](privacy-policy.md#controlling-your-personal-information)
