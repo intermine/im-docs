@@ -4,9 +4,8 @@ title: Tomcat
 
 ## Installation
 
-{% hint style="warning" %}
+**Warning**
 Several people have had problems with Tomcat installations set up by Linux package managers, mainly due to permissions issues. We recommend installing according to these instructions instead.
-{% endhint %}
 
 The quickest way to get a working Tomcat:
 

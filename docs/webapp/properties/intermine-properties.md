@@ -55,9 +55,8 @@ The following properties determine the settings for the user profile database. T
 | project.sitePrefix | [http://www.flymine.org](http://www.flymine.org/) | various URLs use this as the prefix |
 | project.helpLocation | [http://www.flymine.org/help](http://www.flymine.org/help) | various URLs use this as the prefix |
 
-{% hint style="info" %}
+**Note**
 `webapp.baseurl` and `webapp.path` must be correct or else your queries will not run.
-{% endhint %}
 
 ## Email
 

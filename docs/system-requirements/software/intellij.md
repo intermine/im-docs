@@ -14,9 +14,8 @@ Depending on your Intellij version, you should:
 > 2. Select Project from existing source &gt;
 > 3. Then select the `build.gradle` file from your `bio/sources` directory.
 
-{% hint style="warning" %}
+**Warning**
 Don't select the `build.gradle`files from your sources. Instead, select the `build.gradle` file from the `bio/sources` directory. The dependencies are listed in the main project's `build.gradle` file. If you load each subproject by itself, Intellij won't load the dependencies correctly.
-{% endhint %}
 
 You should import two projects for your mine:
 

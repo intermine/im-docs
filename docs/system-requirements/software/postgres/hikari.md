@@ -8,9 +8,8 @@ The maximum number of connections allocated to a database, set in the properties
 
 > Reasonable settings for `datasource.maxConnections` are 20 for the production database and 5 for other databases. You may need to increase your Postgres parameter `max connections`, for example to 250.
 
-{% hint style="info" %}
+**Note**
 The InterMine property `datasource.maxConnections` corresponds to the `maximumPoolSize` of the HikariCP.
-{% endhint %}
 
 ## Which properties?
 

@@ -17,9 +17,8 @@ Lists are saved in the userprofile `savedbag`, `bagvalues` tables and in the pro
 | bagid | unique bag id |
 | value | intermine object id |
 
-{% hint style="info" %}
+**Note**
 The InterMine ID is only valid per database. If the database is rebuilt, the IDs change and the information in this table becomes incorrect. The lists require an _upgrade_ for them to be updated with the new, correct InterMine object IDs.
-{% endhint %}
 
 ### Userprofile Database
 

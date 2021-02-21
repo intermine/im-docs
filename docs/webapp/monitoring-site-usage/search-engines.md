@@ -25,9 +25,8 @@ searchengines.google=CODE
 searchengines.msn=CODE
 ```
 
-{% hint style="info" %}
+**Note**
 See also [Google Analytics](google-analytics.md)
-{% endhint %}
 
 ## '''robots.txt'''
 

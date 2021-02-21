@@ -2,9 +2,8 @@
 title: Installing PostgreSQL
 ---
 
-{% hint style="warning" %}
+**Warning**
 We recommend you install PostgreSQL 9.2 and above. We currently run our [continuous integration tests](https://travis-ci.org/intermine/intermine) on PostgreSQL 9.2. [The PostgreSQL downloads page](http://www.postgresql.org/download) has packages \(for most systems\) that set up everything for you.
-{% endhint %}
 
 **Fedora/CentOS**
 
@@ -124,9 +123,8 @@ For better performance. Read [Tuning your PostgreSQL Server](http://wiki.postgre
 
 Note that most of the changes above require starting postgres.
 
-{% hint style="info" %}
+**Note**
 Depending on your system configuration \(production or development\), the type of sources used in the build \(files or databases\) and the load on your web application, you may need to increase the **max\_connections** parameter \(for example to 250\).
-{% endhint %}
 
 #### Client Authentication
 

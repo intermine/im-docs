@@ -60,9 +60,8 @@ Finally, add your JSP file to the `MINE_NAME/webapp/src/main/webapp` directory a
 
 This search box queries the search index created in the postprocess `create-search-index`. To change which placeholder identifiers will appear in the box, edit the `quickSearch.identifiers` property in [Database and Web application](../properties/intermine-properties.md).
 
-{% hint style="info" %}
+**Note**
 See also [Keyword Search](../keyword-search/index.md) for details on how to configure the search index. 
-{% endhint %}
 
 ### Footer
 

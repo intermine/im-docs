@@ -14,9 +14,8 @@ InterMine makes use of a variety of freely available software packages.
 | Maven | 3.0.5 | manage local dependencies |
 | SOLR | 7.2.1 | search engine |
 
-{% hint style="info" %}
+**Note**
 InterMine only supports installations onto Linux and Mac OS X systems. Windows systems of any kind are not supported. We run a mixture of Debian and Fedora servers in our data centre in Cambridge.
-{% endhint %}
 
 After installation, most programs require extra configuration to work with InterMine:
 

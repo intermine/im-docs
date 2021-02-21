@@ -217,9 +217,8 @@ You can configure your mine to accept delegated authentication from one or more 
 
 We are using the [Apache OLTU](https://attic.apache.org/projects/oltu.html) library to help manage the authentication flow. This means that configuring some of the more common providers, such as Google, Facebook, Github and Microsoft is very simple. It also allows us to add any identity provider that meets certain minimum sanity requirements.
 
-{% hint style="warning" %}
+**Warning**
 Google has closed down their OpenID-2 based authentication solution in favour of OpenID Connect \(OAuth2\). If you want to use Google as an authentication provider you must use OAuth2.
-{% endhint %}
 
 Configuration is managed through adding values to the `web-properties`.
 
@@ -262,9 +261,8 @@ oauth2.providers = GOOGLE,ELIXIR,GITHUB,FACEBOOK,MICROSOFT,STRAVA,AIP
 
 To configure an OLTU supported provider \(such as Github or Facebook\), you simply need to define the client-id and client-secret you registered your application with, eg:
 
-{% hint style="warning" %}
+**Warning**
 All secrets, including these ones \(especially the client-secret\) MUST not be committed to version control or made publicly accessible. DO NOT add them to your web.properties file, but instead, add them to your mine.properties file \(eg. ~/.intermine/MINE.properties\).
-{% endhint %}
 
 ```text
 # ~/.intermine/MINE.properties
@@ -337,9 +335,8 @@ oauth2.AIP.name-key = first_name,last_name
 
 InterMine supports completely automated delegated authentication, whereby a mediator may add a token that authenticates the user according to a chain of trust. This uses public-key cryptography to establish trust, and JWTs to transmit assertions.
 
-{% hint style="info" %}
-All the configuration in this section can \(and should\) go in your `~/.intermine/MINE.properties` file
-{% endhint %}
+**Note**
+All the configuration in this section can \(and should\) go in your `~/.intermine/MINE.properties` file.
 
 To enable this feature you need to do a couple of things:
 

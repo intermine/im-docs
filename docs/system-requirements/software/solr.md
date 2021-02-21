@@ -45,9 +45,8 @@ solr-7.2.1 $ ./bin/solr start
 
 ## Initialising Search Indexes
 
-{% hint style="info" %}
+**Note**
 Be sure your $GRADLE\_OPTS parameter is set correctly, so you have enough memory and disk space for the search index.
-{% endhint %}
 
 To create a Intermine collection for search process, run this command inside the solr directory.
 

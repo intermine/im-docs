@@ -6,9 +6,8 @@ InterMine web-applications allow users to create accounts and sign in to these a
 
 To sign in with one of these authentication providers: 1. Click on '''login''' \(in the upper-right\). 2. Click the name of the Open-ID provider you wish to use. 3. Authenticate yourself with your provider. 4. You will be redirected to your mine when finished.
 
-{% hint style="info" %}
+**Note**
 Google has shut down its OpenID-2 service. To continue using Google authentication, you must use OAuth2 authentication! See the section on editing web-properties for more details.
-{% endhint %}
 
 To set this up for a mine you administer:
 

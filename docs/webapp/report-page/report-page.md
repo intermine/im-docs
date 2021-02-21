@@ -38,9 +38,8 @@ this is where we define sub titles. Again we can use the vertical bar to define 
 * `*primaryIdentifier*`: the element will be in italics, useful for organism names
 * `[primaryIdentifier]`: the value will appear in square brackets
 
-{% hint style="info" %}
+**Note**
 Classes of objects _inherit_ from their parents, thus unless we provide a different configuration for a, say, Protein title, the formatting from BioEntity will be applied. Fields resolved in the title\(s\) will be removed from the summary below it.
-{% endhint %}
 
 ### Custom Header Link
 
@@ -73,9 +72,8 @@ defines a name of the image from "model/images" \(e.g.: `webapp/src/main/webapp/
 
 defines a link text that will appear \(next to an image if provided\). The link will then appear in the top right corner of the header. If no image or text is provided, the link text will default to the URL.
 
-{% hint style="info" %}
+**Note**
 The order the fields appear in your webconfig-model is the order in which they will appear on the report page \(left to right\).
-{% endhint %}
 
 ### References & Collections
 
@@ -157,9 +155,8 @@ web.templates.expandonload=true
 
 As with collections \(see above\), if `use.localstorage` is enabled and available, then a particular template's expanded or collapsed state will be remembered and not overridden by the default state property.
 
-{% hint style="warning" %}
+**Warning**
 The underlying query that populates a template is executed as the template is expanded. Setting `web.templates.expandonload` to `true` can cause a significant increase in a report page's load time, particularly if there are more than a handful of templates.
-{% endhint %}
 
 ### External Links
 

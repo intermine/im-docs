@@ -42,9 +42,8 @@ The hardware used for a data loading has a **significant** impact on data loadin
 * Hardware RAID controller with a battery backed cache \(gives faster write speeds\)
 * It doesn’t matter whether storage is in the same box or a separate disk array. If it is separate, a fibrechannel connection is required.
 
-{% hint style="info" %}
+**Note**
 It's essential to have separate development and production machines.
-{% endhint %}
 
 **Choosing an operating system**
 
@@ -105,9 +104,8 @@ Disk space on the build and production machines obviously depends on volume of d
 
   space available, at least four times the final database size.
 
-{% hint style="info" %}
+**Note**
 Precomputed tables are pre-joined tables that can be swapped in dynamically to reduce table joins in actual queries and improve performance. This means a lot of duplicated data is stored.
-{% endhint %}
 
 Related topics:
 

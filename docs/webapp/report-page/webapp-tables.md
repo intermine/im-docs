@@ -102,9 +102,8 @@ title: Webapp Tables CSS & HTML
 | `div.collection-table thead th,td` | table expects a thead element, that will apply the same background as the title |
 | `div.collection-table.nowrap` \(optional\) | row columns do not wrap and are displayed inline |
 
-{% hint style="info" %}
+**Note**
 Modern browsers will apply alternating background and border on odd row columns, the rubbish \(IE\) will be fixed by running jQuery on page load.
-{% endhint %}
 
 #### Collection Table \(Type Column, Text Highlight\)
 
@@ -152,9 +151,8 @@ Modern browsers will apply alternating background and border on odd row columns,
 | :--- | :--- |
 | `div.collection-table.column-border` | uses a pseudoclass to apply a border between columns |
 
-{% hint style="info" %}
+**Note**
 Modern browsers will apply alternating background and border on odd row columns, the rubbish \(IE\) will be fixed by running jQuery on page load.
-{% endhint %}
 
 #### Collection Table \(Vertical Column Border by 2\)
 
@@ -173,9 +171,8 @@ Modern browsers will apply alternating background and border on odd row columns,
 | :--- | :--- |
 | `div.collection-table.column-border-by-2` | uses a pseudoclass to apply a border between every other column |
 
-{% hint style="info" %}
+**Note**
 Modern browsers will apply alternating background and border on odd row columns, the rubbish \(IE\) will be fixed by running jQuery on page load.
-{% endhint %}
 
 #### Collection Table \(Inactive, No Results\)
 

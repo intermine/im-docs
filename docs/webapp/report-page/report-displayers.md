@@ -2,9 +2,8 @@
 title: Report Displayers
 ---
 
-{% hint style="info" %}
+**Note**
 [Report Displayers Examples](report-displayers-examples.md)
-{% endhint %}
 
 Report displayers allow custom display of particular data types on report pages \(only\), typically to replace default tables with more appropriate presentation of data. 
 

@@ -28,9 +28,8 @@ Previously, all third party JARs were kept in the InterMine code repository and 
 
   cache, `~/.gradle/caches/modules-2/files-2.1/`.
 
-{% hint style="info" %}
+**Note**
 The build is going to be looking at the resulting JAR created by this command. If you make any changes to your data sources, install again to update the JAR to make those changes visible to the build.
-{% endhint %}
 
 **To use common data sources in the InterMine library**
 
@@ -58,9 +57,8 @@ To run a single source
 ~/git/flymine $ ./gradlew integrate -Psource=uniprot  --stacktrace
 ```
 
-{% hint style="info" %}
+**Note**
 You can try --info or --debug too
-{% endhint %}
 
 To run a single postprocess
 
@@ -101,9 +99,8 @@ Uses the config in the mine properties file, e.g. `flymine.properties`, to deplo
 | webapp.protocol | https | OPTIONAL, defaults to http |
 | webapp.port | 8081 | OPTIONAL, defaults to 8080 |
 
-{% hint style="warning" %}
+**Note**
 Cargo uses hot deployment which over time, fills up the PermGen memory of the JVM process running your container. Continuously deploying an artifact will inevitably lead to a java.lang.OutOfMemoryError
-{% endhint %}
 
 #### Deploy a webapp \(gretty\)
 

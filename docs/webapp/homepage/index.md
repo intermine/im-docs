@@ -2,13 +2,11 @@
 title: Home page
 ---
 
-{% hint style="info" %}
+**Note**
 This text describes how to customize the homepage of your mine.
-{% endhint %}
 
-{% hint style="info" %}
+**Note**
 See also [General Layout](../layout/index.md) for whole app look & feel
-{% endhint %}
 
 If you have just installed a new mine, your homepage probably looks something like the following:
 
@@ -33,9 +31,8 @@ or <strong>keywords</strong> for genes, proteins, pathways, ontology terms, auth
 <em>eve</em>, HIPPO_DROME, glycolysis, <em>hb</em> allele).
 ```
 
-{% hint style="info" %}
+**Note**
 You will find that only the description field accepts HTML.
-{% endhint %}
 
 ### Second box
 
@@ -88,9 +85,8 @@ begin.tabs.1.id = Genomics
 
 What this configuration does is it creates a tab on the homepage with \(up to\) 10 most popular templates from a `Genomics` category. For a template to appear in this section, tag it with the Genomics aspect: `im:aspect:Genomics`.
 
-{% hint style="info" %}
+**Note**
 The tag you apply to the template \(e.g. `im:aspect:Genomics`\) must match the value of the `id` attribute \(e.g. `begin.tabs.1.id = Genomics`\).
-{% endhint %}
 
 The number in the config key specifies the order in which we want to show them. So if we have two categories, Genomics and Proteins, and they should appear in this order, we would write this:
 
