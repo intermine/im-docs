@@ -4,7 +4,18 @@ title: Homologue Data Sources
 
 InterMine comes with several data converters for homologue data, e.g. TreeFam, PANTHER, OrthoDB, Homlogene, etc. Follow the instructions below to include these datasets in your InterMine.
 
-::: {.toctree} treefam homologene orthodb panther compara :::
+* [Treefam](treefam.md)
+	* [Data](treefam.md#data)
+	* [Project XML](treefam.md#project-xml)
+* [Homologene](homologene.md)
+* [OrthoDB](orthodb.md)
+* [Panther](panther.md)
+* [Ensembl Compara](compara.md)
+	* [Download data from BioMart](compara.md#download-data-from-biomart)
+	* [Add entry to project XML file](compara.md#add-entry-to-project-xml-file)
+	* [Run build](compara.md#run-build)
+		* [Data file](compara.md#data-file)
+		* [Download script](compara.md#download-script)
 
 ## Identifiers
 
