@@ -1,4 +1,6 @@
-# InterMine JavaScript API Loader
+---
+title: InterMine JavaScript API Loader
+---
 
 {% hint style="info" %}
 See also [GitHub repo](https://github.com/intermine/intermine-api-loader) for source code.

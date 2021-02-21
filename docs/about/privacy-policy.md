@@ -1,4 +1,6 @@
-# Privacy policy
+---
+title: Privacy policy
+---
 
 This privacy policy sets out how InterMine uses and protects any information that you give when you use InterMine websites.
 

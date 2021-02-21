@@ -1,4 +1,6 @@
-# Homologene
+---
+title: Homologene
+---
 
 1. Data
 

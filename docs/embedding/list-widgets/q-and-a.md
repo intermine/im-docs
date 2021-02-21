@@ -1,4 +1,6 @@
-# List Widgets Questions & Answers
+---
+title: List Widgets Questions & Answers
+---
 
 ### Source files
 

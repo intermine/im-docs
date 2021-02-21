@@ -1,4 +1,6 @@
-# InterMine Services
+---
+title: InterMine Services
+---
 
 We offer consulting services to those who want a custom InterMine installation.
 

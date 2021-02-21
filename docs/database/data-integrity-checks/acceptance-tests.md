@@ -1,4 +1,6 @@
-# Acceptance Tests
+---
+title: Acceptance Tests
+--- 
 
 ## How to run the tests
 

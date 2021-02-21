@@ -1,4 +1,6 @@
-# JBrowse
+---
+title: JBrowse
+---
 
 InterMine 1.3.1 supports the JBrowse REST web-service specification \(see [configuring JBrowse](https://github.com/GMOD/jbrowse/wiki/JBrowse_Configuration_Guide/)\), which means that you can run a JBrowse installation directly off the InterMine web-services.
 

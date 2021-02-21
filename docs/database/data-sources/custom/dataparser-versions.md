@@ -1,4 +1,6 @@
-# Data Source Versions
+---
+title: Data Source Versions
+---
 
 Your InterMine data parser has a version.
 

@@ -1,4 +1,6 @@
-# Treefam
+---
+title: Treefam
+---
 
 ## Data
 

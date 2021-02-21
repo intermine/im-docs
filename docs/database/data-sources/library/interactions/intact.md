@@ -1,4 +1,6 @@
-# IntAct
+---
+title: IntAct
+---
 
 Loads binary interactions data from IntAct
 

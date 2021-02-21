@@ -1,4 +1,6 @@
-# Data Categories
+---
+title: Data Categories
+---
 
 Data category pages include various aspects of a concept on a single page. Category pages include:
 

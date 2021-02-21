@@ -1,4 +1,6 @@
-# Writing your own data source
+---
+title: Writing your own data source
+---
 
 The aim of this tutorial is to create a new data source to parse your data file and load the data into your InterMine database.
 

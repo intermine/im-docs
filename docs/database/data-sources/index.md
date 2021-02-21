@@ -1,4 +1,6 @@
-# Data Sources
+---
+title: Data Sources
+---
 
 Contents
 

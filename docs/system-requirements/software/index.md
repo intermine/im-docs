@@ -1,4 +1,6 @@
-# Software
+---
+title: Software
+---
 
 InterMine makes use of a variety of freely available software packages.
 

@@ -1,4 +1,6 @@
-# Debugging
+---
+title: Debugging
+--- 
 
 Below are common errors you may encounter when building your InterMine. Please contact us if you continue to have problems!
 

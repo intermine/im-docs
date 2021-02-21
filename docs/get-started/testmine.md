@@ -1,4 +1,6 @@
-# Testmine
+---
+title: Testmine
+---
 
 This is an InterMine used for testing new features, and for continuous integration tests on Travis. Its tables include: Employee, Company and Department. The mine does not contain biological data.
 

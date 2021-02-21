@@ -1,4 +1,6 @@
-# Publications
+---
+title: Publications
+---
 
 All publications are referred to by PubMed id by other sources. This source should be included at the end of the build. It will query all PubMed ids from the database \(where the `title`, `year`, or `first author` columns are NULL\), fetch details from the Entrez web service and fill in Publication objects.
 

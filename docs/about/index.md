@@ -1,4 +1,6 @@
-# About Us
+---
+title: About us
+---
 
 InterMine is an open source data warehouse system for the integration and analysis of complex biological data, developed for the last 10 years by the Micklem Lab at the University of Cambridge. InterMine has been used for developing data warehousing solutions for a number of projects, such as for storage and analysis of modENCODE data, and as a data mining platform for a number of major model organism databases as part of the InterMOD project.
 

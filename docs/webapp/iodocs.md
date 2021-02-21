@@ -1,4 +1,6 @@
-# Customising the default queries in your io-docs application
+---
+title: Customising the default queries in your io-docs application
+---
 
 You can have default queries defined for your [iodocs application](https://github.com/intermine/iodocs), documenting the [Web Services](../web-services/index.md) available in InterMine, see [http://iodocs.apps.intermine.org](http://iodocs.apps.intermine.org)
 

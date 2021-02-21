@@ -1,4 +1,6 @@
-# GFF3
+---
+title: GFF3
+---
 
 InterMine comes with a GFF parser which loads GFF3 data files into your mine - without writing any Perl or Java code. This isn't a source itself but genome annotation from gff files can be loaded easily by creating a new source of type gff. See redfly, malaria-gff and tiffin for examples.
 

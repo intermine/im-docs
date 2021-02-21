@@ -1,4 +1,6 @@
-# Solr
+---
+title: Solr
+---
 
 InterMine uses Solr for its keyword search. Now the first search is instant, you can inspect the search index directly \(via [http://localhost:8983/solr/](http://localhost:8983/solr/)\) and there's a facet web service \(via `/service/facet-list` and `/service/facets?q=gene`\). Certain bugs, e.g. searching for the gene "OR", are also now fixed.
 

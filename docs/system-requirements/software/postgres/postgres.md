@@ -1,4 +1,6 @@
-# Installing PostgreSQL
+---
+title: Installing PostgreSQL
+---
 
 {% hint style="warning" %}
 We recommend you install PostgreSQL 9.2 and above. We currently run our [continuous integration tests](https://travis-ci.org/intermine/intermine) on PostgreSQL 9.2. [The PostgreSQL downloads page](http://www.postgresql.org/download) has packages \(for most systems\) that set up everything for you.

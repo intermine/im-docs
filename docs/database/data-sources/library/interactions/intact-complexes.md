@@ -1,4 +1,6 @@
-# IntAct - complexes
+---
+title: IntAct - complexes
+---
 
 Loads complex interaction data from IntAct
 

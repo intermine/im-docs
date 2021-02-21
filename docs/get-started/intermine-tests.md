@@ -1,4 +1,6 @@
-# InterMine Tests
+---
+title: InterMine Tests
+---
 
 ## Continuous Integration
 

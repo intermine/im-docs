@@ -1,4 +1,6 @@
-# Guide to Customising your Web Application
+---
+title: Guide to Customising your Web Application
+---
 
 ::: {.toctree maxdepth="2"} blue-genes/index homepage/index report-page/index lists/index template-queries/index query-results/index query-builder/index keyword-search/index layout/index region-search/index properties/index data-categories/index markup/index help/index linking-in/index third-party-tools/index monitoring-site-usage/index admin/index user-accounts/index performance/index diagnostic/index javadoc/index permanent-url/index iodocs :::
 

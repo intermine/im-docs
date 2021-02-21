@@ -1,4 +1,6 @@
-# Text and messages
+---
+title: Text and messages
+---
 
 These files control much of the text in the web application:
 

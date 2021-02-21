@@ -1,4 +1,6 @@
-# Building Javadoc
+---
+title: Building Javadoc
+---
 
 ## Package-specific Javadoc
 

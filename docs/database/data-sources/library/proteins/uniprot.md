@@ -1,4 +1,6 @@
-# UniProt
+---
+title: UniProt
+---
 
 ## Types of data loaded
 

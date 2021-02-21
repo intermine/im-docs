@@ -1,4 +1,6 @@
-# Pathway data sources
+---
+title: Pathway data sources
+---
 
 Content:
 

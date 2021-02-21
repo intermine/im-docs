@@ -1,4 +1,6 @@
-# Publications
+---
+title: Publications
+---
 
 ::: {.toctree} pubmed publications :::
 

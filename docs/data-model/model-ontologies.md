@@ -1,4 +1,6 @@
-# Decorating your model with ontologies
+---
+title: Decorating your model with ontologies
+---
 
 It is possible to add ontology terms to the data types in your data model.
 

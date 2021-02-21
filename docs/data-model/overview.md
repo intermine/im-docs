@@ -1,4 +1,6 @@
-# Data Model Overview
+---
+title: Data Model Overview
+---
 
 InterMine uses an object-oriented data model. Classes in the model and relationships between them are defined in an XML file. Depending on which data types you include, you will need different classes and fields in the model, so the model is generated from a core model XML file and any number of additions files. These additions files can define extra classes to be added to the model and define extra fields for additional classes.
 

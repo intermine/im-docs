@@ -1,4 +1,6 @@
-# Software Developer \(Closure / JavaScript\)
+---
+title: Software Developer \(Closure / JavaScript\)
+---
 
 Are you passionate about open source and making user friendly client-side web applications? We're a small team comprised of five developers \(six, if you join us!\) and a biologist, looking for a developer to help us with ​ BlueGenes​ , an open source Clojure​-powered user interface for the biological data warehouse ​ InterMine​ . Clojure /​ ClojureScript​ experience is​ not ​ required, so long as you have experience with JavaScript and are willing to learn Clojure. As well as working on BlueGenes, you'll also get the chance to support some of our older JavaScript and CoffeeScript based applications and plugins. Development is likely to range from data wrangling to interface design and data visualisation. We'd like to find someone who is comfortable collaborating with others on different aspects of the same project.
 

@@ -1,4 +1,6 @@
-# Report Displayers
+---
+title: Report Displayers
+---
 
 {% hint style="info" %}
 [Report Displayers Examples](report-displayers-examples.md)

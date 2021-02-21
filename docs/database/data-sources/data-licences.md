@@ -1,4 +1,6 @@
-# Data Licences
+---
+title: Data Licences
+---
 
 You are using InterMine to integrate several data sets into a single database, for ease of querying for your end users. It's important that you make it very clear to your users how the data in your mine is licenced and how it can be re-used.
 

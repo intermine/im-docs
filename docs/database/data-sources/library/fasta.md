@@ -1,4 +1,6 @@
-# FASTA
+---
+title: FASTA
+---
 
 ## Types of data loaded
 

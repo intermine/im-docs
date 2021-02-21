@@ -1,4 +1,6 @@
-# Hardware
+---
+title: Hardware
+---
 
 The requirements for running InterMine depends on the size of data warehouse you need to create. It is possible to build small InterMine databases on most Linux or Mac OS X systems but for more substantial databases, a powerful dedicated server is required. The recommended minimum hardware requirements for running substantial servers such as FlyMine or InterMines for major model organism databases are given below.
 

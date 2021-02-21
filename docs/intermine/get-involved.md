@@ -1,4 +1,6 @@
-# Contribution Guide
+---
+title: Contribution Guide
+---
 
 This document sets out the development processes for those contributing to the [InterMine code base](https://github.com/intermine/intermine). It specifically refers to the main application code-base, but these practices should be employed in an ideal world on all code bases.
 

@@ -1,4 +1,6 @@
-# Git
+---
+title: Git
+---
 
 [Git](http://git-scm.com) is our source control software. Download and install git on your local machine.
 

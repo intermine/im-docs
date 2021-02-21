@@ -1,4 +1,6 @@
-# Java Items API
+---
+title: Java Items API
+---
 
 'Items' are a data format for the InterMine system, each Item represents a Java data object that will be stored. They are a convenient way to deal with data that is portable to other languages and has a simple XML format.
 

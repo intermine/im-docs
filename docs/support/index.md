@@ -1,4 +1,6 @@
-# Support
+---
+title: Support
+---
 
 ::: {.toctree maxdepth="2
 

@@ -1,4 +1,6 @@
-# EsyN
+---
+title: EsyN
+---
 
 A network viewer that you can place on your gene report and list pages.
 

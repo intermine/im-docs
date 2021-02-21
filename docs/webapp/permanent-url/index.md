@@ -1,4 +1,6 @@
-# Permanent URLs
+---
+title: Permanent URLs
+---
 
 InterMine generates stable and unique URLs to identify the report pages for biological entities.
 
@@ -8,7 +10,7 @@ In FlyMine, for example, the URL of the report page for the gene zen, with prima
 
 These URLs are used to share the report page with other users.
 
-![](../../../.gitbook/assets/share.png)
+![](img/share.png)
 
 The [class\_keys.properties](../properties/class-keys.md) file specifies the keys used to generate the permanent URLs. If not specified, the primaryidentifier key is used.
 

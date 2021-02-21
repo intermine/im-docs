@@ -1,4 +1,6 @@
-# Quick Start
+---
+title: Quick Start
+---
 
 This guide will show you how to create a `BioTestMine` InterMine instance. You will need all the dependencies listed in [Software](../system-requirements/software/index.md)
 

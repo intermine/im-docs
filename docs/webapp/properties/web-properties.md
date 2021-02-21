@@ -1,4 +1,6 @@
-# Features
+---
+title: Features
+---
 
 The `web.properties` file configures several attributes for the InterMine web application.
 

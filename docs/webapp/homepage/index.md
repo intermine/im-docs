@@ -1,4 +1,6 @@
-# Home page
+---
+title: Home page
+---
 
 {% hint style="info" %}
 This text describes how to customize the homepage of your mine.
@@ -10,7 +12,7 @@ See also [General Layout](../layout/index.md) for whole app look & feel
 
 If you have just installed a new mine, your homepage probably looks something like the following:
 
-![image](../../../.gitbook/assets/initial_homepage.jpg)
+![image](img/initial_homepage.jpg)
 
 In order to do any sort of customizations, one has to add/edit a configuration file for the mine. You will find this file in `webapp/src/main/webapp/WEB-INF/web.properties`.
 
@@ -75,7 +77,7 @@ The fields that you do NOT set in this way, will simply show the text configured
 
 To show the ten most popular template queries per category on your homepage like so:
 
-![image](../../../.gitbook/assets/popular_templates.jpg)
+![image](img/popular_templates.jpg)
 
 Example:
 

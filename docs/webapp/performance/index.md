@@ -1,4 +1,6 @@
-# Performance
+---
+title: Performance
+---
 
 InterMine web-applications rely on a server to deliver static files such as JavaScript and CSS. The default location for this server is "[http://cdn.intermine.org](http://cdn.intermine.org)". Installing your own CDN may increase web site performance.
 

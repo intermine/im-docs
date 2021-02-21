@@ -1,4 +1,6 @@
-# InterMine Versioning Policy
+---
+title: InterMine Versioning Policy
+---
 
 ## Version Numbering
 

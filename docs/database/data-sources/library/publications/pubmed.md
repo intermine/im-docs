@@ -1,4 +1,6 @@
-# PubMed
+---
+title: PubMed
+---
 
 Data from pubmed. Entire file is downloaded, only taxon IDs set in project.xml will be loaded. If nothing is configured, processes all entries.
 

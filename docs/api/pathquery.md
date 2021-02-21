@@ -1,4 +1,6 @@
-# The PathQuery API
+---
+title: The PathQuery API
+---
 
 InterMine installations accept queries over their data in a custom format known as _Path-Queries_. This is a graph-based query format which inherits some of its semantics and terminology from SQL.
 

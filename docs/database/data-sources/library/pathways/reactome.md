@@ -1,4 +1,6 @@
-# Reactome
+---
+title: Reactome
+---
 
 ## Types of data loaded
 

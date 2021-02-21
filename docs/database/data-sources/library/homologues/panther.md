@@ -1,4 +1,6 @@
-# Panther
+---
+title: Panther
+---
 
 Data
 

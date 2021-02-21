@@ -1,4 +1,6 @@
-# Apps/C Grunt Build
+---
+title: Apps/C Grunt Build
+---
 
 ::: {.toctree maxdepth="2
 

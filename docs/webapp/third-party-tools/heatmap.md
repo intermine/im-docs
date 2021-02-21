@@ -1,4 +1,6 @@
-# Heatmap
+---
+title: Heatmap
+---
 
 InterMine makes use of canvasXpress [heatmap](http://www.canvasxpress.org/examples/heatmap-1.html) to visualize gene expression data.
 

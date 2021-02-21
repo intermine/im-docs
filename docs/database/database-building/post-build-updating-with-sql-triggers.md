@@ -1,4 +1,6 @@
-# Post build updating with SQL triggers
+---
+title: Post build updating with SQL triggers
+--- 
 
 {% hint style="warning" %}
 Please note this is an experimental facility and is subject to a number of caveats \(see below\). Please always take a backup of your database before trying.

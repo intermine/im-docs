@@ -1,4 +1,6 @@
-# Lists
+---
+title: Lists
+---
 
 [Class keys](../properties/class-keys.md) specifies unique fields for classes in the data model for the webapp.
 

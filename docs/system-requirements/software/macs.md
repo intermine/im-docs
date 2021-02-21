@@ -1,4 +1,6 @@
-# Mac Installation Notes
+---
+title: Mac Installation Notes
+---
 
 This is a work in progress. At the moment, just some notes and useful links.
 

@@ -1,4 +1,6 @@
-# PostgreSQL
+---
+title: PostgreSQL
+---
 
 ::: {.toctree} postgres hikari :::
 

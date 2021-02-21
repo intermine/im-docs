@@ -1,4 +1,6 @@
-# InterMine Development Roadmap
+---
+title: InterMine Development Roadmap
+---
 
 InterMine is a noncommercial, free software project, and as such there is no formal list of feature requirements required for development.
 

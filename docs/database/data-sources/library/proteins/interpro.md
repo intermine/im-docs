@@ -1,4 +1,6 @@
-# InterPro
+---
+title: InterPro
+---
 
 InterMine has two InterPro data sources. One that loads the protein domains, e.g. name and description and one that loads the relationship between the proteins and domains.
 

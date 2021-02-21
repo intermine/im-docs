@@ -1,4 +1,6 @@
-# Model Description
+---
+title: Model Description
+---
 
 A database stored using the InterMine system is object-oriented and it loads data defined by a model description. This model description is defined in the file, &lt;MINENAME&gt;\_model.xml. This page describes the format of this file and its implications.
 

@@ -1,4 +1,6 @@
-# Id Resolvers
+---
+title: Id Resolvers
+---
 
 The ID resolver uses the files in the specified directory to create a large map. The key for the map is the unique identifier \(the MOD ID, for example the MGI:, RGD, FBgn, ZFIN: identifiers\). The values in the map are all the symbols, old identifiers, dbxrefs \(e.g. Ensembl\).
 

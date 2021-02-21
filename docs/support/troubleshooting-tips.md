@@ -1,4 +1,6 @@
-# Troubleshooting tips
+---
+title: Troubleshooting tips
+---
 
 This page describes what to do if you encounter problems when installing or maintaining InterMine. Please feel free to [Contact us](../about/contact-us.md) with any questions you may have.
 

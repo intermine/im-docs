@@ -1,4 +1,6 @@
-# InterMine Items XML
+---
+title: InterMine Items XML
+---
 
 Use this source to load [InterMine Items XML](../apis/index.md) conforming to the data model directly into the production database.
 

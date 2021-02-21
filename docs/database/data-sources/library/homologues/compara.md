@@ -1,4 +1,6 @@
-# Ensembl Compara
+---
+title: Ensembl Compara
+---
 
 ## Download data from BioMart
 

@@ -1,4 +1,6 @@
-# List enrichment widgets statistics
+---
+title: List enrichment widgets statistics
+---
 
 Enrichment widgets are located on the list analysis page. There are a number of different types of enrichment widgets, but all list a term, a count and an associated p-value. The term can be something like a publication name or a GO term. The count is the number of times that term appears for objects in your list. The p-value is the probability that result occurs by chance, thus a lower p-value indicates greater enrichment.
 

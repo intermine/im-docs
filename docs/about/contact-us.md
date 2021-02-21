@@ -1,4 +1,6 @@
-# Contact us
+---
+title: Contact us
+--- 
 
 To contact the InterMine Team:
 

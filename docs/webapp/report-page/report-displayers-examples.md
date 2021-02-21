@@ -1,4 +1,6 @@
-# Report Displayers Examples
+---
+title: Report Displayers Examples
+---
 
 Report displayers you can use in your own Mine and some examples created for specific data types in modMine, FlyMine and metabolicMine.
 
@@ -16,7 +18,7 @@ Applicable for any SequenceFeature. It shows length, sequence export, chromosome
     types="SequenceFeature"/>
 ```
 
-![A Sequence feature displayer in metabolicMine.](../../../.gitbook/assets/sequence_feature_displayer.png)
+![A Sequence feature displayer in metabolicMine.](img/sequence_feature_displayer.png)
 
 ### Protein sequence
 
@@ -30,7 +32,7 @@ Applicable for Protein. It shows length, sequence export.
     types="Protein"/>
 ```
 
-![A Protein sequence displayer in FlyMine.](../../../.gitbook/assets/protein_sequence_displayer.png)
+![A Protein sequence displayer in FlyMine.](img/protein_sequence_displayer.png)
 
 ### GBrowse
 
@@ -51,7 +53,7 @@ gbrowse.prefix=http://www.flymine.org/cgi-bin/gbrowse
 gbrowse_image.prefix=http://www.flymine.org/cgi-bin/gbrowse_img
 ```
 
-![A Genome browser view in FlyMine.](../../../.gitbook/assets/gbrowse_displayer.png)
+![A Genome browser view in FlyMine.](img/gbrowse_displayer.png)
 
 ### Homologues
 
@@ -66,7 +68,7 @@ Shows a table of organism and homologous genes of homologues per organism.
     types="Gene"/>
 ```
 
-![A Homologues displayer in FlyMine.](../../../.gitbook/assets/homologues_displayer.png)
+![A Homologues displayer in FlyMine.](img/homologues_displayer.png)
 
 Note that FlyMine includes a specific displayer to show the twelve Drosophila species as a phylogenetic tree.
 
@@ -82,7 +84,7 @@ Displays transcripts, exons, introns, UTRs and CDSs if present in the model and 
     types="Gene,Transcript,Exon,Intron,UTR,CDS"/>
 ```
 
-![A Gene structure displayer in FlyMine.](../../../.gitbook/assets/gene_structure_displayer.png)
+![A Gene structure displayer in FlyMine.](img/gene_structure_displayer.png)
 
 ### Gene Ontology
 
@@ -96,7 +98,7 @@ Simple display of GO terms and evidence codes for a gene, grouped by branch in t
     types="Gene"/>
 ```
 
-![A Gene ontology displayer in modMine.](../../../.gitbook/assets/go_displayer.png)
+![A Gene ontology displayer in modMine.](img/go_displayer.png)
 
 ### UniProt comments
 
@@ -110,7 +112,7 @@ A clear view of curated comments from UniProt \(SwissProt\) applied to a protein
     types="Gene,Protein"/>
 ```
 
-![A Uniprot curated comments displayer in metabolicMine.](../../../.gitbook/assets/uniprot_comments_displayer.png)
+![A Uniprot curated comments displayer in metabolicMine.](img/uniprot_comments_displayer.png)
 
 ### Interaction network
 
@@ -124,7 +126,7 @@ Uses the [Cytoscape Web plugin](http://cytoscapeweb.cytoscape.org/) to display p
     types="Gene,Protein"/>
 ```
 
-![An Interactions displayer in FlyMine.](../../../.gitbook/assets/interactions_displayer.png)
+![An Interactions displayer in FlyMine.](img/interactions_displayer.png)
 
 ### Overlapping features
 
@@ -138,7 +140,7 @@ A summary view of features that overlap the chromosome location of the reported 
     types="SequenceFeature"/>
 ```
 
-![An Overlapping features displayer in modMine.](../../../.gitbook/assets/overlapping_features_displayer.png)
+![An Overlapping features displayer in modMine.](img/overlapping_features_displayer.png)
 
 ### Complexes - Protein interactions
 
@@ -152,16 +154,16 @@ Viewer displaying complex interactions. Data must be loaded from IntAct. Origina
                  types="Complex"/>
 ```
 
-![A Complex interaction displayer in HumanMine.](../../../.gitbook/assets/complex-viewer.png)
+![A Complex interaction displayer in HumanMine.](img/complex-viewer.png)
 
 ### Specific Displayers
 
 There are some displayers created for specific data sets in FlyMine, metabolicMine or modMine that may not be re-usable in other Mines but could be adapted or provide inspiration.
 
-![JBrowse genome browser in metabolicMine.](../../../.gitbook/assets/jBrowse_displayer.png)
+![JBrowse genome browser in metabolicMine.](img/jBrowse_displayer.png)
 
-![FlyAtlas gene experssion data in FlyMine, this uses the Google Data Vizualization API JavaScript library to render an interactive graph in the browser.](../../../.gitbook/assets/FlyAtlas_expression_displayer.png)
+![FlyAtlas gene experssion data in FlyMine, this uses the Google Data Vizualization API JavaScript library to render an interactive graph in the browser.](img/FlyAtlas_expression_displayer.png)
 
-![A phylogenetic tree of Drosophila species displayed using the \[jsPhyloSVG\]\(http://www.jsphylosvg.com/\) JavaScript library in FlyMine.](../../../.gitbook/assets/drosophila_homology_displayer.png)
+![A phylogenetic tree of Drosophila species displayed using the \[jsPhyloSVG\]\(http://www.jsphylosvg.com/\) JavaScript library in FlyMine.](img/drosophila_homology_displayer.png)
 
-![Heatmap of fly gene expression in modMine, this makes use of \[canvasXpress\]\(http://www.canvasxpress.org/\) JavaScript library.](../../../.gitbook/assets/modMine-heatmap.png)
+![Heatmap of fly gene expression in modMine, this makes use of \[canvasXpress\]\(http://www.canvasxpress.org/\) JavaScript library.](img/modMine-heatmap.png)

@@ -1,6 +1,8 @@
-# Research Software Engineer
+---
+title: Research Software Engineer
+---
 
-![Ability to punt desirable.](../../../.gitbook/assets/cam_bridge.jpg)
+![Ability to punt desirable.](cam_bridge.jpg)
 
 We have interesting problems to solve, both on the server and on the user-interface level. We deal with the issues of describing complex real world systems at the right level of abstraction. We work with the leaders in the fields of genomic life-sciences, helping them structure and manage their increasingly valuable knowledge bases. This data changes frequently, so we have built a system that can flexibly work from any description of a data-model to produce a clear and powerful data-mining interface. We need you to help develop and improve this sector leading product.
 

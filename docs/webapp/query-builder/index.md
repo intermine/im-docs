@@ -1,4 +1,6 @@
-# QueryBuilder
+---
+title: QueryBuilder
+---
 
 ## Select a Data Type to Begin a Query
 

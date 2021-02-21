@@ -1,4 +1,6 @@
-# Data Download Scripts
+---
+title: Data Download Scripts
+---
 
 The DataDownloader system uses a plugin architecture to make it more straightforward to download data from arbitrary sources, and to add new sources to the system
 

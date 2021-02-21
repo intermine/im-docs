@@ -1,4 +1,6 @@
-# GO Annotation
+---
+title: GO Annotation
+---
 
 Loads gene association files that link GO terms to genes or proteins.
 

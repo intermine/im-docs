@@ -1,4 +1,6 @@
-# Region Search
+---
+title: Region Search
+---
 
 ## Configuration
 

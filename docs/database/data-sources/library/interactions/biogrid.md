@@ -1,4 +1,6 @@
-# BioGRID
+---
+title: BioGRID
+---
 
 Loads interactions data from BioGRID
 

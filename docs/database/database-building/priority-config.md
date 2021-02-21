@@ -1,4 +1,6 @@
-# Priority Configuration
+---
+title: Priority Configuration
+--- 
 
 This document describes the format of the configuration file used by the InterMine system's integration to resolve conflicts between different data originating from different data sources. This file should be created as `MINE_NAME/dbmodel/resources/MODEL_NAME_priorities.properties`
 

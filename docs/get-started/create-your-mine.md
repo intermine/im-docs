@@ -1,4 +1,6 @@
-# Create Your Own InterMine!
+---
+title: Create Your Own InterMine!
+---
 
 This guide will show you how to create a new InterMine. You will need all the dependencies listed in [Software](../system-requirements/software/index.md).
 

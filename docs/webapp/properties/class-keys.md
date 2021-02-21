@@ -1,4 +1,6 @@
-# Class keys
+---
+title: Class keys
+---
 
 Specify keys for the classes in your data model by adding them to the `class_keys.properties` file. This lets the webapp know how to uniquely identify objects of these classes. Users can then [upload](../lists/list-upload.md) lists of such objects.
 

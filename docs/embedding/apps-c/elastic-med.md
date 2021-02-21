@@ -1,4 +1,6 @@
-# elastic-med
+---
+title: elastic-med
+---
 
 {% hint style="info" %}
 @in-progress

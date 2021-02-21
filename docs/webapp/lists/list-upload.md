@@ -1,4 +1,6 @@
-# List upload
+---
+title: List upload
+---
 
 InterMine has a sophisticated list import system for genes. This page aims to describe how it works.
 

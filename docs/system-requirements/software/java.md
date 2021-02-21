@@ -1,4 +1,6 @@
-# Java
+---
+title: Java
+---
 
 We recommend you use OpenJDK rather than Sun's JDK. There isn't much difference between the two now as far as InterMine is concerned, but going forward it's probably safer.
 

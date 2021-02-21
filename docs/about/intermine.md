@@ -1,4 +1,6 @@
-# InterMine Features
+---
+title: InterMine Features
+---
 
 InterMine is a powerful open source data warehouse system, created specifically for integrating and analysing complex biological data. Benefiting from over a decade of data warehousing experience and input from a wide range of research collaborators, InterMine is still in active development, and is used by a number of major model organism databases among others. InterMine features include:
 

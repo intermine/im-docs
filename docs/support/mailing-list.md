@@ -1,4 +1,6 @@
-# Mailing list
+---
+title: Mailing list
+---
 
 ## Google Summer of Code list
 

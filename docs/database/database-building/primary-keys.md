@@ -1,4 +1,6 @@
-# Primary Keys
+---
+title: Primary Keys
+--- 
 
 This document describes the configuration used by the InterMine integration system to identify objects that are identical to each other. Two objects are deemed to be identical if they have matching fields for at least one primary key used for the class of object. Primary keys are defined in the resources directory of the data source, and should be called "$DATA-SOURCE-NAME\_keys.properties".
 

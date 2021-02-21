@@ -1,4 +1,6 @@
-# Query Results
+---
+title: Query Results
+---
 
 Query results can be configured in a number of ways, including:
 

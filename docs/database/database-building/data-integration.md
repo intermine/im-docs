@@ -1,4 +1,6 @@
-# Data Integration
+---
+title: Data Integration
+---
 
 Data integration works by using keys for each class of object to define equivalence for objects of that class. For example:
 

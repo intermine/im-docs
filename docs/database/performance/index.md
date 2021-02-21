@@ -1,4 +1,6 @@
-# InterMine performance
+---
+title: InterMine performance
+---
 
 ::: {.toctree maxdepth="4
 

@@ -1,4 +1,6 @@
-# Linking in to your mine
+---
+title: Linking in to your mine
+---
 
 This page aims to describe the various ways to link to a Mine.
 

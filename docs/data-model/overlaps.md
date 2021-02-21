@@ -1,4 +1,6 @@
-# Querying over genomic ranges
+---
+title: Querying over genomic ranges
+---
 
 InterMine includes functionality for querying features with overlapping genome coordinates. We have an index that is created on the `Location` table. This is used by a 'virtual' `SequenceFeature.overlappingFeatures` collection that is a `view` in the postgres database using the native [Postgres index](https://www.postgresql.org/docs/9.5/static/rangetypes.html) to find other features that overlap it.
 

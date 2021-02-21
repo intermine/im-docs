@@ -1,4 +1,6 @@
-# Open ID
+---
+title: Open ID
+---
 
 InterMine web-applications allow users to create accounts and sign in to these accounts by authenticating with a selection of Open-ID providers, including Yahoo.
 

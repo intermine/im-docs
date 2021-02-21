@@ -1,4 +1,6 @@
-# Galaxy
+---
+title: Galaxy
+---
 
 ## Enable Galaxy export
 
@@ -66,18 +68,18 @@ to Galaxy from the 'EXPORT' menu in the results page.
 
 1. Starting from an InterMine instance, e.g. FlyMine, run a query, select the option **Export** -&gt; **Send to Galaxy** and the data will be exported in the galaxy instance specified in the _Galaxy Location_ field
 
-   ![](../../../.gitbook/assets/sendtogalaxy.png)
+   ![](img/sendtogalaxy.png)
 
 2. Starting from Galaxy, use the NEW intermine tool to be redirected to the InterMine registry, select the InterMine instance you want to use to export the data, run the query, select the option **Export** -&gt; **Send to Galaxy** and the data will be exported in the Galaxy instance you started from.
 
-![](../../../.gitbook/assets/sendtogalaxy2.png)
+![](img/sendtogalaxy2.png)
 
 ## Export Identifiers from Galaxy to InterMine 
 
 Use the new **InterMine interchange dataset** to generate an intermediate file \(tsv formatted\)
 
-![](../../../.gitbook/assets/sendtoim.png)
+![](img/sendtoim.png)
 
 and then click on _View InterMine at Registry_ to be redirected to the InterMine registry in order to chose the InterMine instance to export the identifiers to.
 
-![](../../../.gitbook/assets/sendtoim2.png)
+![](img/sendtoim2.png)

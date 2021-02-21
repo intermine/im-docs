@@ -1,4 +1,6 @@
-# Tutorial - Configure your InterMine webapp!
+---
+title: Tutorial - Configure your InterMine webapp!
+---
 
 This tutorial aims to cover the basics of configuring an InterMine webapp.
 
@@ -24,7 +26,7 @@ If your webapp is under heavy usage or development, Tomcat may run out of memory
 
 Each web page in InterMine has the same header and footer. The header contains everything at the top of the page, including the navigation tabs and the keyword search. The footer contains the contact form and InterMine logo.
 
-![Header and footer of FlyMine website](../../../.gitbook/assets/header-footer.png)
+![Header and footer of FlyMine website](../../imgs/header-footer.png)
 
 Let's start configuring our mine by updating these common sections of our web application.
 
@@ -34,7 +36,7 @@ Let's start configuring our mine by updating these common sections of our web ap
 
 First, let's update the logo of your site. The logo should be 45x43pixels and named `logo.png`, for example:
 
-![FlyMine's logo](../../../.gitbook/assets/logo.png)
+![FlyMine's logo](../../imgs/logo.png)
 
 1. Copy your image into this directory:
 
@@ -48,7 +50,7 @@ First, let's update the logo of your site. The logo should be 45x43pixels and na
 
 3. Refresh your browser
 
-![Updated logo](../../../.gitbook/assets/new-logo.png)
+![Updated logo](../../imgs/new-logo.png)
 
 You should see your new logo at the top left corner of your webapp. If you don't, try clearing your browser's cache.
 
@@ -68,7 +70,7 @@ See [Gradle - Quick Start](../../system-requirements/software/gradle/index.md) f
 
 Next to the name of your mine in the header is the release version and subtitle for your mine:
 
-![Title, release version and subtitle](../../../.gitbook/assets/subtitle.png)
+![Title, release version and subtitle](../../imgs/subtitle.png)
 
 These values are set in a properties file. See [Database and Web application](../../webapp/properties/intermine-properties.md) for more details. This is the same properties file you updated in the previous tutorial. The subtitle and release versions are populated by the properties `project.subTitle` and `project.releaseVersion`, respectively. Update the values of these properties and redeploy your webapp using the commands given below. Once you have successfully released your webapp, you should see your new subtitle.
 
@@ -99,7 +101,7 @@ These values are set in a properties file. See [Database and Web application](..
 
    [http://localhost:8080/biotestmine](http://localhost:8080/biotestmine)
 
-   ![Updated release version and subtitle](../../../.gitbook/assets/new-subtitle.png)
+   ![Updated release version and subtitle](../../imgs/new-subtitle.png)
 
 That's it! Well done! The majority of mine configuration will be accomplished this way - update a property in a text file and redeploy the webapp.
 
@@ -162,7 +164,7 @@ The Lucene index can become quite large, depending on the size of the database. 
 
 The footer is positioned at the bottom of every page in the InterMine webapp. It contains the contact link and the funding message.
 
-![Funding message in footer](../../../.gitbook/assets/funding.png)
+![Funding message in footer](../../imgs/funding.png)
 
 To update the funding message, change the `funding` property in [Text and messages](../../webapp/properties/model-properties.md). Redeploy your webapp to see your changes.
 
@@ -207,7 +209,7 @@ Almost everything on the home page is customisable. You can edit the text and se
 
 You can customise the text in the three boxes that appear at the top of the home page. Let's edit the example given in the middle box marked `Analyse`.
 
-![Three boxes at the top of the home page](../../../.gitbook/assets/homepage-boxes.png)
+![Three boxes at the top of the home page](../../imgs/homepage-boxes.png)
 
 Notice the text box already has an example, `e.g. X, Y, Z`. This is the default example and it's set by `begin.listBox.example` in an InterMine properties file, `global.web.properties`.
 

@@ -1,4 +1,6 @@
-# Help
+---
+title: Help
+---
 
 This page lists how you can update the help sections of your InterMine.
 

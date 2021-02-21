@@ -1,4 +1,6 @@
-# Project XML
+---
+title: Project XML
+--- 
 
 This document describes the InterMine project XML file. This file is located in the mine directory and determines:
 

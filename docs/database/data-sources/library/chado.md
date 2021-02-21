@@ -1,4 +1,6 @@
-# Chado
+---
+title: Chado
+---
 
 We have developed an InterMine data source that can use a GMOD Chado database as a source for an InterMine warehouse. The eventual aim is to allow import of any Chado database with some configuration. This will provide a web environment to perform rapid, complex queries on Chado databases with minimal development effort.
 

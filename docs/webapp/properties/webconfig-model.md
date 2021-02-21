@@ -1,4 +1,6 @@
-# Data and Widget Configuration
+---
+title: Data and Widget Configuration
+---
 
 The `webconfig-model.xml` file configures aspects of how data appears on the InterMine webapp.
 

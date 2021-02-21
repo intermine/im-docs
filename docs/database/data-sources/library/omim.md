@@ -1,4 +1,6 @@
-# OMIM
+---
+title: OMIM
+---
 
 ## Types of data loaded
 

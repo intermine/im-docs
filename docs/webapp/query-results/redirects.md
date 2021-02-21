@@ -1,4 +1,6 @@
-# Link redirects
+---
+title: Link redirects
+---
 
 You can add a property to WebProperties to have links in results forward the user to a URL instead of the InterMine report page.
 

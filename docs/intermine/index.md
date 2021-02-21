@@ -1,4 +1,6 @@
-# InterMine
+---
+title: InterMine
+---
 
 ::: {.toctree maxdepth="2
 

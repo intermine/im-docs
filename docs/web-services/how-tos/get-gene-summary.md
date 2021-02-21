@@ -1,4 +1,6 @@
-# How Do I Get a Summary of a Gene?
+---
+title: How Do I Get a Summary of a Gene?
+---
 
 You need to make a request to the `query/results` resource:
 

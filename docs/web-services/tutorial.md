@@ -1,4 +1,6 @@
-# Tutorial
+---
+title: Tutorial
+---
 
 The InterMine API is made more accessible through the publication of a number of client libraries in different languages. For the purpose of this tutorial, we will use the Python client library for the illustration of examples, but any of the client libraries \(in Perl, Java, Ruby and JavaScript\) provides similar functionality. Similarly, we will use FlyMine \(www.flymine.org\) as an example of an InterMine web-service, but the techniques discussed here are applicable to any of the available implementations.
 

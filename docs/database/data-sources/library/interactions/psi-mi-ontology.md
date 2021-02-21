@@ -1,4 +1,6 @@
-# PSI-MI Ontology
+---
+title: PSI-MI Ontology
+---
 
 Include this source when loading `psi` data to fill in details of ontology terms used. Should be loaded if you are loading interaction data.
 

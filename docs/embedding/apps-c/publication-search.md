@@ -1,4 +1,6 @@
-# publication-search
+---
+title: publication-search
+---
 
 {% hint style="info" %}
 You can view the source files for this project in the [intermine/intermine-apps-c](https://github.com/intermine/intermine-apps-c/tree/master/publication-search) repo.

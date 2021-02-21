@@ -1,4 +1,6 @@
-# Uberon
+---
+title: Uberon
+---
 
 ## Types of data loaded
 

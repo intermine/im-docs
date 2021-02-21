@@ -1,4 +1,6 @@
-# General Layout
+---
+title: General Layout
+---
 
 This page describes how to customise the look & feel of the whole InterMine webapp.
 

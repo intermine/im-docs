@@ -1,4 +1,6 @@
-# Identifier Data Sources
+---
+title: Identifier Data Sources
+---
 
 You can load MODs ids into your mine using identifier data sources.
 

@@ -1,4 +1,6 @@
-# Database and Web application
+---
+title: Database and Web application
+---
 
 InterMine is governed by a properties file located in the $HOME/.intermine named `$MINE_NAME.properties`. This page describes which values are set in that file.
 

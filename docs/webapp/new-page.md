@@ -1,4 +1,6 @@
-# New page
+---
+title: New page
+---
 
 This tutorial describes how to add a new page to your InterMine webapp.
 

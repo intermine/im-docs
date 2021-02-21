@@ -1,4 +1,6 @@
-# KEGG
+---
+title: KEGG
+---
 
 Links genes to KEGG pathways that they operate in.
 

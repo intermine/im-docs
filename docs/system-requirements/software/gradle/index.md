@@ -1,4 +1,6 @@
-# Gradle - Quick Start
+---
+title: Gradle - Quick Start
+---
 
 [Gradle](https://gradle.org) is InterMine's build tool. In InterMine 2.0, Gradle replaced ant.
 

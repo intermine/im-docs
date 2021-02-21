@@ -1,4 +1,6 @@
-# Data Sets
+---
+title: Data Sets
+---
 
 Load an XML file with details of your data sets and associated information, e.g. description and URL
 

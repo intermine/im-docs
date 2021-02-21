@@ -1,4 +1,6 @@
-# ObjectStore Summary
+---
+title: ObjectStore Summary
+---
 
 There are several processes run after the data loading is completed, one of which, the objectstore summarisation. This step counts the number of objects of particular classes, identifies any empty references/collections and collects values to appear in dropdowns in the query builder and templates. The summarisation process also constructs the indexes needed for "type-ahead" autocompletion, this is configured by adding entries to the objectstoresummary.config.properties.
 

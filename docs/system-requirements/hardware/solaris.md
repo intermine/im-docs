@@ -1,4 +1,6 @@
-# Solaris
+---
+title: Solaris
+---
 
 [Installation guide](http://wiki.postgresql.org/wiki/Detailed_installation_guides#Solaris)
 

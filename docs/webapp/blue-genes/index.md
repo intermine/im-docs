@@ -1,4 +1,6 @@
-# Guide to Customising BlueGenes
+---
+title: Guide to Customising BlueGenes
+---
 
 ## Content
 

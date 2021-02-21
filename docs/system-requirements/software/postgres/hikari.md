@@ -1,4 +1,6 @@
-# HikariCP and InterMine settings
+---
+title: HikariCP and InterMine settings
+---
 
 InterMine now uses [HikariCP](https://github.com/brettwooldridge/HikariCP) as its default JDBC connection pool. If this is not available, InterMine will use the default PostgreSQL distribution, `PGPoolingDataSource`.
 

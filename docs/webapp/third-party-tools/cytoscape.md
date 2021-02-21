@@ -1,4 +1,6 @@
-# Cytoscape network viewer
+---
+title: Cytoscape network viewer
+---
 
 This tool takes gene interaction data from Intermine and visualises it using [cytoscape.js](http://js.cytoscape.org/), a fabulous network visualisation tool. It replaces the flash-based CytoscapeWeb network viewer found in previous versions of the tool.
 

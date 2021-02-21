@@ -1,4 +1,6 @@
-# Perl Items API
+---
+title: Perl Items API
+---
 
 In the `intermine/perl` directory we provide a Perl library for creating files in InterMine "Item XML" format. Files in this format can be loaded into an InterMine database by creating a "source".
 

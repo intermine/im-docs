@@ -1,4 +1,6 @@
-# Setting Javascript Options
+---
+title: Setting Javascript Options
+---
 
 Many of the JavaScript tools included in InterMine pages can be customized at runtime with specific options. To do this, the recommended practice is to include a custom set of option configurations in a JavaScript file that is included in your InterMine instance, or other embedding page. To do this within the context of the InterMine web-application, we recommend following the following steps:
 

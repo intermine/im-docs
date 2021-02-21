@@ -1,4 +1,6 @@
-# How to set up your InterMine environment on the Amazon Cloud
+---
+title: How to set up your InterMine environment on the Amazon Cloud
+---
 
 This is where you should learn how to start your own MalariaMine web application on the Amazon Cloud. You could also use your InterMine Amazon instance to try building MalariaMine yourself or to build your own mine there.
 

@@ -1,4 +1,6 @@
-# InterMine JARs
+---
+title: InterMine JARs
+---
 
 InterMine JARs are published on JCenter: [https://bintray.com/intermineorg](https://bintray.com/intermineorg)
 

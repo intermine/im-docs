@@ -1,4 +1,6 @@
-# Intellij
+---
+title: Intellij
+---
 
 It's recommended that if you are working with InterMine's Java code, you use an IDE. Our favourite IDE at InterMine towers is Intellij.
 

@@ -1,4 +1,6 @@
-# InterMine Video Tutorial Collection
+---
+title: InterMine Video Tutorial Collection
+---
 
 Welcome to InterMine's online video tutorial collection. Here, you can find out how to work with InterMine databases. You'll also find a PDF version of each tutorial so that you can work through the examples off-line.
 

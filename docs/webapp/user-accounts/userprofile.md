@@ -1,4 +1,6 @@
-# Userprofile
+---
+title: Userprofile
+---
 
 The user profile is an InterMine ObjectStore which stores profile information such as username and password, tags, queries, lists and templates.
 

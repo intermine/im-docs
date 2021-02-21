@@ -1,4 +1,6 @@
-# Search Engines
+---
+title: Search Engines
+---
 
 This document discusses the relationship between your InterMine-based website and search engines.
 

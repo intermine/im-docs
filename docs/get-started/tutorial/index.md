@@ -1,4 +1,6 @@
-# Tutorial
+---
+title: Tutorial
+---
 
 Following the steps on this page, you will set up an example InterMine. You will:
 

@@ -1,4 +1,6 @@
-# Maven
+---
+title: Maven
+---
 
 InterMine uses [Maven](https://maven.apache.org/) to manage local dependencies, including your mine-specific data sources.
 

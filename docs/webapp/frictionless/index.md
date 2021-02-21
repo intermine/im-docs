@@ -1,4 +1,6 @@
-## Frictionless Specifications for InterMine
+---
+title: Frictionless Specifications for InterMine
+---
 
 ### Contents
 

@@ -1,4 +1,6 @@
-# Proteins
+---
+title: Proteins
+---
 
 ::: {.toctree} uniprot interpro :::
 

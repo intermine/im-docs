@@ -1,4 +1,6 @@
-# NCBI - Entrez gene
+---
+title: NCBI - Entrez gene
+---
 
 Gene information from NCBI
 

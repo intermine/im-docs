@@ -1,4 +1,6 @@
-# Model Merging
+---
+title: Model Merging
+---
 
 An InterMine model describes the classes available to the InterMine system and their relationships. The model is used to generate the database tables, the Java class files and the web application.
 

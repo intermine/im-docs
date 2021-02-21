@@ -1,4 +1,6 @@
-# Data loading performance
+---
+title: Data loading performance
+---
 
 The speed at which InterMine is able to load data into the databases depends on a number of factors including complexity of objects loaded, hardware specifications and so on. Below are some steps you can take to speed up your build.
 

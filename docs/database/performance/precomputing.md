@@ -1,4 +1,6 @@
-# Query performance \(precomputed tables\)
+---
+title: Query performance \(precomputed tables\)
+---
 
 InterMine can make use of precomputed tables \(analagous to materialised views\) for faster execution of queries. These can represent any SQL query \(or InterMine query\) and can automatically be substituted into incoming queries by our own cost-based query optimiser. For example, a precompute that joins three tables could be used in a larger query that includes that join thus reducing the total number of tables joined in the query. Template queries can be precomputed completely so that for any value entered in an editable constraint, the query will be executed from a single database table.
 

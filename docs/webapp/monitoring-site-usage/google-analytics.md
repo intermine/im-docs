@@ -1,4 +1,6 @@
-# Google Analytics
+---
+title: Google Analytics
+---
 
 To enable Google Analytics to track usage of your webapp you need to set up your Analytics account and get a '''code''' from Google then, add a property to your `.intermine/xxxmine.properties` file:
 

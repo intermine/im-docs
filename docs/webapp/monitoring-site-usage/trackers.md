@@ -1,4 +1,6 @@
-# InterMine User Tracking
+---
+title: InterMine User Tracking
+---
 
 The following user activities are recorded during browsing of all mine webapps, to track the usage:
 

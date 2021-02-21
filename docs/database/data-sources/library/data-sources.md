@@ -1,4 +1,6 @@
-# Data Sources
+---
+title: Data Sources
+---
 
 Load the official title, description and URL for data sources.
 

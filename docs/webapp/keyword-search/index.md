@@ -1,4 +1,6 @@
-# Keyword Search
+---
+title: Keyword Search
+---
 
 InterMine uses Solr for its keyword search index.
 

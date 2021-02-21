@@ -1,4 +1,6 @@
-# How Do I Get A Listing of My Lists?
+---
+title: How Do I Get A Listing of My Lists?
+---
 
 You simply need to make a GET request to the /lists resource:
 

@@ -1,4 +1,6 @@
-# Report Page
+---
+title: Report Page
+---
 
 ### Object Title\(s\)
 
@@ -16,7 +18,7 @@ Let us suppose we want to have a default way of displaying bio entities like gen
 </class>
 ```
 
-![image](../../../.gitbook/assets/Screenshot4%20%281%29.jpg)
+![image](img/Screenshot4.jpg)
 
 We see that the titles are defined within the headerconfig block. Then we have the following fields:
 
@@ -55,7 +57,7 @@ One can have a custom link in the header of the page through the `webconfig-mode
 </headerconfig>
 ```
 
-![image](../../../.gitbook/assets/Screenshot4.jpg)
+![image](img/Screenshot4.jpg)
 
 The example above has been inserted as a child of the Gene class `<class className="org.intermine.model.bio.Gene">`. The parameters are as follows:
 
@@ -103,7 +105,7 @@ use.localstorage = true
 
 Inline lists are lists of values in one column of a report page table, displayed in one line. Take ''dataSets'' on a Gene object as follows:
 
-![image](../../../.gitbook/assets/Screenshot.jpg)
+![image](img/Screenshot.jpg)
 
 Perhaps we would like to only display the names of data sets available. In that case, we would add the following to the Gene class \(`<class className="org.intermine.model.bio.Gene">`\) in the `webconfig-model.xml` file:
 
@@ -115,7 +117,7 @@ Perhaps we would like to only display the names of data sets available. In that 
 
 The result:
 
-![image](../../../.gitbook/assets/Screenshot2.jpg)
+![image](img/Screenshot2.jpg)
 
 Let's go through the available configuration:
 

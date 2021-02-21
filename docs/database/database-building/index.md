@@ -1,4 +1,6 @@
-# Database Building
+---
+title: Database Building
+--- 
 
 A 'build' of a mine is a complete data loading run starting from an empty database. It is recommended that you use the [project\_build script](build-script.md). The build script runs the data integration and any post-processing steps.
 

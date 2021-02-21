@@ -1,4 +1,6 @@
-# Template Comparison
+---
+title: Template Comparison
+--- 
 
 We have written a script that runs queries against the templates publicly available in a mine or a pair of mines. The purpose of these scripts is to:
 
