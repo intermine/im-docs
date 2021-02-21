@@ -1,5 +1,5 @@
 ---
-title: New page
+title: Adding a New Page to InterMine Webapp
 ---
 
 This tutorial describes how to add a new page to your InterMine webapp.
