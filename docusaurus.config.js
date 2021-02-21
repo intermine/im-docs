@@ -10,7 +10,7 @@ module.exports = {
   projectName: 'docusaurus', // Usually your repo name.
   plugins: [  
     '@aldridged/docusaurus-plugin-lunr'
-  ]
+  ],
   themeConfig: {
     navbar: {
       title: 'My Site',
