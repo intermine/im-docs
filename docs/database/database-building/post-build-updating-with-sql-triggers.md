@@ -2,9 +2,8 @@
 title: Post build updating with SQL triggers
 --- 
 
-{% hint style="warning" %}
+**Warning**
 Please note this is an experimental facility and is subject to a number of caveats \(see below\). Please always take a backup of your database before trying.
-{% endhint %}
 
 We very much welcome feedback, discussion and additional patches for this. Many thanks to Joe Carlson of the DOE Joint Genome Institute for the idea and implementation!
 

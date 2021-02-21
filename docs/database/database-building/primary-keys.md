@@ -27,17 +27,15 @@ Use common names for identical keys between sources as this will help avoid dupl
 
 Each key should list one or more fields that can be a combination of `attributes` of the class specified or \[references\]{.title-ref} to other classes - in which case there should be a key defined for the referenced class as well.
 
-{% hint style="warning" %}
+**Warning**
 The build system will use any valid key it finds - so be careful! e.g. if you have keys for BioEntity and SequenceFeature and Gene in your keys file, any of the three keys may be used to merge a Gene into the database.
-{% endhint %}
 
 It is still possible to use a legacy method of configuring keys, where keys are defined centrally in `dbmodel/resources/genomic_keyDefs.properties` and referenced in source `$DATA-SOURCE-NAME_keys.properties` files.
 
 ## Global primary key configuration file \[DEPRECATED\]
 
-{% hint style="warning" %}
+**Warning**
 This is an older method of defining keys in a central configuration file. Use the method described above instead.
-{% endhint %}
 
 ### Define keys in a central file \[DEPRECATED\]
 
@@ -75,7 +73,6 @@ Gene = key_identifier_org, key_symbol_org
 
 This line means that the class "Gene" and all its subclasses have a two primary keys available for this data source, called "key\_identifier\_org" and "key\_symbol\_org", which should be defined properly in the global configuration.
 
-{% hint style="warning" %}
+**Warning**
 This is an older method of defining keys in a central configuration file. Use the method described in the first section instead.
-{% endhint %}
 

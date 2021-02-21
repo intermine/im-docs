@@ -172,9 +172,8 @@ You should then be able to deploy your webapp as normal, with the new and improv
 
 [InterMine 2.0](https://intermineorg.wordpress.com/2017/09/22/intermine-2-0-summer-update/) is a disruptive release and is not backwards compatible. This means that databases, webapps and code from previous releases will need to be updated to work with the new InterMine release. Below are detailed instructions on how to migrate your InterMine to the new build system.
 
-{% hint style="warning" %}
+**Warning**
 If you have custom InterMine code, your changes will likely not work as expected after the upgrade. Please contact us and we can help you migrate your edits to the new system.
-{% endhint %}
 
 Please contact us if you have any questions or concerns! We have a mailing list or you can contact us directly via email or our discord channel \(chat.intermine.org\). If you are having difficulties, we can also arrange a skype call to walk through any problems together. Please make sure your code is public, e.g. GitHub, so we can help test!
 

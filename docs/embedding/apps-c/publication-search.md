@@ -2,9 +2,8 @@
 title: publication-search
 ---
 
-{% hint style="info" %}
+**Note**
 You can view the source files for this project in the [intermine/intermine-apps-c](https://github.com/intermine/intermine-apps-c/tree/master/publication-search) repo.
-{% endhint %}
 
 This document will guide you through the process of writing a JavaScript client side app \(running completely in a browser\) using [Bower](http://bower.io/) and [Grunt](http://gruntjs.com/) tools. This app will connect to an [InterMine](http://intermine.org) instance to run a query. The objective will be to fetch a list of publications for each _bio entity_ found that is _like_ our query.
 

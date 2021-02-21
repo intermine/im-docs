@@ -2,13 +2,11 @@
 title: elastic-med
 ---
 
-{% hint style="info" %}
+**Note**
 @in-progress
-{% endhint %}
 
-{% hint style="info" %}
+**Note**
 You can view the source files for this project in the [intermine/intermine-apps-c](https://github.com/intermine/intermine-apps-c/tree/master/elastic-med) repo.
-{% endhint %}
 
 This document will guide you through the process of writing a JavaScript client side app \(running completely in a browser\) using [Bower](http://bower.io/) and [Grunt](http://gruntjs.com/) tools. The app will connect to an [ElasticSearch](http://www.elasticsearch.org/) \(ES\) instance to do _search_. ES wraps Apache Lucene and serves as a repository of indexed documents that one can search against. If you prefer a short gist head over to [Apps/C Usage](usage.md) instead.
 
@@ -36,9 +34,8 @@ Among the important libraries we will be using:
 12. [Stylus](http://learnboost.github.io/stylus/) allows us to be more expressive and dynamic with CSS.
 13. [Underscore](http://underscorejs.org/) is a utility toolbelt making actions such as iterating over items easier.
 
-{% hint style="warning" %}
+**Warning**
 Some of the code block examples on this page feature line numbers. Please view the page in a widescreen mode.
-{% endhint %}
 
 ## Initialize Project
 

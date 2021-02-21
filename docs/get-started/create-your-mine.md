@@ -4,9 +4,8 @@ title: Create Your Own InterMine!
 
 This guide will show you how to create a new InterMine. You will need all the dependencies listed in [Software](../system-requirements/software/index.md).
 
-{% hint style="info" %}
+**Note**
 These instructions assume you have taken the [Tutorial](tutorial/index.md), a detailed guide to integrating data with InterMine.
-{% endhint %}
 
 See [Quick Start](quick-start.md) to run our test InterMine - BioTestMine.
 
@@ -71,9 +70,8 @@ Just as in the demo, you will create your InterMine databases.
 ~/git/tigermine $ createdb userprofile-tigermine
 ```
 
-{% hint style="info" %}
+**Note**
 These database names should match the ones you added to your mine.properties file in the previous step.
-{% endhint %}
 
 These databases are empty. We'll populate the main database in the following steps, but let's put some default information in our user database now.
 

@@ -30,9 +30,8 @@ To add a widget to your mine:
 
 Below are the details on how to configure each widget type.
 
-{% hint style="info" %}
+**Note**
 Please read the documentation carefully and check your config file for typos. Most attributes are case sensitive. When the webapp is released, the config is validated and any errors are displayed in the home page.
-{% endhint %}
 
 ### Configuration
 
@@ -85,9 +84,8 @@ Graph widgets display datasets in graphical format.
 
 > \[1\] All the paths set, will be built starting from that. Specify only the simple name \(e.g. `Gene`\). You can choose to set the bag type class or the root class associated to the category path.
 
-{% hint style="warning" %}
+**Warning**
 You can specify **only one** class in `typeClass`. If you need another type, you have to define a new widget.
-{% endhint %}
 
 The following are optional attributes:
 
@@ -110,9 +108,8 @@ The following are optional attributes:
 >
 > \[5\] organism’s name matching with the value selected in the filter with filterLabel ‘Organism’
 
-{% hint style="info" %}
+**Note**
 The graphs use [Google Visualitation API](https://developers.google.com/chart/interactive/docs/reference).
-{% endhint %}
 
 #### Enrichment widgets
 
@@ -131,9 +128,8 @@ Enrichment widgets calculate p-values representing the probability annotation oc
 
 > \[6\]  \(1, 2\) You have to specify only one field. Specify the subclass using the syntax path\[subclass type\].
 
-{% hint style="warning" %}
+**Warning**
 You can specify **only one** class in `typeClass`. If you need another type, you have to define a new widget.
-{% endhint %}
 
 The following are optional attributes:
 
@@ -209,9 +205,8 @@ widgets.table('interactions', 'myList', '#widget-3');
 
 #### CSS
 
-{% hint style="info" %}
+**Note**
 Widgets are using [Twitter Bootstrap](https://getbootstrap.com/2.0.2/) CSS framework.
-{% endhint %}
 
 #### Embedding mine widgets on a custom page
 

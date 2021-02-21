@@ -73,9 +73,8 @@ See [Data Source Versions](dataparser-versions.md) for details.
 
 For most types of data, you'll have to write some code to store your data into InterMine.
 
-{% hint style="info" %}
+**Note**
 Run `make_source` with no arguments to get a full list of source types.
-{% endhint %}
 
 ### custom-file
 
@@ -321,9 +320,8 @@ Now your code is ready, compile it, build a JAR and put on the classpath with th
 
 See the "Version" section above for how to properly version your JAR.
 
-{% hint style="info" %}
+**Note**
 This JAR is now on your classpath. If you make changes, you will want to run this command again.
-{% endhint %}
 
 ## 7. Run a build and load your data!
 
@@ -333,8 +331,7 @@ Once you've updated the config files, and written your parser \(if necessary\), 
 ./gradlew builddb
 ```
 
-{% hint style="info" %}
+**Note**
 Run the `clean` task before `builddb` when changing the model. `clean` removes the `build` directory which is the location of the data model. If you don't, you won't see your new data model changes!
-{% endhint %}
 
 It's also recommended that you write a unit test for your source. It saves time!

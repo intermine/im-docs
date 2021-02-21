@@ -2,13 +2,11 @@
 title: InterMine JavaScript API Loader
 ---
 
-{% hint style="info" %}
+**Note**
 See also [GitHub repo](https://github.com/intermine/intermine-api-loader) for source code.
-{% endhint %}
 
-{% hint style="info" %}
+**Note**
 If you are loading JavaScript libraries on a page, you should use a loader \(count of 1\). Why not use ours?
-{% endhint %}
 
 ### Purpose
 
@@ -16,9 +14,8 @@ To simplify loading of CSS and JS libraries. The API Loader automatically works 
 
 ### How to use
 
-{% hint style="info" %}
+**Note**
 If you are passing a string or an array as the first parameter into the library, these are @deprecated but still working for backwards compatibility.
-{% endhint %}
 
 First you require the API Loader. You can, for example, use the following shorthand notation that always points to the latest version.
 

@@ -20,9 +20,8 @@ To solve this problem, each homologue source uses the NCBI identifier resolver. 
 
 2. Unzip the file to `/DATA_DIR/ncbi/gene_info`
 
-{% hint style="warning" %}
+**Warning**
 Make sure permissions on the file are correct so the build process can read this file.
-{% endhint %}
 
       3. Download the identifier file for humans -[http://www.flymine.org/download/idresolver/humangene](http://www.flymine.org/download/idresolver/humangene) to another directory, eg. /DATA\_DIR/human/identifiers
 
@@ -42,9 +41,8 @@ resolver.file.rootpath=/DATA_DIR/idresolver/
 
 See [ID Resolvers](../../id-resolvers.md) for details on how ID resolvers work in InterMine.
 
-{% hint style="warning" %}
+**Warning**
 The entrez identifiers file appears to only have the sequence identifier for worm instead of the WBgene identifier
-{% endhint %}
 
 Alternately you can load identifier sources.
 

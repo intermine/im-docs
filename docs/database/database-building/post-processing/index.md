@@ -22,9 +22,8 @@ Post-processing is run automatically after integrating if using the `project_bui
 
 To add a post-process step to InterMine, you need to add the Java definition to the project and call the post-process from the `PostProcessOperationsTask` class.
 
-{% hint style="info" %}
+**Note**
 Be sure to put the postprocesses in the correct order. Each task is executed in the order listed on your project XML so be sure to put the webapp tasks last, for example. Take a look at the FlyMine project XML file if you need help.
-{% endhint %}
 
 ## Sequence Features
 

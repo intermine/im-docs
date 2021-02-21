@@ -8,9 +8,8 @@ Following the steps on this page, you will set up an example InterMine. You will
 > * Learn about how data integration works
 > * Deploy a webapp to query the data
 
-{% hint style="info" %}
+**Note**
 See [Quick Start](../quick-start.md) if you are impatient and just want to run an InterMine.
-{% endhint %}
 
 ## Getting Started
 
@@ -131,9 +130,8 @@ For example, the`uniprot-malaria` source:
   ...
 ```
 
-{% hint style="info" %}
+**Note**
 All file locations must be absolute not relative paths.
-{% endhint %}
 
  The `project.xml` file is now ready to use.
 
@@ -332,9 +330,8 @@ This has also created necessary indexes on the tables:
 biotestmine=#  \d genesproteins
 ```
 
-{% hint style="warning" %}
+**Warning**
 Running `buildDB` will destroy any existing data loaded in the biotestmine database and re-create all the tables.
-{% endhint %}
 
 The model XML file is stored in the database once created. This and some other configuration files are held in the `intermine_metadata`table which has `key` and `value` columns:
 
@@ -907,9 +904,8 @@ Run the `project_build` script from your `biotestmine` directory:
 
 This will take ~15-30mins to complete.
 
-{% hint style="info" %}
+**Note**
 If you encounter an "OutOfMemoryError", you should set your $GRADLE\_OPTS variable. See [Troubleshooting tips](../../support/troubleshooting-tips.md).
-{% endhint %}
 
 ## Deploying the web application
 
@@ -952,9 +948,8 @@ The userprofile database stores all user-related information such as username an
 
 You only need to build the userprofile database once.
 
-{% hint style="warning" %}
-The buildDB and buildUserDB commands rebuild the database and thus will delete any data. 
-{% endhint %}
+**Warning**
+The buildDB and buildUserDB commands rebuild the database and thus will delete any data.
 
 ### Deploying the webapp
 

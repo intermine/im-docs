@@ -132,9 +132,8 @@ If you don't want to strip the prefix from the identifier, use this config:
 10090.primaryIdentifier.prefix=MGI:
 ```
 
-{% hint style="warning" %}
+**Warning**
 The EBI changed how they format their data. If you have a recent data file, you do NOT want the above configuration for MGI.
-{% endhint %}
 
 To replace a taxonomy identifier with a strain, use the following:
 

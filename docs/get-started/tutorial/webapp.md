@@ -8,19 +8,15 @@ This tutorial aims to cover the basics of configuring an InterMine webapp.
 
 In general, customisation of InterMine is accomplished by updating the appropriate configuration file and redeploying the webapp. A few features are updated via tagging as well. See [Guide to Customising your Web Application](../../webapp/index.md) for the full documentation on the webapp.
 
-{% hint style="info" %}
+**Note**
 You should have completed the previous tutorial and have successfully deployed the webapp.
-{% endhint %}
 
 This tutorial is intended to give a general idea of what you can customise in InterMine and how to do it. We're going to go through each section of the webapp and give step by step instructions on how to configure different parts of the page. This is a detailed tutorial and should take you a few hours to complete - however it is not meant to be comprehensive. Where topics aren't covered, there are links provided for more information. If you have a question that you don't see answered, try searching the documentation or taking a look at the index. Intermine has an active developer's [Mailing list](../../support/mailing-list.md) as well.
 
-{% tabs %}
-{% tab title="Tomcat" %}
+**Note**
 You will need to have Tomcat running for this tutorial.
 
 If your webapp is under heavy usage or development, Tomcat may run out of memory. See [Tomcat](../../system-requirements/software/tomcat.md) for details on how to update your settings to adjust the amount of memory available to Tomcat.
-{% endtab %}
-{% endtabs %}
 
 ## General Layout
 
@@ -156,9 +152,8 @@ This can take up to a minute. Our release scripts include a command to run this 
 
 The search box contains example identifiers to help your users know which types of search terms to use. To update the default value, set the `quicksearch.example.identifiers` property in the [web.properties](../../webapp/properties/web-properties.md) file. Redeploy your webapp to see your changes.
 
-{% hint style="info" %}
+**Note**
 The Lucene index can become quite large, depending on the size of the database. FlyMine's index is ~2G, so make certain you have plenty of room.
-{% endhint %}
 
 ### Footer
 

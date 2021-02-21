@@ -12,7 +12,7 @@ head.cdn.location = https://cdn.intermine.org
 
 You can also override this property by setting it directly in your`mine.properties` file.
 
-{% hint style="info" %}
+**Note**
 If you are moving your existing mine to https, please take care of also updating the following properties in the same `mine.properties` file:
 
 * project.sitePrefix
@@ -22,7 +22,6 @@ If you are moving your existing mine to https, please take care of also updating
 If you are using your own jbrowse server, this will now need to be served through https as well, and you will need to also adjust the property:
 
 * jbrowse.install.url
-{% endhint %}
 
 ## Tomcat requirements
 

@@ -97,9 +97,8 @@ Number of genes in the genome associated with this GO term
 
 Total number of genes in the whole genome.
 
-{% hint style="info" %}
+**Note**
 The relevant [InterMine source](https://github.com/intermine/intermine/blob/dev/intermine/webapp/src/main/java/org/intermine/web/logic/widget/ErrorCorrection.java).
-{% endhint %}
 
 ### Reference population
 
@@ -119,6 +118,5 @@ The reference population is by default the collection of **all the genes with an
 
 \| **Variable locus length in the human genome leads to ascertainment bias in functional inference for non-coding elements** \| Taher, L. and Ovcharenko, I. \(2009\), `Bioinformatics <`[`http://bioinformatics.oxfordjournals.org/content/25/5/578>`](http://bioinformatics.oxfordjournals.org/content/25/5/578\) Vol. : Iss. 5: 578--584.
 
-{% hint style="info" %}
+**Note**
 You can read more about **Hypergeometric Distribution** at [Simple Interactive Statistical Analysis](http://www.quantitativeskills.com/sisa/distributions/hypghlp.htm) or [Wolfram MathWorld](http://mathworld.wolfram.com/HypergeometricDistribution.html). **Bonferroni Correction** is discussed in this [Wolfram MathWorld](http://mathworld.wolfram.com/BonferroniCorrection.html) article.
-{% endhint %}

@@ -4,9 +4,8 @@ title: project\_build script
 
 To run a full build of InterMine, you must use the `project_build` script. This is a Perl program that reads a project.xml file and loads each source in turn. This makes multiple calls to Gradle to avoid memory problems encountered when running many Java task sequentially from Gradle. It also has the option of dumping the production database during the build and recovering from these dumps in case of problems.
 
-{% hint style="info" %}
+**Note**
 This script requires the Expect and XML::Parser::PerlSAX Text::Glob perl modules - install with: `sudo cpan -i XML::Parser::PerlSAX Expect Text::Glob`
-{% endhint %}
 
 Download the file from the intermine-scripts repository:
 
@@ -52,9 +51,8 @@ Dump files take the name `dump_file_prefix`.final.
 
 Running project\_build with '''`-l`''' will reload the latest dump \(if any\) with `dump_file_prefix` and restart the build from that point.
 
-{% hint style="info" %}
+**Note**
 You must use the full path to the dump file, e.g. `/some/dump/location/dump_file_prefix`
-{% endhint %}
 
 ## Running a Single Datasource
 
@@ -64,9 +62,8 @@ Before starting the build process you will need to set up the appropriate proper
 flymine $ ./gradlew builddb
 ```
 
-{% hint style="info" %}
+**Note**
 Running the `builddb` target will drop the current database and create a new, blank database.
-{% endhint %}
 
 To run a data source, run this command in your mine directory, specifying the source name \(as it appears in project.xml\):
 

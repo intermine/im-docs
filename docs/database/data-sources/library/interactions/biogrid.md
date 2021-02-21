@@ -56,7 +56,6 @@ To set your gene.identifier field to be a value from an xref entry, use this syn
 <TAXON_ID>.xref.<GENE_IDENTIFIER_FIELD> = <XREF_DB_VALUE>
 ```
 
-{% hint style="info" %}
+**Note**
 xref "db" value is not case sensitive, case seems to vary from file to file.
-{% endhint %}
 
