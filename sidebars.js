@@ -162,7 +162,8 @@ module.exports = {
   												  'webapp/diagnostic/index',
   												  'webapp/javadoc/index',
   												  'webapp/permanent-url/index',
-  												  'webapp/iodocs'],
+  												  'webapp/iodocs',
+                            'webapp/frictionless'],
 
   	'Web Services': ['web-services/index'],
 
