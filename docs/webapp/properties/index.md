@@ -4,11 +4,11 @@ title: Customise Web Application
 
 Content
 
-* [Database and Web application](intermine-properrties.md)
-	* [Database names and locations](intermine-properrties.md#database-names-and-locations)
-	* [Web application name and location](intermine-properrties.md#web-application-name-and-location)
-	* [Email](intermine-properrties.md#email)
-	* [Multiple versions of a mine](intermine-properrties.md#multiple-versions-of-a-mine)
+* [Database and Web application](intermine-properties.md)
+	* [Database names and locations](intermine-properties.md#database-names-and-locations)
+	* [Web application name and location](intermine-properties.md#web-application-name-and-location)
+	* [Email](intermine-properties.md#email)
+	* [Multiple versions of a mine](intermine-properties.md#multiple-versions-of-a-mine)
 * [Text and messages](model-properties.md)
 * [Features](web-properties.md)
 	* [Branding](web-properties.md#branding)
