@@ -12,7 +12,7 @@ It can also enable cross-database analysis. Is the "gene" data type in MouseMine
 
 We will use these ontologies in the future when we generate RDF.
 
-## How do you chose an ontology term?
+## How do you choose an ontology term?
 
 We used an ontology search, then selected the most specific and accurate term available.
 
