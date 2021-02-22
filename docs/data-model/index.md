@@ -31,6 +31,6 @@ title: Data Model
 	* [Create the overlappingFeatures view](overlaps.md#create-the-overlappingfeatures-view)
 * [Decorating your model with ontologies](model-ontologies.md)
 	* [Why would you do this? Where is this used?](model-ontologies.md#why-would-you-do-this)
-	* [How do you chose an ontology term?](model-ontologies.md#how-do-you-chose-an-ontology-term?)
+	* [How do you choose an ontology term?](model-ontologies.md#how-do-you-choose-an-ontology-term?)
 	* [How do you add an ontology term to the data model?](model-ontologies.md#how-do-you-add-an-ontology-term-to-the-data-model)
 	* [An example additions.xml snippet with an ontology term](model-ontologies.md#an-example-additions.xml-snippet-with-an-ontology-term)
