@@ -11,7 +11,7 @@ module.exports = {
   
   themeConfig: {
     navbar: {
-      title: 'My Site',
+      title: 'InterMine Documentation',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
@@ -25,10 +25,21 @@ module.exports = {
         },
         {to: 'blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/intermine/im-docs',
           label: 'GitHub',
           position: 'right',
         },
+        {
+          type: 'docsVersionDropdown',
+          position: 'right',
+          dropdownActiveClassDisabled: true,
+          dropdownItemsAfter: [
+            {
+              to: '/versions',
+              label: 'All versions',
+            },
+          ]
+        }
       ],
     },
     footer: {
