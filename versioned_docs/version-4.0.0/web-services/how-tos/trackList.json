@@ -1,0 +1,39 @@
+{
+  "tracks": [
+        {
+          "label":        "genes",
+          "key":          "Genes",
+          "type":         "JBrowse/View/Track/CanvasFeatures",
+          "storeClass":   "JBrowse/Store/SeqFeature/REST",
+          "category":     "Features",
+          "baseUrl":      "http://www.flymine.org/query/service/jbrowse/7227",
+          "query":        { "type": "Gene" },
+          "autocomplete": 20,
+          "region_feature_densities": true
+        },
+        {
+          "label":      "intergenes", 
+          "key":        "Intergenic Regions", 
+          "type":       "JBrowse/View/Track/CanvasFeatures",
+          "storeClass": "JBrowse/Store/SeqFeature/REST",
+          "category":   "Features",
+          "baseUrl":    "http://www.flymine.org/query/service/jbrowse/7227",
+          "query":      { "type": "IntergenicRegion" },
+          "region_feature_densities": true
+        },
+        {
+          "label":      "DNA",
+          "key":        "Reference sequence",
+          "category":   "Reference Sequence",
+          "type":       "SequenceTrack",
+          "storeClass": "JBrowse/Store/SeqFeature/REST",
+          "baseUrl":    "http://www.flymine.org/query/service/jbrowse/7227",
+          "query":      { "reference": true }
+        }
+  ],
+  "names": {
+    "url": "http://www.flymine.org/query/service/jbrowse/names/7227",
+    "type": "REST"
+  },
+  "dataset_id": "flymine"
+}
