@@ -2,9 +2,15 @@
 title: List Widgets
 ---
 
-::: {.toctree maxdepth="2
-
-q-and-a enrichment-widgets"} :::
+* [List Widgets Questions & Answers](q-and-a.md)
+   * [Source files](q-and-a.md#source-files)
+   * [Using a temporary list on the fly](q-and-a.md#using-a-temporary-list-on-the-fly)
+   * [Defining custom actions on widget events](q-and-a.md#defining-custom-actions-on-widget-events)
+   * [Showing a Results Table](q-and-a.md#showing-a-results-table)
+* [List enrichment widgets statistics](enrichment-widgets.md)
+   * [Method](enrichment-widgets.md#method)
+   * [Multiple Test Correction](enrichment-widgets.md#multiple-test-correction)
+   * [References](enrichment-widgets.md#references)
 
 There are several list widgets \(widgets from now on\) available on the InterMine list analysis page, and they are configured in [Data and Widget Configuration](../../webapp/properties/webconfig-model.md).
 
