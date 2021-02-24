@@ -35,8 +35,8 @@ module.exports = {
           dropdownActiveClassDisabled: true,
           dropdownItemsAfter: [
             {
-              to: '/versions',
-              label: 'All versions',
+              href: 'https://intermine.readthedocs.io/en/latest/',
+              label: 'previous versions',
             },
           ]
         }
