@@ -1,5 +1,6 @@
 module.exports = {
-  someSidebar: {
+  someSidebar: {    
+    'Introduction': ['index'],
   	'System Requirements': ['system-requirements/index',  		
   	   {Hardware: ['system-requirements/hardware/index', 
   				   'system-requirements/hardware/solaris'],

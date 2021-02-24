@@ -3,6 +3,17 @@
     {
       "collapsed": true,
       "type": "category",
+      "label": "Introduction",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-4.0.0/index"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
       "label": "System Requirements",
       "items": [
         {
