@@ -9,31 +9,26 @@ import styles from './styles.module.css';
 const features = [
   {
     title: 'Easy to Use',
-    imageUrl: 'img/undraw_docusaurus_mountain.svg',
+    //imageUrl: 'img/undraw_docusaurus_mountain.svg',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        InterMine includes an attractive, user-friendly web interface that 
+        works 'out of the box' and can be easily customised for your specific needs, 
+        as well as a powerful, scriptable web-service API to allow programmatic access 
+        to your data.
       </>
     ),
   },
+  ///second feature
   {
-    title: 'Focus on What Matters',
-    imageUrl: 'img/undraw_docusaurus_tree.svg',
+    title: 'Create your own Database',
+    //imageUrl: 'img/undraw_docusaurus_react.svg',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
-  },
-  {
-    title: 'Powered by React',
-    imageUrl: 'img/undraw_docusaurus_react.svg',
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        InterMine enables the creation of biological databases accessed by 
+        sophisticated web query tools. Parsers are provided for integrating 
+        data from many common biological data sources and formats, and there 
+        is a framework for adding your own data.
       </>
     ),
   },
@@ -42,7 +37,7 @@ const features = [
 function Feature({imageUrl, title, description}) {
   const imgUrl = useBaseUrl(imageUrl);
   return (
-    <div className={clsx('col col--4', styles.feature)}>
+    <div className={clsx('col col--6', styles.feature)}>
       {imgUrl && (
         <div className="text--center">
           <img className={styles.featureImage} src={imgUrl} alt={title} />
@@ -59,7 +54,7 @@ function Home() {
   const {siteConfig = {}} = context;
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
+      title={`${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
