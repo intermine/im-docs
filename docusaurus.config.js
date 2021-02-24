@@ -1,13 +1,13 @@
 module.exports = {
-  title: 'My Site',
-  tagline: 'The tagline of my site',
+  title: 'InterMine Documentation',
+  //tagline: 'The tagline of my site',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'intermine', // Usually your GitHub org/user name.
+  projectName: 'im-docs', // Usually your repo name.
   
   themeConfig: {
     navbar: {
@@ -49,12 +49,20 @@ module.exports = {
           title: 'Docs',
           items: [
             {
-              label: 'Style Guide',
-              to: 'docs/',
+              label: 'Tutorial',
+              to: 'docs/get-started/tutorial/index',
             },
             {
-              label: 'Second Doc',
-              to: 'docs/doc2/',
+              label: 'Get Started',
+              to: 'docs/get-started/index',
+            },
+            {
+              label: 'InterMine API Description',
+              to: 'docs/api/index',
+            },
+            {
+              label: 'Web Services',
+              to: 'docs/web-services/index',
             },
           ],
         },
@@ -62,16 +70,12 @@ module.exports = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
               label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              href: 'http://chat.intermine.org',
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              href: 'https://twitter.com/intermineorg',
             },
           ],
         },
@@ -80,7 +84,11 @@ module.exports = {
           items: [
             {
               label: 'Blog',
-              to: 'blog',
+              href: 'https://intermineorg.wordpress.com/',
+            },
+            {
+              label: 'Email',
+              href: 'info@intermine.org',
             },
             {
               label: 'GitHub',
