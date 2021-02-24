@@ -8,7 +8,7 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'intermine', // Usually your GitHub org/user name.
   projectName: 'im-docs', // Usually your repo name.
-  
+  plugins: [require.resolve('docusaurus-lunr-search')],
   themeConfig: {
     navbar: {
       title: 'InterMine Documentation',
@@ -17,13 +17,8 @@ module.exports = {
         src: 'img/logo.svg',
       },
       items: [
-        {
-          to: 'docs/',
-          activeBasePath: 'docs',
-          label: 'Docs',
-          position: 'left',
-        },
-        {to: 'https://intermineorg.wordpress.com/', label: 'Blog', position: 'left'},
+        {to: 'docs/index', label: 'Docs', position: 'left'},
+        {href: 'https://intermineorg.wordpress.com/', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/intermine/im-docs',
           label: 'GitHub',
