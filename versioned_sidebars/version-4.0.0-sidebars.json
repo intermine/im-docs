@@ -1,0 +1,989 @@
+{
+  "version-4.0.0/someSidebar": [
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Introduction",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-4.0.0/index"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "System Requirements",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-4.0.0/system-requirements/index"
+        },
+        {
+          "collapsed": true,
+          "type": "category",
+          "label": "Hardware",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-4.0.0/system-requirements/hardware/index"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/system-requirements/hardware/solaris"
+            }
+          ]
+        },
+        {
+          "collapsed": true,
+          "type": "category",
+          "label": "Software",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-4.0.0/system-requirements/software/index"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/system-requirements/software/git"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/system-requirements/software/java"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/system-requirements/software/perl"
+            },
+            {
+              "collapsed": true,
+              "type": "category",
+              "label": "PostgreSQL",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/system-requirements/software/postgres/index"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/system-requirements/software/postgres/postgres"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/system-requirements/software/postgres/hikari"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/system-requirements/software/tomcat"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/system-requirements/software/macs"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/system-requirements/software/maven"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/system-requirements/software/intellij"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/system-requirements/software/solr"
+            },
+            {
+              "collapsed": true,
+              "type": "category",
+              "label": "Gradle",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/system-requirements/software/gradle/index"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/system-requirements/software/gradle/faqs"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Get started",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-4.0.0/get-started/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/get-started/tutorial/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/get-started/tutorial/webapp"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/get-started/tutorial/test-data"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/get-started/quick-start"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/get-started/create-your-mine"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/get-started/testmine"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/get-started/intermine-tests"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "InterMine",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-4.0.0/intermine/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/intermine/intermine"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/intermine/upgrade"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/intermine/roadmap"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/intermine/intermine-versions"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/intermine/get-involved"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/intermine/https"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/intermine/amazon"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Data Model",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-4.0.0/data-model/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/data-model/overview"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/data-model/model"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/data-model/data-labels"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/data-model/overlaps"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/data-model/model-ontologies"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Database",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-4.0.0/database/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/database/download-scripts"
+        },
+        {
+          "collapsed": true,
+          "type": "category",
+          "label": "Data Sources",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/data-sources/index"
+            },
+            {
+              "collapsed": true,
+              "type": "category",
+              "label": "Data Source Library",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/database/data-sources/library/index"
+                },
+                {
+                  "collapsed": true,
+                  "type": "category",
+                  "label": "Gene Ontology",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/go/index"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/go/go-annotation"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/go/go-obo"
+                    }
+                  ]
+                },
+                {
+                  "collapsed": true,
+                  "type": "category",
+                  "label": "Homologue Data Sources",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/homologues/index"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/homologues/treefam"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/homologues/homologene"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/homologues/orthodb"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/homologues/panther"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/homologues/compara"
+                    }
+                  ]
+                },
+                {
+                  "collapsed": true,
+                  "type": "category",
+                  "label": "Interactions",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/interactions/index"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/interactions/biogrid"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/interactions/intact"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/interactions/intact-complexes"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/interactions/psi-mi-ontology"
+                    }
+                  ]
+                },
+                {
+                  "collapsed": true,
+                  "type": "category",
+                  "label": "Pathway data sources",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/pathways/index"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/pathways/kegg"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/pathways/reactome"
+                    }
+                  ]
+                },
+                {
+                  "collapsed": true,
+                  "type": "category",
+                  "label": "Proteins",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/proteins/index"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/proteins/uniprot"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/proteins/interpro"
+                    }
+                  ]
+                },
+                {
+                  "collapsed": true,
+                  "type": "category",
+                  "label": "Publications",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/publications/index"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/publications/pubmed"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "version-4.0.0/database/data-sources/library/publications/publications"
+                    }
+                  ]
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/database/data-sources/library/ncbi-gene"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/database/data-sources/library/chado"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/database/data-sources/library/fasta"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/database/data-sources/library/gff"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/database/data-sources/library/identifiers/index"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/database/data-sources/library/intermine-items-xml"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/database/data-sources/library/omim"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/database/data-sources/library/organism"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/database/data-sources/library/so"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/database/data-sources/library/uberon"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/database/data-sources/library/data-sources"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/database/data-sources/library/data-sets"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/database/data-sources/library/variation/vcf"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/data-sources/custom/index"
+            },
+            {
+              "collapsed": true,
+              "type": "category",
+              "label": "InterMine Items XML",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/database/data-sources/apis/index"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/database/data-sources/apis/java-items-api"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/database/data-sources/apis/perl-items-api"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/database/data-sources/apis/python-items-api"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/data-sources/id-resolvers"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/data-sources/data-licences"
+            }
+          ]
+        },
+        {
+          "collapsed": true,
+          "type": "category",
+          "label": "Database Building",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/database-building/index"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/database-building/build-script"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/database-building/project-xml"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/database-building/data-integration"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/database-building/model-merging"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/database-building/primary-keys"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/database-building/priority-config"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/database-building/post-processing/index"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/database-building/post-build-updating-with-sql-triggers"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/database-building/debugging"
+            }
+          ]
+        },
+        {
+          "collapsed": true,
+          "type": "category",
+          "label": "Data Integrity Checks",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/data-integrity-checks/index"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/data-integrity-checks/template-comparison"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/data-integrity-checks/acceptance-tests"
+            }
+          ]
+        },
+        {
+          "collapsed": true,
+          "type": "category",
+          "label": "InterMine performance",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/performance/index"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/performance/data-loading"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/performance/precomputing"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/database/performance/configuration"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Guide to Customising your Web Application",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-4.0.0/webapp/blue-genes/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/webapp/homepage/index"
+        },
+        {
+          "collapsed": true,
+          "type": "category",
+          "label": "Report Page",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/report-page/index"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/report-page/report-page"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/report-page/report-displayers"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/report-page/report-displayers-examples"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/report-page/webapp-tables"
+            }
+          ]
+        },
+        {
+          "collapsed": true,
+          "type": "category",
+          "label": "Lists",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/lists/index"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/lists/lists-page"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/lists/list-upload"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/lists/list-upgrade"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/lists/list-analysis/index"
+            },
+            {
+              "collapsed": true,
+              "type": "category",
+              "label": "List Widgets",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/embedding/list-widgets/index"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/embedding/list-widgets/q-and-a"
+                },
+                {
+                  "type": "doc",
+                  "id": "version-4.0.0/embedding/list-widgets/enrichment-widgets"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/webapp/template-queries/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/webapp/query-results/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/webapp/query-builder/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/webapp/keyword-search/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/webapp/layout/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/webapp/region-search/index"
+        },
+        {
+          "collapsed": true,
+          "type": "category",
+          "label": "Customise Web Application",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/properties/index"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/properties/intermine-properties"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/properties/model-properties"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/properties/web-properties"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/properties/webconfig-model"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/properties/class-keys"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/properties/javascript-options"
+            }
+          ]
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/webapp/data-categories/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/webapp/markup/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/webapp/help/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/webapp/linking-in/index"
+        },
+        {
+          "collapsed": true,
+          "type": "category",
+          "label": "Third party tools",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/third-party-tools/index"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/third-party-tools/cytoscape"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/third-party-tools/esyn"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/third-party-tools/galaxy"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/third-party-tools/gbrowse"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/third-party-tools/heatmap"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/third-party-tools/jbrowse"
+            }
+          ]
+        },
+        {
+          "collapsed": true,
+          "type": "category",
+          "label": "Monitoring Site Usage",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/monitoring-site-usage/index"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/monitoring-site-usage/google-analytics"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/monitoring-site-usage/trackers"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/monitoring-site-usage/search-engines"
+            }
+          ]
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/webapp/admin/index"
+        },
+        {
+          "collapsed": true,
+          "type": "category",
+          "label": "User Accounts",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/user-accounts/index"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/user-accounts/userprofile"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/user-accounts/open-id"
+            }
+          ]
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/webapp/performance/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/webapp/diagnostic/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/webapp/javadoc/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/webapp/permanent-url/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/webapp/iodocs"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Web Services",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-4.0.0/web-services/index"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Embedding InterMine Components",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-4.0.0/embedding/index"
+        },
+        {
+          "collapsed": true,
+          "type": "category",
+          "label": "List Widgets",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-4.0.0/embedding/list-widgets/index"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/embedding/list-widgets/q-and-a"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/embedding/list-widgets/enrichment-widgets"
+            }
+          ]
+        },
+        {
+          "collapsed": true,
+          "type": "category",
+          "label": "Apps/C Grunt Build",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-4.0.0/embedding/apps-c/index"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/embedding/apps-c/usage"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/embedding/apps-c/publication-search"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/embedding/apps-c/elastic-med"
+            }
+          ]
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/embedding/api-loader"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/embedding/imjs"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/embedding/examples"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "InterMine API Description",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-4.0.0/api/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/api/pathquery"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Support",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-4.0.0/support/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/support/mailing-list"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/support/troubleshooting-tips"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "About Us",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-4.0.0/about/index"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/about/contact-us"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/about/privacy-policy"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "InterMine Video Tutorial Collection",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-4.0.0/help/index"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Style",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-4.0.0/doc1"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+[
+  {
+    "start": 0, 
+    "end": 23011544, 
+    "name": "2L"
+  }, 
+  {
+    "start": 0, 
+    "end": 24543557, 
+    "name": "3L"
+  }, 
+  {
+    "start": 0, 
+    "end": 27905053, 
+    "name": "3R"
+  }, 
+  {
+    "start": 0, 
+    "end": 22422827, 
+    "name": "X"
+  }, 
+  {
+    "start": 0, 
+    "end": 21146708, 
+    "name": "2R"
+  }, 
+  {
+    "start": 0, 
+    "end": 204112, 
+    "name": "XHet"
+  }, 
+  {
+    "start": 0, 
+    "end": 3288761, 
+    "name": "2RHet"
+  }, 
+  {
+    "start": 0, 
+    "end": 10049037, 
+    "name": "U"
+  }, 
+  {
+    "start": 0, 
+    "end": 1351857, 
+    "name": "4"
+  }, 
+  {
+    "start": 0, 
+    "end": 19517, 
+    "name": "dmel_mitochondrion_genome"
+  }, 
+  {
+    "start": 0, 
+    "end": 2517507, 
+    "name": "3RHet"
+  }, 
+  {
+    "start": 0, 
+    "end": 368872, 
+    "name": "2LHet"
+  }, 
+  {
+    "start": 0, 
+    "end": 2555491, 
+    "name": "3LHet"
+  }, 
+  {
+    "start": 0, 
+    "end": 347038, 
+    "name": "YHet"
+  }, 
+  {
+    "start": 0, 
+    "end": 29004656, 
+    "name": "Uextra"
+  }
+]

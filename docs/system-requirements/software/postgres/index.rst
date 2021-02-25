@@ -1,7 +1,0 @@
-PostgreSQL
-===========
-
-.. toctree::
-
-   postgres
-   hikari  
