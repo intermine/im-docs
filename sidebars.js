@@ -109,6 +109,8 @@ module.exports = {
 			   							  'database/performance/precomputing',
 			   							  'database/performance/configuration']}],
 
+    'InterMine API Description': ['api/pathquery'],
+
   	'Guide to Customising your Web Application': ['webapp/blue-genes/index',
   												  'webapp/homepage/index',
   												  {'Report Page': ['webapp/report-page/index',
@@ -180,18 +182,16 @@ module.exports = {
   									   'embedding/imjs',
   									   'embedding/examples'],
 
-  	'InterMine API Description': ['api/index',
-  								  'api/pathquery'],
+  	'InterMine Video Tutorial Collection': ['help/index'],
 
-  	Support: ['support/index',
-  			  'support/mailing-list',
-  			  'support/troubleshooting-tips'],
+    Support: ['support/index',
+          'support/mailing-list',
+          'support/troubleshooting-tips'],
 
     'About Us': ['about/index',
-    			 'about/contact-us',
-    			 'about/privacy-policy'],
+           'about/contact-us',
+           'about/privacy-policy'],
 
-    'InterMine Video Tutorial Collection': ['help/index'],
     'Documentation Style Guide': ['doc1']
   },
 };

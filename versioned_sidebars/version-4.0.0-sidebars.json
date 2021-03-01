@@ -573,6 +573,17 @@
     {
       "collapsed": true,
       "type": "category",
+      "label": "InterMine API Description",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-4.0.0/api/pathquery"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
       "label": "Guide to Customising your Web Application",
       "items": [
         {
@@ -913,15 +924,11 @@
     {
       "collapsed": true,
       "type": "category",
-      "label": "InterMine API Description",
+      "label": "InterMine Video Tutorial Collection",
       "items": [
         {
           "type": "doc",
-          "id": "version-4.0.0/api/index"
-        },
-        {
-          "type": "doc",
-          "id": "version-4.0.0/api/pathquery"
+          "id": "version-4.0.0/help/index"
         }
       ]
     },
@@ -960,17 +967,6 @@
         {
           "type": "doc",
           "id": "version-4.0.0/about/privacy-policy"
-        }
-      ]
-    },
-    {
-      "collapsed": true,
-      "type": "category",
-      "label": "InterMine Video Tutorial Collection",
-      "items": [
-        {
-          "type": "doc",
-          "id": "version-4.0.0/help/index"
         }
       ]
     },
