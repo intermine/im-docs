@@ -192,6 +192,6 @@ module.exports = {
     			 'about/privacy-policy'],
 
     'InterMine Video Tutorial Collection': ['help/index'],
-    Style: ['doc1']
+    'Documentation Style Guide': ['doc1']
   },
 };
