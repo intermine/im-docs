@@ -27,7 +27,7 @@ module.exports = {
         {
           type: 'docsVersionDropdown',
           position: 'right',
-          dropdownActiveClassDisabled: false,
+          dropdownActiveClassDisabled: true,
           dropdownItemsAfter: [
             {
               href: 'https://intermine.readthedocs.io/en/latest/',
