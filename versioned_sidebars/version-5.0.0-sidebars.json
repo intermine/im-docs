@@ -979,15 +979,8 @@
       ]
     },
     {
-      "collapsed": true,
-      "type": "category",
-      "label": "Style",
-      "items": [
-        {
-          "type": "doc",
-          "id": "version-5.0.0/doc1"
+      "type": "doc",
+      "id": "version-5.0.0/doc1"
         }
-      ]
-    }
   ]
 }
