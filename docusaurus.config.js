@@ -28,7 +28,7 @@ module.exports = {
           type: 'docsVersionDropdown',
           position: 'right',
           dropdownActiveClassDisabled: true,
-          dropdownItemsAfter: [
+          dropdownItemAfter: [
             {
               href: 'https://intermine.readthedocs.io/en/latest/',
               label: 'Legacy Documentation',
@@ -92,7 +92,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()}, University of Cambridge. Built with Docusaurus.`,
     },
   },
   presets: [
