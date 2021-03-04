@@ -8,7 +8,7 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'intermine', // Usually your GitHub org/user name.
   projectName: 'im-docs', // Usually your repo name.
-  plugins: [require.resolve('docusaurus-lunr-search')],
+  plugins: [require.resolve('@cmfcmf/docusaurus-search-local')],
   themeConfig: {
     'docusaurus-lunr-search':{contextualSearch: true},
     navbar: {
