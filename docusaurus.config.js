@@ -10,7 +10,6 @@ module.exports = {
   projectName: 'im-docs', // Usually your repo name.
   plugins: [require.resolve('@cmfcmf/docusaurus-search-local')],
   themeConfig: {
-    'docusaurus-lunr-search':{contextualSearch: true},
     navbar: {
       title: 'InterMine Documentation',
       logo: {
