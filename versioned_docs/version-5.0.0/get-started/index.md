@@ -22,7 +22,7 @@ title: Get started
 	* [1. Get the software](quick-start.md#get-the-software)
 	* [2. Add a mine properties file](quick-start.md#add-a-mine-properties-file)
 	* [3. Set up your search index (optional)](quick-start.md#set-up-your-search-index-%28optional%29)
-	* [	* [4. Build + deploy your webapp](quick-start.md#build-+-deploy-your-webapp)
+	* [4. Build + deploy your webapp](quick-start.md#build-+-deploy-your-webapp)
 	* [Next steps](quick-start.md#next-steps)
 * [Create Your Own InterMine!](create-your-mine.md)
 	* [1. Run a script to create your InterMine](create-your-mine.md#run-a-script-to-create-your-intermine)
