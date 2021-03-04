@@ -10,6 +10,7 @@ module.exports = {
   projectName: 'im-docs', // Usually your repo name.
   plugins: [require.resolve('docusaurus-lunr-search')],
   themeConfig: {
+    'docusaurus-lunr-search':{contextualSearch: true},
     navbar: {
       title: 'InterMine Documentation',
       logo: {
@@ -28,7 +29,7 @@ module.exports = {
           type: 'docsVersionDropdown',
           position: 'right',
           dropdownActiveClassDisabled: true,
-          dropdownItemAfter: [
+          dropdownItemsAfter: [
             {
               href: 'https://intermine.readthedocs.io/en/latest/',
               label: 'Legacy Documentation',
