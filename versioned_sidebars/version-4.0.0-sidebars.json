@@ -1,15 +1,8 @@
 {
   "version-4.0.0/someSidebar": [
     {
-      "collapsed": true,
-      "type": "category",
-      "label": "Introduction",
-      "items": [
-        {
-          "type": "doc",
-          "id": "version-4.0.0/index"
-        }
-      ]
+      "type": "doc",
+      "id": "version-4.0.0/index"
     },
     {
       "collapsed": true,
@@ -571,15 +564,8 @@
       ]
     },
     {
-      "collapsed": true,
-      "type": "category",
-      "label": "InterMine API Description",
-      "items": [
-        {
-          "type": "doc",
-          "id": "version-4.0.0/api/pathquery"
-        }
-      ]
+      "type": "doc",
+      "id": "version-4.0.0/api/pathquery"
     },
     {
       "collapsed": true,
@@ -846,15 +832,8 @@
       ]
     },
     {
-      "collapsed": true,
-      "type": "category",
-      "label": "Web Services",
-      "items": [
-        {
-          "type": "doc",
-          "id": "version-4.0.0/web-services/index"
-        }
-      ]
+      "type": "doc",
+      "id": "version-4.0.0/web-services/index"
     },
     {
       "collapsed": true,
@@ -922,15 +901,8 @@
       ]
     },
     {
-      "collapsed": true,
-      "type": "category",
-      "label": "InterMine Video Tutorial Collection",
-      "items": [
-        {
-          "type": "doc",
-          "id": "version-4.0.0/help/index"
-        }
-      ]
+      "type": "doc",
+      "id": "version-4.0.0/help/index"
     },
     {
       "collapsed": true,
