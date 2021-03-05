@@ -82,10 +82,6 @@ module.exports = {
               href: 'https://intermineorg.wordpress.com/',
             },
             {
-              label: 'Email',
-              href: 'info@intermine.org',
-            },
-            {
               label: 'GitHub',
               href: 'https://github.com/intermine/im-docs',
             },
