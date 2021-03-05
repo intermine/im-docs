@@ -115,7 +115,7 @@ See [Local installation](../git.md) for how to install InterMine locally.
 
 ### I got a different error! Help!
 
-Please send a detailed stacktrace to the dev mailing list, or pop onto our [discord](chat.intermine.org).
+Please send a detailed stacktrace to the dev mailing list, or pop onto our [discord](http://chat.intermine.org).
 
 Common issues:
 
