@@ -38,7 +38,7 @@ After installation, most programs require extra configuration to work with Inter
 	* [After Installation](tomcat.md#after-installation)
 * [Mac Installation Notes](macs.md)
 	* [Installing Tomcat](macs.md#installing-tomcat)
-	* [Installing Eclipse](macs.mdinstalling-eclipse)
+	* [Installing Eclipse](macs.md#installing-eclipse)
 	* [Installing Postgres](macs.md#installing-postgres)
 * [Maven](maven.md)
 * [Intellij](intellij.md)

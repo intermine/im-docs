@@ -7,7 +7,7 @@ title: Lists
 * Fields specified in this file will be links in the results table in the webapp.
 * Only objects with key fields defined can be saved in lists.
 
-* [Lists page](list-page.md)
+* [Lists page](lists-page.md)
 * [List upload](list-upload.md)
 	* [Queries](list-upload.md#queries)
 		* [Default Query](list-upload.md#default-query)

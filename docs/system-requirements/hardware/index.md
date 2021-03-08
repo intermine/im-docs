@@ -10,27 +10,11 @@ The requirements for running InterMine depends on the size of data warehouse you
 
 The hardware used for a data loading has a **significant** impact on data loading performance. The main recommendations we have are:
 
-* Install plenty of RAM, 16GB or more, but watch out for multiple RAM
-
-  modules slowing down your RAM access speed.
-
-* Have at least two real CPUs - hyperthreading doesn't count.
-
-  Preferably have at least four CPUs.
-
-* It is more important to have fast individual CPUs than a lot of CPUs
-
-  for a build server. InterMine does use multiple threads during data
-
-  loading, but not asymmetrically - there is one thread which takes a
-
-  lot of the CPU time. On the other hand, for a production server,
-
-  having a few more CPUs is more important.
-
-* Have a decent IO subsystem. We currently use a fibrechannel attached
-
-  RAID array of 16 15krpm discs for our build servers.
+* Install plenty of RAM, 16GB or more, but watch out for multiple RAM modules slowing down your RAM access speed.
+* Have at least two real CPUs - hyperthreading doesn't count. Preferably have at least four CPUs.
+* It is more important to have fast individual CPUs than a lot of CPUs for a build server. InterMine does use multiple threads during data
+  loading, but not asymmetrically - there is one thread which takes a lot of the CPU time. On the other hand, for a production server, having a few more CPUs is more important.
+* Have a decent IO subsystem. We currently use a fibrechannel attached RAID array of 16 15krpm discs for our build servers.
 
 #### Recommended minimum hardware requirements for a large InterMine instance
 
@@ -47,16 +31,8 @@ It's essential to have separate development and production machines.
 
 **Choosing an operating system**
 
-* Any distribution of Linux/Unix should be fine as long as it is
-
-  capable of running Java and Postgres, although Debian is our
-
-  preference.
-
-* Use something mainstream and reliable like Linux or Berkeley
-
-  Software Distribution \(BSD\)
-
+* Any distribution of Linux/Unix should be fine as long as it is capable of running Java and Postgres, although Debian is our preference.
+* Use something mainstream and reliable like Linux or Berkeley Software Distribution \(BSD\)
 * Use the system that your friendly sysadmin is most familiar with.
 * Not favourites: Tru64 & [Solaris](solaris.md)
 
@@ -84,24 +60,11 @@ For modENCODE, we actually have two identical servers that switch roles with eac
 
 Disk space on the build and production machines obviously depends on volume of data.
 
-* Multiply the database size by at least 3 for a corresponding
-
-  InterMine instance. This takes into account the various redundant
-
-  ways we store data and precomputed tables, all to boost query
-
-  performance.
-
-* As a rough guide, the current FlyBase database with all 12 genomes is
-
-  33GB. An InterMine with this and a couple of extra data sources is
-
+* Multiply the database size by at least 3 for a corresponding InterMine instance. This takes into account the various redundant
+  ways we store data and precomputed tables, all to boost query performance.
+* As a rough guide, the current FlyBase database with all 12 genomes is 33GB. An InterMine with this and a couple of extra data sources is
   100GB. A full FlyMine release is typically around 500GB.
-
-* When running an InterMine build with multiple data sources, database
-
-  copies are made periodically for backups, so there needs to be extra
-
+* When running an InterMine build with multiple data sources, database copies are made periodically for backups, so there needs to be extra
   space available, at least four times the final database size.
 
 **Note**

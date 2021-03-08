@@ -8,7 +8,7 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'intermine', // Usually your GitHub org/user name.
   projectName: 'im-docs', // Usually your repo name.
-  plugins: [require.resolve('docusaurus-lunr-search')],
+  plugins: [require.resolve('@cmfcmf/docusaurus-search-local')],
   themeConfig: {
     navbar: {
       title: 'InterMine Documentation',
@@ -31,7 +31,7 @@ module.exports = {
           dropdownItemsAfter: [
             {
               href: 'https://intermine.readthedocs.io/en/latest/',
-              label: 'previous versions',
+              label: 'Legacy Documentation',
             },
           ]
         }
@@ -82,17 +82,13 @@ module.exports = {
               href: 'https://intermineorg.wordpress.com/',
             },
             {
-              label: 'Email',
-              href: 'info@intermine.org',
-            },
-            {
               label: 'GitHub',
               href: 'https://github.com/intermine/im-docs',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()}, University of Cambridge. Built with Docusaurus.`,
     },
   },
   presets: [

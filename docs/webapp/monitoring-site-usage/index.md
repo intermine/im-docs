@@ -8,6 +8,6 @@ title: Monitoring Site Usage
 * [Search engines](search-engines.md)
 	* [Search Engine Optimisation](search-engines.md#search-engine-optimisation)
 	* ['''robots.txt'''](search-engines.md#'''robots.txt''')
-	* [NOFOLLOW](search-engines.md#nofollow.md)
-	* [Sitemaps](search-engines.md#sitemaps.md)
+	* [NOFOLLOW](search-engines.md#nofollow)
+	* [Sitemaps](search-engines.md#sitemaps)
 

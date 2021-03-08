@@ -7,7 +7,7 @@ title: Database
 	* [Prerequisites](download-scripts.md#prerequisites)
 	* [Data Source Configuration](download-scripts.md#data-source-configuration)
 	* [Running](download-scripts.md#running)
-	* [Adding a new Source](download-scripts.md(adding-a-new-source)
+	* [Adding a new Source](download-scripts.md#adding-a-new-source)
 * [Data Sources](data-sources/index.md)
 	* [Data Source Library](data-sources/library/index.md)
 	* [Writing your own data source](data-sources/custom/index.md)
