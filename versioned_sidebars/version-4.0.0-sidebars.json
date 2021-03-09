@@ -114,10 +114,6 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-4.0.0/get-started/index"
-        },
-        {
-          "type": "doc",
           "id": "version-4.0.0/get-started/tutorial/index"
         },
         {
@@ -151,10 +147,6 @@
       "type": "category",
       "label": "InterMine",
       "items": [
-        {
-          "type": "doc",
-          "id": "version-4.0.0/intermine/index"
-        },
         {
           "type": "doc",
           "id": "version-4.0.0/intermine/intermine"
@@ -192,10 +184,6 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-4.0.0/data-model/index"
-        },
-        {
-          "type": "doc",
           "id": "version-4.0.0/data-model/overview"
         },
         {
@@ -223,10 +211,6 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-4.0.0/database/index"
-        },
-        {
-          "type": "doc",
           "id": "version-4.0.0/database/download-scripts"
         },
         {
@@ -234,10 +218,6 @@
           "type": "category",
           "label": "Data Sources",
           "items": [
-            {
-              "type": "doc",
-              "id": "version-4.0.0/database/data-sources/index"
-            },
             {
               "collapsed": true,
               "type": "category",
@@ -526,10 +506,6 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-4.0.0/database/data-integrity-checks/index"
-            },
-            {
-              "type": "doc",
               "id": "version-4.0.0/database/data-integrity-checks/template-comparison"
             },
             {
@@ -543,10 +519,6 @@
           "type": "category",
           "label": "InterMine performance",
           "items": [
-            {
-              "type": "doc",
-              "id": "version-4.0.0/database/performance/index"
-            },
             {
               "type": "doc",
               "id": "version-4.0.0/database/performance/data-loading"
@@ -909,10 +881,6 @@
       "type": "category",
       "label": "Support",
       "items": [
-        {
-          "type": "doc",
-          "id": "version-4.0.0/support/index"
-        },
         {
           "type": "doc",
           "id": "version-4.0.0/support/mailing-list"
