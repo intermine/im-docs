@@ -1,8 +1,8 @@
 ---
-title: Embedding InterMine components
+title: Introduction
 ---
 
-The following are libraries that compile to JavaScript which can be embedded on _any_ webpage.
+In this section you can find libraries that compile to JavaScript which can be embedded on _any_ webpage.
 
 * [List Widgets](list-widgets/index.md)
 	* [List Widgets Questions & Answers](list-widgets/q-and-a.md)

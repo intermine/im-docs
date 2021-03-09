@@ -11,22 +11,7 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-5.0.0/system-requirements/index"
-        },
-        {
-          "collapsed": true,
-          "type": "category",
-          "label": "Hardware",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-5.0.0/system-requirements/hardware/index"
-            },
-            {
-              "type": "doc",
-              "id": "version-5.0.0/system-requirements/hardware/solaris"
-            }
-          ]
+          "id": "version-5.0.0/system-requirements/hardware/index"
         },
         {
           "collapsed": true,
@@ -54,10 +39,6 @@
               "type": "category",
               "label": "PostgreSQL",
               "items": [
-                {
-                  "type": "doc",
-                  "id": "version-5.0.0/system-requirements/software/postgres/index"
-                },
                 {
                   "type": "doc",
                   "id": "version-5.0.0/system-requirements/software/postgres/postgres"
