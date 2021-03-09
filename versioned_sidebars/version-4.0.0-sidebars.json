@@ -215,10 +215,6 @@
                   "items": [
                     {
                       "type": "doc",
-                      "id": "version-4.0.0/database/data-sources/library/go/index"
-                    },
-                    {
-                      "type": "doc",
                       "id": "version-4.0.0/database/data-sources/library/go/go-annotation"
                     },
                     {
@@ -265,10 +261,6 @@
                   "items": [
                     {
                       "type": "doc",
-                      "id": "version-4.0.0/database/data-sources/library/interactions/index"
-                    },
-                    {
-                      "type": "doc",
                       "id": "version-4.0.0/database/data-sources/library/interactions/biogrid"
                     },
                     {
@@ -292,10 +284,6 @@
                   "items": [
                     {
                       "type": "doc",
-                      "id": "version-4.0.0/database/data-sources/library/pathways/index"
-                    },
-                    {
-                      "type": "doc",
                       "id": "version-4.0.0/database/data-sources/library/pathways/kegg"
                     },
                     {
@@ -311,10 +299,6 @@
                   "items": [
                     {
                       "type": "doc",
-                      "id": "version-4.0.0/database/data-sources/library/proteins/index"
-                    },
-                    {
-                      "type": "doc",
                       "id": "version-4.0.0/database/data-sources/library/proteins/uniprot"
                     },
                     {
@@ -328,10 +312,6 @@
                   "type": "category",
                   "label": "Publications",
                   "items": [
-                    {
-                      "type": "doc",
-                      "id": "version-4.0.0/database/data-sources/library/publications/index"
-                    },
                     {
                       "type": "doc",
                       "id": "version-4.0.0/database/data-sources/library/publications/pubmed"
