@@ -11,22 +11,7 @@ module.exports = {
       "items": [
         {
           "type": "doc",
-          "id": "system-requirements/index"
-        },
-        {
-          "collapsed": true,
-          "type": "category",
-          "label": "Hardware",
-          "items": [
-            {
-              "type": "doc",
-              "id": "system-requirements/hardware/index"
-            },
-            {
-              "type": "doc",
-              "id": "system-requirements/hardware/solaris"
-            }
-          ]
+          "id": "system-requirements/hardware/index"
         },
         {
           "collapsed": true,
@@ -54,10 +39,6 @@ module.exports = {
               "type": "category",
               "label": "PostgreSQL",
               "items": [
-                {
-                  "type": "doc",
-                  "id": "system-requirements/software/postgres/index"
-                },
                 {
                   "type": "doc",
                   "id": "system-requirements/software/postgres/postgres"
@@ -114,10 +95,6 @@ module.exports = {
       "items": [
         {
           "type": "doc",
-          "id": "get-started/index"
-        },
-        {
-          "type": "doc",
           "id": "get-started/tutorial/index"
         },
         {
@@ -151,10 +128,6 @@ module.exports = {
       "type": "category",
       "label": "InterMine",
       "items": [
-        {
-          "type": "doc",
-          "id": "intermine/index"
-        },
         {
           "type": "doc",
           "id": "intermine/intermine"
@@ -192,10 +165,6 @@ module.exports = {
       "items": [
         {
           "type": "doc",
-          "id": "data-model/index"
-        },
-        {
-          "type": "doc",
           "id": "data-model/overview"
         },
         {
@@ -223,10 +192,6 @@ module.exports = {
       "items": [
         {
           "type": "doc",
-          "id": "database/index"
-        },
-        {
-          "type": "doc",
           "id": "database/download-scripts"
         },
         {
@@ -234,10 +199,6 @@ module.exports = {
           "type": "category",
           "label": "Data Sources",
           "items": [
-            {
-              "type": "doc",
-              "id": "database/data-sources/index"
-            },
             {
               "collapsed": true,
               "type": "category",
@@ -252,10 +213,6 @@ module.exports = {
                   "type": "category",
                   "label": "Gene Ontology",
                   "items": [
-                    {
-                      "type": "doc",
-                      "id": "database/data-sources/library/go/index"
-                    },
                     {
                       "type": "doc",
                       "id": "database/data-sources/library/go/go-annotation"
@@ -304,10 +261,6 @@ module.exports = {
                   "items": [
                     {
                       "type": "doc",
-                      "id": "database/data-sources/library/interactions/index"
-                    },
-                    {
-                      "type": "doc",
                       "id": "database/data-sources/library/interactions/biogrid"
                     },
                     {
@@ -331,10 +284,6 @@ module.exports = {
                   "items": [
                     {
                       "type": "doc",
-                      "id": "database/data-sources/library/pathways/index"
-                    },
-                    {
-                      "type": "doc",
                       "id": "database/data-sources/library/pathways/kegg"
                     },
                     {
@@ -350,10 +299,6 @@ module.exports = {
                   "items": [
                     {
                       "type": "doc",
-                      "id": "database/data-sources/library/proteins/index"
-                    },
-                    {
-                      "type": "doc",
                       "id": "database/data-sources/library/proteins/uniprot"
                     },
                     {
@@ -367,10 +312,6 @@ module.exports = {
                   "type": "category",
                   "label": "Publications",
                   "items": [
-                    {
-                      "type": "doc",
-                      "id": "database/data-sources/library/publications/index"
-                    },
                     {
                       "type": "doc",
                       "id": "database/data-sources/library/publications/pubmed"
@@ -526,10 +467,6 @@ module.exports = {
           "items": [
             {
               "type": "doc",
-              "id": "database/data-integrity-checks/index"
-            },
-            {
-              "type": "doc",
               "id": "database/data-integrity-checks/template-comparison"
             },
             {
@@ -543,10 +480,6 @@ module.exports = {
           "type": "category",
           "label": "InterMine performance",
           "items": [
-            {
-              "type": "doc",
-              "id": "database/performance/index"
-            },
             {
               "type": "doc",
               "id": "database/performance/data-loading"
@@ -915,10 +848,6 @@ module.exports = {
       "items": [
         {
           "type": "doc",
-          "id": "support/index"
-        },
-        {
-          "type": "doc",
           "id": "support/mailing-list"
         },
         {
@@ -945,10 +874,6 @@ module.exports = {
           "id": "about/privacy-policy"
         }
       ]
-    },
-    {
-      "type": "doc",
-      "id": "doc1"
-        }
+    }
   ]
 }
