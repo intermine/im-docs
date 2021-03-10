@@ -30,7 +30,7 @@ After installation, most programs require extra configuration to work with Inter
 	* [Manually installing InterMine modules](perl.md#manually-installing-intermine-modules)
 	* [List of Perl Modules to Install](perl.md#list-of-perl-modules-to-install)
 	* [How to install all the Perl Modules to Run the Data Downloader Script](perl.md#how-to-install-all-the-perl-modules-to-run-the-data-downloader-script)
-* [PostgreSQL](postgres/index.md)
+* [PostgreSQL](postgres/postgres.md)
 	* [Installing PostgreSQL](postgres/postgres.md)
 	* [HikariCP and InterMine settings](postgres/hikari.md)
 * [Tomcat](tomcat.md)

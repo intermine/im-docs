@@ -1,5 +1,5 @@
 ---
-title: Data Source Library
+title: Data Source Library Overview
 ---
 
 This page lists the current sources available for use in InterMine. All the sources here are found as ready-to-use JARs in the central repository, [JCenter](https://jcenter.bintray.com/org/intermine/).
@@ -12,7 +12,7 @@ Most of the configuration done in the config files is optional, if no config ent
 
 These are commonly used sources that you may want to use to load data into your own InterMine instance.
 
-* [Gene Ontology](go/index.md)
+* Gene Ontology
 	* [GO Annotation](go/go-annotation.md)
 	* [GO OBO](go/go-obo.md)
 * [Homologue Data Sources](homologues/index.md)
@@ -23,19 +23,19 @@ These are commonly used sources that you may want to use to load data into your 
 	* [Ensembl Compara](homologues/compara.md)
 	* [Identifiers](homologues/index.md#identifiers)
 	* [How to use an ID resolver](homologues/index.md#how-to-use-an-id-resolver)
-* [Interactions](interactions/index.md)
+* Interactions
 	* [BioGRID](interactions/biogrid.md)
 	* [IntAct](interactions/intact.md)
 	* [IntAct - complexes](interactions/intact-complexes.md)
 	* [PSI-MI Ontology](interactions/psi-mi-ontology)
-* [Pathway data sources](pathways/index.md)
+* Pathway data sources
 	* [KEGG](pathways/kegg.md)
 	* [Reactome](pathways/reactome.md)
-* [Proteins](proteins/index.md)
+* Proteins
 	* [UniProt](proteins/uniprot.md)
 	* [InterPro](proteins/interpro.md)
 	* [InterPro to protein](proteins/interpro.md#interpro-to-protein)
-* [Publications](publications/index.md)
+* Publications
 	* [PubMed](publications/pubmed.md)
 	* [Publications](publications/publications.md)
 * [NCBI - Entrez gene](ncbi-gene.md)

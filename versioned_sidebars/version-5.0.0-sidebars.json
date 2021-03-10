@@ -874,10 +874,6 @@
           "id": "version-5.0.0/about/privacy-policy"
         }
       ]
-    },
-    {
-      "type": "doc",
-      "id": "version-5.0.0/doc1"
-        }
+    }
   ]
 }
