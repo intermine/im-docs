@@ -1,5 +1,5 @@
 ---
-title: Data Source Library
+title: Data Source Library Overview
 ---
 
 This page lists the current sources available for use in InterMine. All the sources here are found as ready-to-use JARs in the central repository, [JCenter](https://jcenter.bintray.com/org/intermine/).

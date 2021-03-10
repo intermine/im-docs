@@ -48,12 +48,8 @@ module.exports = {
               to: 'docs/get-started/tutorial/index',
             },
             {
-              label: 'Get Started',
-              to: 'docs/get-started/index',
-            },
-            {
-              label: 'InterMine API Description',
-              to: 'docs/api/index',
+              label: 'Create Your Own InterMine',
+              to: 'docs/get-started/create-your-mine',
             },
             {
               label: 'Web Services',
@@ -84,6 +80,10 @@ module.exports = {
             {
               label: 'GitHub',
               href: 'https://github.com/intermine/im-docs',
+            },
+            {
+              label: 'Contact us',
+              href: 'docs/about/contact-us',
             },
           ],
         },

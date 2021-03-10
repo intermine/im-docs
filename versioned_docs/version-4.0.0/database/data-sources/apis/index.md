@@ -1,5 +1,5 @@
 ---
-title: InterMine Items XML
+title: InterMine Items XML Overview
 --- 
 
 InterMine items XML is a generic format that encodes data the matches InterMine class definitions.
