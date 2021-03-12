@@ -520,10 +520,6 @@ module.exports = {
           "items": [
             {
               "type": "doc",
-              "id": "webapp/report-page/index"
-            },
-            {
-              "type": "doc",
               "id": "webapp/report-page/report-page"
             },
             {
@@ -545,10 +541,6 @@ module.exports = {
           "type": "category",
           "label": "Lists",
           "items": [
-            {
-              "type": "doc",
-              "id": "webapp/lists/index"
-            },
             {
               "type": "doc",
               "id": "webapp/lists/lists-page"
@@ -617,10 +609,6 @@ module.exports = {
           "items": [
             {
               "type": "doc",
-              "id": "webapp/properties/index"
-            },
-            {
-              "type": "doc",
               "id": "webapp/properties/intermine-properties"
             },
             {
@@ -668,10 +656,6 @@ module.exports = {
           "items": [
             {
               "type": "doc",
-              "id": "webapp/third-party-tools/index"
-            },
-            {
-              "type": "doc",
               "id": "webapp/third-party-tools/cytoscape"
             },
             {
@@ -703,10 +687,6 @@ module.exports = {
           "items": [
             {
               "type": "doc",
-              "id": "webapp/monitoring-site-usage/index"
-            },
-            {
-              "type": "doc",
               "id": "webapp/monitoring-site-usage/google-analytics"
             },
             {
@@ -728,10 +708,6 @@ module.exports = {
           "type": "category",
           "label": "User Accounts",
           "items": [
-            {
-              "type": "doc",
-              "id": "webapp/user-accounts/index"
-            },
             {
               "type": "doc",
               "id": "webapp/user-accounts/userprofile"

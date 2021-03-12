@@ -4,6 +4,9 @@ title: Class keys
 
 Specify keys for the classes in your data model by adding them to the `class_keys.properties` file. This lets the webapp know how to uniquely identify objects of these classes. Users can then [upload](../lists/list-upload.md) lists of such objects.
 
+ * Fields specified in this file will be links in the results table in the webapp.
+ * Only objects with key fields defined can be saved in lists.
+
 Keys defined in the `class_keys.properties` file are also used to boost the search visibility of their associated classes.
 
 The `class_keys.properties` file specifies the keys used to generate the permanent navigable URL which is used in the "SHARE" button in the report pages. If not specified, the primaryidentifier key is used.

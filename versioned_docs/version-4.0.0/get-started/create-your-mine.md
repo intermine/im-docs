@@ -154,7 +154,7 @@ Congratulations! You now have an InterMine! Visit it at localhost:8080/tigermine
 Next you will want to:
 
 * [learn how to use the InterMine webapp](http://intermine.org/tutorials/)
-* [customise your mine](../webapp/properties/index.md)
+* [customise your mine](../webapp/properties/intermine-properties)
 * [add your own data sources](../database/data-sources/custom/index.md)
 * [join the intermine mailing list](../support/mailing-list.md)
 

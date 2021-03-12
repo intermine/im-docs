@@ -6,7 +6,7 @@ This tutorial aims to cover the basics of configuring an InterMine webapp.
 
 ## Overview
 
-In general, customisation of InterMine is accomplished by updating the appropriate configuration file and redeploying the webapp. A few features are updated via tagging as well. See [Guide to Customising your Web Application](../../webapp/index.md) for the full documentation on the webapp.
+In general, customisation of InterMine is accomplished by updating the appropriate configuration file and redeploying the webapp. A few features are updated via tagging as well. See Guide to Customising your Web Application for the full documentation on the webapp.
 
 **Note**
 You should have completed the previous tutorial and have successfully deployed the webapp.
@@ -107,7 +107,7 @@ See [Database and Web application](../../webapp/properties/intermine-properties.
 
 Now you know how to change properties and configure your mine. How then do you know _which_ property to change? There are a few resources available to you:
 
-[**Guide to Customising your Web Application**](../../webapp/index.md)\*\*\*\*
+**Guide to Customising your Web Application**
 
 A detailed listing of everything you can configure in the InterMine webapp. It's grouped by InterMine webpage, e.g. Home Page, so you should be able to find what you need easily.
 

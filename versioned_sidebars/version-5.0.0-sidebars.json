@@ -520,10 +520,6 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-5.0.0/webapp/report-page/index"
-            },
-            {
-              "type": "doc",
               "id": "version-5.0.0/webapp/report-page/report-page"
             },
             {
@@ -545,10 +541,6 @@
           "type": "category",
           "label": "Lists",
           "items": [
-            {
-              "type": "doc",
-              "id": "version-5.0.0/webapp/lists/index"
-            },
             {
               "type": "doc",
               "id": "version-5.0.0/webapp/lists/lists-page"
@@ -617,10 +609,6 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-5.0.0/webapp/properties/index"
-            },
-            {
-              "type": "doc",
               "id": "version-5.0.0/webapp/properties/intermine-properties"
             },
             {
@@ -668,10 +656,6 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-5.0.0/webapp/third-party-tools/index"
-            },
-            {
-              "type": "doc",
               "id": "version-5.0.0/webapp/third-party-tools/cytoscape"
             },
             {
@@ -703,10 +687,6 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-5.0.0/webapp/monitoring-site-usage/index"
-            },
-            {
-              "type": "doc",
               "id": "version-5.0.0/webapp/monitoring-site-usage/google-analytics"
             },
             {
@@ -728,10 +708,6 @@
           "type": "category",
           "label": "User Accounts",
           "items": [
-            {
-              "type": "doc",
-              "id": "version-5.0.0/webapp/user-accounts/index"
-            },
             {
               "type": "doc",
               "id": "version-5.0.0/webapp/user-accounts/userprofile"
