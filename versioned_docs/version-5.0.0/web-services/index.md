@@ -1,5 +1,5 @@
 ---
-title: Web Services
+title: Web Services Overview
 ---
 
 InterMine provides programmatic access to its features via web services. This allows users to automate:

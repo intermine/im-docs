@@ -146,11 +146,11 @@
         },
         {
           "type": "doc",
-          "id": "version-4.0.0/intermine/get-involved"
+          "id": "version-4.0.0/intermine/javadoc/index"
         },
         {
           "type": "doc",
-          "id": "version-4.0.0/intermine/https"
+          "id": "version-4.0.0/intermine/get-involved"
         },
         {
           "type": "doc",
@@ -175,6 +175,10 @@
           "type": "doc",
           "id": "version-4.0.0/data-model/data-labels"
         },
+	{
+	  "type": "doc",
+	  "id": "version-4.0.0/api/pathquery"
+	},
         {
           "type": "doc",
           "id": "version-4.0.0/data-model/overlaps"
@@ -497,13 +501,9 @@
       ]
     },
     {
-      "type": "doc",
-      "id": "version-4.0.0/api/pathquery"
-    },
-    {
       "collapsed": true,
       "type": "category",
-      "label": "Guide to Customising your Web Application",
+      "label": "Web Application",
       "items": [
         {
           "type": "doc",
@@ -533,6 +533,10 @@
             {
               "type": "doc",
               "id": "version-4.0.0/webapp/report-page/webapp-tables"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/report-page/permanentURL"
             }
           ]
         },
@@ -650,6 +654,10 @@
           "id": "version-4.0.0/webapp/linking-in/index"
         },
         {
+          "type": "doc",
+          "id": "version-4.0.0/webapp/https"
+        },
+        {
           "collapsed": true,
           "type": "category",
           "label": "Third party tools",
@@ -725,24 +733,26 @@
         {
           "type": "doc",
           "id": "version-4.0.0/webapp/diagnostic/index"
-        },
-        {
-          "type": "doc",
-          "id": "version-4.0.0/webapp/javadoc/index"
-        },
-        {
-          "type": "doc",
-          "id": "version-4.0.0/webapp/permanent-url/index"
-        },
-        {
-          "type": "doc",
-          "id": "version-4.0.0/webapp/iodocs"
         }
       ]
     },
     {
-      "type": "doc",
-      "id": "version-4.0.0/web-services/index"
+      "collapsed": true,
+      "type": "category",
+      "label": "Web Services",
+      "items": [
+        {  
+          "type": "doc",
+          "id": "version-4.0.0/web-services/index"
+        },
+        {  
+          "type": "doc",
+          "id": "version-4.0.0/web-services/authentication"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/web-services/iodocs"
+        }]
     },
     {
       "collapsed": true,

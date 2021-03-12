@@ -146,11 +146,11 @@ module.exports = {
         },
         {
           "type": "doc",
-          "id": "intermine/get-involved"
+          "id": "intermine/javadoc/index"
         },
         {
           "type": "doc",
-          "id": "intermine/https"
+          "id": "intermine/get-involved"
         },
         {
           "type": "doc",
@@ -174,6 +174,10 @@ module.exports = {
         {
           "type": "doc",
           "id": "data-model/data-labels"
+        },
+        {
+          "type": "doc",
+          "id": "api/pathquery"
         },
         {
           "type": "doc",
@@ -497,13 +501,9 @@ module.exports = {
       ]
     },
     {
-      "type": "doc",
-      "id": "api/pathquery"
-    },
-    {
       "collapsed": true,
       "type": "category",
-      "label": "Guide to Customising your Web Application",
+      "label": "Web Application",
       "items": [
         {
           "type": "doc",
@@ -533,6 +533,10 @@ module.exports = {
             {
               "type": "doc",
               "id": "webapp/report-page/webapp-tables"
+            },
+            {
+              "type": "doc",
+              "id": "webapp/report-page/permanentURL"
             }
           ]
         },
@@ -637,6 +641,7 @@ module.exports = {
           "type": "doc",
           "id": "webapp/data-categories/index"
         },
+
         {
           "type": "doc",
           "id": "webapp/markup/index"
@@ -648,6 +653,10 @@ module.exports = {
         {
           "type": "doc",
           "id": "webapp/linking-in/index"
+        },
+        {
+          "type": "doc",
+          "id": "webapp/https"
         },
         {
           "collapsed": true,
@@ -728,25 +737,27 @@ module.exports = {
         },
         {
           "type": "doc",
-          "id": "webapp/javadoc/index"
-        },
-        {
-          "type": "doc",
-          "id": "webapp/permanent-url/index"
-        },
-        {
-          "type": "doc",
-          "id": "webapp/iodocs"
-        },
-        {
-          "type": "doc",
           "id": "webapp/frictionless/index"
         }
       ]
     },
     {
-      "type": "doc",
-      "id": "web-services/index"
+      "collapsed": true,
+      "type": "category",
+      "label": "Web Services",
+      "items": [
+        {  
+          "type": "doc",
+          "id": "web-services/index"
+        },
+        {  
+          "type": "doc",
+          "id": "web-services/authentication"
+        },
+        {
+          "type": "doc",
+          "id": "web-services/iodocs"
+        }]
     },
     {
       "collapsed": true,
