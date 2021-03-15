@@ -146,11 +146,11 @@
         },
         {
           "type": "doc",
-          "id": "version-4.0.0/intermine/get-involved"
+          "id": "version-4.0.0/intermine/javadoc/index"
         },
         {
           "type": "doc",
-          "id": "version-4.0.0/intermine/https"
+          "id": "version-4.0.0/intermine/get-involved"
         },
         {
           "type": "doc",
@@ -175,6 +175,10 @@
           "type": "doc",
           "id": "version-4.0.0/data-model/data-labels"
         },
+	{
+	  "type": "doc",
+	  "id": "version-4.0.0/api/pathquery"
+	},
         {
           "type": "doc",
           "id": "version-4.0.0/data-model/overlaps"
@@ -497,13 +501,9 @@
       ]
     },
     {
-      "type": "doc",
-      "id": "version-4.0.0/api/pathquery"
-    },
-    {
       "collapsed": true,
       "type": "category",
-      "label": "Guide to Customising your Web Application",
+      "label": "Web Application",
       "items": [
         {
           "type": "doc",
@@ -520,10 +520,6 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-4.0.0/webapp/report-page/index"
-            },
-            {
-              "type": "doc",
               "id": "version-4.0.0/webapp/report-page/report-page"
             },
             {
@@ -537,6 +533,10 @@
             {
               "type": "doc",
               "id": "version-4.0.0/webapp/report-page/webapp-tables"
+            },
+            {
+              "type": "doc",
+              "id": "version-4.0.0/webapp/report-page/permanentURL"
             }
           ]
         },
@@ -545,10 +545,6 @@
           "type": "category",
           "label": "Lists",
           "items": [
-            {
-              "type": "doc",
-              "id": "version-4.0.0/webapp/lists/index"
-            },
             {
               "type": "doc",
               "id": "version-4.0.0/webapp/lists/lists-page"
@@ -617,10 +613,6 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-4.0.0/webapp/properties/index"
-            },
-            {
-              "type": "doc",
               "id": "version-4.0.0/webapp/properties/intermine-properties"
             },
             {
@@ -662,14 +654,14 @@
           "id": "version-4.0.0/webapp/linking-in/index"
         },
         {
+          "type": "doc",
+          "id": "version-4.0.0/webapp/https"
+        },
+        {
           "collapsed": true,
           "type": "category",
           "label": "Third party tools",
           "items": [
-            {
-              "type": "doc",
-              "id": "version-4.0.0/webapp/third-party-tools/index"
-            },
             {
               "type": "doc",
               "id": "version-4.0.0/webapp/third-party-tools/cytoscape"
@@ -703,10 +695,6 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-4.0.0/webapp/monitoring-site-usage/index"
-            },
-            {
-              "type": "doc",
               "id": "version-4.0.0/webapp/monitoring-site-usage/google-analytics"
             },
             {
@@ -730,10 +718,6 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-4.0.0/webapp/user-accounts/index"
-            },
-            {
-              "type": "doc",
               "id": "version-4.0.0/webapp/user-accounts/userprofile"
             },
             {
@@ -749,24 +733,26 @@
         {
           "type": "doc",
           "id": "version-4.0.0/webapp/diagnostic/index"
-        },
-        {
-          "type": "doc",
-          "id": "version-4.0.0/webapp/javadoc/index"
-        },
-        {
-          "type": "doc",
-          "id": "version-4.0.0/webapp/permanent-url/index"
-        },
-        {
-          "type": "doc",
-          "id": "version-4.0.0/webapp/iodocs"
         }
       ]
     },
     {
-      "type": "doc",
-      "id": "version-4.0.0/web-services/index"
+      "collapsed": true,
+      "type": "category",
+      "label": "Web Services",
+      "items": [
+        {  
+          "type": "doc",
+          "id": "version-4.0.0/web-services/index"
+        },
+        {  
+          "type": "doc",
+          "id": "version-4.0.0/web-services/authentication"
+        },
+        {
+          "type": "doc",
+          "id": "version-4.0.0/web-services/iodocs"
+        }]
     },
     {
       "collapsed": true,
