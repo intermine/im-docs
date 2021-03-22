@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'InterMine Documentation',
+  title: 'InterMine Server Documentation',
   //tagline: 'The tagline of my site',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
@@ -11,7 +11,7 @@ module.exports = {
   plugins: [require.resolve('@cmfcmf/docusaurus-search-local')],
   themeConfig: {
     navbar: {
-      title: 'InterMine Documentation',
+      title: 'InterMine Server Documentation',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
