@@ -9,10 +9,7 @@ Certain features of the BlueGenes app are controlled by parameters set in the `w
 | purpose | parameters | example |
 | :--- | :--- | :--- |
 | default examples for the ID resolver | bag.example.identifiers | `bag.example.identifiers.protein=Q8T3M3,FBpp0081318,FTZ_DROME` and `bag.example.identifiers=CG9151, FBgn0000099` \(one per type\) |
-| default separators | list.upload.delimiters | `\n\t,` |
 | default regionsearch | genomicRegionSearch.\* | `H. sapiens` \(note: please do not use long format, e.g. `Homo sapiens`\) |
-| default query builder query | services.defaults.query | `"{ \"from\": \"Gene\", \"select\": [ \"secondaryIdentifier\", \"symbol\", \"primaryIdentifier\", \"organism.name\" ], \"orderBy\": [ { \"path\": \"secondaryIdentifier\", \"direction\": \"ASC\" } ], \"where\": [ { \"path\": \"organism.name\", \"op\": \"=\", \"value\": \"Drosophila melanogaster\", \"code\": \"A\" } ] }"` |
-| default keyword search | quickSearch.identifiers | `e.g. PPARG, Insulin, rs876498` |
 
 Please see [Features](../properties/web-properties.md) for details on these parameters.
 

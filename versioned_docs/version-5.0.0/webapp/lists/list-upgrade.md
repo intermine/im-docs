@@ -57,8 +57,8 @@ To make queries fast, the list contents are stored in the production database as
 
 * When a new production db is built, all the lists have to be upgraded. Their state is set to NOT\_CURRENT.
 * When a user logs in, a thread will begin upgrading their saved lists to the new release - finding and writing the corresponding object ids to the production database. If there are no issues \(all identifiers are resolved automatically\) the state of the list is set to CURRENT.
-* The user can verify the state of their saved bags in MyMine-&gt;Lists page.
-* If there are any issues, the state of the list is set to TO\_UPGRADE. These lists are shown in MyMine-&gt;List page in a separate table. The user can click on the Upgrade List link and browse in the bagUploadConfirm page where all conflicts will be displayed.
+* The user can verify the state of their saved bags in Lists page.
+* If there are any issues, the state of the list is set to TO\_UPGRADE. These lists are shown in Lists page in a separate table. The user can click on the Upgrade List link and browse in the bagUploadConfirm page where all conflicts will be displayed.
 * Once the user has resolved any issues, the list can be saved clicking the button 'Upgrade a list of ...' and used for queries, etc. The state is set to CURRENT.
 * If a user never logs in to a particular release, the list will not be upgraded, but can still be upgraded as normal if they log in to a later release.
 
@@ -67,7 +67,7 @@ To make queries fast, the list contents are stored in the production database as
 If a list is not current:
 
 * the user can't use it in the query/template to add list constraints
-* the list is not displayed in the List-&gt;View page
+* the list is not displayed in the Lists page
 * the list is displayed in MyMine-&gt;Lists page, but the column `Current` is set `Not Current`. Selecting the link, the user can resolve any issue.
 * the list is not displayed in the Lists section on the report pages
 
