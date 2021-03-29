@@ -10,7 +10,7 @@ To authenticate a user, add a token to your HTTP requests, typically as a GET or
 
 ```text
 # Return all public lists and any private lists associated with this token:
-GET http://www.flymine.org/query/service/lists?token=DFGg5dge5gnmja04Peh6faA3hd
+GET https://www.flymine.org/query/service/lists?token=DFGg5dge5gnmja04Peh6faA3hd
 ```
 
 Not all endpoints require authentication - use [I/O docs](http://iodocs.apps.intermine.org/) to identify which endpoints do require authentication.
@@ -18,9 +18,9 @@ Not all endpoints require authentication - use [I/O docs](http://iodocs.apps.int
 ### Anonymous authentication
 
 Anonymous 24-hour tokens are available via the `/session` method, and are useful for working with short-term disposable lists. If users want to preserve their lists or view existing lists associated with an account, they should be encouraged to use a permanent token \(see docs below\).
-
-> GET [http://www.flymine.org/query/service/user/session](http://www.flymine.org/query/service/user/session)
-
+```text
+GET https://www.flymine.org/query/service/user/session
+```
 Should result in a response like this:
 
 ```text
