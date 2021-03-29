@@ -66,20 +66,6 @@ The config file is located at `MINE_NAME/dbmodel/resources/keyword_search.proper
   > * Boolean, defaults to false.
   > * If set to `true`, reorganises the index so chunks are placed together in storage, which might improve the search time. \(Similar to defragmentation of a hard disk\). Requires an empty space in the storage as large as the index, and takes additional time.
 
-## Search Results
-
-The fields displayed in the keyword search results are determined by the WebConfigModel file.
-
-* If the fields are ClassKeys:
-
-  > * links in blue
-  > * shown at the top
-
-* If the fields are not ClassKeys:
-
-  > * NOT linked, black text
-  > * shown below the links
-
 ## Search Index
 
 You can rebuild the search index by running this command in your mine:

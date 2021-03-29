@@ -520,22 +520,6 @@ module.exports = {
           "items": [
             {
               "type": "doc",
-              "id": "webapp/report-page/report-page"
-            },
-            {
-              "type": "doc",
-              "id": "webapp/report-page/report-displayers"
-            },
-            {
-              "type": "doc",
-              "id": "webapp/report-page/report-displayers-examples"
-            },
-            {
-              "type": "doc",
-              "id": "webapp/report-page/webapp-tables"
-            },
-            {
-              "type": "doc",
               "id": "webapp/report-page/permanentURL"
             }
           ]
