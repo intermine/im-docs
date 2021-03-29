@@ -611,11 +611,6 @@ module.exports = {
         },
         {
           "type": "doc",
-          "id": "webapp/data-categories/index"
-        },
-
-        {
-          "type": "doc",
           "id": "webapp/markup/index"
         },
         {
