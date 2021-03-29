@@ -20,10 +20,6 @@ Redirects links in query results. See [Link redirects ](../query-results/redirec
 
 See [Galaxy](../third-party-tools/galaxy.md)
 
-**genomicRegionSearch**
-
-See [Region Search](../region-search/index.md)
-
 **header.links**
 
 Links at upper right corner

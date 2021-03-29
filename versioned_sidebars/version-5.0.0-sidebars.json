@@ -587,10 +587,6 @@
           "id": "version-5.0.0/webapp/layout/index"
         },
         {
-          "type": "doc",
-          "id": "version-5.0.0/webapp/region-search/index"
-        },
-        {
           "collapsed": true,
           "type": "category",
           "label": "Customise Web Application",
@@ -598,10 +594,6 @@
             {
               "type": "doc",
               "id": "version-5.0.0/webapp/properties/intermine-properties"
-            },
-            {
-              "type": "doc",
-              "id": "version-5.0.0/webapp/properties/model-properties"
             },
             {
               "type": "doc",
