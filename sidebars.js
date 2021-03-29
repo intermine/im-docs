@@ -615,10 +615,6 @@ module.exports = {
         },
         {
           "type": "doc",
-          "id": "webapp/linking-in/index"
-        },
-        {
-          "type": "doc",
           "id": "webapp/https"
         },
         {
