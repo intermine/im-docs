@@ -593,10 +593,6 @@ module.exports = {
           "items": [
             {
               "type": "doc",
-              "id": "webapp/properties/intermine-properties"
-            },
-            {
-              "type": "doc",
               "id": "webapp/properties/web-properties"
             },
             {
@@ -717,6 +713,10 @@ module.exports = {
         {  
           "type": "doc",
           "id": "web-services/index"
+        },
+        {
+          "type": "doc",
+          "id": "web-services/intermine-properties"
         },
         {  
           "type": "doc",
