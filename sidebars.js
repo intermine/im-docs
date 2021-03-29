@@ -597,15 +597,15 @@ module.exports = {
             },
             {
               "type": "doc",
+              "id": "webapp/properties/oauth2"
+            },
+            {
+              "type": "doc",
               "id": "webapp/properties/webconfig-model"
             },
             {
               "type": "doc",
               "id": "webapp/properties/class-keys"
-            },
-            {
-              "type": "doc",
-              "id": "webapp/properties/javascript-options"
             }
           ]
         },

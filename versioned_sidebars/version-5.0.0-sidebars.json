@@ -597,15 +597,15 @@
             },
             {
               "type": "doc",
+              "id": "version-5.0.0/webapp/properties/oauth2"
+            },
+            {
+              "type": "doc",
               "id": "version-5.0.0/webapp/properties/webconfig-model"
             },
             {
               "type": "doc",
               "id": "version-5.0.0/webapp/properties/class-keys"
-            },
-            {
-              "type": "doc",
-              "id": "version-5.0.0/webapp/properties/javascript-options"
             }
           ]
         },
