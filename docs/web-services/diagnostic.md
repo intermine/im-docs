@@ -2,7 +2,7 @@
 title: Diagnostic
 ---
 
-Occasionally, something may go wrong with your webapp - your webapp may fail to load in your browser, not reflect your most recent changes and so on. In our experience, following the steps listed here should fix ~99% of any problems you encounter.
+Occasionally, something may go wrong with your webapp. In our experience, following the steps listed here should fix ~99% of any problems you encounter.
 
 ## Restart Tomcat
 
