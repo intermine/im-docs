@@ -631,10 +631,6 @@
         },
         {
           "type": "doc",
-          "id": "version-5.0.0/webapp/help/index"
-        },
-        {
-          "type": "doc",
           "id": "version-5.0.0/webapp/linking-in/index"
         },
         {
@@ -716,10 +712,6 @@
         },
         {
           "type": "doc",
-          "id": "version-5.0.0/webapp/diagnostic/index"
-        },
-        {
-          "type": "doc",
           "id": "version-5.0.0/webapp/frictionless/index"
         }
       ]
@@ -736,6 +728,10 @@
         {  
           "type": "doc",
           "id": "version-5.0.0/web-services/authentication"
+        },
+        {
+          "type": "doc",
+          "id": "version-5.0.0/web-services/diagnostic"
         },
         {
           "type": "doc",

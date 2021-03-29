@@ -632,10 +632,6 @@ module.exports = {
         },
         {
           "type": "doc",
-          "id": "webapp/help/index"
-        },
-        {
-          "type": "doc",
           "id": "webapp/linking-in/index"
         },
         {
@@ -717,10 +713,6 @@ module.exports = {
         },
         {
           "type": "doc",
-          "id": "webapp/diagnostic/index"
-        },
-        {
-          "type": "doc",
           "id": "webapp/frictionless/index"
         }
       ]
@@ -737,6 +729,10 @@ module.exports = {
         {  
           "type": "doc",
           "id": "web-services/authentication"
+        },
+        {
+          "type": "doc",
+          "id": "web-services/diagnostic"
         },
         {
           "type": "doc",
