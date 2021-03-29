@@ -78,7 +78,7 @@ It's possible to use several properties files by adding a suffix. Here's an exam
 
 1. Add a suffix to the name of your property file:
 
-   > * `biotestmine.properties.dev` - points to the development database and a webapp
+   `biotestmine.properties.dev` - points to the development database and a webapp
 
 2. Use `-Dorg.gradle.project.release=dev`
 
