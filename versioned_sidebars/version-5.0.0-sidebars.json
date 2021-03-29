@@ -683,10 +683,6 @@
             {
               "type": "doc",
               "id": "version-5.0.0/webapp/user-accounts/userprofile"
-            },
-            {
-              "type": "doc",
-              "id": "version-5.0.0/webapp/user-accounts/open-id"
             }
           ]
         },

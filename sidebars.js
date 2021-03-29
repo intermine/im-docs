@@ -683,10 +683,6 @@ module.exports = {
             {
               "type": "doc",
               "id": "webapp/user-accounts/userprofile"
-            },
-            {
-              "type": "doc",
-              "id": "webapp/user-accounts/open-id"
             }
           ]
         },
