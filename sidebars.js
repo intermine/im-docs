@@ -587,22 +587,10 @@ module.exports = {
           "id": "webapp/layout/index"
         },
         {
-          "type": "doc",
-          "id": "webapp/region-search/index"
-        },
-        {
           "collapsed": true,
           "type": "category",
           "label": "Customise Web Application",
           "items": [
-            {
-              "type": "doc",
-              "id": "webapp/properties/intermine-properties"
-            },
-            {
-              "type": "doc",
-              "id": "webapp/properties/model-properties"
-            },
             {
               "type": "doc",
               "id": "webapp/properties/web-properties"
@@ -725,6 +713,10 @@ module.exports = {
         {  
           "type": "doc",
           "id": "web-services/index"
+        },
+        {
+          "type": "doc",
+          "id": "web-services/intermine-properties"
         },
         {  
           "type": "doc",
