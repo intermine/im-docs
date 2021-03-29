@@ -4,9 +4,9 @@ title: Tutorial
 
 Following the steps on this page, you will set up an example InterMine. You will:
 
-> * Load some real data sets for Malaria \(_P. falciparum_\)
-> * Learn about how data integration works
-> * Deploy a webapp to query the data
+ * Load some real data sets for Malaria \(_P. falciparum_\)
+ * Learn about how data integration works
+ * Deploy a webapp to query the data
 
 **Note**
 See [Quick Start](../quick-start.md) if you are impatient and just want to run an InterMine.
