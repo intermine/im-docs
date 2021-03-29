@@ -24,12 +24,18 @@ For ELIXIR, you will need:
 3. send an email to [aai-contact@elixir-europe.org](mailto:aai-contact@elixir-europe.org) in order to receive a form that you have to complete with additional information
 
 For each application you will need to register the callback URI, which looks like:
+```bash
+{the_bluegenes_domain}/api/auth/oauth2callback?provider=GOOGLE
+```
 
+or (if you use the legacy user interface):
 ```bash
 ${webapp.baseurl}/${webapp.path}/oauth2callback.do?provider=${PROVIDER}
 ```
 
 Where `webapp.baseurl` and `webapp.path` are the corresponding values from your configuration, and `PROVIDER` is the name of the provider in all uppercase letters \(as configured below\). Google requires the `provider` parameter as part of the URI, but other providers do not - you should check with each of them.
+
+You can register 2 callback URIs if you want to provide both legacy and BlueGenes interfaces.
 
 You will probably be asked to register a JavaScript domain. This is not used by us, but you can enter the `webapp.baseurl`.
 
