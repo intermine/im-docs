@@ -134,36 +134,30 @@ This page can be kept as it is, but the query can be constructed and sent to the
 
 This class has the methods to:
 
-> * generate data \(JSON\) for search page
-> * parse search form and valid input
-> * generate search queries \(one region with one query\)
-> * generate results table and download/galaxy links
+ * generate data \(JSON\) for search page
+ * parse search form and valid input
+ * generate search queries \(one region with one query\)
+ * generate results table and download/galaxy links
 
 This class can be basically replaced by webservices + html
 
 Update IQL query to pathquery
 
-> Currently, region query is constructed by lQL \(Intermine Query Language\) due to lack of implementation on range constraint in pathquery at the time we developed it. Update IQL to pathqueries and send by webserive, the output will be a list of results tables or a single results table grouped by region.
+ Currently, region query is constructed by lQL \(Intermine Query Language\) due to lack of implementation on range constraint in pathquery at the time we developed it. Update IQL to pathqueries and send by webserive, the output will be a list of results tables or a single results table grouped by region.
 
 See `GenomicRegionSearchUtil.java#L270-497`
 
 Query fields:
 
-> In the IQL
->
-> > See `GenomicRegionSearchUtil.java#L318-323`
->
-> In ResultRow
->
-> > See `GenomicRegionSearchQueryRunner.java#L186-212`
->
-> In Results table
->
-> > See `GenomicRegionSearchService.java#L1106-1112`
+ In the IQL see `GenomicRegionSearchUtil.java#L318-323`
+
+ In ResultRow see `GenomicRegionSearchQueryRunner.java#L186-212`
+
+ In Results table see `GenomicRegionSearchService.java#L1106-1112`
 
 Polling
 
-> We created a synchronizedMap to hold all the query results and put it in an http request. On the results page, there is a checker \(javascript\) checking the size of the map, so a progress bar will be updating. The results table will be generated once 10 results return, the pager will be updated dynamically. The whole part will be replaced by InterMine results table.
+We created a synchronizedMap to hold all the query results and put it in an http request. On the results page, there is a checker \(javascript\) checking the size of the map, so a progress bar will be updating. The results table will be generated once 10 results return, the pager will be updated dynamically. The whole part will be replaced by InterMine results table.
 
 See GenomicRegionSearchQueryRunner.java\#L129-223
 
