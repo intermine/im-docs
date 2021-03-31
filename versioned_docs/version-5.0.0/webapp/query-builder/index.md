@@ -6,25 +6,13 @@ title: QueryBuilder
 
 **types in bold**
 
-Tag types with `im:preferredBagType` tag. Use the model browser to tag classes, eg. [http://www.flymine.org/query/tree.do](http://www.flymine.org/query/tree.do)
-
-**intro text**
-
-Most text in InterMine can be set in model.properties, see [Text and messages](../properties/model-properties.md).
-
-**help text**
-
-Set in `classDecriptions.properties` file
+Tag types with `im:preferredBagType` tag. Use the model browser to tag classes.
 
 ## query builder
 
 **SUMMARY**
 
 Which columns appear when you click on SUMMARY button are set in WebConfigModel.
-
-**autocomplete**
-
-Add fields to the [ObjectStore Summary](../../database/database-building/post-processing/objectstore-summary-properties.md) file to have their form fields autocomplete.
 
 ## Hiding fields
 
