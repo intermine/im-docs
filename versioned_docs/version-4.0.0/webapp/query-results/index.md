@@ -6,19 +6,19 @@ Query results can be configured in a number of ways, including:
 
 ## export
 
-> See [Export](export.md) for details on exporting options.
+ See [Export](export.md) for details on exporting options.
 
 ## column headers
 
-> See [Using Class and Field Labels](../../data-model/data-labels.md) to change column headers.
+ See [Using Class and Field Labels](../../data-model/data-labels.md) to change column headers.
 
 ## links
 
-> Only unique fields \(class keys\) are links in results pages. Add to [Class keys](../properties/class-keys.md) to make the fields links on results pages. Instead of linking to an intermine report page, you can set the links to redirect to an external page. See [Link redirects](redirects.md)
+ Only unique fields \(class keys\) are links in results pages. Add to [Class keys](../properties/class-keys.md) to make the fields links on results pages. Instead of linking to an intermine report page, you can set the links to redirect to an external page. See [Link redirects](redirects.md)
 
 ## weird brackets
 
-> You may see the following in query results: `GO:0007480 [GOTerm]`. This happens when a column is a parent type but the individual result is a subclass. The subclass will be in brackets.
+ You may see the following in query results: `GO:0007480 [GOTerm]`. This happens when a column is a parent type but the individual result is a subclass. The subclass will be in brackets.
 
 ## The initial Page Size
 
@@ -75,10 +75,10 @@ The cells in each table can be configured to display their information in custom
 
 Formatters are not enabled by default, as they may be unexpected, and could cause unnecessary requests to the server. Fortunately they are easily enabled. There are four formatters included \(but not enabled\) by default:
 
-> * Location - formats a chromosome location as eg: "2L:123..456"
-> * Sequence - formats a DNA or Protein sequence in FASTA lines.
-> * Publication - formats a publication in a citable format with title, first author and year.
-> * Organism - formats an organism's name in italics, using the short-name format.
+ * Location - formats a chromosome location as eg: "2L:123..456"
+ * Sequence - formats a DNA or Protein sequence in FASTA lines.
+ * Publication - formats a publication in a citable format with title, first author and year.
+ * Organism - formats an organism's name in italics, using the short-name format.
 
 To enable these formatters, register the formatted path \(see below\), eg:
 
