@@ -16,6 +16,14 @@ Text present in the list upload form. See [List upload examples](web-properties.
 
 Redirects links in query results. See [Link redirects ](../query-results/redirects.md)
 
+**genomicRegionSearch**
+
+```text
+## Make sure pre-defined organisms have chromosome location information in the database
+genomicRegionSearch.defaultOrganisms = D. melanogaster
+genomicRegionSearch.defaultSpans = 2L:14615455..14619002\\n2R:5866646..5868384\\n3R:2578486..2580016
+```
+
 **project.citation**
 
 Populates the "Cite" text in the footer.
