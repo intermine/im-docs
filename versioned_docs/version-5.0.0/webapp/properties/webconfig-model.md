@@ -17,39 +17,23 @@ You can configure which fields are displayed on report and result pages for each
 | showInInlineCollection | show field in inline collection \(on report pages\) | no | true |
 | showInSummary | add field to query when user clicks on ‘Summary’ button in QueryBuilder | no | true |
 | showInResults | show field in results table | no | true |
-| outerInSummary | configure outer-joins when user clicks on ‘Summary’ in QueryBuilder | no | false |
-| doNotTruncate | don’t truncate display | no | false |
-| fieldExporter | specify class to export file field | no | - |
-| sectionOnRight | show on the right side of the page | no | false |
-| sectionTitle | if sectionOnRight=”true”, title for section on right | no | - |
-| openByDefault | if sectionOnRight=”true”, whether or not this section should be open | no | false |
 
 For example:
 
 ```text
-<class className="org.flymine.model.genomic.Protein">
-  <fields>
-    <fieldconfig fieldExpr="primaryIdentifier"/>
-    <fieldconfig fieldExpr="primaryAccession"/>
-    <fieldconfig fieldExpr="organism.name"/>
-    <fieldconfig fieldExpr="length" displayer="/model/sequenceShortDisplayerWithField.jsp" />
-  </fields>
-  <bagdisplayers>
-   < -- attribute links can now be displayed on protein list analysis pages -->
-   <displayer src="attributeLinkDisplayer.tile"/>
-  </bagdisplayers>
-</class>
-```
-
-## Displaying Data on Report pages
-
-ReportDisplayers allow custom display of particular data types on report pages, typically to replace default tables with more appropriate presentation of data.
-
-```markup
-<reportdisplayer javaClass="org.intermine.bio.web.displayer.CytoscapeNetworkDisplayer"
-                 jspName="model/cytoscapeNetworkDisplayer.jsp"
-                 replacesFields="interactions"
-                 placement="Interactions"
+  <class className="org.intermine.model.bio.Gene">
+    <fields>
+      <fieldconfig fieldExpr="primaryIdentifier"/>
+      <fieldconfig fieldExpr="secondaryIdentifier"/>
+      <fieldconfig fieldExpr="symbol"/>
+      <fieldconfig fieldExpr="name"/>
+      <fieldconfig fieldExpr="length"/>
+      <fieldconfig fieldExpr="chromosomeLocation" showInResults="false" />
+      <fieldconfig fieldExpr="chromosome.primaryIdentifier" showInInlineCollection="false" showInSummary="false" />
+      <fieldconfig fieldExpr="chromosomeLocation.start" showInInlineCollection="false" showInSummary="false" />
+      <fieldconfig fieldExpr="chromosomeLocation.end" showInInlineCollection="false" showInSummary="false" />
+      <fieldconfig fieldExpr="organism.shortName" />
+    </field
 ```
 
 ## Export Configuration
