@@ -14,13 +14,13 @@ The tag data is stored in the user-profile database.
 
 | tag | purpose |
 | :--- | :--- |
-| [im:public](im:public) \[1\] | make list/template viewable by all users |
+| [im:public](im:public) \[1\] | make list/template available to all users |
 
 > \[1\] Editable by all admins
 
 Making a template query is an easy way to get users of your webapp to the data they want very quickly.
 
-## Other tags
+### Other tags
 
 The SuperUser can change the order of **classes** in the class selection dropdown by adding the `im:preferredBagType` tag via the model browser.
 
