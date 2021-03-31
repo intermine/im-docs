@@ -8,21 +8,7 @@ import styles from './styles.module.css';
 
 const features = [
   {
-    title: 'Easy to Use',
-    //imageUrl: 'img/undraw_docusaurus_mountain.svg',
-    description: (
-      <>
-        InterMine includes an attractive, user-friendly web interface that 
-        works 'out of the box' and can be easily customised for your specific needs, 
-        as well as a powerful, scriptable web-service API to allow programmatic access 
-        to your data.
-      </>
-    ),
-  },
-  ///second feature
-  {
     title: 'Create your own Database',
-    //imageUrl: 'img/undraw_docusaurus_react.svg',
     description: (
       <>
         InterMine enables the creation of biological databases accessed by 
@@ -32,6 +18,17 @@ const features = [
       </>
     ),
   },
+  {
+    title: 'Easy to Use',
+    description: (
+      <>
+        InterMine includes an attractive, user-friendly web interface that 
+        works 'out of the box' and can be easily customised for your specific needs, 
+        as well as a powerful, scriptable web-service API to allow programmatic access 
+        to your data.
+      </>
+    ),
+  }
 ];
 
 function Feature({imageUrl, title, description}) {
