@@ -30,9 +30,9 @@ in the index.html file of your JBrowse installation.
 
 ## Add JBrowse to InterMine
 
-To add JBrowse to your report pages you need to install the JBrowse BlueGenes tool (see  http://intermine.org/docs/user/admin-account#the-tools-store) using the URL of your JBrowse installation in the configuration file `config.json` (default is `https://jbrowse.intermine.org/?data=`).
+To add JBrowse to your report pages you need to [install the JBrowse BlueGenes tool](http://intermine.org/docs/user/admin-account#the-tools-store). Please replace the default URL value (`https://jbrowse.intermine.org/?data=`) in the `config.json` configuration file with the URL of your JBrowse installation.
 
-Please note that if you are still using the old interface you should refer to relevant documentation (4.0). 
+Please note that if you are still using the old interface you should refer to the relevant documentation (4.0). 
 
 ## Point JBrowse at your InterMine
 
