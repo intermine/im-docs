@@ -6,52 +6,29 @@ The SuperUser is the administrator of your InterMine webapp. The SuperUser can u
 
 The SuperUser account is created when the UserProfile database is built using the properties specified in the [Intermine properties](../properties/intermine-properties.md) file.
 
-## Templates
+Most of the website administration and customization is now done directly in the [BlueGenes administrator page](http://intermine.org/docs/user/admin-account), but a couple of settings are still defined using the old webapp admin login.
 
-All logged in users can create template queries, but the SuperUser can make them available to all users by tagging them as public templates. Making a template query is an easy way to get users of your webapp to the data they want very quickly.
-
-## Tagging
-
-### Template queries and lists
-
-The SuperUser can change where templates and lists appear by adding tags via the templates and lists pages in the MyMine section of the webapp. Only the administrator can apply/view/edit tags starting at `im:` . The tag data is stored in the user-profile database.
+## Templates queries and lists 
+All logged in users can create template queries and lists, but the SuperUser can make them available to all users by tagging them as public via the templates and lists pages in the MyMine section of the webapp. 
+The tag data is stored in the user-profile database.
 
 | tag | purpose |
 | :--- | :--- |
-| [im:public](im:public) \[1\] | make list/template viewable by all users |
-| [im:frontpage](im:frontpage) | put list on home page |
-| [im:converter](im:converter) | template used in generating links in the ‘Convert’ section on the list analysis page |
-| [im:aspect:CategoryName](im:aspect:CategoryName) | template appears underneath specified category. For instance, template with [im:aspect:Genomics](im:aspect:Genomics) tag will be displayed in Genomics category on the report page and on the home page |
-| [im:report](im:report) | allows template to be displayed on report or list analysis page |
-| [im:order:n](im:order:n) | specify the order lists should go in \(on homepage only currently\). If two lists have the same Integer “n” value, natural ordering on the list name will be applied as a decisive criterion |
+| [im:public](im:public) \[1\] | make list/template available to all users |
 
 > \[1\] Editable by all admins
 
-### Fields and collections
+Making a template query is an easy way to get users of your webapp to the data they want very quickly.
 
-The SuperUser can change how fields are displayed by adding tags via the report page.
+### Other tags
 
-| tag | purpose |
-| :--- | :--- |
-| [im:hidden](im:hidden) | hides the field/collection |
-| [im:summary](im:summary) | adds collection to ‘Summary’ section of report page |
-| [im:aspect:CategoryName](im:aspect:CategoryName) | collection appears underneath category |
-
-### Classes
-
-The SuperUser can change how classes are displayed by adding tags via the model browser.
+The SuperUser can change the order of **classes** in the class selection dropdown by adding the `im:preferredBagType` tag via the model browser.
 
 | tag | purpose |
 | :--- | :--- |
-| [im:aspect:CategoryName](im:aspect:CategoryName) | class appears on aspect page |
 | [im:preferredBagType](im:preferredBagType) | class appears first in the class selection |
 
-### tag
-
-If a template is tagged with `im:converter`, it is:
-
-1. Used by the list analysis page, in the "Convert" section.
-2. Used by the list upload page to convert between types.
+If a **template** is tagged with `im:converter`, it is used by the list upload page to convert between types.
 
 > * E.g., the user pastes in a protein identifier, but chooses "Gene" from the type dropdown menu. A converter template can be used to look up the `Gene` corresponding to the given `Protein`.
 

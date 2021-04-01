@@ -30,33 +30,19 @@ in the index.html file of your JBrowse installation.
 
 ## Add JBrowse to InterMine
 
-Add JBrowse to your report pages by adding this entry to the `webconfig-model.xml` file of your mine (see FlyMine [example](https://github.com/intermine/flymine/blob/master/webapp/src/main/webapp/WEB-INF/webconfig-model.xml)):
+To add JBrowse to your report pages you need to [install the JBrowse BlueGenes tool](http://intermine.org/docs/user/admin-account#the-tools-store). Please replace the default URL value (`https://jbrowse.intermine.org/?data=`) in the `config.json` configuration file with the URL of your JBrowse installation.
 
-```markup
-<reportdisplayer javaClass="org.intermine.bio.web.displayer.JBrowseDisplayer"
-                 jspName="model/jbrowseDisplayer.jsp"
-                 replacesFields=""
-                 placement="Genomics"
-                 types="SequenceFeature"/>
-```
-
-See [Report Displayers Examples](../report-page/report-displayers-examples.md) for more information.
-
-Add the location of your JBrowse installation to your `web.properties` or mine properties file, for example:
-
-```text
-jbrowse.install.url = http://jbrowse.intermine.org
-```
+Please note that if you are still using the old interface you should refer to the relevant documentation (4.0). 
 
 ## Point JBrowse at your InterMine
 
-Add your new mine-based dataset to your configuration file. For example, to add _D. melanogaster_ data from [FlyMine](http://www.flymine.org) as a JBrowse dataset, the following configuration in `jbrowse_conf.json` would suffice:
+Add your new mine-based dataset to your configuration file. For example, to add _D. melanogaster_ data from [FlyMine](https://www.flymine.org) as a JBrowse dataset, the following configuration in `jbrowse_conf.json` would suffice:
 
 ```text
 { 
   "datasets": {
      "FlyMine-7227": {
-      "url": "?data=http://www.flymine.org/query/service/jbrowse/config/7227",
+      "url": "?data=https://www.flymine.org/query/service/jbrowse/config/7227",
       "name": "FlyMine"
     },
     ...
@@ -64,30 +50,10 @@ Add your new mine-based dataset to your configuration file. For example, to add 
 }
 ```
 
-Once in place, you can visit your JBrowse `index.html` and see the data from [FlyMine](http://www.flymine.org).
+Once in place, you can visit your JBrowse `index.html` and see the data from [FlyMine](https://www.flymine.org).
 
 ## Configuring InterMine's JBrowse integration
 
 By default, all InterMine classes that inherit from the SequenceFeature model class will have tracks.
 
-However, this can be inappropriate since some of those classes may not have data.
-
-You can make entries in `web.properties` to configure which tracks appear. For instance, if you just want Gene, CDS, UTR and Promoter tracks then in `<mine>/webapp/resources/web.properties` configure:
-
-```text
-org.intermine.webservice.server.jbrowse.genomic.track.Gene.class=Gene
-org.intermine.webservice.server.jbrowse.genomic.track.CDS.class=CDS
-org.intermine.webservice.server.jbrowse.genomic.track.UTR.class=UTR
-org.intermine.webservice.server.jbrowse.genomic.track.Promoter.class=Promoter
-```
-
-Here, track names are the first component of the key after org.intermine.webservice.server.jbrowse.genomic.track \(e.g. Gene on the first line\). These track names are used to group related properties and are not used in JBrowse display. The rest of the key name \(here, always class\) specifies the InterMine class to be used for this track. &lt;div class="jbrowse" id="GenomeBrowser" data-config="allowCrossOriginDataroot":true&gt; JBrowse parameters can also be set for individual tracks within InterMine. For instance, in `web.properties`, if one wanted to give all 4 of the tracks defined above different colours then one would set:
-
-```text
-org.intermine.webservice.server.jbrowse.genomic.track.Gene.style.color=red
-org.intermine.webservice.server.jbrowse.genomic.track.CDS.style.color=yellow
-org.intermine.webservice.server.jbrowse.genomic.track.UTR.style.color=green
-org.intermine.webservice.server.jbrowse.genomic.track.Promoter.style.color=blue
-```
-
-For the full list of properties, please see the canvas section of the [JBrowse Configuration Guide](https://github.com/GMOD/jbrowse/wiki/JBrowse_Configuration_Guide/).
+We intend to implement some JBrowse configuration properties in BlueGenes in the future (for a full list of such properties, please see the canvas section of the [JBrowse Configuration Guide](https://github.com/GMOD/jbrowse/wiki/JBrowse_Configuration_Guide/)).
