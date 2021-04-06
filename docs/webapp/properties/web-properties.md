@@ -26,8 +26,8 @@ genomicRegionSearch.defaultSpans = 2L:14615455..14619002\\n2R:5866646..5868384\\
 
 **project.citation**
 
-Populates the "Cite" text in the footer.
-
+URL link used in the footer and in the CITE US section on the home page.
+ 
 **xrefLink**
 
 Used to configure hyperlinks for CrossReferences. See below

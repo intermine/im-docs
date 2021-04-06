@@ -8,21 +8,29 @@ See [our blog](https://intermineorg.wordpress.com/category/release-notes/) for d
 
 For non-disruptive releases, you can upgrade your mine by incrementing your version number in your mine's `gradle.properties` file:
 
-> ```text
-> # example -- flymine's gradle.properties
-> systemProp.imVersion=4.0.0
-> systemProp.bioVersion=4.0.0
-> ```
+ ```text
+ # example -- flymine's gradle.properties
+ systemProp.imVersion=4.0.0
+ systemProp.bioVersion=4.0.0
+ ```
 
 To get patch updates automatically, use the plus \(+\) notation:
 
-> ```text
-> # example -- flymine's gradle.properties
-> systemProp.imVersion=4.0.+
-> systemProp.bioVersion=4.0.+
-> ```
+ ```text
+ # example -- flymine's gradle.properties
+ systemProp.imVersion=4.0.+
+ systemProp.bioVersion=4.0.+
+ ```
 
 Read more: [InterMine Versioning Policy](intermine-versions.md) and [InterMine Development Roadmap](roadmap.md)\`\`
+
+## InterMine 4.3.1
+
+This is a non-disruptive release.
+
+## InterMine 4.3.0
+
+This is a non-disruptive release.
 
 ## InterMine 4.2.0
 

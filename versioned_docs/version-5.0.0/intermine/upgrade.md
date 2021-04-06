@@ -8,21 +8,45 @@ See [our blog](https://intermineorg.wordpress.com/category/release-notes/) for d
 
 For non-disruptive releases, you can upgrade your mine by incrementing your version number in your mine's `gradle.properties` file:
 
-> ```text
-> # example -- flymine's gradle.properties
-> systemProp.imVersion=4.0.0
-> systemProp.bioVersion=4.0.0
-> ```
+ ```text
+ # example -- flymine's gradle.properties
+ systemProp.imVersion=4.0.0
+ systemProp.bioVersion=4.0.0
+ ```
 
 To get patch updates automatically, use the plus \(+\) notation:
 
-> ```text
-> # example -- flymine's gradle.properties
-> systemProp.imVersion=4.0.+
-> systemProp.bioVersion=4.0.+
-> ```
+ ```text
+ # example -- flymine's gradle.properties
+ systemProp.imVersion=4.0.+
+ systemProp.bioVersion=4.0.+
+ ```
 
 Read more: [InterMine Versioning Policy](intermine-versions.md) and [InterMine Development Roadmap](roadmap.md)\`\`
+
+## InterMine 5.0.0
+
+This release contains:
+* new web services to support BluGenes 1.0.0,
+* implementation of the Frictionless Data Package specs,
+* migration from jcenter to maven central,
+* deletion of deprecated Bioschemas DataRecord profile
+
+#### Configure BlueGenes
+* Add any addition credit displayed on the bottom of the home page, configuring the [project.credit](../webapp/homepage/index#credits) web properties 
+* Configure the WHAT'S NEW section on the home page, adding the [project.news](../webapp/homepage/index#rssblog-feed) web property
+* Configure the CITE US section on the home page, updating the project.citation property with the publication URL 
+* Configure any existing external oauth2 provider (as Google or Elixir) adding an authorised redirect URIs  pointing to BlueGenes /api/auth/oauth2callback endpoint. More instructions [here](../webapp/properties/oauth2#registering-your-application)
+
+This release still supports the legacy (JSP based) user interface.
+
+## InterMine 4.3.1
+
+This is a non-disruptive release.
+
+## InterMine 4.3.0
+
+This is a non-disruptive release.
 
 ## InterMine 4.2.0
 
