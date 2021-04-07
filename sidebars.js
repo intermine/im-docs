@@ -542,9 +542,20 @@ module.exports = {
               "id": "webapp/lists/list-upgrade"
             },
             {
-              "type": "doc",
-              "id": "webapp/lists/list-analysis/index"
-            },
+              "collapsed": true,
+              "type": "category",
+              "label": "List widgets",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "webapp/lists/list-widgets/index"
+                },
+                {
+                  "type": "doc",
+                  "id": "webapp/lists/list-widgets/enrichment-widgets"
+                }
+              ]
+            }
           ]
         },
         {
