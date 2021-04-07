@@ -545,25 +545,6 @@ module.exports = {
               "type": "doc",
               "id": "webapp/lists/list-analysis/index"
             },
-            {
-              "collapsed": true,
-              "type": "category",
-              "label": "List Widgets",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "embedding/list-widgets/index"
-                },
-                {
-                  "type": "doc",
-                  "id": "embedding/list-widgets/q-and-a"
-                },
-                {
-                  "type": "doc",
-                  "id": "embedding/list-widgets/enrichment-widgets"
-                }
-              ]
-            }
           ]
         },
         {
@@ -717,71 +698,6 @@ module.exports = {
           "type": "doc",
           "id": "web-services/iodocs"
         }]
-    },
-    {
-      "collapsed": true,
-      "type": "category",
-      "label": "Embedding InterMine Components",
-      "items": [
-        {
-          "type": "doc",
-          "id": "embedding/index"
-        },
-        {
-          "collapsed": true,
-          "type": "category",
-          "label": "List Widgets",
-          "items": [
-            {
-              "type": "doc",
-              "id": "embedding/list-widgets/index"
-            },
-            {
-              "type": "doc",
-              "id": "embedding/list-widgets/q-and-a"
-            },
-            {
-              "type": "doc",
-              "id": "embedding/list-widgets/enrichment-widgets"
-            }
-          ]
-        },
-        {
-          "collapsed": true,
-          "type": "category",
-          "label": "Apps/C Grunt Build",
-          "items": [
-            {
-              "type": "doc",
-              "id": "embedding/apps-c/index"
-            },
-            {
-              "type": "doc",
-              "id": "embedding/apps-c/usage"
-            },
-            {
-              "type": "doc",
-              "id": "embedding/apps-c/publication-search"
-            },
-            {
-              "type": "doc",
-              "id": "embedding/apps-c/elastic-med"
-            }
-          ]
-        },
-        {
-          "type": "doc",
-          "id": "embedding/api-loader"
-        },
-        {
-          "type": "doc",
-          "id": "embedding/imjs"
-        },
-        {
-          "type": "doc",
-          "id": "embedding/examples"
-        }
-      ]
     },
     {
       "type": "doc",
