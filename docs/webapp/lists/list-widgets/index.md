@@ -2,17 +2,7 @@
 title: List Widgets
 ---
 
-* [List Widgets Questions & Answers](q-and-a.md)
-   * [Source files](q-and-a.md#source-files)
-   * [Using a temporary list on the fly](q-and-a.md#using-a-temporary-list-on-the-fly)
-   * [Defining custom actions on widget events](q-and-a.md#defining-custom-actions-on-widget-events)
-   * [Showing a Results Table](q-and-a.md#showing-a-results-table)
-* [List enrichment widgets statistics](enrichment-widgets.md)
-   * [Method](enrichment-widgets.md#method)
-   * [Multiple Test Correction](enrichment-widgets.md#multiple-test-correction)
-   * [References](enrichment-widgets.md#references)
-
-There are several list widgets \(widgets from now on\) available on the InterMine list analysis page, and they are configured in [Data and Widget Configuration](../../webapp/properties/webconfig-model.md).
+There are several list widgets \(widgets from now on\) available on the InterMine list analysis page, and they are configured in [Data and Widget Configuration](../../properties/webconfig-model.md).
 
 There are three categories of widgets:
 
@@ -88,7 +78,7 @@ Graph widgets display datasets in graphical format.
 | seriesLabels | the labels displayed on the graphs to distinguish the different series inside a category | `Expressed,Not Expressed` or `Up,Down` |
 | views | attributes paths displayed when the user clicks an area on the graph | `name,organism.name` |
 
-> \[1\] All the paths set, will be built starting from that. Specify only the simple name \(e.g. `Gene`\). You can choose to set the bag type class or the root class associated to the category path.
+ \[1\] All the paths set, will be built starting from that. Specify only the simple name \(e.g. `Gene`\). You can choose to set the bag type class or the root class associated to the category path.
 
 **Warning**
 You can specify **only one** class in `typeClass`. If you need another type, you have to define a new widget.
@@ -106,13 +96,13 @@ The following are optional attributes:
 | `listPath` | the path used to build the bag constraint \[3\]. | `FlyAtlasResult.material` |
 | `constraints` | separated by comma, case sensitive, must be attributes, operator can be = or != \[4\] | `organism.name=[Organism]` \[5\] |
 
-> \[2\] We can use static values or a grammar to specify the values contained in the list. The default value in general is the first value set in the ‘filters’ attribute or the first value returned by the query. With static values, you can add ‘All’ meaning no filter applied.
->
-> \[3\] Optional if the startClass contains the bag type class.
->
-> \[4\] For the values, we can use static values or the selected filter value using the syntax: path constraint = \[filter identifier\].
->
-> \[5\] organism’s name matching with the value selected in the filter with filterLabel ‘Organism’
+ \[2\] We can use static values or a grammar to specify the values contained in the list. The default value in general is the first value set in the ‘filters’ attribute or the first value returned by the query. With static values, you can add ‘All’ meaning no filter applied.
+
+ \[3\] Optional if the startClass contains the bag type class.
+
+ \[4\] For the values, we can use static values or the selected filter value using the syntax: path constraint = \[filter identifier\].
+
+ \[5\] organism’s name matching with the value selected in the filter with filterLabel ‘Organism’
 
 **Note**
 The graphs use [Google Visualitation API](https://developers.google.com/chart/interactive/docs/reference).
@@ -132,7 +122,7 @@ Enrichment widgets calculate p-values representing the probability annotation oc
 | `enrich` | Field to be enriched, displayed in the widget in the first column \[6\]. | `goAnnotation.ontologyTerm.parents.name` |
 | `views` | attributes paths displayed when the user clicks on _View results_ button \[6\]. | `symbol,organism.name` |
 
-> \[6\]  \(1, 2\) You have to specify only one field. Specify the subclass using the syntax path\[subclass type\].
+ \[6\]  \(1, 2\) You have to specify only one field. Specify the subclass using the syntax path\[subclass type\].
 
 **Warning**
 You can specify **only one** class in `typeClass`. If you need another type, you have to define a new widget.
@@ -152,16 +142,16 @@ The following are optional attributes:
 | `constraintsForView` | constraints separated by comma used for building the query executed when the user clicks on the widget on ‘Matches’ column | `results.expressed = true` |
 | `correctionCoefficient` | set to org.intermine.bio.web.widget.GeneLenghtCorrectionCoefficient to normalize by gene length |  |
 
-> | \[7\] | Use static values or a grammar to specify the values contained in the list. The default value in general is the first value set in the ‘filters’ attribute or the first value returned by the query. With static values, you can add ‘All’ meaning no filter applied. |
-> | :--- | :--- |
->
->
-> | \[8\] | Specify only one. This has to be an attribute. Used in the results table. Specify the subclass using the syntax `path[subclass type]`. |
-> | :--- | :--- |
->
->
-> | \[9\] | Case sensitive. For the values we can use: static values or the selected filter value using the syntax: `path contraint = [filter identifier]`. Only the value contained in the list. |
-> | :--- | :--- |
+ | \[7\] | Use static values or a grammar to specify the values contained in the list. The default value in general is the first value set in the ‘filters’ attribute or the first value returned by the query. With static values, you can add ‘All’ meaning no filter applied. |
+ | :--- | :--- |
+
+
+ | \[8\] | Specify only one. This has to be an attribute. Used in the results table. Specify the subclass using the syntax `path[subclass type]`. |
+ | :--- | :--- |
+
+
+ | \[9\] | Case sensitive. For the values we can use: static values or the selected filter value using the syntax: `path contraint = [filter identifier]`. Only the value contained in the list. |
+ | :--- | :--- |
 
 #### Examples
 
@@ -219,63 +209,63 @@ Widgets are using [Twitter Bootstrap](https://getbootstrap.com/2.0.2/) CSS frame
 The following describes how to embed widgets not in a mine context.
 
 1. Open up a document in your text editor.
-2. Use the [InterMine JavaScript API Loader](../api-loader.md) that always gives you the latest version of the widgets. In the `<head>` element of the page, add the following line:
+2. Use the InterMine JavaScript API Loader that always gives you the latest version of the widgets. In the `<head>` element of the page, add the following line:
 
-   > ```markup
-   > <script src="http://cdn.intermine.org/api"></script>
-   > ```
+    ```markup
+    <script src="http://cdn.intermine.org/api"></script>
+    ```
 
 3. Load the Widget Service:
 
-   > ```markup
-   > <script type="text/javascript">
-   >     intermine.load('widgets', function() {
-   >         var Widgets = new intermine.widgets('http://beta.flymine.org/beta/service/');
-   >     });
-   > </script>
-   > ```
-   >
-   > `intermine.load` represents a block of code that loads the widgets by pointing them to a specific mine.
+    ```markup
+    <script type="text/javascript">
+        intermine.load('widgets', function() {
+            var Widgets = new intermine.widgets('http://beta.flymine.org/beta/service/');
+        });
+    </script>
+    ```
+   
+    `intermine.load` represents a block of code that loads the widgets by pointing them to a specific mine.
 
 4. Use the widget web service to view which widgets are available on the mine, eg: [`http://beta.flymine.org/beta/service/widgets/`](http://beta.flymine.org/beta/service/widgets/]{.title-ref})
 5. See which lists are available in the mine: [`http://beta.flymine.org/beta/service/lists`](http://beta.flymine.org/beta/service/lists]{.title-ref})\`\`
 6. Add a widget \(from the list in the previous step\) to JavaScript. So within the `intermine.load` block, after creating the `Widgets` instance, do this:
 
-   > ```javascript
-   > // Load all Widgets:
-   > Widgets.all('Gene', 'myList', '#all-widgets');
-   > // Load a specific Chart Widget:
-   > Widgets.chart('flyfish', 'myList', '#widget-1');
-   > // Load a specific Enrichment Widget:
-   > Widgets.enrichment('pathway_enrichment', 'myList', '#widget-2');
-   > // Load a specific Table Widget:
-   > Widgets.table('interactions', 'myList', '#widget-3');
-   > ```
-   >
-   > Where the _first parameter_ passed is either type of object or name of widget to load. The _second_ is the name of list \(public list\) to access and _third_ is an element on the page where your widgets will appear. This element needs to obviously exist on the page first. A common one is a div that would look like this: `<div id="all-widgets"></div>`.
+    ```javascript
+    // Load all Widgets:
+    Widgets.all('Gene', 'myList', '#all-widgets');
+    // Load a specific Chart Widget:
+    Widgets.chart('flyfish', 'myList', '#widget-1');
+    // Load a specific Enrichment Widget:
+    Widgets.enrichment('pathway_enrichment', 'myList', '#widget-2');
+    // Load a specific Table Widget:
+    Widgets.table('interactions', 'myList', '#widget-3');
+    ```
+   
+    Where the _first parameter_ passed is either type of object or name of widget to load. The _second_ is the name of list \(public list\) to access and _third_ is an element on the page where your widgets will appear. This element needs to obviously exist on the page first. A common one is a div that would look like this: `<div id="all-widgets"></div>`.
 
 7. Add HTML, eg:
 
-   > ```markup
-   > <html xmlns="http://www.w3.org/1999/xhtml">
-   > <head>
-   >     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-   >     <title>test</title>
-   >     <script src="http://cdn.intermine.org/api"></script>
-   >     <script type="text/javascript">
-   >         intermine.load('widgets', function() {
-   >             var Widgets = new intermine.widgets('http://beta.flymine.org/beta/service/');
-   >             // Load all Widgets:
-   >             Widgets.all('Gene', 'myList', '#all-widgets');
-   >         });
-   >     </script>
-   > </head>
-   >
-   > <body>
-   >     <!-- DIV goes here -->
-   >     <div class="widget" id="all-widgets">
-   > </body>
-   > </html>
-   > ```
+    ```markup
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>test</title>
+        <script src="http://cdn.intermine.org/api"></script>
+        <script type="text/javascript">
+            intermine.load('widgets', function() {
+                var Widgets = new intermine.widgets('http://beta.flymine.org/beta/service/');
+                // Load all Widgets:
+                Widgets.all('Gene', 'myList', '#all-widgets');
+            });
+        </script>
+    </head>
+   
+    <body>
+        <!-- DIV goes here -->
+        <div class="widget" id="all-widgets">
+    </body>
+    </html>
+    ```
 
 8. You will have noticed that the widgets either pickup a style \(CSS\) from your HTML page, or they appear unstyled. To style them, you can use a variant of Twitter Bootstrap.
