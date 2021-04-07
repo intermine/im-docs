@@ -15,7 +15,7 @@ A Data Package is a simple container format used to describe and package a colle
 
 ### Data Package for InterMine
 
-InterMine allows users to query a diverse data sources through its webapps. InterMine's new data package will help users to understand the query results in a simplified manner. It will describe the primary keys, data types of attributes/columns, descriptions and ontology links of attributes among other things. For a sample InterMine Data Package, [click here](#3-sample-data-package). 
+InterMine allows users to query a diverse data sources through its webapps. InterMine's new data package will help users to understand the query results in a simplified manner. It will describe the primary keys, data types of attributes/columns, descriptions and ontology links of attributes among other things. For a sample InterMine Data Package, [click here](#sample-data-package). 
 
 ### Frictionless Specifications used in InterMine Data Package
 
@@ -39,17 +39,17 @@ Some of the fields in the data package are standard fields followed by frictionl
 | name [outer level] | describes the name and version of the mine | flymine@v51 |
 | profile [inner level] | specifies that the resource used is tabular data resource | tabular-data-resource [FIXED] |
 | name [inner level] | the name of the resource, depends on the mineName | flymine-query-data-resource |
-| path | exports the top 10 rows of results of query | example **[below](#3-sample-data-package)** |
+| path | exports the top 10 rows of results of query | example **[below](#sample-data-package)** |
 | format | format of the query results file | csv/tsv/json/xml |
-| schema | describes fields of query results and primary/candidate keys | example **[below](#3-sample-data-package)** |
-| fields | an array of objects describing all the fields in query results | example **[below](#3-sample-data-package)** |
+| schema | describes fields of query results and primary/candidate keys | example **[below](#sample-data-package)** |
+| fields | an array of objects describing all the fields in query results | example **[below](#sample-data-package)** |
 | name [in fields] | name of the field/column header | firstAuthor |
 | type [in fields] | type of the field/column header | String/Integer/etc. |
 | class path [in fields] | class path of attribute/field | Protein > Organism . Name |
 | class ontology link [in fields] | ontology link for the class of attribute | http://semanticscience.org/resource/SIO_010043 |
 | attribute ontology link [in fields] | ontology link for the attribute | http://edamontology.org/data_2909 |
 | primaryKey | an array of candidate keys | [primaryIdentifier, primaryAccession] |
-| sources | an array of objects each describing a data source | example **[below](#3-sample-data-package)** |
+| sources | an array of objects each describing a data source | example **[below](#sample-data-package)** |
 | title [in sources] | name/title of data source | GenomeNet |
 | url [in sources] | url of the data source |  http://www.genome.jp/en/ |
 
