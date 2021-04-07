@@ -1,13 +1,13 @@
 module.exports = {
   title: 'InterMine Server Documentation',
   //tagline: 'The tagline of my site',
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
+  url: 'http://intermine.org',
+  baseUrl: '/im-docs/',
+  onBrokenLinks: 'error',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'intermine', // Usually your GitHub org/user name.
-  projectName: 'im-docs', // Usually your repo name.
+  organizationName: 'intermine',
+  projectName: 'im-docs',
   plugins: [require.resolve('@cmfcmf/docusaurus-search-local')],
   themeConfig: {
     navbar: {
