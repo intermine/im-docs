@@ -2,30 +2,7 @@
 title: Frictionless Specifications for InterMine
 ---
 
-### Contents
-
-<!--TOC-->
-1. [Introduction](#1-introduction)
-
-    a. [What are Frictionless Specifications?](#what-are-frictionless-specifications)
-
-    b. [What's a data package?](#whats-a-data-package)
-
-    c. [Data Package for InterMine](#data-package-for-intermine)
-
-    d. [Frictionless Specifications used in InterMine Data Package](#frictionless-specifications-used-in-intermine-data-package)
-
-2. [InterMine's Data Package](#2-intermines-data-package)
-
-    a. [How to export?](#how-to-export)
-
-    b. [Description of InterMine's Data Package Fields](#description-of-intermines-data-package-fields)
-
-3. [Sample data package](#3-sample-data-package)
-
-<!--TOC-->
-
-## 1. Introduction
+## Introduction
 
 ### What are Frictionless Specifications?
 
@@ -44,7 +21,7 @@ InterMine allows users to query a diverse data sources through its webapps. Inte
 
 InterMine uses [Tabular Data Package](https://specs.frictionlessdata.io/tabular-data-package/) and [Tabular Data Resource](https://specs.frictionlessdata.io/tabular-data-resource/) since InterMine's biological data is tabular-style.
 
-## 2. InterMine's Data Package
+## InterMine's Data Package
 
 ### How to export?
 
@@ -76,7 +53,7 @@ Some of the fields in the data package are standard fields followed by frictionl
 | title [in sources] | name/title of data source | GenomeNet |
 | url [in sources] | url of the data source |  http://www.genome.jp/en/ |
 
-## 3. Sample data package
+## Sample data package
 
 ```
 {
