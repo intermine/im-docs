@@ -142,16 +142,11 @@ The following are optional attributes:
 | `constraintsForView` | constraints separated by comma used for building the query executed when the user clicks on the widget on ‘Matches’ column | `results.expressed = true` |
 | `correctionCoefficient` | set to org.intermine.bio.web.widget.GeneLenghtCorrectionCoefficient to normalize by gene length |  |
 
- | \[7\] | Use static values or a grammar to specify the values contained in the list. The default value in general is the first value set in the ‘filters’ attribute or the first value returned by the query. With static values, you can add ‘All’ meaning no filter applied. |
- | :--- | :--- |
+ \[7\] Use static values or a grammar to specify the values contained in the list. The default value in general is the first value set in the ‘filters’ attribute or the first value returned by the query. With static values, you can add ‘All’ meaning no filter applied.
 
+ \[8\] Specify only one. This has to be an attribute. Used in the results table. Specify the subclass using the syntax `path[subclass type]`.
 
- | \[8\] | Specify only one. This has to be an attribute. Used in the results table. Specify the subclass using the syntax `path[subclass type]`. |
- | :--- | :--- |
-
-
- | \[9\] | Case sensitive. For the values we can use: static values or the selected filter value using the syntax: `path contraint = [filter identifier]`. Only the value contained in the list. |
- | :--- | :--- |
+ \[9\] Case sensitive. For the values we can use: static values or the selected filter value using the syntax: `path contraint = [filter identifier]`. Only the value contained in the list.
 
 #### Examples
 
