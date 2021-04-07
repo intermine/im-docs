@@ -545,25 +545,6 @@ module.exports = {
               "type": "doc",
               "id": "webapp/lists/list-analysis/index"
             },
-            {
-              "collapsed": true,
-              "type": "category",
-              "label": "List Widgets",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "embedding/list-widgets/index"
-                },
-                {
-                  "type": "doc",
-                  "id": "embedding/list-widgets/q-and-a"
-                },
-                {
-                  "type": "doc",
-                  "id": "embedding/list-widgets/enrichment-widgets"
-                }
-              ]
-            }
           ]
         },
         {
