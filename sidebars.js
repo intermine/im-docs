@@ -637,14 +637,6 @@ module.exports = {
             {
               "type": "doc",
               "id": "webapp/monitoring-site-usage/google-analytics"
-            },
-            {
-              "type": "doc",
-              "id": "webapp/monitoring-site-usage/trackers"
-            },
-            {
-              "type": "doc",
-              "id": "webapp/monitoring-site-usage/search-engines"
             }
           ]
         },
