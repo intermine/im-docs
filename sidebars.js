@@ -657,10 +657,6 @@ module.exports = {
         },
         {
           "type": "doc",
-          "id": "webapp/performance/index"
-        },
-        {
-          "type": "doc",
           "id": "webapp/frictionless/index"
         }
       ]
