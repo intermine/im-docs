@@ -1,8 +1,23 @@
 module.exports = {
   "someSidebar": [
     {
-      "type": "doc",
-      "id": "index"
+      "collapsed": true,
+      "type": "category",
+      "label": "Introduction",
+      "items": [
+        {
+          "type": "doc",
+          "id": "introduction/index"
+        },
+        {
+          "type": "doc",
+          "id": "introduction/features"
+        },
+        {
+          "type": "doc",
+          "id": "introduction/architecture"
+        }
+      ]
     },
     {
       "collapsed": true,
