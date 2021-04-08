@@ -8,13 +8,14 @@ InterMine has been developed with the support of the Wellcome Trust \[067205\], 
 
 The publicly available InterMine instances include:
 
-* [FlyMine](http://www.flymine.org) - a data warehouse of integrated fruit fly genetic, genomic and proteomic data.
-* [YeastMine](http://yeastmine.yeastgenome.org) - an integrated data warehouse of yeast genomic data, developed by SGD.
-* [RatMine](http://ratmine.mcw.edu/ratmine) - an integrated data warehouse of rat genomic data, developed by RGD.
-* [MouseMine](http://www.mousemine.org) - an integrated data warehouse of mouse genomic data, developed by MGI.
-* [TargetMine](https://targetmine.mizuguchilab.org/targetmine) - a data warehouse for candidate gene prioritisation and drug target discovery, developed at NIBIO, Japan.
-* [Zebrafishmine](http://www.Zebrafishmine.org) - an integrated data warehouse of zebrafish genomic data, developed by ZFIN.
-* [Thalemine](https://bar.utoronto.ca/thalemine) - a data warehouse for Arabidopsis thaliana Col-0 for the ARAPORT project.
+* [FlyMine](https://www.flymine.org/)  - a data warehouse of integrated fruit fly genetic, genomic and proteomic data
+* [HumanMine](https://www.humanmine.org/) - an integrated database of Homo sapiens genomic data
+* [MouseMine](http://www.mousemine.org/) - an integrated data warehouse of mouse genomic data, developed by MGI
+* [YeastMine](https://yeastmine.yeastgenome.org/) - an integrated data warehouse of yeast genomic data, developed by SGD
+* [ZebrafishMine](http://zebrafishmine.org/) - an integrated data warehouse of zebrafish genomic data, developed by ZFIN
+* [RatMine](http://ratmine.mcw.edu/ratmine/begin.do) - an integrated data warehouse of rat genomic data, developed by RGD
+* [TargetMine](http://targetmine.mizuguchilab.org/) - a data warehouse for candidate gene prioritisation and drug target discovery, developed at NIBIO, Japan.
+* [ThaleMine](https://apps.araport.org/thalemine) - a data warehouse for Arabidopsis thaliana Col-0 for the ARAPORT project
 * [PhytoMine](https://phytozome.jgi.doe.gov/phytomine) - an integrated data warehouse of over 50 plant genomes from Phytozome.
 
 See the InterMine [registry](http://registry.intermine.org) for the full list of InterMine instances.
