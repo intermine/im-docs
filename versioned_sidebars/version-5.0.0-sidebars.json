@@ -74,14 +74,6 @@
             },
             {
               "type": "doc",
-              "id": "version-5.0.0/system-requirements/software/maven"
-            },
-            {
-              "type": "doc",
-              "id": "version-5.0.0/system-requirements/software/intellij"
-            },
-            {
-              "type": "doc",
               "id": "version-5.0.0/system-requirements/software/solr"
             },
             {
@@ -98,6 +90,14 @@
                   "id": "version-5.0.0/system-requirements/software/gradle/faqs"
                 }
               ]
+            },
+            {
+              "type": "doc",
+              "id": "version-5.0.0/system-requirements/software/intellij"
+            },
+            {
+              "type": "doc",
+              "id": "version-5.0.0/system-requirements/software/maven"
             }
           ]
         }

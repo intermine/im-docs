@@ -74,14 +74,6 @@ module.exports = {
             },
             {
               "type": "doc",
-              "id": "system-requirements/software/maven"
-            },
-            {
-              "type": "doc",
-              "id": "system-requirements/software/intellij"
-            },
-            {
-              "type": "doc",
               "id": "system-requirements/software/solr"
             },
             {
@@ -98,6 +90,14 @@ module.exports = {
                   "id": "system-requirements/software/gradle/faqs"
                 }
               ]
+            },
+            {
+              "type": "doc",
+              "id": "system-requirements/software/intellij"
+            },
+            {
+              "type": "doc",
+              "id": "system-requirements/software/maven"
             }
           ]
         }
