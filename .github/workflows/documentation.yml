@@ -26,7 +26,7 @@ jobs:
           fi
           npm run build
   gh-release:
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && github.repository_owner == 'intermine'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
