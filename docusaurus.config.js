@@ -17,7 +17,7 @@ module.exports = {
         src: 'img/logo.svg',
       },
       items: [
-        {to: 'docs/index', label: 'Docs', position: 'left'},
+        {to: 'docs/introduction/index', label: 'Docs', position: 'left'},
         {href: 'https://intermineorg.wordpress.com/', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/intermine/im-docs',
