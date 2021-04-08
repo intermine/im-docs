@@ -4,7 +4,7 @@ title: InterMine Documentation
 
 ### Welcome to InterMine! 👋
 
-Before diving into details on the BlueGenes user interface and its capabilities, let us introduce some background information about the InterMine software. 
+Before diving into details on the InterMine Server documentation and its capabilities, let us introduce some background information about the InterMine software. 
 
 ### Disparate data in, unified data out
 
