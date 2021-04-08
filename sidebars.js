@@ -552,6 +552,10 @@ module.exports = {
                 },
                 {
                   "type": "doc",
+                  "id": "webapp/lists/list-widgets/embedding"
+                },
+                {
+                  "type": "doc",
                   "id": "webapp/lists/list-widgets/enrichment-widgets"
                 }
               ]

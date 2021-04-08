@@ -552,6 +552,10 @@
                 },
                 {
                   "type": "doc",
+                  "id": "version-5.0.0/webapp/lists/list-widgets/embedding"
+                },
+                {
+                  "type": "doc",
                   "id": "version-5.0.0/webapp/lists/list-widgets/enrichment-widgets"
                 }
               ]

@@ -1,22 +1,21 @@
 ---
-title: List Widgets
+title: List widgets overview
 ---
 
-There are several list widgets \(widgets from now on\) available on the InterMine list analysis page, and they are configured in [Data and Widget Configuration](../../properties/webconfig-model.md).
+There are several list widgets \(widgets from now on\) available on InterMine, and they are configured in [Data and Widget Configuration](../../properties/webconfig-model.md).
 
 There are three categories of widgets:
 
-**table**
+| Category | Description |
+| :--- | :--- |
+| table | Displays the counts from the list for the collection specified |
+| graph/chart | Displays a graph/chart based on a dataset you specify |
+| enrichment | Displays the p-values of objects that appear in your list |
 
-Displays the counts from the list for the collection specified
-
-**graph/chart**
-
-Displays a graph/chart based on a dataset you specify
-
-**enrichment**
-
-Displays the p-values of objects that appear in your list
+:::info
+Table and Graph/Chart widgets configurations are valid only for the legagy webapp and for the webservices.
+To configure Table and Graph/Chart widgets in the new user interface, please use the Tool API
+:::
 
 To add a widget to your mine:
 
@@ -26,12 +25,12 @@ To add a widget to your mine:
 
 Below are the details on how to configure each widget type.
 
-**Note**
+## Configuration
+:::info
 Please read the documentation carefully and check your config file for typos. Most attributes are case sensitive. When the webapp is released, the config is validated and any errors are displayed in the home page.
+:::
 
-### Configuration
-
-#### Table widgets
+### Table widgets
 
 Table widgets display objects and the counts of related objects in your list.
 
@@ -58,7 +57,7 @@ The following are optional attributes:
 | `externalLinkLabel` | label for external link |  |
 | `views` | path fields display in the query running when the user clicks on the widget | `symbol` |
 
-#### Graph/Chart widgets
+### Graph/Chart widgets
 
 Graph widgets display datasets in graphical format.
 
@@ -80,8 +79,9 @@ Graph widgets display datasets in graphical format.
 
  \[1\] All the paths set, will be built starting from that. Specify only the simple name \(e.g. `Gene`\). You can choose to set the bag type class or the root class associated to the category path.
 
-**Warning**
+:::info
 You can specify **only one** class in `typeClass`. If you need another type, you have to define a new widget.
+:::
 
 The following are optional attributes:
 
@@ -107,7 +107,7 @@ The following are optional attributes:
 **Note**
 The graphs use [Google Visualitation API](https://developers.google.com/chart/interactive/docs/reference).
 
-#### Enrichment widgets
+### Enrichment widgets
 
 Enrichment widgets calculate p-values representing the probability annotation occurred by chance. See [List enrichment widgets statistics](enrichment-widgets.md) for more information on how the p-value is calculated.
 
@@ -124,8 +124,9 @@ Enrichment widgets calculate p-values representing the probability annotation oc
 
  \[6\]  \(1, 2\) You have to specify only one field. Specify the subclass using the syntax path\[subclass type\].
 
-**Warning**
+:::info
 You can specify **only one** class in `typeClass`. If you need another type, you have to define a new widget.
+:::
 
 The following are optional attributes:
 
@@ -166,101 +167,3 @@ Depending on the type of experiment your data comes from, it is sometimes necess
 #### Export Values
 
 The exported file from enrichment widgets includes the enrichment identifier as the fourth column. It is contextual to the startClass attribute in the configuration. For example, an enrichment widget for publications would return the PubMedID field, whereas, a GO enrichment widget would return the GO Term field.
-
-### Displaying widgets
-
-#### JavaScript
-
-**Widget service**
-
-Create a new Widgets instance pointing to a service:
-
-```javascript
-var widgets = new intermine.widgets("http://beta.flymine.org/beta/service/");
-```
-
-**Choose a widget**
-
-Choose which widget\(s\) you want to load:
-
-```javascript
-// Load all Widgets:
-widgets.all('Gene', 'myList', '#all-widgets');
-// Load a specific Chart Widget:
-widgets.chart('flyfish', 'myList', '#widget-1');
-// Load a specific Enrichment Widget:
-widgets.enrichment('pathway_enrichment', 'myList', '#widget-2');
-// Load a specific Table Widget:
-widgets.table('interactions', 'myList', '#widget-3');
-```
-
-#### CSS
-
-**Note**
-Widgets are using [Twitter Bootstrap](https://getbootstrap.com/2.0.2/) CSS framework.
-
-#### Embedding mine widgets on a custom page
-
-The following describes how to embed widgets not in a mine context.
-
-1. Open up a document in your text editor.
-2. Use the InterMine JavaScript API Loader that always gives you the latest version of the widgets. In the `<head>` element of the page, add the following line:
-
-    ```markup
-    <script src="http://cdn.intermine.org/api"></script>
-    ```
-
-3. Load the Widget Service:
-
-    ```markup
-    <script type="text/javascript">
-        intermine.load('widgets', function() {
-            var Widgets = new intermine.widgets('http://beta.flymine.org/beta/service/');
-        });
-    </script>
-    ```
-   
-    `intermine.load` represents a block of code that loads the widgets by pointing them to a specific mine.
-
-4. Use the widget web service to view which widgets are available on the mine, eg: [`http://beta.flymine.org/beta/service/widgets/`](http://beta.flymine.org/beta/service/widgets/]{.title-ref})
-5. See which lists are available in the mine: [`http://beta.flymine.org/beta/service/lists`](http://beta.flymine.org/beta/service/lists]{.title-ref})\`\`
-6. Add a widget \(from the list in the previous step\) to JavaScript. So within the `intermine.load` block, after creating the `Widgets` instance, do this:
-
-    ```javascript
-    // Load all Widgets:
-    Widgets.all('Gene', 'myList', '#all-widgets');
-    // Load a specific Chart Widget:
-    Widgets.chart('flyfish', 'myList', '#widget-1');
-    // Load a specific Enrichment Widget:
-    Widgets.enrichment('pathway_enrichment', 'myList', '#widget-2');
-    // Load a specific Table Widget:
-    Widgets.table('interactions', 'myList', '#widget-3');
-    ```
-   
-    Where the _first parameter_ passed is either type of object or name of widget to load. The _second_ is the name of list \(public list\) to access and _third_ is an element on the page where your widgets will appear. This element needs to obviously exist on the page first. A common one is a div that would look like this: `<div id="all-widgets"></div>`.
-
-7. Add HTML, eg:
-
-    ```markup
-    <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>test</title>
-        <script src="http://cdn.intermine.org/api"></script>
-        <script type="text/javascript">
-            intermine.load('widgets', function() {
-                var Widgets = new intermine.widgets('http://beta.flymine.org/beta/service/');
-                // Load all Widgets:
-                Widgets.all('Gene', 'myList', '#all-widgets');
-            });
-        </script>
-    </head>
-   
-    <body>
-        <!-- DIV goes here -->
-        <div class="widget" id="all-widgets">
-    </body>
-    </html>
-    ```
-
-8. You will have noticed that the widgets either pickup a style \(CSS\) from your HTML page, or they appear unstyled. To style them, you can use a variant of Twitter Bootstrap.
