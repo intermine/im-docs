@@ -12,13 +12,19 @@ module.exports = {
   themeConfig: {
     navbar: {
       title: 'InterMine Server Documentation',
+      hideOnScroll: true,
       logo: {
-        alt: 'My Site Logo',
+        alt: 'InterMine Logo',
         src: 'img/logo.svg',
       },
       items: [
-        {to: 'docs/introduction/index', label: 'Docs', position: 'left'},
+        {to: 'docs/introduction/index', activeBasePath: 'docs', label: 'Docs', position: 'left'},
         {href: 'https://intermineorg.wordpress.com/', label: 'Blog', position: 'left'},
+        {
+          href: 'http://intermine.org',
+          label: 'InterMine',
+          position: 'right',
+        },
         {
           href: 'https://github.com/intermine/im-docs',
           label: 'GitHub',
@@ -97,15 +103,8 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
           editUrl:
-            'https://github.com/intermine/im-docs',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/intermine/blog-container',
+            'https://github.com/intermine/im-docs/edit/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
