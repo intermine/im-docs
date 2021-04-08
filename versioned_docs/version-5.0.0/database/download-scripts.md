@@ -60,7 +60,7 @@ cpan[2]> install MooseX::FileAttribute
 
 To learn how to configure data sources of your mine, look here for examples:
 
-> `DataDownloader/config`
+ `DataDownloader/config`
 
 The yaml file of your mine is where data download script reads the instruction
 
