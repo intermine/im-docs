@@ -699,10 +699,6 @@ module.exports = {
         }]
     },
     {
-      "type": "doc",
-      "id": "help/index"
-    },
-    {
       "collapsed": true,
       "type": "category",
       "label": "Support",

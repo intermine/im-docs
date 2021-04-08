@@ -699,10 +699,6 @@
         }]
     },
     {
-      "type": "doc",
-      "id": "version-5.0.0/help/index"
-    },
-    {
       "collapsed": true,
       "type": "category",
       "label": "Support",
