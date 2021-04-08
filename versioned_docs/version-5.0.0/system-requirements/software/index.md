@@ -17,11 +17,11 @@ InterMine makes use of a variety of freely available software packages.
 **Note**
 InterMine only supports installations onto Linux and Mac OS X systems. Windows systems of any kind are not supported. We run a mixture of Debian and Fedora servers in our data centre in Cambridge.
 
-After installation, most programs require extra configuration to work with InterMine:
+After installation, some programs require extra configuration to work with InterMine:
 
 * [Git](git.md)
 	* [Getting started](git.md#getting-started)
-	* [Local Installation (for advanced users)](git.md#local-installation-(for-advanced-users%29)
+	* [Local Installation (for advanced users)](git.md#local-installation-for-advanced-users)
 * [Java](java.md)
 	* [GRADLE\_OPTS](java.md#gradle\_opts)
 * [Perl](perl.md)
@@ -38,9 +38,7 @@ After installation, most programs require extra configuration to work with Inter
 	* [After Installation](tomcat.md#after-installation)
 * [Mac Installation Notes](macs.md)
 	* [Installing Tomcat](macs.md#installing-tomcat)
-	* [Installing Eclipse](macs.md#installing-eclipse)
 	* [Installing Postgres](macs.md#installing-postgres)
-* [Maven](maven.md)
 * [Intellij](intellij.md)
 	* [Errors](intellij.md#errors)
 	* [Running Unit Tests](intellij.md#running-unit-tests)
