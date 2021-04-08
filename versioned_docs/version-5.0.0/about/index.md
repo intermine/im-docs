@@ -4,7 +4,7 @@ title: InterMine
 
 InterMine is an open source data warehouse system for the integration and analysis of complex biological data, developed for the last 10 years by the Micklem Lab at the University of Cambridge. InterMine has been used for developing data warehousing solutions for a number of projects, such as for storage and analysis of modENCODE data, and as a data mining platform for a number of major model organism databases as part of the InterMOD project.
 
-InterMine has been developed with the support of the Wellcome Trust \[067205\], \[082598\] and \[090297\], as well as support from the National Human Genome Research Institute \[R01HG004834\]. The Wellcome Trust also recently granted a further 5 years of funding for InterMine development, as well as development of HumanMine, a data warehouse of human genetic, genomic and proteomic data, ensuring continued development of InterMine as a framework.
+InterMine has been developed with the support of the Wellcome Trust \[067205\], \[082598\] and \[090297\], as well as support from the National Human Genome Research Institute \[R01HG004834\].
 
 The publicly available InterMine instances include:
 
