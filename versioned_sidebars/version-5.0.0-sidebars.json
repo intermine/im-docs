@@ -629,33 +629,25 @@
           "id": "version-5.0.0/webapp/https"
         },
         {
+          "type": "doc",
+          "id": "version-5.0.0/webapp/jbrowse"
+        },
+        {
           "collapsed": true,
           "type": "category",
-          "label": "Third party tools",
+          "label": "Tool API",
           "items": [
             {
               "type": "doc",
-              "id": "version-5.0.0/webapp/third-party-tools/cytoscape"
+              "id": "version-5.0.0/webapp/tool-api/overview"
             },
             {
               "type": "doc",
-              "id": "version-5.0.0/webapp/third-party-tools/esyn"
+              "id": "version-5.0.0/webapp/tool-api/tutorial"
             },
             {
               "type": "doc",
-              "id": "version-5.0.0/webapp/third-party-tools/galaxy"
-            },
-            {
-              "type": "doc",
-              "id": "version-5.0.0/webapp/third-party-tools/gbrowse"
-            },
-            {
-              "type": "doc",
-              "id": "version-5.0.0/webapp/third-party-tools/heatmap"
-            },
-            {
-              "type": "doc",
-              "id": "version-5.0.0/webapp/third-party-tools/jbrowse"
+              "id": "version-5.0.0/webapp/tool-api/specification"
             }
           ]
         },

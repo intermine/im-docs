@@ -629,33 +629,25 @@ module.exports = {
           "id": "webapp/https"
         },
         {
+          "type": "doc",
+          "id": "webapp/jbrowse"
+        },
+        {
           "collapsed": true,
           "type": "category",
-          "label": "Third party tools",
+          "label": "Tool API",
           "items": [
             {
               "type": "doc",
-              "id": "webapp/third-party-tools/cytoscape"
+              "id": "webapp/tool-api/overview"
             },
             {
               "type": "doc",
-              "id": "webapp/third-party-tools/esyn"
+              "id": "webapp/tool-api/tutorial"
             },
             {
               "type": "doc",
-              "id": "webapp/third-party-tools/galaxy"
-            },
-            {
-              "type": "doc",
-              "id": "webapp/third-party-tools/gbrowse"
-            },
-            {
-              "type": "doc",
-              "id": "webapp/third-party-tools/heatmap"
-            },
-            {
-              "type": "doc",
-              "id": "webapp/third-party-tools/jbrowse"
+              "id": "webapp/tool-api/specification"
             }
           ]
         },
