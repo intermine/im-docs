@@ -19,7 +19,7 @@ We use [git](http://git-scm.com) to manage and distribute source code and [gradl
 
 | Software | At least | Purpose |
 | :--- | :--- | :--- |
-| Git | 1.7 | It is our source control software. We use it to check out, update, manage, and distribute our source code. Note: InterMine is available via JCenter as executable JARs. We do not recommend downloading the InterMine source code. |
+| Git | 1.7 | It is our source control software. We use it to check out, update, manage, and distribute our source code. Note: InterMine is available via Maven Central as executable JARs. We do not recommend downloading the InterMine source code. |
 | Java SDK | 8 | We use Gradle as our build system and the usage of Gradle requires a Java Software Development Kit \(Java SDK\) installation. We recommend you use OpenJDK as it’s probably safer moving forward. |
 | PostgreSQL | 9.3.x | It is a powerful, open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads. We use it for our database. |
 | Tomcat | 8.5.x | It is an open source implementation of the Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies. We use it for deploying the web application. |
@@ -373,7 +373,7 @@ This will take a couple of minutes to complete, the command runs the following s
 
 3. Runs the parser included in the UniProt JAR. The JARs for every core
 
-   InterMine data source are published in [JCenter](https://jcenter.bintray.com/org/intermine/). The build
+   InterMine data source are published in [Maven Central](https://repo1.maven.org/maven2/org/intermine). The build
 
    looks for jar with the name matching "bio-source-&lt;source-type&gt;-&lt;version&gt;.jar", e.g. `bio-source-uniprot-2.0.0.jar`. Maven will automatically download the correct JARs for you.
 
