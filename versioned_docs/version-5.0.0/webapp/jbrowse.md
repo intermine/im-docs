@@ -14,7 +14,7 @@ If you want to be able to have a hierarchical view of your features on JBrowse, 
 <post-process name="populate-child-features"/>
 ```
 
-See [Post processing](../../database/database-building/post-processing/index.md) for details.
+See [Post processing](../database/database-building/post-processing/index.md) for details.
 
 ## Install JBrowse
 

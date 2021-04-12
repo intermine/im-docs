@@ -2,7 +2,7 @@
 title: How to set up your InterMine webapp to use https
 ---
 
-You will need to use a CDN delivering https content \(see [Performance](../webapp/performance/index.md)\). For example, [https://cdn.intermine.org](https://cdn.intermine.org)
+You will need to use a CDN delivering https content. For example, [https://cdn.intermine.org](https://cdn.intermine.org)
 
 Set the corresponding entry in 'global.web.properties', for example:
 
