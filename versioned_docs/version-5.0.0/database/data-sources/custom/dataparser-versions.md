@@ -58,7 +58,7 @@ Here is an error when Maven can't find your JAR:
       https://jcenter.bintray.com/org/intermine/bio-source-mysource/
 ```
 
-You can see that Maven first looking in your local Maven repo, then it looked in the remote Maven repository, JCenter.
+You can see that Maven first looking in your local Maven repo, then it looked in the remote Maven repository.
 
 This is because in the gradle file, we have specified which repositories to search. Maven will search in order. It will search the first repo for the specified JAR. If it fails, then it will continue to the next repository.
 

@@ -73,13 +73,11 @@ Gradle will go through each of these repositories and use the best version it fi
 
 Gradle first looks in `mavenLocal()`, which is your `~/.m2/repository` directory. These are JARs you have installed locally.
 
-#### Remote Repositiories \(JCenter and JFrog\)
+#### Remote Repositiories (Maven Central)
 
-Gradle then looks in the remote repositories \(JCenter and Jfrog\).
+Gradle then looks in the remote Maven Central repository .
 
-[JCenter](https://jcenter.bintray.com/org/intermine/) is where our InterMine JARs are stored remotely.
-
-[JFrog](https://oss.jfrog.org/artifactory) is where our InterMine SNAPSHOT JARs are currently.
+[Maven Central](https://repo1.maven.org/maven2/org/intermine) is where our InterMine JARs are stored remotely.
 
 Gradle will use the JAR with the latest version. This is because we use the `2.0+` notation.
 
