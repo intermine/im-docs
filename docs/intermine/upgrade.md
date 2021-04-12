@@ -33,7 +33,8 @@ This release contains:
 * deletion of deprecated Bioschemas DataRecord profile.
 
 To be able to download intermine artifacts, you need to apply some changes on the build.gradle of you MINE in order to replace jcenter() repo with mavenCentral(). See biotestmine [build.gradle](https://github.com/intermine/biotestmine/blob/master/build.gradle) for an example.
-This release still supports the legacy (JSP based) user interface but we strongly encourage to use BlueGenes
+
+This release still supports the legacy (JSP based) user interface but we strongly encourage to use BlueGenes instead.
 
 #### Configure BlueGenes
 * Add any addition credit displayed on the bottom of the home page, configuring the [project.credit](../webapp/homepage/index#credits) web properties 
@@ -397,7 +398,7 @@ To pull changes in your local repository and merge them into your working files,
 $ git pull upstream
 ```
 
-If you host a copy of the [CDN](../webapp/performance/index.md), then you should also pull in changes from that repository.
+If you host a copy of the CDN, then you should also pull in changes from that repository.
 
 ## Upgrade to InterMine 1.6
 
