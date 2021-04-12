@@ -4,9 +4,10 @@ title: Git
 
 [Git](http://git-scm.com) is our source control software. Download and install git on your local machine.
 
-**Note**
-InterMine is available via JCenter as executable JARs. We do not recommend downloading the InterMine source code.
+:::info
+InterMine is available via Maven Central as executable JARs. We do not recommend downloading the InterMine source code.
  InterMine source code is available via [GitHub](https://github.com/intermine/intermine).
+:::
 
 ## Getting started
 
@@ -14,7 +15,7 @@ See [Quick Start](../../get-started/quick-start.md) or [Create Your Own InterMin
 
 ## Local Installation \(for advanced users\)
 
-You should use the JARs available via [JCenter](https://jcenter.bintray.com/org/intermine/). However, if you want to make custom changes to InterMine, you can install locally.
+You should use the JARs available via [Maven Central](https://repo1.maven.org/maven2/org/intermine). However, if you want to make custom changes to InterMine, you can install locally.
 
 1. Get InterMine code.
 
@@ -53,7 +54,7 @@ This places the JARs in `~/.m2/repository`. You can now build a database and dep
 
 ### Why will Maven use my JARs instead of the published JARs?
 
-The Gradle build files are configured so that Maven looks in your local Maven \(`~/.m2/respository`\) directory first, before looking in JCenter. If Maven finds the correct version locally, those are the JARs it will use. But make sure you have the correct version!
+The Gradle build files are configured so that Maven looks in your local Maven \(`~/.m2/respository`\) directory first, before looking in Maven Central. If Maven finds the correct version locally, those are the JARs it will use. But make sure you have the correct version!
 
 ### Set your InterMine version
 
@@ -61,5 +62,5 @@ The InterMine version you use is determined by the system variables set in your 
 
 Make sure you have your [InterMine Versioning Policy](../../intermine/intermine-versions.md) set correctly. If you want to use local JARs, it's best to specify the exact version, e.g. `1.2.3`, of your local JARs. Do this in your mine's `gradle.properties` file.
 
-If you use `4.0.+`, there's a possibility a newer version of InterMine is published. The plus sign instructs Maven to get the latest version of InterMine in _any_ repository. In which case, Maven would use the newer JARs in JCenter instead of your local JARs.
+If you use `4.0.+`, there's a possibility a newer version of InterMine is published. The plus sign instructs Maven to get the latest version of InterMine in _any_ repository. In which case, Maven would use the newer JARs in Maven Central instead of your local JARs.
 

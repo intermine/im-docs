@@ -2,7 +2,7 @@
 title: Data Source Library Overview
 ---
 
-This page lists the current sources available for use in InterMine. All the sources here are found as ready-to-use JARs in the central repository, [JCenter](https://jcenter.bintray.com/org/intermine/).
+This page lists the current sources available for use in InterMine. All the sources here are found as ready-to-use JARs in the central repository, [Maven Central](https://repo1.maven.org/maven2/org/intermine).
 
 You can also add your own sources to load custom file formats, see [Writing your own data source](../custom/index.md) for more information. In addition, the [Tutorial](../../../get-started/tutorial/index.md) contains detailed steps on creating sources for a variety of different data formats.
 

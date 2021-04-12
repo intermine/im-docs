@@ -2,7 +2,7 @@
 title: InterMine JARs
 ---
 
-InterMine JARs are published on JCenter: [https://bintray.com/intermineorg](https://bintray.com/intermineorg)
+InterMine JARs are published on Maven Central: [https://repo1.maven.org/maven2/org/intermine/](https://repo1.maven.org/maven2/org/intermine/)
 
 To put these on your classpath, add the correct dependencies, e.g.
 
@@ -12,7 +12,7 @@ To put these on your classpath, add the correct dependencies, e.g.
 <dependency>
     <groupId>org.intermine</groupId>
     <artifactId>intermine-api</artifactId>
-    <version>4.0.1</version>
+    <version>5.0.0</version>
     <type>pom</type>
 </dependency>
 ```
@@ -20,6 +20,6 @@ To put these on your classpath, add the correct dependencies, e.g.
 ## Gradle
 
 ```text
-compile 'org.intermine:intermine-api:4.0.1'
+compile 'org.intermine:intermine-api:5.0.0'
 ```
 
