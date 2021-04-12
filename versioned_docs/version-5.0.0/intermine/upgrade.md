@@ -30,15 +30,16 @@ This release contains:
 * new web services to support BluGenes 1.0.0,
 * implementation of the Frictionless Data Package specs,
 * migration from jcenter to maven central,
-* deletion of deprecated Bioschemas DataRecord profile
+* deletion of deprecated Bioschemas DataRecord profile.
+
+To be able to download intermine artifacts, you need to apply some changes on the build.gradle of you MINE in order to replace jcenter() repo with mavenCentral(). See biotestmine [build.gradle](https://github.com/intermine/biotestmine/blob/master/build.gradle) for an example.
+This release still supports the legacy (JSP based) user interface but we strongly encourage to use BlueGenes
 
 #### Configure BlueGenes
 * Add any addition credit displayed on the bottom of the home page, configuring the [project.credit](../webapp/homepage/index#credits) web properties 
 * Configure the WHAT'S NEW section on the home page, adding the [project.news](../webapp/homepage/index#rssblog-feed) web property
 * Configure the CITE US section on the home page, updating the project.citation property with the publication URL 
 * Configure any existing external oauth2 provider (as Google or Elixir) adding an authorised redirect URIs  pointing to BlueGenes /api/auth/oauth2callback endpoint. More instructions [here](../webapp/properties/oauth2#registering-your-application)
-
-This release still supports the legacy (JSP based) user interface.
 
 ## InterMine 4.3.1
 
