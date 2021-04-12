@@ -60,10 +60,7 @@ Here is an excerpt from the mine's `build.gradle` file the determines which JAR 
 ```text
 repositories {
     mavenLocal()
-    jcenter()
-    maven {
-        url "https://oss.jfrog.org/artifactory/oss-snapshot-local"
-    }
+    mavenCentral()
 }
 ```
 

@@ -66,8 +66,7 @@ This is because in the gradle file, we have specified which repositories to sear
 # in build.gradle
 repositories {
     mavenLocal() <-- where your installs go
-    jcenter() <-- InterMine JARs
-    mavenCentral() 
+    mavenCentral() <-- InterMine JARs
 }
 ```
 
