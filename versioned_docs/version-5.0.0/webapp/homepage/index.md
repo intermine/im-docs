@@ -31,22 +31,21 @@ project.news = http://<your_blog>
 
 ## Credits
 
-By default InterMine credit is added to the bottome of the page.
+By default InterMine credit is added to the bottom of the page.
 
 ![image](img/intermine_funder.jpg)
 
-To add additional funders, set the following in the `web.properties` file:
+To add additional funders, use the `project.credit.x` properties in the `web.properties` file:
  
-```text
-project.credit.1.image=<the_funder_logo_url>
-project.credit.1.url=<the_funder_url>
-```
-
-eg:
-
 ```text
 project.credit.1.image=https://www.humanmine.org/humanmine/images/wellcome-logo-black.png
 project.credit.1.url=https://wellcome.ac.uk/
 ``` 
 
+You can also use a variation containing text that will be displayed to the right of the image. The text property supports markdown.
 
+```text
+project.credit.2.text=**HumanMine** has been funded by the [Wellcome Trust](https://wellcome.org/).
+project.credit.2.image=https://www.humanmine.org/humanmine/images/wellcome-logo-black.png
+project.credit.2.url=https://wellcome.ac.uk/
+```
