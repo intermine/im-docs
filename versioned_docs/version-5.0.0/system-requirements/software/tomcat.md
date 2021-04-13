@@ -39,6 +39,9 @@ If you used a package manager to get Tomcat, the manager may not be included. He
 ```bash
 $ apt-get install tomcat7-admin
 ```
+:::info
+The following settings are required only if you use the legacy interface
+:::
 
 ### Context
 
@@ -73,7 +76,7 @@ export JAVA_OPTS
 
 Tomcat 7.0 has improved the enforcement of Expression Language rules and by default doesn't allow the use of Java keywords. This flag makes Tomcat 7 more permissive.
 
-If tomcat is installed as service, add org.apache.el.parser.SKIP\_IDENTIFIER\_CHECK=true to /etc/tomcat7/catalina.properties instead of adding JAVA\_OPTS in startup.sh.
+If tomcat is installed as service, add the property org.apache.el.parser.SKIP\_IDENTIFIER\_CHECK=true in the /etc/tomcat7/catalina.properties file instead.
 
 ### Starting Tomcat
 
