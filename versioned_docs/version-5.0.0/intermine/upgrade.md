@@ -33,7 +33,7 @@ This release contains:
 * deletion of deprecated Bioschemas DataRecord profile.
 
 :::info
-To be able to download intermine artifacts, you need to apply some changes on the build.gradle of you MINE in order to replace jcenter() repo with mavenCentral(). See biotestmine [build.gradle](https://github.com/intermine/biotestmine/blob/master/build.gradle) for an example.
+To be able to download intermine artifacts, you need to apply some changes on the build.gradle of your MINE in order to replace jcenter() repo with mavenCentral(). See biotestmine [build.gradle](https://github.com/intermine/biotestmine/blob/master/build.gradle) for an example.
 :::
 
 This release still supports the legacy (JSP based) user interface but we strongly encourage to use BlueGenes instead.
