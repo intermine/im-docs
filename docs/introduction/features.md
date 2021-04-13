@@ -14,7 +14,7 @@ The sophisticated query optimisation means that users can construct and perform 
 
 ## User-friendly web interface and analysis tools
 
-The new interface [BlueGenes](http://intermine.org/intermine-user-docs/getting-started#homepage) provides a more interactive experience for exploring and analysing data.
+The new interface [BlueGenes](http://intermine.org/intermine-user-docs/docs/getting-started#homepage) provides a more interactive experience for exploring and analysing data.
 It contains a number of features focused around list analysis \(a common need in biology\), including graphical data displayers and tools that automatically calculate a set of enrichment statistics. It also includes report pages, interactive results tables, saved template queries, a regions search tool and a query builder. This setup makes it possible to browse and explore data without any programming knowledge. Users can save their data and queries in a private workspace.
 
 ## Extensive set of APIs and web tools
