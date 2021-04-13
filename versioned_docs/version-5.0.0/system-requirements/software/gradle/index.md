@@ -76,11 +76,9 @@ We are using the same [project build](https://github.com/intermine/intermine-scr
 
 ### Webapp
 
-There are several ways to deploy your InterMine webapp. You can use `cargo` to deploy your webapp to a running Tomcat instance, or `gretty` to use an embedded Tomcat instance. Run `./gradlew tasks` to see all the available tasks.
+To deploy your InterMine webapp you can use the [cargo](https://github.com/bmuschko/gradle-cargo-plugin/blob/master/README.md) gradle plugin. Run `./gradlew tasks` to see all the available tasks.
 
-We use `cargo` for our production instances and `gretty` on our local dev machines.
-
-#### Deploy a webapp \(cargo\)
+#### Deploy a webapp to a running Tomcat instance
 
 ```text
 ~/git/flymine $ ./gradlew cargoDeployRemote
@@ -102,15 +100,14 @@ Uses the config in the mine properties file, e.g. `flymine.properties`, to deplo
 **Note**
 Cargo uses hot deployment which over time, fills up the PermGen memory of the JVM process running your container. Continuously deploying an artifact will inevitably lead to a java.lang.OutOfMemoryError
 
-#### Deploy a webapp \(gretty\)
+#### Deploy a webapp with embedded Tomcat
+Only on your local dev machines.
 
 ```text
-~/git/flymine $ ./gradlew tomcatStartWar
-~/git/flymine $ ./gradlew tomcatStop
+~/git/flymine $ ./gradlew cargoRunLocal
 ```
 
 * Embedded tomcat, uses port 8080.
-* Logs are in $HOME/logs, for more details: [http://akhikhl.github.io/gretty-doc/Logging.html](http://akhikhl.github.io/gretty-doc/Logging.html)
 
 #### Trying out BlueGenes
 
