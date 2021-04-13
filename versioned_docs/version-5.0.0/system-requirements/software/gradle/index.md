@@ -112,17 +112,27 @@ Cargo uses hot deployment which over time, fills up the PermGen memory of the JV
 * Embedded tomcat, uses port 8080.
 * Logs are in $HOME/logs, for more details: [http://akhikhl.github.io/gretty-doc/Logging.html](http://akhikhl.github.io/gretty-doc/Logging.html)
 
-#### Deploy blue genes
+#### Trying out BlueGenes
+
+:::note
+**This approach is only recommended for trying out the app.** See [BlueGenes](../../../webapp/bluegenes/index) for deploying to a production environment.
+:::
 
 ```text
 ~/git/flymine $ ./gradlew blueGenesStart
 ```
 
-* Gets the `mine name`, `URL` and tools location from the $mine.properties file.
-* Uses the webservices from the webapp specified in the $mine.properties file. For the time being, you have to have an InterMine webapp running to launch a bluegenes instance.
-* The app will be deployed at the specified `URL`, port 5000.
-* It is suggested to launch the app in the background \(append `&` to the command\).
-* Please see [Blue genes](../../../webapp/blue-genes/index.md) for details on how to configure your bluegenes instance.
+* The app will run at localhost on port 5000.
+* Will use `systemProp.blueGenesVersion` defined in gradle.properties file.
+* Uses the following parameters defined in the `~/.intermine/$MINE.properties` file.
+
+| purpose | parameter | example |
+| :--- | :--- | :--- |
+| base URL for mine's web services | webapp.baseurl | http://www.flymine.org |
+| path appended to the base URL and unique namespace for mine | webapp.path | flymine |
+| name of your mine as it will be displayed in BlueGenes | project.title | BioTestMine |
+| location of JavaScript tools | bluegenes.toolLocation | /intermine/tools/ |
+
 
 ### Specify properties file
 

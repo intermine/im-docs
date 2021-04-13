@@ -50,6 +50,12 @@ These parameters are returned by the branding API end point, and are used by ext
 
 Using the `bag.example.identifiers` key, one can provide a list of keyword examples on the list create/upload page. This could lead to a mixed list of items being updated and only, say Protein or Gene, identifiers being uploaded.
 
+```
+bag.example.identifiers.protein=Q8T3M3,FBpp0081318,FTZ_DROME
+# one per type
+bag.example.identifiers=CG9151, FBgn0000099
+```
+
 ## External links
 
 You can add links to other websites by adding entries to the `web.properties` file.
