@@ -32,7 +32,9 @@ This release contains:
 * migration from jcenter to maven central,
 * deletion of deprecated Bioschemas DataRecord profile.
 
+:::info
 To be able to download intermine artifacts, you need to apply some changes on the build.gradle of you MINE in order to replace jcenter() repo with mavenCentral(). See biotestmine [build.gradle](https://github.com/intermine/biotestmine/blob/master/build.gradle) for an example.
+:::
 
 This release still supports the legacy (JSP based) user interface but we strongly encourage to use BlueGenes instead.
 
@@ -41,6 +43,8 @@ This release still supports the legacy (JSP based) user interface but we strongl
 * Configure the WHAT'S NEW section on the home page, adding the [project.news](../webapp/homepage/index#rssblog-feed) web property
 * Configure the CITE US section on the home page, updating the project.citation property with the publication URL 
 * Configure any existing external oauth2 provider (as Google or Elixir) adding an authorised redirect URIs  pointing to BlueGenes /api/auth/oauth2callback endpoint. More instructions [here](../webapp/properties/oauth2#registering-your-application)
+* Update the blueGenesStart task defined in your MINE/webapp/build.gradle file adding the new envvar `environment("bluegenes-default-namespace", props.getProperty("webapp.path"))`
+See [biotestmine](https://github.com/intermine/biotestmine/blob/master/webapp/build.gradle#L146) for an example. We recommend to NOT use blueGenesStart task in production
 
 ## InterMine 4.3.1
 
