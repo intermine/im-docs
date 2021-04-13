@@ -9,6 +9,7 @@ import styles from './styles.module.css';
 const features = [
   {
     title: 'Create your own Database',
+    imageUrl: '/img/createyourownDB.png',
     description: (
       <>
         InterMine enables the creation of biological databases accessed by 
@@ -20,6 +21,7 @@ const features = [
   },
   {
     title: 'Easy to Use',
+    imageUrl: '/img/easytouse.png',
     description: (
       <>
         InterMine includes an attractive, user-friendly web interface that 
@@ -52,7 +54,7 @@ function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="InterMine Server Documentation">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>

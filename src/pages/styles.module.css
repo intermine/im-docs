@@ -31,7 +31,11 @@
   width: 100%;
 }
 
+.feature {
+  margin: 40px 0;
+}
+
 .featureImage {
+  margin-bottom: 20px;
   height: 200px;
-  width: 200px;
 }
