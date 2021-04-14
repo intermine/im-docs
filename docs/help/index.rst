@@ -44,6 +44,6 @@ Templates: To help with data analysis, InterMine includes a library of Template 
 .. |Templates|     image:: http://content.screencast.com/users/InterMine/folders/InterMine/media/277fe169-8008-4990-8330-f422c65d31d9/FirstFrame.jpg
     :target: http://www.screencast.com/t/qjuoxo0QhWW
 
-See http://intermine.org/tutorials/ for a list of all available videos.
+See https://github.com/intermine/training-portal for a list of all available tutorials and videos.
 
 .. index:: help, tutorials, videos
