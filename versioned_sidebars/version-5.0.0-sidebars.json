@@ -526,6 +526,10 @@
         },
         {
           "type": "doc",
+          "id": "version-5.0.0/webapp/layout/index"
+        },
+        {
+          "type": "doc",
           "id": "version-5.0.0/webapp/homepage/index"
         },       
         {
@@ -592,10 +596,6 @@
         {
           "type": "doc",
           "id": "version-5.0.0/webapp/keyword-search/index"
-        },
-        {
-          "type": "doc",
-          "id": "version-5.0.0/webapp/layout/index"
         },
         {
           "collapsed": true,

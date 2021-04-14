@@ -526,6 +526,10 @@ module.exports = {
         },
         {
           "type": "doc",
+          "id": "webapp/layout/index"
+        },
+        {
+          "type": "doc",
           "id": "webapp/homepage/index"
         },
         {
@@ -592,10 +596,6 @@ module.exports = {
         {
           "type": "doc",
           "id": "webapp/keyword-search/index"
-        },
-        {
-          "type": "doc",
-          "id": "webapp/layout/index"
         },
         {
           "collapsed": true,
