@@ -30,41 +30,41 @@ The config file is located at `MINE_NAME/dbmodel/resources/keyword_search.proper
 
 * index.temp.directory
 
-  > * directory for search index
+   * directory for search index
 
 * index.references.&lt;CLASS\_NAME&gt;
 
-  > * eg. index.references.Gene
-  > * index these objects' references in addition to the normal indexing
-  > * eg. if Gene.pathways is indexed so that when users search for pathways, the associated genes are also returned as search results
+   * eg. index.references.Gene
+   * index these objects' references in addition to the normal indexing
+   * eg. if Gene.pathways is indexed so that when users search for pathways, the associated genes are also returned as search results
 
 * index.ignore
 
-  > * do not index these classes
+   * do not index these classes
 
 * index.ignore.fields
 
-  > * do not index these fields
-  > * eg `index.ignore.fields = SNP.type SNP.alleles`
+   * do not index these fields
+   * eg `index.ignore.fields = SNP.type SNP.alleles`
 
 * facets
 
-  > * Will appear as filters on the left panel in the search results
-  > * choose `single` for references, `multi` for collections
-  > * Note: you must index any references used as facets. \(see above at '''index.references'''\).
+   * Will appear as filters on the left panel in the search results
+   * choose `single` for references, `multi` for collections
+   * Note: you must index any references used as facets. \(see above at '''index.references'''\).
 
 * index.boost.&lt;CLASS\_NAME&gt;
 
-  > * weight this class heavier than other objects
+   * weight this class heavier than other objects
 
 * search.debug
 
-  > * debug setting off, used only for testing
+   * debug setting off, used only for testing
 
 * index.optimize
 
-  > * Boolean, defaults to false.
-  > * If set to `true`, reorganises the index so chunks are placed together in storage, which might improve the search time. \(Similar to defragmentation of a hard disk\). Requires an empty space in the storage as large as the index, and takes additional time.
+   * Boolean, defaults to false.
+   * If set to `true`, reorganises the index so chunks are placed together in storage, which might improve the search time. \(Similar to defragmentation of a hard disk\). Requires an empty space in the storage as large as the index, and takes additional time.
 
 ## Search Index
 
