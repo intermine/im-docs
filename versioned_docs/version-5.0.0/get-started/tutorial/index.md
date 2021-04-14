@@ -951,9 +951,9 @@ You only need to build the userprofile database once.
 **Warning**
 The buildDB and buildUserDB commands rebuild the database and thus will delete any data.
 
-### Deploying the webapp
+### Deploying the webservices
 
-Before deploying the biotestmine webapp, you need to configure tomcat. See [Tomcat](../../system-requirements/software/tomcat.md) for configuration details.
+Before deploying the biotestmine webservices, you need to configure tomcat. See [Tomcat](../../system-requirements/software/tomcat.md) for configuration details.
 
 Run the following command to deploy your webapp:
 
@@ -965,19 +965,28 @@ Run the following command to deploy your webapp:
 If you make changes, redeploy your webapp with this command:
 
 ```text
-# REdeploy the webapp (tomcat must be running)
+# redeploy the webapp (tomcat must be running)
 ~/git/biotestmine $ ./gradlew cargoReDeployRemote
 ```
+### Start BlueGenes
+BlueGenes is the new user interface. It runs as its own service and utilises the InterMine web service API.
+
+Run the following command to start BlueGenes:
+
+```text
+./gradlew blueGenesStart
+```
+:::info
+**This approach is only recommended for trying out the app.** See [BlueGenes](../../webapp/bluegenes/index) for deploying to a production environment.
+:::
 
 ### Using the webapp
 
-Navigate to [http://localhost:8080/biotestmine](http://localhost:8080/biotestmine) to view your webapp. The path to your webapp is the `webapp.path` value set in biotestmine.properties.
+You should be able to access the new user interface BlueGenes from [http://localhost:5000](http://localhost:5000)
+If you want to use the legacy user interface visit [http://localhost:8080/biotestmine](http://localhost:8080/biotestmine). The path to your webapp is the `webapp.path` value set in biotestmine.properties.
 
-{% tabs %}
-{% tab title="Next" %}
-Now that you have a database and a working webapp, you'll want to know how to add your own logo, pick a colour scheme, modify how data is displayed etc. Our ****[webapp tutorial](webapp.md) is a detailed guide on how to customise all parts of the InterMine web application.
-{% endtab %}
-{% endtabs %}
+#### Next
+Now that you have a database and a working webapp, you'll want to know how to add your own logo, pick a colour scheme, modify how data is displayed etc. In the Web Application section you'll find a detailed guide on how to customise all parts of the InterMine web application.
 
 ## Help
 
