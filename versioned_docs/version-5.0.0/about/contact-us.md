@@ -10,8 +10,8 @@ You can contact us in several ways!
 
 ### By Email 📧 
 
-* For general enquiries, you can email us at [info@intermine.org](mailto:info%40intermine.org)
-* If you have any issues and need support, email us at our general support email [support@intermine.org](mailto:support%40intermine.org)
+* For general enquiries, you can email us at `info [at] intermine [dot] org`
+* If you have any issues and need support, email us at our general support email `support [at] intermine [dot] org`
 
 ### Chat 💬 
 
