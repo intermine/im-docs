@@ -522,7 +522,7 @@ module.exports = {
       "items": [
         {
           "type": "doc",
-          "id": "webapp/blue-genes/index"
+          "id": "webapp/bluegenes/index"
         },
         {
           "type": "doc",
