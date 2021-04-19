@@ -29,10 +29,20 @@ These are the essentials. For more configuration options, see [Configuration](#c
 You will want to keep your [tools folder](../tool-api/overview#tools-folder-and-config) outside the container, so that your existing tools will be kept when updating BlueGenes. To do this, run `mkdir tools` to create a folder we'll use as a docker bind mount. Then start the docker container with the following command:
 
 ```
-docker run -p 5000:5000 --env-file bluegenes.env -v "$(pwd)"/tools:/tools -d --restart unless-stopped bluegenes
+docker run -p 5000:5000 --env-file bluegenes.env -v "$(pwd)"/tools:/tools -d --restart unless-stopped intermine/bluegenes
 ```
 
 You should be able to access BlueGenes from [http://localhost:5000](http://localhost:5000). To make it publicly accessible, you can point a reverse proxy to this port, or use a different port on the host (e.g. `-p 80:5000`).
+
+:::tip Essential docker commands
+
+* `docker ps -a` - List all containers
+* `docker logs <container>` - Print logs of a container
+* `docker stop <container>` - Stop a container
+* `docker rm <container>` - Remove a container
+* `docker images` - List images available locally
+
+:::
 
 ## Configuration
 
