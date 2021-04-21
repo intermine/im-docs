@@ -51,6 +51,12 @@ environment("bluegenes-default-namespace", props.getProperty("webapp.path"))
 
 See [biotestmine](https://github.com/intermine/biotestmine/blob/master/webapp/build.gradle#L146) for an example. We recommend NOT to use blueGenesStart task in production.
 
+### Firefox cache
+
+:::note
+If you use Firefox, you might experience an issue due to the browser cache, in that case you need to delete the cache. To delete the cache go to Preferences -> Privacy & Security -> Clear Data and then check the box Cached Web Content.
+:::
+
 ## InterMine 4.3.1
 
 This is a non-disruptive release.
