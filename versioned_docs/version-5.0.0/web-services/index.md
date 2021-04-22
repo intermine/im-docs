@@ -39,7 +39,7 @@ Documentation on services available from mines: [http://iodocs.apps.intermine.or
 
 **Java**
 
-[Download](https://github.com/intermine/intermine-ws-java) \| [API](http://intermine.org/intermine-ws-java/javadoc/) \| [Tutorial](https://github.com/intermine/intermine-ws-java-docs/) \| [Source](https://github.com/intermine/intermine-ws-java)
+[Download](https://repo1.maven.org/maven2/org/intermine/intermine-ws-java) \| [API](http://intermine.org/intermine-ws-java/javadoc/) \| [Tutorial](https://github.com/intermine/intermine-ws-java-docs/) \| [Source](https://github.com/intermine/intermine-ws-java)
 
 **Perl Client**
 
