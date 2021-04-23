@@ -20,7 +20,7 @@ For ELIXIR, you will need:
 
    have it
 
-2. register the new client [here](https://login.elixir-czech.org/oidc/manage/dev/dynreg), using the _Self-service client registration_ page.
+2. register the new client [here](https://spreg.aai.elixir-czech.cz/spreg/), using the _New service_ page.
 3. send an email to [aai-contact@elixir-europe.org](mailto:aai-contact@elixir-europe.org) in order to receive a form that you have to complete with additional information
 
 For each application you will need to register the callback URI, which looks like:
