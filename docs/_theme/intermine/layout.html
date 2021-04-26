@@ -12,8 +12,9 @@
 {%- block extrahead -%}
 <!-- syntax highlighting -->
 <link href="{{ pathto("_static/pygments/radek.css", 1) }}" rel="stylesheet">
-{%- endblock -%}
 <div class="admonition warning"><p class="first admonition-title">Note</p> <p class="last"> You are not reading the most recent version of this documentation. <a href="http://intermine.org/im-docs/docs/">5.0.0</a> is the latest version available.</p></div>
+{%- endblock -%}
+
 {# put the sidebar before the body #}
 {% block sidebar1 %}{{ sidebar() }}{% endblock %}
 {% block sidebar2 %}{% endblock %}
