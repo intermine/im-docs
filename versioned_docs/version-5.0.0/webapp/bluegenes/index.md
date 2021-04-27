@@ -73,3 +73,13 @@ Below is an examples of HumanMine and FlyMine specified as additional mines.
 ```
 BLUEGENES_ADDITIONAL_MINES=[{:root "https://www.humanmine.org/humanmine", :name "HumanMine", :namespace "humanmine"} {:root "https://www.flymine.org/flymine", :name "FlyMine", :namespace "flymine"}]
 ```
+
+### Resources
+
+You can add new or override existing resources served by BlueGenes by creating a `resources` directory and having docker mount it and added to the Java class path with the following command:
+
+```
+docker run -p 5000:5000 --env-file bluegenes.env -v "$(pwd)"/tools:/tools -v "$(pwd)"/resources:/resources -d --restart unless-stopped --entrypoint /usr/bin/java intermine/bluegenes -cp "resources:bluegenes.jar" bluegenes.core
+```
+
+The path inside the `resources` directory should match what is [provided in BlueGenes](https://github.com/intermine/bluegenes/tree/dev/resources), meaning everything inside `resources/public` is served from the web server root.

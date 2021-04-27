@@ -29,6 +29,19 @@ branding.colors.header.main = #5c0075
 branding.colors.header.text = #fff
 ```
 ![FlyMine's layout](/img/branding.png)
+
+### Favicon
+
+The favicon is a small icon displayed beside the tab or window title in the web browser.
+
+The favicon itself should be located in `<your_mine>/webapp/src/main/webapp/model/images/favicon.ico`, and BlueGenes will use it if it's present for the default mine (otherwise it will fallback to the InterMine logo).
+
+You can also configure a favicon for BlueGenes (useful if you have one webapp serving multiple mines) by adding it as a [resource](../bluegenes/index#resources) under the `resources/public/favicon.ico` path.
+
+:::tip
+If you want to generate a favicon from an image, use this [Dynamic Drive](http://tools.dynamicdrive.com/favicon/) tool.
+:::
+
 ### Footer
 
 **`project.citation`**
