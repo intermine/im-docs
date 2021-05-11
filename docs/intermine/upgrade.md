@@ -167,19 +167,19 @@ To update to use the new InterMine release:
 
 * Change your mine's `gradle.properties` file to `3.1.+`.
 
-> ```text
-> # example -- flymine's gradle.properties
-> systemProp.imVersion=3.1.+
-> systemProp.bioVersion=3.1.+
-> ```
+ ```text
+ # example -- flymine's gradle.properties
+ systemProp.imVersion=3.1.+
+ systemProp.bioVersion=3.1.+
+ ```
 
 * Change your data sources' `gradle.properties` file to `3.1.+`.
 
-> ```text
-> # example -- flymine-bio-sources gradle.properties
-> systemProp.imVersion=3.1.+
-> systemProp.bioVersion=3.1.+
-> ```
+ ```text
+ # example -- flymine-bio-sources gradle.properties
+ systemProp.imVersion=3.1.+
+ systemProp.bioVersion=3.1.+
+ ```
 
 ## InterMine 3.0.0
 
@@ -189,19 +189,19 @@ This release adds Solr to InterMine. To upgrade, you will need to rebuild your d
 
 1. Change your mine's `gradle.properties` file to `3.0.+`. If you have data sources, change the version they use too.
 
-   > ```text
-   > # example -- flymine's gradle.properties
-   > systemProp.imVersion=3.0.+
-   > systemProp.bioVersion=3.0.+
-   > ```
+    ```text
+    # example -- flymine's gradle.properties
+    systemProp.imVersion=3.0.+
+    systemProp.bioVersion=3.0.+
+    ```
 
 2. Install Solr
 
-   > [Solr](../system-requirements/software/solr.md)
+    [Solr](../system-requirements/software/solr.md)
 
 3. Configure Solr
 
-   > [Keyword Search](../webapp/keyword-search/index.md)
+    [Keyword Search](../webapp/keyword-search/index.md)
 
 4. Rebuild your database.
 
@@ -243,13 +243,13 @@ If you have your mine and bio/sources in your InterMine checkout, instead of in 
 
 What you want to end up with:
 
-> * FlyMine - [https://github.com/intermine/flymine/](https://github.com/intermine/flymine/) \(MUST be the
->
->   name of your mine\)
->
-> * FlyMine specific data sources -
->
->   [https://github.com/intermine/flymine-bio-sources](https://github.com/intermine/flymine-bio-sources)
+ * FlyMine - [https://github.com/intermine/flymine/](https://github.com/intermine/flymine/) \(MUST be the
+
+   name of your mine\)
+
+ * FlyMine specific data sources -
+
+   [https://github.com/intermine/flymine-bio-sources](https://github.com/intermine/flymine-bio-sources)
 
 Options to separate out your mine repo:
 
