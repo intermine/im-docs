@@ -243,9 +243,7 @@ If you have your mine and bio/sources in your InterMine checkout, instead of in 
 
 What you want to end up with:
 
- * FlyMine - [https://github.com/intermine/flymine/](https://github.com/intermine/flymine/) \(MUST be the
-
-   name of your mine\)
+ * FlyMine - [https://github.com/intermine/flymine/](https://github.com/intermine/flymine/) \(MUST be the name of your mine\)
 
  * FlyMine specific data sources -
 
@@ -263,11 +261,7 @@ Options to separate out your mine repo:
    ~/git/flymine $ git init; git add *; git commit -am "initial commit"
    ```
 
-2. Instead, use `git filter-branch` command. Follow the [directions](https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/)
-
-   on how to move a directory to a new repository and keep your history
-
-   in GitHub.
+2. Instead, use `git filter-branch` command. Follow the [directions](https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/) on how to move a directory to a new repository and keep your history in GitHub.
 
 **You should not have any core InterMine code locally.**
 
