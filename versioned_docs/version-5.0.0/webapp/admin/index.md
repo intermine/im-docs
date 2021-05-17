@@ -6,7 +6,7 @@ The SuperUser is the administrator of your InterMine webapp. The SuperUser can u
 
 The SuperUser account is created when the UserProfile database is built using the properties specified in the [Intermine properties](../properties/intermine-properties.md) file.
 
-Most of the website administration and customization is now done directly in the [BlueGenes administrator page](http://intermine.org/docs/user/admin-account), but a couple of settings are still defined using the old webapp admin login.
+Most of the website administration and customization is now done directly in the [BlueGenes administrator page](http://intermine.org/intermine-user-docs/docs/admin-account), but a couple of settings are still defined using the old webapp admin login.
 
 ## Templates queries and lists 
 All logged in users can create template queries and lists, but the SuperUser can make them available to all users by tagging them as public via the templates and lists pages in the MyMine section of the webapp. 
