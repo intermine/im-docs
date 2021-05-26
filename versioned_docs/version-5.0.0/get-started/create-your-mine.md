@@ -54,7 +54,7 @@ Rename the file to match your Mine.
 
 Now update your new properties files with the values correct for your InterMine. You'll want to update the details for your InterMine databases, you'll create those in the next step.
 
-See [Database and Web application](../webapp/properties/intermine-properties.md) for details on this file and what each property means.
+See [Database and Web application](../web-services/intermine-properties.md) for details on this file and what each property means.
 
 ### 3. Create databases
 
