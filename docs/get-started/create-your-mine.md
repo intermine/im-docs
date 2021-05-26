@@ -153,8 +153,8 @@ Congratulations! You now have an InterMine! Visit it at localhost:8080/tigermine
 
 Next you will want to:
 
-* [setup BlueGenes](../webapp/bluegenes/index)
-* [customise your mine](../web-services/intermine-properties)
+* [setup BlueGenes](../webapp/bluegenes/index.md)
+* [customise your mine](../web-services/intermine-properties.md)
 * [add your own data sources](../database/data-sources/custom/index.md)
 * [join the intermine mailing list](../support/mailing-list.md)
 
