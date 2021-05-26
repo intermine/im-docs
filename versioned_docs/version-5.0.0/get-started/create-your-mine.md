@@ -43,7 +43,7 @@ Make an intermine directory in your home directory.
 Copy the properties file you created in the tutorial.
 
 ```text
-~/.intermine $ wget https://github.com/intermine/biotestmine/blob/master/data/biotestmine.properties 
+~/.intermine $ wget https://raw.githubusercontent.com/intermine/biotestmine/master/data/biotestmine.properties
 ```
 
 Rename the file to match your Mine.
