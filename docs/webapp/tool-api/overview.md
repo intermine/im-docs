@@ -40,7 +40,11 @@ Make sure to add your tool's path and its version number to `tools.edn` so it's 
          "@intermine/bluegenes-interaction-network" "1.0.0"}}
 ```
 
-In the directory of your tool, you can continue developing and rebuild it to see your changes in BlueGenes.
+In the directory of your tool, you can continue developing and rebuild it to see your changes in BlueGenes. It shouldn't be necessary to restart BlueGenes - refreshing the browser page (possibly using `Ctrl+Shift+R` or `Cmd+Shift+R` on macOS to bypass your cache) should be sufficient.
+
+:::caution
+Using a symbolic link won't work if you're running BlueGenes in a docker container (as instructed in [Running BlueGenes](../bluegenes/index#running-bluegenes)). In this case, you will need to copy the directory of your tool into your tools folder.
+:::
 
 ## Making new tools available to others
 
