@@ -12,11 +12,6 @@ There are three categories of widgets:
 | graph/chart | Displays a graph/chart based on a dataset you specify |
 | enrichment | Displays the p-values of objects that appear in your list |
 
-:::info
-Table and Graph/Chart widgets configurations are valid only for the legagy webapp and for the webservices.
-To configure Table and Graph/Chart widgets in the new user interface, please use the Tool API
-:::
-
 To add a widget to your mine:
 
 1. Add config to your `webconfig-model.xml` file
