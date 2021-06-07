@@ -43,7 +43,7 @@ Make an intermine directory in your home directory.
 Copy the properties file you created in the tutorial.
 
 ```text
-~/.intermine $ wget https://github.com/intermine/biotestmine/blob/master/data/biotestmine.properties 
+~/.intermine $ wget https://raw.githubusercontent.com/intermine/biotestmine/master/data/biotestmine.properties
 ```
 
 Rename the file to match your Mine.
@@ -54,7 +54,7 @@ Rename the file to match your Mine.
 
 Now update your new properties files with the values correct for your InterMine. You'll want to update the details for your InterMine databases, you'll create those in the next step.
 
-See [Database and Web application](../webapp/properties/intermine-properties.md) for details on this file and what each property means.
+See [Database and Web application](../web-services/intermine-properties.md) for details on this file and what each property means.
 
 ### 3. Create databases
 
@@ -153,8 +153,8 @@ Congratulations! You now have an InterMine! Visit it at localhost:8080/tigermine
 
 Next you will want to:
 
-* [learn how to use the InterMine webapp](http://intermine.org/tutorials/)
-* [customise your mine](../webapp/properties/intermine-properties)
+* [setup BlueGenes](../webapp/bluegenes/index.md)
+* [customise your mine](../web-services/intermine-properties.md)
 * [add your own data sources](../database/data-sources/custom/index.md)
 * [join the intermine mailing list](../support/mailing-list.md)
 
