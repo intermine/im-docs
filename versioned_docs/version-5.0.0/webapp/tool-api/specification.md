@@ -136,6 +136,7 @@ This file provides data describing how BlueGenes should use your tool.
   "accepts": ["id", "ids"],
   "classes": ["Gene", "Protein", "*"],
   "depends": ["AtlasExpression", "ProteinAtlasExpression"],
+  "description": "Optional text shown in info popover.",
   "files": {
     "css": "dist/style.css",
     "js": "dist/bundle.js"
@@ -158,6 +159,8 @@ Specifying `id` means that the tool will be shown on the report page and passed 
 **classes** - use `*` if you want the tool to display for all objects. Otherwise, the tool will display for a specified class of objects (e.g., a gene displayer). Note that a subclass of a class you specify here may be passed via *imEntity* (see [section on imEntity](#indexjs) for more details).
 
 **depends** lets you specify any class names in the InterMine server's model that your tool depends on. This is useful if you're querying for a non-standard path that is only present in a specific InterMine instance. Any instances which don't have the class name in their model will not attempt to run your tool, and will instead, list it as unsupported.
+
+**description** is optional and lets you add text (markdown supported) that is shown when hovering/clicking an info icon in the header of the tool beside its name. Used to include extra details on your tool which would take too much space if shown as part of the visualisation. For newlines, use `\n` as JSON does not support literal newlines.
 
 **files** - one file each for CSS and JS. This should be the [files](#dist) built from *src* bundling all your dependencies. CSS is optional if the tool has no additional styling.
 
