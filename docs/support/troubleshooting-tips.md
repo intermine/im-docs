@@ -121,13 +121,13 @@ XMLStreamWriter writer = factory.createXMLStreamWriter(sw);
 
 #### Failed to parse the expression
 
-Tomcat 7 is less permissive than Tomcat 6, so you might have seen this:
+If you are using Tomcat with a version > 6 and you see the following error in your log:
 
 ```java
 Caused by: org.apache.jasper.JasperException: /queryBuilderConstraint.jsp (line: 90, column: 14) "${dec.boolean}" contains invalid expression(s): javax.el.ELException: Failed to parse the expression [${dec.boolean}]
 ```
 
-Add this to your Tomcat startup.sh script:
+Please add this to your Tomcat startup.sh and catalina.sh scripts:
 
 ```bash
 JAVA_OPTS="$JAVA_OPTS -Dorg.apache.el.parser.SKIP_IDENTIFIER_CHECK=true"
