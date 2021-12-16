@@ -24,6 +24,22 @@ To get patch updates automatically, use the plus \(+\) notation:
 
 Read more: [InterMine Versioning Policy](intermine-versions.md) and [InterMine Development Roadmap](roadmap.md)\`\`
 
+## InterMine 5.0.4
+
+This is a non-disruptive release.
+
+It mainly contains new webservices to improve BlueGenes support \(v. 1.3.0\).
+
+## InterMine 5.0.3
+
+This is a non-disruptive release.
+
+It contains updated interpro and interpro-go properties files and a fix to the Enrichment widget.
+
+## InterMine 5.0.2
+
+This is a non-disruptive release.
+
 ## InterMine 5.0.0
 
 This release contains:
