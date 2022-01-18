@@ -2,143 +2,84 @@
 title: Home page
 ---
 
-**Note**
-This text describes how to customize the homepage of your mine.
+This page describes how to customise the homepage of your mine using the `web.properties` file. See also [General Layout](../layout/index.md).
 
-**Note**
-See also [General Layout](../layout/index.md) for whole app look & feel
+## Removing sections from the home page
 
-If you have just installed a new mine, your homepage probably looks something like the following:
+You can hide each section by setting their respective `hide...` property to `true`.
 
-![image](img/initial_homepage.jpg)
-
-In order to do any sort of customizations, one has to add/edit a configuration file for the mine. You will find this file in `webapp/src/main/webapp/WEB-INF/web.properties`.
-
-Open this file in your editor of choice and follow the text below.
-
-## Boxes Customization
-
-The three prominent boxes on the homepage will contain a search functionality, a list upload functionality and an info box. You can customise the text these contain and the box title.
-
-### Search box
-
-The first search box is configured thusly:
-
-```text
-begin.searchBox.title = Search
-begin.searchBox.description = Search FlyMine. Enter <strong>names</strong>, <strong>identifiers</strong> \
-or <strong>keywords</strong> for genes, proteins, pathways, ontology terms, authors, etc. (e.g. \
-<em>eve</em>, HIPPO_DROME, glycolysis, <em>hb</em> allele).
+```
+bluegenes.homepage.hideMineIntro = true
+bluegenes.homepage.hideSearch = true
+bluegenes.homepage.hideTemplateQueries = true
+bluegenes.homepage.hideCTA = true
+bluegenes.homepage.hideMineSelector = true
+bluegenes.homepage.hideAlternativeTools = true
+bluegenes.homepage.hideFeedback = true
+bluegenes.homepage.hideCredits = true
 ```
 
-**Note**
-You will find that only the description field accepts HTML.
+## Customising Call To Action buttons
 
-### Second box
+You can override the default CTA elements by defining your own. There are 3 formats accepted. They all take `label` (*string*) and `text` (*string with markdown supported, wherein the first paragraph will be extracted*) in addition to one more property defining their action when clicked.
 
-```text
-begin.listBox.title = List Upload
-begin.listBox.description = Enter a <strong>list</strong> of identifiers.
-
-bag.example.identifiers=CG9151, FBgn0000099, CG3629, TfIIB, Mad, CG1775, CG2262, TWIST_DROME, \
-tinman, runt, E2f, CG8817, FBgn0010433, CG9786, CG1034, ftz, FBgn0024250, FBgn0001251, tll, \
-CG1374, CG33473, ato, so, CG16738, tramtrack,  CG2328, gt
+**Link to pages inside BlueGenes:** `route` is a [:name in bluegenes.route/routes](https://github.com/intermine/bluegenes/blob/dev/src/cljs/bluegenes/route.cljs#L124) that takes no parameters.
+```
+bluegenes.homepage.cta.1.label = Upload identifiers
+bluegenes.homepage.cta.1.route = upload
+bluegenes.homepage.cta.1.text = **Upload** your own sets of genes.
 ```
 
-### Third box
-
-The third/info box can contain a descriptive text about your mine or it can offer a link to a tour of the project. Take the example from FlyMine project:
-
-```text
-begin.thirdBox.title = First Time Here?
-begin.thirdBox.description = FlyMine integrates many types of data for <em>Drosophila</em>, \
-<em>Anopheles</em> and other organisms. You can run flexible queries, export results and analyse lists of \
-data.
-begin.thirdBox.link = http://www.flymine.org/help/tour/start.html
-begin.thirdBox.linkTitle = Take a tour
+**Perform actions in BlueGenes:** `dispatch` is an [event handler defined with reg-event-fx](https://github.com/intermine/bluegenes/search?q=reg-event-fx) that takes no arguments.
+```
+bluegenes.homepage.cta.2.label = Browse datasets
+bluegenes.homepage.cta.2.dispatch = home/query-data-sources
+bluegenes.homepage.cta.2.text = *Browse* the full set of data.
 ```
 
-By providing the .link parameter a button will be shown at the bottom of the box with a custom link of choice.
-
-You can serve up a custom text in the third "information" box to the user, based on whether they have visited the homepage before or not. We do this through a cookie that will, for a year, indicate for your computer, that the homepage has been visited.
-
-In order to change the values of the third box based on whether the user has visited the page or not, prepend the text "visited" before an uppercased key. For example, if one wanted to say "Welcome Back" instead of "First Time Here?" as the title of the box, we would add the following key=value pair:
-
-```text
-begin.thirdBox.visitedTitle = Welcome Back
+**Link to external pages:** `url` will be used for a link that opens in a new tab.
+```
+bluegenes.homepage.cta.3.label = Documentation
+bluegenes.homepage.cta.3.url = http://intermine.org/intermine-user-docs/
+bluegenes.homepage.cta.3.text = Learn how to use Humanmine.
 ```
 
-The fields that you do NOT set in this way, will simply show the text configured in the normal way. So even though someone has visited the homepage before, unless I add a "visited" property, the text stays the same as before.
 
-## Popular Templates Customization
+## Blog and RSS feed
 
-To show the ten most popular template queries per category on your homepage like so:
+By default, a CTA button is displayed with a link to your blog. This defaults to the [InterMine blog](http://intermineorg.wordpress.org) and can be overriden by setting the property:
 
-![image](img/popular_templates.jpg)
-
-Example:
-
-```text
-# web.properties
-begin.tabs.1.id = Genomics
+```
+project.news = https://intermineorg.wordpress.org
 ```
 
-What this configuration does is it creates a tab on the homepage with \(up to\) 10 most popular templates from a `Genomics` category. For a template to appear in this section, tag it with the Genomics aspect: `im:aspect:Genomics`.
+:::note
+If you wish to remove this button, you can either set `bluegenes.homepage.hideCTA = true` or define custom CTA buttons, both documented above on this page.
+:::
 
-**Note**
-The tag you apply to the template \(e.g. `im:aspect:Genomics`\) must match the value of the `id` attribute \(e.g. `begin.tabs.1.id = Genomics`\).
+Below this button will be displayed the latest posts from your blog (defaulting again to the InterMine blog). For this you will also need to set the URL to your blog's RSS feed, using the property:
 
-The number in the config key specifies the order in which we want to show them. So if we have two categories, Genomics and Proteins, and they should appear in this order, we would write this:
-
-```text
-begin.tabs.1.id = Genomics
-begin.tabs.2.id = Proteins
+```
+project.rss = https://intermineorg.wordpress.com/feed/
 ```
 
-The other customisation we can do is specify an informative text that is to appear in the tab above the templates listing \(again, this text accepts HTML.\):
+## Credits
+
+By default InterMine credit is added to the bottom of the page.
+
+![image](/img/intermine_funder.jpg)
+
+To add additional funders, use the `project.credit.x` properties:
 
 ```text
-begin.tabs.1.id = Genomics
-begin.tabs.1.description = This is some descriptive text
+project.credit.1.image=https://www.humanmine.org/humanmine/images/wellcome-logo-black.png
+project.credit.1.url=https://wellcome.ac.uk/
 ```
 
-The last thing we will show is how to specify a custom category name to show as a link on the tab \(entirely optional\):
+You can also use a variation containing text that will be displayed to the right of the image. The text property supports markdown.
 
 ```text
-begin.tabs.1.id = Genomics
-begin.tabs.1.description = This is some descriptive text
-begin.tabs.1.name = Genes
+project.credit.2.text=**HumanMine** has been funded by the [Wellcome Trust](https://wellcome.org/).
+project.credit.2.image=https://www.humanmine.org/humanmine/images/wellcome-logo-black.png
+project.credit.2.url=https://wellcome.ac.uk/
 ```
-
-Example configuration file: [FlyMine](https://github.com/intermine/flymine/blob/master/webapp/src/main/webapp/WEB-INF/web.properties#L489)
-
-## Featured Lists
-
-Lists with tag `im:homepage` will be shown on the homepage below the templates listing in a natural order, and/or an order specified by `im:order:n`.
-
-To change the description text associated with this set of lists, edit the properties file like so:
-
-```text
-begin.listsBox.description = These are the best lists ever
-```
-
-## RSS/Blog Feed
-
-To add the RSS feed at the bottom right corner of the page, add the following to your MINE properties file \(in `.intermine` file\):
-
-```text
-project.rss = http://<your_blog>/<your_feed_url>
-```
-
-eg:
-
-```text
-project.rss=http://blog.flymine.org/?feed=rss2
-```
-
-Two latest entries will be shown in the box. If you want to provide a link underneath the entry listing to your blog, add the following to the config file:
-
-```text
-links.blog = http://<your_blog>
-```
-

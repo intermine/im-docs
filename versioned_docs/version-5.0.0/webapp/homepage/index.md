@@ -2,40 +2,74 @@
 title: Home page
 ---
 
-**Note**
-This text describes how to customize the homepage of your mine.
+This page describes how to customise the homepage of your mine using the `web.properties` file. See also [General Layout](../layout/index.md).
 
-**Note**
-See also [General Layout](../layout/index.md) for whole app look & feel
+## Removing sections from the home page
 
+You can hide each section by setting their respective `hide...` property to `true`.
 
-## RSS/Blog Feed
-
-To add the RSS feed at the bottom right corner of the page, add the following to your MINE properties file \(in `.intermine` file\):
-
-```text
-project.rss = http://<your_blog>/<your_feed_url>
+```
+bluegenes.homepage.hideMineIntro = true
+bluegenes.homepage.hideSearch = true
+bluegenes.homepage.hideTemplateQueries = true
+bluegenes.homepage.hideCTA = true
+bluegenes.homepage.hideMineSelector = true
+bluegenes.homepage.hideAlternativeTools = true
+bluegenes.homepage.hideFeedback = true
+bluegenes.homepage.hideCredits = true
 ```
 
-eg:
+## Customising Call To Action buttons
 
-```text
-project.rss=http://blog.flymine.org/?feed=rss2
+You can override the default CTA elements by defining your own. There are 3 formats accepted. They all take `label` (*string*) and `text` (*string with markdown supported, wherein the first paragraph will be extracted*) in addition to one more property defining their action when clicked.
+
+**Link to pages inside BlueGenes:** `route` is a [:name in bluegenes.route/routes](https://github.com/intermine/bluegenes/blob/dev/src/cljs/bluegenes/route.cljs#L124) that takes no parameters.
+```
+bluegenes.homepage.cta.1.label = Upload identifiers
+bluegenes.homepage.cta.1.route = upload
+bluegenes.homepage.cta.1.text = **Upload** your own sets of genes.
 ```
 
-Two latest entries will be shown in the box. If you want to provide a link underneath the entry listing to your blog, add the following to the config file:
+**Perform actions in BlueGenes:** `dispatch` is an [event handler defined with reg-event-fx](https://github.com/intermine/bluegenes/search?q=reg-event-fx) that takes no arguments.
+```
+bluegenes.homepage.cta.2.label = Browse datasets
+bluegenes.homepage.cta.2.dispatch = home/query-data-sources
+bluegenes.homepage.cta.2.text = *Browse* the full set of data.
+```
 
-```text
-project.news = http://<your_blog>
+**Link to external pages:** `url` will be used for a link that opens in a new tab.
+```
+bluegenes.homepage.cta.3.label = Documentation
+bluegenes.homepage.cta.3.url = http://intermine.org/intermine-user-docs/
+bluegenes.homepage.cta.3.text = Learn how to use Humanmine.
+```
+
+
+## Blog and RSS feed
+
+By default, a CTA button is displayed with a link to your blog. This defaults to the [InterMine blog](http://intermineorg.wordpress.org) and can be overriden by setting the property:
+
+```
+project.news = https://intermineorg.wordpress.org
+```
+
+:::note
+If you wish to remove this button, you can either set `bluegenes.homepage.hideCTA = true` or define custom CTA buttons, both documented above on this page.
+:::
+
+Below this button will be displayed the latest posts from your blog (defaulting again to the InterMine blog). For this you will also need to set the URL to your blog's RSS feed, using the property:
+
+```
+project.rss = https://intermineorg.wordpress.com/feed/
 ```
 
 ## Credits
 
 By default InterMine credit is added to the bottom of the page.
 
-![image](img/intermine_funder.jpg)
+![image](/img/intermine_funder.jpg)
 
-To add additional funders, use the `project.credit.x` properties in the `web.properties` file:
+To add additional funders, use the `project.credit.x` properties:
  
 ```text
 project.credit.1.image=https://www.humanmine.org/humanmine/images/wellcome-logo-black.png
