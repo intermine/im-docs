@@ -10,6 +10,21 @@ The logo is independent from any themes and is located here `MINE_NAME/webapp/sr
 
 ![FlyMine's logo](../../imgs/logo.png)
 
+### Intro
+
+**`project.title`**
+
+in [Web application name and location](../../web-services/intermine-properties.md#web-application-name-and-location), configure the name of the mine
+
+**`project.releaseVersion`**
+
+in [Web application name and location](../../web-services/intermine-properties.md#web-application-name-and-location), configure the version of the mine
+
+**`project.subTitle`**
+
+in [Web application name and location](../../web-services/intermine-properties.md#web-application-name-and-location), configure the subtitle showing in the header
+
+![FlyMine's intro text](/img/mine-intro.png)
 
 ### Branding
 
@@ -44,20 +59,15 @@ If you want to generate a favicon from an image, use this [Dynamic Drive](http:/
 
 ### Footer
 
-**`project.citation`**
+The following can be configured in the `web.properties` file.
 
-in [Features](../properties/web-properties.md), change the "cite" text
-
-### Other properties
-
-**`project.title`**
-
-in [Web application name and location](../../web-services/intermine-properties.md#web-application-name-and-location), configure the name of the mine
-
-**`project.releaseVersion`**
-
-in [Web application name and location](../../web-services/intermine-properties.md#web-application-name-and-location), configure the version of the mine
-
-**`project.subTitle`**
-
-in [Web application name and location](../../web-services/intermine-properties.md#web-application-name-and-location), configure the subtitle showing in the header
+| Property | Description | Default |
+| -------- | ----------- | ------- |
+| project.url.github | Display *GitHub icon* linking to URL | Hidden |
+| project.supportEmail | Display *email icon* linking to email address | Hidden |
+| project.news | Display *blog icon* linking to URL | Hidden |
+| project.url.twitter | Display *Twitter icon* linking to URL | Hidden |
+| project.url.discord | Display *Discord icon* linking to URL | Hidden |
+| project.citation | URL used for **CITE <MINENAME\>** link | http://intermine.org/publications/ |
+| project.url.aboutUs | URL used for **ABOUT US** link | http://intermine.org/about-intermine/ |
+| project.url.privacyPolicy | URL used for **PRIVACY POLICY** link | http://intermine.org/privacy-policy/ |

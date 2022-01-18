@@ -52,11 +52,31 @@ You should be able to access BlueGenes from [http://localhost:5000](http://local
 | LOGGING_LEVEL | Minimum level for logging | info |
 | GOOGLE_ANALYTICS | Google Analytics tracking ID | nil |
 | BLUEGENES_TOOL_PATH | Directory on server where BlueGenes tools are installed | ./tools |
+| BLUEGENES_DEPLOY_PATH | Custom URL path to host BlueGenes. Must start with `/` and **not** end with `/`, e.g. `/bluegenes`. If you wish to host at root, set to `nil`. | nil |
+| BLUEGENES_BACKEND_SERVICE_ROOT | Override service root for backend API requests (usually an internal address) | nil |
 | BLUEGENES_DEFAULT_SERVICE_ROOT | Default InterMine service to run HTTP requests against | https://www.flymine.org/flymine |
 | BLUEGENES_DEFAULT_MINE_NAME | Mine name to display for default mine | FlyMine |
 | BLUEGENES_DEFAULT_NAMESPACE | Namespace of the default mine | flymine |
 | BLUEGENES_ADDITIONAL_MINES | Additional mines managed by this BlueGenes instance [(more info)](#additional-mines) | [] |
 | HIDE_REGISTRY_MINES | Disable acquiring and displaying mines from the public InterMine registry | false |
+
+### Proxy requests to InterMine web service paths
+
+This is required if you want to host the InterMine web services on the same address as BlueGenes. You will need to configure the following reverse proxy rules, replacing `yourmine` with the deploy path of your mine:
+
+```
+~ ^/([A-z0-9\-]+\.(xml|txt))$ -> /var/www/yourmine/$1
+/ -> bluegenes-server:5000/
+/yourmine/service -> tomcat-server:8080/yourmine/service
+/yourmine/model -> tomcat-server:8080/yourmine/model
+/yourmine/portal.do -> tomcat-server:8080/yourmine/portal.do
+/yourmine/run.do -> tomcat-server:8080/yourmine/run.do
+/query -> tomcat-server:8080/yourmine
+```
+
+:::note
+`/query` is required for [linking in to the old webapp](/docs/4.0.0/webapp/linking-in/index).
+:::
 
 ### Additional mines
 
