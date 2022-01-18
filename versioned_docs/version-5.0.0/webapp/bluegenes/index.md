@@ -58,6 +58,24 @@ You should be able to access BlueGenes from [http://localhost:5000](http://local
 | BLUEGENES_ADDITIONAL_MINES | Additional mines managed by this BlueGenes instance [(more info)](#additional-mines) | [] |
 | HIDE_REGISTRY_MINES | Disable acquiring and displaying mines from the public InterMine registry | false |
 
+### Proxy requests to InterMine web service paths
+
+This is required if you want to host the InterMine web services on the same address as BlueGenes. You will need to configure the following reverse proxy rules, replacing `yourmine` with the deploy path of your mine:
+
+```
+~ ^/([A-z0-9\-]+\.(xml|txt))$ -> /var/www/yourmine/$1
+/ -> bluegenes-server:5000/
+/yourmine/service -> tomcat-server:8080/yourmine/service
+/yourmine/model -> tomcat-server:8080/yourmine/model
+/yourmine/portal.do -> tomcat-server:8080/yourmine/portal.do
+/yourmine/run.do -> tomcat-server:8080/yourmine/run.do
+/query -> tomcat-server:8080/yourmine
+```
+
+:::note
+`/query` is required for [linking in to the old webapp](/docs/4.0.0/webapp/linking-in/index).
+:::
+
 ### Additional mines
 
 BlueGenes allows you to quickly switch between mines using a dropdown in the navbar. This will display mines from the [InterMine Registry](http://registry.intermine.org/) (unless `HIDE_REGISTRY_MINES` is set) but you can also specify your own mines to be shown as a distinct group, usually for other mines of your organisation. This allows you to have a **single BlueGenes server work as a front end to multiple mines**, without having to run a separate BlueGenes server for each mine in your organisation.
