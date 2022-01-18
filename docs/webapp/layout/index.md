@@ -59,6 +59,15 @@ If you want to generate a favicon from an image, use this [Dynamic Drive](http:/
 
 ### Footer
 
-**`project.citation`**
+The following can be configured in the `web.properties` file.
 
-in [Features](../properties/web-properties.md), change the "cite" text
+| Property | Description | Default |
+| -------- | ----------- | ------- |
+| project.url.github | Display *GitHub icon* linking to URL | Hidden |
+| project.supportEmail | Display *email icon* linking to email address | Hidden |
+| project.news | Display *blog icon* linking to URL | Hidden |
+| project.url.twitter | Display *Twitter icon* linking to URL | Hidden |
+| project.url.discord | Display *Discord icon* linking to URL | Hidden |
+| project.citation | URL used for **CITE <MINENAME\>** link | http://intermine.org/publications/ |
+| project.url.aboutUs | URL used for **ABOUT US** link | http://intermine.org/about-intermine/ |
+| project.url.privacyPolicy | URL used for **PRIVACY POLICY** link | http://intermine.org/privacy-policy/ |
