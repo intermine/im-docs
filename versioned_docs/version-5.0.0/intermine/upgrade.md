@@ -10,19 +10,29 @@ For non-disruptive releases, you can upgrade your mine by incrementing your vers
 
  ```text
  # example -- flymine's gradle.properties
- systemProp.imVersion=4.0.0
- systemProp.bioVersion=4.0.0
- ```
-
-To get patch updates automatically, use the plus \(+\) notation:
-
- ```text
- # example -- flymine's gradle.properties
- systemProp.imVersion=4.0.+
- systemProp.bioVersion=4.0.+
+ systemProp.imVersion=5.0.7
+ systemProp.bioVersion=5.0.7
  ```
 
 Read more: [InterMine Versioning Policy](intermine-versions.md) and [InterMine Development Roadmap](roadmap.md)\`\`
+
+## InterMine 5.0.7
+
+This is a non-disruptive release.
+
+It contains a new generic TSV, CSV file loader and a few new web services.
+
+## InterMine 5.0.6
+
+This is a non-disruptive release.
+
+It contains log4j upgrade.
+
+## InterMine 5.0.5
+
+This is a non-disruptive release.
+
+It contains log4j upgrade.
 
 ## InterMine 5.0.4
 

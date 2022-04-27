@@ -51,6 +51,7 @@ These are commonly used sources that you may want to use to load data into your 
 * [Data Sources](data-sources.md)
 * [Data Sets](data-sets.md)
 * [VCF files](variation/vcf.md)
+* [TSV or CSV files](delimited.md)
 
 ## FlyMine Specific sources
 
