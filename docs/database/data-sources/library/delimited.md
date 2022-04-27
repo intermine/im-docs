@@ -31,7 +31,7 @@ Project XML example
 ```
 
 | attribute | content | purpose | mandatory
-| :--- | :--- | :--- |
+| :--- | :--- | :--- | :--- |
 | delimited.dataSourceName | name of dataset | determines name of dataset object | yes |
 | delimited.dataSetTitle | name of datasource | determines name of datasource object | yes |
 | delimited.columns | name of fields | determines the fields to load, use null to skip a value | yes |
