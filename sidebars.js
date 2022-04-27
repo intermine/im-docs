@@ -379,6 +379,10 @@ module.exports = {
                 },
                 {
                   "type": "doc",
+                  "id": "database/data-sources/library/delimited"
+                },
+                {
+                  "type": "doc",
                   "id": "database/data-sources/library/uberon"
                 },
                 {
