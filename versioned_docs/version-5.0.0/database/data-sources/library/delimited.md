@@ -1,5 +1,5 @@
 ---
-title: Delimited files
+title: TSV, CSV files
 ---
 
 Generic data loader for TSV or CSV files.
