@@ -377,6 +377,10 @@
                   "type": "doc",
                   "id": "version-5.0.0/database/data-sources/library/so"
                 },
+	        {
+                  "type": "doc",
+                  "id": "database/data-sources/library/delimited"
+                },
                 {
                   "type": "doc",
                   "id": "version-5.0.0/database/data-sources/library/uberon"
