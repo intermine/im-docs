@@ -4,7 +4,7 @@ title: SPARQL endpoint support
 
 Since InterMine 5.1.0, the platform supports the building of SPARQL endpoint, which allows to query the data integrated in the intermine instance using SPARQL language.
 
-An example using [FlyMine](https://www.flymine.org) integrated data, can be found [here] ([https://sparql.flymine.org/).
+An example using [FlyMine](https://www.flymine.org) integrated data, can be found [here](https://sparql.flymine.org/).
 
 The SPARL endpoint is based on an existing software, [Ontop](https://ontop-vkg.org/), which translates SPARQL queries into SQL queries, relying on declarative mappings which defines how to map relational schema to RDF model.
 
