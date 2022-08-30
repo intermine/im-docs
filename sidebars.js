@@ -201,6 +201,10 @@ module.exports = {
         {
           "type": "doc",
           "id": "data-model/model-ontologies"
+        },
+        {
+          "type": "doc",
+          "id": "data-model/sparql"
         }
       ]
     },
